@@ -44,8 +44,12 @@ body > .container > .row {
 
 .sidebar-header .corner {
   position: absolute;
-  bottom: 0;
-  right: 0;
+
+  /* Ensure there isn't a sliver of empty space
+   * between the corner and adjacent elements. */
+  bottom: -1px;
+  right: -1px;
+
   fill: @sidebarColor;
 }
 
