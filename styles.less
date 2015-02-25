@@ -67,6 +67,10 @@ a.bold-link {
   background-color: @sidebarColor;
   color: white;
 
+  a {
+    color: inherit;
+  }
+
   .sidebar-header {
     position: relative;
     background-color: white;
@@ -132,10 +136,21 @@ a.bold-link {
   }
 }
 
-footer > div {
-  padding-bottom: @grid-gutter-width;
-}
+footer {
+  .sidebar {
+    line-height: 4rem;
+  }
 
-footer > .content {
-  background: @footerBackgroundColor;
+  .sidebar a {
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  > div {
+    padding-bottom: @grid-gutter-width;
+  }
+
+  > .content {
+    background: @footerBackgroundColor;
+  }
 }

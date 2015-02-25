@@ -69,6 +69,38 @@ var Content = React.createClass({
   }
 });
 
+var Footer = React.createClass({
+  render: function() {
+    return (
+      <footer className="row">
+        <div className="sidebar col-md-3">
+          <div className="row">
+            <div className="col-md-6">
+              <ul className="list-unstyled">
+                <li><a href="#">Webmaker</a></li>
+                <li><a href="#">Donate</a></li>
+                <li><a href="#">Legal</a></li>
+                <li><a href="#">Privacy</a></li>
+              </ul>
+            </div>
+            <div className="col-md-6">
+              <ul className="list-unstyled">
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Partners</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="content col-md-9">
+          LOGOS GO HERE
+        </div>
+      </footer>
+    );
+  }
+});
+
 var Page = React.createClass({
   render: function() {
     return (
@@ -77,14 +109,7 @@ var Page = React.createClass({
           <Sidebar />
           <Content />
         </div>
-        <footer className="row">
-          <div className="sidebar col-md-3">
-            LINKS GO HERE
-          </div>
-          <div className="content col-md-9">
-            LOGOS GO HERE
-          </div>
-        </footer>
+        <Footer />
       </div>
     );
   }
