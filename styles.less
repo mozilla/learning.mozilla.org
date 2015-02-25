@@ -66,28 +66,28 @@ a.bold-link {
 .sidebar {
   background-color: @sidebarColor;
   color: white;
-}
 
-.sidebar-header {
-  position: relative;
-  background-color: white;
-  font-size: 2rem;
-  color: #595a5e;
-  margin-left: -(@grid-gutter-width / 2);
-  margin-right: -(@grid-gutter-width / 2);
-  padding: (@grid-gutter-width / 2);
-  overflow: hidden;
-}
+  .sidebar-header {
+    position: relative;
+    background-color: white;
+    font-size: 2rem;
+    color: #595a5e;
+    margin-left: -(@grid-gutter-width / 2);
+    margin-right: -(@grid-gutter-width / 2);
+    padding: (@grid-gutter-width / 2);
+    overflow: hidden;
+  }
 
-.sidebar-header .corner {
-  position: absolute;
+  .sidebar-header .corner {
+    position: absolute;
 
-  /* Ensure there isn't a sliver of empty space
-   * between the corner and adjacent elements. */
-  bottom: -1px;
-  right: -1px;
+    /* Ensure there isn't a sliver of empty space
+     * between the corner and adjacent elements. */
+    bottom: -1px;
+    right: -1px;
 
-  fill: @sidebarColor;
+    fill: @sidebarColor;
+  }
 }
 
 .values {
