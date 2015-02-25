@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/toolness/mozilla-learning-html.svg?branch=gh-pages)](https://travis-ci.org/toolness/mozilla-learning-html)
+
 This is an initial attempt at implementing the Webmaker Learning
 front-page.
 
