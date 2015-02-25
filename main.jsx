@@ -96,13 +96,19 @@ var Footer = React.createClass({
         <div className="content col-md-9">
           <div className="row logos">
             <div className="col-md-4">
-              <img src="img/hive-logo.png"/>
+              <a href="#"><img src="img/hive-logo.png"/></a>
+
+              <p>Join a Hive Learning Network</p>
             </div>
             <div className="col-md-4">
-              <img src="img/mozilla_wordmark.png"/>
+              <a href="#"><img src="img/mozilla_wordmark.png"/></a>
+
+              <p>Mozilla radically empowers individuals with skills they need to make the Web.</p>
             </div>
             <div className="col-md-4">
-              <img src="img/maker-party-logo.png"/>
+              <a href="#"><img src="img/maker-party-logo.png"/></a>
+
+              <p>In 2014, nearly 130,000 people in 450 cities around the world helped teach the Web at Maker Parties. Find one near you or start your own.</p>
             </div>
           </div>
         </div>
