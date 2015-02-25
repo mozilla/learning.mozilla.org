@@ -94,7 +94,17 @@ var Footer = React.createClass({
           </div>
         </div>
         <div className="content col-md-9">
-          LOGOS GO HERE
+          <div className="row logos">
+            <div className="col-md-4">
+              <img src="img/hive-logo.png"/>
+            </div>
+            <div className="col-md-4">
+              <img src="img/mozilla_wordmark.png"/>
+            </div>
+            <div className="col-md-4">
+              <img src="img/maker-party-logo.png"/>
+            </div>
+          </div>
         </div>
       </footer>
     );
