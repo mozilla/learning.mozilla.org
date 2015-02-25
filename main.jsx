@@ -106,7 +106,7 @@ var Footer = React.createClass({
               <p>Mozilla radically empowers individuals with skills they need to make the Web.</p>
             </div>
             <div className="col-md-4">
-              <a href="#"><img src="img/maker-party-logo.png"/></a>
+              <a href="#"><img className="maker-party" src="img/maker-party-logo.png"/></a>
 
               <p>In 2014, nearly 130,000 people in 450 cities around the world helped teach the Web at Maker Parties. Find one near you or start your own.</p>
             </div>
