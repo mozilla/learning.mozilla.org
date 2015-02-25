@@ -58,6 +58,12 @@ var Content = React.createClass({
              Join our community of educators, parents, techies and makers who want to teach digital skills and web literacy through making. <a href="#" className="bold-link">Learn More</a>
           </div>
         </div>
+        <div className="case-studies">
+          <blockquote className="primary-quote">
+            <div><span className="quote-symbol"/></div>
+            Every morning, I wake up wondering what I can change.
+          </blockquote>
+        </div>
       </div>
     );
   }
