@@ -1,5 +1,8 @@
 @import "vendor/bootstrap/less/variables.less";
 
+// This used to be @screen-xs but Bootstrap deprecated it.
+@screen-teensy: 480px;
+
 @sidebarColor: #d54361;
 @footerBackgroundColor: #f1f1f1;
 
@@ -136,6 +139,20 @@ a.bold-link {
   }
 }
 
+img.img-scale-to-fit {
+  width: 100%;
+
+  @media (min-width: @screen-teensy) and (max-width: @screen-xs-max) {
+    padding: 0 10%;
+  }
+}
+
+img.img-scale-to-fit.img-circle {
+  @media (max-width: @screen-xs-max) {
+    padding: 5% 25%;
+  }
+}
+
 .values {
   padding: @grid-gutter-width 0;
   font-size: 3rem;
@@ -143,10 +160,6 @@ a.bold-link {
   @media (min-width: @screen-sm-min) {
     display: flex;
     align-items: center;
-  }
-
-  img {
-    width: 100%;
   }
 }
 
@@ -194,7 +207,6 @@ a.bold-link {
 
   .case-study img {
     display: block;
-    width: 100%;
   }
 
   .case-study h2 {
