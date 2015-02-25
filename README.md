@@ -9,7 +9,7 @@ Just point Firefox at the `index.html` file on your filesystem.
 
 If you're using a different browser, this might not work. 
 You should probably just set up a static web server at the
-root of the repository; consider using `python -m SimpleHTTPServer' or
+root of the repository; consider using `python -m SimpleHTTPServer` or
 node's [http-server][].
 
 ## Generating A Static Site
