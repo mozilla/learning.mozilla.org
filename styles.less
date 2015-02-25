@@ -92,6 +92,43 @@ a.bold-link {
 
     fill: @sidebarColor;
   }
+
+  .sidebar-login {
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+  }
+
+  .sidebar-menu a {
+    position: relative;
+    display: block;
+    margin: 0 -(@grid-gutter-width / 2);
+    padding: @grid-gutter-width / 2;
+  }
+
+  .sidebar-menu a:hover, .sidebar-menu a:focus {
+    text-decoration: none;
+    background-color: darken(@sidebarColor, 10%);
+  }
+
+  .sidebar-menu a strong {
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .sidebar-menu a .help-text {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-right: 4em;
+  }
+
+  .sidebar-menu a .glyphicon {
+    position: absolute;
+    right: 4px;
+    font-size: 15px;
+    top: calc(50% - 15px / 2);
+    color: lighten(@sidebarColor, 10%);
+  }
 }
 
 .values {

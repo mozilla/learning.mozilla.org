@@ -20,6 +20,24 @@ var TriangleCorner = React.createClass({
 });
 
 var Sidebar = React.createClass({
+  MENU_ENTRIES: [
+    {
+      name: "Teaching Materials",
+      help: "Activities and lesson plans to get you started"
+    },
+    {
+      name: "Events",
+      help: "Find gatherings near you, or host your own"
+    },
+    {
+      name: "Teach Like Mozilla",
+      help: "Learn about our approach to teaching the Web"
+    },
+    {
+      name: "Events",
+      help: "Join our global community of local chapters"
+    }
+  ],
   render: function() {
     return (
       <div className="sidebar col-md-3">
@@ -27,6 +45,22 @@ var Sidebar = React.createClass({
           <img src="img/wm-logo.png"/> Mozilla Learning
           <TriangleCorner height={40}/>
         </div>
+        <div className="sidebar-login">
+          <a href="#">Create an account</a> | <a href="#">Log in</a>
+        </div>
+        <ul className="sidebar-menu list-unstyled">
+          {this.MENU_ENTRIES.map(function(entry, i) {
+            return (
+              <li key={i}>
+                <a href="#">
+                  <strong>{entry.name}</strong>
+                  <div className="help-text hidden-xs">{entry.help}</div>
+                  <span className="glyphicon glyphicon-menu-right"></span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     );
   }
