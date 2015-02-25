@@ -32,13 +32,24 @@ var Sidebar = React.createClass({
   }
 });
 
+var HeroUnit = React.createClass({
+  render: function() {
+    return (
+      <div className="row">
+        <div className="col-md-12 hero-unit">
+          <h1>Unlock opportunities for all citizens of the Web.</h1>
+          <div><a href="#" className="btn btn-awsm">Join Us</a></div>
+        </div>
+      </div>
+    );
+  }
+});
+
 var Content = React.createClass({
   render: function() {
     return (
       <div className="content col-md-9">
-        <div className="row">
-          <div className="col-md-12 hero-unit"></div>
-        </div>
+        <HeroUnit/>
         <div className="values row">
           <div className="col-md-4 col-md-offset-1">
             <img src="img/values.jpg" className="img-circle"/>
