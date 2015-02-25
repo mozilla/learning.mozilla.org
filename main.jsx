@@ -1,3 +1,6 @@
+if (typeof(React) == 'undefined')
+  React = require('react');
+
 var TriangleCorner = React.createClass({
   render: function() {
     var height = this.props.height;
@@ -70,7 +73,11 @@ var Page = React.createClass({
   }
 });
 
-React.render(
-  <Page />,
-  document.body
-);
+if (typeof(exports) == 'undefined') {
+  React.render(
+    <Page />,
+    document.body
+  );
+} else {
+  exports.Page = Page;
+}
