@@ -55,7 +55,7 @@ var Content = React.createClass({
             <img src="img/values.jpg" className="img-circle"/>
           </div>
           <div className="col-md-6">
-             Join our community of educators, parents, techies and makers who want to teach digital skills and web literacy through making.
+             Join our community of educators, parents, techies and makers who want to teach digital skills and web literacy through making. <a href="#" className="bold-link">Learn More</a>
           </div>
         </div>
       </div>
