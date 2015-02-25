@@ -52,7 +52,7 @@ var Content = React.createClass({
 var Page = React.createClass({
   render: function() {
     return (
-      <div className="container">
+      <div className="container-fluid">
         <div className="row">
           <Sidebar />
           <Content />

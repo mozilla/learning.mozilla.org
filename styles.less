@@ -8,22 +8,26 @@ body {
   font-weight: 300;
 }
 
-body > .container {
-  margin-left: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+@media (min-width: @screen-md-min) {
+  body > .container-fluid {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 
-body > .container > .row {
-  flex-grow: 1;
-  display: flex;
+  body > .container-fluid > .row {
+    flex-grow: 1;
+    display: flex;
+  }
+
+  .hero-unit {
+    margin-right: -(@grid-gutter-width / 2);
+  }
 }
 
 .hero-unit {
   background-image: url(img/hero-unit.jpg);
   background-position: right top;
-  margin-right: -(@grid-gutter-width / 2);
   height: 450px;
 }
 
@@ -40,6 +44,7 @@ body > .container > .row {
   margin-left: -(@grid-gutter-width / 2);
   margin-right: -(@grid-gutter-width / 2);
   padding: (@grid-gutter-width / 2);
+  overflow: hidden;
 }
 
 .sidebar-header .corner {
