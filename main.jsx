@@ -54,7 +54,7 @@ var Sidebar = React.createClass({
               <li key={i}>
                 <a href="#">
                   <strong>{entry.name}</strong>
-                  <div className="help-text hidden-xs">{entry.help}</div>
+                  <div className="help-text hidden-xs hidden-sm">{entry.help}</div>
                   <span className="glyphicon glyphicon-menu-right"></span>
                 </a>
               </li>
@@ -84,7 +84,7 @@ var CaseStudy = React.createClass({
     var study = this.props.study;
 
     return (
-      <div className="col-md-4 col-md-offset-1 case-study">
+      <div className="col-sm-4 col-sm-offset-1 case-study">
         <img src={study.img} />
         <h2>{study.name}</h2>
         <p>{study.description} <a href="#" className="bold-link">Read More</a></p>
@@ -115,7 +115,7 @@ var CaseStudies = React.createClass({
         </blockquote>
         <div className="row">
           <CaseStudy study={this.CASE_STUDIES[0]}/>
-          <div className="col-md-1 divider"></div>
+          <div className="col-sm-1 divider"></div>
           <CaseStudy study={this.CASE_STUDIES[1]}/>
         </div>
         <div className="become-a-mentor">
@@ -132,10 +132,10 @@ var Content = React.createClass({
       <div className="content col-md-9">
         <HeroUnit/>
         <div className="values row">
-          <div className="col-md-4 col-md-offset-1">
+          <div className="col-sm-4 col-sm-offset-1">
             <img src="img/values.jpg" className="img-circle"/>
           </div>
-          <div className="col-md-6">
+          <div className="col-sm-6">
              Join our community of educators, parents, techies and makers who want to teach digital skills and web literacy through making. <a href="#" className="bold-link">Learn More</a>
           </div>
         </div>
@@ -171,17 +171,17 @@ var Footer = React.createClass({
         </div>
         <div className="content col-md-9">
           <div className="row logos">
-            <div className="col-md-4">
+            <div className="col-sm-4">
               <a href="#"><img src="img/hive-logo.png"/></a>
 
               <p>Join a Hive Learning Network</p>
             </div>
-            <div className="col-md-4">
+            <div className="col-sm-4">
               <a href="#"><img src="img/mozilla_wordmark.png"/></a>
 
               <p>Mozilla radically empowers individuals with skills they need to make the Web.</p>
             </div>
-            <div className="col-md-4">
+            <div className="col-sm-4">
               <a href="#"><img className="maker-party" src="img/maker-party-logo.png"/></a>
 
               <p>In 2014, nearly 130,000 people in 450 cities around the world helped teach the Web at Maker Parties. Find one near you or start your own.</p>
