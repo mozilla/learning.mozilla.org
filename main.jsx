@@ -79,6 +79,53 @@ var HeroUnit = React.createClass({
   }
 });
 
+var CaseStudy = React.createClass({
+  render: function() {
+    var study = this.props.study;
+
+    return (
+      <div className="col-md-4 col-md-offset-1 case-study">
+        <img src={study.img} />
+        <h2>{study.name}</h2>
+        <p>{study.description} <a href="#" className="bold-link">Read More</a></p>
+      </div>
+    );
+  }
+});
+
+var CaseStudies = React.createClass({
+  CASE_STUDIES: [
+    {
+      name: "Sadia's story",
+      img: "http://placehold.it/325x188",
+      description: "This is a story about how a young girl started a Webmaker club at her school in Bangladesh in order to teach other kids how to code."
+    },
+    {
+      name: "Masud's story",
+      img: "http://placehold.it/325x188",
+      description: "This is a story about how a young man got certification through our program and was able to find a job to support his family."
+    }
+  ],
+  render: function() {
+    return (
+      <div className="case-studies">
+        <blockquote className="primary-quote">
+          <div><span className="quote-symbol"/></div>
+          Every morning, I wake up wondering what I can change.
+        </blockquote>
+        <div className="row">
+          <CaseStudy study={this.CASE_STUDIES[0]}/>
+          <div className="col-md-1 divider"></div>
+          <CaseStudy study={this.CASE_STUDIES[1]}/>
+        </div>
+        <div className="become-a-mentor">
+          <a href="#" className="btn btn-awsm">Become A Mentor</a>
+        </div>
+      </div>
+    );
+  }
+});
+
 var Content = React.createClass({
   render: function() {
     return (
@@ -92,12 +139,7 @@ var Content = React.createClass({
              Join our community of educators, parents, techies and makers who want to teach digital skills and web literacy through making. <a href="#" className="bold-link">Learn More</a>
           </div>
         </div>
-        <div className="case-studies">
-          <blockquote className="primary-quote">
-            <div><span className="quote-symbol"/></div>
-            Every morning, I wake up wondering what I can change.
-          </blockquote>
-        </div>
+        <CaseStudies />
       </div>
     );
   }

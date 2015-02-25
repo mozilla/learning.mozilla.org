@@ -172,6 +172,39 @@ a.bold-link {
     width: @quote-symbol-size;
     height: @quote-symbol-size;
   }
+
+  @media (min-width: @screen-md-min) {
+    .row {
+      display: flex;
+      align-items: stretch;
+    }
+  }
+
+  .row .divider {
+    border-right: 1px solid #FFDFD0;
+  }
+
+  .case-study {
+    padding-bottom: 3rem;
+  }
+
+  .case-study img {
+    display: block;
+    width: 100%;
+  }
+
+  .case-study h2 {
+    font-weight: 300;
+  }
+
+  .case-study .bold-link {
+    font-size: 1rem;
+  }
+
+  .become-a-mentor {
+    padding: 3rem 0;
+    text-align: center;
+  }
 }
 
 footer {
