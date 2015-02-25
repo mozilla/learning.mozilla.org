@@ -139,8 +139,10 @@ a.bold-link {
 footer {
   .sidebar {
     line-height: 4rem;
-    display: flex;
-    align-items: flex-end;
+    @media (min-width: @screen-md-min) {
+      display: flex;
+      align-items: flex-end;
+    }
   }
 
   .sidebar a {
@@ -149,7 +151,7 @@ footer {
   }
 
   > div {
-    padding-bottom: @grid-gutter-width;
+    padding: @grid-gutter-width 0;
   }
 
   > .content {
@@ -157,7 +159,7 @@ footer {
   }
 
   .logos div {
-    padding: @grid-gutter-width @grid-gutter-width 0 @grid-gutter-width;
+    padding: 0 @grid-gutter-width;
   }
 
   .logos a img {

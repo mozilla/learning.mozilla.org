@@ -75,7 +75,7 @@ var Footer = React.createClass({
       <footer className="row">
         <div className="sidebar col-md-3">
           <div className="row">
-            <div className="col-md-6">
+            <div className="col-xs-6">
               <ul className="list-unstyled">
                 <li><a href="#">Webmaker</a></li>
                 <li><a href="#">Donate</a></li>
@@ -83,7 +83,7 @@ var Footer = React.createClass({
                 <li><a href="#">Privacy</a></li>
               </ul>
             </div>
-            <div className="col-md-6">
+            <div className="col-xs-6">
               <ul className="list-unstyled">
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">Twitter</a></li>
