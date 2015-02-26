@@ -97,12 +97,12 @@ var CaseStudies = React.createClass({
   CASE_STUDIES: [
     {
       name: "Sadia's story",
-      img: "http://placehold.it/325x188",
+      img: "img/sadia.jpg",
       description: "This is a story about how a young girl started a Webmaker club at her school in Bangladesh in order to teach other kids how to code."
     },
     {
       name: "Masud's story",
-      img: "http://placehold.it/325x188",
+      img: "img/masud.jpg",
       description: "This is a story about how a young man got certification through our program and was able to find a job to support his family."
     }
   ],
