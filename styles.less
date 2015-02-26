@@ -1,4 +1,5 @@
 @import "vendor/bootstrap/less/variables.less";
+@import "vendor/prefixer.less";
 
 // This used to be @screen-xs but Bootstrap deprecated it.
 @screen-teensy: 480px;
@@ -14,13 +15,13 @@ body {
 @media (min-width: @screen-md-min) {
   body > .container-fluid {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    .flex-block();
+    .flex-direction(column);
   }
 
   body > .container-fluid > .row {
-    flex-grow: 1;
-    display: flex;
+    .flex-grow(1);
+    .flex-block();
   }
 
   .hero-unit {
@@ -36,9 +37,9 @@ body {
   height: 450px;
   color: white;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  .flex-block();
+  .flex-direction(column);
+  .justify-content(center);
 }
 
 .hero-unit h1 {
@@ -158,8 +159,8 @@ img.img-scale-to-fit.img-circle {
   font-size: 3rem;
 
   @media (min-width: @screen-sm-min) {
-    display: flex;
-    align-items: center;
+    .flex-block();
+    .align-items(center);
   }
 }
 
@@ -192,8 +193,8 @@ img.img-scale-to-fit.img-circle {
 
   @media (min-width: @screen-sm-min) {
     .row {
-      display: flex;
-      align-items: stretch;
+      .flex-block();
+      .align-items(stretch);
     }
   }
 
@@ -227,8 +228,8 @@ footer {
   .sidebar {
     line-height: 4rem;
     @media (min-width: @screen-md-min) {
-      display: flex;
-      align-items: flex-end;
+      .flex-block();
+      .align-items(flex-end);
     }
   }
 
