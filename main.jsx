@@ -153,6 +153,82 @@ var Content = React.createClass({
   }
 });
 
+var HiveCities = React.createClass({
+  CITIES: [
+    {
+      name: "Chicago"
+    },
+    {
+      name: "NYC"
+    },
+    {
+      name: "Pittsburgh"
+    },
+    {
+      name: "Toronto"
+    },
+    {
+      name: "Bay Area"
+    },
+    {
+      name: "Chattanooga"
+    },
+    {
+      name: "Denver"
+    },
+    {
+      name: "India"
+    },
+    {
+      name: "Kansas City"
+    },
+    {
+      name: "Mombasa"
+    },
+    {
+      name: "Vancouver"
+    },
+    {
+      name: "More",
+      className: "more-link"
+    }
+  ],
+  COLUMNS: 3,
+  GRID_COLUMNS_PER_ROW: 12,
+  renderColumn: function(key, cities) {
+    var colClass = 'col-xs-' + (this.GRID_COLUMNS_PER_ROW / this.COLUMNS);
+    return (
+      <div className={colClass}>
+      <ul key={key} className="list-unstyled">
+        {cities.map(function(city, i) {
+          return (
+            <li key={i}>
+              <a href="#" className={city.className}>
+                {city.name}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+      </div>
+    );
+  },
+  render: function() {
+    var itemsPerColumn = Math.floor(this.CITIES.length / this.COLUMNS);
+    var columns = [];
+
+    // TODO: It will be easier to just use _.range() for this.
+    for (var i = 0; i < this.COLUMNS; i++) {
+      columns.push(this.renderColumn(i, this.CITIES.slice(
+        i * itemsPerColumn,
+        (i + 1) * itemsPerColumn
+      )));
+    }
+
+    return <div className="row hive-cities">{columns}</div>;
+  }
+});
+
 var Footer = React.createClass({
   render: function() {
     return (
@@ -183,6 +259,7 @@ var Footer = React.createClass({
               <a href="#"><img src="img/hive-logo.png"/></a>
 
               <p>Join a Hive Learning Network</p>
+              <HiveCities/>
             </div>
             <div className="col-sm-4">
               <a href="#"><img src="img/mozilla_wordmark.png"/></a>

@@ -245,7 +245,11 @@ footer {
     background: @footerBackgroundColor;
   }
 
-  .logos div {
+  > .content a {
+    color: @sidebarColor;
+  }
+
+  .logos > div {
     padding: 0 @grid-gutter-width;
   }
 
@@ -260,5 +264,15 @@ footer {
     //
     // TODO: Accomplish the same thing in a non-hacky way.
     padding-top: 12px;
+  }
+
+  .hive-cities {
+    font-size: 1rem;
+  }
+
+  .hive-cities .more-link {
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: underline;
   }
 }
