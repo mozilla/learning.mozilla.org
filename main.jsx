@@ -85,7 +85,7 @@ var CaseStudy = React.createClass({
 
     return (
       <div className="col-sm-4 col-sm-offset-1 case-study">
-        <img className="img-scale-to-fit" src={study.img} />
+        <img className="img-scale-to-fit" src={study.img}/>
         <h2>{study.name}</h2>
         <p>{study.description} <a href="#" className="bold-link">Read More</a></p>
       </div>
@@ -147,7 +147,7 @@ var Content = React.createClass({
       <div className="content col-md-9">
         <HeroUnit/>
         <Values/>
-        <CaseStudies />
+        <CaseStudies/>
       </div>
     );
   }
@@ -206,10 +206,10 @@ var Page = React.createClass({
     return (
       <div className="container-fluid">
         <div className="row">
-          <Sidebar />
-          <Content />
+          <Sidebar/>
+          <Content/>
         </div>
-        <Footer />
+        <Footer/>
       </div>
     );
   }
@@ -217,7 +217,7 @@ var Page = React.createClass({
 
 if (typeof(exports) == 'undefined') {
   React.render(
-    <Page />,
+    <Page/>,
     document.body
   );
 } else {
