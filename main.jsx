@@ -297,7 +297,7 @@ var Footer = React.createClass({
 var Page = React.createClass({
   render: function() {
     return (
-      <div className="container-fluid">
+      <div className="page container-fluid">
         <div className="row">
           <Sidebar/>
           <Content/>
@@ -311,7 +311,7 @@ var Page = React.createClass({
 if (typeof(exports) == 'undefined') {
   React.render(
     <Page/>,
-    document.body
+    document.getElementById('page-holder')
   );
 } else {
   exports.Page = Page;

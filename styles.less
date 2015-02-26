@@ -13,13 +13,13 @@ body {
 }
 
 @media (min-width: @screen-md-min) {
-  body > .container-fluid {
+  .page.container-fluid {
     min-height: 100vh;
     .flex-block();
     .flex-direction(column);
   }
 
-  body > .container-fluid > .row {
+  .page.container-fluid > .row {
     .flex-grow(1);
     .flex-block();
   }
