@@ -12,7 +12,7 @@ var TriangleCorner = React.createClass({
     ];
 
     return (
-      <svg className="corner" width={width} height={height}>
+      <svg className={"corner " + this.props.className} width={width} height={height}>
         <polygon points={points}/>
       </svg>
     );
@@ -38,29 +38,45 @@ var Sidebar = React.createClass({
       help: "Join our global community of local chapters"
     }
   ],
+  getInitialState: function() {
+    return {
+      showCollapsibleContent: false
+    };
+  },
+  handleHamburgerClick: function() {
+    this.setState({
+      showCollapsibleContent: !this.state.showCollapsibleContent
+    });
+  },
   render: function() {
     return (
       <div className="sidebar col-md-3">
         <div className="sidebar-header">
           <img src="img/wm-logo.png"/> Mozilla Learning
-          <TriangleCorner height={40}/>
+          <span className="glyphicon glyphicon-menu-hamburger hidden-lg hidden-md"
+                onClick={this.handleHamburgerClick}/>
+          <TriangleCorner className="hidden-xs hidden-sm" height={40}/>
         </div>
-        <div className="sidebar-login">
-          <a href="#">Create an account</a> | <a href="#">Log in</a>
+        <div className={this.state.showCollapsibleContent
+                        ? ""
+                        : "hidden-xs hidden-sm"}>
+          <div className="sidebar-login">
+            <a href="#">Create an account</a> | <a href="#">Log in</a>
+          </div>
+          <ul className="sidebar-menu list-unstyled">
+            {this.MENU_ENTRIES.map(function(entry, i) {
+              return (
+                <li key={i}>
+                  <a href="#">
+                    <strong>{entry.name}</strong>
+                    <div className="help-text hidden-xs hidden-sm">{entry.help}</div>
+                    <span className="glyphicon glyphicon-menu-right"></span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
         </div>
-        <ul className="sidebar-menu list-unstyled">
-          {this.MENU_ENTRIES.map(function(entry, i) {
-            return (
-              <li key={i}>
-                <a href="#">
-                  <strong>{entry.name}</strong>
-                  <div className="help-text hidden-xs hidden-sm">{entry.help}</div>
-                  <span className="glyphicon glyphicon-menu-right"></span>
-                </a>
-              </li>
-            );
-          })}
-        </ul>
       </div>
     );
   }
