@@ -126,19 +126,27 @@ var CaseStudies = React.createClass({
   }
 });
 
+var Values = React.createClass({
+  render: function() {
+    return (
+      <div className="values row">
+        <div className="col-sm-4 col-sm-offset-1">
+          <img src="img/values.jpg" className="img-circle img-scale-to-fit"/>
+        </div>
+        <div className="col-sm-6">
+           Join our community of educators, parents, techies and makers who want to teach digital skills and web literacy through making. <a href="#" className="bold-link">Learn More</a>
+        </div>
+      </div>
+    );
+  }
+});
+
 var Content = React.createClass({
   render: function() {
     return (
       <div className="content col-md-9">
         <HeroUnit/>
-        <div className="values row">
-          <div className="col-sm-4 col-sm-offset-1">
-            <img src="img/values.jpg" className="img-circle img-scale-to-fit"/>
-          </div>
-          <div className="col-sm-6">
-             Join our community of educators, parents, techies and makers who want to teach digital skills and web literacy through making. <a href="#" className="bold-link">Learn More</a>
-          </div>
-        </div>
+        <Values/>
         <CaseStudies />
       </div>
     );
