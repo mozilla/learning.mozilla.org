@@ -308,11 +308,43 @@ var Page = React.createClass({
   }
 });
 
+var PAGES = {
+  '/': function() {
+    return <Page/>;
+  },
+  '/foo/': function() {
+    return <h1>I am foo</h1>;
+  }
+};
+
+function pageNotFound() {
+  return <h1>Page not found</h1>;
+}
+
+function reactElementForPage(url) {
+  var reactElementFactory = PAGES[url] || pageNotFound;
+  return reactElementFactory();
+}
+
+function startDevelopmentMode() {
+  var render = function(url) {
+    React.render(
+      reactElementForPage(url),
+      document.getElementById('page-holder')
+    );
+  };
+  var handleHashChange = function() {
+    var url = window.location.hash.slice(1) || '/';
+    render(url);
+  };
+
+  window.addEventListener('hashchange', handleHashChange);
+  handleHashChange();
+}
+
 if (typeof(exports) == 'undefined') {
-  React.render(
-    <Page/>,
-    document.getElementById('page-holder')
-  );
+  startDevelopmentMode();
 } else {
-  exports.Page = Page;
+  exports.PAGES = PAGES;
+  exports.reactElementForPage = reactElementForPage;
 }

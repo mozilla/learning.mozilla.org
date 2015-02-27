@@ -1,28 +1,10 @@
 var React = require('react');
 
-var Page = require('./main.jsx').Page;
-
-var PAGES = {
-  '/': function() {
-    return <Page/>;
-  },
-  '/foo/': function() {
-    return <h1>I am foo</h1>;
-  }
-};
-
-function pageNotFound() {
-  return <h1>Page not found</h1>;
-}
-
-function reactElementForPage(url) {
-  var reactElementFactory = PAGES[url] || pageNotFound;
-  return reactElementFactory();
-}
+var main = require('./main.jsx');
 
 function generate(url, options) {
   options = options || {};
-  var reactElement = reactElementForPage(url || '/');
+  var reactElement = main.reactElementForPage(url || '/');
   var pageHTML = React.renderToString(reactElement);
 
   // Make sure any changes to this file are reflected in
@@ -53,7 +35,7 @@ function generate(url, options) {
 exports.generate = generate;
 exports.CSS_FILENAME = "stylesheet.css";
 exports.JS_FILENAME = "bundle.js";
-exports.URLS = Object.keys(PAGES);
+exports.URLS = Object.keys(main.PAGES);
 
 if (typeof(document) !== 'undefined')
   React.render(
