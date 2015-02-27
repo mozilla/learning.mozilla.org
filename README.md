@@ -23,6 +23,9 @@ where alternatives don't exist, such as hamburger menus. This static
 site also uses `history.pushState` for navigation if the browser
 supports it.
 
+For reference, a recent static build of the site can be found at
+http://mozilla-learning-html.s3-website-us-east-1.amazonaws.com/.
+
 ## References
 
 * [Cassie's original PSD files][psd]
