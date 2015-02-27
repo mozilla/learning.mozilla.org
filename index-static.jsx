@@ -39,7 +39,7 @@ exports.URLS = Object.keys(main.PAGES);
 
 if (typeof(document) !== 'undefined')
   React.render(
-    reactElementForPage(
+    main.reactElementForPage(
       document.querySelector('meta[name=url]').getAttribute('value')
     ),
     document.getElementById('page-holder')
