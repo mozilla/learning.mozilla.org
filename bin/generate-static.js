@@ -38,10 +38,22 @@ function buildWithCss(css, cb) {
   mkdirp.sync(DIST_DIR);
   fs.writeFileSync(path.join(DIST_DIR, index.CSS_FILENAME), css);
 
-  console.log("Generating HTML.");
-  indexHTML = index.generate();
-  indexHTML = html.prettyPrint(indexHTML, {indent_size: 2});
-  fs.writeFileSync(path.join(DIST_DIR, 'index.html'), indexHTML);
+  index.URLS.forEach(function(url) {
+    var indexDir = path.join.apply(
+      path,
+      [DIST_DIR].concat(url.split('/').slice(1, -1))
+    );
+    var indexFile = path.join(indexDir, 'index.html');
+
+    console.log("Generating HTML for " + url);
+    mkdirp.sync(indexDir);
+    indexHTML = index.generate(url, {
+      baseURL: path.posix.relative(url, '/')
+    });
+    indexHTML = html.prettyPrint(indexHTML, {indent_size: 2});
+    fs.writeFileSync(indexFile, indexHTML);
+  });
+
   copyDirs([
     'img',
     'vendor/bootstrap/css',
