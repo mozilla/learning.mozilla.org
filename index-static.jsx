@@ -32,7 +32,7 @@ function generate(url, options) {
     </html>
   );
 
-  return React.renderToStaticMarkup(content);
+  return '<!DOCTYPE html>' + React.renderToStaticMarkup(content);
 };
 
 exports.generate = generate;
