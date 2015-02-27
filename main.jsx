@@ -181,21 +181,6 @@ var Values = React.createClass({
   }
 });
 
-var HomepageContent = React.createClass({
-  render: function() {
-    return (
-      <div>
-        <HeroUnit image="img/hero-unit.jpg">
-          <h1>Unlock opportunities for all citizens of the Web.</h1>
-          <div><Ia href="/foo/" className="btn btn-awsm">Join Us</Ia></div>
-        </HeroUnit>
-        <Values/>
-        <CaseStudies/>
-      </div>
-    );
-  }
-});
-
 var HiveCities = React.createClass({
   CITIES: [
     {
@@ -339,7 +324,16 @@ var Page = React.createClass({
 
 var PAGES = {
   '/': function() {
-    return <Page><HomepageContent/></Page>;
+    return (
+      <Page>
+        <HeroUnit image="img/hero-unit.jpg">
+          <h1>Unlock opportunities for all citizens of the Web.</h1>
+          <div><Ia href="/foo/" className="btn btn-awsm">Join Us</Ia></div>
+        </HeroUnit>
+        <Values/>
+        <CaseStudies/>
+      </Page>
+    );
   },
   '/foo/': function() {
     return (
