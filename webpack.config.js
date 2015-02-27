@@ -1,3 +1,5 @@
+var webpack = require('webpack');
+
 require('node-jsx').install();
 
 var index = require('./index-static.jsx');
@@ -12,5 +14,8 @@ module.exports = {
     loaders: [
       {test: /\.jsx$/, loader: "jsx-loader"}
     ]
-  }
+  },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin()
+  ]
 };
