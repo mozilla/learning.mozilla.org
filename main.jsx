@@ -157,10 +157,10 @@ var Values = React.createClass({
   }
 });
 
-var Content = React.createClass({
+var HomepageContent = React.createClass({
   render: function() {
     return (
-      <div className="content col-md-9">
+      <div>
         <HeroUnit/>
         <Values/>
         <CaseStudies/>
@@ -300,7 +300,9 @@ var Page = React.createClass({
       <div className="page container-fluid">
         <div className="row">
           <Sidebar/>
-          <Content/>
+          <div className="content col-md-9">
+            {this.props.children}
+          </div>
         </div>
         <Footer/>
       </div>
@@ -310,10 +312,10 @@ var Page = React.createClass({
 
 var PAGES = {
   '/': function() {
-    return <Page/>;
+    return <Page><HomepageContent/></Page>;
   },
   '/foo/': function() {
-    return <h1>I am foo</h1>;
+    return <Page><h1>I am foo</h1></Page>;
   }
 };
 
