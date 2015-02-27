@@ -86,9 +86,10 @@ var HeroUnit = React.createClass({
   render: function() {
     return (
       <div className="row">
-        <div className="col-md-12 hero-unit">
-          <h1>Unlock opportunities for all citizens of the Web.</h1>
-          <div><a href="#" className="btn btn-awsm">Join Us</a></div>
+        <div className="col-md-12 hero-unit" style={{
+          backgroundImage: 'url(' + this.props.image + ')'
+        }}>
+          {this.props.children}
         </div>
       </div>
     );
@@ -161,7 +162,10 @@ var HomepageContent = React.createClass({
   render: function() {
     return (
       <div>
-        <HeroUnit/>
+        <HeroUnit image="img/hero-unit.jpg">
+          <h1>Unlock opportunities for all citizens of the Web.</h1>
+          <div><a href="#" className="btn btn-awsm">Join Us</a></div>
+        </HeroUnit>
         <Values/>
         <CaseStudies/>
       </div>
@@ -315,7 +319,15 @@ var PAGES = {
     return <Page><HomepageContent/></Page>;
   },
   '/foo/': function() {
-    return <Page><h1>I am foo</h1></Page>;
+    return (
+      <Page>
+        <HeroUnit image="http://placekitten.com/g/1024/480">
+          <h1>I am foo.</h1>
+          <div><a href="#" className="btn btn-awsm">Meow</a></div>
+        </HeroUnit>
+        <h2>Content can go here.</h2>
+      </Page>
+    );
   }
 };
 
