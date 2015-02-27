@@ -1,5 +1,28 @@
-if (typeof(React) == 'undefined')
+var IN_DEVELOPMENT_MODE = (typeof(exports) == 'undefined');
+
+if (!IN_DEVELOPMENT_MODE)
   React = require('react');
+
+// 'Ia' is short for 'Internal <a>', meaning a link to somewhere
+// 'internal', i.e. on the same site. Might want to revisit this
+// name later if it's really confusing.
+var Ia = React.createClass({
+  render: function() {
+    var href;
+
+    if (IN_DEVELOPMENT_MODE) {
+      href = '#' + this.props.href;
+    } else {
+      href = this.props.href.slice(1);
+    }
+
+    return (
+      <a href={href} className={this.props.className}>
+        {this.props.children}
+      </a>
+    );
+  }
+});
 
 var TriangleCorner = React.createClass({
   render: function() {
@@ -164,7 +187,7 @@ var HomepageContent = React.createClass({
       <div>
         <HeroUnit image="img/hero-unit.jpg">
           <h1>Unlock opportunities for all citizens of the Web.</h1>
-          <div><a href="#" className="btn btn-awsm">Join Us</a></div>
+          <div><Ia href="/foo/" className="btn btn-awsm">Join Us</Ia></div>
         </HeroUnit>
         <Values/>
         <CaseStudies/>
@@ -323,7 +346,7 @@ var PAGES = {
       <Page>
         <HeroUnit image="http://placekitten.com/g/1024/480">
           <h1>I am foo.</h1>
-          <div><a href="#" className="btn btn-awsm">Meow</a></div>
+          <div><Ia href="/" className="btn btn-awsm">Meow</Ia></div>
         </HeroUnit>
         <h2>Content can go here.</h2>
       </Page>
@@ -356,7 +379,7 @@ function startDevelopmentMode() {
   handleHashChange();
 }
 
-if (typeof(exports) == 'undefined') {
+if (IN_DEVELOPMENT_MODE) {
   startDevelopmentMode();
 } else {
   exports.PAGES = PAGES;
