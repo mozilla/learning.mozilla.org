@@ -10,6 +10,9 @@ var Ia = React.createClass({
   render: function() {
     var href;
 
+    if (!(this.props.href in PAGES)) {
+      console.warn("Unknown <Ia> href: " + this.props.href);
+    }
     if (IN_DEVELOPMENT_MODE) {
       href = '#' + this.props.href;
     } else {
