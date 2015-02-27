@@ -1,4 +1,11 @@
 var IN_DEVELOPMENT_MODE = (typeof(exports) == 'undefined');
+var IN_PRODUCTION_STATIC_SITE = (typeof(window) != 'undefined' &&
+                                 !IN_DEVELOPMENT_MODE);
+var GENERATING_PRODUCTION_STATIC_SITE = (!IN_DEVELOPMENT_MODE &&
+                                         !IN_PRODUCTION_STATIC_SITE);
+var ENABLE_PUSHSTATE = (IN_PRODUCTION_STATIC_SITE &&
+                        window.history.pushState &&
+                        window.history.replaceState);
 
 if (!IN_DEVELOPMENT_MODE)
   React = require('react');
@@ -7,6 +14,13 @@ if (!IN_DEVELOPMENT_MODE)
 // 'internal', i.e. on the same site. Might want to revisit this
 // name later if it's really confusing.
 var Ia = React.createClass({
+  handleClick: function(e) {
+    e.preventDefault();
+    renderPage(this.props.href);
+    window.history.pushState({
+      url: this.props.href
+    }, '', getAbsoluteURL(this.props.href));
+  },
   render: function() {
     var href;
 
@@ -20,7 +34,8 @@ var Ia = React.createClass({
     }
 
     return (
-      <a href={href} className={this.props.className}>
+      <a href={href} className={this.props.className}
+         onClick={ENABLE_PUSHSTATE ? this.handleClick : null}>
         {this.props.children}
       </a>
     );
@@ -360,20 +375,47 @@ function reactElementForPage(url) {
   return reactElementFactory();
 }
 
+function renderPage(url) {
+  React.render(
+    reactElementForPage(url),
+    document.getElementById('page-holder')
+  );
+}
+
 function startDevelopmentMode() {
-  var render = function(url) {
-    React.render(
-      reactElementForPage(url),
-      document.getElementById('page-holder')
-    );
-  };
   var handleHashChange = function() {
     var url = window.location.hash.slice(1) || '/';
-    render(url);
+    renderPage(url);
   };
 
   window.addEventListener('hashchange', handleHashChange);
   handleHashChange();
+}
+
+function getAbsoluteURL(url) {
+  var a = document.createElement('a');
+
+  a.setAttribute('href', url.slice(1));
+  return a.href;
+}
+
+function startProductionMode() {
+  var url = document.querySelector('meta[name=url]').getAttribute('value');
+  var baseEl = document.querySelector('base[href]');
+
+  baseEl.setAttribute('href', getAbsoluteURL('/'));
+
+  if (ENABLE_PUSHSTATE) {
+    window.history.replaceState({
+      url: url
+    }, '', getAbsoluteURL(url));
+    window.addEventListener('popstate', function(e) {
+      if (e.state && e.state.url)
+        renderPage(e.state.url);
+    });
+  }
+
+  renderPage(url);
 }
 
 if (IN_DEVELOPMENT_MODE) {
@@ -381,4 +423,7 @@ if (IN_DEVELOPMENT_MODE) {
 } else {
   exports.PAGES = PAGES;
   exports.reactElementForPage = reactElementForPage;
+
+  if (IN_PRODUCTION_STATIC_SITE)
+    startProductionMode();
 }
