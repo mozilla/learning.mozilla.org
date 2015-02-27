@@ -99,8 +99,8 @@ var Sidebar = React.createClass({
           <TriangleCorner className="hidden-xs hidden-sm" height={40}/>
         </div>
         <div className={this.state.showCollapsibleContent
-                        ? ""
-                        : "hidden-xs hidden-sm"}>
+                        ? "collapsible-content"
+                        : "hidden-xs hidden-sm collapsible-content"}>
           <div className="sidebar-login">
             <a href="#">Create an account</a> | <a href="#">Log in</a>
           </div>

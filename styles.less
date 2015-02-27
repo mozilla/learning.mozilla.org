@@ -71,6 +71,18 @@ a.bold-link {
   white-space: pre;
 }
 
+html.no-js .sidebar {
+  .sidebar-header .glyphicon-menu-hamburger {
+    display: none;
+  }
+
+  .collapsible-content {
+    /* The links in the sidebar are crucial to navigating the site.
+     * If JS is disabled, we want the links visible at all costs. */
+    display: block !important;
+  }
+}
+
 .sidebar {
   background-color: @sidebarColor;
   color: white;

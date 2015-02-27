@@ -18,8 +18,7 @@ The `index.html` is intended for development and does a lot of dynamic
 things on the client-side.
 
 Run `node bin/generate-static.js` to generate a static site that
-doesn't require any client-side JavaScript, except for situations
-where alternatives don't exist, such as hamburger menus. This static
+doesn't *require* any client-side JavaScript. This static
 site also uses `history.pushState` for navigation if the browser
 supports it.
 
