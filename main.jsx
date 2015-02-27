@@ -214,8 +214,8 @@ var HiveCities = React.createClass({
   renderColumn: function(key, cities) {
     var colClass = 'col-xs-' + (this.GRID_COLUMNS_PER_ROW / this.COLUMNS);
     return (
-      <div className={colClass}>
-      <ul key={key} className="list-unstyled">
+      <div className={colClass} key={key}>
+      <ul className="list-unstyled">
         {cities.map(function(city, i) {
           return (
             <li key={i}>
