@@ -215,17 +215,17 @@ var HiveCities = React.createClass({
     var colClass = 'col-xs-' + (this.GRID_COLUMNS_PER_ROW / this.COLUMNS);
     return (
       <div className={colClass} key={key}>
-      <ul className="list-unstyled">
-        {cities.map(function(city, i) {
-          return (
-            <li key={i}>
-              <a href="#" className={city.className}>
-                {city.name}
-              </a>
-            </li>
-          );
-        })}
-      </ul>
+        <ul className="list-unstyled">
+          {cities.map(function(city, i) {
+            return (
+              <li key={i}>
+                <a href="#" className={city.className}>
+                  {city.name}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     );
   },
