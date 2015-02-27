@@ -45,7 +45,7 @@ function buildWithCss(css, cb) {
     );
     var indexFile = path.join(indexDir, 'index.html');
 
-    console.log("Generating HTML for " + url);
+    console.log("Generating " + url + "index.html.");
     mkdirp.sync(indexDir);
     indexHTML = index.generate(url, {
       baseURL: path.posix.relative(url, '/')
