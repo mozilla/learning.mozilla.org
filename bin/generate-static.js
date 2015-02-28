@@ -14,6 +14,7 @@ var webpackConfig = require('../webpack.config');
 var index = require('../index-static.jsx');
 
 var ROOT_DIR = path.join(__dirname, '..');
+var LESS_DIR = path.join(ROOT_DIR, 'less');
 var DIST_DIR = path.join(ROOT_DIR, 'dist');
 
 function copyDir(dirname, cb) {
@@ -78,7 +79,7 @@ function generateStaticSite(cb) {
   console.log("Generating CSS.");
 
   less.render('@import "styles.less";', {
-    paths: [ROOT_DIR]
+    paths: [LESS_DIR]
   }, function(err, output) {
     // Less' callback eats any exceptions thrown from this function
     // so we'll just start our callback in a separate stack.
