@@ -10,7 +10,7 @@ var IndexFileStream = require('./gulp-index-file-stream');
 var webpackConfig = require('./webpack.config');
 
 gulp.task('copy-dirs', function() {
-  gulp.src([
+  return gulp.src([
     'img/**',
     'vendor/bootstrap/css/**',
     'vendor/bootstrap/fonts/**',
@@ -20,7 +20,7 @@ gulp.task('copy-dirs', function() {
 });
 
 gulp.task('less', function() {
-  gulp.src('./less/**/*.less')
+  return gulp.src('./less/**/*.less')
     .pipe(less({
       paths: [path.join(__dirname, 'less')]
     }))
@@ -28,13 +28,13 @@ gulp.task('less', function() {
 });
 
 gulp.task('webpack', function() {
-  gulp.src(webpackConfig.entry)
+  return gulp.src(webpackConfig.entry)
     .pipe(webpack(webpackConfig))
     .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('generate-index-files', function() {
-  new IndexFileStream(require('./index-static.jsx'))
+  return new IndexFileStream(require('./index-static.jsx'))
     .pipe(prettify({indent_size: 2}))
     .pipe(gulp.dest('./dist'));
 });
