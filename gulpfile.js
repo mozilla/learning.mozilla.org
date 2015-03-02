@@ -3,6 +3,7 @@ var gulp = require('gulp');
 var less = require('gulp-less');
 var webpack = require('gulp-webpack');
 
+var indexStatic = require('./gulp-index-static');
 var webpackConfig = require('./webpack.config');
 
 gulp.task('copy-dirs', function() {
@@ -29,6 +30,11 @@ gulp.task('webpack', function() {
     .pipe(gulp.dest('./dist'));
 });
 
+gulp.task('generate-index-files', function() {
+  indexStatic()
+    .pipe(gulp.dest('./dist'));
+});
+
 gulp.task('default', function() {
-  gulp.start('copy-dirs', 'less', 'webpack');
+  gulp.start('copy-dirs', 'less', 'webpack', 'generate-index-files');
 });
