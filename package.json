@@ -23,7 +23,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "node bin/test.js"
+    "test": "node_modules/.bin/gulp"
   },
   "repository": {
     "type": "git",
