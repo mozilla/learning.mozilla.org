@@ -7,6 +7,10 @@ require('node-jsx').install();
 
 var indexStatic = require('./index-static.jsx');
 
+// Because the index.html files in our site don't necessarily
+// come from individual files, it's easiest for us to just
+// create a stream that emits Vinyl File objects rather than
+// using gulp.src().
 function IndexFileStream(indexStatic) {
   Readable.call(this, {
     objectMode: true
@@ -40,4 +44,3 @@ IndexFileStream.prototype._read = function() {
 module.exports = function() {
   return new IndexFileStream(indexStatic);
 };
-
