@@ -8,8 +8,10 @@
   },
   "dependencies": {
     "gulp": "^3.8.11",
+    "gulp-gzip": "^1.0.0",
     "gulp-less": "^3.0.1",
     "gulp-prettify": "^0.3.0",
+    "gulp-s3": "^0.3.0",
     "gulp-webpack": "^1.2.0",
     "jsx-loader": "^0.12.2",
     "node-jsx": "^0.12.4",
