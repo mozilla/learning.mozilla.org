@@ -17,7 +17,7 @@ node's [http-server][].
 The `index.html` is intended for development and does a lot of dynamic
 things on the client-side.
 
-Run `node bin/generate-static.js` to generate a static site that
+Run `gulp` to generate a static site in `dist/` that
 doesn't *require* any client-side JavaScript. This static
 site also uses `history.pushState` for navigation if the browser
 supports it.

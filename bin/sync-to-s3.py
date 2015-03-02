@@ -42,7 +42,7 @@ def call_s3cmd(cmdline, caching='max-age=600'):
     call(cmdline)
 
 call("rm -rf dist")
-call("node bin/generate-static.js")
+call("node_modules/.bin/gulp")
 
 # The '/' after 'dist' is REALLY important here.
 call_s3cmd("sync --delete-removed dist/ s3://%(BUCKET)s")
