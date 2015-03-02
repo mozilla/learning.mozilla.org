@@ -1,6 +1,7 @@
 var path = require('path');
 var gulp = require('gulp');
 var less = require('gulp-less');
+var prettify = require('gulp-prettify');
 var webpack = require('gulp-webpack');
 
 var indexStatic = require('./gulp-index-static');
@@ -32,6 +33,7 @@ gulp.task('webpack', function() {
 
 gulp.task('generate-index-files', function() {
   indexStatic()
+    .pipe(prettify({indent_size: 2}))
     .pipe(gulp.dest('./dist'));
 });
 

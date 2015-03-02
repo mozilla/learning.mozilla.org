@@ -1,7 +1,6 @@
 var Readable = require('stream').Readable;
 var path = require('path');
 var util = require('util');
-var html = require('html');
 var File = require('vinyl');
 
 require('node-jsx').install();
@@ -28,15 +27,13 @@ IndexFileStream.prototype._read = function() {
     path.join.apply(path, url.split('/').slice(1, -1)),
     'index.html'
   );
-  var indexHTML = this._indexStatic.generate(url, {
-    baseURL: path.posix.relative(url, '/')
-  });
-  indexHTML = html.prettyPrint(indexHTML, {indent_size: 2});
   this.push(new File({
     cwd: this._baseDir,
     base: this._baseDir,
     path: indexFile,
-    contents: new Buffer(indexHTML)
+    contents: new Buffer(this._indexStatic.generate(url, {
+      baseURL: path.posix.relative(url, '/')
+    }))
   }));
 };
 
