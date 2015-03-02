@@ -36,6 +36,6 @@ function generate(url, options) {
 };
 
 exports.generate = generate;
-exports.CSS_FILENAME = "stylesheet.css";
+exports.CSS_FILENAME = "styles.css";
 exports.JS_FILENAME = "bundle.js";
 exports.URLS = Object.keys(main.PAGES);
