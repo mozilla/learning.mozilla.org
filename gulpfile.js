@@ -4,7 +4,9 @@ var less = require('gulp-less');
 var prettify = require('gulp-prettify');
 var webpack = require('gulp-webpack');
 
-var indexStatic = require('./gulp-index-static');
+require('node-jsx').install();
+
+var IndexFileStream = require('./gulp-index-file-stream');
 var webpackConfig = require('./webpack.config');
 
 gulp.task('copy-dirs', function() {
@@ -32,7 +34,7 @@ gulp.task('webpack', function() {
 });
 
 gulp.task('generate-index-files', function() {
-  indexStatic()
+  new IndexFileStream(require('./index-static.jsx'))
     .pipe(prettify({indent_size: 2}))
     .pipe(gulp.dest('./dist'));
 });

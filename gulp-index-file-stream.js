@@ -3,10 +3,6 @@ var path = require('path');
 var util = require('util');
 var File = require('vinyl');
 
-require('node-jsx').install();
-
-var indexStatic = require('./index-static.jsx');
-
 // Because the index.html files in our site don't necessarily
 // come from individual files, it's easiest for us to just
 // create a stream that emits Vinyl File objects rather than
@@ -41,6 +37,4 @@ IndexFileStream.prototype._read = function() {
   }));
 };
 
-module.exports = function() {
-  return new IndexFileStream(indexStatic);
-};
+module.exports = IndexFileStream;
