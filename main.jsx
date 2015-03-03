@@ -1,15 +1,11 @@
-var IN_DEVELOPMENT_MODE = (typeof(exports) == 'undefined');
-var IN_PRODUCTION_STATIC_SITE = (typeof(window) != 'undefined' &&
-                                 !IN_DEVELOPMENT_MODE);
-var GENERATING_PRODUCTION_STATIC_SITE = (!IN_DEVELOPMENT_MODE &&
-                                         !IN_PRODUCTION_STATIC_SITE);
+var IN_PRODUCTION_STATIC_SITE = (typeof(window) != 'undefined');
+var GENERATING_PRODUCTION_STATIC_SITE = !IN_PRODUCTION_STATIC_SITE;
 var ENABLE_PUSHSTATE = (IN_PRODUCTION_STATIC_SITE &&
                         window.location.protocol != 'file:' &&
                         window.history.pushState &&
                         window.history.replaceState);
 
-if (!IN_DEVELOPMENT_MODE)
-  React = require('react');
+var React = require('react');
 
 // 'Ia' is short for 'Internal <a>', meaning a link to somewhere
 // 'internal', i.e. on the same site. Might want to revisit this
@@ -28,14 +24,10 @@ var Ia = React.createClass({
     if (!(this.props.href in PAGES)) {
       console.warn("Unknown <Ia> href: " + this.props.href);
     }
-    if (IN_DEVELOPMENT_MODE) {
-      href = '#' + this.props.href;
-    } else {
-      href = this.props.href.slice(1);
-      if (IN_PRODUCTION_STATIC_SITE &&
-          window.location.protocol == 'file:') {
-        href += 'index.html';
-      }
+    href = this.props.href.slice(1);
+    if (IN_PRODUCTION_STATIC_SITE &&
+        window.location.protocol == 'file:') {
+      href += 'index.html';
     }
 
     return (
@@ -387,16 +379,6 @@ function renderPage(url) {
   );
 }
 
-function startDevelopmentMode() {
-  var handleHashChange = function() {
-    var url = window.location.hash.slice(1) || '/';
-    renderPage(url);
-  };
-
-  window.addEventListener('hashchange', handleHashChange);
-  handleHashChange();
-}
-
 function getAbsoluteURL(url) {
   var a = document.createElement('a');
 
@@ -423,12 +405,8 @@ function startProductionMode() {
   renderPage(url);
 }
 
-if (IN_DEVELOPMENT_MODE) {
-  startDevelopmentMode();
-} else {
-  exports.PAGES = PAGES;
-  exports.reactElementForPage = reactElementForPage;
+exports.PAGES = PAGES;
+exports.reactElementForPage = reactElementForPage;
 
-  if (IN_PRODUCTION_STATIC_SITE)
-    startProductionMode();
-}
+if (IN_PRODUCTION_STATIC_SITE)
+  startProductionMode();

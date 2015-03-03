@@ -5,17 +5,16 @@ front-page.
 
 ## Quick Start
 
-Just point Firefox at the `index.html` file on your filesystem.
+```
+git clone git@github.com:toolness/mozilla-learning-html.git
+cd mozilla-learning-html
+npm install
+node_modules/.bin/gulp watch
+```
 
-If you're using a different browser, this might not work. 
-You should probably just set up a static web server at the
-root of the repository; consider using `python -m SimpleHTTPServer` or
-node's [http-server][].
+Just point your browser at the `dist/index.html` file on your filesystem.
 
 ## Generating A Static Site
-
-The `index.html` is intended for development and does a lot of dynamic
-things on the client-side.
 
 Run `gulp` to generate a static site in `dist/` that
 doesn't *require* any client-side JavaScript. This static
@@ -33,7 +32,6 @@ http://mozilla-learning-html.s3-website-us-east-1.amazonaws.com/.
 
 <!-- links -->
 
-  [http-server]: https://www.npmjs.com/package/http-server
   [psd]: https://www.dropbox.com/sh/2kbwq2cl9x6q0r8/AAA2Io_uv8sW0MVqyZr4H8Tca?dl=0#/
   [redpen_teach]: https://redpen.io/p/tv97d65122e4dcb2ab
   [redpen_club]: https://redpen.io/p/jza7e4f541a24313ff
