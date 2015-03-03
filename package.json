@@ -19,7 +19,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "node_modules/.bin/gulp"
+    "test": "gulp",
+    "start": "gulp watch"
   },
   "repository": {
     "type": "git",
