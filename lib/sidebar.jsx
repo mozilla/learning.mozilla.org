@@ -33,7 +33,7 @@ var Sidebar = React.createClass({
       help: "Learn about our approach to teaching the Web"
     },
     {
-      name: "Events",
+      name: "Clubs",
       help: "Join our global community of local chapters"
     }
   ],
