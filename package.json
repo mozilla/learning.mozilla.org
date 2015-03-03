@@ -12,6 +12,7 @@
     "gulp-webpack": "^1.2.0",
     "jsx-loader": "^0.12.2",
     "node-jsx": "^0.12.4",
+    "path-posix": "^1.0.0",
     "react": "^0.12.2",
     "underscore": "^1.8.2",
     "vinyl": "^0.4.6",
