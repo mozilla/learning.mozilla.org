@@ -20,16 +20,6 @@ var BUILD_TASKS = [
   'webpack',
   'generate-index-files'
 ];
-function onError(err) {
-  gutil.log(gutil.colors.red(err));
-  gutil.beep();
-  this.emit('end');
-}
-function handleError() {
-  return plumber({
-    errorHandler: onError
-  });
-}
 
 var COPY_DIRS = [
   'img/**',
@@ -38,6 +28,18 @@ var COPY_DIRS = [
 ];
 
 var LESS_FILES = './less/**/*.less';
+
+function onError(err) {
+  gutil.log(gutil.colors.red(err));
+  gutil.beep();
+  this.emit('end');
+}
+
+function handleError() {
+  return plumber({
+    errorHandler: onError
+  });
+}
 
 gulp.task('copy-dirs', function() {
   return gulp.src(COPY_DIRS, {
