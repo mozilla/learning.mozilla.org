@@ -1,5 +1,7 @@
 var path = require('path');
+var _ = require('underscore');
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var s3 = require('gulp-s3');
 var gzip = require('gulp-gzip');
 var less = require('gulp-less');
@@ -49,6 +51,40 @@ gulp.task('generate-index-files', function() {
 });
 
 gulp.task('default', BUILD_TASKS);
+
+gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function(cb) {
+  gulp.src(webpackConfig.entry)
+    .pipe(webpack(_.extend({
+      watch: true
+    }, webpackConfig)))
+    .pipe(gulp.dest('./dist'));
+
+  gulp.watch([
+    '*.jsx'
+  ], function() {
+    gutil.log('Rebuilding index HTML files.');
+
+    // Ugh, because the *old* version of our index files are
+    // already in node's require cache, we can't reload them, so
+    // we'll run gulp in a subprocess so that it uses the latest
+    // code.
+    //
+    // TODO: Figure out a better solution for this.
+    require('child_process')
+      .exec('gulp generate-index-files', function(err, stdout, stderr) {
+        if (err) {
+          gutil.log(gutil.colors.magenta("Error rebuilding index files!"));
+          gutil.log(stdout);
+          gutil.log(stderr);
+        } else {
+          gutil.log("Index HTML files rebuilt.");
+        }
+      });
+  });
+
+  // TODO: Re-run 'copy-dirs'.
+  // TODO: Re-run 'less'.
+});
 
 gulp.task('s3', BUILD_TASKS, function() {
   var key = process.env.AWS_ACCESS_KEY;

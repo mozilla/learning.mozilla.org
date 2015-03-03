@@ -12,10 +12,12 @@
     "gulp-less": "^3.0.1",
     "gulp-prettify": "^0.3.0",
     "gulp-s3": "^0.3.0",
+    "gulp-util": "^3.0.4",
     "gulp-webpack": "^1.2.0",
     "jsx-loader": "^0.12.2",
     "node-jsx": "^0.12.4",
     "react": "^0.12.2",
+    "underscore": "^1.8.2",
     "vinyl": "^0.4.6",
     "webpack": "^1.6.0"
   },
