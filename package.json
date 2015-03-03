@@ -2,10 +2,6 @@
   "name": "mozilla-learning-html",
   "version": "0.0.1",
   "description": " Initial attempt at implementing Webmaker Learning front-page.",
-  "main": "index.js",
-  "bin": {
-    "mozilla-learning-html": "generate-static.js"
-  },
   "dependencies": {
     "gulp": "^3.8.11",
     "gulp-gzip": "^1.0.0",
