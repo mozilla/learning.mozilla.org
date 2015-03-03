@@ -1,11 +1,6 @@
-var IN_PRODUCTION_STATIC_SITE = (typeof(window) != 'undefined');
-var GENERATING_PRODUCTION_STATIC_SITE = !IN_PRODUCTION_STATIC_SITE;
-var ENABLE_PUSHSTATE = (IN_PRODUCTION_STATIC_SITE &&
-                        window.location.protocol != 'file:' &&
-                        window.history.pushState &&
-                        window.history.replaceState);
-
 var React = require('react');
+
+var config = require('./config');
 
 // 'Ia' is short for 'Internal <a>', meaning a link to somewhere
 // 'internal', i.e. on the same site. Might want to revisit this
@@ -25,14 +20,14 @@ var Ia = React.createClass({
       console.warn("Unknown <Ia> href: " + this.props.href);
     }
     href = this.props.href.slice(1);
-    if (IN_PRODUCTION_STATIC_SITE &&
+    if (config.IN_STATIC_SITE &&
         window.location.protocol == 'file:') {
       href += 'index.html';
     }
 
     return (
       <a href={href} className={this.props.className}
-         onClick={ENABLE_PUSHSTATE ? this.handleClick : null}>
+         onClick={config.ENABLE_PUSHSTATE ? this.handleClick : null}>
         {this.props.children}
       </a>
     );
@@ -386,13 +381,13 @@ function getAbsoluteURL(url) {
   return a.href;
 }
 
-function startProductionMode() {
+function startRunningSite() {
   var url = document.querySelector('meta[name=url]').getAttribute('value');
   var baseEl = document.querySelector('base[href]');
 
   baseEl.setAttribute('href', getAbsoluteURL('/'));
 
-  if (ENABLE_PUSHSTATE) {
+  if (config.ENABLE_PUSHSTATE) {
     window.history.replaceState({
       url: url
     }, '', getAbsoluteURL(url));
@@ -408,5 +403,5 @@ function startProductionMode() {
 exports.PAGES = PAGES;
 exports.reactElementForPage = reactElementForPage;
 
-if (IN_PRODUCTION_STATIC_SITE)
-  startProductionMode();
+if (config.IN_STATIC_SITE)
+  startRunningSite();
