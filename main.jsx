@@ -4,6 +4,7 @@ var IN_PRODUCTION_STATIC_SITE = (typeof(window) != 'undefined' &&
 var GENERATING_PRODUCTION_STATIC_SITE = (!IN_DEVELOPMENT_MODE &&
                                          !IN_PRODUCTION_STATIC_SITE);
 var ENABLE_PUSHSTATE = (IN_PRODUCTION_STATIC_SITE &&
+                        window.location.protocol != 'file:' &&
                         window.history.pushState &&
                         window.history.replaceState);
 
@@ -31,6 +32,10 @@ var Ia = React.createClass({
       href = '#' + this.props.href;
     } else {
       href = this.props.href.slice(1);
+      if (IN_PRODUCTION_STATIC_SITE &&
+          window.location.protocol == 'file:') {
+        href += 'index.html';
+      }
     }
 
     return (
