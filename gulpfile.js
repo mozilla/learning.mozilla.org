@@ -20,18 +20,22 @@ var BUILD_TASKS = [
   'generate-index-files'
 ];
 
+var COPY_DIRS = [
+  'img/**',
+  'vendor/bootstrap/css/**',
+  'vendor/bootstrap/fonts/**',
+];
+
+var LESS_FILES = './less/**/*.less';
+
 gulp.task('copy-dirs', function() {
-  return gulp.src([
-    'img/**',
-    'vendor/bootstrap/css/**',
-    'vendor/bootstrap/fonts/**',
-  ], {
+  return gulp.src(COPY_DIRS, {
     base: '.'
   }).pipe(gulp.dest('./dist'));
 });
 
 gulp.task('less', function() {
-  return gulp.src('./less/**/*.less')
+  return gulp.src(LESS_FILES)
     .pipe(less({
       paths: [path.join(__dirname, 'less')]
     }))
@@ -82,8 +86,8 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function(cb) {
       });
   });
 
-  // TODO: Re-run 'copy-dirs'.
-  // TODO: Re-run 'less'.
+  gulp.watch(COPY_DIRS, ['copy-dirs']);
+  gulp.watch(LESS_FILES, ['less']);
 });
 
 gulp.task('s3', BUILD_TASKS, function() {
