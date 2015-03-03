@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/toolness/mozilla-learning-html.svg?branch=gh-pages)](https://travis-ci.org/toolness/mozilla-learning-html)
+[![Build Status](https://travis-ci.org/MozillaFoundation/Mozilla-Learning.svg?branch=master)](https://travis-ci.org/MozillaFoundation/Mozilla-Learning)
 
 This is an initial attempt at implementing the Webmaker Learning
 front-page.
@@ -6,8 +6,8 @@ front-page.
 ## Quick Start
 
 ```
-git clone git@github.com:toolness/mozilla-learning-html.git
-cd mozilla-learning-html
+git clone git@github.com:MozillaFoundation/Mozilla-Learning.git
+cd Mozilla-Learning
 npm install
 node_modules/.bin/gulp watch
 ```
