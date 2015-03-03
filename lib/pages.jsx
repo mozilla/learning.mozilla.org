@@ -2,16 +2,14 @@ var React = require('react');
 
 var Page = require('./page.jsx');
 var HeroUnit = require('./hero-unit.jsx');
-var Homepage = require('./homepage.jsx');
+var renderHomepage = require('./homepage.jsx');
 var Ia = require('./ia.jsx');
 
 var PAGES = {
-  '/': function() {
-    return <Homepage/>;
-  },
+  '/': renderHomepage,
   '/foo/': function() {
     return (
-      <Page>
+      <Page className="teaching-materials">
         <HeroUnit image="http://placekitten.com/g/1024/480">
           <h1>I am foo.</h1>
           <div><Ia href="/" className="btn btn-awsm">Meow</Ia></div>

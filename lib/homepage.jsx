@@ -66,19 +66,15 @@ var Values = React.createClass({
   }
 });
 
-var Homepage = React.createClass({
-  render: function() {
-    return (
-      <Page>
-        <HeroUnit image="img/hero-unit.jpg">
-          <h1>Unlock opportunities for all citizens of the Web.</h1>
-          <div><Ia href="/foo/" className="btn btn-awsm">Join Us</Ia></div>
-        </HeroUnit>
-        <Values/>
-        <CaseStudies/>
-      </Page>
-    );
-  }
-});
-
-module.exports = Homepage;
+module.exports = function() {
+  return (
+    <Page>
+      <HeroUnit image="img/hero-unit.jpg">
+        <h1>Unlock opportunities for all citizens of the Web.</h1>
+        <div><Ia href="/foo/" className="btn btn-awsm">Join Us</Ia></div>
+      </HeroUnit>
+      <Values/>
+      <CaseStudies/>
+    </Page>
+  );
+};
