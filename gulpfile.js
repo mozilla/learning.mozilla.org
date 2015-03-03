@@ -73,7 +73,7 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function(cb) {
     require('child_process')
       .exec('gulp generate-index-files', function(err, stdout, stderr) {
         if (err) {
-          gutil.log(gutil.colors.magenta("Error rebuilding index files!"));
+          gutil.log(gutil.colors.red.bold("Error rebuilding index files!"));
           gutil.log(stdout);
           gutil.log(stderr);
         } else {
