@@ -7,6 +7,7 @@ var gzip = require('gulp-gzip');
 var less = require('gulp-less');
 var prettify = require('gulp-prettify');
 var webpack = require('gulp-webpack');
+var plumber = require('gulp-plumber');
 
 require('node-jsx').install();
 
@@ -19,6 +20,16 @@ var BUILD_TASKS = [
   'webpack',
   'generate-index-files'
 ];
+function onError(err) {
+  gutil.log(gutil.colors.red(err));
+  gutil.beep();
+  this.emit('end');
+}
+function handleError() {
+  return plumber({
+    errorHandler: onError
+  });
+}
 
 var COPY_DIRS = [
   'img/**',
@@ -36,6 +47,7 @@ gulp.task('copy-dirs', function() {
 
 gulp.task('less', function() {
   return gulp.src(LESS_FILES)
+    .pipe(handleError())
     .pipe(less({
       paths: [path.join(__dirname, 'less')]
     }))
