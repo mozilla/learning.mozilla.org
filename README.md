@@ -16,7 +16,7 @@ Just point your browser at the `dist/index.html` file on your filesystem.
 
 ## Generating A Static Site
 
-Run `gulp` to generate a static site in `dist/` that
+Run `node_modules/.bin/gulp` to generate a static site in `dist/` that
 doesn't *require* any client-side JavaScript. This static
 site also uses `history.pushState` for navigation if the browser
 supports it.
