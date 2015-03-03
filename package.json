@@ -1,0 +1,34 @@
+{
+  "name": "mozilla-learning-html",
+  "version": "0.0.1",
+  "description": " Initial attempt at implementing Webmaker Learning front-page.",
+  "dependencies": {
+    "gulp": "^3.8.11",
+    "gulp-gzip": "^1.0.0",
+    "gulp-less": "^3.0.1",
+    "gulp-prettify": "^0.3.0",
+    "gulp-s3": "^0.3.0",
+    "gulp-util": "^3.0.4",
+    "gulp-webpack": "^1.2.0",
+    "jsx-loader": "^0.12.2",
+    "node-jsx": "^0.12.4",
+    "react": "^0.12.2",
+    "underscore": "^1.8.2",
+    "vinyl": "^0.4.6",
+    "webpack": "^1.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node_modules/.bin/gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/toolness/mozilla-learning-html.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/toolness/mozilla-learning-html/issues"
+  },
+  "homepage": "https://github.com/toolness/mozilla-learning-html"
+}

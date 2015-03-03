@@ -1,0 +1,297 @@
+@import "../vendor/bootstrap/less/variables.less";
+@import "../vendor/prefixer.less";
+
+// This used to be @screen-xs but Bootstrap deprecated it.
+@screen-teensy: 480px;
+
+@sidebarColor: #d54361;
+@footerBackgroundColor: #f1f1f1;
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+@media (min-width: @screen-md-min) {
+  .page.container-fluid {
+    min-height: 100vh;
+    .flex-block();
+    .flex-direction(column);
+  }
+
+  .page.container-fluid > .row {
+    .flex-grow(1);
+    .flex-block();
+  }
+
+  .hero-unit {
+    margin-right: -(@grid-gutter-width / 2);
+  }
+}
+
+.hero-unit {
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 450px;
+  color: white;
+  text-align: center;
+  .flex-block();
+  .flex-direction(column);
+  .justify-content(center);
+}
+
+.hero-unit h1 {
+  font-weight: 600;
+  padding: @grid-gutter-width;
+}
+
+.hero-unit .btn-awsm {
+  min-width: 150px;
+}
+
+.btn.btn-awsm {
+  background-color: #FFCE34;
+  color: #4C4F56;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-bottom: 4px solid #C4A650;
+  padding: 1rem;
+}
+
+.btn.btn-awsm:hover {
+  background-color: darken(#FFCE34, 10%);
+}
+
+a.bold-link {
+  color: #9f9f9f;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.5rem;
+  white-space: pre;
+}
+
+html.no-js .sidebar {
+  .sidebar-header .glyphicon-menu-hamburger {
+    display: none;
+  }
+
+  .collapsible-content {
+    /* The links in the sidebar are crucial to navigating the site.
+     * If JS is disabled, we want the links visible at all costs. */
+    display: block !important;
+  }
+}
+
+.sidebar {
+  background-color: @sidebarColor;
+  color: white;
+
+  a {
+    color: inherit;
+  }
+
+  .sidebar-header {
+    position: relative;
+    background-color: white;
+    font-size: 2rem;
+    color: #595a5e;
+    margin-left: -(@grid-gutter-width / 2);
+    margin-right: -(@grid-gutter-width / 2);
+    padding: (@grid-gutter-width / 4) (@grid-gutter-width / 2);
+    overflow: hidden;
+  }
+
+  .sidebar-header .corner {
+    position: absolute;
+
+    /* Ensure there isn't a sliver of empty space
+     * between the corner and adjacent elements. */
+    bottom: -1px;
+    right: -1px;
+
+    fill: @sidebarColor;
+  }
+
+  .sidebar-header .glyphicon-menu-hamburger {
+    position: absolute;
+    right: 1rem;
+    top: 2.5rem;
+    cursor: pointer;
+  }
+
+  .sidebar-login {
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+  }
+
+  .sidebar-menu a {
+    position: relative;
+    display: block;
+    margin: 0 -(@grid-gutter-width / 2);
+    padding: @grid-gutter-width / 2;
+  }
+
+  .sidebar-menu a:hover, .sidebar-menu a:focus {
+    text-decoration: none;
+    background-color: darken(@sidebarColor, 10%);
+  }
+
+  .sidebar-menu a strong {
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .sidebar-menu a .help-text {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-right: 4em;
+  }
+
+  .sidebar-menu a .glyphicon {
+    position: absolute;
+    right: 4px;
+    font-size: 15px;
+    top: calc(50% - 15px / 2);
+    color: lighten(@sidebarColor, 15%);
+  }
+}
+
+img.img-scale-to-fit {
+  width: 100%;
+
+  @media (min-width: @screen-teensy) and (max-width: @screen-xs-max) {
+    padding: 0 10%;
+  }
+}
+
+img.img-scale-to-fit.img-circle {
+  @media (max-width: @screen-xs-max) {
+    padding: 5% 25%;
+  }
+}
+
+.values {
+  padding: @grid-gutter-width 0;
+  font-size: 3rem;
+
+  @media (min-width: @screen-sm-min) {
+    .flex-block();
+    .align-items(center);
+  }
+}
+
+.case-studies {
+  @quote-symbol-size: 5rem;
+
+  blockquote {
+    font-size: 3rem;
+    text-align: center;
+    font-style: italic;
+    border: none;
+  }
+
+  .quote-symbol:before {
+    margin-left: -0.15em;
+    content: '\201C';
+  }
+
+  .quote-symbol {
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #f36b21;
+    font-family: Georgia, serif;
+    color: white;
+    padding-top: 0.05em;
+    font-size: @quote-symbol-size;
+    width: @quote-symbol-size;
+    height: @quote-symbol-size;
+  }
+
+  @media (min-width: @screen-sm-min) {
+    .row {
+      .flex-block();
+      .align-items(stretch);
+    }
+  }
+
+  .row .divider {
+    border-right: 1px solid #FFDFD0;
+  }
+
+  .case-study {
+    padding-bottom: 3rem;
+  }
+
+  .case-study img {
+    display: block;
+  }
+
+  .case-study h2 {
+    font-weight: 300;
+  }
+
+  .case-study .bold-link {
+    font-size: 1rem;
+  }
+
+  .become-a-mentor {
+    padding: 3rem 0;
+    text-align: center;
+  }
+}
+
+footer {
+  .sidebar {
+    line-height: 4rem;
+    @media (min-width: @screen-md-min) {
+      .flex-block();
+      .align-items(flex-end);
+    }
+  }
+
+  .sidebar a {
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  > div {
+    padding: @grid-gutter-width 0;
+  }
+
+  > .content {
+    background: @footerBackgroundColor;
+  }
+
+  > .content a {
+    color: @sidebarColor;
+  }
+
+  .logos > div {
+    padding: 0 @grid-gutter-width;
+  }
+
+  .logos a img {
+    height: 100px;
+    padding-bottom: @grid-gutter-width;
+  }
+
+  .logos a img.maker-party {
+    // This is just a hack to make the logo a bit smaller, so it looks
+    // about the same size as the other logos.
+    //
+    // TODO: Accomplish the same thing in a non-hacky way.
+    padding-top: 12px;
+  }
+
+  .hive-cities {
+    font-size: 1rem;
+  }
+
+  .hive-cities .more-link {
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: underline;
+  }
+}
