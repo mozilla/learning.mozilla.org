@@ -1,10 +1,10 @@
 var React = require('react');
 
-var main = require('./main.jsx');
+var pages = require('./pages.jsx');
 
 function generate(url, options) {
   options = options || {};
-  var reactElement = main.reactElementForPage(url || '/');
+  var reactElement = pages.reactElementForPage(url || '/');
   var pageHTML = React.renderToString(reactElement);
 
   // Make sure any changes to this file are reflected in
@@ -38,4 +38,4 @@ function generate(url, options) {
 exports.generate = generate;
 exports.CSS_FILENAME = "styles.css";
 exports.JS_FILENAME = "bundle.js";
-exports.URLS = Object.keys(main.PAGES);
+exports.URLS = pages.URLS;

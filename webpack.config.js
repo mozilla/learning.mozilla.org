@@ -5,7 +5,7 @@ require('node-jsx').install();
 var index = require('./lib/index-static.jsx');
 
 module.exports = {
-  entry: './lib/index-static.jsx',
+  entry: './lib/main.jsx',
   output: {
     path: __dirname + '/dist',
     filename: index.JS_FILENAME
