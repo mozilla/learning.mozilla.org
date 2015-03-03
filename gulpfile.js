@@ -10,7 +10,7 @@ var webpack = require('gulp-webpack');
 
 require('node-jsx').install();
 
-var IndexFileStream = require('./gulp-index-file-stream');
+var IndexFileStream = require('./lib/gulp-index-file-stream');
 var webpackConfig = require('./webpack.config');
 
 var BUILD_TASKS = [
@@ -49,7 +49,7 @@ gulp.task('webpack', function() {
 });
 
 gulp.task('generate-index-files', function() {
-  return new IndexFileStream(require('./index-static.jsx'))
+  return new IndexFileStream(require('./lib/index-static.jsx'))
     .pipe(prettify({indent_size: 2}))
     .pipe(gulp.dest('./dist'));
 });
@@ -64,7 +64,7 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function(cb) {
     .pipe(gulp.dest('./dist'));
 
   gulp.watch([
-    '*.jsx'
+    'lib/**'
   ], function() {
     gutil.log('Rebuilding index HTML files.');
 
