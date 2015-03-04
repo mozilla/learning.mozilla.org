@@ -13,7 +13,7 @@ var CaseStudy = React.createClass({
       <div className="col-sm-4 col-sm-offset-1 case-study">
         <img className="img-scale-to-fit" src={study.img}/>
         <h2>{study.name}</h2>
-        <p>{study.description} <a href="#" className="bold-link">Read More</a></p>
+        <p>{study.description} <a href="" className="bold-link">Read More</a></p>
       </div>
     );
   }
@@ -45,7 +45,7 @@ var CaseStudies = React.createClass({
           <CaseStudy study={this.CASE_STUDIES[1]}/>
         </div>
         <div className="become-a-mentor">
-          <a href="#" className="btn btn-awsm">Become A Mentor</a>
+          <a href="" className="btn btn-awsm">Become A Mentor</a>
         </div>
       </div>
     );
@@ -60,7 +60,7 @@ var Values = React.createClass({
           <img src="/img/values.jpg" className="img-circle img-scale-to-fit"/>
         </div>
         <div className="col-sm-6">
-           Join our community of educators, parents, techies and makers who want to teach digital skills and web literacy through making. <a href="#" className="bold-link">Learn More</a>
+           Join our community of educators, parents, techies and makers who want to teach digital skills and web literacy through making. <a href="" className="bold-link">Learn More</a>
         </div>
       </div>
     );
