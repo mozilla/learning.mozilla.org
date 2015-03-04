@@ -11,6 +11,7 @@ var webpack = require('gulp-webpack');
 var plumber = require('gulp-plumber');
 
 require('node-jsx').install();
+require('react-a11y')();
 
 var IndexFileStream = require('./lib/gulp-index-file-stream');
 var webpackConfig = require('./webpack.config');
