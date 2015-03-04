@@ -15,6 +15,7 @@
     "node-jsx": "^0.12.4",
     "path-posix": "^1.0.0",
     "react": "^0.12.2",
+    "react-a11y": "0.0.6",
     "underscore": "^1.8.2",
     "vinyl": "^0.4.6",
     "webpack": "^1.6.0"
