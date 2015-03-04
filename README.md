@@ -9,14 +9,6 @@ front-page.
 
 To get a local version of teach.webmaker.org running, you'll need to have [git](http://git-scm.com/) and [node](http://nodejs.org/) installed on your local machine.
 
-You'll also need to **globally install [gulp](http://gulpjs.com/)**, which we use for building front-end assets:
-
-```bash
-npm install -g gulp
-```
-
-*Note: If you get errors globally installing gulp, try `sudo npm install -g gulp`.*
-
 ### Clone
 
 In order to contribute to Webmaker Mobile, you'll need to **create your own fork** of Webmaker Mobile and make pull-requests against our master branch.
@@ -34,7 +26,7 @@ To start developing, all you need to do is run the following in the `teach.webma
 
 ```bash
 npm install
-gulp dev
+npm start
 ```
 
 This will start a webserver for you at `http://localhost:8008`, and run a `watch` process so that your front-end assets will be regenerated as you make changes.
