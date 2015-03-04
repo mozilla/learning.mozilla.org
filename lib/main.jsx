@@ -2,7 +2,6 @@ var React = require('react');
 var Router = require('react-router');
 
 var config = require('./config');
-var windowUtil = require('./window-util');
 var pages = require('./pages.jsx');
 
 function startRunningSite() {
