@@ -1,8 +1,9 @@
 var React = require('react');
+var Router = require('react-router');
+var Link = Router.Link;
 
 var Page = require('./page.jsx');
 var HeroUnit = require('./hero-unit.jsx');
-var Ia = require('./ia.jsx');
 
 var CaseStudy = React.createClass({
   render: function() {
@@ -22,12 +23,12 @@ var CaseStudies = React.createClass({
   CASE_STUDIES: [
     {
       name: "Sadia's story",
-      img: "img/sadia.jpg",
+      img: "/img/sadia.jpg",
       description: "This is a story about how a young girl started a Webmaker club at her school in Bangladesh in order to teach other kids how to code."
     },
     {
       name: "Masud's story",
-      img: "img/masud.jpg",
+      img: "/img/masud.jpg",
       description: "This is a story about how a young man got certification through our program and was able to find a job to support his family."
     }
   ],
@@ -56,7 +57,7 @@ var Values = React.createClass({
     return (
       <div className="values row">
         <div className="col-sm-4 col-sm-offset-1">
-          <img src="img/values.jpg" className="img-circle img-scale-to-fit"/>
+          <img src="/img/values.jpg" className="img-circle img-scale-to-fit"/>
         </div>
         <div className="col-sm-6">
            Join our community of educators, parents, techies and makers who want to teach digital skills and web literacy through making. <a href="#" className="bold-link">Learn More</a>
@@ -69,14 +70,14 @@ var Values = React.createClass({
 var Homepage = React.createClass({
   render: function() {
     return (
-      <Page>
-        <HeroUnit image="img/hero-unit.jpg">
+      <div>
+        <HeroUnit image="/img/hero-unit.jpg">
           <h1>Unlock opportunities for all citizens of the Web.</h1>
-          <div><Ia href="/foo/" className="btn btn-awsm">Join Us</Ia></div>
+          <div><Link to="foo/" className="btn btn-awsm">Join Us</Link></div>
         </HeroUnit>
         <Values/>
         <CaseStudies/>
-      </Page>
+      </div>
     );
   }
 });

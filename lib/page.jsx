@@ -1,4 +1,6 @@
 var React = require('react');
+var Router = require('react-router');
+var RouteHandler = Router.RouteHandler;
 
 var Sidebar = require('./sidebar.jsx');
 var Footer = require('./footer.jsx');
@@ -10,7 +12,7 @@ var Page = React.createClass({
         <div className="row">
           <Sidebar/>
           <div className="content col-md-9">
-            {this.props.children}
+            <RouteHandler/>
           </div>
         </div>
         <Footer/>
