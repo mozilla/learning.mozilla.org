@@ -2,18 +2,18 @@ var React = require('react');
 var Router = require('react-router');
 
 var config = require('./config');
-var pages = require('./pages.jsx');
+var routes = require('./routes.jsx');
 
 function startRunningSite() {
   var url = document.querySelector('meta[name=url]').getAttribute('value');
   var pageHolder = document.getElementById('page-holder');
 
   if (config.ENABLE_PUSHSTATE) {
-    pages.run(Router.HistoryLocation, pageHolder);
+    routes.run(Router.HistoryLocation, pageHolder);
   } else {
     if (!window.location.hash.slice(1))
       window.location.hash = '#' + url;
-    pages.run(Router.HashLocation, pageHolder);
+    routes.run(Router.HashLocation, pageHolder);
   }
 }
 

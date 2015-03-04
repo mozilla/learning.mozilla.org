@@ -1,6 +1,6 @@
 var React = require('react');
 
-var pages = require('./pages.jsx');
+var routes = require('./routes.jsx');
 
 function generateWithPageHTML(url, options, pageHTML) {
   options = options || {};
@@ -33,7 +33,7 @@ function generateWithPageHTML(url, options, pageHTML) {
 }
 
 function generate(url, options, cb) {
-  pages.generateStatic(url, function(html) {
+  routes.generateStatic(url, function(html) {
     cb(generateWithPageHTML(url, options, html));
   });
 };
@@ -41,4 +41,4 @@ function generate(url, options, cb) {
 exports.generate = generate;
 exports.CSS_FILENAME = "styles.css";
 exports.JS_FILENAME = "bundle.js";
-exports.URLS = pages.URLS;
+exports.URLS = routes.URLS;
