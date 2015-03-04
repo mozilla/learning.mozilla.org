@@ -10,6 +10,10 @@ var renderPage = null;
 // 'internal', i.e. on the same site. Might want to revisit this
 // name later if it's really confusing.
 var Ia = React.createClass({
+  propTypes: {
+    'href': React.PropTypes.string.isRequired,
+    'className': React.PropTypes.string
+  },
   statics: {
     setRenderPageHandler: function(f) {
       renderPage = f;
