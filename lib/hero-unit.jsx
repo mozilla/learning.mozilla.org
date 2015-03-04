@@ -1,6 +1,9 @@
 var React = require('react');
 
 var HeroUnit = React.createClass({
+  propTypes: {
+    'image': React.PropTypes.string.isRequired
+  },
   render: function() {
     return (
       <div className="row">
