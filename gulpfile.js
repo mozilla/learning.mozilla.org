@@ -96,7 +96,9 @@ gulp.task('generate-index-files', function() {
 
 gulp.task('default', BUILD_TASKS);
 
-gulp.task('watch', _.without(BUILD_TASKS, 'webpack').concat('server'), function(cb) {
+gulp.task ('dev', ['watch', 'server']);
+
+gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function(cb) {
   gulp.src(webpackConfig.entry)
     .pipe(webpack(_.extend({
       watch: true
