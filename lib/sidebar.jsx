@@ -55,7 +55,7 @@ var Sidebar = React.createClass({
     return (
       <div className="sidebar col-md-3">
         <div className="sidebar-header">
-          <img src="img/wm-logo.png"/> Mozilla Learning
+          <img src="img/wm-logo.png" alt="Webmaker Logo"/> Mozilla Learning
           <span className="glyphicon glyphicon-menu-hamburger hidden-lg hidden-md"
                 onClick={this.handleHamburgerClick}/>
           <TriangleCorner className="hidden-xs hidden-sm" height={40}/>
