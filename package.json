@@ -11,6 +11,7 @@
     "gulp-s3": "^0.3.0",
     "gulp-util": "^3.0.4",
     "gulp-webpack": "^1.2.0",
+    "gulp-webserver": "^0.9.0",
     "jsx-loader": "^0.12.2",
     "node-jsx": "^0.12.4",
     "path-posix": "^1.0.0",
@@ -24,7 +25,8 @@
   "scripts": {
     "test": "gulp test",
     "build": "gulp",
-    "start": "gulp watch"
+    "start": "gulp dev",
+    "watch": "gulp watch"
   },
   "repository": {
     "type": "git",
