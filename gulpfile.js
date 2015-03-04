@@ -19,8 +19,7 @@ var BUILD_TASKS = [
   'copy-dirs',
   'less',
   'webpack',
-  'generate-index-files',
-  'server'
+  'generate-index-files'
 ];
 
 var COPY_DIRS = [
@@ -97,7 +96,7 @@ gulp.task('generate-index-files', function() {
 
 gulp.task('default', BUILD_TASKS);
 
-gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function(cb) {
+gulp.task('watch', _.without(BUILD_TASKS, 'webpack').concat('server'), function(cb) {
   gulp.src(webpackConfig.entry)
     .pipe(webpack(_.extend({
       watch: true
