@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/MozillaFoundation/Mozilla-Learning.svg?branch=master)](https://travis-ci.org/MozillaFoundation/Mozilla-Learning)
+[![Build Status](https://travis-ci.org/mozilla/teach.webmaker.org.svg)](https://travis-ci.org/mozilla/teach.webmaker.org)
 
 This is an initial attempt at implementing the Webmaker Learning
 front-page.
@@ -6,8 +6,8 @@ front-page.
 ## Quick Start
 
 ```
-git clone git@github.com:MozillaFoundation/Mozilla-Learning.git
-cd Mozilla-Learning
+git clone git@github.com:mozilla/teach.webmaker.org.git
+cd teach.webmaker.org
 npm install
 npm start
 ```
