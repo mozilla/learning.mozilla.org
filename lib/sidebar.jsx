@@ -55,7 +55,7 @@ var Sidebar = React.createClass({
     return (
       <div className="sidebar col-md-3">
         <div className="sidebar-header">
-          <img src="/img/wm-logo.png"/> Mozilla Learning
+          <img src="/img/wm-logo.png" alt="Webmaker logo"/> Mozilla Learning
           <span className="glyphicon glyphicon-menu-hamburger hidden-lg hidden-md"
                 onClick={this.handleHamburgerClick}/>
           <TriangleCorner className="hidden-xs hidden-sm" height={40}/>
@@ -64,13 +64,13 @@ var Sidebar = React.createClass({
                         ? "collapsible-content"
                         : "hidden-xs hidden-sm collapsible-content"}>
           <div className="sidebar-login">
-            <a href="#">Create an account</a> | <a href="#">Log in</a>
+            <a href="">Create an account</a> | <a href="">Log in</a>
           </div>
           <ul className="sidebar-menu list-unstyled">
             {this.MENU_ENTRIES.map(function(entry, i) {
               return (
                 <li key={i}>
-                  <a href="#">
+                  <a href="">
                     <strong>{entry.name}</strong>
                     <div className="help-text hidden-xs hidden-sm">{entry.help}</div>
                     <span className="glyphicon glyphicon-menu-right"></span>
