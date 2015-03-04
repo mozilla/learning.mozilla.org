@@ -6,8 +6,10 @@ var gutil = require('gulp-util');
 var s3 = require('gulp-s3');
 var gzip = require('gulp-gzip');
 var less = require('gulp-less');
+var sourcemaps = require('gulp-sourcemaps');
 var prettify = require('gulp-prettify');
-var webpack = require('gulp-webpack');
+var gulpWebpack = require('gulp-webpack');
+var webpack = require('webpack');
 var plumber = require('gulp-plumber');
 
 require('node-jsx').install();
@@ -51,18 +53,24 @@ gulp.task('copy-dirs', function() {
   }).pipe(gulp.dest('./dist'));
 });
 
-gulp.task('less', function() {
-  return gulp.src(LESS_FILES)
-    .pipe(handleError())
+gulp.task('less', function () {
+  return gulp.src('./less/**/*.less')
+    .pipe(sourcemaps.init())
     .pipe(less({
-      paths: [path.join(__dirname, 'less')]
+      paths: [ './' ]
     }))
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('webpack', function() {
+  webpackConfig.devtool = 'source-map';
+  webpackConfig.plugin = [
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin()
+  ];
   return gulp.src(webpackConfig.entry)
-    .pipe(webpack(webpackConfig))
+    .pipe(gulpWebpack(webpackConfig))
     .pipe(gulp.dest('./dist'));
 });
 
@@ -93,17 +101,19 @@ gulp.task('test-react-warnings', function() {
 
 gulp.task('generate-index-files', function() {
   return new IndexFileStream(require('./lib/index-static.jsx'))
-    .pipe(prettify({indent_size: 2}))
+    .pipe(prettify({
+      indent_size: 2
+    }))
     .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('default', BUILD_TASKS);
 
-gulp.task ('dev', ['watch', 'server']);
+gulp.task('dev', ['watch', 'server']);
 
 gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function(cb) {
   gulp.src(webpackConfig.entry)
-    .pipe(webpack(_.extend({
+    .pipe(gulpWebpack(_.extend({
       watch: true
     }, webpackConfig)))
     .pipe(gulp.dest('./dist'));
@@ -135,13 +145,14 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function(cb) {
   gulp.watch(LESS_FILES, ['less']);
 });
 
-gulp.task('server', function () {
+gulp.task('server', function() {
   return gulp.src('dist')
     .pipe(webserver({
       livereload: {
         enable: true
       },
-      port: 8008
+      port: 8008,
+      fallback: 'index.html'
     }));
 });
 
@@ -151,7 +162,7 @@ gulp.task('s3', BUILD_TASKS, function() {
 
   if (!key || !secret)
     throw new Error('Please set AWS_ACCESS_KEY and AWS_SECRET_KEY ' +
-                    'in your environment.');
+      'in your environment.');
 
   return gulp.src('./dist/**')
     .pipe(gzip())
