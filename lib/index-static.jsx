@@ -2,10 +2,8 @@ var React = require('react');
 
 var pages = require('./pages.jsx');
 
-function generate(url, options) {
+function generateWithPageHTML(url, options, pageHTML) {
   options = options || {};
-  var reactElement = pages.reactElementForPage(url || '/');
-  var pageHTML = React.renderToString(reactElement);
 
   // Make sure any changes to this file are reflected in
   // index.html too.
@@ -33,6 +31,12 @@ function generate(url, options) {
   );
 
   return '<!DOCTYPE html>' + React.renderToStaticMarkup(content);
+}
+
+function generate(url, options, cb) {
+  pages.generateStatic(url, function(html) {
+    cb(generateWithPageHTML(url, options, html));
+  });
 };
 
 exports.generate = generate;

@@ -1,37 +1,26 @@
 var React = require('react');
+var Router = require('react-router');
 
 var config = require('./config');
 var windowUtil = require('./window-util');
 var pages = require('./pages.jsx');
-var Ia = require('./ia.jsx');
-
-function renderPage(url) {
-  React.render(
-    pages.reactElementForPage(url),
-    document.getElementById('page-holder')
-  );
-}
 
 function startRunningSite() {
   var url = document.querySelector('meta[name=url]').getAttribute('value');
   var baseEl = document.querySelector('base[href]');
+  var pageHolder = document.getElementById('page-holder');
 
   baseEl.setAttribute('href', windowUtil.getAbsoluteURL('/'));
 
   if (config.ENABLE_PUSHSTATE) {
-    window.history.replaceState({
-      url: url
-    }, '', windowUtil.getAbsoluteURL(url));
-    window.addEventListener('popstate', function(e) {
-      if (e.state && e.state.url)
-        renderPage(e.state.url);
-    });
+    pages.run(Router.HistoryLocation, pageHolder);
+  } else {
+    if (!window.location.hash.slice(1))
+      window.location.hash = '#' + url;
+    pages.run(Router.HashLocation, pageHolder);
   }
-
-  renderPage(url);
 }
 
 if (config.IN_STATIC_SITE) {
   startRunningSite();
-  Ia.setRenderPageHandler(renderPage);
 }

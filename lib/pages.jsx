@@ -1,36 +1,46 @@
 var React = require('react');
+var Router = require('react-router');
+var Route = Router.Route;
+var Link = Router.Link;
+var DefaultRoute = Router.DefaultRoute;
 
 var Page = require('./page.jsx');
 var HeroUnit = require('./hero-unit.jsx');
 var Homepage = require('./homepage.jsx');
-var Ia = require('./ia.jsx');
 
-var PAGES = {
-  '/': function() {
-    return <Homepage/>;
-  },
-  '/foo/': function() {
+var Foo = React.createClass({
+  render: function() {
     return (
-      <Page>
+      <div>
         <HeroUnit image="http://placekitten.com/g/1024/480">
           <h1>I am foo.</h1>
-          <div><Ia href="/" className="btn btn-awsm">Meow</Ia></div>
+          <div><Link to="/" className="btn btn-awsm">Meow</Link></div>
         </HeroUnit>
         <h2>Content can go here.</h2>
-      </Page>
+      </div>
     );
   }
+});
+
+var routes = (
+  <Route handler={Page}>
+    <Route name="foo/" handler={Foo}/>
+    <DefaultRoute handler={Homepage}/>
+  </Route>
+);
+
+// TODO: We should dynamically generate this by traversing through
+// routes.
+exports.URLS = ['/', '/foo/'];
+
+exports.generateStatic = function(url, cb) {
+  Router.run(routes, url, function(Handler) {
+    cb(React.renderToString(<Handler/>));
+  });
 };
 
-function pageNotFound() {
-  return <h1>Page not found</h1>;
-}
-
-function reactElementForPage(url) {
-  var reactElementFactory = PAGES[url] || pageNotFound;
-  return reactElementFactory();
-}
-
-exports.PAGES = PAGES;
-exports.URLS = Object.keys(PAGES);
-exports.reactElementForPage = reactElementForPage;
+exports.run = function(location, el) {
+  Router.run(routes, location, function(Handler) {
+    React.render(<Handler/>, el);
+  });
+};

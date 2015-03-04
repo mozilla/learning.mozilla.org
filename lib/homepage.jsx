@@ -1,8 +1,9 @@
 var React = require('react');
+var Router = require('react-router');
+var Link = Router.Link;
 
 var Page = require('./page.jsx');
 var HeroUnit = require('./hero-unit.jsx');
-var Ia = require('./ia.jsx');
 
 var CaseStudy = React.createClass({
   render: function() {
@@ -69,14 +70,14 @@ var Values = React.createClass({
 var Homepage = React.createClass({
   render: function() {
     return (
-      <Page>
+      <div>
         <HeroUnit image="img/hero-unit.jpg">
           <h1>Unlock opportunities for all citizens of the Web.</h1>
-          <div><Ia href="/foo/" className="btn btn-awsm">Join Us</Ia></div>
+          <div><Link to="foo/" className="btn btn-awsm">Join Us</Link></div>
         </HeroUnit>
         <Values/>
         <CaseStudies/>
-      </Page>
+      </div>
     );
   }
 });
