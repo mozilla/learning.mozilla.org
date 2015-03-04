@@ -1,6 +1,10 @@
 var React = require('react');
 
 var TriangleCorner = React.createClass({
+  propTypes: {
+    'height': React.PropTypes.number.isRequired,
+    'className': React.PropTypes.string
+  },
   render: function() {
     var height = this.props.height;
     var width = Math.floor(height / Math.sqrt(3));
