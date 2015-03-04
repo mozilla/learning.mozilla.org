@@ -1,4 +1,5 @@
 var path = require('path');
+var webserver = require('gulp-webserver');
 var _ = require('underscore');
 var gulp = require('gulp');
 var gutil = require('gulp-util');
@@ -95,6 +96,8 @@ gulp.task('generate-index-files', function() {
 
 gulp.task('default', BUILD_TASKS);
 
+gulp.task ('dev', ['watch', 'server']);
+
 gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function(cb) {
   gulp.src(webpackConfig.entry)
     .pipe(webpack(_.extend({
@@ -127,6 +130,16 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function(cb) {
 
   gulp.watch(COPY_DIRS, ['copy-dirs']);
   gulp.watch(LESS_FILES, ['less']);
+});
+
+gulp.task('server', function () {
+  return gulp.src('dist')
+    .pipe(webserver({
+      livereload: {
+        enable: true
+      },
+      port: 8008
+    }));
 });
 
 gulp.task('s3', BUILD_TASKS, function() {
