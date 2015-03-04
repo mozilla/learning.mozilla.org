@@ -64,13 +64,13 @@ var Sidebar = React.createClass({
                         ? "collapsible-content"
                         : "hidden-xs hidden-sm collapsible-content"}>
           <div className="sidebar-login">
-            <a href="#">Create an account</a> | <a href="#">Log in</a>
+            <a href="">Create an account</a> | <a href="">Log in</a>
           </div>
           <ul className="sidebar-menu list-unstyled">
             {this.MENU_ENTRIES.map(function(entry, i) {
               return (
                 <li key={i}>
-                  <a href="#">
+                  <a href="">
                     <strong>{entry.name}</strong>
                     <div className="help-text hidden-xs hidden-sm">{entry.help}</div>
                     <span className="glyphicon glyphicon-menu-right"></span>
