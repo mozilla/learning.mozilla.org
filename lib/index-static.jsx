@@ -40,5 +40,5 @@ function generate(url, options, cb) {
 
 exports.generate = generate;
 exports.CSS_FILENAME = "styles.css";
-exports.JS_FILENAME = "bundle.js";
+exports.JS_FILENAME = "js/bundle.js";
 exports.URLS = routes.URLS;
