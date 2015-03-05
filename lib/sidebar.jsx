@@ -11,7 +11,7 @@ var TriangleCorner = React.createClass({
     var points = [
       [0, height].join(','),
       [width, height].join(','),
-      [width, 0].join(',')    
+      [width, 0].join(',')
     ];
 
     return (
@@ -56,8 +56,8 @@ var Sidebar = React.createClass({
       <div className="sidebar col-md-3">
         <div className="sidebar-header">
           <img src="/img/wm-logo.png" alt="Webmaker logo"/> Mozilla Learning
-          <span className="glyphicon glyphicon-menu-hamburger hidden-lg hidden-md"
-                onClick={this.handleHamburgerClick}/>
+          <span aria-label="toggle" role="button" onKeyUp={this.handleHamburgerClick} onKeyDown={this.handleHamburgerClick} className="glyphicon glyphicon-menu-hamburger hidden-lg hidden-md"
+                onClick={this.handleHamburgerClick} tabIndex="0" />
           <TriangleCorner className="hidden-xs hidden-sm" height={40}/>
         </div>
         <div className={this.state.showCollapsibleContent
