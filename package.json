@@ -16,8 +16,10 @@
     "jsx-loader": "^0.12.2",
     "merge-stream": "^0.1.7",
     "mocha": "^2.1.0",
+    "mocha-phantomjs": "^3.5.3",
     "node-jsx": "^0.12.4",
     "path-posix": "^1.0.0",
+    "phantomjs": "^1.9.16",
     "react": "^0.12.2",
     "react-a11y": "0.0.6",
     "react-router": "^0.12.4",
@@ -28,7 +30,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "gulp test && mocha test/*.test.js",
+    "test": "gulp test && mocha test/*.test.js && mocha-phantomjs dist/test/index.html",
     "build": "gulp",
     "start": "gulp watch"
   },

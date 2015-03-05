@@ -7,8 +7,12 @@
 <script>
 mocha.setup('bdd');
 </script>
-<script src="/commons.bundle.js"></script>
-<script src="/tests.bundle.js"></script>
+<script src="../commons.bundle.js"></script>
+<script src="../tests.bundle.js"></script>
 <script>
-mocha.run();
+if (window.mochaPhantomJS) {
+  mochaPhantomJS.run();
+} else {
+  mocha.run();
+}
 </script>
