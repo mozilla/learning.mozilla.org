@@ -58,7 +58,7 @@ string), the boolean is true; otherwise, it's false.
   [conversation on sourcemaps][sourcemaps-wtf].
 
 * `ENABLE_REACT_A11Y` is a boolean that enables [react-a11y][]
-  accessibility warnings. Once #138 is fixed, we'll get rid of this
+  accessibility warnings. Once [#138][] is fixed, we'll get rid of this
   environment variable and the warnings will *always* be enabled.
 
 ## References
@@ -75,3 +75,5 @@ string), the boolean is true; otherwise, it's false.
   [`devtool`]: http://webpack.github.io/docs/configuration.html#devtool
   [sourcemaps-wtf]: https://github.com/mozilla/teach.webmaker.org/pull/147#discussion-diff-25879885
   [react-a11y]: https://github.com/rackt/react-a11y#readme
+  [#138]: https://github.com/mozilla/teach.webmaker.org/issues/138
+
