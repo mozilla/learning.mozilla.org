@@ -14,12 +14,5 @@ module.exports = {
     loaders: [
       {test: /\.jsx$/, loader: "jsx-loader"}
     ]
-  },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    })
-  ]
+  }
 };
