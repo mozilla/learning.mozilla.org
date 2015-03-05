@@ -33,6 +33,7 @@ var routes = (
   </Route>
 );
 
+// TODO: come up with a better solution for nested route if we will ever have that.
 React.Children.forEach(routes.props.children, function(item) {
   urls.push(item.props.name);
 });
