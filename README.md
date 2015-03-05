@@ -66,7 +66,7 @@ via `npm run smoketest`.
 Unit tests are spread across two different testing
 environments.
 
-Both environments the [mocha][] test runner and [should][]
+Both environments use the [mocha][] test runner and [should][]
 for assertions.
 
 ##### Node Tests
