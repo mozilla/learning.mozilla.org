@@ -24,7 +24,8 @@ function generateWithPageHTML(url, options, pageHTML) {
         <div id="page-holder" dangerouslySetInnerHTML={{
           __html: pageHTML
         }}></div>
-        <script src={'/' + exports.JS_FILENAME}></script>
+        <script src="/commons.bundle.js"></script>
+        <script src="/app.bundle.js"></script>
       </body>
     </html>
   );
@@ -40,5 +41,4 @@ function generate(url, options, cb) {
 
 exports.generate = generate;
 exports.CSS_FILENAME = "styles.css";
-exports.JS_FILENAME = "bundle.js";
 exports.URLS = routes.URLS;

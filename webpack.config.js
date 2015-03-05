@@ -1,19 +1,22 @@
 var webpack = require('webpack');
 
-require('node-jsx').install();
-
-var index = require('./lib/index-static.jsx');
-
 module.exports = {
-  entry: './lib/main.jsx',
+  entry: {
+    app: './lib/main.jsx',
+    tests: './test/browser/main.js'
+  },
   devtool: process.env.WEBPACK_DEVTOOL || 'source-map',
   output: {
     path: __dirname + '/dist',
-    filename: index.JS_FILENAME
+    filename: '[name].bundle.js'
   },
   module: {
     loaders: [
       {test: /\.jsx$/, loader: "jsx-loader"}
     ]
-  }
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin('commons',
+                                            'commons.bundle.js')
+  ]
 };

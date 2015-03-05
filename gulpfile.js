@@ -9,6 +9,7 @@ var less = require('gulp-less');
 var prettify = require('gulp-prettify');
 var webpack = require('gulp-webpack');
 var plumber = require('gulp-plumber');
+var merge = require('merge-stream');
 var sourcemaps = require('gulp-sourcemaps');
 
 require('node-jsx').install();
@@ -19,6 +20,7 @@ var IndexFileStream = require('./lib/gulp-index-file-stream');
 var webpackConfig = require('./webpack.config');
 
 var BUILD_TASKS = [
+  'copy-test-dirs',
   'copy-dirs',
   'less',
   'webpack',
@@ -45,6 +47,17 @@ function handleError() {
   });
 }
 
+gulp.task('copy-test-dirs', function() {
+  return merge(
+    gulp.src('test/browser/static/**', {
+      base: './test/browser/static'
+    }),
+    gulp.src('node_modules/mocha/mocha.*', {
+      base: './node_modules/mocha'
+    })
+  ).pipe(gulp.dest('./dist/test'));
+});
+
 gulp.task('copy-dirs', function() {
   return gulp.src(COPY_DIRS, {
     base: '.'
@@ -63,7 +76,7 @@ gulp.task('less', function() {
 });
 
 gulp.task('webpack', function() {
-  return gulp.src(webpackConfig.entry)
+  return gulp.src(webpackConfig.entry.app)
     .pipe(webpack(webpackConfig))
     .pipe(gulp.dest('./dist'));
 });
@@ -102,7 +115,7 @@ gulp.task('generate-index-files', function() {
 gulp.task('default', BUILD_TASKS);
 
 gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function(cb) {
-  gulp.src(webpackConfig.entry)
+  gulp.src(webpackConfig.entry.app)
     .pipe(webpack(_.extend({
       watch: true
     }, webpackConfig)))
@@ -133,6 +146,7 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function(cb) {
 
   gulp.watch(COPY_DIRS, ['copy-dirs']);
   gulp.watch(LESS_FILES, ['less']);
+  gulp.watch('test/browser/static/**', ['copy-test-dirs']);
 
   gulp.src('dist')
     .pipe(webserver({

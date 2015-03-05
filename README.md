@@ -1,7 +1,21 @@
 [![Build Status](https://travis-ci.org/mozilla/teach.webmaker.org.svg)](https://travis-ci.org/mozilla/teach.webmaker.org)
 
 This is an initial attempt at implementing the Webmaker Learning
-front-page.
+website.
+
+# Overview
+
+This software consists of two major parts:
+
+* A **static site generator** that creates a number of
+  `index.html` files in various directories which can be viewed
+  in any browser, including ones that don't support JavaScript.
+* Client-side JavaScript code that **progressively enhances**
+  the user experience based on browser capabilities.
+
+It should be noted that, based on the
+[product roadmap][roadmap], the static site generator
+may eventually evolve into becoming a dynamic server.
 
 # Get started
 
@@ -30,6 +44,43 @@ npm start
 ```
 
 This will start a webserver for you at `http://localhost:8008`, and run a `watch` process so that your front-end assets will be regenerated as you make changes.
+
+### Test
+
+Testing the code is accomplished by running `npm test`,
+which exercises a number of different aspects of the
+codebase described below.
+
+#### Static Site Generation (Smoke Test)
+
+`npm test` always generates a full static site and
+ensures that **no React warnings are raised**.
+[react-a11y][] is used to ensure that no accessibility
+issues are present.
+
+#### Unit Tests
+
+Unit tests are spread across two different testing
+environments.
+
+Both environments the [mocha][] test runner and [should][]
+for assertions.
+
+##### Node Tests
+
+These tests generally exercise the code of the static site generator
+and are located in the `test` directory.
+
+Each test file should end with `.test.js` and will be automatically
+discovered by the test suite.
+
+##### Browser Tests
+
+These tests exercise the code that runs in user's browser. They're
+located in the `test/browser` directory.
+
+Browser test files are *not* automatically discovered and should
+be explicitly `require`'d in `test/browser/main.js`.
 
 ## Generating A Static Site
 
@@ -71,5 +122,6 @@ string), the boolean is true; otherwise, it's false.
   [`devtool`]: http://webpack.github.io/docs/configuration.html#devtool
   [sourcemaps-wtf]: https://github.com/mozilla/teach.webmaker.org/pull/147#discussion-diff-25879885
   [react-a11y]: https://github.com/rackt/react-a11y#readme
-  [#138]: https://github.com/mozilla/teach.webmaker.org/issues/138
-
+  [roadmap]: https://wiki.mozilla.org/Learning/Networks/Product-Roadmap
+  [mocha]: http://mochajs.org/
+  [should]: https://www.npmjs.com/package/should
