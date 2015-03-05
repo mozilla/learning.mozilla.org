@@ -75,7 +75,7 @@ These tests generally exercise the code of the static site generator
 and are located in the `test` directory.
 
 Each test file should end with `.test.js` and will be automatically
-discovered by the test suite.
+discovered by the test runner.
 
 Individually running *only* the node unit tests can be accomplished
 via `node_modules/.bin/mocha test/*.test.js`. For more options,
@@ -83,14 +83,14 @@ see the documentation for [mocha (1)][].
 
 ##### Browser Tests
 
-These tests exercise the code that runs in user's browser. They're
+These tests exercise the code that runs in the user's browser. They're
 located in the `test/browser` directory.
 
 Browser test files are *not* automatically discovered and should
 be explicitly `require`'d in `test/browser/main.js`.
 
 Individually running *only* the browser unit tests can be accomplished
-by first running `npm dev` and then visiting http://localhost:8008/test/
+by first running `npm start` and then visiting http://localhost:8008/test/
 in your browser.
 
 ## Generating A Static Site
