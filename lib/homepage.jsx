@@ -77,7 +77,7 @@ var Homepage = React.createClass({
       <div>
         <HeroUnit image="/img/hero-unit.jpg">
           <h1>Unlock opportunities for all citizens of the Web.</h1>
-          <div><Link to="foo/" className="btn btn-awsm">Join Us</Link></div>
+          <div><Link to="/foo/" className="btn btn-awsm">Join Us</Link></div>
         </HeroUnit>
         <Values/>
         <CaseStudies/>
