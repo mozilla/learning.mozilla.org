@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": " Initial attempt at implementing Webmaker Learning front-page.",
   "dependencies": {
+    "babel": "^4.6.6",
     "gulp": "^3.8.11",
     "gulp-gzip": "^1.0.0",
     "gulp-less": "^3.0.1",
