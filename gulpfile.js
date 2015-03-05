@@ -9,6 +9,7 @@ var less = require('gulp-less');
 var prettify = require('gulp-prettify');
 var webpack = require('gulp-webpack');
 var plumber = require('gulp-plumber');
+var sourcemaps = require('gulp-sourcemaps');
 
 require('node-jsx').install();
 
@@ -54,9 +55,11 @@ gulp.task('copy-dirs', function() {
 gulp.task('less', function() {
   return gulp.src(LESS_FILES)
     .pipe(handleError())
+    .pipe(sourcemaps.init())
     .pipe(less({
       paths: [path.join(__dirname, 'less')]
     }))
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./dist'));
 });
 

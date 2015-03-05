@@ -6,6 +6,7 @@ var index = require('./lib/index-static.jsx');
 
 module.exports = {
   entry: './lib/main.jsx',
+  devtool: 'source-map',
   output: {
     path: __dirname + '/dist',
     filename: index.JS_FILENAME
