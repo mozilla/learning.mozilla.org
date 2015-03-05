@@ -5,6 +5,7 @@
 @screen-teensy: 480px;
 
 @sidebarColor: #d54361;
+@blueSidebarColor: #1F93D0;
 @footerBackgroundColor: #f1f1f1;
 
 body {
@@ -83,8 +84,27 @@ html.no-js .sidebar {
   }
 }
 
+@sidebarTransitionTime: 0.5s;
+
+.page.teaching-materials .sidebar {
+  background-color: @blueSidebarColor;
+
+  .sidebar-header .corner {
+    fill: @blueSidebarColor;
+  }
+
+  .sidebar-menu a:hover, .sidebar-menu a:focus {
+    background-color: darken(@blueSidebarColor, 10%);
+  }
+
+  .sidebar-menu a .glyphicon {
+    color: lighten(@blueSidebarColor, 15%);
+  }
+}
+
 .sidebar {
   background-color: @sidebarColor;
+  transition: background-color @sidebarTransitionTime;
   color: white;
 
   a {
@@ -111,6 +131,7 @@ html.no-js .sidebar {
     right: -1px;
 
     fill: @sidebarColor;
+    transition: fill @sidebarTransitionTime;
   }
 
   .sidebar-header .glyphicon-menu-hamburger {
@@ -135,6 +156,7 @@ html.no-js .sidebar {
   .sidebar-menu a:hover, .sidebar-menu a:focus {
     text-decoration: none;
     background-color: darken(@sidebarColor, 10%);
+    transition: background-color @sidebarTransitionTime;
   }
 
   .sidebar-menu a strong {
@@ -155,6 +177,7 @@ html.no-js .sidebar {
     font-size: 15px;
     top: calc(50% - 15px / 2);
     color: lighten(@sidebarColor, 15%);
+    transition: color @sidebarTransitionTime;
   }
 }
 
