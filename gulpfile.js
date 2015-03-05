@@ -13,8 +13,7 @@ var sourcemaps = require('gulp-sourcemaps');
 
 require('node-jsx').install();
 
-if ('ENABLE_REACT_A11Y' in process.env)
-  require('react-a11y')();
+require('react-a11y')();
 
 var IndexFileStream = require('./lib/gulp-index-file-stream');
 var webpackConfig = require('./webpack.config');
