@@ -2,7 +2,7 @@ var React = require('react');
 var Router = require('react-router');
 
 var config = require('./config');
-var routes = require('./routes');
+var routes = require('./routes.jsx');
 
 function startRunningSite() {
   var url = document.querySelector('meta[name=url]').getAttribute('value');

@@ -13,6 +13,8 @@ var webpack = require('webpack');
 var plumber = require('gulp-plumber');
 var fs = require('fs-extra');
 
+var IndexFileStream = require('./lib/gulp-index-file-stream');
+
 if ('ENABLE_REACT_A11Y' in process.env)
   require('react-a11y')();
 
@@ -31,9 +33,10 @@ var COMPILED_DIR = './dist/';
 
 var LESS_FILES = './less/**/*.less';
 
-function webpackTask(options) {console.log(options)
+function webpackTask(options) {
+  console.log(options)
   options = options || {};
-  var srcFile = './lib/main.js';
+  var srcFile = './lib/index-static.jsx';
   var outputPath = path.join(__dirname, COMPILED_DIR, 'js');
   fs.removeSync(outputPath);
   var outputName = 'bundle.js';
@@ -71,17 +74,25 @@ function handleError() {
   });
 }
 
+gulp.task('generate-index-files', function() {
+  return new IndexFileStream(require('./lib/index-static.jsx'))
+    .pipe(prettify({
+      indent_size: 2
+    }))
+    .pipe(gulp.dest('./dist'));
+});
+
 gulp.task('copy-dirs', function() {
   return gulp.src(COPY_DIRS, {
     base: '.'
   }).pipe(gulp.dest('./dist'));
 });
 
-gulp.task('less', function () {
+gulp.task('less', function() {
   return gulp.src('./less/**/*.less')
     .pipe(sourcemaps.init())
     .pipe(less({
-      paths: [ './' ]
+      paths: ['./']
     }))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./dist'));
@@ -89,14 +100,17 @@ gulp.task('less', function () {
 
 // gulp.task('webpack', webpackTask({sourcemaps: true}));
 // gulp.task('webpack-optimized', webpackTask({optimize: true}));
-gulp.task('watch-webpack', webpackTask({ watch: true, sourcemaps: true }));
+gulp.task('watch-webpack', webpackTask({
+  watch: true,
+  sourcemaps: true
+}));
 
 gulp.task('build', BUILD_TASKS);
 
-gulp.task('dev', ['watch-less', 'watch-webpack', 'server']);
+gulp.task('dev', ['watch-less', 'watch-webpack',   'generate-index-files', 'server']);
 
-gulp.task('watch-less', ['less'], function () {
-    gulp.watch('./less/**/*.less', ['less']);
+gulp.task('watch-less', ['less'], function() {
+  gulp.watch('./less/**/*.less', ['less']);
 });
 
 gulp.task('server', function() {

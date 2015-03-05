@@ -11,7 +11,7 @@ var TriangleCorner = React.createClass({
     var points = [
       [0, height].join(','),
       [width, height].join(','),
-      [width, 0].join(',')    
+      [width, 0].join(',')
     ];
 
     return (
