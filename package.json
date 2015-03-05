@@ -26,8 +26,7 @@
   "scripts": {
     "test": "gulp test",
     "build": "gulp",
-    "start": "gulp dev",
-    "watch": "gulp watch"
+    "start": "gulp watch"
   },
   "repository": {
     "type": "git",
