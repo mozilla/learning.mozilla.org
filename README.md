@@ -57,10 +57,6 @@ string), the boolean is true; otherwise, it's false.
   trade-offs between different options for development, see our
   [conversation on sourcemaps][sourcemaps-wtf].
 
-* `ENABLE_REACT_A11Y` is a boolean that enables [react-a11y][]
-  accessibility warnings. Once [#138][] is fixed, we'll get rid of this
-  environment variable and the warnings will *always* be enabled.
-
 ## References
 
 * [Cassie's original PSD files][psd]
