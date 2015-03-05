@@ -5,6 +5,7 @@ module.exports = {
     app: './lib/main.jsx',
     tests: './test/browser/main.js'
   },
+  devtool: process.env.WEBPACK_DEVTOOL || 'source-map',
   output: {
     path: __dirname + '/dist',
     filename: '[name].bundle.js'

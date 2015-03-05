@@ -6,9 +6,11 @@ var Sidebar = require('./sidebar.jsx');
 var Footer = require('./footer.jsx');
 
 var Page = React.createClass({
+  mixins: [Router.State],
   render: function() {
+    var pageClassName = this.getRoutes()[1].handler.pageClassName || '';
     return (
-      <div className="page container-fluid">
+      <div className={"page container-fluid " + pageClassName}>
         <div className="row">
           <Sidebar/>
           <div className="content col-md-9">

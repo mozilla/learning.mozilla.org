@@ -10,6 +10,7 @@ var prettify = require('gulp-prettify');
 var webpack = require('gulp-webpack');
 var plumber = require('gulp-plumber');
 var merge = require('merge-stream');
+var sourcemaps = require('gulp-sourcemaps');
 
 require('node-jsx').install();
 
@@ -67,9 +68,11 @@ gulp.task('copy-dirs', function() {
 gulp.task('less', function() {
   return gulp.src(LESS_FILES)
     .pipe(handleError())
+    .pipe(sourcemaps.init())
     .pipe(less({
       paths: [path.join(__dirname, 'less')]
     }))
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./dist'));
 });
 
@@ -112,8 +115,6 @@ gulp.task('generate-index-files', function() {
 
 gulp.task('default', BUILD_TASKS);
 
-gulp.task ('dev', ['watch', 'server']);
-
 gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function(cb) {
   gulp.src(webpackConfig.entry.app)
     .pipe(webpack(_.extend({
@@ -147,10 +148,8 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function(cb) {
   gulp.watch(COPY_DIRS, ['copy-dirs']);
   gulp.watch(LESS_FILES, ['less']);
   gulp.watch('test/browser/static/**', ['copy-test-dirs']);
-});
 
-gulp.task('server', function () {
-  return gulp.src('dist')
+  gulp.src('dist')
     .pipe(webserver({
       livereload: {
         enable: true
