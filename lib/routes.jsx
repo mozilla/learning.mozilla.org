@@ -9,6 +9,9 @@ var HeroUnit = require('./hero-unit.jsx');
 var Homepage = require('./homepage.jsx');
 
 var Foo = React.createClass({
+  statics: {
+    pageClassName: 'teaching-materials'
+  },
   render: function() {
     return (
       <div>
