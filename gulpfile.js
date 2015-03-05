@@ -81,10 +81,10 @@ gulp.task('webpack', function() {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('test', BUILD_TASKS.concat([
+gulp.task('smoketest', BUILD_TASKS.concat([
   'test-react-warnings'
 ]), function() {
-  gutil.log(gutil.colors.green.bold("Yay, tests pass!"));
+  gutil.log(gutil.colors.green.bold("Yay, smoke test passes!"));
 });
 
 gulp.task('test-react-warnings', function() {

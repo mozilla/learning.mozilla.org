@@ -47,16 +47,19 @@ This will start a webserver for you at `http://localhost:8008`, and run a `watch
 
 ### Test
 
-Testing the code is accomplished by running `npm test`,
+Fully testing the code is accomplished by running `npm test`,
 which exercises a number of different aspects of the
 codebase described below.
 
 #### Static Site Generation (Smoke Test)
 
-`npm test` always generates a full static site and
+This generates a full static site and
 ensures that **no React warnings are raised**.
 [react-a11y][] is used to ensure that no accessibility
 issues are present.
+
+Individually running *only* the smoke test can be accomplished
+via `npm run smoketest`.
 
 #### Unit Tests
 
@@ -74,6 +77,10 @@ and are located in the `test` directory.
 Each test file should end with `.test.js` and will be automatically
 discovered by the test suite.
 
+Individually running *only* the node unit tests can be accomplished
+via `node_modules/.bin/mocha test/*.test.js`. For more options,
+see the documentation for [mocha (1)][].
+
 ##### Browser Tests
 
 These tests exercise the code that runs in user's browser. They're
@@ -81,6 +88,10 @@ located in the `test/browser` directory.
 
 Browser test files are *not* automatically discovered and should
 be explicitly `require`'d in `test/browser/main.js`.
+
+Individually running *only* the browser unit tests can be accomplished
+by first running `npm dev` and then visiting http://localhost:8008/test/
+in your browser.
 
 ## Generating A Static Site
 
@@ -124,4 +135,5 @@ string), the boolean is true; otherwise, it's false.
   [react-a11y]: https://github.com/rackt/react-a11y#readme
   [roadmap]: https://wiki.mozilla.org/Learning/Networks/Product-Roadmap
   [mocha]: http://mochajs.org/
+  [mocha (1)]: http://mochajs.org/#usage
   [should]: https://www.npmjs.com/package/should

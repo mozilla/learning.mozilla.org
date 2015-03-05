@@ -30,7 +30,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "gulp test && mocha test/*.test.js && mocha-phantomjs dist/test/index.html",
+    "test": "gulp smoketest && mocha test/*.test.js && mocha-phantomjs dist/test/index.html",
+    "smoketest": "gulp smoketest",
     "build": "gulp",
     "start": "gulp watch"
   },
