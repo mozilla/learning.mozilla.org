@@ -34,7 +34,6 @@ var COMPILED_DIR = './dist/';
 var LESS_FILES = './less/**/*.less';
 
 function webpackTask(options) {
-  console.log(options)
   options = options || {};
   var srcFile = './lib/index-static.jsx';
   var outputPath = path.join(__dirname, COMPILED_DIR, 'js');
@@ -73,6 +72,32 @@ function handleError() {
     errorHandler: onError
   });
 }
+
+gulp.task('test', BUILD_TASKS.concat([
+  'test-react-warnings'
+]), function() {
+  gutil.log(gutil.colors.green.bold("Yay, tests pass!"));
+});
+
+gulp.task('test-react-warnings', function() {
+  var oldWarn = console.warn;
+  var warnings = 0;
+
+  console.warn = function(message) {
+    warnings++;
+    gutil.log(gutil.colors.red.bold(message));
+  };
+
+  return new IndexFileStream(require('./lib/index-static.jsx'))
+    .on('end', function() {
+      console.warn = oldWarn;
+      if (warnings) {
+        this.emit('error', new Error('At least one warning was logged.'));
+      }
+    })
+    .pipe(gulp.dest('./dist'));
+});
+
 
 gulp.task('generate-index-files', function() {
   return new IndexFileStream(require('./lib/index-static.jsx'))
