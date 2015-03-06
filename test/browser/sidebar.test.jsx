@@ -2,13 +2,14 @@ var should = require('should');
 var React =require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
+var stubRouterContext = require('./stub-router-context.jsx');
 var Sidebar = require('../../lib/sidebar.jsx');
 
 describe("sidebar", function() {
   var sidebar, hamburger, collapsibleContent;
 
   beforeEach(function() {
-    sidebar = TestUtils.renderIntoDocument(<Sidebar/>);
+    sidebar = stubRouterContext.render(Sidebar, {});
     hamburger = TestUtils.findRenderedDOMComponentWithClass(
       sidebar,
       'glyphicon-menu-hamburger'

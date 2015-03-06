@@ -1,4 +1,6 @@
 var React = require('react');
+var Router = require('react-router');
+var Link = Router.Link;
 
 var TriangleCorner = React.createClass({
   propTypes: {
@@ -26,6 +28,7 @@ var Sidebar = React.createClass({
   MENU_ENTRIES: [
     {
       name: "Teaching Materials",
+      link: '/activities/',
       help: "Activities and lesson plans to get you started"
     },
     {
@@ -70,11 +73,11 @@ var Sidebar = React.createClass({
             {this.MENU_ENTRIES.map(function(entry, i) {
               return (
                 <li key={i}>
-                  <a href="">
+                  <Link to={entry.link || '/'}>
                     <strong>{entry.name}</strong>
                     <div className="help-text hidden-xs hidden-sm">{entry.help}</div>
                     <span className="glyphicon glyphicon-menu-right"></span>
-                  </a>
+                  </Link>
                 </li>
               );
             })}
