@@ -6,6 +6,9 @@
 
 @sidebarColor: #d54361;
 @blueSidebarColor: #1F93D0;
+@purpleSidebarColor: #652562;
+@orangeSidebarColor: #E78832;
+@redSidebarColor: #BB3C33;
 @footerBackgroundColor: #f1f1f1;
 
 body {
@@ -85,6 +88,57 @@ html.no-js .sidebar {
 }
 
 @sidebarTransitionTime: 0.5s;
+
+// TODO: These alternate sidebar colors could probably
+// be simplified w/ some kind of LESS mixins or something.
+
+.page.events .sidebar {
+  background-color: @redSidebarColor;
+
+  .sidebar-header .corner {
+    fill: @redSidebarColor;
+  }
+
+  .sidebar-menu a:hover, .sidebar-menu a:focus {
+    background-color: darken(@redSidebarColor, 10%);
+  }
+
+  .sidebar-menu a .glyphicon {
+    color: lighten(@redSidebarColor, 15%);
+  }
+}
+
+.page.teach-like-mozilla .sidebar {
+  background-color: @purpleSidebarColor;
+
+  .sidebar-header .corner {
+    fill: @purpleSidebarColor;
+  }
+
+  .sidebar-menu a:hover, .sidebar-menu a:focus {
+    background-color: darken(@purpleSidebarColor, 10%);
+  }
+
+  .sidebar-menu a .glyphicon {
+    color: lighten(@purpleSidebarColor, 15%);
+  }
+}
+
+.page.clubs .sidebar {
+  background-color: @orangeSidebarColor;
+
+  .sidebar-header .corner {
+    fill: @orangeSidebarColor;
+  }
+
+  .sidebar-menu a:hover, .sidebar-menu a:focus {
+    background-color: darken(@orangeSidebarColor, 10%);
+  }
+
+  .sidebar-menu a .glyphicon {
+    color: lighten(@orangeSidebarColor, 15%);
+  }
+}
 
 .page.teaching-materials .sidebar {
   background-color: @blueSidebarColor;

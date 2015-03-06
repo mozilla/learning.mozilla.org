@@ -55,15 +55,17 @@ var routes = (
     })}/>
     <Route name="/events/" handler={placeholderPage({
       title: 'Events',
+      pageClassName: 'events',
       githubIssue: 35
     })}/>
     <Route name="/clubs/" handler={placeholderPage({
       title: 'Clubs',
+      pageClassName: 'clubs',
       githubIssue: 44
     })}/>
     <Route name="/teach-like-mozilla/" handler={placeholderPage({
       title: 'Teach Like Mozilla',
-      pageClassName: 'teaching-materials',
+      pageClassName: 'teach-like-mozilla',
       githubIssue: 37
     })}/>
     <DefaultRoute name="/" handler={Homepage}/>
