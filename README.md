@@ -135,6 +135,10 @@ string), the boolean is true; otherwise, it's false.
 * `AWS_REGION` is the S3 region to upload to when using
   `npm run s3`. It defaults to `us-east-1`.
 
+* `ORIGIN` is the domain name of which the site is hosted.
+  It defaults to `https://teach.webmaker.org`. This is used
+  to generate sitemap.xml file.
+
 ## References
 
 * [Cassie's original PSD files][psd]

@@ -11,6 +11,7 @@ var webpack = require('gulp-webpack');
 var plumber = require('gulp-plumber');
 var merge = require('merge-stream');
 var sourcemaps = require('gulp-sourcemaps');
+var sitemap = require('gulp-sitemap');
 
 require('node-jsx').install();
 
@@ -24,6 +25,7 @@ var BUILD_TASKS = [
   'copy-dirs',
   'less',
   'webpack',
+  'sitemap',
   'generate-index-files'
 ];
 
@@ -46,6 +48,14 @@ function handleError() {
     errorHandler: onError
   });
 }
+
+gulp.task('sitemap', function() {
+  gulp.src('dist/**/*.html')
+    .pipe(sitemap({
+      siteUrl: process.env.ORIGIN || 'https://teach.webmaker.org'
+    }))
+    .pipe(gulp.dest('./dist'));
+});
 
 gulp.task('copy-test-dirs', function() {
   return merge(
@@ -108,7 +118,9 @@ gulp.task('test-react-warnings', function() {
 
 gulp.task('generate-index-files', function() {
   return new IndexFileStream(require('./lib/index-static.jsx'))
-    .pipe(prettify({indent_size: 2}))
+    .pipe(prettify({
+      indent_size: 2
+    }))
     .pipe(gulp.dest('./dist'));
 });
 
@@ -163,7 +175,7 @@ gulp.task('s3', BUILD_TASKS, function() {
 
   if (!key || !secret)
     throw new Error('Please set AWS_ACCESS_KEY and AWS_SECRET_KEY ' +
-                    'in your environment.');
+      'in your environment.');
 
   return gulp.src('./dist/**')
     .pipe(gzip())

@@ -10,6 +10,7 @@
     "gulp-plumber": "^0.6.6",
     "gulp-prettify": "^0.3.0",
     "gulp-s3": "^0.3.0",
+    "gulp-sitemap": "^2.0.1",
     "gulp-sourcemaps": "^1.5.0",
     "gulp-util": "^3.0.4",
     "gulp-webpack": "^1.2.0",
