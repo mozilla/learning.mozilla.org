@@ -47,9 +47,6 @@ var CaseStudies = React.createClass({
           <div className="col-sm-1 divider"></div>
           <CaseStudy study={this.CASE_STUDIES[1]}/>
         </div>
-        <div className="become-a-mentor">
-          <a href="" className="btn btn-awsm">Become A Mentor</a>
-        </div>
       </div>
     );
   }
