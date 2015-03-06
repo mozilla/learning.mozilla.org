@@ -33,6 +33,7 @@ var Sidebar = React.createClass({
     },
     {
       name: "Events",
+      link: '/events/',
       help: "Find gatherings near you, or host your own"
     },
     {
