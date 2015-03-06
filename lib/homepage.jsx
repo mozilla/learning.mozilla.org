@@ -64,7 +64,7 @@ var Values = React.createClass({
                alt="Image reflecting our values"/>
         </div>
         <div className="col-sm-6">
-           Join our community of educators, parents, techies and makers who want to teach digital skills and web literacy through making. <a href="" className="bold-link">Learn More</a>
+           Join our community of educators, parents, techies and makers who want to teach digital skills and web literacy through making. <Link to="/about/" className="bold-link">Learn More</Link>
         </div>
       </div>
     );
