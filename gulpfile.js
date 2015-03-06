@@ -25,8 +25,8 @@ var BUILD_TASKS = [
   'copy-dirs',
   'less',
   'webpack',
-  'sitemap',
-  'generate-index-files'
+  'generate-index-files',
+  'sitemap'
 ];
 
 var COPY_DIRS = [
@@ -159,6 +159,7 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function(cb) {
   gulp.watch(COPY_DIRS, ['copy-dirs']);
   gulp.watch(LESS_FILES, ['less']);
   gulp.watch('test/browser/static/**', ['copy-test-dirs']);
+  gulp.watch('dist/**/*.html', ['sitemap']);
 
   gulp.src('dist')
     .pipe(webserver({
