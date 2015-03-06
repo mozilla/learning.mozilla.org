@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": " Initial attempt at implementing Webmaker Learning front-page.",
   "dependencies": {
+    "es5-shim": "^4.1.0",
     "gulp": "^3.8.11",
     "gulp-gzip": "^1.0.0",
     "gulp-less": "^3.0.1",
@@ -13,6 +14,7 @@
     "gulp-util": "^3.0.4",
     "gulp-webpack": "^1.2.0",
     "gulp-webserver": "^0.9.0",
+    "imports-loader": "^0.6.3",
     "jsx-loader": "^0.12.2",
     "merge-stream": "^0.1.7",
     "mocha": "^2.1.0",
@@ -30,7 +32,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "gulp smoketest && mocha test/*.test.js && mocha-phantomjs dist/test/index.html",
+    "test": "gulp smoketest && mocha test/*.test.js && npm run browsertest",
+    "browsertest": "mocha-phantomjs -s loadImages=false dist/test/index.html",
     "smoketest": "gulp smoketest",
     "build": "gulp",
     "start": "gulp watch"
