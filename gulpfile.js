@@ -25,7 +25,6 @@ var BUILD_TASKS = [
   'copy-dirs',
   'less',
   'webpack',
-  'generate-index-files',
   'sitemap'
 ];
 
@@ -49,7 +48,7 @@ function handleError() {
   });
 }
 
-gulp.task('sitemap', function() {
+gulp.task('sitemap', ['generate-index-files'], function() {
   gulp.src('dist/**/*.html')
     .pipe(sitemap({
       siteUrl: process.env.ORIGIN || 'https://teach.webmaker.org'
@@ -145,7 +144,7 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function(cb) {
     //
     // TODO: Figure out a better solution for this.
     require('child_process')
-      .exec('gulp generate-index-files', function(err, stdout, stderr) {
+      .exec('gulp sitemap', function(err, stdout, stderr) {
         if (err) {
           gutil.log(gutil.colors.red.bold("Error rebuilding index files!"));
           gutil.log(stdout);
@@ -159,7 +158,6 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function(cb) {
   gulp.watch(COPY_DIRS, ['copy-dirs']);
   gulp.watch(LESS_FILES, ['less']);
   gulp.watch('test/browser/static/**', ['copy-test-dirs']);
-  gulp.watch('dist/**/*.html', ['sitemap']);
 
   gulp.src('dist')
     .pipe(webserver({
