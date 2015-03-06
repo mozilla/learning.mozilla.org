@@ -101,7 +101,7 @@ site also uses `history.pushState` for navigation if the browser
 supports it.
 
 For reference, a recent static build of the site can be found at
-http://mozilla-learning-html.s3-website-us-east-1.amazonaws.com/.
+[teach.mofostaging.net][].
 
 ## Environment Variables
 
@@ -137,3 +137,4 @@ string), the boolean is true; otherwise, it's false.
   [mocha]: http://mochajs.org/
   [mocha (1)]: http://mochajs.org/#usage
   [should]: https://www.npmjs.com/package/should
+  [teach.mofostaging.net]: http://teach.mofostaging.net/

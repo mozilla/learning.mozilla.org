@@ -170,7 +170,7 @@ gulp.task('s3', BUILD_TASKS, function() {
     .pipe(s3({
       key: key,
       secret: secret,
-      bucket: process.env.AWS_BUCKET || 'mozilla-learning-html',
+      bucket: process.env.AWS_BUCKET || 'teach.mofostaging.net',
       region: process.env.AWS_REGION || 'us-east-1'
     }, {
       gzippedOnly: true,
