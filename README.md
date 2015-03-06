@@ -25,7 +25,7 @@ To get a local version of teach.webmaker.org running, you'll need to have [git](
 
 ### Clone
 
-In order to contribute to Webmaker Mobile, you'll need to **create your own fork** of Webmaker Mobile and make pull-requests against our master branch.
+In order to contribute to this project, you'll need to **create your own fork** of it and make pull-requests against our master branch.
 
 Clone from your own fork or from the original:
 
