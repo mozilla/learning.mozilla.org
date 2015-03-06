@@ -49,6 +49,10 @@ var routes = (
       pageClassName: 'teaching-materials',
       githubIssue: 36
     })}/>
+    <Route name="/clubs/" handler={placeholderPage({
+      title: 'Clubs',
+      githubIssue: 44
+    })}/>
     <Route name="/teach-like-mozilla/" handler={placeholderPage({
       title: 'Teach Like Mozilla',
       pageClassName: 'teaching-materials',

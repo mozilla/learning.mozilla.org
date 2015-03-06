@@ -42,6 +42,7 @@ var Sidebar = React.createClass({
     },
     {
       name: "Clubs",
+      link: '/clubs/',
       help: "Join our global community of local chapters"
     }
   ],
