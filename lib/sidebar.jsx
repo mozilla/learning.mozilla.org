@@ -37,6 +37,7 @@ var Sidebar = React.createClass({
     },
     {
       name: "Teach Like Mozilla",
+      link: '/teach-like-mozilla/',
       help: "Learn about our approach to teaching the Web"
     },
     {
