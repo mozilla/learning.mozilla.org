@@ -27,7 +27,7 @@ var TriangleCorner = React.createClass({
 var Sidebar = React.createClass({
   MENU_ENTRIES: [
     {
-      name: "Teaching Materials",
+      name: "Teaching Activities",
       link: '/activities/',
       help: "Activities and lesson plans to get you started"
     },
