@@ -84,8 +84,8 @@ var Footer = React.createClass({
           <div className="row">
             <div className="col-xs-6">
               <ul className="list-unstyled">
-                <li><a href="">Webmaker</a></li>
-                <li><a href="">Donate</a></li>
+                <li><a href="https://webmaker.org/">Webmaker</a></li>
+                <li><a href="https://sendto.mozilla.org/">Donate</a></li>
                 <li><a href="">Legal</a></li>
                 <li><a href="">Privacy</a></li>
               </ul>
@@ -103,18 +103,18 @@ var Footer = React.createClass({
         <div className="content col-md-9">
           <div className="row logos">
             <div className="col-sm-4">
-              <a href=""><img src="/img/hive-logo.png" alt="Hive logo"/></a>
+              <a href="http://hivelearningnetworks.org/"><img src="/img/hive-logo.png" alt="Hive logo"/></a>
 
               <p>Join a Hive Learning Network</p>
               <HiveCities/>
             </div>
             <div className="col-sm-4">
-              <a href=""><img src="/img/mozilla_wordmark.png" alt="Mozilla wordmark"/></a>
+              <a href="http://mozilla.org/"><img src="/img/mozilla_wordmark.png" alt="Mozilla wordmark"/></a>
 
               <p>Mozilla radically empowers individuals with skills they need to make the Web.</p>
             </div>
             <div className="col-sm-4">
-              <a href=""><img className="maker-party" src="/img/maker-party-logo.png" alt="Maker Party logo"/></a>
+              <a href="https://party.webmaker.org/"><img className="maker-party" src="/img/maker-party-logo.png" alt="Maker Party logo"/></a>
 
               <p>In 2014, nearly 130,000 people in 450 cities around the world helped teach the Web at Maker Parties. Find one near you or start your own.</p>
             </div>
