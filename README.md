@@ -137,7 +137,8 @@ string), the boolean is true; otherwise, it's false.
 
 * `ORIGIN` is the domain name of which the site is hosted.
   It defaults to `https://teach.webmaker.org`. This is used
-  to generate sitemap.xml file.
+  in situations where absolute URLs are required, such
+  as generating a `sitemap.xml` file.
 
 ## References
 
