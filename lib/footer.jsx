@@ -3,40 +3,52 @@ var React = require('react');
 var HiveCities = React.createClass({
   CITIES: [
     {
-      name: "Chicago"
+      name: "Chicago",
+      href: "http://hivechicago.org/"
     },
     {
-      name: "NYC"
+      name: "NYC",
+      href: "http://hivenyc.org/"
     },
     {
-      name: "Pittsburgh"
+      name: "Pittsburgh",
+      href: "http://hivepgh.sproutfund.org/"
     },
     {
-      name: "Toronto"
+      name: "Toronto",
+      href: "http://hivetoronto.org/"
     },
     {
-      name: "Bay Area"
+      name: "Bay Area",
+      href: "http://bayareahive.org/"
     },
     {
-      name: "Chattanooga"
+      name: "Chattanooga",
+      href: "https://blog.mozilla.org/gigabit/"
     },
     {
-      name: "Denver"
+      name: "Denver",
+      href: "http://twitter.com/@HiveDenver5280"
     },
     {
-      name: "India"
+      name: "India",
+      href: "http://hive.mozillaindia.org/"
     },
     {
-      name: "Kansas City"
+      name: "Kansas City",
+      href: "http://hivekc.org/"
     },
     {
-      name: "Mombasa"
+      name: "Mombasa",
+      href: "http://mombasatech.org/"
     },
     {
-      name: "Vancouver"
+      name: "Vancouver",
+      href: "http://hivevan.org/"
     },
     {
       name: "More",
+      href: "https://hivelearningnetworks.org/locations/",
       className: "more-link"
     }
   ],
@@ -50,7 +62,7 @@ var HiveCities = React.createClass({
           {cities.map(function(city, i) {
             return (
               <li key={i}>
-                <a href="" className={city.className}>
+                <a href={city.href} className={city.className}>
                   {city.name}
                 </a>
               </li>
