@@ -14,7 +14,7 @@ describe('gulp-index-file-stream', function() {
     }
   };
 
-  it('should be cool', function(done) {
+  it('should emit Vinyl file objects', function(done) {
     var stream = new IndexFileStream(indexStatic);
     var files = [];
     stream.on('data', function(file) {
