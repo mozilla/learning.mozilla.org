@@ -35,6 +35,7 @@
     "test": "gulp smoketest && mocha test/*.test.js && npm run browsertest",
     "browsertest": "mocha-phantomjs -s loadImages=false dist/test/index.html",
     "smoketest": "gulp smoketest",
+    "s3": "gulp s3",
     "build": "gulp",
     "start": "gulp watch"
   },

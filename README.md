@@ -103,6 +103,10 @@ supports it.
 For reference, a recent static build of the site can be found at
 [teach.mofostaging.net][].
 
+The static site can also be deployed to S3 via `npm run s3`, but
+this requires setting at least a few environment variables. See
+the **Environment Variables** section below for more details.
+
 ## Environment Variables
 
 The following environment variables can be used to modify how the
@@ -118,6 +122,18 @@ string), the boolean is true; otherwise, it's false.
   originate from useful line numbers. For more details on the
   trade-offs between different options for development, see our
   [conversation on sourcemaps][sourcemaps-wtf].
+
+* `AWS_ACCESS_KEY` is the Amazon Web Services access key used
+  when uploading to s3 via `npm run s3`.
+
+* `AWS_SECRET_KEY` is the Amazon Web Services secret key used
+  when uploading to s3 via `npm run s3`.
+
+* `AWS_BUCKET` is the S3 bucket to upload to when using
+  `npm run s3`. It defaults to `teach.mofostaging.net`.
+
+* `AWS_REGION` is the S3 region to upload to when using
+  `npm run s3`. It defaults to `us-east-1`.
 
 ## References
 
