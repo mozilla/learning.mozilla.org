@@ -40,44 +40,46 @@ function placeholderPage(options) {
 
 var routes = (
   <Route handler={Page}>
-    <Route name="/join/" handler={placeholderPage({
+    <Route name="join" path="/join/" handler={placeholderPage({
       title: 'Join Us',
       githubIssue: 154
     })}/>
-    <Route name="/about/" handler={placeholderPage({
+    <Route name="about" path="/about/" handler={placeholderPage({
       title: 'About',
       githubIssue: 99
     })}/>
-    <Route name="/activities/" handler={placeholderPage({
+    <Route name="activities" path="/activities/" handler={placeholderPage({
       title: 'Teaching Activities',
       pageClassName: 'teaching-materials',
       githubIssue: 36
     })}/>
-    <Route name="/events/" handler={placeholderPage({
+    <Route name="events" path="/events/" handler={placeholderPage({
       title: 'Events',
       pageClassName: 'events',
       githubIssue: 35
     })}/>
-    <Route name="/clubs/" handler={placeholderPage({
+    <Route name="clubs" path="/clubs/" handler={placeholderPage({
       title: 'Clubs',
       pageClassName: 'clubs',
       githubIssue: 44
     })}/>
-    <Route name="/teach-like-mozilla/" handler={placeholderPage({
+    <Route name="teach-like-mozilla" path="/teach-like-mozilla/" handler={placeholderPage({
       title: 'Teach Like Mozilla',
       pageClassName: 'teach-like-mozilla',
       githubIssue: 37
     })}/>
-    <DefaultRoute name="/" handler={Homepage}/>
+    <DefaultRoute name="home" handler={Homepage}/>
   </Route>
 );
 
 // TODO: come up with a better solution for nested route if we will ever have that.
 React.Children.forEach(routes.props.children, function(item) {
-  urls.push(item.props.name);
+  urls.push(item.props.path || '/');
 });
 
 exports.URLS = urls;
+
+exports.routes = routes;
 
 exports.generateStatic = function(url, cb) {
   Router.run(routes, url, function(Handler) {
