@@ -30,9 +30,14 @@
     "vinyl": "^0.4.6",
     "webpack": "^1.6.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp-jsbeautify": "^0.1.1",
+    "gulp-jscs": "^1.4.0",
+    "gulp-jshint": "^1.9.2",
+    "mofo-style": "^1.0.1"
+  },
   "scripts": {
-    "test": "gulp smoketest && mocha test/*.test.js && npm run browsertest",
+    "test": "gulp smoketest && mocha test/*.test.js && npm run browsertest && gulp test",
     "browsertest": "mocha-phantomjs -s loadImages=false dist/test/index.html",
     "smoketest": "gulp smoketest",
     "s3": "gulp s3",

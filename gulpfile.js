@@ -12,6 +12,9 @@ var plumber = require('gulp-plumber');
 var merge = require('merge-stream');
 var sourcemaps = require('gulp-sourcemaps');
 var sitemap = require('gulp-sitemap');
+var beautify = require('gulp-jsbeautify');
+var jscs = require('gulp-jscs');
+var jshint = require('gulp-jshint');
 
 require('node-jsx').install();
 
@@ -21,6 +24,7 @@ var IndexFileStream = require('./lib/gulp-index-file-stream');
 var webpackConfig = require('./webpack.config');
 
 var BUILD_TASKS = [
+  'jscs',
   'copy-test-dirs',
   'copy-dirs',
   'less',
@@ -124,6 +128,27 @@ gulp.task('generate-index-files', function() {
     }))
     .pipe(gulp.dest('./dist'));
 });
+
+gulp.task('beautify', function () {
+  gulp.src('dist/**/*.js')
+      .pipe(beautify({ config: 'node_modules/mofo-style/linters/.jsbeautifyrc' }))
+      .pipe(gulp.dest('dist'));
+});
+
+gulp.task('jshint', function() {
+  return gulp.src('./lib/*.js')
+      .pipe(jshint({ lookup: 'node_modules/mofo-style/linters/.jshintrc' }))
+      .pipe(jshint.reporter('default'));
+});
+
+
+gulp.task('jscs', function () {
+  // jscs doesn't play nice with *.jsx files so we're avoiding lib/*.jsx
+  return gulp.src(['*.js', 'test/*.js', 'test/**/*.js'])
+      .pipe(jscs({ configPath: 'node_modules/mofo-style/linters/.jscsrc' }));
+});
+
+gulp.task('test', ['jscs', 'jshint', 'beautify']);
 
 gulp.task('default', BUILD_TASKS);
 
