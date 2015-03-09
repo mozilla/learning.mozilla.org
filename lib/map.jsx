@@ -7,8 +7,8 @@ var SingletonMapComponent = React.createClass({
       mapId: React.PropTypes.string.isRequired,
     },
     componentDidMount: function () {
-      require('mapbox.js');
-      // Create a map in the div #map
+      require('mapbox.js'); // this will automatically attach to Window object.
+      // Create a map in the div mapboxDiv element
       this.map = L.mapbox.map(this.refs.mapboxDiv.getDOMNode(), this.props.mapId, {accessToken: this.props.accessToken});
     },
     componentWillUnmount: function() {
