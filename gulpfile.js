@@ -160,6 +160,17 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function(cb) {
   gulp.watch(COPY_DIRS, ['copy-dirs']);
   gulp.watch(LESS_FILES, ['less']);
   gulp.watch('test/browser/static/**', ['copy-test-dirs']);
+  gulp.watch([
+    'gulpfile.js',
+    'package.json',
+    'webpack.config.js'
+  ], function(event) {
+    var filename = path.basename(event.path);
+    gutil.log(gutil.colors.red.bold(filename + ' was ' + event.type + '.'));
+    gutil.log(gutil.colors.red.bold('Please restart the watch process ' +
+                                    'with "npm start".'));
+    process.exit(0);
+  });
 
   gulp.src('dist')
     .pipe(webserver({
