@@ -19,7 +19,8 @@ module.exports = {
       {test: /\.jsx$/, loader: "jsx-loader"},
       // https://github.com/webpack/webpack/issues/558#issuecomment-60889168
       {test: require.resolve("react"), loader: IMPORT_ES5_SHIM},
-      {test: require.resolve("react/addons"), loader: IMPORT_ES5_SHIM}
+      {test: require.resolve("react/addons"), loader: IMPORT_ES5_SHIM},
+      {test: /\.json$/, loader: "json-loader"}
     ]
   },
   plugins: [

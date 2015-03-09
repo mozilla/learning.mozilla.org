@@ -18,6 +18,8 @@
     "gulp-webserver": "^0.9.0",
     "imports-loader": "^0.6.3",
     "jsx-loader": "^0.12.2",
+    "json-loader": "^0.5.1",
+    "mapbox.js": "^2.1.5",
     "merge-stream": "^0.1.7",
     "mocha": "^2.1.0",
     "mocha-phantomjs": "^3.5.3",
