@@ -8,14 +8,13 @@ var MapComponent = React.createClass({
     },
 
     componentDidMount: function () {
-      console.log('here1')
-      // Provide your access token
-      L.mapbox.accessToken = this.props.accessToken;
-
       // Create a map in the div #map
-      var map = L.mapbox.map('map', this.props.mapId);
+      this.map = L.mapbox.map('map', this.props.mapId, {accessToken: this.props.accessToken});
     },
-
+    componentWillUnmount: function() {
+      delete L.mapbox.accessToken;
+      this.map.remove();
+    },
     // Called on initialization and after each change to the components
     // props or state
     render: function () {
