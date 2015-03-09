@@ -148,7 +148,7 @@ gulp.task('jscs', function () {
       .pipe(jscs({ configPath: 'node_modules/mofo-style/linters/.jscsrc' }));
 });
 
-gulp.task('test', ['jscs', 'jshint', 'beautify']);
+gulp.task('lint-test', ['jscs', 'jshint', 'beautify']);
 
 gulp.task('default', BUILD_TASKS);
 
