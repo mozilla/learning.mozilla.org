@@ -37,7 +37,7 @@
     "gulp-jshint": "^1.9.2"
   },
   "scripts": {
-    "test": "gulp smoketest && mocha test/*.test.js && npm run browsertest && gulp lint-test",
+    "test": "gulp smoketest && mocha test/*.test.js && npm run browsertest",
     "browsertest": "mocha-phantomjs -s loadImages=false dist/test/index.html",
     "smoketest": "gulp smoketest",
     "s3": "gulp s3",
