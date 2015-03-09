@@ -6,6 +6,7 @@
     "es5-shim": "^4.1.0",
     "gulp": "^3.8.11",
     "gulp-gzip": "^1.0.0",
+    "gulp-jscs": "^1.4.0",
     "gulp-less": "^3.0.1",
     "gulp-plumber": "^0.6.6",
     "gulp-prettify": "^0.3.0",
@@ -32,7 +33,6 @@
   },
   "devDependencies": {
     "gulp-jsbeautify": "^0.1.1",
-    "gulp-jscs": "^1.4.0",
     "gulp-jshint": "^1.9.2",
     "mofo-style": "^1.0.1"
   },
