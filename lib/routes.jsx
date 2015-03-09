@@ -7,6 +7,7 @@ var DefaultRoute = Router.DefaultRoute;
 var Page = require('./page.jsx');
 var HeroUnit = require('./hero-unit.jsx');
 var Homepage = require('./homepage.jsx');
+var Map = require('./map.jsx');
 var urls = [];
 
 function placeholderPage(options) {
@@ -32,6 +33,9 @@ function placeholderPage(options) {
                </a>.
              </p>
            : null}
+          {options.pageClassName == 'clubs'
+            ? <Map accessToken={'pk.eyJ1IjoiYWxpY29kaW5nIiwiYSI6Il90WlNFdE0ifQ.QGGdXGA_2QH-6ujyZE2oSg'}
+                mapId={'alicoding.ldmhe4f3'}/> : null}
         </div>
       );
     }
