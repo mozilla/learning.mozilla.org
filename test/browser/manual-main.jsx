@@ -21,10 +21,9 @@ var RouteThumbnail = React.createClass({
   },
   handleResize: function() {
     var selfEl = this.getDOMNode();
-    var rect = selfEl.parentNode.getBoundingClientRect();
 
     this.setState({
-      scaledWidth: rect.width
+      scaledWidth: selfEl.parentNode.clientWidth
     });
   },
   componentDidMount: function() {
@@ -69,25 +68,31 @@ var RouteTest = React.createClass({
         </h2>
         <div className="row">
           <div className="col-md-4">
-            <RouteThumbnail
-             name="Desktop"
-             width={1024}
-             enableJS={this.props.enableJS}
-             url={this.props.url}/>
+            <div>
+              <RouteThumbnail
+               name="Desktop"
+               width={1024}
+               enableJS={this.props.enableJS}
+               url={this.props.url}/>
+            </div>
           </div>
           <div className="col-md-4">
-            <RouteThumbnail
-             name="Tablet"
-             width={800}
-             enableJS={this.props.enableJS}
-             url={this.props.url}/>
+            <div>
+              <RouteThumbnail
+               name="Tablet"
+               width={800}
+               enableJS={this.props.enableJS}
+               url={this.props.url}/>
+            </div>
           </div>
           <div className="col-md-4">
-            <RouteThumbnail
-             name="Mobile"
-             width={480}
-             enableJS={this.props.enableJS}
-             url={this.props.url}/>
+            <div>
+              <RouteThumbnail
+               name="Mobile"
+               width={480}
+               enableJS={this.props.enableJS}
+               url={this.props.url}/>
+            </div>
           </div>
         </div>
       </div>
