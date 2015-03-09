@@ -27,28 +27,32 @@ var TriangleCorner = React.createClass({
 var Sidebar = React.createClass({
   MENU_ENTRIES: [
     {
-      name: "Teaching Materials",
+      name: "Teaching Activities",
       link: '/activities/',
       help: "Activities and lesson plans to get you started",
-      icon: "/img/nav/icon-nav-white-materials.svg"
+      icon: "/img/nav/icon-nav-white-materials.svg",
+      className: "activities"
     },
     {
       name: "Events",
       link: '/events/',
       help: "Find gatherings near you, or host your own",
-      icon: "/img/nav/icon-nav-white-events.svg"
+      icon: "/img/nav/icon-nav-white-events.svg",
+      className: "events"
     },
     {
       name: "Teach Like Mozilla",
       link: '/teach-like-mozilla/',
       help: "Learn about our approach to teaching the Web",
-      icon: "/img/nav/icon-nav-white-gears.svg"
+      icon: "/img/nav/icon-nav-white-gears.svg",
+      className: "teach"
     },
     {
       name: "Clubs",
       link: '/clubs/',
       help: "Join our global community of local chapters",
-      icon: "/img/nav/icon-nav-white-globe.svg"
+      icon: "/img/nav/icon-nav-white-globe.svg",
+      className: "clubs"
     }
   ],
   getInitialState: function() {
@@ -81,7 +85,7 @@ var Sidebar = React.createClass({
               return (
                 <li key={i}>
                   <Link to={entry.link || '/'}>
-                    <img src={entry.icon} alt={entry.name}/>
+                    <img src={entry.icon} alt={entry.name} className={entry.className}/>
                     <strong>{entry.name}</strong>
                     <div className="help-text hidden-xs hidden-sm">{entry.help}</div>
                     <span className="glyphicon glyphicon-menu-right"></span>
