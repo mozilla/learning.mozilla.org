@@ -1,3 +1,4 @@
+var querystring = require('querystring');
 var React = require('react');
 
 var routes = require('../../lib/routes.jsx');
@@ -40,8 +41,10 @@ var RouteThumbnail = React.createClass({
           transform: 'scale(' + this.getScale() + ')',
           transformOrigin: 'top left',
           height: this.getScaledHeight()
-        }}>
-          <iframe src={this.props.url} sandbox="" style={{
+        }} ref="iframeHolder">
+          <iframe src={this.props.url} sandbox={
+            this.props.enableJS ? null : ""
+          } style={{
             border: '1px solid black',
             width: this.props.width,
             height: this.getHeight()
@@ -69,18 +72,21 @@ var RouteTest = React.createClass({
             <RouteThumbnail
              name="Desktop"
              width={1024}
+             enableJS={this.props.enableJS}
              url={this.props.url}/>
           </div>
           <div className="col-md-4">
             <RouteThumbnail
              name="Tablet"
              width={800}
+             enableJS={this.props.enableJS}
              url={this.props.url}/>
           </div>
           <div className="col-md-4">
             <RouteThumbnail
              name="Mobile"
              width={480}
+             enableJS={this.props.enableJS}
              url={this.props.url}/>
           </div>
         </div>
@@ -92,19 +98,47 @@ var RouteTest = React.createClass({
 var ManualTests = React.createClass({
   render: function() {
     return (
-      <div className="container">
-        <h1>Manual Tests</h1>
-        <p>Below are thumbnails of all the pages on the site, rendered without JavaScript enabled.</p>
-        <p>Please verify that they all look decent.</p>
-        {this.props.urls.map(function(url) {
-          return <RouteTest key={url} url={url}/>;
-        })}
+      <div>
+        <nav className="navbar navbar-default navbar-fixed-top">
+          <div className="container-fluid">
+            <form className="navbar-form navbar-right">
+              <div className="checkbox">
+                <label>
+                  <input type="checkbox" checked={this.props.enableJS} onChange={this.props.onToggleEnableJS}/> Enable JavaScript in thumbnails
+                </label>
+              </div>
+            </form>
+          </div>
+        </nav>
+        <div className="container-fluid">
+          <h1>Manual Tests</h1>
+          <p>Below are thumbnails of all the pages on the site, rendered <strong>{
+            this.props.enableJS ? "with" : "without"
+          }</strong> JavaScript enabled.</p>
+          <p>Please verify that they all look decent.</p>
+          {this.props.urls.map(function(url) {
+            return <RouteTest key={url} url={url} enableJS={this.props.enableJS}/>;
+          }, this)}
+        </div>
       </div>
     );
   }
 });
 
+var qs = querystring.parse(location.search.slice(1));
+
 React.render(
-  <ManualTests urls={routes.URLS.slice().sort()}/>,
+  <ManualTests
+   urls={routes.URLS.slice().sort()}
+   enableJS={qs.enableJS == 'on'}
+   onToggleEnableJS={function() {
+     if (qs.enableJS == 'on') {
+       delete qs.enableJS;
+     } else {
+       qs.enableJS = 'on';
+     }
+     location.search = '?' + querystring.stringify(qs);
+   }}
+   />,
   document.getElementById('app')
 );
