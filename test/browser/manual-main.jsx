@@ -142,6 +142,11 @@ React.render(
      } else {
        qs.enableJS = 'on';
      }
+     // It'd be nice if we didn't have to reload the page here, but
+     // browsers don't like the 'sandbox' attribute of iframes
+     // changing dynamically, and destroying/rebuilding the iframes
+     // manually in react is a pain, so we'll just trigger a page
+     // reload instead.
      location.search = '?' + querystring.stringify(qs);
    }}
    />,
