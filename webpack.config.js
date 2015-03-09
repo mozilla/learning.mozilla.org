@@ -6,6 +6,7 @@ var IMPORT_ES5_SHIM = "imports?shim=es5-shim/es5-shim&" +
 module.exports = {
   entry: {
     app: './lib/main.jsx',
+    manualTests: './test/browser/manual-main.jsx',
     tests: './test/browser/main.js'
   },
   devtool: process.env.WEBPACK_DEVTOOL || 'source-map',
