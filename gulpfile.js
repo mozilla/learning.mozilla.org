@@ -36,6 +36,8 @@ var COPY_DIRS = [
 
 var LESS_FILES = './less/**/*.less';
 
+var TRAVIS_DEPLOY_TO_S3_BRANCH = 'develop';
+
 function onError(err) {
   gutil.log(gutil.colors.red(err));
   gutil.beep();
@@ -171,6 +173,19 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function(cb) {
 gulp.task('s3', BUILD_TASKS, function() {
   var key = process.env.AWS_ACCESS_KEY;
   var secret = process.env.AWS_SECRET_KEY;
+
+  if (process.env.TRAVIS == 'true') {
+    gutil.log("Travis build detected.");
+    if (process.env.TRAVIS_PULL_REQUEST == 'false' &&
+        process.env.TRAVIS_BRANCH == TRAVIS_DEPLOY_TO_S3_BRANCH) {
+      gutil.log("Pushing to S3.");
+    } else {
+      gutil.log("Current travis build is either a PR or not on the " +
+                TRAVIS_DEPLOY_TO_S3_BRANCH +
+                " branch, so not pushing to S3.");
+      return;
+    }
+  }
 
   if (!key || !secret)
     throw new Error('Please set AWS_ACCESS_KEY and AWS_SECRET_KEY ' +
