@@ -1,0 +1,14 @@
+.sidebarColorizer(@sidebarColor) {
+  background-color: @sidebarColor;
+  .sidebar-header .corner {
+    fill: @sidebarColor;
+  }
+
+  .sidebar-menu a:hover, .sidebar-menu a:focus {
+    background-color: darken(@sidebarColor, 10%);
+  }
+
+  .sidebar-menu a .glyphicon {
+    color: lighten(@sidebarColor, 15%);
+  }
+}

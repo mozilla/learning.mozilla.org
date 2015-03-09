@@ -1,5 +1,6 @@
 @import "../vendor/bootstrap/less/variables.less";
 @import "../vendor/prefixer.less";
+@import "mixins.less";
 
 // This used to be @screen-xs but Bootstrap deprecated it.
 @screen-teensy: 480px;
@@ -89,71 +90,20 @@ html.no-js .sidebar {
 
 @sidebarTransitionTime: 0.5s;
 
-// TODO: These alternate sidebar colors could probably
-// be simplified w/ some kind of LESS mixins or something.
-
 .page.events .sidebar {
-  background-color: @redSidebarColor;
-
-  .sidebar-header .corner {
-    fill: @redSidebarColor;
-  }
-
-  .sidebar-menu a:hover, .sidebar-menu a:focus {
-    background-color: darken(@redSidebarColor, 10%);
-  }
-
-  .sidebar-menu a .glyphicon {
-    color: lighten(@redSidebarColor, 15%);
-  }
+  .sidebarColorizer(@redSidebarColor);
 }
 
 .page.teach-like-mozilla .sidebar {
-  background-color: @purpleSidebarColor;
-
-  .sidebar-header .corner {
-    fill: @purpleSidebarColor;
-  }
-
-  .sidebar-menu a:hover, .sidebar-menu a:focus {
-    background-color: darken(@purpleSidebarColor, 10%);
-  }
-
-  .sidebar-menu a .glyphicon {
-    color: lighten(@purpleSidebarColor, 15%);
-  }
+  .sidebarColorizer(@purpleSidebarColor);
 }
 
 .page.clubs .sidebar {
-  background-color: @orangeSidebarColor;
-
-  .sidebar-header .corner {
-    fill: @orangeSidebarColor;
-  }
-
-  .sidebar-menu a:hover, .sidebar-menu a:focus {
-    background-color: darken(@orangeSidebarColor, 10%);
-  }
-
-  .sidebar-menu a .glyphicon {
-    color: lighten(@orangeSidebarColor, 15%);
-  }
+  .sidebarColorizer(@orangeSidebarColor);
 }
 
 .page.teaching-materials .sidebar {
-  background-color: @blueSidebarColor;
-
-  .sidebar-header .corner {
-    fill: @blueSidebarColor;
-  }
-
-  .sidebar-menu a:hover, .sidebar-menu a:focus {
-    background-color: darken(@blueSidebarColor, 10%);
-  }
-
-  .sidebar-menu a .glyphicon {
-    color: lighten(@blueSidebarColor, 15%);
-  }
+  .sidebarColorizer(@blueSidebarColor);
 }
 
 .sidebar {
