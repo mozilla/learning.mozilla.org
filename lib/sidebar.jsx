@@ -28,28 +28,28 @@ var Sidebar = React.createClass({
   MENU_ENTRIES: [
     {
       name: "Teaching Activities",
-      link: '/activities/',
+      link: 'activities',
       help: "Activities and lesson plans to get you started",
       icon: "/img/nav/icon-nav-white-materials.svg",
       className: "activities"
     },
     {
       name: "Events",
-      link: '/events/',
+      link: 'events',
       help: "Find gatherings near you, or host your own",
       icon: "/img/nav/icon-nav-white-events.svg",
       className: "events"
     },
     {
       name: "Teach Like Mozilla",
-      link: '/teach-like-mozilla/',
+      link: 'teach-like-mozilla',
       help: "Learn about our approach to teaching the Web",
       icon: "/img/nav/icon-nav-white-gears.svg",
       className: "teach"
     },
     {
       name: "Clubs",
-      link: '/clubs/',
+      link: 'clubs',
       help: "Join our global community of local chapters",
       icon: "/img/nav/icon-nav-white-globe.svg",
       className: "clubs"
@@ -69,7 +69,7 @@ var Sidebar = React.createClass({
     return (
       <div className="sidebar col-md-3">
         <div className="sidebar-header">
-          <Link to="/"><img src="/img/wm-logo.png" alt="Webmaker logo"/> Mozilla Learning</Link>
+          <Link to="home"><img src="/img/wm-logo.png" alt="Webmaker logo"/> Mozilla Learning</Link>
           <span aria-label="toggle" role="button" onKeyUp={this.handleHamburgerClick} onKeyDown={this.handleHamburgerClick} className="glyphicon glyphicon-menu-hamburger hidden-lg hidden-md"
                 onClick={this.handleHamburgerClick} tabIndex="0" />
           <TriangleCorner className="hidden-xs hidden-sm" height={40}/>
@@ -78,13 +78,13 @@ var Sidebar = React.createClass({
                         ? "collapsible-content"
                         : "hidden-xs hidden-sm collapsible-content"}>
           <div className="sidebar-login">
-            <Link to="/join/">Create an account</Link> | <a href="">Log in</a>
+            <Link to="join">Create an account</Link> | <a href="">Log in</a>
           </div>
           <ul className="sidebar-menu list-unstyled">
             {this.MENU_ENTRIES.map(function(entry, i) {
               return (
                 <li key={i}>
-                  <Link to={entry.link || '/'}>
+                  <Link to={entry.link}>
                     <img src={entry.icon} alt={entry.name} className={entry.className}/>
                     <strong>{entry.name}</strong>
                     <div className="help-text hidden-xs hidden-sm">{entry.help}</div>

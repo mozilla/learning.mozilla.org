@@ -62,7 +62,7 @@ var Values = React.createClass({
                alt="Image reflecting our values"/>
         </div>
         <div className="col-sm-9 col-lg-8">
-           Join our community of educators, parents, techies and makers who want to teach digital skills and web literacy through making. <Link to="/about/" className="bold-link">Learn More</Link>
+           Join our community of educators, parents, techies and makers who want to teach digital skills and web literacy through making. <Link to="about" className="bold-link">Learn More</Link>
         </div>
       </div>
     );
@@ -75,7 +75,7 @@ var Homepage = React.createClass({
       <div>
         <HeroUnit image="/img/hero-unit.jpg">
           <h1>Unlock opportunities for all citizens of the Web.</h1>
-          <div><Link to="/join/" className="btn btn-awsm">Join Us</Link></div>
+          <div><Link to="join" className="btn btn-awsm">Join Us</Link></div>
         </HeroUnit>
         <Values/>
         <CaseStudies/>
