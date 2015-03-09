@@ -24,7 +24,7 @@ var IndexFileStream = require('./lib/gulp-index-file-stream');
 var webpackConfig = require('./webpack.config');
 
 var BUILD_TASKS = [
-  'jscs',
+  'beautify',
   'copy-test-dirs',
   'copy-dirs',
   'less',

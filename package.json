@@ -5,8 +5,8 @@
   "dependencies": {
     "es5-shim": "^4.1.0",
     "gulp": "^3.8.11",
+    "gulp-jsbeautify": "^0.1.1",
     "gulp-gzip": "^1.0.0",
-    "gulp-jscs": "^1.4.0",
     "gulp-less": "^3.0.1",
     "gulp-plumber": "^0.6.6",
     "gulp-prettify": "^0.3.0",
@@ -21,6 +21,7 @@
     "merge-stream": "^0.1.7",
     "mocha": "^2.1.0",
     "mocha-phantomjs": "^3.5.3",
+    "mofo-style": "^1.0.1",
     "node-jsx": "^0.12.4",
     "phantomjs": "^1.9.16",
     "react": "^0.12.2",
@@ -32,9 +33,8 @@
     "webpack": "^1.6.0"
   },
   "devDependencies": {
-    "gulp-jsbeautify": "^0.1.1",
-    "gulp-jshint": "^1.9.2",
-    "mofo-style": "^1.0.1"
+    "gulp-jscs": "^1.4.0",
+    "gulp-jshint": "^1.9.2"
   },
   "scripts": {
     "test": "gulp smoketest && mocha test/*.test.js && npm run browsertest && gulp test",
