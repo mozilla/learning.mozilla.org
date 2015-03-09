@@ -27,24 +27,28 @@ var TriangleCorner = React.createClass({
 var Sidebar = React.createClass({
   MENU_ENTRIES: [
     {
-      name: "Teaching Activities",
+      name: "Teaching Materials",
       link: '/activities/',
-      help: "Activities and lesson plans to get you started"
+      help: "Activities and lesson plans to get you started",
+      icon: "/img/nav/icon-nav-white-materials.svg"
     },
     {
       name: "Events",
       link: '/events/',
-      help: "Find gatherings near you, or host your own"
+      help: "Find gatherings near you, or host your own",
+      icon: "/img/nav/icon-nav-white-events.svg"
     },
     {
       name: "Teach Like Mozilla",
       link: '/teach-like-mozilla/',
-      help: "Learn about our approach to teaching the Web"
+      help: "Learn about our approach to teaching the Web",
+      icon: "/img/nav/icon-nav-white-gears.svg"
     },
     {
       name: "Clubs",
       link: '/clubs/',
-      help: "Join our global community of local chapters"
+      help: "Join our global community of local chapters",
+      icon: "/img/nav/icon-nav-white-globe.svg"
     }
   ],
   getInitialState: function() {
@@ -77,6 +81,7 @@ var Sidebar = React.createClass({
               return (
                 <li key={i}>
                   <Link to={entry.link || '/'}>
+                    <img src={entry.icon} alt={entry.name}/>
                     <strong>{entry.name}</strong>
                     <div className="help-text hidden-xs hidden-sm">{entry.help}</div>
                     <span className="glyphicon glyphicon-menu-right"></span>
