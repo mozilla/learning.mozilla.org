@@ -9,7 +9,7 @@ var SingletonMapComponent = React.createClass({
     componentDidMount: function () {
       require('mapbox.js');
       // Create a map in the div #map
-      this.map = L.mapbox.map('map', this.props.mapId, {accessToken: this.props.accessToken});
+      this.map = L.mapbox.map(this.refs.mapboxDiv.getDOMNode(), this.props.mapId, {accessToken: this.props.accessToken});
     },
     componentWillUnmount: function() {
       this.map.remove();
@@ -18,7 +18,7 @@ var SingletonMapComponent = React.createClass({
     // props or state
     render: function () {
       return (
-        <div id="map"></div>
+        <div ref="mapboxDiv"></div>
       )
     }
   });
