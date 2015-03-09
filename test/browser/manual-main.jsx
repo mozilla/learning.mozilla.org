@@ -67,7 +67,7 @@ var RouteTest = React.createClass({
           </a>
         </h2>
         <div className="row">
-          <div className="col-md-4">
+          <div className="col-xs-4">
             <div>
               <RouteThumbnail
                name="Desktop"
@@ -76,7 +76,7 @@ var RouteTest = React.createClass({
                url={this.props.url}/>
             </div>
           </div>
-          <div className="col-md-4">
+          <div className="col-xs-4">
             <div>
               <RouteThumbnail
                name="Tablet"
@@ -85,7 +85,7 @@ var RouteTest = React.createClass({
                url={this.props.url}/>
             </div>
           </div>
-          <div className="col-md-4">
+          <div className="col-xs-4">
             <div>
               <RouteThumbnail
                name="Mobile"
