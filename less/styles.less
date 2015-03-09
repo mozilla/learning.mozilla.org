@@ -211,6 +211,25 @@ html.no-js .sidebar {
     padding: @grid-gutter-width / 2;
   }
 
+  .sidebar-menu li img{
+    float: none;
+    width: 5.4rem;
+    opacity: 0.6;
+    margin: 0 1.5rem 0 0;
+    @media (min-width: @screen-md-min) {
+      float: left;
+    }
+    &.teach {
+      width: 5rem;
+      margin: 0.4rem 1.3rem 0 0.6rem;
+    }
+    &.clubs {
+      width: 5rem;
+      margin: 0 1.5rem 0 0.5rem;
+    }
+  }
+
+
   .sidebar-menu a:hover, .sidebar-menu a:focus {
     text-decoration: none;
     background-color: darken(@sidebarColor, 10%);
@@ -218,20 +237,23 @@ html.no-js .sidebar {
   }
 
   .sidebar-menu a strong {
-    display: block;
+    display: inline;
     font-weight: 700;
     text-transform: uppercase;
+    @media (min-width: @screen-md-min) {
+      float: block;
+    }
   }
 
   .sidebar-menu a .help-text {
     font-size: 1.2rem;
     font-weight: 400;
-    margin-right: 4em;
+    width: 22rem;
   }
 
   .sidebar-menu a .glyphicon {
     position: absolute;
-    right: 4px;
+    right: 1.5rem;
     font-size: 15px;
     top: calc(50% - 15px / 2);
     color: lighten(@sidebarColor, 15%);
@@ -268,10 +290,24 @@ img.img-scale-to-fit.img-circle {
   padding-bottom: 3rem;
 
   blockquote {
+    max-width: 80rem;
+    margin: 0 auto;
     font-size: 3rem;
+    padding-bottom: 4rem;
     text-align: center;
     font-style: italic;
     border: none;
+    img {
+      display: block;
+      margin: 0 auto;
+      padding: 0 0 1rem 0;
+    }
+    small {
+      margin-top: 1rem;
+      font-weight: 300;
+      font-size: 1.6rem;
+      color: #4D4E53;
+    }
   }
 
   .quote-symbol:before {
