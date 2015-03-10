@@ -7,6 +7,8 @@
     "gulp": "^3.8.11",
     "gulp-jsbeautify": "^0.1.1",
     "gulp-gzip": "^1.0.0",
+    "gulp-jscs": "^1.4.0",
+    "gulp-jshint": "^1.9.2",
     "gulp-less": "^3.0.1",
     "gulp-plumber": "^0.6.6",
     "gulp-prettify": "^0.3.0",
@@ -34,12 +36,9 @@
     "vinyl": "^0.4.6",
     "webpack": "^1.6.0"
   },
-  "devDependencies": {
-    "gulp-jscs": "^1.4.0",
-    "gulp-jshint": "^1.9.2"
-  },
+  "devDependencies": {},
   "scripts": {
-    "test": "gulp smoketest && mocha test/*.test.js && npm run browsertest",
+    "test": "gulp lint-test && gulp smoketest && mocha test/*.test.js && npm run browsertest",
     "browsertest": "mocha-phantomjs -s loadImages=false dist/test/index.html",
     "smoketest": "gulp smoketest",
     "s3": "gulp s3",
