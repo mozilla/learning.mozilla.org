@@ -8,6 +8,8 @@ var Page = require('./page.jsx');
 var HeroUnit = require('./hero-unit.jsx');
 var Homepage = require('./homepage.jsx');
 var Map = require('./map.jsx');
+var ga = require('./googleanalytics.js');
+
 var urls = [];
 
 function placeholderPage(options) {
@@ -95,7 +97,8 @@ exports.generateStatic = function(url, cb) {
 };
 
 exports.run = function(location, el) {
-  Router.run(routes, location, function(Handler) {
+  Router.run(routes, location, function(Handler, state) {
+    ga.pageview(state.pathname);
     React.render(<Handler/>, el);
   });
 };
