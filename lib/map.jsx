@@ -1,6 +1,6 @@
 var React = require('react');
 
-var SingletonMapComponent = React.createClass({
+var Map = React.createClass({
 
     propTypes: {
       accessToken: React.PropTypes.string.isRequired,
@@ -23,4 +23,4 @@ var SingletonMapComponent = React.createClass({
     }
   });
 
-module.exports = SingletonMapComponent;
+module.exports = Map;
