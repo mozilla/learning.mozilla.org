@@ -3,6 +3,17 @@ var webpack = require('webpack');
 var IMPORT_ES5_SHIM = "imports?shim=es5-shim/es5-shim&" +
                       "sham=es5-shim/es5-sham";
 
+function importEnvVars(keys) {
+  var result = {};
+
+  keys.forEach(function(key) {
+    if (typeof(process.env[key]) == 'string')
+      result[key] = JSON.stringify(process.env[key]);
+  });
+
+  return result;
+}
+
 module.exports = {
   entry: {
     app: './lib/main.jsx',
@@ -24,6 +35,12 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': importEnvVars([
+        'MAPBOX_ACCESS_TOKEN',
+        'MAPBOX_MAP_ID'
+      ])
+    }),
     new webpack.optimize.CommonsChunkPlugin('commons',
                                             'commons.bundle.js')
   ]

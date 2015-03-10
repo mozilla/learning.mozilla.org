@@ -140,6 +140,12 @@ string), the boolean is true; otherwise, it's false.
   in situations where absolute URLs are required, such
   as generating a `sitemap.xml` file.
 
+* `MAPBOX_ACCESS_TOKEN` is the [Mapbox][] access token to use for
+  embedded maps in the website. Optional.
+
+* `MAPBOX_MAP_ID` is the Mapbox map ID to use for embedded maps in
+  the website. Optional.
+
 ## References
 
 * [Cassie's original PSD files][psd]
@@ -159,3 +165,4 @@ string), the boolean is true; otherwise, it's false.
   [mocha (1)]: http://mochajs.org/#usage
   [should]: https://www.npmjs.com/package/should
   [teach.mofostaging.net]: http://teach.mofostaging.net/
+  [Mapbox]: http://mapbox.com/
