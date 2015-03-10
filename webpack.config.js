@@ -1,14 +1,15 @@
 var webpack = require('webpack');
 
-var IMPORT_ES5_SHIM = "imports?shim=es5-shim/es5-shim&" +
-                      "sham=es5-shim/es5-sham";
+var IMPORT_ES5_SHIM = 'imports?shim=es5-shim/es5-shim&' +
+                      'sham=es5-shim/es5-sham';
 
 function importEnvVars(keys) {
   var result = {};
 
   keys.forEach(function(key) {
-    if (typeof(process.env[key]) == 'string')
+    if (typeof (process.env[key]) === 'string') {
       result[key] = JSON.stringify(process.env[key]);
+    }
   });
 
   return result;
@@ -27,11 +28,11 @@ module.exports = {
   },
   module: {
     loaders: [
-      {test: /\.jsx$/, loader: "jsx-loader"},
+      { test: /\.jsx$/, loader: 'jsx-loader' },
       // https://github.com/webpack/webpack/issues/558#issuecomment-60889168
-      {test: require.resolve("react"), loader: IMPORT_ES5_SHIM},
-      {test: require.resolve("react/addons"), loader: IMPORT_ES5_SHIM},
-      {test: /\.json$/, loader: "json-loader"}
+      { test: require.resolve('react'), loader: IMPORT_ES5_SHIM },
+      { test: require.resolve('react/addons'), loader: IMPORT_ES5_SHIM },
+      { test: /\.json$/, loader: 'json-loader' }
     ]
   },
   plugins: [
