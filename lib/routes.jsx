@@ -97,6 +97,7 @@ exports.generateStatic = function(url, cb) {
 };
 
 exports.run = function(location, el) {
+  ga.initialize();
   Router.run(routes, location, function(Handler, state) {
     ga.pageview(state.pathname);
     React.render(<Handler/>, el);
