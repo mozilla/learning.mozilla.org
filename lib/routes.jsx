@@ -5,8 +5,8 @@ var Link = Router.Link;
 var DefaultRoute = Router.DefaultRoute;
 
 var ga = require('./googleanalytics.js');
-var placeholderPage = require('../pages/placeholder.jsx');
-var Homepage = require('../pages/homepage.jsx');
+var placeholderPage = require('../components/placeholder.jsx');
+var Homepage = require('../components/homepage.jsx');
 var Page = require('../components/page.jsx');
 
 var urls = [];
