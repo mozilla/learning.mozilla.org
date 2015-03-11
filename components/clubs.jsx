@@ -4,7 +4,6 @@ var Link = Router.Link;
 
 var Page = require('./page.jsx');
 var HeroUnit = require('./hero-unit.jsx');
-var Map = require('./map.jsx');
 var Blockquote = require('./blockquote.jsx');
 var IconLink = require('./icon-link.jsx');
 var PageEndCTA = require('./page-end-cta.jsx');
@@ -15,8 +14,7 @@ var WebLitMap = React.createClass({
       <div className="row">
         <div className="col-sm-12 col-md-12 col-lg-12">
           <h2>The Global Web Literacy Movement</h2>
-          <Map accessToken={process.env.MAPBOX_ACCESS_TOKEN || 'pk.eyJ1IjoiYWxpY29kaW5nIiwiYSI6Il90WlNFdE0ifQ.QGGdXGA_2QH-6ujyZE2oSg'}
-               mapId={process.env.MAPBOX_MAP_ID || 'alicoding.ldmhe4f3'}/>
+          <div>placeholder for map</div>
         </div>
       </div>
     );
@@ -115,7 +113,22 @@ var BottomCTA = React.createClass({
 });
 
 
-var ClubsPage = React.createClass({
+var BottomCTA = React.createClass({
+  render: function() {
+    return(
+      <div className="row">
+        <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+          <PageEndCTA description="Do you meet regularly with a group of learners to increaset web literacy skills?"
+                      linkTo={this.props.ctaLink}
+                      ctaBtnText="Add your club to the map" />
+        </div>
+      </div>
+    );
+  }
+});
+
+
+var Clubs = React.createClass({
   statics: {
     pageClassName: "clubs"
   },
@@ -148,4 +161,4 @@ var ClubsPage = React.createClass({
   }
 });
 
-module.exports = ClubsPage;
+module.exports = Clubs;
