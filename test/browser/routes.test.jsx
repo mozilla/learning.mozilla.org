@@ -7,7 +7,21 @@ var Link = Router.Link;
 var routes = require('../../lib/routes.jsx');
 
 describe('routes', function() {
+  var oldMap;
+
+  require('mapbox.js');
+
+  beforeEach(function() {
+    oldMap = L.mapbox.map;
+    L.mapbox.map = function() { return {remove: function() {}} };
+  });
+
+  afterEach(function() {
+    L.mapbox.map = oldMap;
+  });
+
   routes.URLS.forEach(function(url) {
+
     describe(url, function() {
       it('should contain 0 non-named links', function(done) {
         var nonNamedLinks = 0;
