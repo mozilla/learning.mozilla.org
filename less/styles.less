@@ -5,6 +5,8 @@
 // This used to be @screen-xs but Bootstrap deprecated it.
 @screen-teensy: 480px;
 
+@white: #fff;
+@bodyTextColor: #4D4E53;
 @sidebarColor: #d54361;
 @blueSidebarColor: #1F93D0;
 @purpleSidebarColor: #652562;
@@ -20,6 +22,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 1.4rem;
   font-weight: 300;
+  color: @bodyTextColor;
 }
 
 @media (min-width: @screen-md-min) {
@@ -36,6 +39,14 @@ body {
 
   .hero-unit {
     margin-right: -(@grid-gutter-width / 2);
+    .learn-more {
+      font-size: 14px;
+      font-weight: 600;
+      a {
+        color: @white;
+        text-decoration: underline;
+      }
+    }
   }
 }
 
@@ -51,8 +62,43 @@ body {
   .justify-content(center);
 }
 
-.hero-unit h1 {
+h1 {
   font-weight: 600;
+  font-size: 43px;
+  text-shadow: rgba(0,0,0,.6) 0 2px 1px;
+}
+
+h2 {
+  font-weight: 300;
+  font-size: 35px;
+  margin-bottom: 25px;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 26px;
+}
+
+main {
+  .list-with-illust {
+    img {
+      display: block;
+      margin: 40px auto 0 auto;
+    }
+  }
+  ol,
+  ul {
+    font-size: 18px;
+    list-style-type: none;
+    padding-left: 0;
+  }
+}
+
+section {
+  padding: 25px;
+}
+
+.hero-unit h1 {
   padding: @grid-gutter-width;
 }
 
@@ -81,6 +127,34 @@ a.bold-link {
   white-space: pre;
 }
 
+.icon-link {
+  text-align: center;
+  figure {
+    transition: all 0.18s ease-in;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+  h3 {
+    margin-bottom: 5px;
+  }
+  .subhead {
+    font-style: italic;
+    font-size: 16px;
+  }
+}
+
+.page-end-cta {
+  p {
+    font-size: 24px;
+  }
+  text-align: center;
+}
+
 html.no-js .sidebar {
   .sidebar-header .glyphicon-menu-hamburger {
     display: none;
@@ -103,8 +177,15 @@ html.no-js .sidebar {
   .sidebarColorizer(@purpleSidebarColor);
 }
 
-.page.clubs .sidebar {
-  .sidebarColorizer(@orangeSidebarColor);
+.page.clubs {
+  .sidebar {
+    .sidebarColorizer(@orangeSidebarColor);
+  }
+  main {
+    ul {
+      .listItemBorderColorizer(@orangeSidebarColor);
+    }
+  }
 }
 
 .page.teaching-materials .sidebar {
@@ -240,30 +321,27 @@ img.img-scale-to-fit.img-circle {
   }
 }
 
+blockquote {
+  font-size: 3rem;
+  text-align: center;
+  font-style: italic;
+  border: none;
+  img {
+    display: block;
+    margin: 0 auto;
+    padding: 0 0 1rem 0;
+  }
+  small {
+    margin-top: 1rem;
+    font-weight: 300;
+    font-size: 1.6rem;
+    color: #4D4E53;
+  }
+}
+
 .case-studies {
   @quote-symbol-size: 5rem;
   padding-bottom: 3rem;
-
-  blockquote {
-    max-width: 80rem;
-    margin: 0 auto;
-    font-size: 3rem;
-    padding-bottom: 4rem;
-    text-align: center;
-    font-style: italic;
-    border: none;
-    img {
-      display: block;
-      margin: 0 auto;
-      padding: 0 0 1rem 0;
-    }
-    small {
-      margin-top: 1rem;
-      font-weight: 300;
-      font-size: 1.6rem;
-      color: #4D4E53;
-    }
-  }
 
   .quote-symbol:before {
     margin-left: -0.15em;
@@ -329,6 +407,7 @@ footer {
   }
 
   > .content {
+    margin-top: 25px;
     background: @footerBackgroundColor;
   }
 

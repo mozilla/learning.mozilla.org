@@ -3,16 +3,16 @@ var Router = require('react-router');
 var Link = Router.Link;
 
 var HeroUnit = require('./hero-unit.jsx');
+var Blockquote = require('./blockquote.jsx');
 
 var CaseStudies = React.createClass({
   render: function() {
     return (
       <div className="case-studies">
-        <blockquote className="primary-quote">
-          <img src="/img/maurya-nyc@2x.png" alt="Maurya NYC Quote" width="148" />
-          Web literacy is about more than coding - it is about how you can be a better web citizen.
-          <small>Maurya C. New York, United States</small>
-        </blockquote>
+        <Blockquote className="primary-quote"
+                    imgSrc="/img/maurya-nyc@2x.png" imgAlt="Maurya NYC Quote"
+                    quote="Web literacy is about more than coding - it is about how you can be a better web citizen."
+                    author="Maurya C. New York, United States" />
       </div>
     );
   }
