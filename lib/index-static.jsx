@@ -1,6 +1,5 @@
 var React = require('react');
 
-var GoogleAnalyticsBasicTag = require('./googleanalytics.jsx');
 var routes = require('./routes.jsx');
 
 function generateWithPageHTML(url, options, pageHTML) {
@@ -27,7 +26,6 @@ function generateWithPageHTML(url, options, pageHTML) {
           __html: pageHTML
         }}></div>
         <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js'></script>
-        <GoogleAnalyticsBasicTag/>
         <script src="/commons.bundle.js"></script>
         <script src="/app.bundle.js"></script>
       </body>
