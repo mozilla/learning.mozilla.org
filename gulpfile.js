@@ -171,7 +171,9 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
     .pipe(gulp.dest('./dist'));
 
   gulp.watch([
-    'lib/**'
+    'lib/**',
+    'components/**',
+    'pages/**'
   ], function() {
     gutil.log('Rebuilding index HTML files.');
 
