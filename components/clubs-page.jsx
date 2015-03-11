@@ -63,21 +63,21 @@ var Quote = React.createClass({
 var IconLinks = React.createClass({
   ICON_LINKS: [
     {
-      linkTo: "/fixme",
+      linkTo: "fixme",
       imgSrc: "/img/icon-curriculum.svg",
       imgAlt: "icon curriculum",
       head: "Curriculum",
       subhead: "Modular Web Literacy curriculum"
     },
     {
-      linkTo: "/fixme",
+      linkTo: "fixme",
       imgSrc: "/img/icon-connect.svg",
       imgAlt: "icon connect",
       head: "Connect",
       subhead: "Connect with other Club Leaders"
     },
     {
-      linkTo: "/fixme",
+      linkTo: "fixme",
       imgSrc: "/img/icon-tips.svg",
       imgAlt: "icon tips",
       head: "Helpful Tips",
@@ -120,13 +120,13 @@ var ClubsPage = React.createClass({
     pageClassName: "clubs"
   },
   render: function() {
-    var theCtaLink = "/fixme-cta";
+    var theCtaLink = "fixme"; // CTA link should be the same for hero CTA and page bottom CTA
     return (
       <div>
         <HeroUnit image="/img/hero-clubs.jpg">
           <h1>Mozilla Learning Clubs</h1>
           <div><Link to={theCtaLink} className="btn btn-awsm">Add Your Club</Link></div>
-          <div><p className="learn-more">or <Link to="/fixme">find out more</Link> about us</p></div>
+          <div><p className="learn-more">or <Link to="fixme">find out more</Link> about us</p></div>
         </HeroUnit>
         <section>
           <WebLitMap/>
