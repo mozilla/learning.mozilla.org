@@ -38,7 +38,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "gulp lint-test && gulp smoketest && mocha test/*.test.js && npm run browsertest",
+    "test": "gulp smoketest && mocha test/*.test.js && npm run browsertest && gulp lint-test",
     "browsertest": "mocha-phantomjs -s loadImages=false dist/test/index.html",
     "smoketest": "gulp smoketest",
     "s3": "gulp s3",
