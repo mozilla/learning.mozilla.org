@@ -4,80 +4,27 @@ var Route = Router.Route;
 var Link = Router.Link;
 var DefaultRoute = Router.DefaultRoute;
 
-var Page = require('./page.jsx');
-var HeroUnit = require('./hero-unit.jsx');
-var Homepage = require('./homepage.jsx');
-var Map = require('./map.jsx');
 var ga = require('./googleanalytics.js');
+var Page = require('../components/page.jsx');
 
 var urls = [];
 
-function placeholderPage(options) {
-  return React.createClass({
-    statics: {
-      pageClassName: options.pageClassName
-    },
-    render: function() {
-      return (
-        <div>
-          <HeroUnit image="/img/hero-unit.jpg">
-            <h1>Placeholder: {options.title}</h1>
-          </HeroUnit>
-          <h2>This is a placeholder page for &ldquo;{options.title}&rdquo;.</h2>
-          {options.githubIssue
-           ? <p>Discussion about this page can be found on GitHub at <a
-               href={"https://github.com/mozilla/teach.webmaker.org/issues/" +
-                     options.githubIssue}>
-                 <code style={{
-                   color: '#1F93D0',
-                   backgroundColor: '#f0f0f0'
-                 }}>mozilla/teach.webmaker.org#{options.githubIssue}</code>
-               </a>.
-             </p>
-           : null}
-          {options.pageClassName == 'clubs'
-            ? <Map accessToken={
-                process.env.MAPBOX_ACCESS_TOKEN || 'pk.eyJ1IjoiYWxpY29kaW5nIiwiYSI6Il90WlNFdE0ifQ.QGGdXGA_2QH-6ujyZE2oSg'
-              } mapId={
-                process.env.MAPBOX_MAP_ID || 'alicoding.ldmhe4f3'
-              }/> : null}
-        </div>
-      );
-    }
-  })
-}
-
 var routes = (
   <Route handler={Page}>
-    <Route name="join" path="/join/" handler={placeholderPage({
-      title: 'Join Us',
-      githubIssue: 154
-    })}/>
-    <Route name="about" path="/about/" handler={placeholderPage({
-      title: 'About',
-      githubIssue: 99
-    })}/>
-    <Route name="activities" path="/activities/" handler={placeholderPage({
-      title: 'Teaching Activities',
-      pageClassName: 'teaching-materials',
-      githubIssue: 36
-    })}/>
-    <Route name="events" path="/events/" handler={placeholderPage({
-      title: 'Events',
-      pageClassName: 'events',
-      githubIssue: 35
-    })}/>
-    <Route name="clubs" path="/clubs/" handler={placeholderPage({
-      title: 'Clubs',
-      pageClassName: 'clubs',
-      githubIssue: 44
-    })}/>
-    <Route name="teach-like-mozilla" path="/teach-like-mozilla/" handler={placeholderPage({
-      title: 'Teach Like Mozilla',
-      pageClassName: 'teach-like-mozilla',
-      githubIssue: 37
-    })}/>
-    <DefaultRoute name="home" handler={Homepage}/>
+    <Route name="join" path="/join/"
+     handler={require('../components/join-page.jsx')}/>
+    <Route name="about" path="/about/"
+     handler={require('../components/about-page.jsx')}/>
+    <Route name="activities" path="/activities/"
+     handler={require('../components/activities-page.jsx')}/>
+    <Route name="events" path="/events/"
+     handler={require('../components/events-page.jsx')}/>
+    <Route name="clubs" path="/clubs/"
+     handler={require('../components/clubs-page.jsx')}/>
+    <Route name="teach-like-mozilla" path="/teach-like-mozilla/"
+     handler={require('../components/teach-like-mozilla-page.jsx')}/>
+    <DefaultRoute name="home"
+     handler={require('../components/home-page.jsx')}/>
   </Route>
 );
 

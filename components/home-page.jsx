@@ -2,7 +2,6 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 
-var Page = require('./page.jsx');
 var HeroUnit = require('./hero-unit.jsx');
 
 var CaseStudies = React.createClass({
@@ -35,7 +34,7 @@ var Values = React.createClass({
   }
 });
 
-var Homepage = React.createClass({
+var HomePage = React.createClass({
   render: function() {
     return (
       <div>
@@ -50,4 +49,4 @@ var Homepage = React.createClass({
   }
 });
 
-module.exports = Homepage;
+module.exports = HomePage;
