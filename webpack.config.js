@@ -8,7 +8,7 @@ function importEnvVars(keys) {
 
   keys.forEach(function(key) {
     if (typeof (process.env[key]) === 'string') {
-      result[key] = JSON.stringify(process.env[key]);
+      result['process.env.' + key] = JSON.stringify(process.env[key]);
     }
   });
 
@@ -36,12 +36,11 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': importEnvVars([
-        'MAPBOX_ACCESS_TOKEN',
-        'MAPBOX_MAP_ID'
-      ])
-    }),
+    new webpack.DefinePlugin(importEnvVars([
+      'GA_ACCOUNT',
+      'MAPBOX_ACCESS_TOKEN',
+      'MAPBOX_MAP_ID'
+    ])),
     new webpack.optimize.CommonsChunkPlugin('commons',
                                             'commons.bundle.js')
   ]
