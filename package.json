@@ -34,6 +34,7 @@
     "should": "^5.1.0",
     "underscore": "^1.8.2",
     "vinyl": "^0.4.6",
+    "sinon": "git://github.com/cjohansen/Sinon.JS#b672042043517b9f84e14ed0fb8265126168778a",
     "webpack": "^1.6.0"
   },
   "devDependencies": {},

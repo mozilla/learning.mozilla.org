@@ -1,4 +1,5 @@
 var should = require('should');
+var sinon = require('sinon');
 var React =require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var Router = require('react-router');
@@ -7,17 +8,16 @@ var Link = Router.Link;
 var routes = require('../../lib/routes.jsx');
 
 describe('routes', function() {
-  var oldMap;
-
   require('mapbox.js');
 
   beforeEach(function() {
-    oldMap = L.mapbox.map;
-    L.mapbox.map = function() { return {remove: function() {}} };
+    sinon.stub(L.mapbox, 'map', function() {
+      return {remove: function() {}}
+    });
   });
 
   afterEach(function() {
-    L.mapbox.map = oldMap;
+    L.mapbox.map.restore();
   });
 
   routes.URLS.forEach(function(url) {
