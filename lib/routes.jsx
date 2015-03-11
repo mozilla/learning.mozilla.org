@@ -23,6 +23,8 @@ var routes = (
      handler={require('../components/clubs-page.jsx')}/>
     <Route name="teach-like-mozilla" path="/teach-like-mozilla/"
      handler={require('../components/teach-like-mozilla-page.jsx')}/>
+     <Route name="fixme" path="/fixme/"
+     handler={require('../components/fixme-page.jsx')}/>
     <DefaultRoute name="home"
      handler={require('../components/home-page.jsx')}/>
   </Route>
