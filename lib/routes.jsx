@@ -5,43 +5,34 @@ var Link = Router.Link;
 var DefaultRoute = Router.DefaultRoute;
 
 var ga = require('./googleanalytics.js');
-var placeholderPage = require('../components/placeholder.jsx');
-var Homepage = require('../components/homepage.jsx');
 var Page = require('../components/page.jsx');
 
 var urls = [];
 
+var placeholderPage = function() {
+  return React.createClass({
+    render: function() {
+      return <div>PLACEHOLDER</div>;
+    }
+  });
+};
+
 var routes = (
   <Route handler={Page}>
-    <Route name="join" path="/join/" handler={placeholderPage({
-      title: 'Join Us',
-      githubIssue: 154
-    })}/>
-    <Route name="about" path="/about/" handler={placeholderPage({
-      title: 'About',
-      githubIssue: 99
-    })}/>
-    <Route name="activities" path="/activities/" handler={placeholderPage({
-      title: 'Teaching Activities',
-      pageClassName: 'teaching-materials',
-      githubIssue: 36
-    })}/>
-    <Route name="events" path="/events/" handler={placeholderPage({
-      title: 'Events',
-      pageClassName: 'events',
-      githubIssue: 35
-    })}/>
-    <Route name="clubs" path="/clubs/" handler={placeholderPage({
-      title: 'Clubs',
-      pageClassName: 'clubs',
-      githubIssue: 44
-    })}/>
-    <Route name="teach-like-mozilla" path="/teach-like-mozilla/" handler={placeholderPage({
-      title: 'Teach Like Mozilla',
-      pageClassName: 'teach-like-mozilla',
-      githubIssue: 37
-    })}/>
-    <DefaultRoute name="home" handler={Homepage}/>
+    <Route name="join" path="/join/"
+     handler={require('../components/join-page.jsx')}/>
+    <Route name="about" path="/about/"
+     handler={require('../components/about-page.jsx')}/>
+    <Route name="activities" path="/activities/"
+     handler={require('../components/activities-page.jsx')}/>
+    <Route name="events" path="/events/"
+     handler={require('../components/events-page.jsx')}/>
+    <Route name="clubs" path="/clubs/"
+     handler={require('../components/clubs-page.jsx')}/>
+    <Route name="teach-like-mozilla" path="/teach-like-mozilla/"
+     handler={require('../components/teach-like-mozilla-page.jsx')}/>
+    <DefaultRoute name="home"
+     handler={require('../components/home-page.jsx')}/>
   </Route>
 );
 

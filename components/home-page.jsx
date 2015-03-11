@@ -34,7 +34,7 @@ var Values = React.createClass({
   }
 });
 
-var Homepage = React.createClass({
+var HomePage = React.createClass({
   render: function() {
     return (
       <div>
@@ -49,4 +49,4 @@ var Homepage = React.createClass({
   }
 });
 
-module.exports = Homepage;
+module.exports = HomePage;
