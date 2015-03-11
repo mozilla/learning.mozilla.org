@@ -13,9 +13,9 @@ var Page = React.createClass({
       <div className={"page container-fluid " + pageClassName}>
         <div className="row">
           <Sidebar/>
-          <div className="content col-md-9">
+          <main className="content col-md-9">
             <RouteHandler/>
-          </div>
+          </main>
         </div>
         <Footer/>
       </div>
