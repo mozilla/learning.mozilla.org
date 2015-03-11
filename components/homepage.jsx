@@ -2,7 +2,7 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 
-var HeroUnit = require('../components/hero-unit.jsx');
+var HeroUnit = require('./hero-unit.jsx');
 
 var CaseStudies = React.createClass({
   render: function() {

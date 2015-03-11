@@ -1,7 +1,7 @@
 var React = require('react');
 
-var HeroUnit = require('../components/hero-unit.jsx');
-var Map = require('../components/map.jsx');
+var HeroUnit = require('./hero-unit.jsx');
+var Map = require('./map.jsx');
 
 function placeholderPage(options) {
   return React.createClass({
