@@ -9,14 +9,6 @@ var Page = require('../components/page.jsx');
 
 var urls = [];
 
-var placeholderPage = function() {
-  return React.createClass({
-    render: function() {
-      return <div>PLACEHOLDER</div>;
-    }
-  });
-};
-
 var routes = (
   <Route handler={Page}>
     <Route name="join" path="/join/"
