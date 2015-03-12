@@ -421,15 +421,11 @@ footer {
 
   .logos a img {
     height: 10rem;
+    width: 15rem;
     padding-bottom: @grid-gutter-width;
-  }
-
-  .logos a img.maker-party {
-    // This is just a hack to make the logo a bit smaller, so it looks
-    // about the same size as the other logos.
-    //
-    // TODO: Accomplish the same thing in a non-hacky way.
-    padding-top: 1.2rem;
+    &.maker-party {
+      width: 16rem;
+    }
   }
 
   .hive-cities {
