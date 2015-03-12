@@ -12,6 +12,9 @@ var plumber = require('gulp-plumber');
 var merge = require('merge-stream');
 var sourcemaps = require('gulp-sourcemaps');
 var sitemap = require('gulp-sitemap');
+var beautify = require('gulp-jsbeautify');
+var jscs = require('gulp-jscs');
+var jshint = require('gulp-jshint');
 
 require('node-jsx').install();
 
@@ -21,6 +24,7 @@ var IndexFileStream = require('./lib/gulp-index-file-stream');
 var webpackConfig = require('./webpack.config');
 
 var BUILD_TASKS = [
+  'beautify',
   'copy-test-dirs',
   'copy-dirs',
   'less',
@@ -31,10 +35,23 @@ var BUILD_TASKS = [
 var COPY_DIRS = [
   'img/**',
   'vendor/bootstrap/css/**',
-  'vendor/bootstrap/fonts/**',
+  'vendor/bootstrap/fonts/**'
+];
+
+var LINT_DIRS = [
+    '*.js',
+    'lib/**/*.js',
+    'test/**/*.js',
+    // Google analytics contains code from GA's snippet, which
+    // is intentionally uglified and obfuscated and crap.
+    '!lib/googleanalytics.js',
+    // TODO let's figure out how to let our linters handle the test suite: delete the line below when we're ready
+    '!test/**/*.js'
 ];
 
 var LESS_FILES = './less/**/*.less';
+
+var TRAVIS_DEPLOY_TO_S3_BRANCH = 'develop';
 
 function onError(err) {
   gutil.log(gutil.colors.red(err));
@@ -93,7 +110,7 @@ gulp.task('webpack', function() {
 gulp.task('smoketest', BUILD_TASKS.concat([
   'test-react-warnings'
 ]), function() {
-  gutil.log(gutil.colors.green.bold("Yay, smoke test passes!"));
+  gutil.log(gutil.colors.green.bold('Yay, smoke test passes!'));
 });
 
 gulp.task('test-react-warnings', function() {
@@ -123,9 +140,30 @@ gulp.task('generate-index-files', function() {
     .pipe(gulp.dest('./dist'));
 });
 
+gulp.task('beautify', function () {
+  gulp.src(LINT_DIRS)
+      .pipe(beautify({ config: 'node_modules/mofo-style/linters/.jsbeautifyrc' }))
+      .pipe(gulp.dest('dist'));
+});
+
+gulp.task('jshint', function() {
+  return gulp.src(LINT_DIRS)
+      .pipe(jshint({ lookup: 'node_modules/mofo-style/linters/.jshintrc' }))
+      .pipe(jshint.reporter('default'));
+});
+
+
+gulp.task('jscs', function () {
+  // jscs doesn't play nice with *.jsx files so we're avoiding lib/*.jsx
+  return gulp.src(LINT_DIRS)
+      .pipe(jscs({ configPath: 'node_modules/mofo-style/linters/.jscsrc' }));
+});
+
+gulp.task('lint-test', ['jscs', 'jshint', 'beautify']);
+
 gulp.task('default', BUILD_TASKS);
 
-gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function(cb) {
+gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
   gulp.src(webpackConfig.entry.app)
     .pipe(webpack(_.extend({
       watch: true
@@ -133,7 +171,9 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function(cb) {
     .pipe(gulp.dest('./dist'));
 
   gulp.watch([
-    'lib/**'
+    'lib/**',
+    'components/**',
+    'pages/**'
   ], function() {
     gutil.log('Rebuilding index HTML files.');
 
@@ -146,11 +186,11 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function(cb) {
     require('child_process')
       .exec('gulp sitemap', function(err, stdout, stderr) {
         if (err) {
-          gutil.log(gutil.colors.red.bold("Error rebuilding index files!"));
+          gutil.log(gutil.colors.red.bold('Error rebuilding index files!'));
           gutil.log(stdout);
           gutil.log(stderr);
         } else {
-          gutil.log("Index HTML files rebuilt.");
+          gutil.log('Index HTML files rebuilt.');
         }
       });
   });
@@ -158,6 +198,17 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function(cb) {
   gulp.watch(COPY_DIRS, ['copy-dirs']);
   gulp.watch(LESS_FILES, ['less']);
   gulp.watch('test/browser/static/**', ['copy-test-dirs']);
+  gulp.watch([
+    'gulpfile.js',
+    'package.json',
+    'webpack.config.js'
+  ], function(event) {
+    var filename = path.basename(event.path);
+    gutil.log(gutil.colors.red.bold(filename + ' was ' + event.type + '.'));
+    gutil.log(gutil.colors.red.bold('Please restart the watch process ' +
+                                    'with "npm start".'));
+    process.exit(0);
+  });
 
   gulp.src('dist')
     .pipe(webserver({
@@ -172,10 +223,23 @@ gulp.task('s3', BUILD_TASKS, function() {
   var key = process.env.AWS_ACCESS_KEY;
   var secret = process.env.AWS_SECRET_KEY;
 
-  if (!key || !secret)
-    throw new Error('Please set AWS_ACCESS_KEY and AWS_SECRET_KEY ' +
-      'in your environment.');
+  if (process.env.TRAVIS === 'true') {
+    gutil.log('Travis build detected.');
+    if (process.env.TRAVIS_PULL_REQUEST === 'false' &&
+        process.env.TRAVIS_BRANCH === TRAVIS_DEPLOY_TO_S3_BRANCH) {
+      gutil.log('Pushing to S3.');
+    } else {
+      gutil.log('Current travis build is either a PR or not on the ' +
+                TRAVIS_DEPLOY_TO_S3_BRANCH +
+                ' branch, so not pushing to S3.');
+      return;
+    }
+  }
 
+  if (!key || !secret) {
+    throw new Error('Please set AWS_ACCESS_KEY and AWS_SECRET_KEY ' +
+    'in your environment.');
+  }
   return gulp.src('./dist/**')
     .pipe(gzip())
     .pipe(s3({

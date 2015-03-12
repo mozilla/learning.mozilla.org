@@ -3,7 +3,7 @@ var React =require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
 var stubRouterContext = require('./stub-router-context.jsx');
-var Sidebar = require('../../lib/sidebar.jsx');
+var Sidebar = require('../../components/sidebar.jsx');
 
 describe("sidebar", function() {
   var sidebar, hamburger, collapsibleContent;

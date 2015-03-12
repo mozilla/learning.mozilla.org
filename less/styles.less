@@ -1,9 +1,12 @@
 @import "../vendor/bootstrap/less/variables.less";
 @import "../vendor/prefixer.less";
+@import "mixins.less";
 
 // This used to be @screen-xs but Bootstrap deprecated it.
 @screen-teensy: 480px;
 
+@white: #fff;
+@bodyTextColor: #4D4E53;
 @sidebarColor: #d54361;
 @blueSidebarColor: #1F93D0;
 @purpleSidebarColor: #652562;
@@ -11,9 +14,15 @@
 @redSidebarColor: #BB3C33;
 @footerBackgroundColor: #f1f1f1;
 
+html, body {
+  font-size: 62.5%;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
+  font-size: 1.4rem;
   font-weight: 300;
+  color: @bodyTextColor;
 }
 
 @media (min-width: @screen-md-min) {
@@ -30,6 +39,14 @@ body {
 
   .hero-unit {
     margin-right: -(@grid-gutter-width / 2);
+    .learn-more {
+      font-size: 1.4rem;
+      font-weight: 600;
+      a {
+        color: @white;
+        text-decoration: underline;
+      }
+    }
   }
 }
 
@@ -37,7 +54,7 @@ body {
   background-position: right top;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 450px;
+  height: 45rem;
   color: white;
   text-align: center;
   .flex-block();
@@ -45,13 +62,48 @@ body {
   .justify-content(center);
 }
 
-.hero-unit h1 {
+h1 {
   font-weight: 600;
+  font-size: 4.3rem;
+  text-shadow: rgba(0,0,0,.6) 0 .2rem .1rem;
+}
+
+h2 {
+  font-weight: 300;
+  font-size: 3.5rem;
+  margin-bottom: 2.5rem;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 2.6rem;
+}
+
+main {
+  .list-with-illust {
+    img {
+      display: block;
+      margin: 4rem auto 0 auto;
+    }
+  }
+  ol,
+  ul {
+    font-size: 1.8rem;
+    list-style-type: none;
+    padding-left: 0;
+  }
+}
+
+section {
+  padding: 2.5rem;
+}
+
+.hero-unit h1 {
   padding: @grid-gutter-width;
 }
 
 .hero-unit .btn-awsm {
-  min-width: 150px;
+  min-width: 15rem;
 }
 
 .btn.btn-awsm {
@@ -59,7 +111,7 @@ body {
   color: #4C4F56;
   text-transform: uppercase;
   font-weight: 700;
-  border-bottom: 4px solid #C4A650;
+  border-bottom: .4rem solid #C4A650;
   padding: 1rem;
 }
 
@@ -73,6 +125,34 @@ a.bold-link {
   font-weight: 700;
   font-size: 1.5rem;
   white-space: pre;
+}
+
+.icon-link {
+  text-align: center;
+  figure {
+    transition: all 0.18s ease-in;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+  h3 {
+    margin-bottom: .5rem;
+  }
+  .subhead {
+    font-style: italic;
+    font-size: 1.6rem;
+  }
+}
+
+.page-end-cta {
+  p {
+    font-size: 2.4rem;
+  }
+  text-align: center;
 }
 
 html.no-js .sidebar {
@@ -89,71 +169,27 @@ html.no-js .sidebar {
 
 @sidebarTransitionTime: 0.5s;
 
-// TODO: These alternate sidebar colors could probably
-// be simplified w/ some kind of LESS mixins or something.
-
 .page.events .sidebar {
-  background-color: @redSidebarColor;
-
-  .sidebar-header .corner {
-    fill: @redSidebarColor;
-  }
-
-  .sidebar-menu a:hover, .sidebar-menu a:focus {
-    background-color: darken(@redSidebarColor, 10%);
-  }
-
-  .sidebar-menu a .glyphicon {
-    color: lighten(@redSidebarColor, 15%);
-  }
+  .sidebarColorizer(@redSidebarColor);
 }
 
 .page.teach-like-mozilla .sidebar {
-  background-color: @purpleSidebarColor;
-
-  .sidebar-header .corner {
-    fill: @purpleSidebarColor;
-  }
-
-  .sidebar-menu a:hover, .sidebar-menu a:focus {
-    background-color: darken(@purpleSidebarColor, 10%);
-  }
-
-  .sidebar-menu a .glyphicon {
-    color: lighten(@purpleSidebarColor, 15%);
-  }
+  .sidebarColorizer(@purpleSidebarColor);
 }
 
-.page.clubs .sidebar {
-  background-color: @orangeSidebarColor;
-
-  .sidebar-header .corner {
-    fill: @orangeSidebarColor;
+.page.clubs {
+  .sidebar {
+    .sidebarColorizer(@orangeSidebarColor);
   }
-
-  .sidebar-menu a:hover, .sidebar-menu a:focus {
-    background-color: darken(@orangeSidebarColor, 10%);
-  }
-
-  .sidebar-menu a .glyphicon {
-    color: lighten(@orangeSidebarColor, 15%);
+  main {
+    ul {
+      .listItemBorderColorizer(@orangeSidebarColor);
+    }
   }
 }
 
 .page.teaching-materials .sidebar {
-  background-color: @blueSidebarColor;
-
-  .sidebar-header .corner {
-    fill: @blueSidebarColor;
-  }
-
-  .sidebar-menu a:hover, .sidebar-menu a:focus {
-    background-color: darken(@blueSidebarColor, 10%);
-  }
-
-  .sidebar-menu a .glyphicon {
-    color: lighten(@blueSidebarColor, 15%);
-  }
+  .sidebarColorizer(@blueSidebarColor);
 }
 
 .sidebar {
@@ -185,8 +221,8 @@ html.no-js .sidebar {
 
     /* Ensure there isn't a sliver of empty space
      * between the corner and adjacent elements. */
-    bottom: -1px;
-    right: -1px;
+    bottom: -.1rem;
+    right: -.1rem;
 
     fill: @sidebarColor;
     transition: fill @sidebarTransitionTime;
@@ -211,6 +247,25 @@ html.no-js .sidebar {
     padding: @grid-gutter-width / 2;
   }
 
+  .sidebar-menu li img{
+    float: none;
+    width: 5.4rem;
+    opacity: 0.6;
+    margin: 0 1.5rem 0 0;
+    @media (min-width: @screen-md-min) {
+      float: left;
+    }
+    &.teach {
+      width: 5rem;
+      margin: 0.4rem 1.3rem 0 0.6rem;
+    }
+    &.clubs {
+      width: 5rem;
+      margin: 0 1.5rem 0 0.5rem;
+    }
+  }
+
+
   .sidebar-menu a:hover, .sidebar-menu a:focus {
     text-decoration: none;
     background-color: darken(@sidebarColor, 10%);
@@ -218,22 +273,25 @@ html.no-js .sidebar {
   }
 
   .sidebar-menu a strong {
-    display: block;
+    display: inline;
     font-weight: 700;
     text-transform: uppercase;
+    @media (min-width: @screen-md-min) {
+      float: block;
+    }
   }
 
   .sidebar-menu a .help-text {
     font-size: 1.2rem;
     font-weight: 400;
-    margin-right: 4em;
+    width: 22rem;
   }
 
   .sidebar-menu a .glyphicon {
     position: absolute;
-    right: 4px;
-    font-size: 15px;
-    top: calc(50% - 15px / 2);
+    right: 1.5rem;
+    font-size: 1.5rem;
+    top: calc(50% - 1.5rem / 2);
     color: lighten(@sidebarColor, 15%);
     transition: color @sidebarTransitionTime;
   }
@@ -263,30 +321,27 @@ img.img-scale-to-fit.img-circle {
   }
 }
 
+blockquote {
+  font-size: 3rem;
+  text-align: center;
+  font-style: italic;
+  border: none;
+  img {
+    display: block;
+    margin: 0 auto;
+    padding: 0 0 1rem 0;
+  }
+  small {
+    margin-top: 1rem;
+    font-weight: 300;
+    font-size: 1.6rem;
+    color: #4D4E53;
+  }
+}
+
 .case-studies {
   @quote-symbol-size: 5rem;
   padding-bottom: 3rem;
-
-  blockquote {
-    max-width: 80rem;
-    margin: 0 auto;
-    font-size: 3rem;
-    padding-bottom: 4rem;
-    text-align: center;
-    font-style: italic;
-    border: none;
-    img {
-      display: block;
-      margin: 0 auto;
-      padding: 0 0 1rem 0;
-    }
-    small {
-      margin-top: 1rem;
-      font-weight: 300;
-      font-size: 1.6rem;
-      color: #4D4E53;
-    }
-  }
 
   .quote-symbol:before {
     margin-left: -0.15em;
@@ -313,7 +368,7 @@ img.img-scale-to-fit.img-circle {
   }
 
   .row .divider {
-    border-right: 1px solid #FFDFD0;
+    border-right: .1rem solid #FFDFD0;
   }
 
   .case-study {
@@ -352,6 +407,7 @@ footer {
   }
 
   > .content {
+    margin-top: 2.5rem;
     background: @footerBackgroundColor;
   }
 
@@ -364,7 +420,7 @@ footer {
   }
 
   .logos a img {
-    height: 100px;
+    height: 10rem;
     padding-bottom: @grid-gutter-width;
   }
 
@@ -373,7 +429,7 @@ footer {
     // about the same size as the other logos.
     //
     // TODO: Accomplish the same thing in a non-hacky way.
-    padding-top: 12px;
+    padding-top: 1.2rem;
   }
 
   .hive-cities {

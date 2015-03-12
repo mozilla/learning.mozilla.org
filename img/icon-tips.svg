@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="98px" height="75px" viewBox="0 0 98 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-tips</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Clubs-Page" sketch:type="MSArtboardGroup" transform="translate(-1011.000000, -1752.000000)">
+            <g id="icon-tips" sketch:type="MSLayerGroup" transform="translate(1011.000000, 1753.000000)">
+                <circle id="Oval" stroke="#FFDEBB" stroke-width="2" fill="#FFFFFF" sketch:type="MSShapeGroup" cx="48.849" cy="13.729" r="13.333"></circle>
+                <circle id="Oval" fill="#FFDEBB" sketch:type="MSShapeGroup" cx="48.849" cy="68.711" r="5"></circle>
+                <path d="M48.85,26.729 L48.85,71.71" id="Shape" stroke="#FFDEBB" stroke-width="2" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+                <circle id="Oval" stroke="#FFDEBB" stroke-width="2" fill="#FFFFFF" sketch:type="MSShapeGroup" cx="82.459" cy="27.729" r="13.333"></circle>
+                <circle id="Oval" fill="#FFDEBB" sketch:type="MSShapeGroup" cx="82.459" cy="68.711" r="5"></circle>
+                <path d="M82.459,41.728 L82.459,71.71" id="Shape" stroke="#FFDEBB" stroke-width="2" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+                <circle id="Oval" stroke="#FFDEBB" stroke-width="2" fill="#FFFFFF" sketch:type="MSShapeGroup" cx="15.239" cy="27.729" r="13.333"></circle>
+                <circle id="Oval" fill="#FFDEBB" sketch:type="MSShapeGroup" cx="15.239" cy="68.711" r="5"></circle>
+                <path d="M15.239,41.728 L15.239,71.71" id="Shape" stroke="#FFDEBB" stroke-width="2" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+                <path d="M0.349,69.229 L97.349,69.229" id="Shape" stroke="#FFDEBB" stroke-width="3" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+                <path d="M82.627,22.694 L88.594,31.395 L76.662,31.395 L82.627,22.694 Z" id="Shape" fill="#FFDEBB" sketch:type="MSShapeGroup"></path>
+                <rect id="Rectangle-path" fill="#FFDEBB" sketch:type="MSShapeGroup" x="10.961" y="23.395" width="9" height="9"></rect>
+                <rect id="Rectangle-path" fill="#FFDEBB" sketch:type="MSShapeGroup" transform="translate(49.460372, 13.892967) rotate(45.000000) translate(-49.460372, -13.892967) " x="44.9609153" y="9.39301011" width="8.9989137" height="8.99991369"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

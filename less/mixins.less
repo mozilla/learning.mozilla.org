@@ -1,0 +1,26 @@
+@bodyTextColor: #4D4E53;
+
+.listItemBorderColorizer(@borderColor:@bodyTextColor) {
+  li {
+    border-bottom: .1rem solid @borderColor;
+    padding: 1rem 0;
+    &:first-child {
+      border-top: .1rem solid @borderColor;
+    }
+  }
+}
+
+.sidebarColorizer(@sidebarColor) {
+  background-color: @sidebarColor;
+  .sidebar-header .corner {
+    fill: @sidebarColor;
+  }
+
+  .sidebar-menu a:hover, .sidebar-menu a:focus {
+    background-color: darken(@sidebarColor, 10%);
+  }
+
+  .sidebar-menu a .glyphicon {
+    color: lighten(@sidebarColor, 15%);
+  }
+}
