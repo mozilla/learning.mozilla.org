@@ -1,5 +1,4 @@
 @import "../vendor/bootstrap/less/variables.less";
-@import "../vendor/prefixer.less";
 @import "mixins.less";
 
 // This used to be @screen-xs but Bootstrap deprecated it.
@@ -27,14 +26,14 @@ body {
 
 @media (min-width: @screen-md-min) {
   .page.container-fluid {
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
-    .flex-block();
-    .flex-direction(column);
   }
 
   .page.container-fluid > .row {
-    .flex-grow(1);
-    .flex-block();
+    display: flex;
+    flex-grow: 1;
   }
 
   .hero-unit {
@@ -56,16 +55,16 @@ body {
   background-size: cover;
   height: 45rem;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
-  .flex-block();
-  .flex-direction(column);
-  .justify-content(center);
 }
 
 h1 {
   font-weight: 600;
   font-size: 4.3rem;
-  text-shadow: rgba(0,0,0,.6) 0 .2rem .1rem;
+  text-shadow: rgba(0, 0, 0, .6) 0 .2rem .1rem;
 }
 
 h2 {
@@ -247,7 +246,7 @@ html.no-js .sidebar {
     padding: @grid-gutter-width / 2;
   }
 
-  .sidebar-menu li img{
+  .sidebar-menu li img {
     float: none;
     width: 5.4rem;
     opacity: 0.6;
@@ -264,7 +263,6 @@ html.no-js .sidebar {
       margin: 0 1.5rem 0 0.5rem;
     }
   }
-
 
   .sidebar-menu a:hover, .sidebar-menu a:focus {
     text-decoration: none;
@@ -316,8 +314,8 @@ img.img-scale-to-fit.img-circle {
   font-size: 3rem;
 
   @media (min-width: @screen-sm-min) {
-    .flex-block();
-    .align-items(center);
+    align-items: center;
+    display: flex;
   }
 }
 
@@ -362,8 +360,8 @@ blockquote {
 
   @media (min-width: @screen-sm-min) {
     .row {
-      .flex-block();
-      .align-items(stretch);
+      align-items: stretch;
+      display: flex;
     }
   }
 
@@ -392,8 +390,8 @@ footer {
   .sidebar {
     line-height: 4rem;
     @media (min-width: @screen-md-min) {
-      .flex-block();
-      .align-items(flex-end);
+      align-items: flex-end;
+      display: flex;
     }
   }
 
