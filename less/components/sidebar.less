@@ -1,0 +1,140 @@
+@sidebarTransitionTime: 0.5s;
+
+html.no-js .sidebar {
+  .sidebar-header .glyphicon-menu-hamburger {
+    display: none;
+  }
+
+  .collapsible-content {
+    /* The links in the sidebar are crucial to navigating the site.
+     * If JS is disabled, we want the links visible at all costs. */
+    display: block !important;
+  }
+}
+
+.page {
+  &.events .sidebar {
+    .sidebarColorizer(@redSidebarColor);
+  }
+  &.teach-like-mozilla .sidebar {
+    .sidebarColorizer(@purpleSidebarColor);
+  }
+  &.clubs {
+    .sidebar {
+      .sidebarColorizer(@orangeSidebarColor);
+    }
+    main {
+      ul {
+        .listItemBorderColorizer(@orangeSidebarColor);
+      }
+    }
+  }
+  &.teaching-materials .sidebar {
+    .sidebarColorizer(@blueSidebarColor);
+  }
+}
+
+.sidebar {
+  background-color: @sidebarColor;
+  transition: background-color @sidebarTransitionTime;
+  color: white;
+
+  a {
+    color: inherit;
+  }
+
+  .sidebar-header {
+    position: relative;
+    background-color: white;
+    font-size: 2rem;
+    color: #595a5e;
+    margin-left: -(@grid-gutter-width / 2);
+    margin-right: -(@grid-gutter-width / 2);
+    padding: (@grid-gutter-width / 4) (@grid-gutter-width / 2);
+    overflow: hidden;
+  }
+
+  .sidebar-header a:hover, .sidebar-header a:focus {
+    text-decoration: none;
+  }
+
+  .sidebar-header .corner {
+    position: absolute;
+
+    /* Ensure there isn't a sliver of empty space
+     * between the corner and adjacent elements. */
+    bottom: -.1rem;
+    right: -.1rem;
+
+    fill: @sidebarColor;
+    transition: fill @sidebarTransitionTime;
+  }
+
+  .sidebar-header .glyphicon-menu-hamburger {
+    position: absolute;
+    right: 1rem;
+    top: 2.5rem;
+    cursor: pointer;
+  }
+
+  .sidebar-login {
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+  }
+
+  .sidebar-menu a {
+    position: relative;
+    display: block;
+    margin: 0 -(@grid-gutter-width / 2);
+    padding: @grid-gutter-width / 2;
+  }
+
+  .sidebar-menu li img {
+    float: none;
+    width: 5.4rem;
+    opacity: 0.6;
+    margin: 0 1.5rem 0 0;
+    @media (min-width: @screen-md-min) {
+      float: left;
+    }
+    &.teach {
+      width: 5rem;
+      margin: 0.4rem 1.3rem 0 0.6rem;
+    }
+    &.clubs {
+      width: 5rem;
+      margin: 0 1.5rem 0 0.5rem;
+    }
+  }
+
+  .sidebar-menu a:hover, .sidebar-menu a:focus {
+    text-decoration: none;
+    background-color: darken(@sidebarColor, 10%);
+    transition: background-color @sidebarTransitionTime;
+  }
+
+  .sidebar-menu a strong {
+    display: inline;
+    font-weight: 700;
+    text-transform: uppercase;
+    @media (min-width: @screen-md-min) {
+      float: block;
+    }
+  }
+
+  .sidebar-menu a .help-text {
+    font-size: 1.2rem;
+    font-weight: 400;
+    width: 22rem;
+  }
+
+  .sidebar-menu a .glyphicon {
+    position: absolute;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    top: calc(50% - 1.5rem / 2);
+    color: lighten(@sidebarColor, 15%);
+    transition: color @sidebarTransitionTime;
+  }
+}
+

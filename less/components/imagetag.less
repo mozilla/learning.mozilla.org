@@ -1,0 +1,13 @@
+img {
+  &.img-scale-to-fit {
+    width: 100%;
+    @media (min-width: @screen-teensy) and (max-width: @screen-xs-max) {
+      padding: 0 10%;
+    }
+    &.img-circle {
+      @media (max-width: @screen-xs-max) {
+        padding: 5% 25%;
+      }
+    }
+  }
+}

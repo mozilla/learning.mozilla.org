@@ -1,0 +1,59 @@
+@import "variables";
+@import "mixins";
+@import "components";
+
+
+html, body {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: @bodyTextColor;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 4.3rem;
+  text-shadow: rgba(0, 0, 0, .6) 0 .2rem .1rem;
+}
+
+h2 {
+  font-weight: 300;
+  font-size: 3.5rem;
+  margin-bottom: 2.5rem;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 2.6rem;
+}
+
+main {
+  .list-with-illust {
+    img {
+      display: block;
+      margin: 4rem auto 0 auto;
+    }
+  }
+  ol,
+  ul {
+    font-size: 1.8rem;
+    list-style-type: none;
+    padding-left: 0;
+  }
+}
+
+section {
+  padding: 2.5rem;
+}
+
+a.bold-link {
+  color: #9f9f9f;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.5rem;
+  white-space: pre;
+}

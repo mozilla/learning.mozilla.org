@@ -1,0 +1,29 @@
+.hero-unit {
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 45rem;
+  justify-content: center;
+  text-align: center;
+  @media (min-width: @screen-md-min) {
+    margin-right: -(@grid-gutter-width / 2);
+    .learn-more {
+      font-size: 1.4rem;
+      font-weight: 600;
+      a {
+        color: @white;
+        text-decoration: underline;
+      }
+    }
+  }
+  h1 {
+    padding: @grid-gutter-width;
+  }
+
+  .btn-awsm {
+    min-width: 15rem;
+  }
+}
