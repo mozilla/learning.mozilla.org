@@ -15,10 +15,9 @@ var WebLitMap = React.createClass({
       <div className="row">
         <div className="col-sm-12 col-md-12 col-lg-12">
           <h2>The Global Web Literacy Movement</h2>
-          <Map accessToken={process.env.MAPBOX_ACCESS_TOKEN || 'pk.eyJ1IjoiYWxpY29kaW5nIiwiYSI6Il90WlNFdE0ifQ.QGGdXGA_2QH-6ujyZE2oSg'}
-               mapId={process.env.MAPBOX_MAP_ID || 'alicoding.ldmhe4f3'}/>
         </div>
       </div>
+
     );
   }
 });
@@ -131,6 +130,10 @@ var ClubsPage = React.createClass({
         </HeroUnit>
         <section>
           <WebLitMap/>
+          <div className="mapDiv" id="mapDivID">
+            <Map accessToken={process.env.MAPBOX_ACCESS_TOKEN || 'pk.eyJ1IjoiYWxpY29kaW5nIiwiYSI6Il90WlNFdE0ifQ.QGGdXGA_2QH-6ujyZE2oSg'}
+           mapId={process.env.MAPBOX_MAP_ID || 'alicoding.ldmhe4f3'} className={'mapDivChild'}/>
+           </div>
         </section>
         <section>
           <HowClubWorks/>
