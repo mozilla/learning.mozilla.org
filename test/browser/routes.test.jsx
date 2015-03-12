@@ -12,12 +12,22 @@ describe('routes', function() {
 
   beforeEach(function() {
     sinon.stub(L.mapbox, 'map', function() {
-      return {remove: function() {}}
+      return {
+        remove: function() {},
+        setView: function () {}
+      }
+    });
+
+    sinon.stub(L.mapbox, 'featureLayer', function () {
+      return {
+        addTo: function () {}
+      }
     });
   });
 
   afterEach(function() {
     L.mapbox.map.restore();
+    L.mapbox.featureLayer.restore();
   });
 
   routes.URLS.forEach(function(url) {
