@@ -126,7 +126,7 @@ var ClubsPage = React.createClass({
         <HeroUnit image="/img/hero-clubs.jpg">
           <h1>Mozilla Learning Clubs</h1>
           <div><Link to={theCtaLink} className="btn btn-awsm">Add Your Club</Link></div>
-          <div><p className="learn-more">or <Link to="fixme">find out more</Link> about us</p></div>
+          <p className="learn-more">or <Link to="fixme">find out more</Link> about us</p>
         </HeroUnit>
         <section>
           <WebLitMap/>
