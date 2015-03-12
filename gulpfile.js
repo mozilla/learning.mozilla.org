@@ -15,6 +15,7 @@ var sitemap = require('gulp-sitemap');
 var beautify = require('gulp-jsbeautify');
 var jscs = require('gulp-jscs');
 var jshint = require('gulp-jshint');
+var autoprefixer = require('gulp-autoprefixer');
 
 require('node-jsx').install();
 
@@ -96,6 +97,11 @@ gulp.task('less', function() {
     .pipe(sourcemaps.init())
     .pipe(less({
       paths: [path.join(__dirname, 'less')]
+    }))
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false,
+      remove: true
     }))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./dist'));

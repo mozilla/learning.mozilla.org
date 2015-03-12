@@ -15,7 +15,6 @@ var Blockquote = React.createClass({
     return (
       <blockquote className={this.props.className}>
         <figure>
-          <img src={this.props.imgSrc} alt={this.props.imgAlt} width="148" />
           <ImageTag src1x={this.props.imgSrc} src2x={this.props.imgSrc2x || this.props.imgSrc}
               alt={this.props.imgAlt} width={this.props.imgWidth || 148} />
         </figure>
