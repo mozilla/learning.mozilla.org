@@ -1,0 +1,48 @@
+footer {
+  .sidebar {
+    line-height: 4rem;
+    @media (min-width: @screen-md-min) {
+      align-items: flex-end;
+      display: flex;
+    }
+    a {
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+  }
+
+  & > div {
+    padding: @grid-gutter-width 0;
+  }
+
+  & > .content {
+    background: @footerBackgroundColor;
+    margin-top: 2.5rem;
+    a {
+      color: @sidebarColor;
+    }
+  }
+
+  .logos {
+    & > div {
+      padding: 0 @grid-gutter-width;
+    }
+    a img {
+      height: 10rem;
+      padding-bottom: @grid-gutter-width;
+      width: 15rem;
+      &.maker-party {
+        width: 16rem;
+      }
+    }
+  }
+
+  .hive-cities {
+    font-size: 1rem;
+    .more-link {
+      font-weight: 700;
+      text-decoration: underline;
+      text-transform: uppercase;
+    }
+  }
+}
