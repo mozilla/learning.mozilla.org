@@ -106,8 +106,8 @@ var BottomCTA = React.createClass({
       <div className="row">
         <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
           <PageEndCTA linkTo={this.props.ctaLink} ctaBtnText="Add your club to the map">
-            <p>Do you meet regularly with a group of learners to increaset web literacy skills?</p>
             <img className="divider" src="/img/clubs-line-divider.svg" alt="" />
+            <p>Do you meet regularly with a group of learners to increaset web literacy skills?</p>
           </PageEndCTA>
         </div>
       </div>
