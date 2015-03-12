@@ -116,35 +116,16 @@ software works.
 boolean value, if the variable exists with *any* value (even the empty
 string), the boolean is true; otherwise, it's false.
 
-* `WEBPACK_DEVTOOL` determines the setting for the [`devtool`][] Webpack
-  option. It defaults to `source-map`; if you're on Firefox, though,
-  you may want to set it to `eval` so that console logging statements
-  originate from useful line numbers. For more details on the
-  trade-offs between different options for development, see our
-  [conversation on sourcemaps][sourcemaps-wtf].
-
-* `AWS_ACCESS_KEY` is the Amazon Web Services access key used
-  when uploading to s3 via `npm run s3`.
-
-* `AWS_SECRET_KEY` is the Amazon Web Services secret key used
-  when uploading to s3 via `npm run s3`.
-
-* `AWS_BUCKET` is the S3 bucket to upload to when using
-  `npm run s3`. It defaults to `teach.mofostaging.net`.
-
-* `AWS_REGION` is the S3 region to upload to when using
-  `npm run s3`. It defaults to `us-east-1`.
-
-* `ORIGIN` is the domain name of which the site is hosted.
-  It defaults to `https://teach.webmaker.org`. This is used
-  in situations where absolute URLs are required, such
-  as generating a `sitemap.xml` file.
-
-* `MAPBOX_ACCESS_TOKEN` is the [Mapbox][] access token to use for
-  embedded maps in the website. Optional.
-
-* `MAPBOX_MAP_ID` is the Mapbox map ID to use for embedded maps in
-  the website. Optional.
+   Name | Description
+------------------|---------------------------------------------
+`WEBPACK_DEVTOOL` | determines the setting for the [`devtool`][] Webpack option. It defaults to `source-map`; if you're on Firefox, though, you may want to set it to `eval` so that console logging statements originate from useful line numbers. For re details on the trade-offs between different options for development, see our [conversation on sourcemaps][sourcemaps-wtf].
+`AWS_ACCESS_KEY` | is the Amazon Web Services access key used when uploading to s3 via `npm run s3`.
+`AWS_SECRET_KEY` | is the Amazon Web Services secret key used when uploading to s3 via `npm run s3`.
+`AWS_BUCKET` | is the S3 bucket to upload to when using `npm run s3`. It defaults to `teach.mofostaging.net`.
+`AWS_REGION` | is the S3 region to upload to when using `npm run s3`. It defaults to `us-east-1`.
+`ORIGIN` | is the domain name of which the site is hosted. It defaults to `https://teach.webmaker.org`. This is used in situations where absolute URLs are required, such as generating a `sitemap.xml` file.
+`MAPBOX_ACCESS_TOKEN` | is the [Mapbox][] access token to use for embedded maps in the website. Optional.
+`MAPBOX_MAP_ID` | is the Mapbox map ID to use for embedded maps in the website. Optional.
 
 ## References
 
