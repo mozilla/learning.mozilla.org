@@ -115,13 +115,13 @@ var Footer = React.createClass({
         <div className="content col-md-9">
           <div className="row logos">
             <div className="col-sm-4">
-              <a href="http://hivelearningnetworks.org/"><img src="/img/hive-logo.png" alt="Hive logo"/></a>
+              <a href="http://hivelearningnetworks.org/"><img src="/img/hive-logo.svg" alt="Hive logo"/></a>
 
-              <p>Join a Hive Learning Network</p>
+              <p>Learn more about Hive Learning Networks</p>
               <HiveCities/>
             </div>
             <div className="col-sm-4">
-              <a href="http://mozilla.org/"><img src="/img/mozilla_wordmark.png" alt="Mozilla wordmark"/></a>
+              <a href="http://mozilla.org/"><img src="/img/mozilla-wordmark.svg" alt="Mozilla wordmark"/></a>
 
               <p>Mozilla radically empowers individuals with skills they need to make the Web.</p>
             </div>
