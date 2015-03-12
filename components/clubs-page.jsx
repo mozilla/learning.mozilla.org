@@ -50,9 +50,9 @@ var Quote = React.createClass({
     return(
       <div className="row">
         <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
-          <Blockquote className="primary-quote"
-                      imgSrc="/img/mikko-finland@2x.png" imgAlt="Mikko Finland Quote"
-                      author="Mikko K, Helsinki, Finland">
+          <Blockquote className="primary-quote" author="Mikko K, Helsinki, Finland"
+              imgSrc="/img/mikko-finland@1x.png" imgSrc2x="/img/mikko-finland@2x.png" imgAlt="Mikko Finland Quote">
+
             <p>The idea of teachers and students learning at the same time is what makes me excited about this work.</p>
           </Blockquote>
         </div>
