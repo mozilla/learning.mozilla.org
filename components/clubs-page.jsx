@@ -52,8 +52,9 @@ var Quote = React.createClass({
         <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
           <Blockquote className="primary-quote"
                       imgSrc="/img/mikko-finland@2x.png" imgAlt="Mikko Finland Quote"
-                      quote="The idea of teachers and students learning at the same time is what makes me excited about this work."
-                      author="Mikko K, Helsinki, Finland" />
+                      author="Mikko K, Helsinki, Finland">
+            <p>The idea of teachers and students learning at the same time is what makes me excited about this work.</p>
+          </Blockquote>
         </div>
       </div>
     );
@@ -105,9 +106,9 @@ var BottomCTA = React.createClass({
     return(
       <div className="row">
         <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
-          <PageEndCTA description="Do you meet regularly with a group of learners to increaset web literacy skills?"
-                      linkTo={this.props.ctaLink}
-                      ctaBtnText="Add your club to the map" />
+          <PageEndCTA linkTo={this.props.ctaLink} ctaBtnText="Add your club to the map">
+            <p>Do you meet regularly with a group of learners to increaset web literacy skills?</p>
+          </PageEndCTA>
         </div>
       </div>
     );

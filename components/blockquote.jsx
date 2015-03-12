@@ -5,7 +5,7 @@ var Blockquote = React.createClass({
     className: React.PropTypes.string.isRequired,
     imgSrc: React.PropTypes.string.isRequired,
     imgAlt: React.PropTypes.string.isRequired,
-    quote: React.PropTypes.string.isRequired,
+    children: React.PropTypes.object.isRequired,
     author: React.PropTypes.string.isRequired
   },
   render: function() {
@@ -14,7 +14,7 @@ var Blockquote = React.createClass({
         <figure>
           <img src={this.props.imgSrc} alt={this.props.imgAlt} width="148" />
         </figure>
-        {this.props.quote}
+        {this.props.children}
         <small>{this.props.author}</small>
       </blockquote>
     );
