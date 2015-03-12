@@ -106,7 +106,8 @@ var BottomCTA = React.createClass({
       <div className="row">
         <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
           <PageEndCTA linkTo={this.props.ctaLink} ctaBtnText="Add your club to the map">
-            <p>Do you meet regularly with a group of learners to increaset web literacy skills?</p>
+            <img className="divider" src="/img/clubs-line-divider.svg" alt="" />
+            <p>Do you meet regularly with a group of learners to increase web literacy skills?</p>
           </PageEndCTA>
         </div>
       </div>
@@ -126,7 +127,7 @@ var ClubsPage = React.createClass({
         <HeroUnit image="/img/hero-clubs.jpg">
           <h1>Mozilla Learning Clubs</h1>
           <div><Link to={theCtaLink} className="btn btn-awsm">Add Your Club</Link></div>
-          <div><p className="learn-more">or <Link to="fixme">find out more</Link> about us</p></div>
+          <p className="learn-more">or <Link to="fixme">find out more</Link> about us</p>
         </HeroUnit>
         <section>
           <WebLitMap/>
@@ -144,7 +145,7 @@ var ClubsPage = React.createClass({
         <section>
           <IconLinks/>
         </section>
-        <section>
+        <section className="bottomCTA">
           <BottomCTA ctaLink={theCtaLink}/>
         </section>
       </div>
