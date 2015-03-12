@@ -8,6 +8,7 @@ var Map = require('./map.jsx');
 var Blockquote = require('./blockquote.jsx');
 var IconLink = require('./icon-link.jsx');
 var PageEndCTA = require('./page-end-cta.jsx');
+var Modal = require('./modal.jsx');
 
 var WebLitMap = React.createClass({
   render: function() {
@@ -105,12 +106,74 @@ var BottomCTA = React.createClass({
     return(
       <div className="row">
         <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
-            <img className="divider" src="/img/clubs-line-divider.svg" alt="line divider" />
-          <PageEndCTA linkTo={this.props.ctaLink} ctaBtnText="Add your club to the map">
-            <p>Do you meet regularly with a group of learners to increase web literacy skills?</p>
+          <PageEndCTA linkTo={this.props.ctaLink}>
+            <div>
+              <img className="divider" src="/img/clubs-line-divider.svg" alt="line divider" />
+              <p>Do you meet regularly with a group of learners to increase web literacy skills?</p>
+              <a className="btn btn-awsm" onClick={this.props.onClick} data-modal-name="ModalAddYourClub">Add your club to the map</a>
+            </div>
           </PageEndCTA>
         </div>
       </div>
+    );
+  }
+});
+
+
+var ModalAddYourClub = React.createClass({
+  render: function() {
+    return(
+      <Modal
+        modalTitle="Add Your Clubs To The Map"
+        onClose={this.props.onClose}>
+        <form>
+          <fieldset>
+            <label>What is the name of your Club?</label>
+            <input type="text" placeholder="We love creative Club names" />
+          </fieldset>
+          <fieldset>
+            <label>Where does it take place?</label>
+            <input type="text" placeholder="Type in a city or a country" />
+          </fieldset>
+          <fieldset>
+            <label>Does your Club have a website?</label>
+            <input type="text" placeholder="www.myclubwebsite.com" />
+          </fieldset>
+          <fieldset>
+            <label>What do you focus your efforts on?</label>
+            <textarea rows="5" placeholder="Give us a brief decription about what your Club is about." />
+          </fieldset>
+          <input type="submit" className="btn" value="Add Your Club To The Map" />
+        </form>
+      </Modal>
+    );
+  }
+});
+
+
+var ModalLearnMore = React.createClass({
+  render: function() {
+    return(
+      <Modal
+        modalTitle="Learn More About Hive Learning Clubs"
+        onClose={this.props.onClose}>
+        <form>
+          <fieldset>
+            <label>What is your first name?</label>
+            <input type="text" placeholder="We're a friendly bunch, promised!" />
+          </fieldset>
+          <fieldset>
+            <label>Where does it take place?</label>
+            <input type="text" placeholder="Type in a city or a country" />
+          </fieldset>
+          <fieldset>
+            <label>What is your e-mail?</label>
+            <p>A member of our team will personally reach out to you.</p>
+            <input type="email" placeholder="email@example.com" />
+          </fieldset>
+          <input type="submit" className="btn" value="Find Out More" />
+        </form>
+      </Modal>
     );
   }
 });
@@ -120,14 +183,31 @@ var ClubsPage = React.createClass({
   statics: {
     pageClassName: "clubs"
   },
+  getInitialState: function() {
+    return {
+      modalShown: {
+        ModalAddYourClub: false,
+        ModalLearnMore: false
+      }
+    };
+  },
+  closeModal: function(targetModal) {
+    var modalShownState = this.state.modalShown;
+    modalShownState[targetModal] = false;
+    this.setState(modalShownState);
+  },
+  showModal: function(targetModal) {
+    var modalShownState = this.state.modalShown;
+    modalShownState[targetModal] = true;
+    this.setState(modalShownState);
+  },
   render: function() {
-    var theCtaLink = "fixme"; // CTA link should be the same for hero CTA and page bottom CTA
     return (
       <div>
         <HeroUnit image="/img/hero-clubs.jpg">
           <h1>Mozilla Learning Clubs</h1>
-          <div><Link to={theCtaLink} className="btn btn-awsm">Add Your Club</Link></div>
-          <p className="learn-more">or <Link to="fixme">find out more</Link> about us</p>
+          <div><a className="btn btn-awsm" onClick={this.showModal.bind(this,"ModalAddYourClub")}>Add Your Club</a></div>
+          <div><p className="learn-more">or <a onClick={this.showModal.bind(this,"ModalLearnMore")}>find out more</a> about us</p></div>
         </HeroUnit>
         <section>
           <WebLitMap/>
@@ -145,9 +225,15 @@ var ClubsPage = React.createClass({
         <section>
           <IconLinks/>
         </section>
-        <section className="bottomCTA">
-          <BottomCTA ctaLink={theCtaLink}/>
+        <section>
+          <BottomCTA onClick={this.showModal.bind(this,"ModalAddYourClub")} />
         </section>
+        { this.state.modalShown.ModalAddYourClub
+          ? <ModalAddYourClub onClose={this.closeModal.bind(this,"ModalAddYourClub")} />
+          : null }
+        { this.state.modalShown.ModalLearnMore
+          ? <ModalLearnMore onClose={this.closeModal.bind(this,"ModalLearnMore")} />
+          : null }
       </div>
     );
   }
