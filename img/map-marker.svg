@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="14px" height="23px" viewBox="0 0 14 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>map-marker 21</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#EB5D52" offset="0%"></stop>
+            <stop stop-color="#CE4C42" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Clubs-Page" sketch:type="MSArtboardGroup" transform="translate(-1134.000000, -777.000000)">
+            <g id="Map-2" sketch:type="MSLayerGroup" transform="translate(341.000000, 573.000000)">
+                <g id="map-marker-21" transform="translate(793.000000, 205.000000)" sketch:type="MSShapeGroup">
+                    <path d="M8.28349662,19.7261842 C7.48228487,21.165297 6.19051696,21.1472411 5.44699657,19.6829164 C5.44699657,19.6829164 -5.94698569,0.00407037373 7.20390349,0.000685988674 C20.3547927,-0.00269839638 8.28349662,19.7261842 8.28349662,19.7261842 Z" id="Path-346" stroke="#CC4545" fill="url(#linearGradient-1)"></path>
+                    <ellipse id="Oval-239" stroke="#CB4545" stroke-width="0.4" fill="#F2F2F2" cx="7" cy="6.07894737" rx="2.69230769" ry="2.76315789"></ellipse>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
