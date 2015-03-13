@@ -14,12 +14,17 @@ describe('routes', function() {
     sinon.stub(L.mapbox, 'map', function() {
       return {
         remove: function() {},
-        setView: function () { return this; }
+        setView: function () {
+          return {
+            addLayer: function () {}
+          }
+        }
       }
     });
 
     sinon.stub(L.mapbox, 'featureLayer', function () {
       return {
+        on: function () {},
         addTo: function () {
           return {
             on: function () {},
