@@ -9,12 +9,12 @@ var Map = React.createClass({
   },
   componentDidMount: function() {
     require('mapbox.js'); // this will automatically attach to Window object.
-    // Create a map in the div mapboxDiv element
     this.map = L.mapbox.map(this.getDOMNode(), this.props.mapId, {
       accessToken: this.props.accessToken
     }).setView([43.597, -79.6139], 12);
 
-    L.mapbox.featureLayer([{
+    var MapLayer = L.mapbox.featureLayer(this.mapId, {accessToken: this.props.accessToken}).addTo(this.map);
+    var geoJson = [{
       // this feature is in the GeoJSON format: see geojson.org
       // for the full specification
       type: 'Feature',
@@ -29,11 +29,11 @@ var Map = React.createClass({
       properties: {
         title: 'First Point',
         description: 'Party description?',
-        // one can customize markers by adding simplestyle properties
-        // https://www.mapbox.com/guides/an-open-platform/#simplestyle
-        'marker-size': 'large',
-        'marker-color': '#ff0000',
-        'marker-symbol': 'circle'
+        "icon": {
+          "iconUrl": "/img/map-marker.svg",
+          "iconSize": [33, 33], // size of the icon
+          "iconAnchor": [15, 15] // point of the icon which will correspond to marker's location
+        }
       }
     }, {
       type: 'Feature',
@@ -46,11 +46,23 @@ var Map = React.createClass({
       properties: {
         title: 'Second Point',
         description: 'Address I guess?',
-        'marker-size': 'large',
-        'marker-color': '#ff0000',
-        'marker-symbol': 'circle'
+        "icon": {
+          "iconUrl": "/img/map-marker.svg",
+          "iconSize": [33, 33],
+          "iconAnchor": [15, 15]
+        }
       }
-    }], {accessToken: this.props.accessToken}).addTo(this.map);
+    }];
+    // Set a custom icon on each marker based on feature properties.
+    MapLayer.on('layeradd', function(e) {
+        var marker = e.layer,
+            feature = marker.feature;
+
+        marker.setIcon(L.icon(feature.properties.icon));
+    });
+
+    // Add features to the map.
+    MapLayer.setGeoJSON(geoJson);
   },
   componentWillUnmount: function() {
     this.map.remove();
