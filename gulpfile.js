@@ -92,7 +92,7 @@ gulp.task('copy-dirs', function() {
 });
 
 gulp.task('less', function() {
-  return gulp.src(LESS_FILES)
+  return gulp.src('./less/common.less')
     .pipe(handleError())
     .pipe(sourcemaps.init())
     .pipe(less({
