@@ -10,17 +10,21 @@
   text-align: center;
   @media (min-width: @screen-md-min) {
     margin-right: -(@grid-gutter-width / 2);
-    .learn-more {
-      font-size: 1.4rem;
-      font-weight: 600;
-      a {
-        color: @white;
-        text-decoration: underline;
+  }
+  .learn-more {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: @white;
+    a {
+      color: inherit;
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
       }
     }
   }
   h1 {
-    padding: @grid-gutter-width;
+    padding: 2rem 0;
   }
 
   .btn-awsm {

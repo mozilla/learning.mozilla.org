@@ -1,9 +1,9 @@
 .listItemBorderColorizer(@borderColor:@bodyTextColor) {
   li {
-    border-bottom: .1rem solid @borderColor;
-    padding: 1rem 0;
+    border-bottom: .1rem solid lighten(@borderColor, 30%);
+    padding: 1.2rem 0;
     &:first-child {
-      border-top: .1rem solid @borderColor;
+      border-top: .1rem solid lighten(@borderColor, 30%);
     }
   }
 }
