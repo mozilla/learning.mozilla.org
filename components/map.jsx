@@ -9,60 +9,44 @@ var Map = React.createClass({
   },
   componentDidMount: function() {
     require('mapbox.js'); // this will automatically attach to Window object.
-    this.map = L.mapbox.map(this.getDOMNode(), this.props.mapId, {
-      accessToken: this.props.accessToken
-    }).setView([43.597, -79.6139], 12);
+    require('leaflet.markercluster');
 
-    var MapLayer = L.mapbox.featureLayer(this.mapId, {accessToken: this.props.accessToken}).addTo(this.map);
-    var geoJson = [{
-      // this feature is in the GeoJSON format: see geojson.org
-      // for the full specification
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        // coordinates here are in longitude, latitude order because
-        // x, y is the standard for GeoJSON and many formats
-        coordinates: [-79.6139,
-          43.597
-        ]
-      },
-      properties: {
-        title: 'First Point',
-        description: 'Party description?',
-        "icon": {
-          "iconUrl": "/img/map-marker.svg",
-          "iconSize": [33, 33], // size of the icon
-          "iconAnchor": [15, 15] // point of the icon which will correspond to marker's location
-        }
+    L.mapbox.accessToken = this.props.accessToken;
+    // TODO: The ID in the featureLayer should be change to our internal
+    // GeoJSON once we have the server side database setup.
+    var mb = L.mapbox.featureLayer('examples.map-h61e8o8e');
+    var map = L.mapbox.map(this.getDOMNode())
+      .setView([40.73, -74.011], 13)
+      .addLayer(L.mapbox.tileLayer(this.props.mapId));
+    var markers = new L.MarkerClusterGroup({
+      iconCreateFunction: function(cluster) {
+        return L.mapbox.marker.icon({
+          'marker-symbol': cluster.getChildCount(),
+          'marker-color': '#422'
+        });
       }
-    }, {
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        coordinates: [-79.68793,
-          43.562641
-        ]
-      },
-      properties: {
-        title: 'Second Point',
-        description: 'Address I guess?',
-        "icon": {
+    });
+    mb.on('ready', function () {
+      var geoJson = mb.getGeoJSON();
+      var geoJsonLayer = L.geoJson(geoJson);
+      markers.addLayer(geoJsonLayer);
+      map.on('layeradd', function(e) {
+        var marker = e.layer,
+          feature = marker.feature;
+        // we have to check if this is a feature or marker-cluster
+        if (feature) {
+          marker.setIcon(L.icon({
           "iconUrl": "/img/map-marker.svg",
           "iconSize": [33, 33],
           "iconAnchor": [15, 15]
+        }));
         }
-      }
-    }];
-    // Set a custom icon on each marker based on feature properties.
-    MapLayer.on('layeradd', function(e) {
-      var marker = e.layer,
-          feature = marker.feature;
 
-      marker.setIcon(L.icon(feature.properties.icon));
+      });
+      map.addLayer(markers);
+
     });
 
-    // Add features to the map.
-    MapLayer.setGeoJSON(geoJson);
   },
   componentWillUnmount: function() {
     this.map.remove();
