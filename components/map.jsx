@@ -55,10 +55,10 @@ var Map = React.createClass({
     }];
     // Set a custom icon on each marker based on feature properties.
     MapLayer.on('layeradd', function(e) {
-        var marker = e.layer,
-            feature = marker.feature;
+      var marker = e.layer,
+          feature = marker.feature;
 
-        marker.setIcon(L.icon(feature.properties.icon));
+      marker.setIcon(L.icon(feature.properties.icon));
     });
 
     // Add features to the map.

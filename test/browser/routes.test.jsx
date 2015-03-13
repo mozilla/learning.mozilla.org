@@ -20,7 +20,12 @@ describe('routes', function() {
 
     sinon.stub(L.mapbox, 'featureLayer', function () {
       return {
-        addTo: function () {}
+        addTo: function () {
+          return {
+            on: function () {},
+            setGeoJSON: function () {}
+          }
+        }
       }
     });
   });
