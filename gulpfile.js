@@ -16,6 +16,7 @@ var beautify = require('gulp-jsbeautify');
 var jscs = require('gulp-jscs');
 var jshint = require('gulp-jshint');
 var autoprefixer = require('gulp-autoprefixer');
+var rename = require("gulp-rename");
 
 require('node-jsx').install();
 
@@ -96,13 +97,15 @@ gulp.task('less', function() {
     .pipe(handleError())
     .pipe(sourcemaps.init())
     .pipe(less({
-      paths: [path.join(__dirname, 'less')]
+      paths: [path.join(__dirname, 'less')],
+      filename: "styles.css"
     }))
     .pipe(autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false,
       remove: true
     }))
+    .pipe(rename('styles.css'))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./dist'));
 });

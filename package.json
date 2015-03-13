@@ -14,6 +14,7 @@
     "gulp-less": "^3.0.1",
     "gulp-plumber": "^0.6.6",
     "gulp-prettify": "^0.3.0",
+    "gulp-rename": "^1.2.0",
     "gulp-s3": "^0.3.0",
     "gulp-sitemap": "^2.0.1",
     "gulp-sourcemaps": "^1.5.0",
