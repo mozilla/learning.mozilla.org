@@ -14,7 +14,7 @@ describe('routes', function() {
     sinon.stub(L.mapbox, 'map', function() {
       return {
         remove: function() {},
-        setView: function () {}
+        setView: function () { return this; }
       }
     });
 
@@ -49,6 +49,7 @@ describe('routes', function() {
               nonNamedLinks++;
             }
           });
+          React.unmountComponentAtNode(handler.getDOMNode().parentNode);
           nonNamedLinks.should.equal(0);
           done();
         });
