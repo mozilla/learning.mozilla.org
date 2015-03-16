@@ -2,7 +2,7 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 
-var TeachAPI = require('../lib/teach-api');
+var teachAPI = require('../lib/teach-api');
 
 var TriangleCorner = React.createClass({
   propTypes: {
@@ -27,14 +27,27 @@ var TriangleCorner = React.createClass({
 });
 
 var Login = React.createClass({
+  getDefaultProps: function() {
+    return {
+      teachAPI: teachAPI
+    };
+  },
   componentDidMount: function() {
-    var teachAPI = new TeachAPI();
+    var teachAPI = this.props.teachAPI;
+
     teachAPI.on('login:error', this.handleApiLoginError);
     teachAPI.on('login:cancel', this.handleApiLoginCancel);
     teachAPI.on('login:success', this.handleApiLoginSuccess);
     teachAPI.on('logout', this.handleApiLogout);
-    this.teachAPI = teachAPI;
     this.setState({username: this.getUsername()});
+  },
+  componentWillUnmount: function() {
+    var teachAPI = this.props.teachAPI;
+
+    teachAPI.removeListener('login:error', this.handleApiLoginError);
+    teachAPI.removeListener('login:cancel', this.handleApiLoginCancel);
+    teachAPI.removeListener('login:success', this.handleApiLoginSuccess);
+    teachAPI.removeListener('logout', this.handleApiLogout);
   },
   getInitialState: function() {
     return {
@@ -43,17 +56,17 @@ var Login = React.createClass({
     };
   },
   getUsername: function() {
-    var info = this.teachAPI.getLoginInfo();
+    var info = this.props.teachAPI.getLoginInfo();
     return info && info.username;
   },
   handleLoginClick: function(e) {
     e.preventDefault();
     this.setState({loggingIn: true});
-    this.teachAPI.startLogin();
+    this.props.teachAPI.startLogin();
   },
   handleLogoutClick: function(e) {
     e.preventDefault();
-    this.teachAPI.logout();
+    this.props.teachAPI.logout();
   },
   handleApiLoginError: function(err) {
     this.setState({loggingIn: false});
@@ -64,7 +77,7 @@ var Login = React.createClass({
                    "address you used?");
     } else {
       window.alert("An error occurred! Please try again later.");
-      this.teachAPI.logout();
+      this.props.teachAPI.logout();
     }
   },
   handleApiLoginCancel: function() {
