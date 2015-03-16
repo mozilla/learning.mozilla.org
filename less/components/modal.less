@@ -1,0 +1,54 @@
+.modal-dialog {
+  background-color: @white;
+  border: .1rem solid @modal-outer-border-color;
+  width: auto;
+  @media (min-width: 768px) {
+    width: 50rem;
+    margin: 10rem auto;
+  }
+  label {
+    display: block;
+    margin-bottom: 0;
+  }
+  label + p {
+    margin-bottom: 0;
+  }
+  input,
+  textarea {
+    width: 100%;
+    padding: .7rem 1rem;
+    margin-top: .5rem;
+  }
+  fieldset {
+    margin-bottom: 1.2rem;
+  }
+}
+
+.modal-backdrop {
+  opacity: 0.5;
+  height: 100%;
+}
+
+.modal-header,
+.modal-body {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.modal-header {
+  background-color: #EDEDED;
+  border-bottom: .1rem solid @modal-inner-border-color;
+  font-weight: 600;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  .modal-title,
+  button {
+    line-height: 2.4rem;
+    font-size: 1.8rem;
+  }
+}
+
+.modal-body {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}

@@ -4,16 +4,12 @@ var Link = Router.Link;
 
 var PageEndCTA = React.createClass({
   propTypes: {
-    children: React.PropTypes.object.isRequired,
-    linkTo: React.PropTypes.string.isRequired,
-    ctaBtnText: React.PropTypes.string.isRequired
+    children: React.PropTypes.object.isRequired
   },
   render: function() {
     return (
       <div className="page-end-cta">
         {this.props.children}
-        <Link to={this.props.linkTo} className="btn btn-awsm">{this.props.ctaBtnText}
-        </Link>
       </div>
     );
   }
