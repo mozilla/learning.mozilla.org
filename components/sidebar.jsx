@@ -30,7 +30,6 @@ var Login = React.createClass({
   componentDidMount: function() {
     var teachAPI = new TeachAPI();
     teachAPI.on('error', this.handleApiError);
-    teachAPI.on('login-error', this.handleApiLoginError);
     teachAPI.on('login', this.handleApiLogin);
     teachAPI.on('logout', this.handleApiLogout);
     this.teachAPI = teachAPI;
@@ -54,15 +53,15 @@ var Login = React.createClass({
     this.teachAPI.logout();
   },
   handleApiError: function(err) {
-    window.alert("An error occurred! Please try again later.");
-    console.log("Teach API error: " + err.message);
-    this.teachAPI.logout();
-  },
-  handleApiLoginError: function(err) {
-    window.alert("An error occurred when logging in. Are you sure you " +
-                 "have a Webmaker account associated with the email " +
-                 "address you used?");
-    console.log("Teach API Login error: " + err.message);
+    console.log("Teach API error", err);
+    if (err.hasNoWebmakerAccount) {
+      window.alert("An error occurred when logging in. Are you sure you " +
+                   "have a Webmaker account associated with the email " +
+                   "address you used?");
+    } else {
+      window.alert("An error occurred! Please try again later.");
+      this.teachAPI.logout();
+    }
   },
   handleApiLogin: function(info) {
     this.setState({username: this.getUsername()});

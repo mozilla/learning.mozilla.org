@@ -110,6 +110,7 @@ describe('TeachAPI', function() {
 
       api.on('error', function(err) {
         err.response.text.should.eql('nope');
+        err.hasNoWebmakerAccount.should.be.false;
         done();
       });
 
@@ -118,13 +119,14 @@ describe('TeachAPI', function() {
       }, 'nope');
     });
 
-    it('emits login-error when email has no Webmaker acct', function(done) {
+    it('reports when email has no Webmaker acct', function(done) {
       var api = new TeachAPI({storage: storage});
 
       api.startLogin();
       personaCb('hi');
 
-      api.on('login-error', function(err) {
+      api.on('error', function(err) {
+        err.hasNoWebmakerAccount.should.be.true;
         done();
       });
 
