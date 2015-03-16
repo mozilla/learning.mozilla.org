@@ -110,7 +110,7 @@ var BottomCTA = React.createClass({
             <div>
               <img className="divider" src="/img/clubs-line-divider.svg" alt="line divider" />
               <p>Do you meet regularly with a group of learners to increase web literacy skills?</p>
-              <a className="btn btn-awsm" onClick={this.props.onClick} data-modal-name="ModalAddYourClub">Add your club to the map</a>
+              <a className="btn btn-awsm" onClick={this.props.onClick}>Add your club to the map</a>
             </div>
           </PageEndCTA>
         </div>

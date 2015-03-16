@@ -16,7 +16,7 @@ var Modal = React.createClass({
         <div className="modal-backdrop"></div>
         <div className="modal-dialog" onClick={this.handleClick}>
           <div className="modal-header">
-            <button type="button" className="close" data-dismiss="modal" aria-hidden="true">x</button>
+            <button type="button" className="close" aria-hidden="true">x</button>
             <div className="modal-title">{this.props.modalTitle}</div>
           </div>
           <div className="modal-body">
