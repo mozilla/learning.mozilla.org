@@ -28,6 +28,7 @@ function generateWithPageHTML(url, options, pageHTML) {
         <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js'></script>
         <script src="/commons.bundle.js"></script>
         <script src="/app.bundle.js"></script>
+        <script src="https://login.persona.org/include.js" async></script>
       </body>
     </html>
   );

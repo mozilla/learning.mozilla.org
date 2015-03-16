@@ -2,6 +2,8 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 
+var TeachAPI = require('../lib/teach-api');
+
 var TriangleCorner = React.createClass({
   propTypes: {
     'height': React.PropTypes.number.isRequired,
@@ -20,6 +22,67 @@ var TriangleCorner = React.createClass({
       <svg className={"corner " + this.props.className} width={width} height={height}>
         <polygon points={points}/>
       </svg>
+    );
+  }
+});
+
+var Login = React.createClass({
+  componentDidMount: function() {
+    var teachAPI = new TeachAPI();
+    teachAPI.on('error', this.handleApiError);
+    teachAPI.on('login-error', this.handleApiLoginError);
+    teachAPI.on('login', this.handleApiLogin);
+    teachAPI.on('logout', this.handleApiLogout);
+    this.teachAPI = teachAPI;
+    this.setState({username: this.getUsername()});
+  },
+  getInitialState: function() {
+    return {
+      username: null
+    };
+  },
+  getUsername: function() {
+    var info = this.teachAPI.getLoginInfo();
+    return info && info.username;
+  },
+  handleLoginClick: function(e) {
+    e.preventDefault();
+    this.teachAPI.startLogin();
+  },
+  handleLogoutClick: function(e) {
+    e.preventDefault();
+    this.teachAPI.logout();
+  },
+  handleApiError: function(err) {
+    window.alert("An error occurred! Please try again later.");
+    console.log("Teach API error: " + err.message);
+    this.teachAPI.logout();
+  },
+  handleApiLoginError: function(err) {
+    window.alert("An error occurred when logging in. Are you sure you " +
+                 "have a Webmaker account associated with the email " +
+                 "address you used?");
+    console.log("Teach API Login error: " + err.message);
+  },
+  handleApiLogin: function(info) {
+    this.setState({username: this.getUsername()});
+  },
+  handleApiLogout: function() {
+    this.setState({username: null});
+  },
+  render: function() {
+    var username = this.state.username;
+
+    return (
+      <div className="sidebar-login">
+        {username
+         ? <span>
+             Logged in as {username} | <a href="" onClick={this.handleLogoutClick}>Logout</a>
+           </span>
+         : <span>
+             <Link to="join">Create an account</Link> | <a href="" onClick={this.handleLoginClick}>Log in</a>
+           </span>}
+      </div>
     );
   }
 });
@@ -77,9 +140,7 @@ var Sidebar = React.createClass({
         <div className={this.state.showCollapsibleContent
                         ? "collapsible-content"
                         : "hidden-xs hidden-sm collapsible-content"}>
-          <div className="sidebar-login">
-            <Link to="join">Create an account</Link> | <a href="">Log in</a>
-          </div>
+          <Login/>
           <ul className="sidebar-menu list-unstyled">
             {this.MENU_ENTRIES.map(function(entry, i) {
               return (

@@ -1,5 +1,5 @@
 var should = require('should');
-var sinon = require('sinon');
+var sinon = window.sinon;
 var React =require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var Router = require('react-router');
