@@ -28,16 +28,11 @@ var webpackConfig = require('./webpack.config');
 var BUILD_TASKS = [
   'beautify',
   'copy-test-dirs',
-  'copy-dirs',
+  'copy-images',
+  'copy-vendor',
   'less',
   'webpack',
   'sitemap'
-];
-
-var COPY_DIRS = [
-  'img/**',
-  'vendor/bootstrap/css/**',
-  'vendor/bootstrap/fonts/**'
 ];
 
 var LINT_DIRS = [
@@ -86,10 +81,16 @@ gulp.task('copy-test-dirs', function() {
   ).pipe(gulp.dest('./dist/test'));
 });
 
-gulp.task('copy-dirs', function() {
-  return gulp.src(COPY_DIRS, {
+gulp.task('copy-images', function () {
+  return gulp.src('img/**', {
     base: '.'
   }).pipe(gulp.dest('./dist'));
+});
+
+gulp.task('copy-vendor', function () {
+  return gulp.src(['node_modules/bootstrap/dist/css/**', 'node_modules/bootstrap/dist/fonts/**'], {
+    base: 'node_modules/bootstrap/dist'
+  }).pipe(gulp.dest('./dist/vendor/bootstrap'));
 });
 
 gulp.task('less', function() {
@@ -204,7 +205,7 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
       });
   });
 
-  gulp.watch(COPY_DIRS, ['copy-dirs']);
+  gulp.watch('img/**', ['copy-images']);
   gulp.watch(LESS_FILES, ['less']);
   gulp.watch('test/browser/static/**', ['copy-test-dirs']);
   gulp.watch([
