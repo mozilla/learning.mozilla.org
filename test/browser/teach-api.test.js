@@ -66,12 +66,15 @@ describe('TeachAPI', function() {
       delete window.navigator.id;
     });
 
-    it('does nothing if given no assertion', function() {
+    it('does nothing if given no assertion', function(done) {
       var api = new TeachAPI({storage: storage});
 
       api.startLogin();
+      api.on('cancel-login', function() {
+        requests.should.eql([]);
+        done();
+      });
       personaCb(null);
-      requests.should.eql([]);
     });
 
     it('emits error if navigator.id is falsy', function(done) {

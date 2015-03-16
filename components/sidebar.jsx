@@ -30,6 +30,7 @@ var Login = React.createClass({
   componentDidMount: function() {
     var teachAPI = new TeachAPI();
     teachAPI.on('error', this.handleApiError);
+    teachAPI.on('cancel-login', this.handleApiCancelLogin);
     teachAPI.on('login', this.handleApiLogin);
     teachAPI.on('logout', this.handleApiLogout);
     this.teachAPI = teachAPI;
@@ -37,7 +38,8 @@ var Login = React.createClass({
   },
   getInitialState: function() {
     return {
-      username: null
+      username: null,
+      loggingIn: false
     };
   },
   getUsername: function() {
@@ -46,6 +48,7 @@ var Login = React.createClass({
   },
   handleLoginClick: function(e) {
     e.preventDefault();
+    this.setState({loggingIn: true});
     this.teachAPI.startLogin();
   },
   handleLogoutClick: function(e) {
@@ -53,6 +56,7 @@ var Login = React.createClass({
     this.teachAPI.logout();
   },
   handleApiError: function(err) {
+    this.setState({loggingIn: false});
     console.log("Teach API error", err);
     if (err.hasNoWebmakerAccount) {
       window.alert("An error occurred when logging in. Are you sure you " +
@@ -63,24 +67,41 @@ var Login = React.createClass({
       this.teachAPI.logout();
     }
   },
+  handleApiCancelLogin: function() {
+    this.setState({loggingIn: false});
+  },
   handleApiLogin: function(info) {
-    this.setState({username: this.getUsername()});
+    this.setState({username: this.getUsername(), loggingIn: false});
   },
   handleApiLogout: function() {
-    this.setState({username: null});
+    this.setState({username: null, loggingIn: false});
   },
   render: function() {
-    var username = this.state.username;
+    var content;
+
+    if (this.state.loggingIn) {
+      content = (
+        <span>
+          Logging in&hellip;
+        </span>
+      );
+    } else if (this.state.username) {
+      content = (
+        <span>
+          Logged in as {this.state.username} | <a href="" onClick={this.handleLogoutClick}>Logout</a>
+        </span>
+      );
+    } else {
+      content = (
+        <span>
+          <Link to="join">Create an account</Link> | <a href="" onClick={this.handleLoginClick}>Log in</a>
+        </span>
+      );
+    }
 
     return (
       <div className="sidebar-login">
-        {username
-         ? <span>
-             Logged in as {username} | <a href="" onClick={this.handleLogoutClick}>Logout</a>
-           </span>
-         : <span>
-             <Link to="join">Create an account</Link> | <a href="" onClick={this.handleLoginClick}>Log in</a>
-           </span>}
+        {content}
       </div>
     );
   }
