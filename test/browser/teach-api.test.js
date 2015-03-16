@@ -50,6 +50,24 @@ describe('TeachAPI', function() {
     should(api.getLoginInfo()).eql({u: 1});
   });
 
+  it('sets authorization header when logged in', function() {
+    var api = new TeachAPI({storage: storage});
+
+    storage['TEACH_API_LOGIN_INFO'] = '{"token": "boop"}';
+    api.request('GET', '/').end();
+    requests.length.should.eql(1);
+    requests[0].requestHeaders.should.eql({
+      'Authorization': 'Token boop'
+    });
+  });
+
+  it('does not set authorization header when logged out', function() {
+    var api = new TeachAPI({storage: storage});
+
+    api.request('GET', '/').end();
+    requests[0].requestHeaders.should.eql({});
+  });
+
   describe('startLogin()', function() {
     var personaCb;
 
