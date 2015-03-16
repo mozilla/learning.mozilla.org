@@ -70,7 +70,7 @@ describe('TeachAPI', function() {
       var api = new TeachAPI({storage: storage});
 
       api.startLogin();
-      api.on('cancel-login', function() {
+      api.on('login:cancel', function() {
         requests.should.eql([]);
         done();
       });
@@ -81,7 +81,7 @@ describe('TeachAPI', function() {
       var api = new TeachAPI({storage: storage});
 
       delete window.navigator.id;
-      api.once('error', function(err) {
+      api.once('login:error', function(err) {
         err.message.should.eql('navigator.id does not exist');
         done();
       });
@@ -111,7 +111,7 @@ describe('TeachAPI', function() {
       api.startLogin();
       personaCb('hi');
 
-      api.on('error', function(err) {
+      api.on('login:error', function(err) {
         err.response.text.should.eql('nope');
         err.hasNoWebmakerAccount.should.be.false;
         done();
@@ -128,7 +128,7 @@ describe('TeachAPI', function() {
       api.startLogin();
       personaCb('hi');
 
-      api.on('error', function(err) {
+      api.on('login:error', function(err) {
         err.hasNoWebmakerAccount.should.be.true;
         done();
       });
@@ -148,7 +148,7 @@ describe('TeachAPI', function() {
       api.startLogin();
       personaCb('hi');
 
-      api.on('login', function(info) {
+      api.on('login:success', function(info) {
         info.should.eql(loginInfo);
         JSON.parse(storage['TEACH_API_LOGIN_INFO'])
           .should.eql(loginInfo);

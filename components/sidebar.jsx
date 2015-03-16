@@ -29,9 +29,9 @@ var TriangleCorner = React.createClass({
 var Login = React.createClass({
   componentDidMount: function() {
     var teachAPI = new TeachAPI();
-    teachAPI.on('error', this.handleApiError);
-    teachAPI.on('cancel-login', this.handleApiCancelLogin);
-    teachAPI.on('login', this.handleApiLogin);
+    teachAPI.on('login:error', this.handleApiLoginError);
+    teachAPI.on('login:cancel', this.handleApiLoginCancel);
+    teachAPI.on('login:success', this.handleApiLoginSuccess);
     teachAPI.on('logout', this.handleApiLogout);
     this.teachAPI = teachAPI;
     this.setState({username: this.getUsername()});
@@ -55,7 +55,7 @@ var Login = React.createClass({
     e.preventDefault();
     this.teachAPI.logout();
   },
-  handleApiError: function(err) {
+  handleApiLoginError: function(err) {
     this.setState({loggingIn: false});
     console.log("Teach API error", err);
     if (err.hasNoWebmakerAccount) {
@@ -67,10 +67,10 @@ var Login = React.createClass({
       this.teachAPI.logout();
     }
   },
-  handleApiCancelLogin: function() {
+  handleApiLoginCancel: function() {
     this.setState({loggingIn: false});
   },
-  handleApiLogin: function(info) {
+  handleApiLoginSuccess: function(info) {
     this.setState({username: this.getUsername(), loggingIn: false});
   },
   handleApiLogout: function() {
