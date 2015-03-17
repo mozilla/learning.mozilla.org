@@ -5,6 +5,15 @@ var ReactAddons = require('react/addons');
 
 var Modal = React.createClass({
   mixins: [ReactAddons.PureRenderMixin],
+  componentDidMount: function() {
+    this.backdrop = document.createElement('div');
+    this.backdrop.setAttribute('class', 'modal-backdrop');
+    document.body.appendChild(this.backdrop);
+  },
+  componentWillUnmount: function() {
+    document.body.removeChild(this.backdrop);
+    this.backdrop = null;
+  },
   handleClick: function(e) {
     if (e.target === this.getDOMNode().querySelector("button.close")) {
       this.props.onClose();
@@ -13,7 +22,6 @@ var Modal = React.createClass({
   render: function() {
     return (
       <div className="modal show">
-        <div className="modal-backdrop"></div>
         <div className="modal-dialog" onClick={this.handleClick}>
           <div className="modal-header">
             <button type="button" className="close" aria-hidden="true">x</button>

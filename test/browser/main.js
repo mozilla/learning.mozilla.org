@@ -6,3 +6,4 @@ require('./imagetag.test.jsx');
 require('./routes.test.jsx');
 require('./teach-api.test.js');
 require('./login.test.jsx');
+require('./modal.test.jsx');
