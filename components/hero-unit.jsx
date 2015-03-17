@@ -13,7 +13,7 @@ var HeroUnit = React.createClass({
           {this.props.children}
         </div>
         <div className="col-md-12 hero-unit hero-unit-2x" style={{
-          backgroundImage: 'url(' + this.props.image2x + ')'
+          backgroundImage: 'url(' + this.props.image2x || this.props.image + ')'
         }}>
           {this.props.children}
         </div>
