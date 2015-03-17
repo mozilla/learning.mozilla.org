@@ -14,17 +14,21 @@ var Modal = React.createClass({
     document.body.removeChild(this.backdrop);
     this.backdrop = null;
   },
-  handleClick: function(e) {
-    if (e.target === this.getDOMNode().querySelector("button.close")) {
+  handleCloseClick: function(e) {
+    this.props.onClose();
+  },
+  handleOutsideOfModalClick: function(e) {
+    if (e.target === this.getDOMNode()) {
       this.props.onClose();
     }
   },
   render: function() {
     return (
-      <div className="modal show">
-        <div className="modal-dialog" onClick={this.handleClick}>
+      <div className="modal show" onClick={this.handleOutsideOfModalClick}>
+        <div className="modal-dialog">
           <div className="modal-header">
-            <button type="button" className="close" aria-hidden="true">x</button>
+            <button type="button" className="close" aria-hidden="true"
+             onClick={this.handleCloseClick}>&times;</button>
             <div className="modal-title">{this.props.modalTitle}</div>
           </div>
           <div className="modal-body">

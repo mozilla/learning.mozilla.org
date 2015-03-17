@@ -26,6 +26,11 @@ describe("modal", function() {
 
   afterEach(removeModal);
 
+  it('closes modal when area outside modal is clicked', function() {
+    TestUtils.Simulate.click(modal.getDOMNode());
+    onClose.callCount.should.equal(1);
+  });
+
   it('closes modal when close button is clicked', function() {
     var closeButton = TestUtils.findRenderedDOMComponentWithClass(
       modal,
