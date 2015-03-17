@@ -29,9 +29,8 @@ var Map = React.createClass({
     require('mapbox.js'); // this will automatically attach to Window object.
     require('leaflet.markercluster');
     L.mapbox.accessToken = accessToken;
-    teachAPI.getAllData(function(err, data) {console.log(err, data)
+    teachAPI.getAllData(function(err, data) {
       var geoJSON = geoJSONit(data);
-      console.log(geoJSON)
       that.map = L.mapbox.map(that.getDOMNode())
         .setView([40.73, -50.011], 3)
         .addLayer(L.mapbox.tileLayer(mapboxId));
@@ -54,7 +53,6 @@ var Map = React.createClass({
           var title = feature.properties.title,
           desc = feature.properties.title,
           location = feature.properties.location;
-          console.log(marker)
           marker.setIcon(L.icon({
             "iconUrl": "/img/map-marker.svg",
             "iconSize": [33, 33],
