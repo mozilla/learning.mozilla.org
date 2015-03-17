@@ -26,6 +26,24 @@ describe("modal", function() {
 
   afterEach(removeModal);
 
+  it('closes modal when close button is clicked', function() {
+    var closeButton = TestUtils.findRenderedDOMComponentWithClass(
+      modal,
+      'close'
+    );
+    TestUtils.Simulate.click(closeButton);
+    onClose.callCount.should.equal(1);
+  });
+
+  it('does not close modal when title is clicked', function() {
+    var title = TestUtils.findRenderedDOMComponentWithClass(
+      modal,
+      'modal-title'
+    );
+    TestUtils.Simulate.click(title);
+    onClose.callCount.should.equal(0);
+  });
+
   it('creates body > .modal-backdrop when mounted', function() {
     document.querySelectorAll('body > .modal-backdrop').length
       .should.equal(1);
