@@ -31,7 +31,7 @@ describe("modal", function() {
       .should.equal(1);
   });
 
-  it('removes body > .modal-backdrop when mounted', function() {
+  it('removes body > .modal-backdrop when unmounted', function() {
     removeModal();
     document.querySelectorAll('body > .modal-backdrop').length
       .should.equal(0);
