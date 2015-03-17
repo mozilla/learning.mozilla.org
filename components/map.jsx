@@ -1,10 +1,9 @@
 var React = require('react');
-
+var mapboxId = process.env.MAPBOX_MAP_ID || 'alicoding.ldmhe4f3';
 var Map = React.createClass({
 
   propTypes: {
     accessToken: React.PropTypes.string.isRequired,
-    mapId: React.PropTypes.string.isRequired,
     className: React.PropTypes.string.isRequired
   },
   componentDidMount: function() {
@@ -17,7 +16,7 @@ var Map = React.createClass({
     var mb = L.mapbox.featureLayer('examples.map-h61e8o8e');
     var map = L.mapbox.map(this.getDOMNode())
       .setView([40.73, -74.011], 13)
-      .addLayer(L.mapbox.tileLayer(this.props.mapId));
+      .addLayer(L.mapbox.tileLayer(mapboxId));
     var markers = new L.MarkerClusterGroup({
       iconCreateFunction: function(cluster) {
         return L.mapbox.marker.icon({
