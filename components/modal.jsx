@@ -27,7 +27,7 @@ var Modal = React.createClass({
       <div className="modal show" onClick={this.handleOutsideOfModalClick}>
         <div className="modal-dialog">
           <div className="modal-header">
-            <button type="button" className="close" aria-hidden="true"
+            <button type="button" className="close"
              onClick={this.handleCloseClick}>&times;</button>
             <div className="modal-title">{this.props.modalTitle}</div>
           </div>
