@@ -7,14 +7,14 @@ var Map = React.createClass({
     className: React.PropTypes.string.isRequired
   },
   componentDidMount: function() {
+    var that = this;
     require('mapbox.js'); // this will automatically attach to Window object.
     require('leaflet.markercluster');
-
     L.mapbox.accessToken = this.props.accessToken;
     // TODO: The ID in the featureLayer should be change to our internal
     // GeoJSON once we have the server side database setup.
     var mb = L.mapbox.featureLayer('examples.map-h61e8o8e');
-    var map = L.mapbox.map(this.getDOMNode())
+    that.map = L.mapbox.map(this.getDOMNode())
       .setView([40.73, -74.011], 13)
       .addLayer(L.mapbox.tileLayer(mapboxId));
     var markers = new L.MarkerClusterGroup({
@@ -29,7 +29,7 @@ var Map = React.createClass({
       var geoJson = mb.getGeoJSON();
       var geoJsonLayer = L.geoJson(geoJson);
       markers.addLayer(geoJsonLayer);
-      map.on('layeradd', function(e) {
+      that.map.on('layeradd', function(e) {
         var marker = e.layer,
           feature = marker.feature;
         // we have to check if this is a feature or marker-cluster
@@ -42,7 +42,7 @@ var Map = React.createClass({
         }
 
       });
-      map.addLayer(markers);
+      that.map.addLayer(markers);
 
     });
 

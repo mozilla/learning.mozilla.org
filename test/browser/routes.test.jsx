@@ -13,11 +13,15 @@ describe('routes', function() {
   beforeEach(function() {
     sinon.stub(L.mapbox, 'map', function() {
       return {
-        remove: function() {},
         setView: function () {
           return {
-            addLayer: function () {}
-          }
+            remove: function() {
+              return this;
+            },
+            addLayer: function() {
+              return this;
+            }
+          };
         }
       }
     });
