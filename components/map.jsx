@@ -29,14 +29,19 @@ var Map = React.createClass({
     require('mapbox.js'); // this will automatically attach to Window object.
     require('leaflet.markercluster');
     L.mapbox.accessToken = accessToken;
-    teachAPI.getAllData(function(err, data) {
+    teachAPI.getAllClubsData(function(err, data) {
+      if (!that.isMounted()) {
+        // We were unmounted before the API request completed,
+        // so do nothing.
+        return;
+      }
       if(err) {
         console.log(err)
         return;
       }
       var geoJSON = geoJSONit(data);
       that.map = L.mapbox.map(that.getDOMNode())
-        .setView([40.73, -50.011], 3)
+        .setView([40.73, -50.011], 5)
         .addLayer(L.mapbox.tileLayer(mapboxId));
       var markers = new L.MarkerClusterGroup({
         iconCreateFunction: function(cluster) {
@@ -46,6 +51,12 @@ var Map = React.createClass({
           });
         }
       });
+
+      // setView of the map based on markers on the map
+      that.map.fitBounds(L.mapbox.featureLayer()
+        .setGeoJSON(geoJSON)
+        .getBounds());
+
       var geoJsonLayer = L.geoJson(geoJSON);
       markers.addLayer(geoJsonLayer);
       that.map.on('layeradd', function(e) {
@@ -72,7 +83,9 @@ var Map = React.createClass({
     });
   },
   componentWillUnmount: function() {
-    this.map.remove();
+    if (this.map) {
+      this.map.remove();
+    }
   },
   // Called on initialization and after each change to the components
   // props or state
