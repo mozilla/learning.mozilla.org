@@ -7,7 +7,8 @@ var teachAPI = require('../lib/teach-api');
 var Login = React.createClass({
   getDefaultProps: function() {
     return {
-      teachAPI: teachAPI
+      teachAPI: teachAPI,
+      alert: defaultAlert
     };
   },
   componentDidMount: function() {
@@ -44,14 +45,19 @@ var Login = React.createClass({
   },
   handleApiLoginError: function(err) {
     this.setState({loggingIn: false});
-    console.log("Teach API error", err);
+
+    if (process.env.NODE_ENV != "test") {
+      console.log("Teach API error", err);
+    }
+
     if (err.hasNoWebmakerAccount) {
-      window.alert("An error occurred when logging in. Are you sure you " +
-                   "have a Webmaker account associated with the email " +
-                   "address you used?");
+      this.props.alert(
+        "An error occurred when logging in. Are you sure you " +
+        "have a Webmaker account associated with the email " +
+        "address you used?"
+      );
     } else {
-      window.alert("An error occurred! Please try again later.");
-      this.props.teachAPI.logout();
+      this.props.alert("An error occurred! Please try again later.");
     }
   },
   handleApiLoginCancel: function() {
@@ -94,5 +100,13 @@ var Login = React.createClass({
     );
   }
 });
+
+function defaultAlert(message) {
+  if (process.browser) {
+    window.alert(message);
+  } else {
+    console.log("User alert: " + message);
+  }
+}
 
 module.exports = Login;
