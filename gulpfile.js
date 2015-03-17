@@ -225,6 +225,7 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
       livereload: {
         enable: true
       },
+      host: '0.0.0.0',
       port: 8008
     }));
 });
