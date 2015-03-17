@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": " Initial attempt at implementing Webmaker Learning front-page.",
   "dependencies": {
-    "bootstrap": "^3.3.2",
+    "bootstrap": "^3.3.4",
     "es5-shim": "^4.1.0",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.1.0",
