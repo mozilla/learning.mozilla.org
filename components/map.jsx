@@ -30,6 +30,10 @@ var Map = React.createClass({
     require('leaflet.markercluster');
     L.mapbox.accessToken = accessToken;
     teachAPI.getAllData(function(err, data) {
+      if(err) {
+        console.log(err)
+        return;
+      }
       var geoJSON = geoJSONit(data);
       that.map = L.mapbox.map(that.getDOMNode())
         .setView([40.73, -50.011], 3)
