@@ -17,7 +17,7 @@ var Login = React.createClass({
     teachAPI.on('login:cancel', this.handleApiLoginCancel);
     teachAPI.on('login:success', this.handleApiLoginSuccess);
     teachAPI.on('logout', this.handleApiLogout);
-    this.setState({username: this.getUsername()});
+    this.setState({username: teachAPI.getUsername()});
   },
   componentWillUnmount: function() {
     var teachAPI = this.props.teachAPI;
@@ -32,10 +32,6 @@ var Login = React.createClass({
       username: null,
       loggingIn: false
     };
-  },
-  getUsername: function() {
-    var info = this.props.teachAPI.getLoginInfo();
-    return info && info.username;
   },
   handleLoginClick: function(e) {
     e.preventDefault();
@@ -62,7 +58,8 @@ var Login = React.createClass({
     this.setState({loggingIn: false});
   },
   handleApiLoginSuccess: function(info) {
-    this.setState({username: this.getUsername(), loggingIn: false});
+    this.setState({username: this.props.teachAPI.getUsername(),
+                   loggingIn: false});
   },
   handleApiLogout: function() {
     this.setState({username: null, loggingIn: false});

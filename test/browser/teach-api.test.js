@@ -68,6 +68,19 @@ describe('TeachAPI', function() {
     requests[0].requestHeaders.should.eql({});
   });
 
+  it('reports username when logged in', function() {
+    var api = new TeachAPI({storage: storage});
+
+    storage['TEACH_API_LOGIN_INFO'] = '{"username": "boop"}';
+    should(api.getUsername()).equal("boop");
+  });
+
+  it('reports username is null if logged out', function() {
+    var api = new TeachAPI({storage: storage});
+
+    should(api.getUsername()).equal(null);
+  });
+
   describe('startLogin()', function() {
     var personaCb;
 
