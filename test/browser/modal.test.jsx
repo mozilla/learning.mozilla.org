@@ -26,6 +26,17 @@ describe("modal", function() {
 
   afterEach(removeModal);
 
+  it('closes modal if and only if ESC is pressed', function() {
+    // Ideally we'd fabricate a key event here, but doing
+    // that in a cross-browser way is actually non-trivial,
+    // so we'll just test the method.
+    modal.handleKeyDown({which: 13});
+    onClose.callCount.should.equal(0);
+
+    modal.handleKeyDown({which: 27});
+    onClose.callCount.should.equal(1);
+  });
+
   it('closes modal when area outside modal is clicked', function() {
     TestUtils.Simulate.click(modal.getDOMNode());
     onClose.callCount.should.equal(1);

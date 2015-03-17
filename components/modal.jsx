@@ -9,16 +9,23 @@ var Modal = React.createClass({
     this.backdrop = document.createElement('div');
     this.backdrop.setAttribute('class', 'modal-backdrop');
     document.body.appendChild(this.backdrop);
+    document.addEventListener('keydown', this.handleKeyDown);
   },
   componentWillUnmount: function() {
     document.body.removeChild(this.backdrop);
     this.backdrop = null;
+    document.removeEventListener('keydown', this.handleKeyDown);
   },
   handleCloseClick: function(e) {
     this.props.onClose();
   },
   handleOutsideOfModalClick: function(e) {
     if (e.target === this.getDOMNode()) {
+      this.props.onClose();
+    }
+  },
+  handleKeyDown: function(e) {
+    if (e.which == 27) {
       this.props.onClose();
     }
   },
