@@ -7,10 +7,16 @@ describe('ImageTag', function () {
   var
       imagetag;
 
-  imagetag = stubRouterContext.render(ImageTag, {
-    alt: 'Foo',
-    src1x: 'foo1x.jpg',
-    src2x: 'foo2x.jpg'
+  beforeEach(function() {
+    imagetag = stubRouterContext.render(ImageTag, {
+      alt: 'Foo',
+      src1x: 'foo1x.jpg',
+      src2x: 'foo2x.jpg'
+    });
+  });
+
+  afterEach(function() {
+    stubRouterContext.unmount(imagetag);
   });
 
   it('should detect pixel density and set state accordingly', function () {

@@ -50,4 +50,8 @@ stubRouterContext.render = function(Component, props) {
   return TestUtils.renderIntoDocument(<Stubbed/>).refs.unstubbed;
 };
 
+stubRouterContext.unmount = function(unstubbed) {
+  React.unmountComponentAtNode(unstubbed.getDOMNode().parentNode);
+};
+
 module.exports = stubRouterContext;
