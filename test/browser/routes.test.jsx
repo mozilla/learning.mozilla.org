@@ -1,5 +1,5 @@
 var should = require('should');
-var sinon = require('sinon');
+var sinon = window.sinon;
 var React =require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var Router = require('react-router');
@@ -14,7 +14,7 @@ describe('routes', function() {
     sinon.stub(L.mapbox, 'map', function() {
       return {
         remove: function() {},
-        setView: function () {}
+        setView: function () { return this; }
       }
     });
 
@@ -49,6 +49,7 @@ describe('routes', function() {
               nonNamedLinks++;
             }
           });
+          React.unmountComponentAtNode(handler.getDOMNode().parentNode);
           nonNamedLinks.should.equal(0);
           done();
         });

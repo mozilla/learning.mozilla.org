@@ -20,6 +20,10 @@ describe("sidebar", function() {
     );
   });
 
+  afterEach(function() {
+    stubRouterContext.unmount(sidebar);
+  });
+
   it('should hide collapsed content by default', function() {
     sidebar.state.showCollapsibleContent.should.be.false;
   });

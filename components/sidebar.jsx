@@ -2,6 +2,8 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 
+var Login = require('./login.jsx');
+
 var TriangleCorner = React.createClass({
   propTypes: {
     'height': React.PropTypes.number.isRequired,
@@ -77,9 +79,7 @@ var Sidebar = React.createClass({
         <div className={this.state.showCollapsibleContent
                         ? "collapsible-content"
                         : "hidden-xs hidden-sm collapsible-content"}>
-          <div className="sidebar-login">
-            <Link to="join">Create an account</Link> | <a href="">Log in</a>
-          </div>
+          <Login/>
           <ul className="sidebar-menu list-unstyled">
             {this.MENU_ENTRIES.map(function(entry, i) {
               return (
