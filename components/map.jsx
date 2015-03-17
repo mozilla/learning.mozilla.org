@@ -1,16 +1,16 @@
 var React = require('react');
 var mapboxId = process.env.MAPBOX_MAP_ID || 'alicoding.ldmhe4f3';
+var accessToken = process.env.MAPBOX_ACCESS_TOKEN || 'pk.eyJ1IjoiYWxpY29kaW5nIiwiYSI6Il90WlNFdE0ifQ.QGGdXGA_2QH-6ujyZE2oSg';
 var Map = React.createClass({
 
   propTypes: {
-    accessToken: React.PropTypes.string.isRequired,
     className: React.PropTypes.string.isRequired
   },
   componentDidMount: function() {
     var that = this;
     require('mapbox.js'); // this will automatically attach to Window object.
     require('leaflet.markercluster');
-    L.mapbox.accessToken = this.props.accessToken;
+    L.mapbox.accessToken = accessToken;
     // TODO: The ID in the featureLayer should be change to our internal
     // GeoJSON once we have the server side database setup.
     var mb = L.mapbox.featureLayer('examples.map-h61e8o8e');
