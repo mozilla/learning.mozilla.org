@@ -1,25 +1,9 @@
 .hero-unit {
-  &.hero-unit-1x {
-    display: flex;
-  }
-  &.hero-unit-2x {
-    display: none;
-  }
-
-  @media (-webkit-min-device-pixel-ratio: 2), 
-  (min-resolution: 192dpi) {
-    &.hero-unit-1x {
-      display: none;
-    }
-    &.hero-unit-2x {
-      display: flex;
-    }
-  }
-
   background-position: right top;
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
+  display: flex;
   flex-direction: column;
   height: 45rem;
   justify-content: center;
