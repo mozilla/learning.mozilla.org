@@ -50,8 +50,8 @@ var Sidebar = React.createClass({
       className: "teach"
     },
     {
-      name: "Clubs",
-      link: 'clubs',
+      name: "Mozilla Web Clubs",
+      link: 'mozilla-web-clubs',
       help: "Join our global community of local chapters",
       icon: "/img/nav/icon-nav-white-globe.svg",
       className: "clubs"
