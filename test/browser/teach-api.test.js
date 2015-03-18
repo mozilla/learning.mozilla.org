@@ -68,6 +68,16 @@ describe('TeachAPI', function() {
     requests[0].requestHeaders.should.eql({});
   });
 
+  it('prepends base URL to requests', function() {
+    var api = new TeachAPI({
+      storage: storage,
+      baseURL: 'http://example.org'
+    });
+
+    api.request('GET', '/foo').end();
+    requests[0].url.should.eql('http://example.org/foo');
+  });
+
   it('reports username when logged in', function() {
     var api = new TeachAPI({storage: storage});
 
@@ -79,6 +89,43 @@ describe('TeachAPI', function() {
     var api = new TeachAPI({storage: storage});
 
     should(api.getUsername()).equal(null);
+  });
+
+  describe('getAllClubsData()', function() {
+    var api;
+
+    beforeEach(function() {
+      api = new TeachAPI({
+        storage: storage,
+        baseURL: 'http://example.org'
+      });
+    });
+
+    it('accesses /api/clubs', function() {
+      api.getAllClubsData(function() {});
+      requests.length.should.equal(1);
+      requests[0].method.should.eql('get');
+      requests[0].url.should.eql('http://example.org/api/clubs');
+    });
+
+    it('returns parsed JSON on success', function(done) {
+      api.getAllClubsData(function(err, data) {
+        should(err).equal(null);
+        data.should.eql([{name: "blah"}]);
+        done();
+      });
+      requests[0].respond(200, {
+        'Content-Type': 'application/json'
+      }, JSON.stringify([{name: "blah"}]));
+    });
+
+    it('returns an error on failure', function(done) {
+      api.getAllClubsData(function(err, data) {
+        err.message.should.eql("Internal Server Error");
+        done();
+      });
+      requests[0].respond(500);
+    });
   });
 
   describe('startLogin()', function() {
