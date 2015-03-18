@@ -1,7 +1,7 @@
 var should = require('should');
 var sinon = window.sinon;
 
-var TeachAPI = require('../../lib/teach-api').TeachAPI;
+var TeachAPI = require('../../lib/teach-api');
 
 describe('TeachAPI', function() {
   var xhr, requests, storage;

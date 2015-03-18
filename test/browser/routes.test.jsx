@@ -5,14 +5,12 @@ var TestUtils = React.addons.TestUtils;
 var Router = require('react-router');
 var Link = Router.Link;
 
-var teachAPI = require('../../lib/teach-api.js');
 var routes = require('../../lib/routes.jsx');
 
 describe('routes', function() {
   require('mapbox.js');
 
   beforeEach(function() {
-    sinon.stub(teachAPI, 'getAllClubsData');
     sinon.stub(L.mapbox, 'map', function() {
       return {
         remove: function() {return this;},
@@ -47,7 +45,6 @@ describe('routes', function() {
   });
 
   afterEach(function() {
-    teachAPI.getAllClubsData.restore();
     L.mapbox.map.restore();
     L.mapbox.featureLayer.restore();
   });

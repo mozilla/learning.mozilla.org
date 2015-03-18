@@ -2,14 +2,14 @@ var should = require('should');
 var React =require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
-var stubRouterContext = require('./stub-router-context.jsx');
+var stubContext = require('./stub-context.jsx');
 var Sidebar = require('../../components/sidebar.jsx');
 
 describe("sidebar", function() {
   var sidebar, hamburger, collapsibleContent;
 
   beforeEach(function() {
-    sidebar = stubRouterContext.render(Sidebar, {});
+    sidebar = stubContext.render(Sidebar, {});
     hamburger = TestUtils.findRenderedDOMComponentWithClass(
       sidebar,
       'glyphicon-menu-hamburger'
@@ -21,7 +21,7 @@ describe("sidebar", function() {
   });
 
   afterEach(function() {
-    stubRouterContext.unmount(sidebar);
+    stubContext.unmount(sidebar);
   });
 
   it('should hide collapsed content by default', function() {
