@@ -1,0 +1,55 @@
+.about-page {
+  header {
+    margin-bottom: 2.5rem;
+    margin-top: 2.5rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    @media screen and (min-width: @screen-sm) {
+      padding-left: 0;
+    }
+  }
+  p {
+    max-width: 50rem;
+  }
+  .intro {
+    @media screen and (min-width: @screen-sm){
+      .simple-flex();
+    }
+  }
+  .list-with-illust {
+    .listItemBorderColorizer(@redSidebarColor)
+  }
+  .our-goal {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    img {
+      display: block;
+      margin: 2.5rem auto;
+    }
+    p {
+      text-align: center;
+    }
+  }
+  .connect {
+    .simple-flex();
+    text-align: center;
+    a {
+      color: inherit;
+      display: block;
+    }
+    img {
+      display: block;
+      margin: 1rem auto;
+      &:hover {
+
+      }
+    }
+  }
+}
+
+.simple-flex() {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
