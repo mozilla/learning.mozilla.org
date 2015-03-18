@@ -1,71 +1,91 @@
 var React = require('react');
+var mapboxId = process.env.MAPBOX_MAP_ID || 'alicoding.ldmhe4f3';
+var accessToken = process.env.MAPBOX_ACCESS_TOKEN || 'pk.eyJ1IjoiYWxpY29kaW5nIiwiYSI6Il90WlNFdE0ifQ.QGGdXGA_2QH-6ujyZE2oSg';
+var teachAPI = require('../lib/teach-api');
+
+function geoJSONit(data) {
+  return data.map(function(i) {
+    return {
+      "geometry": {
+        "coordinates": [i.longitude*1, i.latitude*1],
+        "type": "Point"
+      },
+      "properties": {
+        "description": i.description,
+        "location": i.location,
+        "title": i.name
+      },
+      "type": "Feature"
+    }
+  });
+}
 
 var Map = React.createClass({
-
   propTypes: {
-    accessToken: React.PropTypes.string.isRequired,
-    mapId: React.PropTypes.string.isRequired,
     className: React.PropTypes.string.isRequired
   },
   componentDidMount: function() {
+    var that = this;
     require('mapbox.js'); // this will automatically attach to Window object.
-    this.map = L.mapbox.map(this.getDOMNode(), this.props.mapId, {
-      accessToken: this.props.accessToken
-    }).setView([43.597, -79.6139], 12);
+    require('leaflet.markercluster');
+    L.mapbox.accessToken = accessToken;
+    teachAPI.getAllClubsData(function(err, data) {
+      if (!that.isMounted()) {
+        // We were unmounted before the API request completed,
+        // so do nothing.
+        return;
+      }
+      if(err) {
+        console.log(err)
+        return;
+      }
+      var geoJSON = geoJSONit(data);
+      that.map = L.mapbox.map(that.getDOMNode())
+        .setView([40.73, -50.011], 5)
+        .addLayer(L.mapbox.tileLayer(mapboxId));
+      var markers = new L.MarkerClusterGroup({
+        iconCreateFunction: function(cluster) {
+          return L.mapbox.marker.icon({
+            'marker-symbol': cluster.getChildCount(),
+            'marker-color': '#422'
+          });
+        }
+      });
 
-    var MapLayer = L.mapbox.featureLayer(this.mapId, {accessToken: this.props.accessToken}).addTo(this.map);
-    var geoJson = [{
-      // this feature is in the GeoJSON format: see geojson.org
-      // for the full specification
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        // coordinates here are in longitude, latitude order because
-        // x, y is the standard for GeoJSON and many formats
-        coordinates: [-79.6139,
-          43.597
-        ]
-      },
-      properties: {
-        title: 'First Point',
-        description: 'Party description?',
-        "icon": {
-          "iconUrl": "/img/map-marker.svg",
-          "iconSize": [33, 33], // size of the icon
-          "iconAnchor": [15, 15] // point of the icon which will correspond to marker's location
-        }
-      }
-    }, {
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        coordinates: [-79.68793,
-          43.562641
-        ]
-      },
-      properties: {
-        title: 'Second Point',
-        description: 'Address I guess?',
-        "icon": {
-          "iconUrl": "/img/map-marker.svg",
-          "iconSize": [33, 33],
-          "iconAnchor": [15, 15]
-        }
-      }
-    }];
-    // Set a custom icon on each marker based on feature properties.
-    MapLayer.on('layeradd', function(e) {
-      var marker = e.layer,
+      // setView of the map based on markers on the map
+      that.map.fitBounds(L.mapbox.featureLayer()
+        .setGeoJSON(geoJSON)
+        .getBounds());
+
+      var geoJsonLayer = L.geoJson(geoJSON);
+      markers.addLayer(geoJsonLayer);
+      that.map.on('layeradd', function(e) {
+        var marker = e.layer,
           feature = marker.feature;
 
-      marker.setIcon(L.icon(feature.properties.icon));
-    });
+        // we have to check if this is a feature or marker-cluster
+        if (feature) {
+          var title = feature.properties.title,
+          desc = feature.properties.title,
+          location = feature.properties.location;
+          marker.setIcon(L.icon({
+            "iconUrl": "/img/map-marker.svg",
+            "iconSize": [33, 33],
+            "iconAnchor": [15, 15]
+          }));
+          marker.bindPopup(
+            "<b>" + title + "<br></b><i>" + location + "</i><br/><br/><p>" + desc + "</p>"
+          );
+        }
 
-    // Add features to the map.
-    MapLayer.setGeoJSON(geoJson);
+      });
+      that.map.addLayer(markers);
+    });
   },
   componentWillUnmount: function() {
-    this.map.remove();
+    if (this.map) {
+      this.map.remove();
+    }
   },
   // Called on initialization and after each change to the components
   // props or state
