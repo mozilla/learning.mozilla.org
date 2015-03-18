@@ -19,7 +19,7 @@ var routes = (
      handler={require('../components/activities-page.jsx')}/>
     <Route name="events" path="/events/"
      handler={require('../components/events-page.jsx')}/>
-    <Route name="clubs" path="/clubs/"
+    <Route name="mozilla-web-clubs" path="/mozilla-web-clubs/"
      handler={require('../components/clubs-page.jsx')}/>
     <Route name="teach-like-mozilla" path="/teach-like-mozilla/"
      handler={require('../components/teach-like-mozilla-page.jsx')}/>
