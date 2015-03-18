@@ -5,26 +5,38 @@ var TestUtils = React.addons.TestUtils;
 
 var Modal = require('../../components/modal.jsx');
 
-describe("modal", function() {
-  var modal, onClose;
-
-  function removeModal() {
-    if (modal) {
-      React.unmountComponentAtNode(modal.getDOMNode().parentNode);
-      modal = null;
-    }
+var FakePage = React.createClass({
+  childContextTypes: {
+    hideModal: React.PropTypes.func.isRequired
+  },
+  getChildContext: function() {
+    return {
+      hideModal: this.props.onHideModal
+    };
+  },
+  render: function() {
+    return (
+      <div>
+        <Modal ref="modal">
+          i am modal content
+        </Modal>
+      </div>
+    );
   }
+});
+
+describe("modal", function() {
+  var page, modal, onClose;
 
   beforeEach(function() {
     onClose = sinon.spy();
-    modal = TestUtils.renderIntoDocument(
-      <Modal onClose={onClose}>
-        i am modal content
-      </Modal>
-    );
+    page = TestUtils.renderIntoDocument(<FakePage onHideModal={onClose}/>);
+    modal = page.refs.modal;
   });
 
-  afterEach(removeModal);
+  afterEach(function() {
+    React.unmountComponentAtNode(page.getDOMNode().parentNode);
+  });
 
   it('closes modal if and only if ESC is pressed', function() {
     // Ideally we'd fabricate a key event here, but doing
@@ -58,16 +70,5 @@ describe("modal", function() {
     );
     TestUtils.Simulate.click(title);
     onClose.callCount.should.equal(0);
-  });
-
-  it('creates body > .modal-backdrop when mounted', function() {
-    document.querySelectorAll('body > .modal-backdrop').length
-      .should.equal(1);
-  });
-
-  it('removes body > .modal-backdrop when unmounted', function() {
-    removeModal();
-    document.querySelectorAll('body > .modal-backdrop').length
-      .should.equal(0);
   });
 });
