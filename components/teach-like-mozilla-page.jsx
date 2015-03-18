@@ -28,7 +28,8 @@ var IconLinks = React.createClass({
     }
   ],
   render: function() {
-    // need to have `key`, see: http://facebook.github.io/react/docs/multiple-components.html#dynamic-children
+    // need to have `key`,
+    // see: http://facebook.github.io/react/docs/multiple-components.html#dynamic-children
     var iconlinks = this.ICON_LINKS.map(function(link,i) {
       return (
         <div className="col-sm-4 col-md-4 col-lg-4 icon-link-container" key={i}>
@@ -57,16 +58,31 @@ var TeachLikeMozillaPage = React.createClass({
         </HeroUnit>
         <section>
           <h2>Our Values</h2>
-          <span className="sub-title">We are a community of educatiors, learners, mentors and teachers.</span>
+          <span className="sub-title">
+            We are a community of educators, learners, mentors and teachers.
+          </span>
           <div className="row list-with-illust">
             <div className="col-sm-4 col-md-4 col-lg-4">
-              <img src="/img/teach-like-mozilla-page/icon-teach-like-mozilla.svg" alt="icon teach like mozilla" />
+              <img
+                src="/img/teach-like-mozilla-page/icon-teach-like-mozilla.svg"
+                alt="icon teach like mozilla"
+              />
             </div>
             <div className="col-sm-8 col-md-8 col-lg-8">
               <ul>
-                <li>We teach web literacy, which encompasses the mechanics, culture and citizenship of the web.</li>
-                <li>We are dedicated to empowering others so they have agency on the web as creators and future leaders.</li>
-                <li>We teach and learn by making projects together and openly reflecting on the process in an inclusive and localle relevant environment.</li>
+                <li>
+                  We teach web literacy, which encompasses the mechanics,
+                  culture and citizenship of the web.
+                </li>
+                <li>
+                  We are dedicated to empowering others so they have agency
+                  on the web as creators and future leaders.
+                </li>
+                <li>
+                  We teach and learn by making projects together and
+                  openly reflecting on the process in an inclusive and
+                  localle relevant environment.
+                </li>
               </ul>
             </div>
           </div>
