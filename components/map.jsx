@@ -1,7 +1,8 @@
 var React = require('react');
 var mapboxId = process.env.MAPBOX_MAP_ID || 'alicoding.ldmhe4f3';
 var accessToken = process.env.MAPBOX_ACCESS_TOKEN || 'pk.eyJ1IjoiYWxpY29kaW5nIiwiYSI6Il90WlNFdE0ifQ.QGGdXGA_2QH-6ujyZE2oSg';
-var teachAPI = require('../lib/teach-api');
+
+var TeachAPIClientMixin = require('../mixins/teach-api-client');
 
 function geoJSONit(data) {
   return data.map(function(i) {
@@ -21,6 +22,7 @@ function geoJSONit(data) {
 }
 
 var Map = React.createClass({
+  mixins: [TeachAPIClientMixin],
   propTypes: {
     className: React.PropTypes.string.isRequired
   },
@@ -29,7 +31,7 @@ var Map = React.createClass({
     require('mapbox.js'); // this will automatically attach to Window object.
     require('leaflet.markercluster');
     L.mapbox.accessToken = accessToken;
-    teachAPI.getAllClubsData(function(err, data) {
+    this.getTeachAPI().getAllClubsData(function(err, data) {
       if (!that.isMounted()) {
         // We were unmounted before the API request completed,
         // so do nothing.

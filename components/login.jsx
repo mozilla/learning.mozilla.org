@@ -2,31 +2,25 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 
-var teachAPI = require('../lib/teach-api');
+var TeachAPIClientMixin = require('../mixins/teach-api-client');
 
 var Login = React.createClass({
+  mixins: [TeachAPIClientMixin],
+  statics: {
+    teachAPIEvents: {
+      'login:error': 'handleApiLoginError',
+      'login:cancel': 'handleApiLoginCancel',
+      'login:success': 'handleApiLoginSuccess',
+      'logout': 'handleApiLogout'
+    }
+  },
   getDefaultProps: function() {
     return {
-      teachAPI: teachAPI,
       alert: defaultAlert
     };
   },
   componentDidMount: function() {
-    var teachAPI = this.props.teachAPI;
-
-    teachAPI.on('login:error', this.handleApiLoginError);
-    teachAPI.on('login:cancel', this.handleApiLoginCancel);
-    teachAPI.on('login:success', this.handleApiLoginSuccess);
-    teachAPI.on('logout', this.handleApiLogout);
-    this.setState({username: teachAPI.getUsername()});
-  },
-  componentWillUnmount: function() {
-    var teachAPI = this.props.teachAPI;
-
-    teachAPI.removeListener('login:error', this.handleApiLoginError);
-    teachAPI.removeListener('login:cancel', this.handleApiLoginCancel);
-    teachAPI.removeListener('login:success', this.handleApiLoginSuccess);
-    teachAPI.removeListener('logout', this.handleApiLogout);
+    this.setState({username: this.getTeachAPI().getUsername()});
   },
   getInitialState: function() {
     return {
@@ -37,11 +31,11 @@ var Login = React.createClass({
   handleLoginClick: function(e) {
     e.preventDefault();
     this.setState({loggingIn: true});
-    this.props.teachAPI.startLogin();
+    this.getTeachAPI().startLogin();
   },
   handleLogoutClick: function(e) {
     e.preventDefault();
-    this.props.teachAPI.logout();
+    this.getTeachAPI().logout();
   },
   handleApiLoginError: function(err) {
     this.setState({loggingIn: false});
@@ -64,7 +58,7 @@ var Login = React.createClass({
     this.setState({loggingIn: false});
   },
   handleApiLoginSuccess: function(info) {
-    this.setState({username: this.props.teachAPI.getUsername(),
+    this.setState({username: this.getTeachAPI().getUsername(),
                    loggingIn: false});
   },
   handleApiLogout: function() {

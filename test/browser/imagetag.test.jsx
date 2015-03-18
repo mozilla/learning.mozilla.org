@@ -1,5 +1,5 @@
 var should = require('should');
-var stubRouterContext = require('./stub-router-context.jsx');
+var stubContext = require('./stub-context.jsx');
 
 var ImageTag = require('../../components/imagetag.jsx');
 
@@ -8,7 +8,7 @@ describe('ImageTag', function () {
       imagetag;
 
   beforeEach(function() {
-    imagetag = stubRouterContext.render(ImageTag, {
+    imagetag = stubContext.render(ImageTag, {
       alt: 'Foo',
       src1x: 'foo1x.jpg',
       src2x: 'foo2x.jpg'
@@ -16,7 +16,7 @@ describe('ImageTag', function () {
   });
 
   afterEach(function() {
-    stubRouterContext.unmount(imagetag);
+    stubContext.unmount(imagetag);
   });
 
   it('should detect pixel density and set state accordingly', function () {

@@ -1,10 +1,13 @@
+// This is based on:
 // https://github.com/rackt/react-router/blob/master/docs/guides/testing.md
 
 var _ = require('underscore');
 var React =require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
-var stubRouterContext = function(Component, props, stubs) {
+var StubTeachAPI = require('./stub-teach-api');
+
+var stubContext = function(Component, props, stubs) {
   var func = React.PropTypes.func;
   var noop = function() {};
 
@@ -21,6 +24,7 @@ var stubRouterContext = function(Component, props, stubs) {
       getCurrentParams: func,
       getCurrentQuery: func,
       isActive: func,
+      teachAPI: React.PropTypes.object
     },
 
     getChildContext: function() {
@@ -35,7 +39,8 @@ var stubRouterContext = function(Component, props, stubs) {
         getCurrentPathname: noop,
         getCurrentParams: noop,
         getCurrentQuery: noop,
-        isActive: noop
+        isActive: noop,
+        teachAPI: new StubTeachAPI()
       }, stubs);
     },
 
@@ -45,13 +50,13 @@ var stubRouterContext = function(Component, props, stubs) {
   });
 };
 
-stubRouterContext.render = function(Component, props) {
-  var Stubbed = stubRouterContext(Component, props);
+stubContext.render = function(Component, props, stubs) {
+  var Stubbed = stubContext(Component, props, stubs);
   return TestUtils.renderIntoDocument(<Stubbed/>).refs.unstubbed;
 };
 
-stubRouterContext.unmount = function(unstubbed) {
+stubContext.unmount = function(unstubbed) {
   React.unmountComponentAtNode(unstubbed.getDOMNode().parentNode);
 };
 
-module.exports = stubRouterContext;
+module.exports = stubContext;

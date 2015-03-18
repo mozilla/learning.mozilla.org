@@ -4,12 +4,14 @@ var RouteHandler = Router.RouteHandler;
 
 var Sidebar = require('./sidebar.jsx');
 var Footer = require('./footer.jsx');
+var TeachAPI = require('../lib/teach-api');
 
 var Page = React.createClass({
   mixins: [Router.State],
   childContextTypes: {
     showModal: React.PropTypes.func.isRequired,
-    hideModal: React.PropTypes.func.isRequired
+    hideModal: React.PropTypes.func.isRequired,
+    teachAPI: React.PropTypes.object.isRequired
   },
   getInitialState: function() {
     return {
@@ -23,10 +25,17 @@ var Page = React.createClass({
   hideModal: function() {
     this.setState({modalClass: null, modalProps: null});
   },
+  getTeachAPI: function() {
+    if (!this.teachAPI) {
+      this.teachAPI = new TeachAPI();
+    }
+    return this.teachAPI;
+  },
   getChildContext: function() {
     return {
       showModal: this.showModal,
-      hideModal: this.hideModal
+      hideModal: this.hideModal,
+      teachAPI: this.getTeachAPI()
     };
   },
   // Accessibility best practices demand that only the elements in a
