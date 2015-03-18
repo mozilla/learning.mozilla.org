@@ -1,28 +1,24 @@
 var React = require('react');
 var ReactAddons = require('react/addons');
 
+var ModalManagerMixin = require('../mixins/modal-manager');
+
 var Modal = React.createClass({
-  mixins: [ReactAddons.PureRenderMixin],
-  contextTypes: {
-    hideModal: React.PropTypes.func.isRequired
-  },
+  mixins: [ReactAddons.PureRenderMixin, ModalManagerMixin],
   componentDidMount: function() {
     document.addEventListener('keydown', this.handleKeyDown);
   },
   componentWillUnmount: function() {
     document.removeEventListener('keydown', this.handleKeyDown);
   },
-  close: function() {
-    this.context.hideModal();
-  },
   handleOutsideOfModalClick: function(e) {
     if (e.target === this.getDOMNode()) {
-      this.close();
+      this.hideModal();
     }
   },
   handleKeyDown: function(e) {
     if (e.which == 27) {
-      this.close();
+      this.hideModal();
     }
   },
   render: function() {
@@ -34,7 +30,7 @@ var Modal = React.createClass({
         <div className="modal-dialog">
           <div className="modal-header">
             <button type="button" className="close"
-             onClick={this.close}>&times;</button>
+             onClick={this.hideModal}>&times;</button>
             <div className="modal-title" id="modal-label">
               {this.props.modalTitle}
             </div>

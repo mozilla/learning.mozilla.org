@@ -7,11 +7,15 @@ var Modal = require('../../components/modal.jsx');
 
 var FakePage = React.createClass({
   childContextTypes: {
-    hideModal: React.PropTypes.func.isRequired
+    hideModal: React.PropTypes.func.isRequired,
+    showModal: React.PropTypes.func.isRequired
   },
   getChildContext: function() {
     return {
-      hideModal: this.props.onHideModal
+      hideModal: this.props.onHideModal,
+      showModal: function() {
+        throw new Error("this should never be called");
+      }
     };
   },
   render: function() {

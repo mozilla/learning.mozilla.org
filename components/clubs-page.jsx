@@ -9,6 +9,7 @@ var Blockquote = require('./blockquote.jsx');
 var IconLink = require('./icon-link.jsx');
 var PageEndCTA = require('./page-end-cta.jsx');
 var Modal = require('./modal.jsx');
+var ModalManagerMixin = require('../mixins/modal-manager');
 
 var WebLitMap = React.createClass({
   render: function() {
@@ -176,17 +177,15 @@ var ModalLearnMore = React.createClass({
 
 
 var ClubsPage = React.createClass({
+  mixins: [ModalManagerMixin],
   statics: {
     pageClassName: "clubs"
   },
-  contextTypes: {
-    showModal: React.PropTypes.func.isRequired
-  },
   showAddYourClubModal: function() {
-    this.context.showModal(ModalAddYourClub);
+    this.showModal(ModalAddYourClub);
   },
   showLearnMoreModal: function() {
-    this.context.showModal(ModalLearnMore);
+    this.showModal(ModalLearnMore);
   },
   render: function() {
     return (
