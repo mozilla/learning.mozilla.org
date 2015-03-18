@@ -120,6 +120,30 @@ Individually running *only* the browser unit tests can be accomplished
 by first running `npm start` and then visiting http://localhost:8008/test/
 in your browser.
 
+##### Cross-browser Tests with Sauce Labs (WIP)
+
+In order to generate screenshots on Sauce labs, you'll need to
+
+1. Create a sauce labs account
+2. Add SAUCE_USERNAME and SAUCE_ACCESS_KEY to your environment (see https://docs.saucelabs.com/tutorials/node-js/#setting-up-a-project when you are logged in)
+3. Download and install [Sauce Connect](https://docs.saucelabs.com/reference/sauce-connect), make and make sure `sc` is in your $PATH.
+
+After you've done those three things, run the following command, replacing `username123` with your actual username and `key123` with your actual sauce labs secret key.
+
+```
+sc -u username123 -k key123
+```
+
+(You can copy this line from [here](https://docs.saucelabs.com/reference/sauce-connect/#basic-setup) if you are signed in)
+
+You should see "connected" printed out to your console. Now, just run
+
+```
+npm run crossbrowser
+```
+
+and visit [https://saucelabs.com/tests](https://saucelabs.com/tests) to see your screen shots!
+
 ## Generating A Static Site
 
 Run `npm run build` to generate a static site in `dist/` that
