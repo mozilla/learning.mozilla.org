@@ -20,7 +20,7 @@ html.no-js .sidebar {
     .sidebarColorizer(@purpleSidebarColor);
   }
   &.clubs .sidebar {
-      .sidebarColorizer(@orangeSidebarColor);
+    .sidebarColorizer(@orangeSidebarColor);
   }
   &.teaching-materials .sidebar {
     .sidebarColorizer(@blueSidebarColor);
@@ -31,6 +31,7 @@ html.no-js .sidebar {
   background-color: @sidebarColor;
   transition: background-color @sidebarTransitionTime;
   color: white;
+  font-size: 1.4rem;
 
   a {
     color: inherit;
@@ -40,34 +41,33 @@ html.no-js .sidebar {
     position: relative;
     background-color: white;
     font-size: 2rem;
-    color: #595a5e;
+    color: #595a5e; // TODO: should this actually be @bodyTextColor ?
     margin-left: -(@grid-gutter-width / 2);
     margin-right: -(@grid-gutter-width / 2);
     padding: (@grid-gutter-width / 4) (@grid-gutter-width / 2);
     overflow: hidden;
-  }
+    a {
+      &:hover, &:focus {
+        text-decoration: none;
+      }
+    }
+    .corner {
+      position: absolute;
 
-  .sidebar-header a:hover, .sidebar-header a:focus {
-    text-decoration: none;
-  }
+      // Ensure there isn't a sliver of empty space
+      // between the corner and adjacent elements.
+      bottom: -.1rem;
+      right: -.1rem;
 
-  .sidebar-header .corner {
-    position: absolute;
-
-    /* Ensure there isn't a sliver of empty space
-     * between the corner and adjacent elements. */
-    bottom: -.1rem;
-    right: -.1rem;
-
-    fill: @sidebarColor;
-    transition: fill @sidebarTransitionTime;
-  }
-
-  .sidebar-header .glyphicon-menu-hamburger {
-    position: absolute;
-    right: 1rem;
-    top: 2.5rem;
-    cursor: pointer;
+      fill: @sidebarColor;
+      transition: fill @sidebarTransitionTime;
+    }
+    .glyphicon-menu-hamburger {
+      position: absolute;
+      right: 1rem;
+      top: 2.5rem;
+      cursor: pointer;
+    }
   }
 
   .sidebar-login {
@@ -75,59 +75,59 @@ html.no-js .sidebar {
     padding-bottom: 3rem;
   }
 
-  .sidebar-menu a {
-    position: relative;
-    display: block;
-    margin: 0 -(@grid-gutter-width / 2);
-    padding: @grid-gutter-width / 2;
-  }
-
-  .sidebar-menu li img {
-    float: none;
-    width: 5.4rem;
-    opacity: 0.6;
-    margin: 0 1.5rem 0 0;
-    @media (min-width: @screen-md-min) {
-      float: left;
+  .sidebar-menu {
+    a {
+      position: relative;
+      display: block;
+      margin: 0 -(@grid-gutter-width / 2);
+      padding: @grid-gutter-width / 2;
     }
-    &.teach {
-      width: 5rem;
-      margin: 0.4rem 1.3rem 0 0.6rem;
+    li {
+      img {
+        float: none;
+        width: 5.4rem;
+        opacity: 0.6;
+        margin: 0 1.5rem 0 0;
+        @media (min-width: @screen-md-min) {
+          float: left;
+        }
+        &.teach {
+          width: 5rem;
+          margin: 0.4rem 1.3rem 0 0.6rem;
+        }
+        &.clubs {
+          width: 5rem;
+          margin: 0 1.5rem 0 0.5rem;
+        }
+      }
     }
-    &.clubs {
-      width: 5rem;
-      margin: 0 1.5rem 0 0.5rem;
+    a {
+      &:hover, &:focus {
+        text-decoration: none;
+        background-color: darken(@sidebarColor, 10%);
+        transition: background-color @sidebarTransitionTime;
+      }
+      strong {
+        display: inline;
+        font-weight: 700;
+        text-transform: uppercase;
+        @media (min-width: @screen-md-min) {
+          float: block;
+        }
+      }
+      .help-text {
+        font-size: 1.2rem;
+        font-weight: 400;
+        width: 22rem;
+      }
+      .glyphicon {
+        position: absolute;
+        right: 1.5rem;
+        font-size: 1.5rem;
+        top: calc(50% - 1.5rem / 2);
+        color: lighten(@sidebarColor, 15%);
+        transition: color @sidebarTransitionTime;
+      }
     }
-  }
-
-  .sidebar-menu a:hover, .sidebar-menu a:focus {
-    text-decoration: none;
-    background-color: darken(@sidebarColor, 10%);
-    transition: background-color @sidebarTransitionTime;
-  }
-
-  .sidebar-menu a strong {
-    display: inline;
-    font-weight: 700;
-    text-transform: uppercase;
-    @media (min-width: @screen-md-min) {
-      float: block;
-    }
-  }
-
-  .sidebar-menu a .help-text {
-    font-size: 1.2rem;
-    font-weight: 400;
-    width: 22rem;
-  }
-
-  .sidebar-menu a .glyphicon {
-    position: absolute;
-    right: 1.5rem;
-    font-size: 1.5rem;
-    top: calc(50% - 1.5rem / 2);
-    color: lighten(@sidebarColor, 15%);
-    transition: color @sidebarTransitionTime;
   }
 }
-
