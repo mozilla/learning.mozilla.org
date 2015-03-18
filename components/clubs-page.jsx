@@ -89,13 +89,13 @@ var IconLinks = React.createClass({
     // need to have `key`, see: http://facebook.github.io/react/docs/multiple-components.html#dynamic-children
     var iconlinks = this.ICON_LINKS.map(function(link,i) {
       return (
-        <div className="col-sm-4 col-md-4 col-lg-4" key={i}>
+        <div className="col-sm-4 col-md-4 col-lg-4 icon-link-container" key={i}>
           <IconLink info={link} />
         </div>
       );
     });
     return (
-      <div className="row">{iconlinks}</div>
+      <div className="row icon-links">{iconlinks}</div>
     );
   }
 });
