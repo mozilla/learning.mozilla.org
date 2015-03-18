@@ -141,7 +141,7 @@ var ModalAddYourClub = React.createClass({
           </fieldset>
           <fieldset>
             <label>What do you focus your efforts on?</label>
-            <textarea rows="5" placeholder="Give us a brief decription about what your Club is about." />
+            <textarea rows="5" placeholder="Give us a brief description about what your Club is about." />
           </fieldset>
           <input type="submit" className="btn" value="Add Your Club To The Map" />
         </form>
