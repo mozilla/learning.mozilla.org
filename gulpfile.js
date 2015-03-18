@@ -183,6 +183,7 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
   gulp.watch([
     'lib/**',
     'components/**',
+    'mixins/**',
     'pages/**'
   ], function() {
     gutil.log('Rebuilding index HTML files.');

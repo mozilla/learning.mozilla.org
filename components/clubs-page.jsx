@@ -9,6 +9,7 @@ var Blockquote = require('./blockquote.jsx');
 var IconLink = require('./icon-link.jsx');
 var PageEndCTA = require('./page-end-cta.jsx');
 var Modal = require('./modal.jsx');
+var ModalManagerMixin = require('../mixins/modal-manager');
 
 var WebLitMap = React.createClass({
   render: function() {
@@ -123,9 +124,7 @@ var BottomCTA = React.createClass({
 var ModalAddYourClub = React.createClass({
   render: function() {
     return(
-      <Modal
-        modalTitle="Add Your Clubs To The Map"
-        onClose={this.props.onClose}>
+      <Modal modalTitle="Add Your Clubs To The Map">
         <form>
           <fieldset>
             <label>What is the name of your Club?</label>
@@ -154,9 +153,7 @@ var ModalAddYourClub = React.createClass({
 var ModalLearnMore = React.createClass({
   render: function() {
     return(
-      <Modal
-        modalTitle="Learn More About Hive Learning Clubs"
-        onClose={this.props.onClose}>
+      <Modal modalTitle="Learn More About Hive Learning Clubs">
         <form>
           <fieldset>
             <label>What is your first name?</label>
@@ -180,34 +177,23 @@ var ModalLearnMore = React.createClass({
 
 
 var ClubsPage = React.createClass({
+  mixins: [ModalManagerMixin],
   statics: {
     pageClassName: "clubs"
   },
-  getInitialState: function() {
-    return {
-      modalShown: {
-        ModalAddYourClub: false,
-        ModalLearnMore: false
-      }
-    };
+  showAddYourClubModal: function() {
+    this.showModal(ModalAddYourClub);
   },
-  closeModal: function(targetModal) {
-    var modalShownState = this.state.modalShown;
-    modalShownState[targetModal] = false;
-    this.setState(modalShownState);
-  },
-  showModal: function(targetModal) {
-    var modalShownState = this.state.modalShown;
-    modalShownState[targetModal] = true;
-    this.setState(modalShownState);
+  showLearnMoreModal: function() {
+    this.showModal(ModalLearnMore);
   },
   render: function() {
     return (
       <div>
         <HeroUnit image="/img/hero-clubs.jpg">
           <h1>Mozilla Learning Clubs</h1>
-          <div><a className="btn btn-awsm" onClick={this.showModal.bind(this,"ModalAddYourClub")}>Add Your Club</a></div>
-          <div><p className="learn-more">or <a onClick={this.showModal.bind(this,"ModalLearnMore")}>find out more</a> about us</p></div>
+          <div><a className="btn btn-awsm" onClick={this.showAddYourClubModal}>Add Your Club</a></div>
+          <div><p className="learn-more">or <a onClick={this.showLearnMoreModal}>find out more</a> about us</p></div>
         </HeroUnit>
         <section>
           <WebLitMap/>
@@ -225,14 +211,8 @@ var ClubsPage = React.createClass({
           <IconLinks/>
         </section>
         <section>
-          <BottomCTA onClick={this.showModal.bind(this,"ModalAddYourClub")} />
+          <BottomCTA onClick={this.showAddYourClubModal} />
         </section>
-        { this.state.modalShown.ModalAddYourClub
-          ? <ModalAddYourClub onClose={this.closeModal.bind(this,"ModalAddYourClub")} />
-          : null }
-        { this.state.modalShown.ModalLearnMore
-          ? <ModalLearnMore onClose={this.closeModal.bind(this,"ModalLearnMore")} />
-          : null }
       </div>
     );
   }
