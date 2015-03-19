@@ -101,11 +101,11 @@ describe('TeachAPI', function() {
       });
     });
 
-    it('accesses /api/clubs', function() {
+    it('accesses /api/clubs/', function() {
       api.updateClubs();
       requests.length.should.equal(1);
       requests[0].method.should.eql('get');
-      requests[0].url.should.eql('http://example.org/api/clubs');
+      requests[0].url.should.eql('http://example.org/api/clubs/');
     });
 
     it('returns parsed JSON on success', function(done) {
@@ -167,7 +167,10 @@ describe('TeachAPI', function() {
     });
 
     it('sends assertion to Teach API server', function() {
-      var api = new TeachAPI({storage: storage});
+      var api = new TeachAPI({
+        baseURL: 'http://example.org',
+        storage: storage
+      });
 
       api.startLogin();
       personaCb('hi');
@@ -176,7 +179,7 @@ describe('TeachAPI', function() {
 
       var r = requests[0];
 
-      r.url.should.eql('https://teach-api.herokuapp.com/auth/persona');
+      r.url.should.eql('http://example.org/auth/persona');
       r.requestHeaders.should.eql({
         'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
       });

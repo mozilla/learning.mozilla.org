@@ -1,4 +1,5 @@
-var React = require('react');
+var _ = require('underscore');
+var React = require('react/addons');
 var Router = require('react-router');
 var Link = Router.Link;
 
@@ -123,9 +124,31 @@ var BottomCTA = React.createClass({
 
 
 var ModalAddYourClub = React.createClass({
+  mixins: [React.addons.LinkedStateMixin, ModalManagerMixin],
+  propTypes: {
+    onAddClub: React.PropTypes.func.isRequired
+  },
+  getInitialState: function() {
+    return {
+      name: '',
+      website: '',
+      description: '',
+      location: ''
+    };
+  },
   handleSubmit: function(e) {
     e.preventDefault();
-    window.alert("Sorry, this functionality has not yet been implemented.");
+    this.props.onAddClub(_.pick(this.state,
+      'name', 'website', 'description', 'location'
+    ), function(err) {
+      if (err) {
+        window.alert("Alas, an error occurred. Please try again later!");
+        console.log(err);
+      } else {
+        window.alert("Your club has been added!");
+        this.hideModal();
+      }
+    }.bind(this));
   },
   render: function() {
     return(
@@ -133,19 +156,27 @@ var ModalAddYourClub = React.createClass({
         <form onSubmit={this.handleSubmit}>
           <fieldset>
             <label>What is the name of your Club?</label>
-            <input type="text" placeholder="We love creative Club names" />
+            <input type="text" placeholder="We love creative Club names"
+             required
+             valueLink={this.linkState('name')} />
           </fieldset>
           <fieldset>
             <label>Where does it take place?</label>
-            <input type="text" placeholder="Type in a city or a country" />
+            <input type="text" placeholder="Type in a city or a country"
+             required
+             valueLink={this.linkState('location')} />
           </fieldset>
           <fieldset>
-            <label>Does your Club have a website?</label>
-            <input type="text" placeholder="www.myclubwebsite.com" />
+            <label>What is your Club's website?</label>
+            <input type="url" placeholder="http://www.myclubwebsite.com"
+             required
+             valueLink={this.linkState('website')} />
           </fieldset>
           <fieldset>
             <label>What do you focus your efforts on?</label>
-            <textarea rows="5" placeholder="Give us a brief description about what your Club is about." />
+            <textarea rows="5" placeholder="Give us a brief description about what your Club is about."
+             required
+             valueLink={this.linkState('description')} />
           </fieldset>
           <input type="submit" className="btn" value="Add Your Club To The Map" />
         </form>
@@ -205,7 +236,13 @@ var ClubsPage = React.createClass({
     this.setState({clubs: clubs});
   },
   showAddYourClubModal: function() {
-    this.showModal(ModalAddYourClub);
+    if (!this.getTeachAPI().getUsername()) {
+      window.alert("You need to log in before you can add a club!");
+      return;
+    }
+    this.showModal(ModalAddYourClub, {
+      onAddClub: this.getTeachAPI().addClub
+    });
   },
   showLearnMoreModal: function() {
     this.showModal(ModalLearnMore);
