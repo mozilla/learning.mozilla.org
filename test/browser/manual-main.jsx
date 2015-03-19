@@ -3,55 +3,47 @@ var React = require('react');
 
 var routes = require('../../lib/routes.jsx');
 
-var RouteThumbnail = React.createClass({
-  ASPECT_RATIO: 3/4,
-  getInitialState: function() {
-    return {
-      scaledWidth: this.props.width
-    };
+var DEVICES = [
+  {
+    name: 'Mobile - small',
+    width: 320,
+    height: 480
   },
-  getScale: function() {
-    return this.state.scaledWidth / this.props.width;
+  {
+    name: 'Mobile - large',
+    width: 480,
+    height: 640
   },
-  getScaledHeight: function() {
-    return this.getHeight() * this.getScale();
+  {
+    name: 'Tablet',
+    width: 768,
+    height: 1024
   },
-  getHeight: function() {
-    return this.props.width * this.ASPECT_RATIO;
-  },
-  handleResize: function() {
-    var selfEl = this.getDOMNode();
+  {
+    name: 'Desktop',
+    width: 1024,
+    height: 768
+  }
+].map(function (device) {
+  device.on = true;
+  return device;
+});
 
-    this.setState({
-      scaledWidth: selfEl.parentNode.clientWidth
-    });
-  },
-  componentDidMount: function() {
-    window.addEventListener('resize', this.handleResize);
-    this.handleResize();
-  },
-  componentWillUnmount: function() {
-    window.removeEventListener('resize', this.handleResize);
-  },
+var RouteThumbnail = React.createClass({
   render: function() {
     return (
-      <div>
-        <div style={{
-          transform: 'scale(' + this.getScale() + ')',
-          transformOrigin: 'top left',
-          height: this.getScaledHeight()
-        }} ref="iframeHolder">
-          <iframe src={this.props.url} sandbox={
-            this.props.enableJS ? null : ""
-          } style={{
-            border: '1px solid black',
-            width: this.props.width,
-            height: this.getHeight()
-          }}></iframe>
-        </div>
+      <div className="route-thumbnail">
         <h4>{this.props.name} <span className="text-muted">
-          {this.props.width}x{this.getHeight()}
+          {this.props.width}x{this.props.height}
         </span></h4>
+        <div ref="iframeHolder">
+          <iframe src={this.props.url} style={{
+            width: this.props.width + 'px',
+            height: this.props.height + 'px'
+          }} sandbox={
+            this.props.enableJS ? null : ""
+          }></iframe>
+        </div>
       </div>
     );
   }
@@ -59,41 +51,28 @@ var RouteThumbnail = React.createClass({
 
 var RouteTest = React.createClass({
   render: function() {
+    var props = this.props;
     return (
       <div>
         <h2 className="route">
-          <a href={this.props.url} target="_blank">
+          Route: <a href={this.props.url} target="_blank">
             {this.props.url}
           </a>
         </h2>
-        <div className="row">
-          <div className="col-xs-4">
-            <div>
-              <RouteThumbnail
-               name="Desktop"
-               width={1024}
-               enableJS={this.props.enableJS}
-               url={this.props.url}/>
-            </div>
-          </div>
-          <div className="col-xs-4">
-            <div>
-              <RouteThumbnail
-               name="Tablet"
-               width={800}
-               enableJS={this.props.enableJS}
-               url={this.props.url}/>
-            </div>
-          </div>
-          <div className="col-xs-4">
-            <div>
-              <RouteThumbnail
-               name="Mobile"
-               width={480}
-               enableJS={this.props.enableJS}
-               url={this.props.url}/>
-            </div>
-          </div>
+        <div className="examples">
+          {
+            DEVICES.map(function (device, i) {
+              return (
+                <RouteThumbnail
+                 name={device.name}
+                 width={device.width}
+                 height={device.height}
+                 enableJS={props.enableJS}
+                 url={props.url}
+                 key={i}/>
+              );
+            })
+          }
         </div>
       </div>
     );
@@ -102,6 +81,10 @@ var RouteTest = React.createClass({
 
 var ManualTests = React.createClass({
   render: function() {
+    function setDevice(device) {
+      device.on = !device.on;
+      console.log(DEVICES);
+    }
     return (
       <div>
         <nav className="navbar navbar-default navbar-fixed-top">
