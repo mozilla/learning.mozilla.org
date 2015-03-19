@@ -98,16 +98,14 @@ var Footer = React.createClass({
               <ul className="list-unstyled">
                 <li><a href="https://webmaker.org/">Webmaker</a></li>
                 <li><a href="https://sendto.mozilla.org/">Donate</a></li>
-                <li><a href="">Legal</a></li>
-                <li><a href="">Privacy</a></li>
+                <li><a href="">Twitter</a></li>
               </ul>
             </div>
             <div className="col-xs-6">
               <ul className="list-unstyled">
-                <li><a href="">Contact</a></li>
-                <li><a href="">Twitter</a></li>
-                <li><a href="">Facebook</a></li>
-                <li><a href="">Partners</a></li>
+                <li><a href="">Legal</a></li>
+                <li><a href="">Privacy</a></li>
+                <li><a href="/about">About</a></li>
               </ul>
             </div>
           </div>
