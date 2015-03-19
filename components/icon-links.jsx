@@ -13,8 +13,8 @@ var IconLinks = React.createClass({
           <div className="icon-link">
             <a href={link.linkTo}>
               <figure>
+                <img src={link.imgSrc} alt={link.imgAlt} />
                 <figcaption>
-                  <img src={link.imgSrc} alt={link.imgAlt} />
                   <h3 className="head">{link.head}</h3>
                   <p className="subhead">{link.subhead}</p>
                 </figcaption>
