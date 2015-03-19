@@ -11,13 +11,15 @@ var IconLinks = React.createClass({
       return (
         <div className="col-sm-4 col-md-4 col-lg-4 icon-link-container" key={key}>
           <div className="icon-link">
-            <figure>
-              <a href={link.linkTo}>
-                <img src={link.imgSrc} alt={link.imgAlt} />
-              </a>
-            </figure>
-            <h3 className="head">{link.head}</h3>
-            <p className="subhead">{link.subhead}</p>
+            <a href={link.linkTo}>
+              <figure>
+                <figcaption>
+                  <img src={link.imgSrc} alt={link.imgAlt} />
+                  <h3 className="head">{link.head}</h3>
+                  <p className="subhead">{link.subhead}</p>
+                </figcaption>
+              </figure>
+            </a>
           </div>
         </div>
       );
