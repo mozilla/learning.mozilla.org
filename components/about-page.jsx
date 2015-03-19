@@ -1,6 +1,7 @@
 var React = require('react');
 var ImageTag = require('./imagetag.jsx');
 var IconLinks = require('./icon-links.jsx');
+var IconLink = require('./icon-link.jsx');
 
 var Intro = React.createClass({
   render: function () {
@@ -83,29 +84,29 @@ var AboutPage = React.createClass({
           <Intro/>
           <OurFocus/>
           <OurGoal/>
-          <IconLinks links={[
-            {
-              linkTo: "https://twitter.com/webmaker",
-              imgSrc: "/img/shared-iconography/icon-twitter.svg",
-              imgAlt: "twitter logo",
-              head: "Follow Us",
-              subhead: "Start a conversation on Twitter"
-            },
-            {
-              linkTo: "mailto:help@webmaker.org",
-              imgSrc: "/img/shared-iconography/icon-get-help.svg",
-              imgAlt: "question mark icon",
-              head: "Get Help",
-              subhead: "Email us anytime"
-            },
-            {
-              linkTo: "http://discourse.webmaker.org/category/meet",
-              imgSrc: "/img/shared-iconography/icon-connect.svg",
-              imgAlt: "illustration of two people connecting",
-              head: "Say Hello",
-              subhead: "Connect on the Discourse forum"
-            }
-          ]}/>
+          <IconLinks>
+            <IconLink
+              linkTo="https://twitter.com/webmaker"
+              imgSrc="/img/shared-iconography/icon-twitter.svg"
+              imgAlt="twitter logo"
+              head="Follow Us"
+              subhead="Start a conversation on Twitter"
+            />
+            <IconLink
+              linkTo="mailto:help@webmaker.org"
+              imgSrc="/img/shared-iconography/icon-get-help.svg"
+              imgAlt="question mark icon"
+              head="Get Help"
+              subhead="Email us anytime"
+            />
+            <IconLink
+              linkTo="http://discourse.webmaker.org/category/meet"
+              imgSrc="/img/shared-iconography/icon-connect.svg"
+              imgAlt="illustration of two people connecting"
+              head="Say Hello"
+              subhead="Connect on the Discourse forum"
+            />
+          </IconLinks>
         </div>
     );
   }

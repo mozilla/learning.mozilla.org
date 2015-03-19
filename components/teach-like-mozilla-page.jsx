@@ -2,6 +2,7 @@ var React = require('react');
 
 var HeroUnit = require('./hero-unit.jsx');
 var IconLinks = require('./icon-links.jsx');
+var IconLink = require('./icon-link.jsx');
 
 var TeachLikeMozillaPage = React.createClass({
   statics: {
@@ -48,29 +49,29 @@ var TeachLikeMozillaPage = React.createClass({
           </div>
         </section>
         <section>
-          <IconLinks links={[
-            {
-              linkTo: "fixme",
-              imgSrc: "/img/teach-like-mozilla-page/icon-listen.svg",
-              imgAlt: "icon listen",
-              head: "Listen",
-              subhead: "Subscribe to our Podcast"
-            },
-            {
-              linkTo: "fixme",
-              imgSrc: "/img/teach-like-mozilla-page/icon-attend.svg",
-              imgAlt: "icon attend",
-              head: "Attend",
-              subhead: "Join the next Meetup"
-            },
-            {
-              linkTo: "fixme",
-              imgSrc: "/img/teach-like-mozilla-page/icon-connect.svg",
-              imgAlt: "icon connect",
-              head: "Say Hello",
-              subhead: "Meet the teach community"
-            }
-          ]}/>
+          <IconLinks>
+            <IconLink
+              linkTo="fixme"
+              imgSrc="/img/teach-like-mozilla-page/icon-listen.svg"
+              imgAlt="icon listen"
+              head="Listen"
+              subhead="Subscribe to our Podcast"
+            />
+            <IconLink
+              linkTo="fixme"
+              imgSrc="/img/teach-like-mozilla-page/icon-attend.svg"
+              imgAlt="icon attend"
+              head="Attend"
+              subhead="Join the next Meetup"
+            />
+            <IconLink
+              linkTo="fixme"
+              imgSrc="/img/teach-like-mozilla-page/icon-connect.svg"
+              imgAlt="icon connect"
+              head="Say Hello"
+              subhead="Meet the teach community"
+            />
+          </IconLinks>
         </section>
       </div>
     );

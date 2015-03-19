@@ -5,6 +5,7 @@ var HeroUnit = require('./hero-unit.jsx');
 var Map = require('./map.jsx');
 var Blockquote = require('./blockquote.jsx');
 var IconLinks = require('./icon-links.jsx');
+var IconLink = require('./icon-link.jsx');
 var PageEndCTA = require('./page-end-cta.jsx');
 var Modal = require('./modal.jsx');
 var ModalManagerMixin = require('../mixins/modal-manager');
@@ -166,29 +167,29 @@ var ClubsPage = React.createClass({
           <Quote/>
         </section>
         <section>
-          <IconLinks links={[
-            {
-              linkTo: "fixme",
-              imgSrc: "/img/icon-curriculum.svg",
-              imgAlt: "icon curriculum",
-              head: "Curriculum",
-              subhead: "Modular Web Literacy curriculum"
-            },
-            {
-              linkTo: "fixme",
-              imgSrc: "/img/icon-connect.svg",
-              imgAlt: "icon connect",
-              head: "Connect",
-              subhead: "Connect with other Club Leaders"
-            },
-            {
-              linkTo: "fixme",
-              imgSrc: "/img/icon-tips.svg",
-              imgAlt: "icon tips",
-              head: "Helpful Tips",
-              subhead: "Tips for running your Club"
-            }
-          ]}/>
+          <IconLinks>
+            <IconLink
+              linkTo="fixme"
+              imgSrc="/img/icon-curriculum.svg"
+              imgAlt="icon curriculum"
+              head="Curriculum"
+              subhead="Modular Web Literacy curriculum"
+            />
+            <IconLink
+              linkTo="fixme"
+              imgSrc="/img/icon-connect.svg"
+              imgAlt="icon connect"
+              head="Connect"
+              subhead="Connect with other Club Leaders"
+            />
+            <IconLink
+              linkTo="fixme"
+              imgSrc="/img/icon-tips.svg"
+              imgAlt="icon tips"
+              head="Helpful Tips"
+              subhead="Tips for running your Club"
+            />
+          </IconLinks>
         </section>
         <section>
           <BottomCTA onClick={this.showAddYourClubModal} />
