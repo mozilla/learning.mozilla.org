@@ -8,3 +8,4 @@ require('./teach-api-client.test.jsx');
 require('./login.test.jsx');
 require('./modal.test.jsx');
 require('./modal-manager.test.js');
+require('./clubs-page.test.jsx');
