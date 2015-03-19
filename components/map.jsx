@@ -1,4 +1,3 @@
-var _ = require('underscore');
 var React = require('react');
 var mapboxId = process.env.MAPBOX_MAP_ID || 'alicoding.ldmhe4f3';
 var accessToken = process.env.MAPBOX_ACCESS_TOKEN || 'pk.eyJ1IjoiYWxpY29kaW5nIiwiYSI6Il90WlNFdE0ifQ.QGGdXGA_2QH-6ujyZE2oSg';
@@ -19,6 +18,22 @@ function geoJSONit(data) {
     }
   });
 }
+
+// Note that this class will always be rendered to static markup, so
+// it can't have any dynamic functionality.
+var MarkerPopup = React.createClass({
+  render: function() {
+    return (
+      <div>
+        <b>{this.props.title}<br/></b>
+        <i>{this.props.location}</i>
+        <br/>
+        <br/>
+        <p>{this.props.description}</p>
+      </div>
+    );
+  }
+});
 
 var Map = React.createClass({
   propTypes: {
@@ -43,25 +58,24 @@ var Map = React.createClass({
     this.map.fitBounds([[65, 0], [-65, 0]]);
 
     this.map.on('layeradd', function(e) {
+      var html;
       var marker = e.layer;
       var feature = marker.feature;
 
       // we have to check if this is a feature or marker-cluster.
       if (feature) {
-        var title = feature.properties.title;
-        var desc = feature.properties.title;
-        var location = feature.properties.location;
+        html = React.renderToStaticMarkup(React.createElement(MarkerPopup, {
+          title: feature.properties.title,
+          description: feature.properties.description,
+          location: feature.properties.location
+        }));
 
         marker.setIcon(L.icon({
           "iconUrl": "/img/map-marker.svg",
           "iconSize": [33, 33],
           "iconAnchor": [15, 15]
         }));
-        marker.bindPopup(
-          "<b>" + _.escape(title) + "<br></b><i>" +
-          _.escape(location) + "</i><br/><br/><p>" +
-          _.escape(desc) + "</p>"
-        );
+        marker.bindPopup(html);
       }
     });
     this.map.addLayer(this.markers);
