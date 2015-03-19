@@ -1,3 +1,4 @@
+var urlParse = require('url').parse;
 var React = require('react');
 var mapboxId = process.env.MAPBOX_MAP_ID || 'alicoding.ldmhe4f3';
 var accessToken = process.env.MAPBOX_ACCESS_TOKEN || 'pk.eyJ1IjoiYWxpY29kaW5nIiwiYSI6Il90WlNFdE0ifQ.QGGdXGA_2QH-6ujyZE2oSg';
@@ -11,6 +12,7 @@ function geoJSONit(data) {
       },
       "properties": {
         "description": i.description,
+        "website": i.website,
         "location": i.location,
         "title": i.name
       },
@@ -22,6 +24,9 @@ function geoJSONit(data) {
 // Note that this class will always be rendered to static markup, so
 // it can't have any dynamic functionality.
 var MarkerPopup = React.createClass({
+  getWebsiteDomain: function() {
+    return urlParse(this.props.website).hostname;
+  },
   render: function() {
     return (
       <div>
@@ -30,6 +35,9 @@ var MarkerPopup = React.createClass({
         <br/>
         <br/>
         <p>{this.props.description}</p>
+        <p><a href={this.props.website} target="_blank">
+          {this.getWebsiteDomain()}
+        </a></p>
       </div>
     );
   }
@@ -67,6 +75,7 @@ var Map = React.createClass({
         html = React.renderToStaticMarkup(React.createElement(MarkerPopup, {
           title: feature.properties.title,
           description: feature.properties.description,
+          website: feature.properties.website,
           location: feature.properties.location
         }));
 
