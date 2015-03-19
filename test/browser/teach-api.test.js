@@ -19,6 +19,16 @@ describe('TeachAPI', function() {
     xhr.restore();
   });
 
+  it('emits username:change event on logout', function(done) {
+    var api = new TeachAPI({storage: storage});
+
+    api.on('username:change', function(username) {
+      should(username).equal(null);
+      done();
+    });
+    api.logout();
+  });
+
   it('clears storage on logout', function(done) {
     var api = new TeachAPI({storage: storage});
 
@@ -287,7 +297,8 @@ describe('TeachAPI', function() {
       }, 'invalid assertion or email');
     });
 
-    it('stores login info and emits event upon success', function(done) {
+    it('stores login info and emits events upon success', function(done) {
+      var usernameEventEmitted = false;
       var api = new TeachAPI({storage: storage});
       var loginInfo = {
         'username': 'foo',
@@ -297,10 +308,15 @@ describe('TeachAPI', function() {
       api.startLogin();
       personaCb('hi');
 
+      api.on('username:change', function(username) {
+        username.should.eql('foo');
+        usernameEventEmitted = true;
+      });
       api.on('login:success', function(info) {
         info.should.eql(loginInfo);
         JSON.parse(storage['TEACH_API_LOGIN_INFO'])
           .should.eql(loginInfo);
+        usernameEventEmitted.should.be.true;
         done();
       });
 

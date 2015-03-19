@@ -221,8 +221,7 @@ var ClubsPage = React.createClass({
   statics: {
     teachAPIEvents: {
       'clubs:change': 'handleClubsChange',
-      'login:success': 'handleLoginChange',
-      'logout': 'handleLoginChange'
+      'username:change': 'handleUsernameChange'
     },
     pageClassName: "clubs"
   },
@@ -237,8 +236,8 @@ var ClubsPage = React.createClass({
   componentDidMount: function() {
     this.getTeachAPI().updateClubs();
   },
-  handleLoginChange: function() {
-    this.setState({username: this.getTeachAPI().getUsername()});
+  handleUsernameChange: function(username) {
+    this.setState({username: username});
   },
   handleClubsChange: function(clubs) {
     this.setState({clubs: clubs});
