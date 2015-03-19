@@ -72,7 +72,7 @@ var OurGoal = React.createClass({
   }
 });
 
-var IconLinks = React.createClass({
+var FooterIconLinks = React.createClass({
   ICON_LINKS: [
     {
       linkTo: "https://twitter.com/webmaker",
@@ -97,10 +97,10 @@ var IconLinks = React.createClass({
     }
   ],
   render: function () {
-    var iconlinks = this.ICON_LINKS.map(function (link) {
+    var iconlinks = this.ICON_LINKS.map(function (link, key) {
       return (
         // Can't use the component because all of these are outside links
-          <div className="col-sm-4 col-md-4 col-lg-4 icon-link-container">
+          <div className="col-sm-4 col-md-4 col-lg-4 icon-link-container" key={key}>
             <div className="icon-link">
               <figure>
                 <a href={link.linkTo}>
@@ -129,7 +129,7 @@ var AboutPage = React.createClass({
           <Intro/>
           <OurFocus/>
           <OurGoal/>
-          <IconLinks/>
+          <FooterIconLinks/>
         </div>
     );
   }
