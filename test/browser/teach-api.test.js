@@ -91,6 +91,13 @@ describe('TeachAPI', function() {
     should(api.getUsername()).equal(null);
   });
 
+  it('autobinds its methods', function() {
+    var api = new TeachAPI({storage: storage});
+    var getClubs = api.getClubs;
+
+    getClubs().should.eql([]);
+  });
+
   describe('updateClubs()', function() {
     var api;
 
@@ -108,6 +115,25 @@ describe('TeachAPI', function() {
       requests[0].url.should.eql('http://example.org/api/clubs/');
     });
 
+    it('updates internal clubs list', function() {
+      api.updateClubs();
+      requests[0].respond(200, {
+        'Content-Type': 'application/json'
+      }, JSON.stringify([{name: "blah"}]));
+      api.getClubs().should.eql([{name: "blah"}]);
+    });
+
+    it('emits clubs:change event', function(done) {
+      api.on('clubs:change', function(data) {
+        data.should.eql([{name: "blah"}]);
+        done();
+      });
+      api.updateClubs();
+      requests[0].respond(200, {
+        'Content-Type': 'application/json'
+      }, JSON.stringify([{name: "blah"}]));
+    });
+
     it('returns parsed JSON on success', function(done) {
       api.updateClubs(function(err, data) {
         should(err).equal(null);
@@ -121,6 +147,48 @@ describe('TeachAPI', function() {
 
     it('returns an error on failure', function(done) {
       api.updateClubs(function(err, data) {
+        err.message.should.eql("Internal Server Error");
+        done();
+      });
+      requests[0].respond(500);
+    });
+  });
+
+  describe('addClub()', function() {
+    var api;
+    var club = {name: "my cool club"};
+
+    beforeEach(function() {
+      api = new TeachAPI({
+        storage: storage,
+        baseURL: 'http://example.org'
+      });
+    });
+
+    it('accesses /api/clubs/', function() {
+      api.addClub(club);
+      requests.length.should.equal(1);
+      requests[0].method.should.eql('post');
+      requests[0].url.should.eql('http://example.org/api/clubs/');
+    });
+
+    it('sends JSON, returns parsed JSON on success', function(done) {
+      api.updateClubs = sinon.spy();
+      api.addClub(club, function(err, data) {
+        should(err).equal(null);
+        data.should.eql({name: "my cool club"});
+        done();
+      });
+      requests[0].requestHeaders['Content-Type']
+        .should.eql('application/json;charset=utf-8');
+      requests[0].respond(201, {
+        'Content-Type': 'application/json'
+      }, requests[0].requestBody);
+      api.updateClubs.callCount.should.equal(1);
+    });
+
+    it('returns an error on failure', function(done) {
+      api.addClub(club, function(err, data) {
         err.message.should.eql("Internal Server Error");
         done();
       });
