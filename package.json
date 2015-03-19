@@ -22,6 +22,7 @@
     "gulp-webpack": "^1.2.0",
     "gulp-webserver": "^0.9.0",
     "imports-loader": "^0.6.3",
+    "inquirer": "^0.8.0",
     "json-loader": "^0.5.1",
     "jsx-loader": "^0.12.2",
     "leaflet.markercluster": "^0.4.0",
@@ -35,20 +36,21 @@
     "react": "^0.12.2",
     "react-a11y": "0.0.6",
     "react-router": "^0.12.4",
+    "shelljs": "^0.4.0",
     "should": "^5.1.0",
     "superagent": "^1.1.0",
     "underscore": "^1.8.2",
     "vinyl": "^0.4.6",
     "webpack": "^1.6.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "gulp smoketest && mocha test/*.test.js && npm run browsertest && gulp lint-test",
     "browsertest": "mocha-phantomjs -s loadImages=false dist/test/index.html",
     "smoketest": "gulp smoketest",
     "s3": "gulp s3",
     "build": "gulp",
-    "start": "gulp watch"
+    "start": "gulp watch",
+    "addtest": "node shell/generate-component.js"
   },
   "repository": {
     "type": "git",
