@@ -11,6 +11,8 @@ function geoJSONit(data) {
         "type": "Point"
       },
       "properties": {
+        "url": i.url,
+        "owner": i.owner,
         "description": i.description,
         "website": i.website,
         "location": i.location,
@@ -23,11 +25,33 @@ function geoJSONit(data) {
 
 // Note that this class will always be rendered to static markup, so
 // it can't have any dynamic functionality.
+//
+// Furthermore, because we aren't a "live" React element, events
+// dispatched from the map will need to be processed when they bubble
+// up to the parent map component.
 var MarkerPopup = React.createClass({
   getWebsiteDomain: function() {
     return urlParse(this.props.website).hostname;
   },
   render: function() {
+    var actions = null;
+
+    if (this.props.isOwned) {
+      actions = (
+        <div>
+          <button className="btn btn-default btn-xs"
+           data-club-action="edit" data-club-url={this.props.url}>
+            <span className="glyphicon glyphicon-pencil"></span> Edit
+          </button>
+          &nbsp;
+          <button className="btn btn-default btn-xs"
+           data-club-action="delete" data-club-url={this.props.url}>
+            <span className="glyphicon glyphicon-trash"></span> Remove
+          </button>
+        </div>
+      );
+    }
+
     return (
       <div>
         <b>{this.props.title}<br/></b>
@@ -38,6 +62,7 @@ var MarkerPopup = React.createClass({
         <p><a href={this.props.website} target="_blank">
           {this.getWebsiteDomain()}
         </a></p>
+        {actions}
       </div>
     );
   }
@@ -73,6 +98,8 @@ var Map = React.createClass({
       // we have to check if this is a feature or marker-cluster.
       if (feature) {
         html = React.renderToStaticMarkup(React.createElement(MarkerPopup, {
+          isOwned: feature.properties.owner == this.props.username,
+          url: feature.properties.url,
           title: feature.properties.title,
           description: feature.properties.description,
           website: feature.properties.website,
@@ -86,7 +113,7 @@ var Map = React.createClass({
         }));
         marker.bindPopup(html);
       }
-    });
+    }.bind(this));
     this.map.addLayer(this.markers);
     this.updateMap();
   },
@@ -98,7 +125,8 @@ var Map = React.createClass({
     this.markers.addLayer(this.geoJsonLayer);
   },
   componentDidUpdate: function(prevProps, prevState) {
-    if (this.props.clubs !== prevProps.clubs) {
+    if (this.props.clubs !== prevProps.clubs ||
+        this.props.username !== prevProps.username) {
       this.updateMap();
     }
   },
@@ -107,11 +135,26 @@ var Map = React.createClass({
       this.map.remove();
     }
   },
-  // Called on initialization and after each change to the components
-  // props or state
+  handleClick: function(e) {
+    var targetEl = e.target;
+    var action = targetEl.getAttribute('data-club-action');
+    var url = targetEl.getAttribute('data-club-url');
+
+    if (!action) {
+      return;
+    }
+
+    if (action == 'delete') {
+      this.props.onDelete(url);
+    } else if (action == 'edit') {
+      this.props.onEdit(url);
+    } else {
+      console.warn('unknown action: ' + action);
+    }
+  },
   render: function() {
     return (
-      <div className={this.props.className}></div>
+      <div className={this.props.className} onClick={this.handleClick}></div>
     )
   }
 });
