@@ -1,8 +1,7 @@
+var _ = require('underscore');
 var React = require('react');
 var mapboxId = process.env.MAPBOX_MAP_ID || 'alicoding.ldmhe4f3';
 var accessToken = process.env.MAPBOX_ACCESS_TOKEN || 'pk.eyJ1IjoiYWxpY29kaW5nIiwiYSI6Il90WlNFdE0ifQ.QGGdXGA_2QH-6ujyZE2oSg';
-
-var TeachAPIClientMixin = require('../mixins/teach-api-client');
 
 function geoJSONit(data) {
   return data.map(function(i) {
@@ -22,67 +21,63 @@ function geoJSONit(data) {
 }
 
 var Map = React.createClass({
-  mixins: [TeachAPIClientMixin],
   propTypes: {
     className: React.PropTypes.string.isRequired
   },
   componentDidMount: function() {
-    var that = this;
     require('mapbox.js'); // this will automatically attach to Window object.
     require('leaflet.markercluster');
     L.mapbox.accessToken = accessToken;
-    this.getTeachAPI().getAllClubsData(function(err, data) {
-      if (!that.isMounted()) {
-        // We were unmounted before the API request completed,
-        // so do nothing.
-        return;
+    this.map = L.mapbox.map(this.getDOMNode())
+      .setView([40.73, -50.011], 5)
+      .addLayer(L.mapbox.tileLayer(mapboxId));
+    this.markers = new L.MarkerClusterGroup({
+      iconCreateFunction: function(cluster) {
+        return L.mapbox.marker.icon({
+          'marker-symbol': cluster.getChildCount(),
+          'marker-color': '#422'
+        });
       }
-      if(err) {
-        console.log(err)
-        return;
-      }
-      var geoJSON = geoJSONit(data);
-      that.map = L.mapbox.map(that.getDOMNode())
-        .setView([40.73, -50.011], 5)
-        .addLayer(L.mapbox.tileLayer(mapboxId));
-      var markers = new L.MarkerClusterGroup({
-        iconCreateFunction: function(cluster) {
-          return L.mapbox.marker.icon({
-            'marker-symbol': cluster.getChildCount(),
-            'marker-color': '#422'
-          });
-        }
-      });
-
-      // setView of the map based on markers on the map
-      that.map.fitBounds(L.mapbox.featureLayer()
-        .setGeoJSON(geoJSON)
-        .getBounds());
-
-      var geoJsonLayer = L.geoJson(geoJSON);
-      markers.addLayer(geoJsonLayer);
-      that.map.on('layeradd', function(e) {
-        var marker = e.layer,
-          feature = marker.feature;
-
-        // we have to check if this is a feature or marker-cluster
-        if (feature) {
-          var title = feature.properties.title,
-          desc = feature.properties.title,
-          location = feature.properties.location;
-          marker.setIcon(L.icon({
-            "iconUrl": "/img/map-marker.svg",
-            "iconSize": [33, 33],
-            "iconAnchor": [15, 15]
-          }));
-          marker.bindPopup(
-            "<b>" + title + "<br></b><i>" + location + "</i><br/><br/><p>" + desc + "</p>"
-          );
-        }
-
-      });
-      that.map.addLayer(markers);
     });
+
+    this.map.fitBounds([[65, 0], [-65, 0]]);
+
+    this.map.on('layeradd', function(e) {
+      var marker = e.layer;
+      var feature = marker.feature;
+
+      // we have to check if this is a feature or marker-cluster.
+      if (feature) {
+        var title = feature.properties.title;
+        var desc = feature.properties.title;
+        var location = feature.properties.location;
+
+        marker.setIcon(L.icon({
+          "iconUrl": "/img/map-marker.svg",
+          "iconSize": [33, 33],
+          "iconAnchor": [15, 15]
+        }));
+        marker.bindPopup(
+          "<b>" + _.escape(title) + "<br></b><i>" +
+          _.escape(location) + "</i><br/><br/><p>" +
+          _.escape(desc) + "</p>"
+        );
+      }
+    });
+    this.map.addLayer(this.markers);
+    this.updateMap();
+  },
+  updateMap: function() {
+    if (this.geoJsonLayer) {
+      this.markers.removeLayer(this.geoJsonLayer);
+    }
+    this.geoJsonLayer = L.geoJson(geoJSONit(this.props.clubs));
+    this.markers.addLayer(this.geoJsonLayer);
+  },
+  componentDidUpdate: function(prevProps, prevState) {
+    if (this.props.clubs !== prevProps.clubs) {
+      this.updateMap();
+    }
   },
   componentWillUnmount: function() {
     if (this.map) {

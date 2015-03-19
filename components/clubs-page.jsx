@@ -10,6 +10,7 @@ var IconLink = require('./icon-link.jsx');
 var PageEndCTA = require('./page-end-cta.jsx');
 var Modal = require('./modal.jsx');
 var ModalManagerMixin = require('../mixins/modal-manager');
+var TeachAPIClientMixin = require('../mixins/teach-api-client');
 
 var WebLitMap = React.createClass({
   render: function() {
@@ -177,9 +178,28 @@ var ModalLearnMore = React.createClass({
 
 
 var ClubsPage = React.createClass({
-  mixins: [ModalManagerMixin],
+  mixins: [ModalManagerMixin, TeachAPIClientMixin],
   statics: {
     pageClassName: "clubs"
+  },
+  getInitialState: function() {
+    return {
+      clubs: []
+    };
+  },
+  componentDidMount: function() {
+    this.getTeachAPI().getAllClubsData(function(err, data) {
+      if (!this.isMounted()) {
+        // We were unmounted before the API request completed,
+        // so do nothing.
+        return;
+      }
+      if (err) {
+        console.log(err)
+        return;
+      }
+      this.setState({clubs: data});
+    }.bind(this));
   },
   showAddYourClubModal: function() {
     this.showModal(ModalAddYourClub);
@@ -198,8 +218,8 @@ var ClubsPage = React.createClass({
         <section>
           <WebLitMap/>
           <div className="mapDiv" id="mapDivID">
-            <Map className={'mapDivChild'} />
-           </div>
+            <Map className="mapDivChild" clubs={this.state.clubs} />
+          </div>
         </section>
         <section>
           <HowClubWorks/>
