@@ -1,6 +1,6 @@
 var React = require('react');
 
-var HeroUnit = require('./hero-unit.jsx');
+var HeroUnit = require('../components/hero-unit.jsx');
 
 var PlaceholderPage = React.createClass({
   render: function() {
