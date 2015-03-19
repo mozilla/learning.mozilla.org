@@ -123,10 +123,14 @@ var BottomCTA = React.createClass({
 
 
 var ModalAddYourClub = React.createClass({
+  handleSubmit: function(e) {
+    e.preventDefault();
+    window.alert("Sorry, this functionality has not yet been implemented.");
+  },
   render: function() {
     return(
-      <Modal modalTitle="Add Your Clubs To The Map">
-        <form>
+      <Modal modalTitle="Add Your Club To The Map">
+        <form onSubmit={this.handleSubmit}>
           <fieldset>
             <label>What is the name of your Club?</label>
             <input type="text" placeholder="We love creative Club names" />
@@ -152,13 +156,17 @@ var ModalAddYourClub = React.createClass({
 
 
 var ModalLearnMore = React.createClass({
+  handleSubmit: function(e) {
+    e.preventDefault();
+    window.alert("Sorry, this functionality has not yet been implemented.");
+  },
   render: function() {
     return(
       <Modal modalTitle="Learn More About Hive Learning Clubs">
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <fieldset>
             <label>What is your first name?</label>
-            <input type="text" placeholder="We're a friendly bunch, promised!" />
+            <input type="text" placeholder="We're a friendly bunch, promise!" />
           </fieldset>
           <fieldset>
             <label>Where does it take place?</label>
