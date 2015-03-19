@@ -91,7 +91,7 @@ describe('TeachAPI', function() {
     should(api.getUsername()).equal(null);
   });
 
-  describe('getAllClubsData()', function() {
+  describe('updateClubs()', function() {
     var api;
 
     beforeEach(function() {
@@ -102,14 +102,14 @@ describe('TeachAPI', function() {
     });
 
     it('accesses /api/clubs', function() {
-      api.getAllClubsData(function() {});
+      api.updateClubs();
       requests.length.should.equal(1);
       requests[0].method.should.eql('get');
       requests[0].url.should.eql('http://example.org/api/clubs');
     });
 
     it('returns parsed JSON on success', function(done) {
-      api.getAllClubsData(function(err, data) {
+      api.updateClubs(function(err, data) {
         should(err).equal(null);
         data.should.eql([{name: "blah"}]);
         done();
@@ -120,7 +120,7 @@ describe('TeachAPI', function() {
     });
 
     it('returns an error on failure', function(done) {
-      api.getAllClubsData(function(err, data) {
+      api.updateClubs(function(err, data) {
         err.message.should.eql("Internal Server Error");
         done();
       });

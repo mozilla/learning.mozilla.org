@@ -180,26 +180,21 @@ var ModalLearnMore = React.createClass({
 var ClubsPage = React.createClass({
   mixins: [ModalManagerMixin, TeachAPIClientMixin],
   statics: {
+    teachAPIEvents: {
+      'clubs:change': 'handleClubsChange'
+    },
     pageClassName: "clubs"
   },
   getInitialState: function() {
     return {
-      clubs: []
+      clubs: this.getTeachAPI().getClubs()
     };
   },
   componentDidMount: function() {
-    this.getTeachAPI().getAllClubsData(function(err, data) {
-      if (!this.isMounted()) {
-        // We were unmounted before the API request completed,
-        // so do nothing.
-        return;
-      }
-      if (err) {
-        console.log(err)
-        return;
-      }
-      this.setState({clubs: data});
-    }.bind(this));
+    this.getTeachAPI().updateClubs();
+  },
+  handleClubsChange: function(clubs) {
+    this.setState({clubs: clubs});
   },
   showAddYourClubModal: function() {
     this.showModal(ModalAddYourClub);
