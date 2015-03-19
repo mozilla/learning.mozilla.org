@@ -117,6 +117,14 @@ var Map = React.createClass({
     }.bind(this));
     this.map.addLayer(this.markers);
     this.updateMap();
+
+    // We're doing this manually instead of via JSX markup to
+    // ensure that react-a11y doesn't complain about our lack of
+    // accessibility markup; such warnings are false positives, as
+    // we're only catching events that bubble up from the static
+    // marker popup button clicks to make *those* buttons usable,
+    // rather than offering any new kind of interactivity.
+    this.getDOMNode().addEventListener('click', this.handleClick);
   },
   updateMap: function() {
     if (this.geoJsonLayer) {
@@ -132,9 +140,8 @@ var Map = React.createClass({
     }
   },
   componentWillUnmount: function() {
-    if (this.map) {
-      this.map.remove();
-    }
+    this.getDOMNode().removeEventListener('click', this.handleClick);
+    this.map.remove();
   },
   handleClick: function(e) {
     var targetEl = e.target;
@@ -155,7 +162,7 @@ var Map = React.createClass({
   },
   render: function() {
     return (
-      <div className={this.props.className} onClick={this.handleClick}></div>
+      <div className={this.props.className}></div>
     )
   }
 });
