@@ -25,6 +25,11 @@ module.exports = {
   getTeachAPI: function() {
     return this.context.teachAPI;
   },
+  // It seems the forceUpdate() method is not auto-bound to a component,
+  // so we'll make our own wrapper here.
+  _autoboundForceUpdate: function() {
+    this.forceUpdate();
+  },
   componentDidMount: function() {
     var displayName = this.constructor.displayName;
     var events = this.constructor.teachAPIEvents;
@@ -33,6 +38,10 @@ module.exports = {
       Object.keys(events).forEach(function(event) {
         var methodName = events[event];
         var method = this[methodName];
+
+        if (methodName == 'forceUpdate') {
+          method = this._autoboundForceUpdate;
+        }
         if (typeof(method) != 'function') {
           console.warn('method ' + displayName + '::' + methodName +
                        ' does not exist');
@@ -49,6 +58,10 @@ module.exports = {
       Object.keys(events).forEach(function(event) {
         var methodName = events[event];
         var method = this[methodName];
+
+        if (methodName == 'forceUpdate') {
+          method = this._autoboundForceUpdate;
+        }
         if (typeof(method) == 'function') {
           this.context.teachAPI.removeListener(event, method);
         }

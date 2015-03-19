@@ -220,27 +220,13 @@ var ClubsPage = React.createClass({
   mixins: [ModalManagerMixin, TeachAPIClientMixin],
   statics: {
     teachAPIEvents: {
-      'clubs:change': 'handleClubsChange',
-      'username:change': 'handleUsernameChange'
+      'clubs:change': 'forceUpdate',
+      'username:change': 'forceUpdate'
     },
     pageClassName: "clubs"
   },
-  getInitialState: function() {
-    var teachAPI = this.getTeachAPI();
-
-    return {
-      clubs: teachAPI.getClubs(),
-      username: teachAPI.getUsername()
-    };
-  },
   componentDidMount: function() {
     this.getTeachAPI().updateClubs();
-  },
-  handleUsernameChange: function(username) {
-    this.setState({username: username});
-  },
-  handleClubsChange: function(clubs) {
-    this.setState({clubs: clubs});
   },
   showAddYourClubModal: function() {
     if (!this.getTeachAPI().getUsername()) {
@@ -263,6 +249,10 @@ var ClubsPage = React.createClass({
     window.alert("Sorry, club editing has not yet been implemented.");
   },
   render: function() {
+    var teachAPI = this.getTeachAPI();
+    var clubs = teachAPI.getClubs();
+    var username = teachAPI.getUsername();
+
     return (
       <div>
         <HeroUnit image="/img/hero-clubs.jpg">
@@ -274,8 +264,8 @@ var ClubsPage = React.createClass({
           <WebLitMap/>
           <div className="mapDiv" id="mapDivID">
             <Map className="mapDivChild"
-             clubs={this.state.clubs}
-             username={this.state.username}
+             clubs={clubs}
+             username={username}
              onDelete={this.handleClubDelete}
              onEdit={this.handleClubEdit}/>
           </div>
