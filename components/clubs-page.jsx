@@ -167,7 +167,7 @@ var ModalAddYourClub = React.createClass({
              valueLink={this.linkState('location')} />
           </fieldset>
           <fieldset>
-            <label>What is your Club's website?</label>
+            <label>What is your Club&lsquo;s website?</label>
             <input type="url" placeholder="http://www.myclubwebsite.com"
              required
              valueLink={this.linkState('website')} />
