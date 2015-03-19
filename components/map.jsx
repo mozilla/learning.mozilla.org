@@ -78,7 +78,7 @@ var Map = React.createClass({
     require('leaflet.markercluster');
     L.mapbox.accessToken = accessToken;
     this.map = L.mapbox.map(this.getDOMNode())
-      .setView([40.73, -50.011], 5)
+      .setView([0, 0], 2)
       .addLayer(L.mapbox.tileLayer(mapboxId));
     this.markers = new L.MarkerClusterGroup({
       iconCreateFunction: function(cluster) {
@@ -88,8 +88,6 @@ var Map = React.createClass({
         });
       }
     });
-
-    this.map.fitBounds([[65, 0], [-65, 0]]);
 
     this.map.on('layeradd', function(e) {
       var html;
