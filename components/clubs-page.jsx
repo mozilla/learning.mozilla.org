@@ -240,9 +240,21 @@ var ClubsPage = React.createClass({
   showLearnMoreModal: function() {
     this.showModal(ModalLearnMore);
   },
-  handleClubDelete: function(url) {
-    console.log(url);
-    window.alert("Sorry, club deletion has not yet been implemented.");
+  handleClubDelete: function(url, clubName) {
+    var confirmed = window.confirm(
+      "Are you sure you want to delete the club \"" + clubName + "\"? " +
+      "This action cannot be undone!"
+    );
+    if (!confirmed) {
+      return;
+    }
+    this.getTeachAPI().deleteClub(url, function(err) {
+      if (err) {
+        console.log(err);
+        window.alert("An error occurred! Please try again later.");
+      }
+      window.alert("Your club has been removed.");
+    });
   },
   handleClubEdit: function(url) {
     console.log(url);

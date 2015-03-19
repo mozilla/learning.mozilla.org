@@ -45,7 +45,8 @@ var MarkerPopup = React.createClass({
           </button>
           &nbsp;
           <button className="btn btn-default btn-xs"
-           data-club-action="delete" data-club-url={this.props.url}>
+           data-club-action="delete" data-club-url={this.props.url}
+           data-club-name={this.props.title}>
             <span className="glyphicon glyphicon-trash"></span> Remove
           </button>
         </div>
@@ -145,7 +146,7 @@ var Map = React.createClass({
     }
 
     if (action == 'delete') {
-      this.props.onDelete(url);
+      this.props.onDelete(url, targetEl.getAttribute('data-club-name'));
     } else if (action == 'edit') {
       this.props.onEdit(url);
     } else {

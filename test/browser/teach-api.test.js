@@ -206,6 +206,39 @@ describe('TeachAPI', function() {
     });
   });
 
+  describe('deleteClub()', function() {
+    var api;
+
+    beforeEach(function() {
+      api = new TeachAPI({storage: storage});
+    });
+
+    it('accesses the given URL', function() {
+      api.deleteClub('http://myserver/clubs/1');
+      requests.length.should.equal(1);
+      requests[0].method.should.eql('delete');
+      requests[0].url.should.eql('http://myserver/clubs/1');
+    });
+
+    it('returns no error on success', function(done) {
+      api.updateClubs = sinon.spy();
+      api.deleteClub('http://foo', function(err) {
+        should(err).equal(null);
+        done();
+      });
+      requests[0].respond(204);
+      api.updateClubs.callCount.should.equal(1);
+    });
+
+    it('returns an error on failure', function(done) {
+      api.deleteClub('http://foo', function(err, data) {
+        err.message.should.eql("Internal Server Error");
+        done();
+      });
+      requests[0].respond(500);
+    });
+  });
+
   describe('startLogin()', function() {
     var personaCb;
 
