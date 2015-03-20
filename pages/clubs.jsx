@@ -84,10 +84,13 @@ var BottomCTA = React.createClass({
 });
 
 
-var ModalAddYourClub = React.createClass({
+var ModalAddOrChangeYourClub = React.createClass({
   mixins: [React.addons.LinkedStateMixin, ModalManagerMixin,
            Router.Navigation, TeachAPIClientMixin],
   propTypes: {
+    // If club is provided, then we're a 'change' dialog, otherwise
+    // we're an 'add' dialog.
+    club: React.PropTypes.object,
     onSuccess: React.PropTypes.func.isRequired
   },
   statics: {
@@ -100,15 +103,22 @@ var ModalAddYourClub = React.createClass({
   STEP_WAIT_FOR_NETWORK: 3,
   STEP_SHOW_RESULT: 4,
   getInitialState: function() {
-    return {
+    var clubState = {
       name: '',
       website: '',
       description: '',
-      location: '',
+      location: ''
+    };
+    if (this.props.club) {
+      _.extend(clubState, _.pick(this.props.club,
+        'name', 'website', 'description', 'location'
+      ));
+    }
+    return _.extend(clubState, {
       step: this.getStepForAuthState(!!this.getTeachAPI().getUsername()),
       result: null,
       networkError: false
-    };
+    });
   },
   getStepForAuthState: function(isLoggedIn) {
     return isLoggedIn ? this.STEP_FORM : this.STEP_AUTH;
@@ -117,23 +127,32 @@ var ModalAddYourClub = React.createClass({
     this.setState({step: this.getStepForAuthState(!!username)});
   },
   handleSubmit: function(e) {
+    var teachAPI = this.getTeachAPI();
+    var clubState = _.pick(this.state,
+      'name', 'website', 'description', 'location'
+    );
+
     e.preventDefault();
     this.setState({
       step: this.STEP_WAIT_FOR_NETWORK,
       networkError: false
     });
-    this.getTeachAPI().addClub(_.pick(this.state,
-      'name', 'website', 'description', 'location'
-    ), function(err, data) {
-      if (!this.isMounted()) {
-        return;
-      }
-      this.setState({
-        networkError: !!err,
-        step: err ? this.STEP_FORM : this.STEP_SHOW_RESULT,
-        result: err ? null : data
-      });
-    }.bind(this));
+    if (this.props.club) {
+      clubState = _.extend({}, this.props.club, clubState)
+      teachAPI.changeClub(clubState, this.handleNetworkResult);
+    } else {
+      teachAPI.addClub(clubState, this.handleNetworkResult);
+    }
+  },
+  handleNetworkResult: function(err, data) {
+    if (!this.isMounted()) {
+      return;
+    }
+    this.setState({
+      networkError: !!err,
+      step: err ? this.STEP_FORM : this.STEP_SHOW_RESULT,
+      result: err ? null : data
+    });
   },
   handleSuccessClick: function() {
     this.hideModal();
@@ -145,11 +164,15 @@ var ModalAddYourClub = React.createClass({
   },
   render: function() {
     var content, isFormDisabled;
+    var isAdd = !this.props.club;
+    var action = isAdd ? "add" : "change";
+    var modalTitle = isAdd ? "Add Your Club To The Map"
+                           : "Change Your Club";
 
     if (this.state.step == this.STEP_AUTH) {
       content = (
         <div>
-          <p>Before you can add your club, you need to log in.</p>
+          <p>Before you can {action} your club, you need to log in.</p>
           <button className="btn btn-primary btn-block"
            onClick={this.getTeachAPI().startLogin}>Log In</button>
           <button className="btn btn-default btn-block"
@@ -163,7 +186,7 @@ var ModalAddYourClub = React.createClass({
         <div>
           {this.state.networkError
            ? <div className="alert alert-danger">
-               <p>Unfortunately, an error occurred when trying to add your club.</p>
+               <p>Unfortunately, an error occurred when trying to {action} your club.</p>
                <p>Please try again later.</p>
              </div>
            : null}
@@ -199,8 +222,9 @@ var ModalAddYourClub = React.createClass({
             <input type="submit" className="btn"
              disabled={isFormDisabled}
              value={isFormDisabled
-                    ? "Adding Your Club..."
-                    : "Add Your Club To The Map"} />
+                    ? (isAdd ? "Adding Your Club..."
+                             : "Changing Your Club...")
+                    : modalTitle} />
           </form>
         </div>
       );
@@ -208,8 +232,12 @@ var ModalAddYourClub = React.createClass({
       content = (
         <div className="text-center">
           <p><img className="globe" src="/img/globe-with-pin.svg"/></p>
-          <h2>We've added your Club!</h2>
-          <p>Your club is now displayed on our map. Go ahead, take a look!</p>
+          {isAdd
+           ? <div>
+               <h2>We've added your Club!</h2>
+               <p>Your club is now displayed on our map. Go ahead, take a look!</p>
+             </div>
+           : <h2>Your club has been changed.</h2>}
           <button className="btn btn-block"
            onClick={this.handleSuccessClick}>
             Take Me To My Club
@@ -219,7 +247,7 @@ var ModalAddYourClub = React.createClass({
     }
 
     return(
-      <Modal modalTitle="Add Your Club To The Map">
+      <Modal modalTitle={modalTitle}>
         {content}
       </Modal>
     );
@@ -260,7 +288,7 @@ var ModalLearnMore = React.createClass({
 var ClubsPage = React.createClass({
   mixins: [ModalManagerMixin, TeachAPIClientMixin],
   statics: {
-    ModalAddYourClub: ModalAddYourClub,
+    ModalAddOrChangeYourClub: ModalAddOrChangeYourClub,
     ModalLearnMore: ModalLearnMore,
     teachAPIEvents: {
       'clubs:change': 'forceUpdate',
@@ -272,7 +300,7 @@ var ClubsPage = React.createClass({
     this.getTeachAPI().updateClubs();
   },
   showAddYourClubModal: function() {
-    this.showModal(ModalAddYourClub, {
+    this.showModal(ModalAddOrChangeYourClub, {
       onSuccess: this.handleAddClubSuccess
     });
   },
@@ -299,8 +327,13 @@ var ClubsPage = React.createClass({
     });
   },
   handleClubEdit: function(url) {
-    console.log(url);
-    window.alert("Sorry, club editing has not yet been implemented.");
+    var club = _.findWhere(this.getTeachAPI().getClubs(), {
+      url: url
+    });
+    this.showModal(ModalAddOrChangeYourClub, {
+      club: club,
+      onSuccess: this.handleAddClubSuccess
+    });
   },
   render: function() {
     var teachAPI = this.getTeachAPI();

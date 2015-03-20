@@ -51,13 +51,13 @@ describe("ClubsPage", function() {
   });
 });
 
-describe("ClubsPage.ModalAddYourClub", function() {
+describe("ClubsPage.ModalAddOrChangeYourClub", function() {
   var ERROR_REGEX = /an error occurred/i;
   var modal, teachAPI, onSuccess;
 
   beforeEach(function() {
     onSuccess = sinon.spy();
-    modal = stubContext.render(ClubsPage.ModalAddYourClub, {
+    modal = stubContext.render(ClubsPage.ModalAddOrChangeYourClub, {
       onSuccess: onSuccess
     });
     teachAPI = modal.getTeachAPI();

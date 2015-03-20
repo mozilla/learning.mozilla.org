@@ -206,6 +206,51 @@ describe('TeachAPI', function() {
     });
   });
 
+  describe('changeClub()', function() {
+    var api;
+    var club = {url: "http://foo/api/clubs/1/", name: "my cool club"};
+
+    beforeEach(function() {
+      api = new TeachAPI({
+        storage: storage,
+        baseURL: 'http://example.org'
+      });
+    });
+
+    it('accesses club.url', function() {
+      api.changeClub(club);
+      requests.length.should.equal(1);
+      requests[0].method.should.eql('put');
+      requests[0].url.should.eql('http://foo/api/clubs/1/');
+    });
+
+    it('sends JSON, returns parsed JSON on success', function(done) {
+      api.updateClubs = sinon.spy();
+      api.changeClub(club, function(err, data) {
+        should(err).equal(null);
+        data.should.eql({
+          url: "http://foo/api/clubs/1/",
+          name: "my cool club"
+        });
+        done();
+      });
+      requests[0].requestHeaders['Content-Type']
+        .should.eql('application/json;charset=utf-8');
+      requests[0].respond(201, {
+        'Content-Type': 'application/json'
+      }, requests[0].requestBody);
+      api.updateClubs.callCount.should.equal(1);
+    });
+
+    it('returns an error on failure', function(done) {
+      api.changeClub(club, function(err, data) {
+        err.message.should.eql("Internal Server Error");
+        done();
+      });
+      requests[0].respond(500);
+    });
+  });
+
   describe('deleteClub()', function() {
     var api;
 
