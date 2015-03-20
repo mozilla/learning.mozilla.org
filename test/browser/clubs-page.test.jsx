@@ -1,4 +1,6 @@
+var EventEmitter = require('events').EventEmitter;
 var should = require('should');
+var sinon = window.sinon;
 var React =require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
@@ -32,12 +34,14 @@ describe("ClubsPage", function() {
 });
 
 describe("ClubsPage.ModalAddYourClub", function() {
-  var modal;
+  var modal, teachAPI, onSuccess;
 
   beforeEach(function() {
+    onSuccess = sinon.spy();
     modal = stubContext.render(ClubsPage.ModalAddYourClub, {
-      onAddClub: function() {}
+      onSuccess: onSuccess
     });
+    teachAPI = modal.getTeachAPI();
   });
 
   afterEach(function() {
@@ -46,6 +50,91 @@ describe("ClubsPage.ModalAddYourClub", function() {
 
   it("renders", function() {
     modal.getDOMNode().textContent.should.match(/add your club/i);
+  });
+
+  it("binds to username:change event", function() {
+    EventEmitter.listenerCount(teachAPI, 'username:change').should.eql(1);
+  });
+
+  it("shows auth when user is not logged in", function() {
+    teachAPI.emit('username:change', null);
+    modal.state.step.should.equal(modal.STEP_AUTH);
+  });
+
+  it("starts login when user clicks login on auth step", function() {
+    teachAPI.emit('username:change', null);
+    var loginBtn = TestUtils.findRenderedDOMComponentWithClass(
+      modal,
+      'btn-primary'
+    );
+    teachAPI.startLogin.callCount.should.eql(0);
+    TestUtils.Simulate.click(loginBtn);
+    teachAPI.startLogin.callCount.should.eql(1);
+  });
+
+  it("shows form when user is logged in", function() {
+    teachAPI.emit('username:change', 'foo');
+    modal.state.step.should.equal(modal.STEP_FORM);
+  });
+
+  describe("when form is submitted", function() {
+    var addClubCall;
+
+    beforeEach(function() {
+      teachAPI.emit('username:change', 'foo');
+      modal.setState({
+        name: 'blorpy',
+        location: 'chicago',
+        website: 'http://example.org',
+        description: 'this is my club'
+      });
+      var form = TestUtils.findRenderedDOMComponentWithTag(
+        modal,
+        'form'
+      );
+      teachAPI.addClub.callCount.should.equal(0);
+      TestUtils.Simulate.submit(form);
+      teachAPI.addClub.callCount.should.equal(1);
+      addClubCall = teachAPI.addClub.getCall(0);
+    });
+
+    it("sends data to server", function() {
+      addClubCall.args[0].should.eql({
+        name: 'blorpy',
+        location: 'chicago',
+        website: 'http://example.org',
+        description: 'this is my club'
+      });
+    });
+
+    it("shows success result", function() {
+      addClubCall.args[1](null, {url: 'http://foo'});
+      modal.state.step.should.equal(modal.STEP_SHOW_RESULT);
+      modal.state.resultURL.should.equal('http://foo');
+      modal.getDOMNode().textContent
+        .should.match(/your club is now displayed on our map/i);
+    });
+
+    it("calls onSuccess when user clicks final button", function() {
+      addClubCall.args[1](null, {url: 'http://foo'});
+      var btn = TestUtils.findRenderedDOMComponentWithClass(
+        modal,
+        'btn-primary'
+      );
+      onSuccess.callCount.should.eql(0);
+      modal.context.hideModal.callCount.should.eql(0);
+      TestUtils.Simulate.click(btn);
+      modal.context.hideModal.callCount.should.eql(1);
+      onSuccess.callCount.should.eql(1);
+      onSuccess.getCall(0).args[0].should.eql('http://foo');
+    });
+
+    it("shows error result", function() {
+      addClubCall.args[1](new Error());
+      modal.state.step.should.equal(modal.STEP_SHOW_RESULT);
+      should(modal.state.resultURL).equal(null);
+      modal.getDOMNode().textContent.should.match(/an error occurred/i);
+    });
   });
 });
 

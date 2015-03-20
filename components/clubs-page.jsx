@@ -1,5 +1,7 @@
 var _ = require('underscore');
 var React = require('react/addons');
+var Router = require('react-router');
+var Link = Router.Link;
 
 var Page = require('./page.jsx');
 var HeroUnit = require('./hero-unit.jsx');
@@ -83,35 +85,68 @@ var BottomCTA = React.createClass({
 
 
 var ModalAddYourClub = React.createClass({
-  mixins: [React.addons.LinkedStateMixin, ModalManagerMixin],
+  mixins: [React.addons.LinkedStateMixin, ModalManagerMixin,
+           TeachAPIClientMixin],
   propTypes: {
-    onAddClub: React.PropTypes.func.isRequired
+    onSuccess: React.PropTypes.func.isRequired
   },
+  statics: {
+    teachAPIEvents: {
+      'username:change': 'handleUsernameChange',
+    }
+  },
+  STEP_AUTH: 1,
+  STEP_FORM: 2,
+  STEP_WAIT_FOR_NETWORK: 3,
+  STEP_SHOW_RESULT: 4,
   getInitialState: function() {
     return {
       name: '',
       website: '',
       description: '',
-      location: ''
+      location: '',
+      step: this.getStepForAuthState(!!this.getTeachAPI().getUsername()),
+      resultURL: null
     };
+  },
+  getStepForAuthState: function(isLoggedIn) {
+    return isLoggedIn ? this.STEP_FORM : this.STEP_AUTH;
+  },
+  handleUsernameChange: function(username) {
+    this.setState({step: this.getStepForAuthState(!!username)});
   },
   handleSubmit: function(e) {
     e.preventDefault();
-    this.props.onAddClub(_.pick(this.state,
+    this.setState({step: this.STEP_WAIT_FOR_NETWORK});
+    this.getTeachAPI().addClub(_.pick(this.state,
       'name', 'website', 'description', 'location'
-    ), function(err) {
-      if (err) {
-        window.alert("Alas, an error occurred. Please try again later!");
-        console.log(err);
-      } else {
-        window.alert("Your club has been added!");
-        this.hideModal();
-      }
+    ), function(err, data) {
+      this.setState({
+        step: this.STEP_SHOW_RESULT,
+        resultURL: err ? null : data.url
+      });
     }.bind(this));
   },
+  handleSuccessClick: function() {
+    this.hideModal();
+    this.props.onSuccess(this.state.resultURL);
+  },
   render: function() {
-    return(
-      <Modal modalTitle="Add Your Club To The Map">
+    var content;
+
+    if (this.state.step == this.STEP_AUTH) {
+      content = (
+        <div>
+          <p>Before you can add your club, you need to log in.</p>
+          <button className="btn btn-primary"
+           onClick={this.getTeachAPI().startLogin}>Log In</button>
+          <Link to="join" className="btn btn-default">
+            Create an account
+          </Link>
+        </div>
+      );
+    } else if (this.state.step == this.STEP_FORM) {
+      content = (
         <form onSubmit={this.handleSubmit}>
           <fieldset>
             <label>What is the name of your Club?</label>
@@ -139,6 +174,29 @@ var ModalAddYourClub = React.createClass({
           </fieldset>
           <input type="submit" className="btn" value="Add Your Club To The Map" />
         </form>
+      );
+    } else if (this.state.step == this.STEP_WAIT_FOR_NETWORK) {
+      content = <div>One moment&hellip;</div>;
+    } else if (this.state.step == this.STEP_SHOW_RESULT) {
+      if (this.state.resultURL) {
+        content = (
+          <div>
+            <h2>We've added your Club!</h2>
+            <p>Your club is now displayed on our map. Go ahead, take a look!</p>
+            <button className="btn btn-primary"
+             onClick={this.handleSuccessClick}>
+              Take Me To My Club
+            </button>
+          </div>
+        );
+      } else {
+        content = <div>Alas, an error occurred. Please try again later.</div>;
+      }
+    }
+
+    return(
+      <Modal modalTitle="Add Your Club To The Map">
+        {content}
       </Modal>
     );
   }
@@ -190,16 +248,15 @@ var ClubsPage = React.createClass({
     this.getTeachAPI().updateClubs();
   },
   showAddYourClubModal: function() {
-    if (!this.getTeachAPI().getUsername()) {
-      window.alert("You need to log in before you can add a club!");
-      return;
-    }
     this.showModal(ModalAddYourClub, {
-      onAddClub: this.getTeachAPI().addClub
+      onSuccess: this.handleAddClubSuccess
     });
   },
   showLearnMoreModal: function() {
     this.showModal(ModalLearnMore);
+  },
+  handleAddClubSuccess: function(url) {
+    console.log("TODO: Highlight url on map", url);
   },
   handleClubDelete: function(url, clubName) {
     var confirmed = window.confirm(

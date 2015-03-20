@@ -9,6 +9,7 @@ function StubTeachAPI() {
   teachAPI.getUsername = sinon.stub();
   teachAPI.getClubs = sinon.stub();
   teachAPI.updateClubs = sinon.spy();
+  teachAPI.addClub = sinon.spy();
 
   teachAPI.getUsername.returns(null);
   teachAPI.getClubs.returns([]);
