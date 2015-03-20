@@ -80,6 +80,17 @@ describe("ClubsPage.ModalAddYourClub", function() {
     modal.state.step.should.equal(modal.STEP_AUTH);
   });
 
+  it("closes modal when user clicks join btn", function() {
+    teachAPI.emit('username:change', null);
+    var joinBtn = TestUtils.findRenderedDOMComponentWithClass(
+      modal,
+      'btn-default'
+    );
+    modal.context.hideModal.callCount.should.eql(0);
+    TestUtils.Simulate.click(joinBtn);
+    modal.context.hideModal.callCount.should.eql(1);
+  });
+
   it("starts login when user clicks login on auth step", function() {
     teachAPI.emit('username:change', null);
     var loginBtn = TestUtils.findRenderedDOMComponentWithClass(
