@@ -1,12 +1,11 @@
 var _ = require('underscore');
 var React = require('react/addons');
-var Router = require('react-router');
-var Link = Router.Link;
 
 var Page = require('./page.jsx');
 var HeroUnit = require('./hero-unit.jsx');
 var Map = require('./map.jsx');
 var Blockquote = require('./blockquote.jsx');
+var IconLinks = require('./icon-links.jsx');
 var IconLink = require('./icon-link.jsx');
 var PageEndCTA = require('./page-end-cta.jsx');
 var Modal = require('./modal.jsx');
@@ -63,46 +62,6 @@ var Quote = React.createClass({
     );
   }
 });
-
-var IconLinks = React.createClass({
-  ICON_LINKS: [
-    {
-      linkTo: "fixme",
-      imgSrc: "/img/icon-curriculum.svg",
-      imgAlt: "icon curriculum",
-      head: "Curriculum",
-      subhead: "Modular Web Literacy curriculum"
-    },
-    {
-      linkTo: "fixme",
-      imgSrc: "/img/icon-connect.svg",
-      imgAlt: "icon connect",
-      head: "Connect",
-      subhead: "Connect with other Club Leaders"
-    },
-    {
-      linkTo: "fixme",
-      imgSrc: "/img/icon-tips.svg",
-      imgAlt: "icon tips",
-      head: "Helpful Tips",
-      subhead: "Tips for running your Club"
-    }
-  ],
-  render: function() {
-    // need to have `key`, see: http://facebook.github.io/react/docs/multiple-components.html#dynamic-children
-    var iconlinks = this.ICON_LINKS.map(function(link,i) {
-      return (
-        <div className="col-sm-4 col-md-4 col-lg-4 icon-link-container" key={i}>
-          <IconLink info={link} />
-        </div>
-      );
-    });
-    return (
-      <div className="row icon-links">{iconlinks}</div>
-    );
-  }
-});
-
 
 var BottomCTA = React.createClass({
   render: function() {
@@ -289,7 +248,29 @@ var ClubsPage = React.createClass({
           <Quote/>
         </section>
         <section>
-          <IconLinks/>
+          <IconLinks>
+            <IconLink
+              linkTo="fixme"
+              imgSrc="/img/icon-curriculum.svg"
+              imgAlt="icon curriculum"
+              head="Curriculum"
+              subhead="Modular Web Literacy curriculum"
+            />
+            <IconLink
+              linkTo="fixme"
+              imgSrc="/img/icon-connect.svg"
+              imgAlt="icon connect"
+              head="Connect"
+              subhead="Connect with other Club Leaders"
+            />
+            <IconLink
+              linkTo="fixme"
+              imgSrc="/img/icon-tips.svg"
+              imgAlt="icon tips"
+              head="Helpful Tips"
+              subhead="Tips for running your Club"
+            />
+          </IconLinks>
         </section>
         <section>
           <BottomCTA onClick={this.showAddYourClubModal} />

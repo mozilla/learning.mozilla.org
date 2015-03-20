@@ -1,47 +1,8 @@
 var React = require('react');
 
 var HeroUnit = require('./hero-unit.jsx');
+var IconLinks = require('./icon-links.jsx');
 var IconLink = require('./icon-link.jsx');
-
-var IconLinks = React.createClass({
-  ICON_LINKS: [
-    {
-      linkTo: "fixme",
-      imgSrc: "/img/teach-like-mozilla-page/icon-listen.svg",
-      imgAlt: "icon listen",
-      head: "Listen",
-      subhead: "Subscribe to our Podcast"
-    },
-    {
-      linkTo: "fixme",
-      imgSrc: "/img/teach-like-mozilla-page/icon-attend.svg",
-      imgAlt: "icon attend",
-      head: "Attend",
-      subhead: "Join the next Meetup"
-    },
-    {
-      linkTo: "fixme",
-      imgSrc: "/img/teach-like-mozilla-page/icon-connect.svg",
-      imgAlt: "icon connect",
-      head: "Say Hello",
-      subhead: "Meet the teach community"
-    }
-  ],
-  render: function() {
-    // need to have `key`,
-    // see: http://facebook.github.io/react/docs/multiple-components.html#dynamic-children
-    var iconlinks = this.ICON_LINKS.map(function(link,i) {
-      return (
-        <div className="col-sm-4 col-md-4 col-lg-4 icon-link-container" key={i}>
-          <IconLink info={link} />
-        </div>
-      );
-    });
-    return (
-      <div className="row icon-links">{iconlinks}</div>
-    );
-  }
-});
 
 var TeachLikeMozillaPage = React.createClass({
   statics: {
@@ -88,7 +49,29 @@ var TeachLikeMozillaPage = React.createClass({
           </div>
         </section>
         <section>
-          <IconLinks/>
+          <IconLinks>
+            <IconLink
+              linkTo="fixme"
+              imgSrc="/img/teach-like-mozilla-page/icon-listen.svg"
+              imgAlt="icon listen"
+              head="Listen"
+              subhead="Subscribe to our Podcast"
+            />
+            <IconLink
+              linkTo="fixme"
+              imgSrc="/img/teach-like-mozilla-page/icon-attend.svg"
+              imgAlt="icon attend"
+              head="Attend"
+              subhead="Join the next Meetup"
+            />
+            <IconLink
+              linkTo="fixme"
+              imgSrc="/img/teach-like-mozilla-page/icon-connect.svg"
+              imgAlt="icon connect"
+              head="Say Hello"
+              subhead="Meet the teach community"
+            />
+          </IconLinks>
         </section>
       </div>
     );

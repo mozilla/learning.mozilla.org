@@ -1,11 +1,18 @@
 .icon-link {
+  padding-bottom: 2rem;
   text-align: center;
-  img {
-    display: block;
-    margin: 0 auto;
-    transition: all 0.18s ease-in;
+  a {
+    color: inherit;
     &:hover {
-      transform: scale(1.1);
+      text-decoration: none;
+      img {
+        transform: scale(1.1);
+      }
+    }
+    img {
+      display: block;
+      margin: 0 auto;
+      transition: all 0.18s ease-in;
     }
   }
   h3 {
@@ -14,12 +21,5 @@
   .subhead {
     font-style: italic;
     font-size: 1.6rem;
-  }
-}
-
-.icon-links {
-  margin-bottom: -2rem;
-  .icon-link-container {
-    padding-bottom: 2rem;
   }
 }

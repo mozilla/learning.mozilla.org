@@ -1,5 +1,7 @@
 var React = require('react');
 var ImageTag = require('./imagetag.jsx');
+var IconLinks = require('./icon-links.jsx');
+var IconLink = require('./icon-link.jsx');
 
 var Intro = React.createClass({
   render: function () {
@@ -72,53 +74,6 @@ var OurGoal = React.createClass({
   }
 });
 
-var FooterIconLinks = React.createClass({
-  ICON_LINKS: [
-    {
-      linkTo: "https://twitter.com/webmaker",
-      imgSrc: "/img/shared-iconography/icon-twitter.svg",
-      imgAlt: "twitter logo",
-      head: "Follow Us",
-      subhead: "Start a conversation on Twitter"
-    },
-    {
-      linkTo: "mailto:help@webmaker.org",
-      imgSrc: "/img/shared-iconography/icon-get-help.svg",
-      imgAlt: "question mark icon",
-      head: "Get Help",
-      subhead: "Email us anytime"
-    },
-    {
-      linkTo: "http://discourse.webmaker.org/category/meet",
-      imgSrc: "/img/shared-iconography/icon-connect.svg",
-      imgAlt: "illustration of two people connecting",
-      head: "Say Hello",
-      subhead: "Connect on the Discourse forum"
-    }
-  ],
-  render: function () {
-    var iconlinks = this.ICON_LINKS.map(function (link, key) {
-      return (
-        // Can't use the component because all of these are outside links
-          <div className="col-sm-4 col-md-4 col-lg-4 icon-link-container" key={key}>
-            <div className="icon-link">
-              <figure>
-                <a href={link.linkTo}>
-                  <img src={link.imgSrc} alt={link.imgAlt} />
-                </a>
-              </figure>
-              <h3 className="head">{link.head}</h3>
-              <p className="subhead">{link.subhead}</p>
-            </div>
-          </div>
-      );
-    });
-    return (
-        <div className="row icon-links">{iconlinks}</div>
-    );
-  }
-});
-
 var AboutPage = React.createClass({
   statics: {
     pageClassName: 'about-page'
@@ -129,7 +84,29 @@ var AboutPage = React.createClass({
           <Intro/>
           <OurFocus/>
           <OurGoal/>
-          <FooterIconLinks/>
+          <IconLinks>
+            <IconLink
+              linkTo="https://twitter.com/webmaker"
+              imgSrc="/img/shared-iconography/icon-twitter.svg"
+              imgAlt="twitter logo"
+              head="Follow Us"
+              subhead="Start a conversation on Twitter"
+            />
+            <IconLink
+              linkTo="mailto:help@webmaker.org"
+              imgSrc="/img/shared-iconography/icon-get-help.svg"
+              imgAlt="question mark icon"
+              head="Get Help"
+              subhead="Email us anytime"
+            />
+            <IconLink
+              linkTo="http://discourse.webmaker.org/category/meet"
+              imgSrc="/img/shared-iconography/icon-connect.svg"
+              imgAlt="illustration of two people connecting"
+              head="Say Hello"
+              subhead="Connect on the Discourse forum"
+            />
+          </IconLinks>
         </div>
     );
   }
