@@ -1,7 +1,8 @@
 var React = require('react');
-var ImageTag = require('./imagetag.jsx');
-var IconLinks = require('./icon-links.jsx');
-var IconLink = require('./icon-link.jsx');
+
+var ImageTag = require('../components/imagetag.jsx');
+var IconLinks = require('../components/icon-links.jsx');
+var IconLink = require('../components/icon-link.jsx');
 
 var Intro = React.createClass({
   render: function () {

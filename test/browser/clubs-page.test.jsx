@@ -6,7 +6,7 @@ var TestUtils = React.addons.TestUtils;
 
 var StubTeachAPI = require('./stub-teach-api');
 var stubContext = require('./stub-context.jsx');
-var ClubsPage = require('../../components/clubs-page.jsx');
+var ClubsPage = require('../../pages/clubs.jsx');
 
 function ensureFormFieldsDisabledValue(component, isDisabled) {
   var found = 0;

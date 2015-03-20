@@ -1,6 +1,6 @@
 var React = require('react');
 
-var PlaceholderPage = require('./placeholder-page.jsx');
+var PlaceholderPage = require('./placeholder.jsx');
 
 var ActivitiesPage = React.createClass({
   statics: {
