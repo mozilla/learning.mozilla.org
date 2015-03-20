@@ -86,7 +86,7 @@ var BottomCTA = React.createClass({
 
 var ModalAddYourClub = React.createClass({
   mixins: [React.addons.LinkedStateMixin, ModalManagerMixin,
-           TeachAPIClientMixin],
+           Router.Navigation, TeachAPIClientMixin],
   propTypes: {
     onSuccess: React.PropTypes.func.isRequired
   },
@@ -139,6 +139,10 @@ var ModalAddYourClub = React.createClass({
     this.hideModal();
     this.props.onSuccess(this.state.resultURL);
   },
+  handleJoinClick: function() {
+    this.hideModal();
+    this.transitionTo('join');
+  },
   render: function() {
     var content, isFormDisabled;
 
@@ -148,9 +152,8 @@ var ModalAddYourClub = React.createClass({
           <p>Before you can add your club, you need to log in.</p>
           <button className="btn btn-primary"
            onClick={this.getTeachAPI().startLogin}>Log In</button>
-          <Link to="join" className="btn btn-default">
-            Create an account
-          </Link>
+          <button className="btn btn-default"
+           onClick={this.handleJoinClick}>Create an account</button>
         </div>
       );
     } else if (this.state.step == this.STEP_FORM ||
