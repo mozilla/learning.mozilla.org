@@ -165,27 +165,31 @@ var ModalAddYourClub = React.createClass({
              </div>
            : null}
           <form onSubmit={this.handleSubmit}>
-            <fieldset disabled={isFormDisabled}>
+            <fieldset>
               <label>What is the name of your Club?</label>
               <input type="text" placeholder="We love creative Club names"
+               disabled={isFormDisabled}
                required
                valueLink={this.linkState('name')} />
             </fieldset>
-            <fieldset disabled={isFormDisabled}>
+            <fieldset>
               <label>Where does it take place?</label>
               <input type="text" placeholder="Type in a city or a country"
+               disabled={isFormDisabled}
                required
                valueLink={this.linkState('location')} />
             </fieldset>
-            <fieldset disabled={isFormDisabled}>
+            <fieldset>
               <label>What is your Club&lsquo;s website?</label>
               <input type="url" placeholder="http://www.myclubwebsite.com"
+               disabled={isFormDisabled}
                required
                valueLink={this.linkState('website')} />
             </fieldset>
-            <fieldset disabled={isFormDisabled}>
+            <fieldset>
               <label>What do you focus your efforts on?</label>
               <textarea rows="5" placeholder="Give us a brief description about what your Club is about."
+               disabled={isFormDisabled}
                required
                valueLink={this.linkState('description')} />
             </fieldset>

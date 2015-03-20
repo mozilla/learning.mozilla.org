@@ -9,17 +9,21 @@ var stubContext = require('./stub-context.jsx');
 var ClubsPage = require('../../components/clubs-page.jsx');
 
 function ensureFormFieldsDisabledValue(component, isDisabled) {
-  TestUtils.scryRenderedDOMComponentsWithTag(
-    component,
-    'fieldset'
-  ).forEach(function(component) {
-    component.props.disabled.should.equal(isDisabled);
+  var found = 0;
+
+  ['input', 'textarea'].forEach(function(tag) {
+    TestUtils.scryRenderedDOMComponentsWithTag(
+      component,
+      tag
+    ).forEach(function(component) {
+      found++;
+      component.props.disabled.should.equal(isDisabled);
+    });
   });
-  var submitBtn = TestUtils.findRenderedDOMComponentWithClass(
-    component,
-    'btn'
-  );
-  submitBtn.props.disabled.should.equal(isDisabled);
+
+  if (!found) {
+    throw new Error("no form fields were found");
+  }
 }
 
 describe("ClubsPage", function() {
@@ -97,7 +101,7 @@ describe("ClubsPage.ModalAddYourClub", function() {
     modal.getDOMNode().textContent.should.not.match(ERROR_REGEX);
   });
 
-  it("enables form fieldsets and inputs by default", function() {
+  it("enables form inputs by default", function() {
     teachAPI.emit('username:change', 'foo');
     ensureFormFieldsDisabledValue(modal, false);
   });
