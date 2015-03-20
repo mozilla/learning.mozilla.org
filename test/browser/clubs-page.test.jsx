@@ -165,7 +165,7 @@ describe("ClubsPage.ModalAddYourClub", function() {
       addClubCall.args[1](null, {url: 'http://foo'});
       var btn = TestUtils.findRenderedDOMComponentWithClass(
         modal,
-        'btn-primary'
+        'btn'
       );
       onSuccess.callCount.should.eql(0);
       modal.context.hideModal.callCount.should.eql(0);
