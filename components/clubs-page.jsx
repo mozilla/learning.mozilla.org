@@ -106,7 +106,7 @@ var ModalAddYourClub = React.createClass({
       description: '',
       location: '',
       step: this.getStepForAuthState(!!this.getTeachAPI().getUsername()),
-      resultURL: null,
+      result: null,
       networkError: false
     };
   },
@@ -131,13 +131,13 @@ var ModalAddYourClub = React.createClass({
       this.setState({
         networkError: !!err,
         step: err ? this.STEP_FORM : this.STEP_SHOW_RESULT,
-        resultURL: err ? null : data.url
+        result: err ? null : data
       });
     }.bind(this));
   },
   handleSuccessClick: function() {
     this.hideModal();
-    this.props.onSuccess(this.state.resultURL);
+    this.props.onSuccess(this.state.result);
   },
   handleJoinClick: function() {
     this.hideModal();
@@ -279,8 +279,8 @@ var ClubsPage = React.createClass({
   showLearnMoreModal: function() {
     this.showModal(ModalLearnMore);
   },
-  handleAddClubSuccess: function(url) {
-    console.log("TODO: Highlight url on map", url);
+  handleAddClubSuccess: function(club) {
+    this.refs.map.focusOnClub(club);
   },
   handleClubDelete: function(url, clubName) {
     var confirmed = window.confirm(
@@ -317,7 +317,7 @@ var ClubsPage = React.createClass({
         <section>
           <WebLitMap/>
           <div className="mapDiv" id="mapDivID">
-            <Map className="mapDivChild"
+            <Map ref="map" className="mapDivChild"
              clubs={clubs}
              username={username}
              onDelete={this.handleClubDelete}

@@ -156,7 +156,7 @@ describe("ClubsPage.ModalAddYourClub", function() {
       addClubCall.args[1](null, {url: 'http://foo'});
       modal.state.step.should.equal(modal.STEP_SHOW_RESULT);
       modal.state.networkError.should.be.false;
-      modal.state.resultURL.should.equal('http://foo');
+      modal.state.result.should.eql({url: 'http://foo'});
       modal.getDOMNode().textContent
         .should.match(/your club is now displayed on our map/i);
     });
@@ -172,13 +172,13 @@ describe("ClubsPage.ModalAddYourClub", function() {
       TestUtils.Simulate.click(btn);
       modal.context.hideModal.callCount.should.eql(1);
       onSuccess.callCount.should.eql(1);
-      onSuccess.getCall(0).args[0].should.eql('http://foo');
+      onSuccess.getCall(0).args[0].should.eql({url: 'http://foo'});
     });
 
     it("returns to form, shows err when network err occurs", function() {
       addClubCall.args[1](new Error());
       modal.state.step.should.equal(modal.STEP_FORM);
-      should(modal.state.resultURL).equal(null);
+      should(modal.state.result).equal(null);
       modal.getDOMNode().textContent.should.match(ERROR_REGEX);
       ensureFormFieldsDisabledValue(modal, false);
     });

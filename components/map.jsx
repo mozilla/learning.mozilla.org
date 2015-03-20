@@ -158,6 +158,18 @@ var Map = React.createClass({
       console.warn('unknown action: ' + action);
     }
   },
+  focusOnClub: function(club) {
+    var latLng = L.latLng(club.latitude, club.longitude);
+    this.map.setView(latLng, 5, {
+      pan: {
+        animate: true,
+        duration: 1
+      },
+      zoom: {
+        animate: true
+      }
+    });
+  },
   render: function() {
     return (
       <div className={this.props.className}></div>
