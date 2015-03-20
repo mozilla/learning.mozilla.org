@@ -106,7 +106,8 @@ var ModalAddYourClub = React.createClass({
       description: '',
       location: '',
       step: this.getStepForAuthState(!!this.getTeachAPI().getUsername()),
-      resultURL: null
+      resultURL: null,
+      networkError: false
     };
   },
   getStepForAuthState: function(isLoggedIn) {
@@ -117,12 +118,19 @@ var ModalAddYourClub = React.createClass({
   },
   handleSubmit: function(e) {
     e.preventDefault();
-    this.setState({step: this.STEP_WAIT_FOR_NETWORK});
+    this.setState({
+      step: this.STEP_WAIT_FOR_NETWORK,
+      networkError: false
+    });
     this.getTeachAPI().addClub(_.pick(this.state,
       'name', 'website', 'description', 'location'
     ), function(err, data) {
+      if (!this.isMounted()) {
+        return;
+      }
       this.setState({
-        step: this.STEP_SHOW_RESULT,
+        networkError: !!err,
+        step: err ? this.STEP_FORM : this.STEP_SHOW_RESULT,
         resultURL: err ? null : data.url
       });
     }.bind(this));
@@ -132,7 +140,7 @@ var ModalAddYourClub = React.createClass({
     this.props.onSuccess(this.state.resultURL);
   },
   render: function() {
-    var content;
+    var content, isFormDisabled;
 
     if (this.state.step == this.STEP_AUTH) {
       content = (
@@ -145,53 +153,61 @@ var ModalAddYourClub = React.createClass({
           </Link>
         </div>
       );
-    } else if (this.state.step == this.STEP_FORM) {
+    } else if (this.state.step == this.STEP_FORM ||
+               this.state.step == this.STEP_WAIT_FOR_NETWORK) {
+      isFormDisabled = (this.state.step == this.STEP_WAIT_FOR_NETWORK);
       content = (
-        <form onSubmit={this.handleSubmit}>
-          <fieldset>
-            <label>What is the name of your Club?</label>
-            <input type="text" placeholder="We love creative Club names"
-             required
-             valueLink={this.linkState('name')} />
-          </fieldset>
-          <fieldset>
-            <label>Where does it take place?</label>
-            <input type="text" placeholder="Type in a city or a country"
-             required
-             valueLink={this.linkState('location')} />
-          </fieldset>
-          <fieldset>
-            <label>What is your Club&lsquo;s website?</label>
-            <input type="url" placeholder="http://www.myclubwebsite.com"
-             required
-             valueLink={this.linkState('website')} />
-          </fieldset>
-          <fieldset>
-            <label>What do you focus your efforts on?</label>
-            <textarea rows="5" placeholder="Give us a brief description about what your Club is about."
-             required
-             valueLink={this.linkState('description')} />
-          </fieldset>
-          <input type="submit" className="btn" value="Add Your Club To The Map" />
-        </form>
+        <div>
+          {this.state.networkError
+           ? <div className="alert alert-danger">
+               <p>Unfortunately, an error occurred when trying to add your club.</p>
+               <p>Please try again later.</p>
+             </div>
+           : null}
+          <form onSubmit={this.handleSubmit}>
+            <fieldset disabled={isFormDisabled}>
+              <label>What is the name of your Club?</label>
+              <input type="text" placeholder="We love creative Club names"
+               required
+               valueLink={this.linkState('name')} />
+            </fieldset>
+            <fieldset disabled={isFormDisabled}>
+              <label>Where does it take place?</label>
+              <input type="text" placeholder="Type in a city or a country"
+               required
+               valueLink={this.linkState('location')} />
+            </fieldset>
+            <fieldset disabled={isFormDisabled}>
+              <label>What is your Club&lsquo;s website?</label>
+              <input type="url" placeholder="http://www.myclubwebsite.com"
+               required
+               valueLink={this.linkState('website')} />
+            </fieldset>
+            <fieldset disabled={isFormDisabled}>
+              <label>What do you focus your efforts on?</label>
+              <textarea rows="5" placeholder="Give us a brief description about what your Club is about."
+               required
+               valueLink={this.linkState('description')} />
+            </fieldset>
+            <input type="submit" className="btn"
+             disabled={isFormDisabled}
+             value={isFormDisabled
+                    ? "Adding Your Club..."
+                    : "Add Your Club To The Map"} />
+          </form>
+        </div>
       );
-    } else if (this.state.step == this.STEP_WAIT_FOR_NETWORK) {
-      content = <div>One moment&hellip;</div>;
     } else if (this.state.step == this.STEP_SHOW_RESULT) {
-      if (this.state.resultURL) {
-        content = (
-          <div>
-            <h2>We've added your Club!</h2>
-            <p>Your club is now displayed on our map. Go ahead, take a look!</p>
-            <button className="btn btn-primary"
-             onClick={this.handleSuccessClick}>
-              Take Me To My Club
-            </button>
-          </div>
-        );
-      } else {
-        content = <div>Alas, an error occurred. Please try again later.</div>;
-      }
+      content = (
+        <div>
+          <h2>We've added your Club!</h2>
+          <p>Your club is now displayed on our map. Go ahead, take a look!</p>
+          <button className="btn btn-primary"
+           onClick={this.handleSuccessClick}>
+            Take Me To My Club
+          </button>
+        </div>
+      );
     }
 
     return(

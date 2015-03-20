@@ -8,6 +8,20 @@ var StubTeachAPI = require('./stub-teach-api');
 var stubContext = require('./stub-context.jsx');
 var ClubsPage = require('../../components/clubs-page.jsx');
 
+function ensureFormFieldsDisabledValue(component, isDisabled) {
+  TestUtils.scryRenderedDOMComponentsWithTag(
+    component,
+    'fieldset'
+  ).forEach(function(component) {
+    component.props.disabled.should.equal(isDisabled);
+  });
+  var submitBtn = TestUtils.findRenderedDOMComponentWithClass(
+    component,
+    'btn'
+  );
+  submitBtn.props.disabled.should.equal(isDisabled);
+}
+
 describe("ClubsPage", function() {
   var clubsPage, teachAPI, xhr;
 
@@ -34,6 +48,7 @@ describe("ClubsPage", function() {
 });
 
 describe("ClubsPage.ModalAddYourClub", function() {
+  var ERROR_REGEX = /an error occurred/i;
   var modal, teachAPI, onSuccess;
 
   beforeEach(function() {
@@ -77,8 +92,18 @@ describe("ClubsPage.ModalAddYourClub", function() {
     modal.state.step.should.equal(modal.STEP_FORM);
   });
 
+  it("does not show any errors by default", function() {
+    teachAPI.emit('username:change', 'foo');
+    modal.getDOMNode().textContent.should.not.match(ERROR_REGEX);
+  });
+
+  it("enables form fieldsets and inputs by default", function() {
+    teachAPI.emit('username:change', 'foo');
+    ensureFormFieldsDisabledValue(modal, false);
+  });
+
   describe("when form is submitted", function() {
-    var addClubCall;
+    var addClubCall, form;
 
     beforeEach(function() {
       teachAPI.emit('username:change', 'foo');
@@ -88,7 +113,7 @@ describe("ClubsPage.ModalAddYourClub", function() {
         website: 'http://example.org',
         description: 'this is my club'
       });
-      var form = TestUtils.findRenderedDOMComponentWithTag(
+      form = TestUtils.findRenderedDOMComponentWithTag(
         modal,
         'form'
       );
@@ -107,9 +132,15 @@ describe("ClubsPage.ModalAddYourClub", function() {
       });
     });
 
+    it("disables form fields while server is contacted", function() {
+      modal.state.step.should.equal(modal.STEP_WAIT_FOR_NETWORK);
+      ensureFormFieldsDisabledValue(modal, true);
+    });
+
     it("shows success result", function() {
       addClubCall.args[1](null, {url: 'http://foo'});
       modal.state.step.should.equal(modal.STEP_SHOW_RESULT);
+      modal.state.networkError.should.be.false;
       modal.state.resultURL.should.equal('http://foo');
       modal.getDOMNode().textContent
         .should.match(/your club is now displayed on our map/i);
@@ -129,11 +160,20 @@ describe("ClubsPage.ModalAddYourClub", function() {
       onSuccess.getCall(0).args[0].should.eql('http://foo');
     });
 
-    it("shows error result", function() {
+    it("returns to form, shows err when network err occurs", function() {
       addClubCall.args[1](new Error());
-      modal.state.step.should.equal(modal.STEP_SHOW_RESULT);
+      modal.state.step.should.equal(modal.STEP_FORM);
       should(modal.state.resultURL).equal(null);
-      modal.getDOMNode().textContent.should.match(/an error occurred/i);
+      modal.getDOMNode().textContent.should.match(ERROR_REGEX);
+      ensureFormFieldsDisabledValue(modal, false);
+    });
+
+    it("removes error message when retrying form submission", function() {
+      addClubCall.args[1](new Error());
+      modal.state.networkError.should.be.true;
+      TestUtils.Simulate.submit(form);
+      modal.state.networkError.should.be.false;
+      modal.getDOMNode().textContent.should.not.match(ERROR_REGEX);
     });
   });
 });
