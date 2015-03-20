@@ -150,9 +150,9 @@ var ModalAddYourClub = React.createClass({
       content = (
         <div>
           <p>Before you can add your club, you need to log in.</p>
-          <button className="btn btn-primary"
+          <button className="btn btn-primary btn-block"
            onClick={this.getTeachAPI().startLogin}>Log In</button>
-          <button className="btn btn-default"
+          <button className="btn btn-default btn-block"
            onClick={this.handleJoinClick}>Create an account</button>
         </div>
       );
@@ -206,10 +206,11 @@ var ModalAddYourClub = React.createClass({
       );
     } else if (this.state.step == this.STEP_SHOW_RESULT) {
       content = (
-        <div>
+        <div className="text-center">
+          <p><img src="/img/globe-with-pin.svg"/></p>
           <h2>We've added your Club!</h2>
           <p>Your club is now displayed on our map. Go ahead, take a look!</p>
-          <button className="btn btn-primary"
+          <button className="btn btn-primary btn-block"
            onClick={this.handleSuccessClick}>
             Take Me To My Club
           </button>
