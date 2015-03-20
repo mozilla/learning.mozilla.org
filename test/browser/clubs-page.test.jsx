@@ -30,3 +30,37 @@ describe("ClubsPage", function() {
     teachAPI.updateClubs.callCount.should.equal(1);
   });
 });
+
+describe("ClubsPage.ModalAddYourClub", function() {
+  var modal;
+
+  beforeEach(function() {
+    modal = stubContext.render(ClubsPage.ModalAddYourClub, {
+      onAddClub: function() {}
+    });
+  });
+
+  afterEach(function() {
+    stubContext.unmount(modal);
+  });
+
+  it("renders", function() {
+    modal.getDOMNode().textContent.should.match(/add your club/i);
+  });
+});
+
+describe("ClubsPage.ModalLearnMore", function() {
+  var modal;
+
+  beforeEach(function() {
+    modal = stubContext.render(ClubsPage.ModalLearnMore);
+  });
+
+  afterEach(function() {
+    stubContext.unmount(modal);
+  });
+
+  it("renders", function() {
+    modal.getDOMNode().textContent.should.match(/learn more/i);
+  });
+});

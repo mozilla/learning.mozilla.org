@@ -178,6 +178,8 @@ var ModalLearnMore = React.createClass({
 var ClubsPage = React.createClass({
   mixins: [ModalManagerMixin, TeachAPIClientMixin],
   statics: {
+    ModalAddYourClub: ModalAddYourClub,
+    ModalLearnMore: ModalLearnMore,
     teachAPIEvents: {
       'clubs:change': 'forceUpdate',
       'username:change': 'forceUpdate'
