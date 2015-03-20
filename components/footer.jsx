@@ -1,4 +1,6 @@
 var React = require('react');
+var Router = require('react-router');
+var Link = Router.Link;
 
 var HiveCities = React.createClass({
   CITIES: [
@@ -105,7 +107,7 @@ var Footer = React.createClass({
               <ul className="list-unstyled">
                 <li><a href="">Legal</a></li>
                 <li><a href="">Privacy</a></li>
-                <li><a href="/about">About</a></li>
+                <li><Link to="about">About</Link></li>
               </ul>
             </div>
           </div>
