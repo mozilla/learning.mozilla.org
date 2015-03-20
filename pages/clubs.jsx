@@ -138,7 +138,12 @@ var ModalAddOrChangeYourClub = React.createClass({
       networkError: false
     });
     if (this.props.club) {
-      clubState = _.extend({}, this.props.club, clubState)
+      clubState = _.extend({}, this.props.club, clubState);
+
+      // For now, let's always force re-geocoding.
+      clubState.latitude = null;
+      clubState.longitude = null;
+
       teachAPI.changeClub(clubState, this.handleNetworkResult);
     } else {
       teachAPI.addClub(clubState, this.handleNetworkResult);

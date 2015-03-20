@@ -207,7 +207,9 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
       name: 'blah',
       description: 'my club',
       location: 'somewhere',
-      website: 'http://boop'
+      website: 'http://boop',
+      latitude: 42,
+      longitude: 8
     };
 
     beforeEach(function() {
@@ -253,7 +255,9 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
           name: 'changed blah',
           description: 'my club',
           location: 'somewhere',
-          website: 'http://boop'
+          website: 'http://boop',
+          latitude: null,
+          longitude: null
         });
       });
 
