@@ -24,6 +24,8 @@ var stubContext = function(Component, props, stubs) {
       getCurrentParams: func,
       getCurrentQuery: func,
       isActive: func,
+      showModal: func,
+      hideModal: func,
       teachAPI: React.PropTypes.object
     },
 
@@ -40,6 +42,8 @@ var stubContext = function(Component, props, stubs) {
         getCurrentParams: noop,
         getCurrentQuery: noop,
         isActive: noop,
+        showModal: noop,
+        hideModal: noop,
         teachAPI: new StubTeachAPI()
       }, stubs);
     },

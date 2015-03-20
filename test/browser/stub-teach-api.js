@@ -7,7 +7,11 @@ function StubTeachAPI() {
   teachAPI.logout = sinon.spy();
   teachAPI.startLogin = sinon.spy();
   teachAPI.getUsername = sinon.stub();
-  teachAPI.getAllClubsData = sinon.spy();
+  teachAPI.getClubs = sinon.stub();
+  teachAPI.updateClubs = sinon.spy();
+
+  teachAPI.getUsername.returns(null);
+  teachAPI.getClubs.returns([]);
 
   return teachAPI;
 }

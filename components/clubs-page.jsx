@@ -1,4 +1,5 @@
-var React = require('react');
+var _ = require('underscore');
+var React = require('react/addons');
 var Router = require('react-router');
 var Link = Router.Link;
 
@@ -10,6 +11,7 @@ var IconLink = require('./icon-link.jsx');
 var PageEndCTA = require('./page-end-cta.jsx');
 var Modal = require('./modal.jsx');
 var ModalManagerMixin = require('../mixins/modal-manager');
+var TeachAPIClientMixin = require('../mixins/teach-api-client');
 
 var WebLitMap = React.createClass({
   render: function() {
@@ -122,25 +124,59 @@ var BottomCTA = React.createClass({
 
 
 var ModalAddYourClub = React.createClass({
+  mixins: [React.addons.LinkedStateMixin, ModalManagerMixin],
+  propTypes: {
+    onAddClub: React.PropTypes.func.isRequired
+  },
+  getInitialState: function() {
+    return {
+      name: '',
+      website: '',
+      description: '',
+      location: ''
+    };
+  },
+  handleSubmit: function(e) {
+    e.preventDefault();
+    this.props.onAddClub(_.pick(this.state,
+      'name', 'website', 'description', 'location'
+    ), function(err) {
+      if (err) {
+        window.alert("Alas, an error occurred. Please try again later!");
+        console.log(err);
+      } else {
+        window.alert("Your club has been added!");
+        this.hideModal();
+      }
+    }.bind(this));
+  },
   render: function() {
     return(
-      <Modal modalTitle="Add Your Clubs To The Map">
-        <form>
+      <Modal modalTitle="Add Your Club To The Map">
+        <form onSubmit={this.handleSubmit}>
           <fieldset>
             <label>What is the name of your Club?</label>
-            <input type="text" placeholder="We love creative Club names" />
+            <input type="text" placeholder="We love creative Club names"
+             required
+             valueLink={this.linkState('name')} />
           </fieldset>
           <fieldset>
             <label>Where does it take place?</label>
-            <input type="text" placeholder="Type in a city or a country" />
+            <input type="text" placeholder="Type in a city or a country"
+             required
+             valueLink={this.linkState('location')} />
           </fieldset>
           <fieldset>
-            <label>Does your Club have a website?</label>
-            <input type="text" placeholder="www.myclubwebsite.com" />
+            <label>What is your Club&lsquo;s website?</label>
+            <input type="url" placeholder="http://www.myclubwebsite.com"
+             required
+             valueLink={this.linkState('website')} />
           </fieldset>
           <fieldset>
             <label>What do you focus your efforts on?</label>
-            <textarea rows="5" placeholder="Give us a brief description about what your Club is about." />
+            <textarea rows="5" placeholder="Give us a brief description about what your Club is about."
+             required
+             valueLink={this.linkState('description')} />
           </fieldset>
           <input type="submit" className="btn" value="Add Your Club To The Map" />
         </form>
@@ -151,13 +187,17 @@ var ModalAddYourClub = React.createClass({
 
 
 var ModalLearnMore = React.createClass({
+  handleSubmit: function(e) {
+    e.preventDefault();
+    window.alert("Sorry, this functionality has not yet been implemented.");
+  },
   render: function() {
     return(
       <Modal modalTitle="Learn More About Hive Learning Clubs">
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <fieldset>
             <label>What is your first name?</label>
-            <input type="text" placeholder="We're a friendly bunch, promised!" />
+            <input type="text" placeholder="We're a friendly bunch, promise!" />
           </fieldset>
           <fieldset>
             <label>Where does it take place?</label>
@@ -177,17 +217,54 @@ var ModalLearnMore = React.createClass({
 
 
 var ClubsPage = React.createClass({
-  mixins: [ModalManagerMixin],
+  mixins: [ModalManagerMixin, TeachAPIClientMixin],
   statics: {
+    teachAPIEvents: {
+      'clubs:change': 'forceUpdate',
+      'username:change': 'forceUpdate'
+    },
     pageClassName: "clubs"
   },
+  componentDidMount: function() {
+    this.getTeachAPI().updateClubs();
+  },
   showAddYourClubModal: function() {
-    this.showModal(ModalAddYourClub);
+    if (!this.getTeachAPI().getUsername()) {
+      window.alert("You need to log in before you can add a club!");
+      return;
+    }
+    this.showModal(ModalAddYourClub, {
+      onAddClub: this.getTeachAPI().addClub
+    });
   },
   showLearnMoreModal: function() {
     this.showModal(ModalLearnMore);
   },
+  handleClubDelete: function(url, clubName) {
+    var confirmed = window.confirm(
+      "Are you sure you want to delete the club \"" + clubName + "\"? " +
+      "This action cannot be undone!"
+    );
+    if (!confirmed) {
+      return;
+    }
+    this.getTeachAPI().deleteClub(url, function(err) {
+      if (err) {
+        console.log(err);
+        window.alert("An error occurred! Please try again later.");
+      }
+      window.alert("Your club has been removed.");
+    });
+  },
+  handleClubEdit: function(url) {
+    console.log(url);
+    window.alert("Sorry, club editing has not yet been implemented.");
+  },
   render: function() {
+    var teachAPI = this.getTeachAPI();
+    var clubs = teachAPI.getClubs();
+    var username = teachAPI.getUsername();
+
     return (
       <div>
         <HeroUnit image="/img/hero-clubs.jpg">
@@ -198,8 +275,12 @@ var ClubsPage = React.createClass({
         <section>
           <WebLitMap/>
           <div className="mapDiv" id="mapDivID">
-            <Map className={'mapDivChild'} />
-           </div>
+            <Map className="mapDivChild"
+             clubs={clubs}
+             username={username}
+             onDelete={this.handleClubDelete}
+             onEdit={this.handleClubEdit}/>
+          </div>
         </section>
         <section>
           <HowClubWorks/>
