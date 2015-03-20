@@ -207,10 +207,10 @@ var ModalAddYourClub = React.createClass({
     } else if (this.state.step == this.STEP_SHOW_RESULT) {
       content = (
         <div className="text-center">
-          <p><img src="/img/globe-with-pin.svg"/></p>
+          <p><img className="globe" src="/img/globe-with-pin.svg"/></p>
           <h2>We've added your Club!</h2>
           <p>Your club is now displayed on our map. Go ahead, take a look!</p>
-          <button className="btn btn-primary btn-block"
+          <button className="btn btn-block"
            onClick={this.handleSuccessClick}>
             Take Me To My Club
           </button>
@@ -246,7 +246,7 @@ var ModalLearnMore = React.createClass({
           </fieldset>
           <fieldset>
             <label>What is your e-mail?</label>
-            <p>A member of our team will personally reach out to you.</p>
+            <p className="small">A member of our team will personally reach out to you.</p>
             <input type="email" placeholder="email@example.com" />
           </fieldset>
           <input type="submit" className="btn" value="Find Out More" />
