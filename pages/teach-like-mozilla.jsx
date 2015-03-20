@@ -1,8 +1,8 @@
 var React = require('react');
 
-var HeroUnit = require('./hero-unit.jsx');
-var IconLinks = require('./icon-links.jsx');
-var IconLink = require('./icon-link.jsx');
+var HeroUnit = require('../components/hero-unit.jsx');
+var IconLinks = require('../components/icon-links.jsx');
+var IconLink = require('../components/icon-link.jsx');
 
 var TeachLikeMozillaPage = React.createClass({
   statics: {
