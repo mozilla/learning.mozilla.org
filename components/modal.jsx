@@ -1,10 +1,9 @@
-var React = require('react');
-var ReactAddons = require('react/addons');
+var React = require('react/addons');
 
 var ModalManagerMixin = require('../mixins/modal-manager');
 
 var Modal = React.createClass({
-  mixins: [ReactAddons.PureRenderMixin, ModalManagerMixin],
+  mixins: [React.addons.PureRenderMixin, ModalManagerMixin],
   componentDidMount: function() {
     document.addEventListener('keydown', this.handleKeyDown);
   },

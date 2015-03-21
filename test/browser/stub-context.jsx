@@ -4,6 +4,7 @@
 var _ = require('underscore');
 var React =require('react/addons');
 var TestUtils = React.addons.TestUtils;
+var sinon = window.sinon;
 
 var StubTeachAPI = require('./stub-teach-api');
 
@@ -43,7 +44,7 @@ var stubContext = function(Component, props, stubs) {
         getCurrentQuery: noop,
         isActive: noop,
         showModal: noop,
-        hideModal: noop,
+        hideModal: sinon.spy(),
         teachAPI: new StubTeachAPI()
       }, stubs);
     },

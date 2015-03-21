@@ -1,5 +1,7 @@
 var _ = require('underscore');
 var React = require('react/addons');
+var Router = require('react-router');
+var Link = Router.Link;
 
 var Page = require('../components/page.jsx');
 var HeroUnit = require('../components/hero-unit.jsx');
@@ -82,63 +84,176 @@ var BottomCTA = React.createClass({
 });
 
 
-var ModalAddYourClub = React.createClass({
-  mixins: [React.addons.LinkedStateMixin, ModalManagerMixin],
+var ModalAddOrChangeYourClub = React.createClass({
+  mixins: [React.addons.LinkedStateMixin, ModalManagerMixin,
+           Router.Navigation, TeachAPIClientMixin],
   propTypes: {
-    onAddClub: React.PropTypes.func.isRequired
+    // If club is provided, then we're a 'change' dialog, otherwise
+    // we're an 'add' dialog.
+    club: React.PropTypes.object,
+    onSuccess: React.PropTypes.func.isRequired
   },
+  statics: {
+    teachAPIEvents: {
+      'username:change': 'handleUsernameChange',
+    }
+  },
+  STEP_AUTH: 1,
+  STEP_FORM: 2,
+  STEP_WAIT_FOR_NETWORK: 3,
+  STEP_SHOW_RESULT: 4,
   getInitialState: function() {
-    return {
+    var clubState = {
       name: '',
       website: '',
       description: '',
       location: ''
     };
+    if (this.props.club) {
+      _.extend(clubState, _.pick(this.props.club,
+        'name', 'website', 'description', 'location'
+      ));
+    }
+    return _.extend(clubState, {
+      step: this.getStepForAuthState(!!this.getTeachAPI().getUsername()),
+      result: null,
+      networkError: false
+    });
+  },
+  getStepForAuthState: function(isLoggedIn) {
+    return isLoggedIn ? this.STEP_FORM : this.STEP_AUTH;
+  },
+  handleUsernameChange: function(username) {
+    this.setState({step: this.getStepForAuthState(!!username)});
   },
   handleSubmit: function(e) {
-    e.preventDefault();
-    this.props.onAddClub(_.pick(this.state,
+    var teachAPI = this.getTeachAPI();
+    var clubState = _.pick(this.state,
       'name', 'website', 'description', 'location'
-    ), function(err) {
-      if (err) {
-        window.alert("Alas, an error occurred. Please try again later!");
-        console.log(err);
-      } else {
-        window.alert("Your club has been added!");
-        this.hideModal();
-      }
-    }.bind(this));
+    );
+
+    e.preventDefault();
+    this.setState({
+      step: this.STEP_WAIT_FOR_NETWORK,
+      networkError: false
+    });
+    if (this.props.club) {
+      clubState = _.extend({}, this.props.club, clubState);
+
+      // For now, let's always force re-geocoding.
+      clubState.latitude = null;
+      clubState.longitude = null;
+
+      teachAPI.changeClub(clubState, this.handleNetworkResult);
+    } else {
+      teachAPI.addClub(clubState, this.handleNetworkResult);
+    }
+  },
+  handleNetworkResult: function(err, data) {
+    if (!this.isMounted()) {
+      return;
+    }
+    this.setState({
+      networkError: !!err,
+      step: err ? this.STEP_FORM : this.STEP_SHOW_RESULT,
+      result: err ? null : data
+    });
+  },
+  handleSuccessClick: function() {
+    this.hideModal();
+    this.props.onSuccess(this.state.result);
+  },
+  handleJoinClick: function() {
+    this.hideModal();
+    this.transitionTo('join');
   },
   render: function() {
+    var content, isFormDisabled;
+    var isAdd = !this.props.club;
+    var action = isAdd ? "add" : "change";
+    var modalTitle = isAdd ? "Add Your Club To The Map"
+                           : "Change Your Club";
+
+    if (this.state.step == this.STEP_AUTH) {
+      content = (
+        <div>
+          <p>Before you can {action} your club, you need to log in.</p>
+          <button className="btn btn-primary btn-block"
+           onClick={this.getTeachAPI().startLogin}>Log In</button>
+          <button className="btn btn-default btn-block"
+           onClick={this.handleJoinClick}>Create an account</button>
+        </div>
+      );
+    } else if (this.state.step == this.STEP_FORM ||
+               this.state.step == this.STEP_WAIT_FOR_NETWORK) {
+      isFormDisabled = (this.state.step == this.STEP_WAIT_FOR_NETWORK);
+      content = (
+        <div>
+          {this.state.networkError
+           ? <div className="alert alert-danger">
+               <p>Unfortunately, an error occurred when trying to {action} your club.</p>
+               <p>Please try again later.</p>
+             </div>
+           : null}
+          <form onSubmit={this.handleSubmit}>
+            <fieldset>
+              <label>What is the name of your Club?</label>
+              <input type="text" placeholder="We love creative Club names"
+               disabled={isFormDisabled}
+               required
+               valueLink={this.linkState('name')} />
+            </fieldset>
+            <fieldset>
+              <label>Where does it take place?</label>
+              <input type="text" placeholder="Type in a city or a country"
+               disabled={isFormDisabled}
+               required
+               valueLink={this.linkState('location')} />
+            </fieldset>
+            <fieldset>
+              <label>What is your Club&lsquo;s website?</label>
+              <input type="url" placeholder="http://www.myclubwebsite.com"
+               disabled={isFormDisabled}
+               required
+               valueLink={this.linkState('website')} />
+            </fieldset>
+            <fieldset>
+              <label>What do you focus your efforts on?</label>
+              <textarea rows="5" placeholder="Give us a brief description about what your Club is about."
+               disabled={isFormDisabled}
+               required
+               valueLink={this.linkState('description')} />
+            </fieldset>
+            <input type="submit" className="btn"
+             disabled={isFormDisabled}
+             value={isFormDisabled
+                    ? (isAdd ? "Adding Your Club..."
+                             : "Changing Your Club...")
+                    : modalTitle} />
+          </form>
+        </div>
+      );
+    } else if (this.state.step == this.STEP_SHOW_RESULT) {
+      content = (
+        <div className="text-center">
+          <p><img className="globe" src="/img/globe-with-pin.svg"/></p>
+          {isAdd
+           ? <div>
+               <h2>We've added your Club!</h2>
+               <p>Your club is now displayed on our map. Go ahead, take a look!</p>
+             </div>
+           : <h2>Your club has been changed.</h2>}
+          <button className="btn btn-block"
+           onClick={this.handleSuccessClick}>
+            Take Me To My Club
+          </button>
+        </div>
+      );
+    }
+
     return(
-      <Modal modalTitle="Add Your Club To The Map">
-        <form onSubmit={this.handleSubmit}>
-          <fieldset>
-            <label>What is the name of your Club?</label>
-            <input type="text" placeholder="We love creative Club names"
-             required
-             valueLink={this.linkState('name')} />
-          </fieldset>
-          <fieldset>
-            <label>Where does it take place?</label>
-            <input type="text" placeholder="Type in a city or a country"
-             required
-             valueLink={this.linkState('location')} />
-          </fieldset>
-          <fieldset>
-            <label>What is your Club&lsquo;s website?</label>
-            <input type="url" placeholder="http://www.myclubwebsite.com"
-             required
-             valueLink={this.linkState('website')} />
-          </fieldset>
-          <fieldset>
-            <label>What do you focus your efforts on?</label>
-            <textarea rows="5" placeholder="Give us a brief description about what your Club is about."
-             required
-             valueLink={this.linkState('description')} />
-          </fieldset>
-          <input type="submit" className="btn" value="Add Your Club To The Map" />
-        </form>
+      <Modal modalTitle={modalTitle}>
+        {content}
       </Modal>
     );
   }
@@ -164,7 +279,7 @@ var ModalLearnMore = React.createClass({
           </fieldset>
           <fieldset>
             <label>What is your e-mail?</label>
-            <p>A member of our team will personally reach out to you.</p>
+            <p className="small">A member of our team will personally reach out to you.</p>
             <input type="email" placeholder="email@example.com" />
           </fieldset>
           <input type="submit" className="btn" value="Find Out More" />
@@ -178,7 +293,7 @@ var ModalLearnMore = React.createClass({
 var ClubsPage = React.createClass({
   mixins: [ModalManagerMixin, TeachAPIClientMixin],
   statics: {
-    ModalAddYourClub: ModalAddYourClub,
+    ModalAddOrChangeYourClub: ModalAddOrChangeYourClub,
     ModalLearnMore: ModalLearnMore,
     teachAPIEvents: {
       'clubs:change': 'forceUpdate',
@@ -190,16 +305,15 @@ var ClubsPage = React.createClass({
     this.getTeachAPI().updateClubs();
   },
   showAddYourClubModal: function() {
-    if (!this.getTeachAPI().getUsername()) {
-      window.alert("You need to log in before you can add a club!");
-      return;
-    }
-    this.showModal(ModalAddYourClub, {
-      onAddClub: this.getTeachAPI().addClub
+    this.showModal(ModalAddOrChangeYourClub, {
+      onSuccess: this.handleAddClubSuccess
     });
   },
   showLearnMoreModal: function() {
     this.showModal(ModalLearnMore);
+  },
+  handleAddClubSuccess: function(club) {
+    this.refs.map.focusOnClub(club);
   },
   handleClubDelete: function(url, clubName) {
     var confirmed = window.confirm(
@@ -218,8 +332,13 @@ var ClubsPage = React.createClass({
     });
   },
   handleClubEdit: function(url) {
-    console.log(url);
-    window.alert("Sorry, club editing has not yet been implemented.");
+    var club = _.findWhere(this.getTeachAPI().getClubs(), {
+      url: url
+    });
+    this.showModal(ModalAddOrChangeYourClub, {
+      club: club,
+      onSuccess: this.handleAddClubSuccess
+    });
   },
   render: function() {
     var teachAPI = this.getTeachAPI();
@@ -236,7 +355,7 @@ var ClubsPage = React.createClass({
         <section>
           <WebLitMap/>
           <div className="mapDiv" id="mapDivID">
-            <Map className="mapDivChild"
+            <Map ref="map" className="mapDivChild"
              clubs={clubs}
              username={username}
              onDelete={this.handleClubDelete}

@@ -1,3 +1,8 @@
+.modal-header,
+.modal-body {
+  padding: 1.5rem 2rem;
+}
+
 .modal-dialog {
   background-color: @white;
   border: .1rem solid @modal-outer-border-color;
@@ -6,21 +11,66 @@
     width: 50rem;
     margin: 10rem auto;
   }
-  label {
-    display: block;
-    margin-bottom: 0;
+  .modal-header {
+    background-color: #EDEDED;
+    border-bottom: .1rem solid @modal-inner-border-color;
+    font-weight: 600;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    .modal-title, button {
+      line-height: 2.4rem;
+      font-size: 1.8rem;
+      margin-top: 0;
+    }
   }
-  label + p {
-    margin-bottom: 0;
-  }
-  input,
-  textarea {
-    width: 100%;
-    padding: .7rem 1rem;
-    margin-top: .5rem;
-  }
-  fieldset {
-    margin-bottom: 1.2rem;
+  .modal-body {
+    h2 {
+      font-weight: 500;
+      font-size: 3rem;
+      letter-spacing: -0.02rem;
+      margin: 1rem 0 0.5rem 0;
+    }
+    label {
+      display: block;
+      margin-bottom: 0;
+      font-size: 1.4rem;
+      color: @grey;
+      font-weight: 600;
+    }
+    label + p {
+      margin-bottom: 0;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-top: 1rem;
+      font-weight: 400;
+      font-style: 1.4rem;
+      border: 1px solid #D2D2D2;
+      box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
+    }
+    fieldset {
+      margin-bottom: 2rem;
+      &:nth-last-child(2){
+        margin-bottom: 0;
+      }
+    }
+    .globe {
+      padding: 1rem 0;
+    }
+    .btn {
+      margin: 2rem 0 0 0;
+      padding: 1.4rem 0;
+      background: @orangeSidebarColor;
+      color: @white;
+      font-size: 1.6rem;
+      font-weight: 600;
+      border-radius: 0px;
+      border: 1px solid darken(@orangeSidebarColor, 15%);
+      &:hover {
+        background: saturate(@orangeSidebarColor, 10%);
+      }
+    }
   }
 }
 
@@ -29,26 +79,3 @@
   height: 100%;
 }
 
-.modal-header,
-.modal-body {
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
-.modal-header {
-  background-color: #EDEDED;
-  border-bottom: .1rem solid @modal-inner-border-color;
-  font-weight: 600;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  .modal-title,
-  button {
-    line-height: 2.4rem;
-    font-size: 1.8rem;
-  }
-}
-
-.modal-body {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
