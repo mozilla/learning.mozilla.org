@@ -1,0 +1,68 @@
+.activities {
+  .hive-links {
+    margin: 2.5rem 0;
+    .hive-link {
+      white-space: nowrap;
+      margin: 0.6rem 0;
+      .image-tag {
+        width: 6.3rem;
+      }
+      span {
+        margin: 0 0 0 1rem;
+        text-transform: uppercase;
+      }
+    }
+  }
+  .global-image {
+    img {
+      max-width: 27rem;
+    }
+  }
+  .activity-kit {
+    .span-content {
+      padding: 0 .5rem;
+    }
+    img {
+      max-width: 22.5rem;
+      margin-top: 2rem;
+    }
+    .activity-kit-content {
+      div {
+        margin: .4rem 0;
+        &.description {
+          margin: .8rem 0;
+        }
+      }
+    }
+    .blue-box {
+      background: lighten(@blueSidebarColor, 15%);
+      color: white;
+      border-radius: 5px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+  .arrow-image-container {
+    width: 33.33%;
+    .arrow-image {
+      display: none;
+      margin-bottom: -5.8rem;
+      @media (min-width: @screen-sm-min) {
+        display: inline;
+        padding-left: 50%;
+        margin-left: -1.4rem;
+      }
+    }
+  }
+  .illustration {
+    .image-container {
+      text-align: left;
+      @media (min-width: @screen-sm-min) {
+        text-align: center;
+      }
+      img {
+        border-radius: 4px;
+      }
+    }
+  }
+}
