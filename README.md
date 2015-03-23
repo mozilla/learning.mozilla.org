@@ -145,9 +145,7 @@ string), the boolean is true; otherwise, it's false.
 `TEACH_API_URL` | is the origin of the [Teach API][] server. Defaults to `https://teach-api.herokuapp.com`.
 `GA_ACCOUNT` | is the property ID of the Google Analytics account. E.g. `UA-123...`. Optional.
 
-
-
-### To use environment variables in local development:
+### Using Environment Variables in Local Development
 
 First, create a `.env` file in the root of your project:
 
@@ -158,6 +156,9 @@ export TEACH_API_URL='xxxxxxx'
 
 Then run `source .env` before running `npm start`.
 
+**Note:** If you're on Windows, this won't work, and you'll likely
+want to create a batch file that uses
+[`setx.exe`](http://stackoverflow.com/a/11190331).
 
 ## References
 
