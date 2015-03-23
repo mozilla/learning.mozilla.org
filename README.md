@@ -45,6 +45,10 @@ npm start
 
 This will start a webserver for you at `http://localhost:8008`, and run a `watch` process so that your front-end assets will be regenerated as you make changes.
 
+#### Adding New Components
+
+To add a new component just run `npm run addtest`, which will prompt you for a component name (please use **hyphen-case** for naming). This will add a new component in the `/components` directory, which includes a scaffolded `test` subdirectory.
+
 ### Directory and naming conventions
 
 JS
