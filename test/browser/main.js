@@ -1,6 +1,7 @@
 process.env.NODE_ENV = 'test';
 
 require('./config.test.js');
+require('./page.test.jsx');
 require('./sidebar.test.jsx');
 require('./imagetag.test.jsx');
 require('./teach-api.test.js');

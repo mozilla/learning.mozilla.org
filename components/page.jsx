@@ -25,6 +25,13 @@ var Page = React.createClass({
   hideModal: function() {
     this.setState({modalClass: null, modalProps: null});
   },
+  componentDidUpdate: function(prevProps, prevState) {
+    if (this.state.modalClass && !prevState.modalClass) {
+      document.body.classList.add('modal-open');
+    } else if (!this.state.modalClass && prevState.modalClass) {
+      document.body.classList.remove('modal-open');
+    }
+  },
   getTeachAPI: function() {
     if (!this.teachAPI) {
       this.teachAPI = new TeachAPI();
