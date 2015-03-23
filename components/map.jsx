@@ -1,5 +1,7 @@
 var urlParse = require('url').parse;
 var React = require('react');
+var request = require('superagent');
+
 var mapboxId = process.env.MAPBOX_MAP_ID || 'alicoding.ldmhe4f3';
 var accessToken = process.env.MAPBOX_ACCESS_TOKEN || 'pk.eyJ1IjoiYWxpY29kaW5nIiwiYSI6Il90WlNFdE0ifQ.QGGdXGA_2QH-6ujyZE2oSg';
 
@@ -72,6 +74,44 @@ var MarkerPopup = React.createClass({
 var Map = React.createClass({
   propTypes: {
     className: React.PropTypes.string.isRequired
+  },
+  statics: {
+    getAutocompleteOptions: function(input, callback) {
+      var url = 'http://api.tiles.mapbox.com/v4/geocode/mapbox.places/' +
+                encodeURIComponent(input) +
+                '.json?access_token=' + accessToken;
+      if (!input) {
+        return process.nextTick(function() {
+          callback(null, {
+            options: []
+          });
+        });
+      }
+      request('get', url)
+        .accept('json')
+        .end(function(err, res) {
+          if (err) {
+            return callback(err);
+          }
+          // Mapbox sets its content-type to 'application/vnd.geo+json',
+          // which superagent doesn't think is JSON, so we'll parse the
+          // JSON ourselves.
+          var features = JSON.parse(res.text).features;
+          callback(null, {
+            options: features.map(function(feature) {
+              var info = {
+                location: feature.place_name,
+                latitude: feature.center[1],
+                longitude: feature.center[0]
+              };
+              return {
+                value: JSON.stringify(info),
+                label: info.location
+              };
+            })
+          });
+        });
+    }
   },
   componentDidMount: function() {
     require('mapbox.js'); // this will automatically attach to Window object.

@@ -18,7 +18,7 @@ function ensureFormFieldsDisabledValue(component, isDisabled) {
       tag
     ).forEach(function(component) {
       found++;
-      component.props.disabled.should.equal(isDisabled);
+      component.getDOMNode().disabled.should.equal(isDisabled);
     });
   });
 
@@ -151,7 +151,9 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
           name: 'blorpy',
           location: 'chicago',
           website: 'http://example.org',
-          description: 'this is my club'
+          description: 'this is my club',
+          latitude: null,
+          longitude: null
         });
       });
 
@@ -256,8 +258,8 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
           description: 'my club',
           location: 'somewhere',
           website: 'http://boop',
-          latitude: null,
-          longitude: null
+          latitude: 42,
+          longitude: 8
         });
       });
 

@@ -40,14 +40,22 @@
     label + p {
       margin-bottom: 0;
     }
-    input, textarea {
-      width: 100%;
-      padding: 1rem;
+    input, textarea, .Select-control {
       margin-top: 1rem;
       font-weight: 400;
       font-style: 1.4rem;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 1rem;
       border: 1px solid #D2D2D2;
       box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
+    }
+    .Select-input input {
+      padding: 0;
+      margin-top: 0;
+      border: none;
+      box-shadow: none;
     }
     fieldset {
       margin-bottom: 2rem;
