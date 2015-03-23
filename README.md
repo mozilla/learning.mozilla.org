@@ -143,6 +143,21 @@ string), the boolean is true; otherwise, it's false.
 `MAPBOX_ACCESS_TOKEN` | is the [Mapbox][] access token to use for embedded maps in the website. Optional.
 `MAPBOX_MAP_ID` | is the Mapbox map ID to use for embedded maps in the website. Optional.
 `TEACH_API_URL` | is the origin of the [Teach API][] server. Defaults to `https://teach-api.herokuapp.com`.
+`GA_ACCOUNT` | is the property ID of the Google Analytics account. E.g. `UA-123...`. Optional.
+
+
+
+### To use environment variables in local development:
+
+First, create a `.env` file in the root of your project:
+
+```
+export GA_ACCOUNT='xxxxxxx'
+export TEACH_API_URL='xxxxxxx'
+```
+
+Then run `source .env` before running `npm start`.
+
 
 ## References
 
