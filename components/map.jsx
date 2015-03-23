@@ -73,9 +73,16 @@ var MarkerPopup = React.createClass({
 
 var Map = React.createClass({
   propTypes: {
-    className: React.PropTypes.string.isRequired
+    className: React.PropTypes.string.isRequired,
+    clubs: React.PropTypes.array.isRequired,
+    username: React.PropTypes.string,
+    onDelete: React.PropTypes.func.isRequired,
+    onEdit: React.PropTypes.func.isRequired
   },
   statics: {
+    setAccessToken: function(value) {
+      accessToken = value;
+    },
     getAutocompleteOptions: function(input, callback) {
       var url = 'http://api.tiles.mapbox.com/v4/geocode/mapbox.places/' +
                 encodeURIComponent(input) +
