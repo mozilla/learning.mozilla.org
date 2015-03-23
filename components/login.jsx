@@ -3,6 +3,7 @@ var Router = require('react-router');
 var Link = Router.Link;
 
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
+var ga = require('../lib/googleanalytics.js');
 
 var Login = React.createClass({
   mixins: [TeachAPIClientMixin],
@@ -32,16 +33,20 @@ var Login = React.createClass({
     e.preventDefault();
     this.setState({loggingIn: true});
     this.getTeachAPI().startLogin();
+    ga.event({ category: 'Login', action: 'Start Login' });
   },
   handleLogoutClick: function(e) {
     e.preventDefault();
     this.getTeachAPI().logout();
+    ga.event({ category: 'Login', action: 'Clicked Logout' });
   },
   handleApiLoginError: function(err) {
     this.setState({loggingIn: false});
 
     if (process.env.NODE_ENV != "test") {
       console.log("Teach API error", err);
+      ga.event({ category: 'Login', action: 'Teach API Error',
+                nonInteraction:true});
     }
 
     if (err.hasNoWebmakerAccount) {
@@ -50,19 +55,26 @@ var Login = React.createClass({
         "have a Webmaker account associated with the email " +
         "address you used?"
       );
+      ga.event({ category: 'Login', action: 'Error: Has no Webmaker Account',
+                nonInteraction:true});
     } else {
       this.props.alert("An error occurred! Please try again later.");
+      ga.event({ category: 'Login', action: 'Error Occurred',
+                nonInteraction:true});
     }
   },
   handleApiLoginCancel: function() {
     this.setState({loggingIn: false});
+    ga.event({ category: 'Login', action: 'Cancelled Login' });
   },
   handleApiLoginSuccess: function(info) {
     this.setState({username: this.getTeachAPI().getUsername(),
                    loggingIn: false});
+    ga.event({ category: 'Login', action: 'Logged In' });
   },
   handleApiLogout: function() {
     this.setState({username: null, loggingIn: false});
+    ga.event({ category: 'Login', action: 'Logged Out' });
   },
   render: function() {
     var content;

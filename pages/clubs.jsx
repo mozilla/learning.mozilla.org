@@ -13,6 +13,7 @@ var PageEndCTA = require('../components/page-end-cta.jsx');
 var Modal = require('../components/modal.jsx');
 var ModalManagerMixin = require('../mixins/modal-manager');
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
+var ga = require('../lib/googleanalytics.js');
 
 var WebLitMap = React.createClass({
   render: function() {
@@ -262,6 +263,10 @@ var ModalAddOrChangeYourClub = React.createClass({
 
 var ModalLearnMore = React.createClass({
   handleSubmit: function(e) {
+
+    // Once this is wired up, the GA tracking should be fired after validation
+    ga.event({ category: 'Enquiries', action: 'Request to Find Out More' });
+
     e.preventDefault();
     window.alert("Sorry, this functionality has not yet been implemented.");
   },
