@@ -1,11 +1,19 @@
 .icon-link {
+  padding-bottom: 2rem;
   text-align: center;
-  img {
-    display: block;
-    margin: 0 auto;
-    transition: all 0.18s ease-in;
+  a {
+    color: inherit;
     &:hover {
-      transform: scale(1.1);
+      text-decoration: none;
+      img {
+        transform: scale(1.1);
+      }
+    }
+    img {
+      display: block;
+      margin: 0 auto;
+      transition: all 0.18s ease-in;
+      height: 7.5rem;
     }
   }
   h3 {

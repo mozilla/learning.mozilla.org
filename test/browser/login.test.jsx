@@ -1,33 +1,28 @@
 var EventEmitter = require('events').EventEmitter;
 var should = require('should');
-var sinon = window.sinon;
 var React =require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
-var stubRouterContext = require('./stub-router-context.jsx');
+var stubContext = require('./stub-context.jsx');
 var Login = require('../../components/login.jsx');
+var StubTeachAPI = require('./stub-teach-api');
 
 describe("login", function() {
-  var login, teachAPI, username, alerts;
+  var login, teachAPI, alerts;
 
   beforeEach(function() {
-    teachAPI = new EventEmitter();
-    username = null;
+    teachAPI = new StubTeachAPI();
     alerts = [];
-    teachAPI.logout = sinon.spy();
-    teachAPI.startLogin = sinon.spy();
-    teachAPI.getUsername = function() {
-      return username;
-    };
-    login = stubRouterContext.render(Login, {
-      teachAPI: teachAPI,
+    login = stubContext.render(Login, {
       alert: function(msg) { alerts.push(msg); }
+    }, {
+      teachAPI: teachAPI
     });
   });
 
   afterEach(function() {
     if (login) {
-      stubRouterContext.unmount(login);
+      stubContext.unmount(login);
     }
   });
 
@@ -43,7 +38,7 @@ describe("login", function() {
       EventEmitter.listenerCount(teachAPI, event).should.equal(1);
     });
 
-    stubRouterContext.unmount(login);
+    stubContext.unmount(login);
 
     events.forEach(function(event) {
       EventEmitter.listenerCount(teachAPI, event).should.equal(0);
@@ -102,7 +97,7 @@ describe("login", function() {
 
   it("handles login:success event", function() {
     login.setState({loggingIn: true});
-    username = "foo";
+    teachAPI.getUsername.returns("foo");
     teachAPI.emit('login:success');
     login.state.loggingIn.should.be.false;
     login.state.username.should.eql("foo");

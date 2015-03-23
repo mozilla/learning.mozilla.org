@@ -94,7 +94,7 @@ gulp.task('copy-vendor', function () {
 });
 
 gulp.task('less', function() {
-  return gulp.src('./less/common.less')
+  return gulp.src('./less/index.less')
     .pipe(handleError())
     .pipe(sourcemaps.init())
     .pipe(less({

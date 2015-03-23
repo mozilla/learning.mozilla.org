@@ -1,7 +1,7 @@
 var should = require('should');
 var sinon = window.sinon;
 
-var TeachAPI = require('../../lib/teach-api').TeachAPI;
+var TeachAPI = require('../../lib/teach-api');
 
 describe('TeachAPI', function() {
   var xhr, requests, storage;
@@ -17,6 +17,16 @@ describe('TeachAPI', function() {
 
   afterEach(function() {
     xhr.restore();
+  });
+
+  it('emits username:change event on logout', function(done) {
+    var api = new TeachAPI({storage: storage});
+
+    api.on('username:change', function(username) {
+      should(username).equal(null);
+      done();
+    });
+    api.logout();
   });
 
   it('clears storage on logout', function(done) {
@@ -91,7 +101,14 @@ describe('TeachAPI', function() {
     should(api.getUsername()).equal(null);
   });
 
-  describe('getAllClubsData()', function() {
+  it('autobinds its methods', function() {
+    var api = new TeachAPI({storage: storage});
+    var getClubs = api.getClubs;
+
+    getClubs().should.eql([]);
+  });
+
+  describe('updateClubs()', function() {
     var api;
 
     beforeEach(function() {
@@ -101,15 +118,34 @@ describe('TeachAPI', function() {
       });
     });
 
-    it('accesses /api/clubs', function() {
-      api.getAllClubsData(function() {});
+    it('accesses /api/clubs/', function() {
+      api.updateClubs();
       requests.length.should.equal(1);
       requests[0].method.should.eql('get');
-      requests[0].url.should.eql('http://example.org/api/clubs');
+      requests[0].url.should.eql('http://example.org/api/clubs/');
+    });
+
+    it('updates internal clubs list', function() {
+      api.updateClubs();
+      requests[0].respond(200, {
+        'Content-Type': 'application/json'
+      }, JSON.stringify([{name: "blah"}]));
+      api.getClubs().should.eql([{name: "blah"}]);
+    });
+
+    it('emits clubs:change event', function(done) {
+      api.on('clubs:change', function(data) {
+        data.should.eql([{name: "blah"}]);
+        done();
+      });
+      api.updateClubs();
+      requests[0].respond(200, {
+        'Content-Type': 'application/json'
+      }, JSON.stringify([{name: "blah"}]));
     });
 
     it('returns parsed JSON on success', function(done) {
-      api.getAllClubsData(function(err, data) {
+      api.updateClubs(function(err, data) {
         should(err).equal(null);
         data.should.eql([{name: "blah"}]);
         done();
@@ -120,7 +156,127 @@ describe('TeachAPI', function() {
     });
 
     it('returns an error on failure', function(done) {
-      api.getAllClubsData(function(err, data) {
+      api.updateClubs(function(err, data) {
+        err.message.should.eql("Internal Server Error");
+        done();
+      });
+      requests[0].respond(500);
+    });
+  });
+
+  describe('addClub()', function() {
+    var api;
+    var club = {name: "my cool club"};
+
+    beforeEach(function() {
+      api = new TeachAPI({
+        storage: storage,
+        baseURL: 'http://example.org'
+      });
+    });
+
+    it('accesses /api/clubs/', function() {
+      api.addClub(club);
+      requests.length.should.equal(1);
+      requests[0].method.should.eql('post');
+      requests[0].url.should.eql('http://example.org/api/clubs/');
+    });
+
+    it('sends JSON, returns parsed JSON on success', function(done) {
+      api.updateClubs = sinon.spy();
+      api.addClub(club, function(err, data) {
+        should(err).equal(null);
+        data.should.eql({name: "my cool club"});
+        done();
+      });
+      requests[0].requestHeaders['Content-Type']
+        .should.eql('application/json;charset=utf-8');
+      requests[0].respond(201, {
+        'Content-Type': 'application/json'
+      }, requests[0].requestBody);
+      api.updateClubs.callCount.should.equal(1);
+    });
+
+    it('returns an error on failure', function(done) {
+      api.addClub(club, function(err, data) {
+        err.message.should.eql("Internal Server Error");
+        done();
+      });
+      requests[0].respond(500);
+    });
+  });
+
+  describe('changeClub()', function() {
+    var api;
+    var club = {url: "http://foo/api/clubs/1/", name: "my cool club"};
+
+    beforeEach(function() {
+      api = new TeachAPI({
+        storage: storage,
+        baseURL: 'http://example.org'
+      });
+    });
+
+    it('accesses club.url', function() {
+      api.changeClub(club);
+      requests.length.should.equal(1);
+      requests[0].method.should.eql('put');
+      requests[0].url.should.eql('http://foo/api/clubs/1/');
+    });
+
+    it('sends JSON, returns parsed JSON on success', function(done) {
+      api.updateClubs = sinon.spy();
+      api.changeClub(club, function(err, data) {
+        should(err).equal(null);
+        data.should.eql({
+          url: "http://foo/api/clubs/1/",
+          name: "my cool club"
+        });
+        done();
+      });
+      requests[0].requestHeaders['Content-Type']
+        .should.eql('application/json;charset=utf-8');
+      requests[0].respond(201, {
+        'Content-Type': 'application/json'
+      }, requests[0].requestBody);
+      api.updateClubs.callCount.should.equal(1);
+    });
+
+    it('returns an error on failure', function(done) {
+      api.changeClub(club, function(err, data) {
+        err.message.should.eql("Internal Server Error");
+        done();
+      });
+      requests[0].respond(500);
+    });
+  });
+
+  describe('deleteClub()', function() {
+    var api;
+
+    beforeEach(function() {
+      api = new TeachAPI({storage: storage});
+    });
+
+    it('accesses the given URL', function() {
+      api.deleteClub('http://myserver/clubs/1');
+      requests.length.should.equal(1);
+      requests[0].method.should.eql('delete');
+      requests[0].url.should.eql('http://myserver/clubs/1');
+    });
+
+    it('returns no error on success', function(done) {
+      api.updateClubs = sinon.spy();
+      api.deleteClub('http://foo', function(err) {
+        should(err).equal(null);
+        done();
+      });
+      requests[0].respond(204);
+      api.updateClubs.callCount.should.equal(1);
+    });
+
+    it('returns an error on failure', function(done) {
+      api.deleteClub('http://foo', function(err, data) {
         err.message.should.eql("Internal Server Error");
         done();
       });
@@ -167,7 +323,10 @@ describe('TeachAPI', function() {
     });
 
     it('sends assertion to Teach API server', function() {
-      var api = new TeachAPI({storage: storage});
+      var api = new TeachAPI({
+        baseURL: 'http://example.org',
+        storage: storage
+      });
 
       api.startLogin();
       personaCb('hi');
@@ -176,7 +335,7 @@ describe('TeachAPI', function() {
 
       var r = requests[0];
 
-      r.url.should.eql('https://teach-api.herokuapp.com/auth/persona');
+      r.url.should.eql('http://example.org/auth/persona');
       r.requestHeaders.should.eql({
         'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
       });
@@ -216,7 +375,8 @@ describe('TeachAPI', function() {
       }, 'invalid assertion or email');
     });
 
-    it('stores login info and emits event upon success', function(done) {
+    it('stores login info and emits events upon success', function(done) {
+      var usernameEventEmitted = false;
       var api = new TeachAPI({storage: storage});
       var loginInfo = {
         'username': 'foo',
@@ -226,10 +386,15 @@ describe('TeachAPI', function() {
       api.startLogin();
       personaCb('hi');
 
+      api.on('username:change', function(username) {
+        username.should.eql('foo');
+        usernameEventEmitted = true;
+      });
       api.on('login:success', function(info) {
         info.should.eql(loginInfo);
         JSON.parse(storage['TEACH_API_LOGIN_INFO'])
           .should.eql(loginInfo);
+        usernameEventEmitted.should.be.true;
         done();
       });
 

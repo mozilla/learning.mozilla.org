@@ -49,6 +49,22 @@ This will start a webserver for you at `http://localhost:8008`, and run a `watch
 
 To add a new component just run `npm run addtest`, which will prompt you for a component name (please use **hyphen-case** for naming). This will add a new component in the `/components` directory, which includes a scaffolded `test` subdirectory.
 
+### Directory and naming conventions
+
+JS
+* `lib/`: Non-react modules, as well as entry-point modules like `main.jsx` and `routes.jsx`
+* `components/`: Re-usable react components that can be used throughout the site
+* `pages/`: React "page" components, i.e. top-level pages required by `lib/router`
+* `mixins/`: React mixins
+
+Less
+* `less/`: This is where you should add styles. `common.less` is the entry-point.
+
+Other
+* `test/`: For js tests, manual tests
+* `img/`: For images
+* `dist/`: Generated site assets goes here. **This folder is gitignored, do not edit files here.**
+
 ### Test
 
 Fully testing the code is accomplished by running `npm test`,

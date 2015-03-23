@@ -12,21 +12,21 @@ var urls = [];
 var routes = (
   <Route handler={Page}>
     <Route name="join" path="/join/"
-     handler={require('../components/join-page.jsx')}/>
+     handler={require('../pages/join.jsx')}/>
     <Route name="about" path="/about/"
-     handler={require('../components/about-page.jsx')}/>
+     handler={require('../pages/about.jsx')}/>
     <Route name="activities" path="/activities/"
-     handler={require('../components/activities-page.jsx')}/>
+     handler={require('../pages/activities.jsx')}/>
     <Route name="events" path="/events/"
-     handler={require('../components/events-page.jsx')}/>
-    <Route name="clubs" path="/clubs/"
-     handler={require('../components/clubs-page.jsx')}/>
+     handler={require('../pages/events.jsx')}/>
+    <Route name="mozilla-web-clubs" path="/mozilla-web-clubs/"
+     handler={require('../pages/clubs.jsx')}/>
     <Route name="teach-like-mozilla" path="/teach-like-mozilla/"
-     handler={require('../components/teach-like-mozilla-page.jsx')}/>
+     handler={require('../pages/teach-like-mozilla.jsx')}/>
      <Route name="fixme" path="/fixme/"
-     handler={require('../components/fixme-page.jsx')}/>
+     handler={require('../pages/fixme.jsx')}/>
     <DefaultRoute name="home"
-     handler={require('../components/home-page.jsx')}/>
+     handler={require('../pages/home.jsx')}/>
   </Route>
 );
 

@@ -2,9 +2,9 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 
-var HeroUnit = require('./hero-unit.jsx');
-var Blockquote = require('./blockquote.jsx');
-var ImageTag = require('./imagetag.jsx');
+var HeroUnit = require('../components/hero-unit.jsx');
+var Blockquote = require('../components/blockquote.jsx');
+var ImageTag = require('../components/imagetag.jsx');
 
 var CaseStudies = React.createClass({
   render: function() {
