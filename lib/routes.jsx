@@ -17,6 +17,8 @@ var routes = (
      handler={require('../pages/about.jsx')}/>
     <Route name="activities" path="/activities/"
      handler={require('../pages/activities.jsx')}/>
+    <Route name="weblit" path="/teach-like-mozilla/web-literacy/"
+     handler={require('../pages/web-literacy.jsx')}/>
     <Route name="events" path="/events/"
      handler={require('../pages/events.jsx')}/>
     <Route name="mozilla-web-clubs" path="/mozilla-web-clubs/"
@@ -25,7 +27,7 @@ var routes = (
      handler={require('../pages/clubs-curriculum.jsx')}/>
     <Route name="teach-like-mozilla" path="/teach-like-mozilla/"
      handler={require('../pages/teach-like-mozilla.jsx')}/>
-     <Route name="fixme" path="/fixme/"
+    <Route name="fixme" path="/fixme/"
      handler={require('../pages/fixme.jsx')}/>
     <DefaultRoute name="home"
      handler={require('../pages/home.jsx')}/>
