@@ -2,6 +2,7 @@ var _ = require('underscore');
 var React = require('react/addons');
 var Router = require('react-router');
 var Link = Router.Link;
+var Select = require('react-select');
 
 var Page = require('../components/page.jsx');
 var HeroUnit = require('../components/hero-unit.jsx');
@@ -108,11 +109,14 @@ var ModalAddOrChangeYourClub = React.createClass({
       name: '',
       website: '',
       description: '',
-      location: ''
+      location: '',
+      latitude: null,
+      longitude: null
     };
     if (this.props.club) {
       _.extend(clubState, _.pick(this.props.club,
-        'name', 'website', 'description', 'location'
+        'name', 'website', 'description', 'location', 'latitude',
+        'longitude'
       ));
     }
     return _.extend(clubState, {
@@ -127,24 +131,36 @@ var ModalAddOrChangeYourClub = React.createClass({
   handleUsernameChange: function(username) {
     this.setState({step: this.getStepForAuthState(!!username)});
   },
+  handleLocationChange: function(newValue) {
+    try {
+      newValue = JSON.parse(newValue);
+    } catch (e) {
+      newValue = {
+        location: '',
+        latitude: null,
+        longitude: null
+      };
+    }
+    this.setState(newValue);
+  },
   handleSubmit: function(e) {
     var teachAPI = this.getTeachAPI();
     var clubState = _.pick(this.state,
-      'name', 'website', 'description', 'location'
+      'name', 'website', 'description', 'location', 'latitude', 'longitude'
     );
-
     e.preventDefault();
+
+    if (!this.state.location) {
+      window.alert("Please provide a location for your club.");
+      return;
+    }
+
     this.setState({
       step: this.STEP_WAIT_FOR_NETWORK,
       networkError: false
     });
     if (this.props.club) {
       clubState = _.extend({}, this.props.club, clubState);
-
-      // For now, let's always force re-geocoding.
-      clubState.latitude = null;
-      clubState.longitude = null;
-
       teachAPI.changeClub(clubState, this.handleNetworkResult);
     } else {
       teachAPI.addClub(clubState, this.handleNetworkResult);
@@ -206,10 +222,29 @@ var ModalAddOrChangeYourClub = React.createClass({
             </fieldset>
             <fieldset>
               <label>Where does it take place?</label>
-              <input type="text" placeholder="Type in a city or a country"
+              <Select
                disabled={isFormDisabled}
-               required
-               valueLink={this.linkState('location')} />
+               placeholder="Type in a city or a country"
+
+               // We need to provide undefined instead of an empty
+               // string in order for the placeholder text to show.
+               value={this.state.location || undefined}
+
+               // Even though we are not using multi={true}, the Select
+               // component seems to split on the default multi delimiter,
+               // which is ",". Since that delimiter appears in every
+               // location string (e.g. "Brooklyn, NY US"), we want to
+               // set it to something that never appears.
+               delimiter="|"
+
+               // We do not want any suggestions auto-loaded until
+               // the user starts typing. Aside from that, though, tests
+               // fail w/ a React Invariant Violation if we do not
+               // disable this feature.
+               autoload={false}
+
+               asyncOptions={Map.getAutocompleteOptions}
+               onChange={this.handleLocationChange} />
             </fieldset>
             <fieldset>
               <label>What is your Club&lsquo;s website?</label>

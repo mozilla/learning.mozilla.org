@@ -10,3 +10,4 @@ require('./login.test.jsx');
 require('./modal.test.jsx');
 require('./modal-manager.test.js');
 require('./clubs-page.test.jsx');
+require('./map.test.jsx');

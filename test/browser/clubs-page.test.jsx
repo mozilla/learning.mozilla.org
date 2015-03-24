@@ -18,7 +18,7 @@ function ensureFormFieldsDisabledValue(component, isDisabled) {
       tag
     ).forEach(function(component) {
       found++;
-      component.props.disabled.should.equal(isDisabled);
+      component.getDOMNode().disabled.should.equal(isDisabled);
     });
   });
 
@@ -125,6 +125,24 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
       ensureFormFieldsDisabledValue(modal, false);
     });
 
+    it("handles location changes containing JSON", function() {
+      modal.handleLocationChange(JSON.stringify({
+        location: 'foo',
+        longitude: 35,
+        latitude: 24
+      }));
+      modal.state.location.should.eql('foo');
+      modal.state.longitude.should.equal(35);
+      modal.state.latitude.should.equal(24);
+    });
+
+    it("handles location changes not containing JSON", function() {
+      modal.handleLocationChange('');
+      modal.state.location.should.eql('');
+      should(modal.state.longitude).equal(null);
+      should(modal.state.latitude).equal(null);
+    });
+
     describe("when form is submitted", function() {
       var addClubCall, form;
 
@@ -151,7 +169,9 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
           name: 'blorpy',
           location: 'chicago',
           website: 'http://example.org',
-          description: 'this is my club'
+          description: 'this is my club',
+          latitude: null,
+          longitude: null
         });
       });
 
@@ -256,8 +276,8 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
           description: 'my club',
           location: 'somewhere',
           website: 'http://boop',
-          latitude: null,
-          longitude: null
+          latitude: 42,
+          longitude: 8
         });
       });
 
