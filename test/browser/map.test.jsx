@@ -17,6 +17,17 @@ var SAMPLE_FOO_CLUB = {
   name: 'my club'
 };
 
+var SAMPLE_BAR_CLUB = {
+  latitude: 3,
+  longitude: 4,
+  url: 'http://server/clubs/2/',
+  owner: 'bar',
+  description: 'bar club',
+  website: 'http://example.org/bar',
+  location: 'barville',
+  name: 'bar club'
+};
+
 describe("Map", function() {
   var map, xhr;
 
@@ -65,7 +76,7 @@ describe("Map.MarkerPopup", function() {
 });
 
 describe("Map.clubsToGeoJSON()", function() {
-  it("should work", function() {
+  it("should convert to geoJSON", function() {
     Map.clubsToGeoJSON([SAMPLE_FOO_CLUB]).should.eql([{
       type: 'Feature',
       geometry: {
@@ -82,6 +93,25 @@ describe("Map.clubsToGeoJSON()", function() {
         }]
       }
     }]);
+  });
+
+  it("should not group clubs in different locations together", function() {
+    var geoJSON = Map.clubsToGeoJSON([SAMPLE_FOO_CLUB, SAMPLE_BAR_CLUB]);
+    geoJSON.length.should.eql(2);
+    geoJSON[0].properties.clubs.length.should.eql(1);
+    geoJSON[1].properties.clubs.length.should.eql(1);
+  });
+
+  it("should group clubs in the same locations together", function() {
+    var geoJSON = Map.clubsToGeoJSON([
+      SAMPLE_FOO_CLUB,
+      _.extend({}, SAMPLE_BAR_CLUB, {
+        latitude: SAMPLE_FOO_CLUB.latitude,
+        longitude: SAMPLE_FOO_CLUB.longitude,
+      })
+    ]);
+    geoJSON.length.should.eql(1);
+    geoJSON[0].properties.clubs.length.should.eql(2);
   });
 });
 

@@ -6,25 +6,35 @@ var mapboxId = process.env.MAPBOX_MAP_ID || 'alicoding.ldmhe4f3';
 var accessToken = process.env.MAPBOX_ACCESS_TOKEN || 'pk.eyJ1IjoiYWxpY29kaW5nIiwiYSI6Il90WlNFdE0ifQ.QGGdXGA_2QH-6ujyZE2oSg';
 
 function geoJSONit(data) {
-  return data.map(function(i) {
-    return {
-      "geometry": {
-        "coordinates": [i.longitude*1, i.latitude*1],
-        "type": "Point"
-      },
-      "properties": {
-        "clubs": [{
-          "url": i.url,
-          "owner": i.owner,
-          "description": i.description,
-          "website": i.website,
-          "location": i.location,
-          "title": i.name
-        }]
-      },
-      "type": "Feature"
+  var places = {};
+
+  data.forEach(function(i) {
+    var key = JSON.stringify([i.longitude*1, i.latitude*1]);
+
+    if (!(key in places)) {
+      places[key] = {
+        "geometry": {
+          "coordinates": [i.longitude*1, i.latitude*1],
+          "type": "Point"
+        },
+        "properties": {
+          "clubs": []
+        },
+        "type": "Feature"
+      };
     }
+
+    places[key].properties.clubs.push({
+      "url": i.url,
+      "owner": i.owner,
+      "description": i.description,
+      "website": i.website,
+      "location": i.location,
+      "title": i.name
+    });
   });
+
+  return _.values(places);
 }
 
 // Note that the MarkerPopup classes will always be rendered to static
