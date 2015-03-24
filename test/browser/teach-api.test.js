@@ -72,7 +72,10 @@ describe('TeachAPI', function() {
   });
 
   it('does not set authorization header on bad URLs', function() {
-    var api = new TeachAPI({storage: storage});
+    var api = new TeachAPI({
+      baseURL: 'https://example.org',
+      storage: storage
+    });
 
     sinon.stub(console, 'warn');
     storage['TEACH_API_LOGIN_INFO'] = '{"token": "boop"}';
@@ -81,7 +84,7 @@ describe('TeachAPI', function() {
     requests[0].requestHeaders.should.eql({});
     console.warn.callCount.should.eql(1);
     console.warn.getCall(0).args[0].should.eql(
-      "Teach API base URL is https://teach-api.herokuapp.com which is at " +
+      "Teach API base URL is https://example.org which is at " +
       "a different origin from http://other.org/. Not sending auth token."
     );
     console.warn.restore();
