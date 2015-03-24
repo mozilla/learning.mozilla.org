@@ -33,6 +33,34 @@ describe("Map", function() {
   });
 });
 
+describe("Map.clubsToGeoJSON()", function() {
+  it("should work", function() {
+    Map.clubsToGeoJSON([{
+      latitude: 2,
+      longitude: 1,
+      url: 'http://server/clubs/1/',
+      owner: 'foo',
+      description: 'my club',
+      website: 'http://example.org/',
+      location: 'fooville',
+      name: 'my club'
+    }]).should.eql([{
+      type: 'Feature',
+      geometry: {
+        coordinates: [1, 2],
+        type: "Point"
+      }, properties: {
+        url: 'http://server/clubs/1/',
+        owner: 'foo',
+        description: 'my club',
+        website: 'http://example.org/',
+        location: 'fooville',
+        title: 'my club'
+      }
+    }]);
+  });
+});
+
 describe("Map.getAutocompleteOptions()", function() {
   var xhr, requests;
 

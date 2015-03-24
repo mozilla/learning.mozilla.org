@@ -80,6 +80,7 @@ var Map = React.createClass({
     onEdit: React.PropTypes.func.isRequired
   },
   statics: {
+    clubsToGeoJSON: geoJSONit,
     setAccessToken: function(value) {
       accessToken = value;
     },
