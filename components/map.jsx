@@ -162,7 +162,14 @@ var Map = React.createClass({
     }.bind(this));
     this.map.addLayer(this.markers);
     this.updateMap();
+
     this.map.scrollWheelZoom.disable();
+    this.map.on('focus', function() {
+      this.map.scrollWheelZoom.enable();
+    }.bind(this));
+    this.map.on('blur', function() {
+      this.map.scrollWheelZoom.disable();
+    }.bind(this));
 
     // We're doing this manually instead of via JSX markup to
     // ensure that react-a11y doesn't complain about our lack of
