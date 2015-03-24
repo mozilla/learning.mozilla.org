@@ -162,6 +162,7 @@ var Map = React.createClass({
     }.bind(this));
     this.map.addLayer(this.markers);
     this.updateMap();
+    this.map.scrollWheelZoom.disable();
 
     // We're doing this manually instead of via JSX markup to
     // ensure that react-a11y doesn't complain about our lack of
