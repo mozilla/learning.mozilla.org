@@ -21,6 +21,8 @@ var routes = (
      handler={require('../pages/events.jsx')}/>
     <Route name="mozilla-web-clubs" path="/mozilla-web-clubs/"
      handler={require('../pages/clubs.jsx')}/>
+    <Route name="clubs-curriculum" path="/clubs/curriculum/"
+     handler={require('../pages/clubs-curriculum.jsx')}/>
     <Route name="teach-like-mozilla" path="/teach-like-mozilla/"
      handler={require('../pages/teach-like-mozilla.jsx')}/>
      <Route name="fixme" path="/fixme/"
