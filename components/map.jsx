@@ -13,25 +13,46 @@ function geoJSONit(data) {
         "type": "Point"
       },
       "properties": {
-        "url": i.url,
-        "owner": i.owner,
-        "description": i.description,
-        "website": i.website,
-        "location": i.location,
-        "title": i.name
+        "clubs": [{
+          "url": i.url,
+          "owner": i.owner,
+          "description": i.description,
+          "website": i.website,
+          "location": i.location,
+          "title": i.name
+        }]
       },
       "type": "Feature"
     }
   });
 }
 
-// Note that this class will always be rendered to static markup, so
-// it can't have any dynamic functionality.
+// Note that the MarkerPopup classes will always be rendered to static
+// markup, so they can't have any dynamic functionality.
 //
-// Furthermore, because we aren't a "live" React element, events
-// dispatched from the map will need to be processed when they bubble
+// Furthermore, because they aren't "live" React elements, events
+// dispatched from the popup will need to be processed when they bubble
 // up to the parent map component.
 var MarkerPopup = React.createClass({
+  propTypes: {
+    clubs: React.PropTypes.array.isRequired,
+    username: React.PropTypes.string
+  },
+  render: function() {
+    return (
+      <div>
+        {this.props.clubs.map(function(club, i) {
+          return React.createElement(MarkerPopupClub, _.extend({
+            key: i,
+            isOwned: club.owner == this.props.username
+          }, club));
+        }, this)}
+      </div>
+    );
+  }
+});
+
+var MarkerPopupClub = React.createClass({
   getWebsiteDomain: function() {
     return urlParse(this.props.website).hostname;
   },
@@ -80,6 +101,7 @@ var Map = React.createClass({
     onEdit: React.PropTypes.func.isRequired
   },
   statics: {
+    MarkerPopup: MarkerPopup,
     clubsToGeoJSON: geoJSONit,
     setAccessToken: function(value) {
       accessToken = value;
@@ -144,14 +166,10 @@ var Map = React.createClass({
 
       // we have to check if this is a feature or marker-cluster.
       if (feature) {
-        html = React.renderToStaticMarkup(React.createElement(MarkerPopup, {
-          isOwned: feature.properties.owner == this.props.username,
-          url: feature.properties.url,
-          title: feature.properties.title,
-          description: feature.properties.description,
-          website: feature.properties.website,
-          location: feature.properties.location
-        }));
+        html = React.renderToStaticMarkup(
+          <MarkerPopup clubs={feature.properties.clubs}
+                       username={this.props.username} />
+        );
 
         marker.setIcon(L.icon({
           "iconUrl": "/img/map-marker.svg",

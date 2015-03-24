@@ -6,6 +6,17 @@ var TestUtils = React.addons.TestUtils;
 var Map = require('../../components/map.jsx');
 var stubContext = require('./stub-context.jsx');
 
+var SAMPLE_FOO_CLUB = {
+  latitude: 2,
+  longitude: 1,
+  url: 'http://server/clubs/1/',
+  owner: 'foo',
+  description: 'my club',
+  website: 'http://example.org/',
+  location: 'fooville',
+  name: 'my club'
+};
+
 describe("Map", function() {
   var map, xhr;
 
@@ -33,29 +44,42 @@ describe("Map", function() {
   });
 });
 
+describe("Map.MarkerPopup", function() {
+  function findButtons(popup) {
+    return TestUtils.scryRenderedDOMComponentsWithClass(popup, 'btn');
+  }
+
+  it("should not show club management buttons when unowned", function() {
+    var popup = TestUtils.renderIntoDocument(
+      <Map.MarkerPopup clubs={[SAMPLE_FOO_CLUB]} username="bar" />
+    );
+    findButtons(popup).length.should.equal(0);
+  });
+
+  it("should show club management buttons when owned", function() {
+    var popup = TestUtils.renderIntoDocument(
+      <Map.MarkerPopup clubs={[SAMPLE_FOO_CLUB]} username="foo" />
+    );
+    findButtons(popup).length.should.equal(2);
+  });
+});
+
 describe("Map.clubsToGeoJSON()", function() {
   it("should work", function() {
-    Map.clubsToGeoJSON([{
-      latitude: 2,
-      longitude: 1,
-      url: 'http://server/clubs/1/',
-      owner: 'foo',
-      description: 'my club',
-      website: 'http://example.org/',
-      location: 'fooville',
-      name: 'my club'
-    }]).should.eql([{
+    Map.clubsToGeoJSON([SAMPLE_FOO_CLUB]).should.eql([{
       type: 'Feature',
       geometry: {
         coordinates: [1, 2],
         type: "Point"
       }, properties: {
-        url: 'http://server/clubs/1/',
-        owner: 'foo',
-        description: 'my club',
-        website: 'http://example.org/',
-        location: 'fooville',
-        title: 'my club'
+        clubs: [{
+          url: 'http://server/clubs/1/',
+          owner: 'foo',
+          description: 'my club',
+          website: 'http://example.org/',
+          location: 'fooville',
+          title: 'my club'
+        }]
       }
     }]);
   });
