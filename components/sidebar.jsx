@@ -54,7 +54,14 @@ var Sidebar = React.createClass({
       link: 'mozilla-web-clubs',
       help: "Join our global community of local chapters",
       icon: "/img/nav/icon-nav-white-globe.svg",
-      className: "clubs"
+      className: "clubs",
+      subItems: [
+        {
+          name: "Clubs Curriculum",
+          link: "clubs-curriculum",
+          help: "Activities to teach the web in your club."
+        }
+      ]
     }
   ],
   getInitialState: function() {
@@ -83,13 +90,25 @@ var Sidebar = React.createClass({
           <ul className="sidebar-menu list-unstyled">
             {this.MENU_ENTRIES.map(function(entry, i) {
               return (
-                <li key={i}>
+                <li key={i} className={entry.className}>
                   <Link to={entry.link}>
-                    <img src={entry.icon} alt={entry.name} className={entry.className}/>
+                    <img src={entry.icon} alt={entry.name}/>
                     <strong>{entry.name}</strong>
                     <div className="help-text hidden-xs hidden-sm">{entry.help}</div>
                     <span className="glyphicon glyphicon-menu-right"></span>
                   </Link>
+                  <ul className="sidebar-subitems">
+                    {entry.subItems ?
+                      entry.subItems.map(function (item, key) {
+                        return (
+                          <li key={key}>
+                            <Link to={item.link} title={item.help}>
+                              {item.name}
+                            </Link>
+                          </li>
+                        )}
+                      ) : ''}
+                  </ul>
                 </li>
               );
             })}

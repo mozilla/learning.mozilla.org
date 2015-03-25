@@ -19,11 +19,22 @@ html.no-js .sidebar {
   &.teach-like-mozilla .sidebar {
     .sidebarColorizer(@tealSidebarColor);
   }
-  &.clubs .sidebar, &.clubs-curriculum-page .sidebar {
+  &.clubs .sidebar {
     .sidebarColorizer(@orangeSidebarColor);
+  }
+  &.clubs-curriculum .sidebar {
+    .sidebarColorizer(@lightOrangeSidebarColor);
   }
   &.teaching-materials .sidebar {
     .sidebarColorizer(@blueSidebarColor);
+  }
+}
+
+.clubs, .clubs-curriculum {
+  .clubs {
+    .sidebar-subitems {
+      display: block;
+    }
   }
 }
 
@@ -37,97 +48,142 @@ html.no-js .sidebar {
     color: inherit;
   }
 
-  .sidebar-header {
+  .mozilla-logo {
+    max-height: 6rem;
+    max-width: 80%;
+  }
+}
+
+
+.sidebar-header {
+  position: relative;
+  background-color: @white;
+  font-size: 2rem;
+  color: #595a5e; // TODO: should this actually be @bodyTextColor ?
+  margin-left: -(@grid-gutter-width / 2);
+  margin-right: -(@grid-gutter-width / 2);
+  padding: (@grid-gutter-width / 4) (@grid-gutter-width / 2);
+  overflow: hidden;
+  a {
+    &:hover, &:focus {
+      text-decoration: none;
+    }
+  }
+  .corner {
+    position: absolute;
+
+    // Ensure there isn't a sliver of empty space
+    // between the corner and adjacent elements.
+    bottom: -.1rem;
+    right: -.1rem;
+
+    fill: @sidebarColor;
+    transition: fill @sidebarTransitionTime;
+  }
+  .glyphicon-menu-hamburger {
+    position: absolute;
+    right: 1rem;
+    top: 2.5rem;
+    cursor: pointer;
+  }
+}
+
+.sidebar-login {
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+
+.sidebar-menu {
+  padding-bottom: 1rem;
+  .teach img {
+    width: 5rem;
+    margin: 0.4rem 1.3rem 0 0.6rem;
+  }
+  .clubs img {
+    width: 5rem;
+    margin: 0 1.5rem 0 0.5rem;
+  }
+
+  a {
     position: relative;
-    background-color: white;
-    font-size: 2rem;
-    color: #595a5e; // TODO: should this actually be @bodyTextColor ?
-    margin-left: -(@grid-gutter-width / 2);
-    margin-right: -(@grid-gutter-width / 2);
-    padding: (@grid-gutter-width / 4) (@grid-gutter-width / 2);
-    overflow: hidden;
-    a {
-      &:hover, &:focus {
-        text-decoration: none;
-      }
+    display: block;
+    margin: 0 -(@grid-gutter-width / 2);
+    padding: (@grid-gutter-width / 2) 0;
+    @media screen and (min-width: @screen-lg-min) {
+      padding: (@grid-gutter-width / 2);
     }
-    .corner {
-      position: absolute;
-
-      // Ensure there isn't a sliver of empty space
-      // between the corner and adjacent elements.
-      bottom: -.1rem;
-      right: -.1rem;
-
-      fill: @sidebarColor;
-      transition: fill @sidebarTransitionTime;
-    }
-    .glyphicon-menu-hamburger {
-      position: absolute;
-      right: 1rem;
-      top: 2.5rem;
-      cursor: pointer;
+    &:hover, &:focus {
+      text-decoration: none;
+      background-color: darken(@sidebarColor, 10%);
+      transition: background-color @sidebarTransitionTime;
     }
   }
-
-  .sidebar-login {
-    padding-top: 1rem;
-    padding-bottom: 3rem;
-  }
-
-  .sidebar-menu {
-    a {
-      position: relative;
+  strong {
+    display: inline;
+    font-weight: 700;
+    text-transform: uppercase;
+    @media (min-width: @screen-md-min) {
       display: block;
-      margin: 0 -(@grid-gutter-width / 2);
-      padding: @grid-gutter-width / 2;
     }
-    li {
-      img {
-        float: none;
-        width: 5.4rem;
-        opacity: 0.6;
-        margin: 0 1.5rem 0 0;
-        @media (min-width: @screen-md-min) {
-          float: left;
-        }
-        &.teach {
-          width: 5rem;
-          margin: 0.4rem 1.3rem 0 0.6rem;
-        }
-        &.clubs {
-          width: 5rem;
-          margin: 0 1.5rem 0 0.5rem;
-        }
-      }
+  }
+  .help-text {
+    font-size: 1.2rem;
+    font-weight: 400;
+    width: 22rem;
+  }
+  .glyphicon {
+    position: absolute;
+    right: 1rem;
+    font-size: 1.5rem;
+    top: calc(50% - 1.5rem / 2);
+    color: lighten(@sidebarColor, 15%);
+    transition: color @sidebarTransitionTime;
+    @media screen and (min-width: @screen-lg-min) {
+      right: 1.5rem;
     }
-    a {
-      &:hover, &:focus {
-        text-decoration: none;
-        background-color: darken(@sidebarColor, 10%);
-        transition: background-color @sidebarTransitionTime;
-      }
-      strong {
-        display: inline;
-        font-weight: 700;
-        text-transform: uppercase;
-        @media (min-width: @screen-md-min) {
-          float: block;
-        }
-      }
-      .help-text {
-        font-size: 1.2rem;
-        font-weight: 400;
-        width: 22rem;
-      }
-      .glyphicon {
-        position: absolute;
-        right: 1.5rem;
-        font-size: 1.5rem;
-        top: calc(50% - 1.5rem / 2);
-        color: lighten(@sidebarColor, 15%);
-        transition: color @sidebarTransitionTime;
-      }
+  }
+  img {
+    float: none;
+    width: 5.4rem;
+    opacity: 0.6;
+    margin: 0 1.5rem 0 0;
+    @media (min-width: @screen-md-min) {
+      float: left;
     }
+  }
+}
+
+.sidebar-subitems {
+  border-left: 0.1rem solid rgba(255, 255, 255, 0.4);
+  display: none;
+  list-style: none;
+  margin-bottom: 1rem;
+  margin-left: 3rem;
+  padding: 0;
+  position: relative;
+  top: -1.7rem;
+
+  li {
+    margin-bottom: 1.5rem;
+    position: relative;
+    &::before {
+      border-bottom: 0.1rem solid rgba(255, 255, 255, 0.4);
+      bottom: 0;
+      content: '';
+      display: block;
+      height: 0.1rem;
+      position: absolute;
+      width: 4rem;
+    }
+  }
+  a {
+    background: rgba(255, 255, 255, 0.1);
+    display: block;
+    margin: 0 0 0 4rem;
+    padding: 0.5rem 1rem;
+    position: relative;
+    top: 1.4rem;
+    width: ~"calc(100% - 2.5rem)";
+    font-weight: 600;
   }
 }
