@@ -12,7 +12,7 @@ var CaseStudies = React.createClass({
       <div className="case-studies">
         <Blockquote className="primary-quote" author="Maurya C. New York, United States"
             imgSrc="/img/maurya-nyc@1x.png" imgSrc2x="/img/maurya-nyc@2x.png" imgAlt="Maurya NYC Quote">
-          <p>Web literacy is about more than coding - it is about how you can be a better web citizen.</p>
+          <p>Web literacy is about more than coding - it's about how you can be a better web citizen.</p>
         </Blockquote>
 
       </div>
