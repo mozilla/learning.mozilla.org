@@ -12,7 +12,7 @@
     "gulp-jscs": "^1.4.0",
     "gulp-jshint": "^1.9.2",
     "gulp-jsmin": "^0.1.4",
-    "gulp-less": "^2.0.3",
+    "gulp-less": "^3.0.0",
     "gulp-minify-css": "^1.0.0",
     "gulp-plumber": "^0.6.6",
     "gulp-prettify": "^0.3.0",
