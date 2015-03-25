@@ -1,18 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="293px" height="12px" viewBox="0 0 293 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
-    <title>web-literacy-divider</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Clubs-Curriculum" sketch:type="MSArtboardGroup" transform="translate(-609.000000, -1956.000000)">
-            <g id="Group" sketch:type="MSLayerGroup" transform="translate(509.000000, 1705.000000)">
-                <g id="web-literacy-divider" transform="translate(100.000000, 251.000000)" sketch:type="MSShapeGroup">
-                    <rect id="Rectangle-94" fill="#F6DFBE" x="0" y="5" width="142" height="1"></rect>
-                    <rect id="Rectangle-96" fill="#F6DFBE" x="151" y="5" width="142" height="1"></rect>
-                    <rect id="Rectangle-95" stroke="#F6DFBE" transform="translate(146.000000, 6.000000) rotate(-315.000000) translate(-146.000000, -6.000000) " x="142" y="2" width="8" height="8"></rect>
-                </g>
-            </g>
-        </g>
-    </g>
-</svg>
+<svg width="293" height="12" viewBox="0 0 293 12" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><title>web-literacy-divider</title><desc>Created with Sketch.</desc><g sketch:type="MSShapeGroup" fill="none"><path fill="#F6DFBE" d="M0 5h142v1h-142z"/><path fill="#F6DFBE" d="M151 5h142v1h-142z"/><path stroke="#F6DFBE" d="M146 .344l5.656 5.656-5.656 5.656-5.656-5.656z"/></g></svg>
