@@ -23,7 +23,7 @@ var CurriculumIntro = React.createClass({
 });
 
 var WebLitBasics = React.createClass({
-  render: function () {
+  render: function () { // TODO: update Link to weblit after #396 is merged
     return (
       <section className="row web-lit-basics">
         <div className="col-sm-12">
@@ -32,7 +32,7 @@ var WebLitBasics = React.createClass({
             Learners get familiar with reading, writing and participating on the web in this six-part module. Discover
             the foundations of the web through production and collaboration. The learning objectives underpinning each
             activity are informed by Mozilla&apos;s
-            <Link to="fixme">Web Literacy Map</Link>. // update Link to weblit after #396 is merged
+            <Link to="fixme">Web Literacy Map</Link>.
             Complete the activities in sequence, or mix &amp; match for your learners. Need help{'?'}
             <a href="http://discourse.webmaker.org/category/clubs">Visit our discussion forum</a> to get help and share
             your experience.
