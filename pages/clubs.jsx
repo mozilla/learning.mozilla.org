@@ -16,40 +16,65 @@ var ModalManagerMixin = require('../mixins/modal-manager');
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
 var ga = require('../lib/googleanalytics.js');
 
+var ClubListItem = React.createClass({
+  propTypes: {
+    club: React.PropTypes.object.isRequired,
+    username: React.PropTypes.string,
+    onDelete: React.PropTypes.func.isRequired,
+    onEdit: React.PropTypes.func.isRequired
+  },
+  render: function() {
+    var club = this.props.club;
+    var isOwned = (club.owner == this.props.username);
+    var ownerControls = null;
+
+    if (isOwned) {
+      ownerControls = (
+        <p>
+          <button className="btn btn-default btn-xs" onClick={this.props.onEdit.bind(null, club.url)}>
+            <span className="glyphicon glyphicon-pencil"></span> Edit
+          </button>
+          &nbsp;
+          <button className="btn btn-default btn-xs" onClick={this.props.onDelete.bind(null, club.url, club.name)}>
+            <span className="glyphicon glyphicon-trash"></span> Remove
+          </button>
+        </p>
+      );
+    }
+
+    return (
+      <li>
+        <h4><a href={club.website}>{club.name}</a></h4>
+        <p><em>{club.location.split(',')[0]}</em></p>
+        <p><small>Led by <a href={"https://webmaker.org/en-US/search?type=user&q=" + club.owner}>{club.owner}</a></small></p>
+        {ownerControls}
+      </li>
+    );
+  }
+});
+
 var ClubList = React.createClass({
   COLUMNS: 2,
   GRID_COLUMNS_PER_ROW: 12,
+  propTypes: {
+    clubs: React.PropTypes.array.isRequired,
+    username: React.PropTypes.string,
+    onDelete: React.PropTypes.func.isRequired,
+    onEdit: React.PropTypes.func.isRequired
+  },
+  statics: {
+    Item: ClubListItem
+  },
   renderColumn: function(key, clubs) {
     var colClass = 'col-xs-' + (this.GRID_COLUMNS_PER_ROW / this.COLUMNS);
     return (
       <div className={colClass} key={key}>
         <ul className="list-unstyled">
           {clubs.map(function(club, i) {
-            var isOwned = (club.owner == this.props.username);
-            var ownerControls = null;
-
-            if (isOwned) {
-              ownerControls = (
-                <p>
-                  <button className="btn btn-default btn-xs" onClick={this.props.onEdit.bind(null, club.url)}>
-                    <span className="glyphicon glyphicon-pencil"></span> Edit
-                  </button>
-                  &nbsp;
-                  <button className="btn btn-default btn-xs" onClick={this.props.onDelete.bind(null, club.url, club.name)}>
-                    <span className="glyphicon glyphicon-trash"></span> Remove
-                  </button>
-                </p>
-              );
-            }
-
-            return (
-              <li key={i}>
-                <h4><a href={club.website}>{club.name}</a></h4>
-                <p><em>{club.location.split(',')[0]}</em></p>
-                <p><small>Led by <a href={"https://webmaker.org/en-US/search?type=user&q=" + club.owner}>{club.owner}</a></small></p>
-                {ownerControls}
-              </li>
-            );
+            return  <ClubListItem key={i} club={club}
+                                  username={this.props.username}
+                                  onEdit={this.props.onEdit}
+                                  onDelete={this.props.onDelete} />;
           }, this)}
         </ul>
       </div>
@@ -386,6 +411,7 @@ var ModalLearnMore = React.createClass({
 var ClubsPage = React.createClass({
   mixins: [ModalManagerMixin, TeachAPIClientMixin],
   statics: {
+    ClubList: ClubList,
     ModalAddOrChangeYourClub: ModalAddOrChangeYourClub,
     ModalLearnMore: ModalLearnMore,
     teachAPIEvents: {
