@@ -34,6 +34,12 @@ var HeroUnit = React.createClass({
         <div className="col-md-12 hero-unit" style={{
           backgroundImage: 'url(' + this.state.image + ')'
         }}>
+          <marquee>
+            <span style={{color: 'transparent'}}>
+              MOZILLAAAAAAAAA!!
+            </span>
+            <img src="/img/shared-iconography/mozilla_wordmark_white.svg" alt="Mozilla logo"/>
+          </marquee>
           {this.props.children}
         </div>
       </div>
