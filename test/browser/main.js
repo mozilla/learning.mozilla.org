@@ -1,5 +1,7 @@
 process.env.NODE_ENV = 'test';
 
+require('react-a11y')();
+
 require('./config.test.js');
 require('./page.test.jsx');
 require('./sidebar.test.jsx');

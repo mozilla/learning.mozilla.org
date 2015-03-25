@@ -272,7 +272,7 @@ var ModalAddOrChangeYourClub = React.createClass({
     } else if (this.state.step == this.STEP_SHOW_RESULT) {
       content = (
         <div className="text-center">
-          <p><img className="globe" src="/img/globe-with-pin.svg"/></p>
+          <p><img className="globe" src="/img/globe-with-pin.svg" alt="Globe"/></p>
           {isAdd
            ? <div>
                <h2>We've added your Club!</h2>

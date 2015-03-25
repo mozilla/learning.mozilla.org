@@ -25,6 +25,7 @@ var Modal = React.createClass({
       <div className="modal show"
        role="dialog"
        aria-labelledby="modal-label"
+       tabIndex="-1"
        onClick={this.handleOutsideOfModalClick}>
         <div className="modal-dialog">
           <div className="modal-header">
