@@ -143,7 +143,7 @@ string), the boolean is true; otherwise, it's false.
 `MAPBOX_ACCESS_TOKEN` | is the [Mapbox][] access token to use for embedded maps in the website. Optional.
 `MAPBOX_MAP_ID` | is the Mapbox map ID to use for embedded maps in the website. Optional.
 `TEACH_API_URL` | is the origin of the [Teach API][] server. Defaults to `https://teach-api.herokuapp.com`.
-`GA_ACCOUNT` | is the property ID of the Google Analytics account. E.g. `UA-123...`. Optional.
+`GA_ACCOUNT` | is the property ID of the Google Analytics account. E.g. `UA-123...`. It defaults to the property ID for the Teach site. Set it to `DISABLED` to disable Google Analytics entirely.
 
 ### Using Environment Variables in Local Development
 
