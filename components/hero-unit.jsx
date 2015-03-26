@@ -1,5 +1,7 @@
 var React = require('react');
 
+var config = require('../lib/config');
+
 var HeroUnit = React.createClass({
   calculateDensity: function () {
     var
@@ -29,11 +31,26 @@ var HeroUnit = React.createClass({
   },
 
   render: function() {
+    var marquee = null;
+
+    if (config.IN_STATIC_SITE &&
+        /[?&]marquee=MOZILLAAAAAAAAA/.test(window.location.search)) {
+      marquee = (
+        <marquee>
+          <span style={{color: 'transparent'}}>
+            MOZILLAAAAAAAAA!!
+          </span>
+          <img src="/img/shared-iconography/mozilla_wordmark_white.svg" alt="Mozilla logo"/>
+        </marquee>
+      );
+    }
+
     return (
       <div className="row">
         <div className="col-md-12 hero-unit" style={{
           backgroundImage: 'url(' + this.state.image + ')'
         }}>
+          {marquee}
           {this.props.children}
         </div>
       </div>

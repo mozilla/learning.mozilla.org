@@ -6,32 +6,63 @@ var mapboxId = process.env.MAPBOX_MAP_ID || 'alicoding.ldmhe4f3';
 var accessToken = process.env.MAPBOX_ACCESS_TOKEN || 'pk.eyJ1IjoiYWxpY29kaW5nIiwiYSI6Il90WlNFdE0ifQ.QGGdXGA_2QH-6ujyZE2oSg';
 
 function geoJSONit(data) {
-  return data.map(function(i) {
-    return {
-      "geometry": {
-        "coordinates": [i.longitude*1, i.latitude*1],
-        "type": "Point"
-      },
-      "properties": {
-        "url": i.url,
-        "owner": i.owner,
-        "description": i.description,
-        "website": i.website,
-        "location": i.location,
-        "title": i.name
-      },
-      "type": "Feature"
+  var places = {};
+
+  data.forEach(function(i) {
+    var key = JSON.stringify([i.longitude*1, i.latitude*1]);
+
+    if (!(key in places)) {
+      places[key] = {
+        "geometry": {
+          "coordinates": [i.longitude*1, i.latitude*1],
+          "type": "Point"
+        },
+        "properties": {
+          "clubs": []
+        },
+        "type": "Feature"
+      };
     }
+
+    places[key].properties.clubs.push({
+      "url": i.url,
+      "owner": i.owner,
+      "description": i.description,
+      "website": i.website,
+      "location": i.location,
+      "title": i.name
+    });
   });
+
+  return _.values(places);
 }
 
-// Note that this class will always be rendered to static markup, so
-// it can't have any dynamic functionality.
+// Note that the MarkerPopup classes will always be rendered to static
+// markup, so they can't have any dynamic functionality.
 //
-// Furthermore, because we aren't a "live" React element, events
-// dispatched from the map will need to be processed when they bubble
+// Furthermore, because they aren't "live" React elements, events
+// dispatched from the popup will need to be processed when they bubble
 // up to the parent map component.
 var MarkerPopup = React.createClass({
+  propTypes: {
+    clubs: React.PropTypes.array.isRequired,
+    username: React.PropTypes.string
+  },
+  render: function() {
+    return (
+      <div>
+        {this.props.clubs.map(function(club, i) {
+          return React.createElement(MarkerPopupClub, _.extend({
+            key: i,
+            isOwned: club.owner == this.props.username
+          }, club));
+        }, this)}
+      </div>
+    );
+  }
+});
+
+var MarkerPopupClub = React.createClass({
   getWebsiteDomain: function() {
     return urlParse(this.props.website).hostname;
   },
@@ -87,6 +118,8 @@ var Map = React.createClass({
     onEdit: React.PropTypes.func.isRequired
   },
   statics: {
+    MarkerPopup: MarkerPopup,
+    clubsToGeoJSON: geoJSONit,
     setAccessToken: function(value) {
       accessToken = value;
     },
@@ -131,7 +164,7 @@ var Map = React.createClass({
     require('mapbox.js'); // this will automatically attach to Window object.
     require('leaflet.markercluster');
     L.mapbox.accessToken = accessToken;
-    this.map = L.mapbox.map(this.getDOMNode())
+    this.map = L.mapbox.map(this.refs.map.getDOMNode())
       .setView([0, 0], 2)
       .addLayer(L.mapbox.tileLayer(mapboxId));
     this.markers = new L.MarkerClusterGroup({
@@ -150,14 +183,10 @@ var Map = React.createClass({
 
       // we have to check if this is a feature or marker-cluster.
       if (feature) {
-        html = React.renderToStaticMarkup(React.createElement(MarkerPopup, {
-          isOwned: feature.properties.owner == this.props.username,
-          url: feature.properties.url,
-          title: feature.properties.title,
-          description: feature.properties.description,
-          website: feature.properties.website,
-          location: feature.properties.location
-        }));
+        html = React.renderToStaticMarkup(
+          <MarkerPopup clubs={feature.properties.clubs}
+                       username={this.props.username} />
+        );
 
         marker.setIcon(L.icon({
           "iconUrl": "/img/map-marker.svg",
@@ -170,6 +199,16 @@ var Map = React.createClass({
     this.map.addLayer(this.markers);
     this.updateMap();
 
+    this.map.scrollWheelZoom.disable();
+    this.map.on('focus', function() {
+      this.setState({focused: true});
+      this.map.scrollWheelZoom.enable();
+    }.bind(this));
+    this.map.on('blur', function() {
+      this.setState({focused: false});
+      this.map.scrollWheelZoom.disable();
+    }.bind(this));
+
     // We're doing this manually instead of via JSX markup to
     // ensure that react-a11y doesn't complain about our lack of
     // accessibility markup; such warnings are false positives, as
@@ -177,6 +216,11 @@ var Map = React.createClass({
     // marker popup button clicks to make *those* buttons usable,
     // rather than offering any new kind of interactivity.
     this.getDOMNode().addEventListener('click', this.handleClick);
+  },
+  getInitialState: function() {
+    return {
+      focused: false
+    };
   },
   updateMap: function() {
     if (this.geoJsonLayer) {
@@ -225,8 +269,12 @@ var Map = React.createClass({
     });
   },
   render: function() {
+    var className = "map " + this.props.className +
+                    (this.state.focused ? " map-focused" : "");
     return (
-      <div className={this.props.className}></div>
+      <div className={className}>
+        <div ref="map"></div>
+      </div>
     )
   }
 });

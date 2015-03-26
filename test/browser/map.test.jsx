@@ -6,6 +6,28 @@ var TestUtils = React.addons.TestUtils;
 var Map = require('../../components/map.jsx');
 var stubContext = require('./stub-context.jsx');
 
+var SAMPLE_FOO_CLUB = {
+  latitude: 2,
+  longitude: 1,
+  url: 'http://server/clubs/1/',
+  owner: 'foo',
+  description: 'my club',
+  website: 'http://example.org/',
+  location: 'fooville',
+  name: 'my club'
+};
+
+var SAMPLE_BAR_CLUB = {
+  latitude: 3,
+  longitude: 4,
+  url: 'http://server/clubs/2/',
+  owner: 'bar',
+  description: 'bar club',
+  website: 'http://example.org/bar',
+  location: 'barville',
+  name: 'bar club'
+};
+
 describe("Map", function() {
   var map, xhr;
 
@@ -30,6 +52,66 @@ describe("Map", function() {
 
   it("should render", function() {
     map.getDOMNode().className.should.match(/foo/);
+  });
+});
+
+describe("Map.MarkerPopup", function() {
+  function findButtons(popup) {
+    return TestUtils.scryRenderedDOMComponentsWithClass(popup, 'btn');
+  }
+
+  it("should not show club management buttons when unowned", function() {
+    var popup = TestUtils.renderIntoDocument(
+      <Map.MarkerPopup clubs={[SAMPLE_FOO_CLUB]} username="bar" />
+    );
+    findButtons(popup).length.should.equal(0);
+  });
+
+  it("should show club management buttons when owned", function() {
+    var popup = TestUtils.renderIntoDocument(
+      <Map.MarkerPopup clubs={[SAMPLE_FOO_CLUB]} username="foo" />
+    );
+    findButtons(popup).length.should.equal(2);
+  });
+});
+
+describe("Map.clubsToGeoJSON()", function() {
+  it("should convert to geoJSON", function() {
+    Map.clubsToGeoJSON([SAMPLE_FOO_CLUB]).should.eql([{
+      type: 'Feature',
+      geometry: {
+        coordinates: [1, 2],
+        type: "Point"
+      }, properties: {
+        clubs: [{
+          url: 'http://server/clubs/1/',
+          owner: 'foo',
+          description: 'my club',
+          website: 'http://example.org/',
+          location: 'fooville',
+          title: 'my club'
+        }]
+      }
+    }]);
+  });
+
+  it("should not group clubs in different locations together", function() {
+    var geoJSON = Map.clubsToGeoJSON([SAMPLE_FOO_CLUB, SAMPLE_BAR_CLUB]);
+    geoJSON.length.should.eql(2);
+    geoJSON[0].properties.clubs.length.should.eql(1);
+    geoJSON[1].properties.clubs.length.should.eql(1);
+  });
+
+  it("should group clubs in the same locations together", function() {
+    var geoJSON = Map.clubsToGeoJSON([
+      SAMPLE_FOO_CLUB,
+      _.extend({}, SAMPLE_BAR_CLUB, {
+        latitude: SAMPLE_FOO_CLUB.latitude,
+        longitude: SAMPLE_FOO_CLUB.longitude,
+      })
+    ]);
+    geoJSON.length.should.eql(1);
+    geoJSON[0].properties.clubs.length.should.eql(2);
   });
 });
 

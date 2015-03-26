@@ -7,3 +7,16 @@
     height: 500px;
   }
 }
+
+.map:not(.map-focused) {
+  border: 1px solid transparent;
+}
+
+.map.map-focused {
+  border: 1px solid blue;
+}
+
+.map > div {
+  position: relative;
+  height: 100%;
+}

@@ -4,28 +4,6 @@ var Link = Router.Link;
 
 var Login = require('./login.jsx');
 
-var TriangleCorner = React.createClass({
-  propTypes: {
-    'height': React.PropTypes.number.isRequired,
-    'className': React.PropTypes.string
-  },
-  render: function() {
-    var height = this.props.height;
-    var width = Math.floor(height / Math.sqrt(3));
-    var points = [
-      [0, height].join(','),
-      [width, height].join(','),
-      [width, 0].join(',')
-    ];
-
-    return (
-      <svg className={"corner " + this.props.className} width={width} height={height}>
-        <polygon points={points}/>
-      </svg>
-    );
-  }
-});
-
 var Sidebar = React.createClass({
   MENU_ENTRIES: [
     {
@@ -54,7 +32,14 @@ var Sidebar = React.createClass({
       link: 'mozilla-web-clubs',
       help: "Join our global community of local chapters",
       icon: "/img/nav/icon-nav-white-globe.svg",
-      className: "clubs"
+      className: "clubs",
+      subItems: [
+        {
+          name: "Clubs Curriculum",
+          link: "clubs-curriculum",
+          help: "Activities to teach the web in your club."
+        }
+      ]
     }
   ],
   getInitialState: function() {
@@ -72,11 +57,10 @@ var Sidebar = React.createClass({
       <div className="sidebar col-md-3">
         <div className="sidebar-header">
           <Link to="home">
-            <img src="/img/shared-iconography/mozilla_wordmark.svg" alt="Mozilla logo" className="mozilla-logo"/>
+            <img src="/img/nav/mozilla-wordmark-white.svg" alt="Webmaker logo" className="moz-logo"/>
           </Link>
           <span aria-label="toggle" role="button" onKeyUp={this.handleHamburgerClick} onKeyDown={this.handleHamburgerClick} className="glyphicon glyphicon-menu-hamburger hidden-lg hidden-md"
                 onClick={this.handleHamburgerClick} tabIndex="0" />
-          <TriangleCorner className="hidden-xs hidden-sm" height={40}/>
         </div>
         <div className={this.state.showCollapsibleContent
                         ? "collapsible-content"
@@ -85,13 +69,25 @@ var Sidebar = React.createClass({
           <ul className="sidebar-menu list-unstyled">
             {this.MENU_ENTRIES.map(function(entry, i) {
               return (
-                <li key={i}>
+                <li key={i} className={entry.className}>
                   <Link to={entry.link}>
-                    <img src={entry.icon} alt={entry.name} className={entry.className}/>
+                    <img src={entry.icon} alt={entry.name}/>
                     <strong>{entry.name}</strong>
                     <div className="help-text hidden-xs hidden-sm">{entry.help}</div>
                     <span className="glyphicon glyphicon-menu-right"></span>
                   </Link>
+                  <ul className="sidebar-subitems">
+                    {entry.subItems ?
+                      entry.subItems.map(function (item, key) {
+                        return (
+                          <li key={key}>
+                            <Link to={item.link} title={item.help}>
+                              {item.name}
+                            </Link>
+                          </li>
+                        )}
+                      ) : ''}
+                  </ul>
                 </li>
               );
             })}

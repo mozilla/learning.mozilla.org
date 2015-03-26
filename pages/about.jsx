@@ -8,19 +8,14 @@ var Intro = React.createClass({
   render: function () {
     return (
         <header className="row intro">
-          <div>
-            <h2>About Mozilla Learning Networks</h2>
-            <p>We want more people to see themselves as citizens of the web.</p>
-            <p>
-              Mozilla Learning Networks offers programs and a global community dedicated to helping people learn the most
-              important skills of our age:
-              <em>the ability to read, write and participate in the digital world.</em>
-            </p>
-          </div>
-          <div className="col-sm-3 col-md-3 col-lg-3">
-            <ImageTag src1x="/img/about-page/hive-nyc-summer-quest.jpg"
-                alt="HiveLearningNYC 2014 Hive NYC Summer Quest Maker Party" className="img-circle img-scale-to-fit"/>
-          </div>
+            <h1 className="col-sm-12">About Mozilla Learning Networks</h1>
+            <div className="col-sm-4 col-md-4 col-lg-3">
+              <ImageTag src1x="/img/about-page/hive-nyc-summer-quest.jpg"
+                  alt="HiveLearningNYC 2014 Hive NYC Summer Quest Maker Party" className="img-circle center"/>
+            </div>
+            <div className="col-sm-8 col-md-8 col-lg-9">
+              <p>We want more people to see themselves as citizens of the web. Mozilla Learning Networks offers programs and a global community dedicated to helping people learn the most important skills of our age: <em>the ability to read, write and participate in the digital world.</em></p>
+            </div>
         </header>
     );
   }
@@ -63,13 +58,14 @@ var OurFocus = React.createClass({
 var OurGoal = React.createClass({
   render: function () {
     return (
-        <section className="row our-goal">
-          <img src="/img/shared-iconography/icon-city.svg" alt="A stylised icon of a city"/>
-          <p>
-            In 2015, our goal is to foster and sustain web literacy activities in 500 cities around the globe. Join us
-            by teaching, learning, sharing and imagining the full power of the web.
-          </p>
-          <img src="/img/shared-iconography/icon-horizontal-divider.svg" alt=""/>
+        <section className="row page-end our-goal">
+          <ImageTag alt="A stylised icon of a city"
+              className="center-block" src1x="/img/about-page/icon-city.jpg"
+              src2x="/img/about-page/icon-city@2x.jpg" width={292} height={102} />
+            <p className="learn-more">
+              In 2015, our goal is to foster and sustain web literacy activities in 500 cities around the globe. Join us by teaching, learning, sharing and imagining the full power of the web.
+            </p>
+            <img src="/img/shared-iconography/icon-horizontal-divider.svg" alt="" className="center-block"/>
         </section>
     );
   }
@@ -81,7 +77,7 @@ var AboutPage = React.createClass({
   },
   render: function () {
     return (
-        <div>
+        <div className="inner-container">
           <Intro/>
           <OurFocus/>
           <OurGoal/>

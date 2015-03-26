@@ -52,6 +52,74 @@ describe("ClubsPage", function() {
   });
 });
 
+describe("ClubsPage.ClubList", function() {
+  var ClubList = ClubsPage.ClubList;
+  var Item = ClubList.Item;
+  var noop = function() {};
+  var clubs = [{
+    url: 'http://api/clubs/1/',
+    owner: 'foo',
+    website: 'http://example.org',
+    location: 'Somewhere, USA',
+    name: 'foo club'
+  }];
+
+  it("shows 1 club, passes expected props to it", function() {
+    var list = TestUtils.renderIntoDocument(
+      <ClubList clubs={clubs} onDelete={noop} onEdit={noop} username="meh" />
+    );
+    var items = TestUtils.scryRenderedComponentsWithType(list, Item);
+    items.length.should.equal(1);
+    items[0].props.onEdit.should.equal(noop);
+    items[0].props.onDelete.should.equal(noop);
+    items[0].props.username.should.eql("meh");
+    items[0].props.club.should.eql(clubs[0]);
+  });
+
+  describe("Item", function() {
+    it("hides edit controls when unowned", function() {
+      var item = TestUtils.renderIntoDocument(
+        <Item club={clubs[0]} onDelete={noop} onEdit={noop} username="a" />
+      );
+      var btns = TestUtils.scryRenderedDOMComponentsWithTag(item, 'button');
+      btns.length.should.equal(0);
+    });
+
+    describe("buttons", function() {
+      var item, onEdit, onDelete, editBtn, deleteBtn;
+
+      beforeEach(function() {
+        onEdit = sinon.spy();
+        onDelete = sinon.spy();
+        item = TestUtils.renderIntoDocument(
+          <Item club={clubs[0]} onDelete={onDelete}
+                onEdit={onEdit} username="foo" />
+        );
+        var btns = TestUtils.scryRenderedDOMComponentsWithTag(item, 'button');
+        btns.length.should.equal(2);
+
+        editBtn = btns[0];
+        deleteBtn = btns[1];
+      });
+
+      it("should call onEdit", function() {
+        onEdit.callCount.should.eql(0);
+        TestUtils.Simulate.click(editBtn);
+        onEdit.callCount.should.eql(1);
+        onEdit.getCall(0).args[0].should.eql('http://api/clubs/1/');
+      });
+
+      it("should call onDelete", function() {
+        onDelete.callCount.should.eql(0);
+        TestUtils.Simulate.click(deleteBtn);
+        onDelete.callCount.should.eql(1);
+        onDelete.getCall(0).args[0].should.eql('http://api/clubs/1/');
+        onDelete.getCall(0).args[1].should.eql('foo club');
+      });
+    });
+  });
+});
+
 describe("ClubsPage.ModalAddOrChangeYourClub", function() {
   var ERROR_REGEX = /an error occurred/i;
   var modal, teachAPI, onSuccess;

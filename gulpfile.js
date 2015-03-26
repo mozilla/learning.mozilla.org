@@ -2,10 +2,12 @@ var path = require('path');
 var webserver = require('gulp-webserver');
 var _ = require('underscore');
 var gulp = require('gulp');
+var gulpif = require('gulp-if');
 var gutil = require('gulp-util');
 var s3 = require('gulp-s3');
 var gzip = require('gulp-gzip');
 var less = require('gulp-less');
+var cssmin = require('gulp-minify-css');
 var prettify = require('gulp-prettify');
 var webpack = require('gulp-webpack');
 var plumber = require('gulp-plumber');
@@ -101,11 +103,12 @@ gulp.task('less', function() {
       paths: [path.join(__dirname, 'less')],
       filename: 'styles.css'
     }))
-    .pipe(autoprefixer({
+    .pipe(gulpif(process.env.LESS_AUTOPREFIXER != 'off', autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false,
       remove: true
-    }))
+    })))
+    .pipe(gulpif(process.env.NODE_ENV === 'production', cssmin()))
     .pipe(rename('styles.css'))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./dist'));
