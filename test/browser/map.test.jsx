@@ -73,6 +73,23 @@ describe("Map.MarkerPopup", function() {
     );
     findButtons(popup).length.should.equal(2);
   });
+
+  it("should not show website when it is blank", function() {
+    var club = _.extend({}, SAMPLE_FOO_CLUB, {website: ''});
+    var popup = TestUtils.renderIntoDocument(
+      <Map.MarkerPopup clubs={[club]} username="bar" />
+    );
+    var links = TestUtils.scryRenderedDOMComponentsWithTag(popup, 'a');
+    links.length.should.eql(0);
+  });
+
+  it("should show website when it is present", function() {
+    var popup = TestUtils.renderIntoDocument(
+      <Map.MarkerPopup clubs={[SAMPLE_FOO_CLUB]} username="bar" />
+    );
+    var links = TestUtils.scryRenderedDOMComponentsWithTag(popup, 'a');
+    links.length.should.eql(1);
+  });
 });
 
 describe("Map.clubsToGeoJSON()", function() {
