@@ -124,7 +124,7 @@ var Map = React.createClass({
     require('mapbox.js'); // this will automatically attach to Window object.
     require('leaflet.markercluster');
     L.mapbox.accessToken = accessToken;
-    this.map = L.mapbox.map(this.getDOMNode())
+    this.map = L.mapbox.map(this.refs.map.getDOMNode())
       .setView([0, 0], 2)
       .addLayer(L.mapbox.tileLayer(mapboxId));
     this.markers = new L.MarkerClusterGroup({
@@ -163,6 +163,16 @@ var Map = React.createClass({
     this.map.addLayer(this.markers);
     this.updateMap();
 
+    this.map.scrollWheelZoom.disable();
+    this.map.on('focus', function() {
+      this.setState({focused: true});
+      this.map.scrollWheelZoom.enable();
+    }.bind(this));
+    this.map.on('blur', function() {
+      this.setState({focused: false});
+      this.map.scrollWheelZoom.disable();
+    }.bind(this));
+
     // We're doing this manually instead of via JSX markup to
     // ensure that react-a11y doesn't complain about our lack of
     // accessibility markup; such warnings are false positives, as
@@ -170,6 +180,11 @@ var Map = React.createClass({
     // marker popup button clicks to make *those* buttons usable,
     // rather than offering any new kind of interactivity.
     this.getDOMNode().addEventListener('click', this.handleClick);
+  },
+  getInitialState: function() {
+    return {
+      focused: false
+    };
   },
   updateMap: function() {
     if (this.geoJsonLayer) {
@@ -218,8 +233,12 @@ var Map = React.createClass({
     });
   },
   render: function() {
+    var className = "map " + this.props.className +
+                    (this.state.focused ? " map-focused" : "");
     return (
-      <div className={this.props.className}></div>
+      <div className={className}>
+        <div ref="map"></div>
+      </div>
     )
   }
 });
