@@ -67,7 +67,16 @@ var MarkerPopupClub = React.createClass({
     return urlParse(this.props.website).hostname;
   },
   render: function() {
+    var website = null;
     var actions = null;
+
+    if (this.props.website) {
+      website = (
+        <p><a href={this.props.website} target="_blank">
+          {this.getWebsiteDomain()}
+        </a></p>
+      );
+    }
 
     if (this.props.isOwned) {
       actions = (
@@ -93,9 +102,7 @@ var MarkerPopupClub = React.createClass({
         <br/>
         <br/>
         <p>{this.props.description}</p>
-        <p><a href={this.props.website} target="_blank">
-          {this.getWebsiteDomain()}
-        </a></p>
+        {website}
         {actions}
       </div>
     );

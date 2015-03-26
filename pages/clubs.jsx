@@ -328,7 +328,6 @@ var ModalAddOrChangeYourClub = React.createClass({
               <label>What is your Club&lsquo;s website?</label>
               <input type="url" placeholder="http://www.myclubwebsite.com"
                disabled={isFormDisabled}
-               required
                valueLink={this.linkState('website')} />
             </fieldset>
             <fieldset>
