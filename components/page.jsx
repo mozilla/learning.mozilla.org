@@ -5,6 +5,9 @@ var RouteHandler = Router.RouteHandler;
 var Sidebar = require('./sidebar.jsx');
 var Footer = require('./footer.jsx');
 var TeachAPI = require('../lib/teach-api');
+var DevRibbon = process.env.NODE_ENV === 'production'
+                ? null
+                : require('./dev-ribbon.jsx');
 
 var Page = React.createClass({
   mixins: [Router.State],
@@ -62,6 +65,7 @@ var Page = React.createClass({
         <div className={"page container-fluid " + pageClassName}
          aria-hidden={!!this.state.modalClass}
          onFocus={this.state.modalClass && this.handleNonModalFocus}>
+          {DevRibbon ? <DevRibbon/> : null}
           <div className="row">
             <Sidebar/>
             <main className="content col-md-9">
