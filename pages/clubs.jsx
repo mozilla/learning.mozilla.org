@@ -142,7 +142,7 @@ var ModalRemoveYourClub = React.createClass({
     } else {
       content = (
         <div className="text-center">
-          <p><img className="globe" src="/img/globe-with-pin.svg"/></p>
+          <p><img className="globe" src="/img/globe-without-pin.svg"/></p>
           <h2>Your club has been removed.</h2>
         </div>
       );
