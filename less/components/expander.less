@@ -1,0 +1,56 @@
+.expander-container {
+  margin-bottom: .2rem;
+  .expander-header {
+    border: none;
+    width: 100%;
+    height: 6rem;
+    text-align: left;
+    background-color: #EFF3F7;
+    color: #617886;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 2rem;
+    transition: background-color 0.5s ease;
+    .ion {
+      float: right;
+      &:before {
+        content: "\f126";
+      }
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .expander-header {
+    &:focus {
+      color: white;
+      background-color: #5791CE;
+      .ion {
+        &:before {
+          content: "\f123";
+        }
+      }
+     }
+    &:focus + .expander-items-container {
+      max-height: 1400px;
+      transition: max-height 1s ease;
+    }
+  }
+  .expander-items-container {
+    text-align: left;
+    background-color: #F5F9FC;
+    color: #617886;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .3s ease;
+    p {
+      margin: .7rem 1.8rem;
+      &:first-child {
+        margin-top: 1.4rem;
+      }
+      &:last-child {
+        margin-bottom: 1.4rem;
+      }
+    }
+  }
+}
