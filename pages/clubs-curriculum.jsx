@@ -31,9 +31,8 @@ var WebLitBasics = React.createClass({
           <p>
             Learners get familiar with reading, writing and participating on the web in this six-part module. Discover
             the foundations of the web through production and collaboration. The learning objectives underpinning each
-            activity are informed by Mozilla&apos;s
-            <Link to="fixme">Web Literacy Map</Link>.
-            Complete the activities in sequence, or mix &amp; match for your learners. Need help{'?'}
+            activity are informed by Mozilla&apos;s <Link to="fixme">Web Literacy Map</Link>. Complete the activities in
+            sequence, or mix &amp; match for your learners. Need help{'? '}
             <a href="http://discourse.webmaker.org/category/clubs">Visit our discussion forum</a> to get help and share
             your experience.
           </p>
@@ -58,14 +57,18 @@ var CurriculumSection = React.createClass({
           return (
             <div className="row container-fluid activity" key={i}>
               <div className="col-sm-2 col-md-3">
-                <ImageTag width={122} alt={activity.imageAlt} src1x={activity.image1x} src2x={activity.image2x}/>
+                <a href={activity.link}>
+                  <ImageTag width={122} alt={activity.imageAlt} src1x={activity.image1x} src2x={activity.image2x}/>
+                </a>
               </div>
               <div className="col-sm-10 col-md-9 curriculum-description">
-                <h3>{activity.title}</h3>
-                <p>
-                  <em>{activity.subtitle}</em>
-                </p>
-                <p dangerouslySetInnerHTML={{__html: activity.description}}></p>
+                <a href={activity.link}>
+                  <h3>{activity.title}</h3>
+                  <p>
+                    <em>{activity.subtitle}</em>
+                  </p>
+                  <p dangerouslySetInnerHTML={{__html: activity.description}}></p>
+                </a>
               </div>
             </div>
           )

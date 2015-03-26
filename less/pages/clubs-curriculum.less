@@ -1,4 +1,4 @@
-.clubs-curriculum-page {
+.clubs-curriculum {
   h3 {
     margin-bottom: 0.25rem;
   }
@@ -7,6 +7,12 @@
   }
   .activity {
     min-height: 15rem;
+    a {
+      &:link, &:visited, &:hover, &:active {
+        color: @bodyTextColor;
+        text-decoration: none;
+      }
+    }
   }
   .learn-more {
     display: block;
