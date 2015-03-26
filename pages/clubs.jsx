@@ -404,6 +404,7 @@ var ClubsPage = React.createClass({
   mixins: [ModalManagerMixin, TeachAPIClientMixin],
   statics: {
     ModalAddOrChangeYourClub: ModalAddOrChangeYourClub,
+    ModalRemoveYourClub: ModalRemoveYourClub,
     ModalLearnMore: ModalLearnMore,
     teachAPIEvents: {
       'clubs:change': 'forceUpdate',

@@ -11,6 +11,7 @@ function StubTeachAPI() {
   teachAPI.updateClubs = sinon.spy();
   teachAPI.addClub = sinon.spy();
   teachAPI.changeClub = sinon.spy();
+  teachAPI.deleteClub = sinon.spy();
 
   teachAPI.getUsername.returns(null);
   teachAPI.getClubs.returns([]);

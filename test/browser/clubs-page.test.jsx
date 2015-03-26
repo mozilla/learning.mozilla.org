@@ -9,6 +9,8 @@ var StubTeachAPI = require('./stub-teach-api');
 var stubContext = require('./stub-context.jsx');
 var ClubsPage = require('../../pages/clubs.jsx');
 
+var MODAL_ERROR_REGEX = /an error occurred/i;
+
 function ensureFormFieldsDisabledValue(component, isDisabled) {
   var found = 0;
 
@@ -53,7 +55,6 @@ describe("ClubsPage", function() {
 });
 
 describe("ClubsPage.ModalAddOrChangeYourClub", function() {
-  var ERROR_REGEX = /an error occurred/i;
   var modal, teachAPI, onSuccess;
 
   beforeEach(function() {
@@ -117,7 +118,7 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
 
     it("does not show any errors by default", function() {
       teachAPI.emit('username:change', 'foo');
-      modal.getDOMNode().textContent.should.not.match(ERROR_REGEX);
+      modal.getDOMNode().textContent.should.not.match(MODAL_ERROR_REGEX);
     });
 
     it("enables form inputs by default", function() {
@@ -207,7 +208,7 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
         addClubCall.args[1](new Error());
         modal.state.step.should.equal(modal.STEP_FORM);
         should(modal.state.result).equal(null);
-        modal.getDOMNode().textContent.should.match(ERROR_REGEX);
+        modal.getDOMNode().textContent.should.match(MODAL_ERROR_REGEX);
         ensureFormFieldsDisabledValue(modal, false);
       });
 
@@ -216,7 +217,7 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
         modal.state.networkError.should.be.true;
         TestUtils.Simulate.submit(form);
         modal.state.networkError.should.be.false;
-        modal.getDOMNode().textContent.should.not.match(ERROR_REGEX);
+        modal.getDOMNode().textContent.should.not.match(MODAL_ERROR_REGEX);
       });
     });
   });
@@ -286,6 +287,80 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
         modal.getDOMNode().textContent
           .should.match(/your club has been changed/i);
       });
+    });
+  });
+});
+
+describe("ClubsPage.ModalRemoveYourClub", function() {
+  var modal, teachAPI;
+
+  beforeEach(function() {
+    modal = stubContext.render(ClubsPage.ModalRemoveYourClub, {
+      name: 'my club',
+      url: 'http://clubs/1/'
+    });
+    teachAPI = modal.getTeachAPI();
+  });
+
+  afterEach(function() {
+    if (modal) {
+      stubContext.unmount(modal);
+    }
+  });
+
+  it("renders", function() {
+    modal.getDOMNode().textContent.should.match(/remove your club/i);
+  });
+
+  it("does not show any errors by default", function() {
+    modal.getDOMNode().textContent.should.not.match(MODAL_ERROR_REGEX);
+  });
+
+  describe("when confirm button is clicked", function() {
+    var deleteClubCall, btn;
+
+    beforeEach(function() {
+      btn = TestUtils.findRenderedDOMComponentWithClass(
+        modal,
+        'btn'
+      );
+      btn.props.disabled.should.be.false;
+      teachAPI.deleteClub.callCount.should.equal(0);
+      TestUtils.Simulate.click(btn);
+      teachAPI.deleteClub.callCount.should.equal(1);
+      deleteClubCall = teachAPI.deleteClub.getCall(0);
+    });
+
+    it("sends data to server", function() {
+      deleteClubCall.args[0].should.eql('http://clubs/1/');
+    });
+
+    it("disables confirm button while server is contacted", function() {
+      modal.state.step.should.equal(modal.STEP_WAIT_FOR_NETWORK);
+      btn.props.disabled.should.be.true;
+    });
+
+    it("shows success result", function() {
+      deleteClubCall.args[1](null, {url: 'http://foo'});
+      modal.state.step.should.equal(modal.STEP_SHOW_RESULT);
+      modal.state.networkError.should.be.false;
+      modal.getDOMNode().textContent
+        .should.match(/your club has been removed/i);
+    });
+
+    it("returns to form, shows err when network err occurs", function() {
+      deleteClubCall.args[1](new Error());
+      modal.state.step.should.equal(modal.STEP_CONFIRM);
+      modal.getDOMNode().textContent.should.match(MODAL_ERROR_REGEX);
+      btn.props.disabled.should.be.false;
+    });
+
+    it("removes error message when retrying deletion", function() {
+      deleteClubCall.args[1](new Error());
+      modal.state.networkError.should.be.true;
+      TestUtils.Simulate.click(btn);
+      modal.state.networkError.should.be.false;
+      modal.getDOMNode().textContent.should.not.match(MODAL_ERROR_REGEX);
     });
   });
 });
