@@ -63,7 +63,8 @@
     "crossbrowser": "parallelshell 'npm run sauce -- --browser=chrome' 'npm run sauce -- --browser=firefox' 'npm run sauce -- --browser=explorer'",
     "s3": "gulp s3",
     "build": "gulp",
-    "start": "gulp watch"
+    "start": "gulp watch",
+    "serve": "gulp serve"
   },
   "repository": {
     "type": "git",

@@ -48,6 +48,11 @@ describe('Basic cross-browser tests (' + desired.browserName + ')', function() {
         console.log(' > ' + meth.yellow, path.grey, data || '');
       });
     }
+
+    browser.on('consoleMessage', function (info) {
+      console.log(info);
+    });
+
     browser
       .init(desired)
       .nodeify(done);
@@ -65,26 +70,36 @@ describe('Basic cross-browser tests (' + desired.browserName + ')', function() {
       .nodeify(done);
   });
 
-  function clickLink(link) {
+  function goTo(link) {
     return function (done) {
+      var errors = [];
       browser
-        .waitForElementByCss('a[href="' + link + '"]')
-        .click()
-        .nodeify(done);
+        .get('http://localhost:8008' + link)
+        .log('browser')
+        .then(function(logs) {
+          logs.forEach(function (log) {
+            console.log(log.message.red);
+            if (log.level === 'WARNING' && log.message.match('react')) {
+              errors.push(log.message);
+            }
+          });
+        })
+        .nodeify(function (wdError) {
+          var err;
+          if (wdError) {
+            err = wdError;
+          } else if (errors.length) {
+            err = new Error('There were some react warnings found on this page.');
+          }
+          done(err);
+        });
     };
   }
 
-  it('should get home page', function(done) {
-    browser
-      .get('http://localhost:8008')
-      .title()
-      .should.become('Mozilla Learning')
-      .nodeify(done);
-  });
-
-  it('should go to Activities', clickLink('/activities/'));
-  it('should go to Events', clickLink('/events/'));
-  it('should go to Teach Like Mozilla', clickLink('/teach-like-mozilla/'));
-  it('should go to Clubs', clickLink('/clubs/'));
+  it('should go to home', goTo('/'));
+  it('should go to Activities', goTo('/activities/'));
+  it('should go to Events', goTo('/events/'));
+  it('should go to Teach Like Mozilla', goTo('/teach-like-mozilla/'));
+  it('should go to Clubs', goTo('/mozilla-web-clubs/'));
 
 });
