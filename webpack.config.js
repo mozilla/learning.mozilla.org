@@ -22,9 +22,8 @@ module.exports = {
     manualTests: './test/browser/manual-main.jsx',
     tests: './test/browser/main.js'
   },
-  devtool: production
-           ? process.env.WEBPACK_DEVTOOL || 'source-map'
-           : process.env.WEBPACK_DEVTOOL || 'eval',
+  devtool: production ? process.env.WEBPACK_DEVTOOL || 'source-map'
+                      : process.env.WEBPACK_DEVTOOL || 'eval',
   output: {
     path: __dirname + '/dist',
     filename: '[name].bundle.js'
@@ -49,14 +48,12 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin('commons',
                                             'commons.bundle.js')
   ].concat(
-    production
-    ? [
+    production ? [
       new webpack.optimize.UglifyJsPlugin({
         compress: {
           warnings: false
         }
       })
-    ]
-    : []
+    ] : []
   )
 };
