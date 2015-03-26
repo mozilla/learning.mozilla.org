@@ -62,7 +62,7 @@ var ActivitiesPage = React.createClass({
   },
   render: function() {
     return (
-      <div>
+      <div className="inner-container">
         <section>
           <h1>Web Literacy</h1>
           <Illustration
