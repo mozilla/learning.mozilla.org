@@ -15,8 +15,25 @@ var sitemap = require('gulp-sitemap');
 var beautify = require('gulp-jsbeautify');
 var jscs = require('gulp-jscs');
 var jshint = require('gulp-jshint');
-var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
+var cssmin = require('gulp-minify-css');
+var jsmin = require('gulp-jsmin');
+var gulpif = require('gulp-if');
+var minimist = require('minimist');
+var LessPluginAutoPrefix = require('less-plugin-autoprefix');
+var autoprefix = new LessPluginAutoPrefix({
+  browsers: ['last 2 versions']
+});
+
+
+var cliOptions = {
+  string: 'env',
+  default: {
+    env: process.env.NODE_ENV || 'production'
+  }
+};
+
+var options = minimist(process.argv.slice(2), cliOptions);
 
 require('node-jsx').install();
 
@@ -98,14 +115,9 @@ gulp.task('less', function() {
     .pipe(handleError())
     .pipe(sourcemaps.init())
     .pipe(less({
-      paths: [path.join(__dirname, 'less')],
-      filename: 'styles.css'
+        plugins: [autoprefix]
     }))
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false,
-      remove: true
-    }))
+      .pipe(gulpif(options.env === 'production', cssmin()))
     .pipe(rename('styles.css'))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./dist'));
@@ -153,6 +165,9 @@ gulp.task('generate-index-files', function() {
 gulp.task('beautify', function () {
   gulp.src(LINT_DIRS)
       .pipe(beautify({ config: 'node_modules/mofo-style/linters/.jsbeautifyrc' }))
+      .pipe(sourcemaps.init())
+      .pipe(gulpif(options.env === 'production', jsmin()))
+      .pipe(sourcemaps.write('./'))
       .pipe(gulp.dest('dist'));
 });
 
@@ -161,7 +176,6 @@ gulp.task('jshint', function() {
       .pipe(jshint({ lookup: 'node_modules/mofo-style/linters/.jshintrc' }))
       .pipe(jshint.reporter('default'));
 });
-
 
 gulp.task('jscs', function () {
   // jscs doesn't play nice with *.jsx files so we're avoiding lib/*.jsx
