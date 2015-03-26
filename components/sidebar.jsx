@@ -25,7 +25,14 @@ var Sidebar = React.createClass({
       link: 'teach-like-mozilla',
       help: "Learn about our approach to teaching the Web",
       icon: "/img/nav/icon-nav-white-gears.svg",
-      className: "teach"
+      className: "teach",
+      subItems: [
+        {
+          name: "Web Literacy",
+          link: "web-literacy",
+          help: "skills and competencies needed for reading, writing and participating on the web."
+        }
+      ]
     },
     {
       name: "Mozilla Web Clubs",
