@@ -44,10 +44,10 @@ var WebMapItem = React.createClass({
     }
     return (
       <div className={classList}>
-        <div onClick={this.expand} className="web-map-item">
+        <button onClick={this.expand} className="web-map-item">
           {this.props.head}
           <span className="ion"></span>
-        </div>
+        </button>
         <div className="web-map-items-container">
           {this.props.children}
         </div>
