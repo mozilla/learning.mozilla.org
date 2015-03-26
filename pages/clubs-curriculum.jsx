@@ -8,15 +8,17 @@ var CurriculumIntro = React.createClass({
     return (
       <section className="row intro">
         <h1 className="col-sm-12">Clubs Curriculum</h1>
-        <div className="col-sm-3 col-md-3 col-md-offset-1 col-lg-3">
+        <div>
+        <div className="col-sm-3 col-md-4 col-lg-3">
           <ImageTag alt="Woman training a young man on a computer"
-              className="img-circle img-scale-to-fit" src1x="/img/clubs-curriculum-page/photo-clubs-curriculum.jpg"
+              className="img-circle center" src1x="/img/clubs-curriculum-page/photo-clubs-curriculum.jpg"
               src2x="/img/clubs-curriculum-page/photo-clubs-curriculum@2x.jpg"/>
         </div>
-        <h2 className="col-sm-9 col-md-8">
+        <h2 className="col-sm-9 col-md-8 col-lg-9">
           Activities to teach the web in your club. Developed and tested by our seasoned educator community. Easy to
           use, guaranteed fun.
         </h2>
+        </div>
       </section>
     );
   }
@@ -55,20 +57,20 @@ var CurriculumSection = React.createClass({
         </h2>
         {this.props.activities.map(function (activity, i) {
           return (
-            <div className="row container-fluid activity" key={i}>
-              <div className="col-sm-2 col-md-3">
+            <div className="row activity" key={i}>
+              <div className="col-sm-2 col-md-2">
                 <a href={activity.link}>
                   <ImageTag width={122} alt={activity.imageAlt} src1x={activity.image1x} src2x={activity.image2x}/>
                 </a>
               </div>
-              <div className="col-sm-10 col-md-9 curriculum-description">
+              <div className="col-sm-10 col-md-10 curriculum-description">
                 <a href={activity.link}>
                   <h3>{activity.title}</h3>
-                  <p>
-                    <em>{activity.subtitle}</em>
-                  </p>
-                  <p dangerouslySetInnerHTML={{__html: activity.description}}></p>
                 </a>
+                <p>
+                  <em>{activity.subtitle}</em>
+                </p>
+                <p className="description" dangerouslySetInnerHTML={{__html: activity.description}}></p>
               </div>
             </div>
           )
@@ -81,7 +83,7 @@ var CurriculumSection = React.createClass({
 var LearnMoreSection = React.createClass({
   render: function () {
     return (
-      <section className="row">
+      <section className="row page-end">
         <ImageTag alt="Icon representing Web Literacy—A smart phone inside a stylized atom illustration"
             className="center-block" src1x="/img/clubs-curriculum-page/icon-web-literacy.jpg"
             src2x="/img/clubs-curriculum-page/icon-web-literacy@2x.jpg" width={292} height={102} />
@@ -114,7 +116,7 @@ var ClubsCurriculum = React.createClass({
           image2x: "/img/clubs-curriculum-page/img-kraken-code@2x.jpg",
           imageAlt: "An illustration of water with a sea monster and a boat in it",
           subtitle: "Understanding credibility",
-          description: "Learners use the Internet to solve the mystery of The Kraken, a legendary sea creature, while also <strong>learning about search terms, keywords, and how to assess the validity and relevance of web sources.</strong>",
+          description: "Learners use the Internet to solve the mystery of The Kraken, a legendary sea creature, while also learning about search terms, keywords, and how to assess the validity and relevance of web sources.",
           link: "http://mozilla.github.io/webmaker-curriculum/WebLiteracyBasics-I/session01-kraken.html"
         },
         {
@@ -123,7 +125,7 @@ var ClubsCurriculum = React.createClass({
           image2x: "/img/clubs-curriculum-page/img-ping-kong@2x.jpg",
           imageAlt: "An illustration of the Empire State Building, with several helicopters circling",
           subtitle: "Understanding web mechanics",
-          description: "For many, &ldquo;the Internet&rdquo; is an abstract and overwhelming concept. This activity challenges learners to <strong>think concretely about how the internet communicates with a computer</strong>.",
+          description: "For many, &ldquo;the Internet&rdquo; is an abstract and overwhelming concept. This activity challenges learners to think concretely about how the internet communicates with a computer.",
           link: "http://mozilla.github.io/webmaker-curriculum/WebLiteracyBasics-I/session01-pingkong.html"
         }
       ]
@@ -137,7 +139,7 @@ var ClubsCurriculum = React.createClass({
           image2x: "/img/clubs-curriculum-page/img-hack-news@2x.jpg",
           imageAlt: "An illustration of a newspaper, with a headline of &ldquo;Hack the News&rdquo;",
           subtitle: "Understanding remixing",
-          description: "Learners use X-Ray Goggles to remix a news website, learning about <strong>openly-licensed resources, different forms of media, and how to create something new on the Web through remix</strong>.",
+          description: "Learners use X-Ray Goggles to remix a news website, learning about openly-licensed resources, different forms of media, and how to create something new on the Web through remix.",
           link: "http://mozilla.github.io/webmaker-curriculum/WebLiteracyBasics-I/session02-hackthenews.html"
         },
         {
@@ -146,7 +148,7 @@ var ClubsCurriculum = React.createClass({
           image2x: "/img/clubs-curriculum-page/img-puzzle-boxes@2x.jpg",
           imageAlt: "A photograph of several paper boxes with HTML tags on them",
           subtitle: "Understanding composing for the web",
-          description: "Learners race to sequence the paper boxes labeled with HTML tags, <strong>becoming familiar with the most common HTML tags and how to structure a web page</strong>.",
+          description: "Learners race to sequence the paper boxes labeled with HTML tags, becoming familiar with the most common HTML tags and how to structure a web page.",
           link: "http://mozilla.github.io/webmaker-curriculum/WebLiteracyBasics-I/session02-puzzlebox.html"
         }
       ]
@@ -177,7 +179,7 @@ var ClubsCurriculum = React.createClass({
   ],
   render: function () {
     return (
-      <div className="container-fluid">
+      <div className="inner-container">
         <CurriculumIntro/>
         <WebLitBasics/>
         {this.curriculum.map(function (section, key) {

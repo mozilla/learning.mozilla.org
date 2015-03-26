@@ -5,7 +5,16 @@
   section {
     padding: 0;
   }
+  .intro h2 {
+    margin-top: 0rem;
+    line-height: 4.7rem;
+    text-align: center;
+    @media screen and (min-width: @screen-sm-min) {
+      text-align: left;
+    }
+  }
   .activity {
+    margin-top: 1rem;
     min-height: 15rem;
     a {
       &:link, &:visited, &:hover, &:active {
@@ -24,20 +33,48 @@
     a {
       &:link, &:visited, &:hover, &:active, &:focus {
         color: @lightOrangeSidebarColor;
-        font-weight: 400;
+        font-weight: 600;
         text-transform: uppercase;
+        font-size: 1.4rem;
+        text-decoration: underline;
       }
     }
+  }
+  .page-end {
+    padding: 0 0 3rem 0;
   }
 }
 
 .curriculum-description {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  @media screen and (min-width: @screen-sm-min) {
+    margin-top: 0;
+    margin-bottom: 0;
+
+  }
   h3 {
     margin-top: 0;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    font-weight: 700;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  p {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    margin-bottom: 8px;
+    &.description {
+      font-weight: 500;
+      max-width: 60rem;
+    }
   }
 }
 
 .curriculum-section-header {
-  padding-bottom: 0.5rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 3rem;
   border-bottom: @lightOrangeSidebarColor solid 0.1rem;
 }
