@@ -148,7 +148,7 @@ string), the boolean is true; otherwise, it's false.
    Name | Description
 ------------------|---------------------------------------------
 `WEBPACK_DEVTOOL` | determines the setting for the [`devtool`][] Webpack option. It defaults to `source-map`; if you're on Firefox, though, you may want to set it to `eval` so that console logging statements originate from useful line numbers. For re details on the trade-offs between different options for development, see our [conversation on sourcemaps][sourcemaps-wtf].
-`LESS_AUTOPREFIXER` | set this to `off` to disable the LESS autoprefixer, which is a workaround for [#413][].
+`LESS_AUTOPREFIXER` | set this to `off` to disable the LESS autoprefixer and enable useful CSS source maps, which is a workaround for [#413][].
 `AWS_ACCESS_KEY` | is the Amazon Web Services access key used when uploading to s3 via `npm run s3`.
 `AWS_SECRET_KEY` | is the Amazon Web Services secret key used when uploading to s3 via `npm run s3`.
 `AWS_BUCKET` | is the S3 bucket to upload to when using `npm run s3`. It defaults to `teach.mofostaging.net`.
