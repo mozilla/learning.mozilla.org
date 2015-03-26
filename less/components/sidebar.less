@@ -57,13 +57,15 @@ html.no-js .sidebar {
 
 .sidebar-header {
   position: relative;
-  background-color: rgba(255, 255, 255, 0.3);
   font-size: 2rem;
   color: #595a5e; // TODO: should this actually be @bodyTextColor ?
   margin-left: -(@grid-gutter-width / 2);
   margin-right: -(@grid-gutter-width / 2);
   padding: 2rem 1.5rem;
   overflow: hidden;
+  @media screen and (min-width: @screen-md-min) {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
   a {
     &:hover, &:focus {
       text-decoration: none;
@@ -77,6 +79,7 @@ html.no-js .sidebar {
     right: 1rem;
     top: 2.5rem;
     cursor: pointer;
+    color: @white;
   }
 }
 
@@ -86,7 +89,8 @@ html.no-js .sidebar {
 }
 
 .sidebar-menu {
-  padding-bottom: 1rem;
+  padding-bottom: 0;
+  margin-bottom: 0;
   .teach img {
     width: 5rem;
     margin: 0.4rem 1.3rem 0 0.6rem;
@@ -106,7 +110,7 @@ html.no-js .sidebar {
     }
     &:hover, &:focus {
       text-decoration: none;
-      background-color: darken(@sidebarColor, 10%);
+      background-color: darken(@sidebarColor, 5%);
       transition: background-color @sidebarTransitionTime;
     }
   }
@@ -127,11 +131,15 @@ html.no-js .sidebar {
     position: absolute;
     right: 1rem;
     font-size: 1.5rem;
-    top: calc(50% - 1.5rem / 2);
+    top: calc(41.5%);
     color: lighten(@sidebarColor, 15%);
     transition: color @sidebarTransitionTime;
+    visibility: hidden;
     @media screen and (min-width: @screen-lg-min) {
       right: 1.5rem;
+    }
+    @media screen and (min-width: @screen-md-min) {
+      visibility: visible;
     }
   }
   img {
@@ -153,7 +161,7 @@ html.no-js .sidebar {
   margin-left: 3rem;
   padding: 0;
   position: relative;
-  top: -1.7rem;
+  top: 0;
 
   li {
     margin-bottom: 1.5rem;
@@ -169,7 +177,6 @@ html.no-js .sidebar {
     }
   }
   a {
-    background: rgba(255, 255, 255, 0.1);
     display: block;
     margin: 0 0 0 4rem;
     padding: 0.5rem 1rem;
