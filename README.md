@@ -45,6 +45,19 @@ npm start
 
 This will start a webserver for you at `http://localhost:8008`, and run a `watch` process so that your front-end assets will be regenerated as you make changes.
 
+### A note about source maps
+
+Because this project uses a variety of tools that transform the
+original source code before delivering it to the browser, it is critical
+for [source maps][] to work properly in order to ensure a pleasant
+developer experience.
+
+However, due to the unfortunate realities of software development, there
+isn't a "one size fits all" solution to this. Please be sure to read the
+**Environment Variables** section below and configure your environment
+as needed to ensure that you're seeing useful line numbers for
+whatever part of the codebase you need to change.
+
 ### Directory and naming conventions
 
 JS
@@ -135,6 +148,7 @@ string), the boolean is true; otherwise, it's false.
    Name | Description
 ------------------|---------------------------------------------
 `WEBPACK_DEVTOOL` | determines the setting for the [`devtool`][] Webpack option. It defaults to `source-map`; if you're on Firefox, though, you may want to set it to `eval` so that console logging statements originate from useful line numbers. For re details on the trade-offs between different options for development, see our [conversation on sourcemaps][sourcemaps-wtf].
+`LESS_AUTOPREFIXER` | set this to `off` to disable the LESS autoprefixer, which is a workaround for [#413][].
 `AWS_ACCESS_KEY` | is the Amazon Web Services access key used when uploading to s3 via `npm run s3`.
 `AWS_SECRET_KEY` | is the Amazon Web Services secret key used when uploading to s3 via `npm run s3`.
 `AWS_BUCKET` | is the S3 bucket to upload to when using `npm run s3`. It defaults to `teach.mofostaging.net`.
@@ -181,3 +195,5 @@ want to create a batch file that uses
   [teach.mofostaging.net]: http://teach.mofostaging.net/
   [Mapbox]: http://mapbox.com/
   [Teach API]: https://github.com/mozilla/teach-api
+  [#413]: https://github.com/mozilla/teach.webmaker.org/issues/413
+  [source maps]: http://blog.teamtreehouse.com/introduction-source-maps
