@@ -3,6 +3,12 @@ node_js:
 - '0.12'
 env:
   global:
-    secure: G3YBwV29SBIqtWfP1EIyaABZ65jvzFT15vUMRSf8IZgINRkRl8p7Js38ioaYahlCIVVom02iulY5N/n/Q5qdsgckZUGYe0FYy4+Qz1Qr69rATpFCpREPh02lfkm5TojjefGdDqlm9CUJvJGhtDXIOUlAK66yd85O2gyZb9DK0CQ=
+    - secure: G3YBwV29SBIqtWfP1EIyaABZ65jvzFT15vUMRSf8IZgINRkRl8p7Js38ioaYahlCIVVom02iulY5N/n/Q5qdsgckZUGYe0FYy4+Qz1Qr69rATpFCpREPh02lfkm5TojjefGdDqlm9CUJvJGhtDXIOUlAK66yd85O2gyZb9DK0CQ=
+    - secure: XusXUK6zojIiQTcImdf35VmR4juUp/C/rL4lOAy7WqvOE11APQb3y9CURBr/0+Ow5f/RjxPIk8hkEr/xAYlwSL6B9VpgrtNkkT2eAOWBk4y64q3sLp3BFP2SZNCLIDXysBkEvJ9By77c8/JdkJNrg8JKYlJH/cTg0Co2x+McByk=
+    - secure: QRYXcdRD6qTjAc0bdcS0CC83ZtwLEfo5la8qm1sEEI4X6wrPbxQ1gNGN+D2QBzwI8U3MO13zlWD5dtYY1EWbAfLIjIdiHE6jpXwaKbhthiF3j00CJfpm0wUaaR5QbtNxQ+4FF5l+uKJ5jQiUhQz+IvG2vjfNveXwzyzMaMQCxkc=
+addons:
+  sauce_connect: true
+scripts:
+  - npm run crossbrowser
 after_success:
   "npm run s3"

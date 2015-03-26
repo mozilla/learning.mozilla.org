@@ -3,6 +3,10 @@ var wd = require('wd');
 var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised');
 var argv = require('minimist')(process.argv.slice(2));
+var express = require('express')
+
+var app = express();
+app.use(express.static('./dist'));
 
 // Check username
 if (!process.env.SAUCE_USERNAME || !process.env.SAUCE_ACCESS_KEY) {
@@ -30,6 +34,8 @@ var desired = DESIREDS[browserKey];
 desired.name = 'Teach integrated tests: ' + browserKey;
 desired.tags = ['webmaker'];
 
+var port;
+
 describe('Basic cross-browser tests (' + desired.browserName + ')', function() {
   this.timeout(100000);
   var browser;
@@ -38,24 +44,29 @@ describe('Basic cross-browser tests (' + desired.browserName + ')', function() {
   before(function(done) {
     var username = process.env.SAUCE_USERNAME;
     var accessKey = process.env.SAUCE_ACCESS_KEY;
-    browser = wd.promiseChainRemote('ondemand.saucelabs.com', 80, username, accessKey);
-    if(argv.verbose){
-      // optional logging
-      browser.on('status', function(info) {
-        console.log(info.cyan);
-      });
-      browser.on('command', function(meth, path, data) {
-        console.log(' > ' + meth.yellow, path.grey, data || '');
-      });
-    }
+    server = app.listen(0, function () {
+      port = server.address().port;
+      console.log('Server listening to', port);
+      browser = wd.promiseChainRemote('ondemand.saucelabs.com', 80, username, accessKey);
+      if(argv.verbose){
+        // optional logging
+        browser.on('status', function(info) {
+          console.log(info.cyan);
+        });
+        browser.on('command', function(meth, path, data) {
+          console.log(' > ' + meth.yellow, path.grey, data || '');
+        });
+      }
 
-    browser.on('consoleMessage', function (info) {
-      console.log(info);
+      browser.on('error', function (error) {
+        console.log(error);
+      });
+
+      browser
+        .init(desired)
+        .nodeify(done);
     });
 
-    browser
-      .init(desired)
-      .nodeify(done);
   });
 
   afterEach(function(done) {
@@ -68,31 +79,39 @@ describe('Basic cross-browser tests (' + desired.browserName + ')', function() {
       .quit()
       .sauceJobStatus(allPassed)
       .nodeify(done);
+    server.close();
   });
 
   function goTo(link) {
     return function (done) {
       var errors = [];
-      browser
-        .get('http://localhost:8008' + link)
-        .log('browser')
-        .then(function(logs) {
-          logs.forEach(function (log) {
-            console.log(log.message.red);
-            if (log.level === 'WARNING' && log.message.match('react')) {
-              errors.push(log.message);
+      var url = 'http://localhost:' + port + link;
+      if (browserKey === 'chrome') {
+        browser
+          .get(url)
+          .log('browser')
+          .then(function(logs) {
+            logs.forEach(function (log) {
+              console.log(log.message.red);
+              if (log.level === 'WARNING' && log.message.match('react')) {
+                errors.push(log.message);
+              }
+            });
+          })
+          .nodeify(function (wdError) {
+            var err;
+            if (wdError) {
+              err = wdError;
+            } else if (errors.length) {
+              err = new Error('There were some react warnings found on this page.');
             }
+            done(err);
           });
-        })
-        .nodeify(function (wdError) {
-          var err;
-          if (wdError) {
-            err = wdError;
-          } else if (errors.length) {
-            err = new Error('There were some react warnings found on this page.');
-          }
-          done(err);
-        });
+        } else {
+          browser
+            .get(url)
+            .nodeify(done);
+        }
     };
   }
 

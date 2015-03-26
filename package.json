@@ -51,6 +51,7 @@
     "chai": "^2.1.2",
     "chai-as-promised": "^4.3.0",
     "colors": "^1.0.3",
+    "express": "^4.12.3",
     "minimist": "^1.1.1",
     "parallelshell": "^1.1.1",
     "wd": "^0.3.11"
@@ -60,11 +61,10 @@
     "browsertest": "mocha-phantomjs -s loadImages=false dist/test/index.html",
     "smoketest": "gulp smoketest",
     "sauce": "mocha test/crossbrowser/*.test.js --reporter spec",
-    "crossbrowser": "parallelshell 'npm run sauce -- --browser=chrome' 'npm run sauce -- --browser=firefox' 'npm run sauce -- --browser=explorer'",
+    "crossbrowser": "npm run build && parallelshell \"npm run sauce -- --browser=chrome\" \"npm run sauce -- --browser=firefox\" \"npm run sauce -- --browser=explorer\"",
     "s3": "gulp s3",
     "build": "gulp",
-    "start": "gulp watch",
-    "serve": "gulp serve"
+    "start": "gulp watch"
   },
   "repository": {
     "type": "git",
