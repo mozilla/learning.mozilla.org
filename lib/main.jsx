@@ -11,9 +11,7 @@ function startRunningSite() {
   if (config.ENABLE_PUSHSTATE) {
     routes.run(Router.HistoryLocation, pageHolder);
   } else {
-    if (!window.location.hash.slice(1))
-      window.location.hash = '#' + url;
-    routes.run(Router.HashLocation, pageHolder);
+    routes.run(Router.RefreshLocation, pageHolder);
   }
 }
 
