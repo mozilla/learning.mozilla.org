@@ -393,6 +393,9 @@ var ClubsPage = React.createClass({
           <div><p className="learn-more">or <a onClick={this.showLearnMoreModal}>find out more</a> about us</p></div>
         </HeroUnit>
         <section>
+          <HowClubWorks/>
+        </section>
+        <section>
           <WebLitMap/>
           <div className="mapDiv" id="mapDivID">
             <Map ref="map" className="mapDivChild"
@@ -401,9 +404,6 @@ var ClubsPage = React.createClass({
              onDelete={this.handleClubDelete}
              onEdit={this.handleClubEdit}/>
           </div>
-        </section>
-        <section>
-          <HowClubWorks/>
         </section>
         <section>
           <Quote/>
