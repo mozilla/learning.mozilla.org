@@ -37,6 +37,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin(importEnvVars([
+      'NODE_ENV',
       'TEACH_API_URL',
       'GA_ACCOUNT',
       'MAPBOX_ACCESS_TOKEN',

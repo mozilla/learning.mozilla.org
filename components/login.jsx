@@ -2,6 +2,7 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 
+var config = require('../lib/config');
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
 var ga = require('../lib/googleanalytics.js');
 
@@ -43,7 +44,7 @@ var Login = React.createClass({
   handleApiLoginError: function(err) {
     this.setState({loggingIn: false});
 
-    if (process.env.NODE_ENV != "test") {
+    if (!config.IN_TEST_SUITE) {
       console.log("Teach API error", err);
       ga.event({ category: 'Login', action: 'Teach API Error',
                 nonInteraction:true});
