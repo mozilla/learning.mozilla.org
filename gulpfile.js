@@ -7,6 +7,7 @@ var gutil = require('gulp-util');
 var s3 = require('gulp-s3');
 var gzip = require('gulp-gzip');
 var less = require('gulp-less');
+var cssmin = require('gulp-minify-css');
 var prettify = require('gulp-prettify');
 var webpack = require('gulp-webpack');
 var plumber = require('gulp-plumber');
@@ -107,6 +108,7 @@ gulp.task('less', function() {
       cascade: false,
       remove: true
     })))
+    .pipe(gulpif(process.env.NODE_ENV === 'production', cssmin()))
     .pipe(rename('styles.css'))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./dist'));
