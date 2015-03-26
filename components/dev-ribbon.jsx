@@ -40,9 +40,11 @@ module.exports = React.createClass({
     // We're using role="link" to stop react-a11y from annoying us;
     // this code is only for development, don't worry about a11y.
     return (
-      <a className="dev-ribbon" href="#" role="link" onClick={this.handleClick}>
-        Dev Version
-      </a>
+      <div className="dev-ribbon-holder">
+        <a className="dev-ribbon" href="#" role="link" onClick={this.handleClick}>
+          Dev Version
+        </a>
+      </div>
     );
   }
 });
