@@ -119,8 +119,8 @@ var ModalRemoveYourClub = React.createClass({
   render: function() {
     var content, isFormDisabled;
 
-    if (this.state.step != this.STEP_SHOW_RESULT) {
-      isFormDisabled = (this.state.step == this.STEP_WAIT_FOR_NETWORK);
+    if (this.state.step !== this.STEP_SHOW_RESULT) {
+      isFormDisabled = (this.state.step === this.STEP_WAIT_FOR_NETWORK);
       content = (
         <div>
           {this.state.networkError
