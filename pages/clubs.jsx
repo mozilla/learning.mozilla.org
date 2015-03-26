@@ -25,7 +25,7 @@ var ClubListItem = React.createClass({
   },
   render: function() {
     var club = this.props.club;
-    var isOwned = (club.owner == this.props.username);
+    var isOwned = (club.owner === this.props.username);
     var ownerControls = null;
 
     if (isOwned) {
