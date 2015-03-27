@@ -6,20 +6,19 @@ var Link = Router.Link;
 var CurriculumIntro = React.createClass({
   render: function () {
     return (
-      <section className="row intro">
-        <h1 className="col-sm-12">Clubs Curriculum</h1>
-        <div>
-        <div className="col-sm-3 col-md-4 col-lg-3">
-          <ImageTag alt="Woman training a young man on a computer"
-              className="img-circle center" src1x="/img/clubs-curriculum-page/photo-clubs-curriculum.jpg"
-              src2x="/img/clubs-curriculum-page/photo-clubs-curriculum@2x.jpg"/>
-        </div>
-        <h2 className="col-sm-9 col-md-8 col-lg-9">
-          Activities to teach the web in your club. Developed and tested by our seasoned educator community. Easy to
-          use, guaranteed fun.
-        </h2>
-        </div>
-      </section>
+      <div>
+        <h1>Clubs Curriculum</h1>
+        <section className="row intro">
+          <div className="col-sm-3 col-md-4 col-lg-3">
+            <ImageTag alt="Woman training a young man on a computer"
+                className="img-circle center" src1x="/img/clubs-curriculum-page/photo-clubs-curriculum.jpg"
+                src2x="/img/clubs-curriculum-page/photo-clubs-curriculum@2x.jpg"/>
+          </div>
+          <div className="col-sm-9 col-md-8 col-lg-9">
+            <h2>Activities to teach the web in your club. Developed and tested by our seasoned educator community. Easy to use, guaranteed fun. </h2>
+          </div>
+        </section>
+      </div>
     );
   }
 });

@@ -1,16 +1,16 @@
 .about-page {
-  header {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-    @media screen and (min-width: @screen-sm) {
-      padding-left: 0;
+  .intro {
+    @media (min-width: @screen-sm-min) {
+      align-items: center;
+      display: flex;
     }
-  }
-  header, .our-goal {
     p {
-      margin-top: 2%;
-      font-size: 2.2rem;
-      line-height: 3.4rem;
+      font-size: 1.8rem;
+      line-height: 2.8rem;
+      @media screen and (min-width: @screen-md-min) {
+        font-size: 2.5rem;
+        line-height: 3.8rem;
+      }
     }
   }
   .list-with-illust {
