@@ -16,6 +16,8 @@ var ModalManagerMixin = require('../mixins/modal-manager');
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
 var ga = require('react-ga');
 
+var Illustration = require('../components/illustration.jsx');
+
 var ClubListItem = React.createClass({
   propTypes: {
     club: React.PropTypes.object.isRequired,
@@ -110,11 +112,10 @@ var WebLitMap = React.createClass({
 var HowClubWorks = React.createClass({
   render: function() {
     return(
-      <div className="row list-with-illust">
-        <div className="col-sm-4 col-md-4 col-lg-4">
-          <img src="/img/icon-how-do-clubs-work.svg" alt="icon how do web clubs work" />
-        </div>
-        <div className="col-sm-8 col-md-8 col-lg-8">
+      <div className="list-with-illust">
+        <Illustration className="center"
+        src1x="/img/icon-how-do-clubs-work.svg"
+        alt="icon how do web clubs work">
           <h2>How do Web Clubs work?</h2>
           <ul>
             <li>Grow the web literary of leaners</li>
@@ -123,7 +124,7 @@ var HowClubWorks = React.createClass({
             <li>Guide people to learn by making</li>
             <li>Connect with local and global networks</li>
           </ul>
-        </div>
+        </Illustration>
       </div>
     );
   }

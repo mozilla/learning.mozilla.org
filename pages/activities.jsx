@@ -67,11 +67,10 @@ var ActivityKit = React.createClass({
     return (
       <div className="activity-kit">
         <Illustration
-          src1x={this.props.src1x}
-          src2x={this.props.src2x}
-          alt={this.props.title}
-          link={this.props.link}
-        >
+        src1x={this.props.src1x}
+        src2x={this.props.src2x}
+        alt={this.props.title}
+        link={this.props.link}>
           <div className="activity-kit-content">
             <h3><a href={this.props.link}>{this.props.title}</a></h3>
             <div>

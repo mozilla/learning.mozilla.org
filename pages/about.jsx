@@ -3,20 +3,20 @@ var React = require('react');
 var ImageTag = require('../components/imagetag.jsx');
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
+var Illustration = require('../components/illustration.jsx');
 
 var Intro = React.createClass({
   render: function () {
     return (
         <div>
           <h1>About Mozilla Learning Networks</h1>
-          <section className="row intro">
-            <div className="col-sm-3 col-md-4 col-lg-3">
-              <ImageTag src1x="/img/about-page/hive-nyc-summer-quest.jpg"
-                    alt="HiveLearningNYC 2014 Hive NYC Summer Quest Maker Party" className="img-circle center"/>
-            </div>
-            <div className="col-sm-9 col-md-8 col-lg-9">
+          <section className="intro">
+            <Illustration
+            className="img-circle"
+            src1x="/img/about-page/hive-nyc-summer-quest.jpg"
+            alt="HiveLearningNYC 2014 Hive NYC Summer Quest Maker Party">
               <p>We want more people to see themselves as citizens of the web. Mozilla Learning Networks offers programs and a global community dedicated to helping people learn the most important skills of our age: <em>the ability to read, write and participate in the digital world.</em></p>
-            </div>
+            </Illustration>
           </section>
         </div>
     );
@@ -27,11 +27,9 @@ var OurFocus = React.createClass({
   render: function () {
     return (
         <section className="row list-with-illust">
-          <div className="col-sm-4 col-md-4 col-lg-4">
-            <img src="/img/about-page/about-illustration.svg"
-                alt="A graphic showing an illustration of a person, a book, some gears, a map pin, and a square acedemic cap" />
-          </div>
-          <div className="col-sm-8 col-md-8 col-lg-8">
+          <Illustration
+          src1x="/img/about-page/about-illustration.svg"
+          alt="A graphic showing an illustration of a person, a book, some gears, a map pin, and a square acedemic cap">
             <h2>Our Focus</h2>
             <ul>
               <li>
@@ -51,7 +49,7 @@ var OurFocus = React.createClass({
                 are networked for greater impact.
               </li>
             </ul>
-          </div>
+          </Illustration>
         </section>
     );
   }
