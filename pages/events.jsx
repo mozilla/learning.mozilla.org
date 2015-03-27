@@ -8,6 +8,11 @@ var PageEndCTA = require('../components/page-end-cta.jsx');
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
 
+var CAROUSEL_IMG_PROPS = {
+  width: 800,
+  height: 533
+};
+
 var EventsPage = React.createClass({
   statics: {
     pageClassName: 'events'
@@ -38,13 +43,13 @@ var EventsPage = React.createClass({
           <div className="carousel-holder">
             <Carousel>
               <CarouselItem>
-                <img width={800} height={533} alt="2014 Hive NYC Summer Quest Maker Party" src="//c3.staticflickr.com/3/2915/14592256638_55ec5cf36b_b.jpg"/>
+                <img {...CAROUSEL_IMG_PROPS} alt="2014 Hive NYC Summer Quest Maker Party" src="//c3.staticflickr.com/3/2915/14592256638_55ec5cf36b_b.jpg"/>
                 <div className="carousel-caption sr-only">
                   <h3><a href="https://www.flickr.com/photos/mozilladrumbeat/14592256638/in/set-72157647305286970">2014 Hive NYC Summer Quest Maker Party</a></h3>
                 </div>
               </CarouselItem>
               <CarouselItem>
-                <img width={800} height={533} alt="Appmaking" src="//c2.staticflickr.com/6/5587/15213220651_9055dffbe6.jpg"/>
+                <img {...CAROUSEL_IMG_PROPS} alt="Appmaking" src="//c2.staticflickr.com/6/5587/15213220651_9055dffbe6.jpg"/>
                 <div className="carousel-caption sr-only">
                   <h3><a href="https://www.flickr.com/photos/mozilladrumbeat/15213220651/in/album-72157647305286970/">Appmaking</a></h3>
                 </div>
