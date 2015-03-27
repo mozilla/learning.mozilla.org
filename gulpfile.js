@@ -90,9 +90,14 @@ gulp.task('copy-images', function () {
 });
 
 gulp.task('copy-vendor', function () {
-  return gulp.src(['node_modules/bootstrap/dist/css/**', 'node_modules/bootstrap/dist/fonts/**'], {
-    base: 'node_modules/bootstrap/dist'
-  }).pipe(gulp.dest('./dist/vendor/bootstrap'));
+  return merge(
+    gulp.src(['node_modules/bootstrap/dist/css/**', 'node_modules/bootstrap/dist/fonts/**'], {
+      base: 'node_modules/bootstrap/dist'
+    }).pipe(gulp.dest('./dist/vendor/bootstrap')),
+    gulp.src(['node_modules/react-slick/bower_components/slick-carousel/slick/**'], {
+      base: 'node_modules/react-slick/bower_components/slick-carousel/slick'
+    }).pipe(gulp.dest('./dist/vendor/slick'))
+  );
 });
 
 gulp.task('less', function() {
