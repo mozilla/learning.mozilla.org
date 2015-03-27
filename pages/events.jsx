@@ -44,7 +44,7 @@ var EventsPage = React.createClass({
               <IconLink
                 linkTo="fixme"
                 imgSrc="/img/events-page/icon-curriculum.svg"
-                imgAlt="icon curriculum"
+                imgAlt="icon resources"
                 head="Event Resources"
                 subhead="Plan a unique event"
               />
@@ -58,7 +58,7 @@ var EventsPage = React.createClass({
               <IconLink
                 linkTo="fixme"
                 imgSrc="/img/events-page/icon-add-event.svg"
-                imgAlt="icon tips"
+                imgAlt="icon add event"
                 head="Add Your Event"
                 subhead="Join the global movement"
               />
