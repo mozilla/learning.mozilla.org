@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="127px" height="94px" viewBox="0 0 127 94" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-add-event</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Events-Page" sketch:type="MSArtboardGroup" transform="translate(-992.000000, -2011.000000)">
+            <g id="icon-add-event" sketch:type="MSLayerGroup" transform="translate(993.000000, 2013.000000)">
+                <g id="Group" transform="translate(35.000000, 33.000000)" stroke="#D4E0F9" stroke-width="2.5" sketch:type="MSShapeGroup">
+                    <ellipse id="Oval" cx="28.252" cy="28.808" rx="10.471" ry="27.996"></ellipse>
+                    <ellipse id="Oval" cx="28.253" cy="28.808" rx="27.996" ry="10.472"></ellipse>
+                    <ellipse id="Oval" transform="translate(28.254367, 28.807160) rotate(135.000000) translate(-28.254367, -28.807160) " cx="28.2543669" cy="28.8071595" rx="10.4728996" ry="27.9957315"></ellipse>
+                    <ellipse id="Oval" transform="translate(28.253341, 28.809067) rotate(225.000000) translate(-28.253341, -28.809067) " cx="28.2533405" cy="28.8090669" rx="10.4728996" ry="27.9957315"></ellipse>
+                </g>
+                <g id="Group" sketch:type="MSShapeGroup">
+                    <g transform="translate(9.000000, 37.000000)" fill="#D4E0F9">
+                        <circle id="Oval" cx="5.902" cy="27.268" r="5"></circle>
+                        <path d="M5.902,0.284 L5.902,30.267" id="Shape" stroke="#D4E0F9" stroke-width="2"></path>
+                    </g>
+                    <g stroke="#D4E0F9" stroke-width="3">
+                        <path d="M28.344,14.082 C28.344,6.35 22.216,0.082 14.656,0.082 C7.096,0.082 0.968,6.35 0.968,14.082 C0.968,18.023 3.501,24.213 6.502,28.089 C11.183,34.133 14.655,38.451 14.655,38.451 C14.655,38.451 18.362,33.769 21.998,28.998 C25.596,24.277 28.344,17.951 28.344,14.082 L28.344,14.082 Z" id="Shape"></path>
+                        <ellipse id="Oval" cx="14.656" cy="13.984" rx="6.97" ry="7.129"></ellipse>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(96.000000, 20.000000)" sketch:type="MSShapeGroup">
+                    <g transform="translate(9.000000, 37.000000)" fill="#D4E0F9">
+                        <circle id="Oval" cx="5.903" cy="27.269" r="5"></circle>
+                        <path d="M5.903,0.285 L5.903,30.268" id="Shape" stroke="#D4E0F9" stroke-width="2"></path>
+                    </g>
+                    <g stroke="#D4E0F9" stroke-width="3">
+                        <path d="M28.345,14.083 C28.345,6.351 22.217,0.083 14.657,0.083 C7.097,0.083 0.969,6.351 0.969,14.083 C0.969,18.024 3.502,24.214 6.503,28.09 C11.184,34.134 14.656,38.452 14.656,38.452 C14.656,38.452 18.363,33.77 21.999,28.999 C25.597,24.278 28.345,17.952 28.345,14.083 L28.345,14.083 Z" id="Shape"></path>
+                        <ellipse id="Oval" cx="14.657" cy="13.985" rx="6.97" ry="7.129"></ellipse>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
