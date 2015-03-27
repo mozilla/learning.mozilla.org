@@ -150,7 +150,7 @@ var BottomCTA = React.createClass({
     return(
       <div className="row">
         <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
-          <PageEndCTA linkTo={this.props.ctaLink}>
+          <PageEndCTA>
             <div>
               <img className="divider" src="/img/clubs-line-divider.svg" alt="line divider" />
               <p>Do you meet regularly with a group of learners to increase web literacy skills?</p>
