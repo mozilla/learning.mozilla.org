@@ -7,16 +7,18 @@ var IconLink = require('../components/icon-link.jsx');
 var Intro = React.createClass({
   render: function () {
     return (
-        <header className="row intro">
-            <h1 className="col-sm-12">About Mozilla Learning Networks</h1>
-            <div className="col-sm-4 col-md-4 col-lg-3">
+        <div>
+          <h1>About Mozilla Learning Networks</h1>
+          <section className="row intro">
+            <div className="col-sm-3 col-md-4 col-lg-3">
               <ImageTag src1x="/img/about-page/hive-nyc-summer-quest.jpg"
-                  alt="HiveLearningNYC 2014 Hive NYC Summer Quest Maker Party" className="img-circle center"/>
+                    alt="HiveLearningNYC 2014 Hive NYC Summer Quest Maker Party" className="img-circle center"/>
             </div>
-            <div className="col-sm-8 col-md-8 col-lg-9">
+            <div className="col-sm-9 col-md-8 col-lg-9">
               <p>We want more people to see themselves as citizens of the web. Mozilla Learning Networks offers programs and a global community dedicated to helping people learn the most important skills of our age: <em>the ability to read, write and participate in the digital world.</em></p>
             </div>
-        </header>
+          </section>
+        </div>
     );
   }
 });
