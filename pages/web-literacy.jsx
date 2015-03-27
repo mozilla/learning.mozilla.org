@@ -63,9 +63,9 @@ var ActivitiesPage = React.createClass({
   render: function() {
     return (
       <div className="inner-container">
+        <h1>Web Literacy</h1>
         <section>
-          <h1>Web Literacy</h1>
-          <Illustration
+          <Illustration className="center"
           src1x="/img/web-literacy-page/icon-web-literacy.svg"
           alt="web literacy illustration">
             <h2>
