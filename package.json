@@ -42,6 +42,7 @@
     "superagent": "^1.1.0",
     "underscore": "^1.8.2",
     "vinyl": "^0.4.6",
+    "webmaker-app-icons": "git://github.com/k88hudson/ionicons#webmaker-app",
     "webpack": "^1.6.0"
   },
   "devDependencies": {},

@@ -31,7 +31,8 @@ var BUILD_TASKS = [
   'beautify',
   'copy-test-dirs',
   'copy-images',
-  'copy-vendor',
+  'copy-bootstrap',
+  'copy-webmaker-app-icons',
   'less',
   'webpack',
   'sitemap'
@@ -89,7 +90,13 @@ gulp.task('copy-images', function () {
   }).pipe(gulp.dest('./dist'));
 });
 
-gulp.task('copy-vendor', function () {
+gulp.task('copy-webmaker-app-icons', function () {
+  return gulp.src(['node_modules/webmaker-app-icons/css/**', 'node_modules/webmaker-app-icons/fonts/**'], {
+    base: 'node_modules/webmaker-app-icons'
+  }).pipe(gulp.dest('./dist/vendor/webmaker-app-icons'));
+});
+
+gulp.task('copy-bootstrap', function () {
   return gulp.src(['node_modules/bootstrap/dist/css/**', 'node_modules/bootstrap/dist/fonts/**'], {
     base: 'node_modules/bootstrap/dist'
   }).pipe(gulp.dest('./dist/vendor/bootstrap'));
