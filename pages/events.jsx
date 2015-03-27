@@ -9,6 +9,10 @@ var EventsPage = React.createClass({
   statics: {
     pageClassName: 'events'
   },
+  handleSubmit: function(e) {
+    e.preventDefault();
+    window.alert("Sorry, this feature has not yet been implemented.");
+  },
   render: function() {
     return (
       <div>
@@ -34,9 +38,17 @@ var EventsPage = React.createClass({
               <p>Check out the highlights from  Maker Party and see more photos in our <a href="">Flickr gallery</a>.</p>
               <img className="divider" src="/img/events-page/line-divider.svg" alt="line divider" />
               <p>Sign up to get Maker Party updates:</p>
-              <p className="text-center">
-                <img src="http://placehold.it/320x50" alt="TODO: Put sign-up form here."/>
-              </p>
+              <form className="maker-party-signup" onSubmit={this.handleSubmit}>
+                <div className="row">
+                  <div className="form-group col-sm-7 col-sm-offset-1 col-lg-4 col-lg-offset-3">
+                    <label className="sr-only">Email</label>
+                    <input type="email" required className="form-control" placeholder="Your email address" />
+                  </div>
+                  <div className="col-sm-3 col-lg-2">
+                    <button type="submit" className="btn btn-awsm btn-block">Submit Email</button>
+                  </div>
+                </div>
+              </form>
             </div>
           </PageEndCTA>
           <section>
