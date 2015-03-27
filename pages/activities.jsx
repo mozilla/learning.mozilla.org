@@ -245,26 +245,20 @@ var ActivitiesPage = React.createClass({
               link="http://hivepgh.sproutfund.org/projects/"
             />
           </div>
+          <ImageTag className="arrow-image"
+          src1x="/img/activities-page/svg/img-globe-line.svg"
+          alt="arrow"/>
 
-          <div className="row arrow-image-container">
-            <ImageTag className="arrow-image"
-              src1x="/img/activities-page/svg/img-globe-line.svg"
-              alt="arrow"/>
-          </div>
-          <div className="global-image">
-            <Illustration
-              src1x="/img/activities-page/svg/img-global-movement.svg"
-              alt="join the global movement"
-            >
-              <h2>Join the global web literacy movement</h2>
-              <p>
-                We invite you to adopt the web literacy curriculum to meet the needs of yout group of learners. Add your local group to our global network, share any remixes you create, and help grow this movement.
-              </p>
-              <div>
-                <Link to="mozilla-web-clubs" className="btn btn-awsm">explore clubs</Link>
-              </div>
-            </Illustration>
-          </div>
+          <Illustration src1x="/img/activities-page/svg/img-global-movement.svg"
+          alt="join the global movement">
+            <h2>Join the global web literacy movement</h2>
+            <p>
+              We invite you to adopt the web literacy curriculum to meet the needs of yout group of learners. Add your local group to our global network, share any remixes you create, and help grow this movement.
+            </p>
+            <div>
+              <Link to="mozilla-web-clubs" className="btn btn-awsm">explore clubs</Link>
+            </div>
+          </Illustration>
         </section>
       </div>
     );
