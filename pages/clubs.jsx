@@ -502,6 +502,7 @@ var ClubsPage = React.createClass({
     this.showModal(ModalLearnMore);
   },
   handleAddClubSuccess: function(club) {
+    this.refs.map.getDOMNode().scrollIntoView();
     this.refs.map.focusOnClub(club);
   },
   handleClubDelete: function(url, clubName) {
