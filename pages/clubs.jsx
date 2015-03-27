@@ -299,7 +299,7 @@ var ModalAddOrChangeYourClub = React.createClass({
                valueLink={this.linkState('name')} />
             </fieldset>
             <fieldset>
-              <label>Where does it take place?</label>
+              <label>Where are you located?</label>
               <Select
                disabled={isFormDisabled}
                placeholder="Type in a city or a country"
@@ -332,7 +332,7 @@ var ModalAddOrChangeYourClub = React.createClass({
             </fieldset>
             <fieldset>
               <label>What do you focus your efforts on?</label>
-              <textarea rows="5" placeholder="Give us a brief description about what your Club is about."
+              <textarea rows="5" placeholder="Please provide a brief description of your Club."
                disabled={isFormDisabled}
                required
                valueLink={this.linkState('description')} />
@@ -384,7 +384,7 @@ var ModalLearnMore = React.createClass({
   },
   render: function() {
     return(
-      <Modal modalTitle="Learn More About Hive Learning Clubs">
+      <Modal modalTitle="Learn More About Mozilla Clubs">
         <form onSubmit={this.handleSubmit}>
           <fieldset>
             <label>What is your first name?</label>
