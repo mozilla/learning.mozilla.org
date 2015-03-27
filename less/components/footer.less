@@ -17,31 +17,17 @@ footer {
 
   & > .content {
     background: @footerBackgroundColor;
+    p {
+      padding-top: 2rem;
+      font-size: 1.4rem;
+      line-height: 2rem;
+    }
     a {
-      color: @sidebarColor;
-    }
-  }
-
-  .logos {
-    & > div {
-      padding: 0 @grid-gutter-width;
-    }
-    a img {
-      height: 10rem;
-      padding-bottom: @grid-gutter-width;
-      width: 15rem;
-      &.maker-party {
-        width: 16rem;
-      }
-    }
-  }
-
-  .hive-cities {
-    font-size: 1rem;
-    .more-link {
-      font-weight: 700;
+      color: gray;
       text-decoration: underline;
-      text-transform: uppercase;
+    }
+    img {
+      width: 20rem;
     }
   }
 }
