@@ -1,15 +1,32 @@
 .web-literacy {
   .content-container {
-    margin-top: 1rem;
     text-align: center;
+    h2 {
+      font-size: 1.8rem;
+    }
+    font-size: 1.2rem;
+    @media screen and (min-width: @screen-lg-min) {
+      max-width: 50rem;
+    }
     @media screen and (min-width: @screen-sm-min) {
       text-align: left;
+      h2 {
+        font-size: 3rem;
+      }
+    }
+    @media screen and (min-width: @screen-teensy) {
+      h2 {
+        font-size: 2.5rem;
+      }
     }
   }
   .web-map {
     text-align: center;
     .web-map-contents {
-      margin: 3rem 0 6rem 0;
+      margin: 3rem 0 3rem 0;
+    }
+    h2 {
+      margin-bottom: 0;
     }
     .web-map-item-container {
       margin-bottom: .2rem;
@@ -21,6 +38,7 @@
         background-color: #EFF3F7;
         color: #617886;
         font-weight: bold;
+        font-size: 1.4rem;
         text-transform: uppercase;
         padding: 2rem;
         transition: background-color 0.5s ease;
@@ -56,7 +74,10 @@
         max-height: 0;
         transition: max-height 1s ease;
         p {
-          margin: .7rem 1.8rem;
+          margin: 1rem 1.8rem;
+          font-size: 1.4rem;
+          line-height: 2rem;
+          font-weight: 500;
           &:first-child {
             margin-top: 1.4rem;
           }
