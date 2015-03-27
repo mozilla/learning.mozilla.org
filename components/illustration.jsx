@@ -5,11 +5,13 @@ var Illustration = React.createClass({
   render: function() {
     return (
       <div className="row illustration">
-        <div className="image-container col-sm-4 col-md-4 col-lg-4">
-          <ImageTag className="image" src1x={this.props.src1x} src2x={this.props.src2x}
+        <div className="image-container col-sm-3 col-md-3 col-lg-3">
+          <a href={this.props.link}>
+            <ImageTag className="image" src1x={this.props.src1x} src2x={this.props.src2x}
             alt={this.props.alt}/>
+          </a>
         </div>
-        <div className="content-container col-sm-8 col-md-8 col-lg-8">{this.props.children}</div>
+        <div className="content-container col-sm-9 col-md-9 col-lg-9">{this.props.children}</div>
       </div>
     );
   }

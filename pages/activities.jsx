@@ -70,9 +70,10 @@ var ActivityKit = React.createClass({
           src1x={this.props.src1x}
           src2x={this.props.src2x}
           alt={this.props.title}
+          link={this.props.link}
         >
           <div className="activity-kit-content">
-            <h3>{this.props.title}</h3>
+            <h3><a href={this.props.link}>{this.props.title}</a></h3>
             <div>
               <span className="span-content blue-box">level</span><span className="span-content">{this.props.level}</span>
             </div>
@@ -112,7 +113,7 @@ var ActivitiesPage = React.createClass({
   },
   render: function() {
     return (
-      <div className="activities">
+      <div className="inner-container activities">
         <section>
           <h1>Teaching Activities</h1>
           <span>
@@ -123,6 +124,7 @@ var ActivitiesPage = React.createClass({
             src2x="/img/activities-page/2x/img-activity-01.png"
             title="Lo-Fi, No-Fi (Teaching Kit)"
             level="Beginner"
+            link="https://keyboardkat.makes.org/thimble/LTIxMDA3NTY0ODA=/lofi-nofi-teaching-kit"
             developedBy="Kat Braybrooke, Karen Smith, Julia Vallera, Jess Klein, Chan Sansing"
             description="This series of activities help teach web literacy concepts offline, or where access to technology is limited. Includes printable templated and games to teach coding, game design and app development."
           />
@@ -131,6 +133,7 @@ var ActivitiesPage = React.createClass({
             src2x="/img/activities-page/2x/img-activity-02.jpg"
             title="Parapara Animation"
             level="Beginner"
+            link="https://karenlouisesmith.makes.org/thimble/para-para-animation-teaching-kit"
             developedBy="Karen Smith, Hive Toronto"
             description="This activity helps young learners create simple animations and learn about online collaboration using Parapara."
           />
@@ -139,6 +142,7 @@ var ActivitiesPage = React.createClass({
             src2x="/img/activities-page/2x/img-activity-03.png"
             title="Creative Commons GIF Exchange"
             level="Beginner"
+            link="https://katermouse.makes.org/thimble/LTIwNjQwNTYzMjA=/creative-commons-gif-exchange-activity"
             developedBy="MOUSE, Hive NYC"
             description="This activity teachers students about Creative Commons licensing while creating their own animated GIFs or memes."
           />
@@ -147,6 +151,7 @@ var ActivitiesPage = React.createClass({
             src2x="/img/activities-page/2x/img-activity-04.jpg"
             title="Erase All Kittens"
             level="Beginner"
+            link="https://laura.makes.org/thimble/LTEzNDYxMDY4OA==/eak-activity-guide"
             developedBy="Drum Roll - Joe Dytrych, Dee Salgal, Leonie Van Der Linde"
             description="This activity features Erase All Kittens (E.A.K.), a fun game where learners code and create on the web by changing the source code on each level."
           />
@@ -155,6 +160,7 @@ var ActivitiesPage = React.createClass({
             src2x="/img/activities-page/2x/img-activity-05.jpg"
             title="Image Seeking for Fantastic Visual Metaphors"
             level="Beginner"
+            link="https://cogdog.makes.org/thimble/OTM3NDI2OTQ0/imageseeking-for-fantastic-visual-metaphors"
             developedBy="Alan Levine"
             description="In this activity, learners search for photos that communicate ideas and concepts, while also exploring best practices around attribution and openly-licensed content on the web."
           />
@@ -163,6 +169,7 @@ var ActivitiesPage = React.createClass({
             src2x="/img/activities-page/2x/img-activity-06.jpg"
             title="Become a Password Pro (Teaching Kit)"
             level="Beginner-Intermediate"
+            link="https://stacy.makes.org/thimble/MjAxMjIxNzYwMA==/whats-wrong-with-your-password"
             developedBy="Stacy Martin, Mozilla"
             description="This teaching kit includes a series of activities to help leaners understand passwords-including why thery're important, best practices, and tools to help you manage multiple passwords."
           />
@@ -171,6 +178,7 @@ var ActivitiesPage = React.createClass({
             src2x="/img/activities-page/2x/img-activity-07.jpg"
             title="Hack Your Notebook (Teaching Kit)"
             level="Beginner-Intermediate"
+            link="https://laura.makes.org/thimble/LTU1NDA0MTA4OA==/hack-your-notebook-teaching-kit"
             developedBy="Educator Inovator - Jen Dick, Jie Qi, David Cole, Chad Sansing"
             description="In this series of activities, learners will explore the connections between art, circuitry and systems thinking by hacking their notbooks/journals with power and LEDs."
           />
@@ -179,6 +187,7 @@ var ActivitiesPage = React.createClass({
             src2x="/img/activities-page/2x/img-activity-08.jpg"
             title="CSS Story Cards"
             level="Intermediate"
+            link="https://mousemeredith.makes.org/thimble/MTQwOTAyNDAwMA==/css-story-card-game-activity"
             developedBy="MOUSE, Hive NYC"
             description="In this card game, learners work collaboratively to create a complete story using HTML and CSS."
           />
@@ -187,6 +196,7 @@ var ActivitiesPage = React.createClass({
             src2x="/img/activities-page/2x/img-activity-09.jpg"
             title="Minecraft a Flavor of Java (Teaching Kit)"
             level="Intermediate"
+            link="https://laura.makes.org/thimble/LTE4NDk0MjMzNg==/minecraft-a-flavor-of-java-epik"
             developedBy="EPIK"
             description="In this series of activities, learners develop computational thinking skills by using Java to create their own Minecraft mod."
           />
@@ -195,6 +205,7 @@ var ActivitiesPage = React.createClass({
             src2x="/img/activities-page/2x/img-activity-10.jpg"
             title="Girls in Tech: Hacking My Media"
             level="Intermediate"
+            link="https://laura.makes.org/thimble/MjE3Nzc2Mzg0/hacking-my-media-with-x-ray-goggles"
             developedBy="Stephanie Guthrie, Kim Wilkens, 2013 MozGirls"
             description="In this activity, learners create a remix of a Wikimedia page as they think critically about the intersection of gender, culture, technology and identity."
           />
