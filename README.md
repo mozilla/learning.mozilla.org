@@ -84,8 +84,6 @@ codebase described below.
 
 This generates a full static site and
 ensures that **no React warnings are raised**.
-[react-a11y][] is used to ensure that no accessibility
-issues are present.
 
 Individually running *only* the smoke test can be accomplished
 via `npm run smoketest`.
@@ -188,7 +186,6 @@ want to create a batch file that uses
   [redpen_club]: https://redpen.io/p/jza7e4f541a24313ff
   [`devtool`]: http://webpack.github.io/docs/configuration.html#devtool
   [sourcemaps-wtf]: https://github.com/mozilla/teach.webmaker.org/pull/147#discussion-diff-25879885
-  [react-a11y]: https://github.com/rackt/react-a11y#readme
   [roadmap]: https://wiki.mozilla.org/Learning/Networks/Product-Roadmap
   [mocha]: http://mochajs.org/
   [mocha (1)]: http://mochajs.org/#usage
