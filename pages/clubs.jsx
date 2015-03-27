@@ -150,7 +150,7 @@ var BottomCTA = React.createClass({
     return(
       <div className="row">
         <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
-          <PageEndCTA linkTo={this.props.ctaLink}>
+          <PageEndCTA>
             <div>
               <img className="divider" src="/img/clubs-line-divider.svg" alt="line divider" />
               <p>Do you meet regularly with a group of learners to increase web literacy skills?</p>
@@ -531,55 +531,57 @@ var ClubsPage = React.createClass({
           <div><a className="btn btn-awsm" onClick={this.showAddYourClubModal}>Add Your Club</a></div>
           <div><p className="learn-more">or <a onClick={this.showLearnMoreModal}>find out more</a> about us</p></div>
         </HeroUnit>
-        <section>
-          <WebLitMap/>
-          <div className="mapDiv" id="mapDivID">
-            <Map ref="map" className="mapDivChild"
+        <div className="inner-container">
+          <section>
+            <HowClubWorks/>
+          </section>
+          <section>
+            <WebLitMap/>
+            <div className="mapDiv" id="mapDivID">
+              <Map ref="map" className="mapDivChild"
+               clubs={clubs}
+               username={username}
+               onDelete={this.handleClubDelete}
+               onEdit={this.handleClubEdit}/>
+            </div>
+            <ClubList
              clubs={clubs}
              username={username}
              onDelete={this.handleClubDelete}
              onEdit={this.handleClubEdit}/>
-          </div>
-          <ClubList
-           clubs={clubs}
-           username={username}
-           onDelete={this.handleClubDelete}
-           onEdit={this.handleClubEdit}/>
-        </section>
-        <section>
-          <HowClubWorks/>
-        </section>
-        <section>
-          <Quote/>
-        </section>
-        <section>
-          <IconLinks>
-            <IconLink
-              linkTo="fixme"
-              imgSrc="/img/icon-curriculum.svg"
-              imgAlt="icon curriculum"
-              head="Curriculum"
-              subhead="Modular Web Literacy curriculum"
-            />
-            <IconLink
-              linkTo="fixme"
-              imgSrc="/img/icon-connect.svg"
-              imgAlt="icon connect"
-              head="Connect"
-              subhead="Connect with other Club Leaders"
-            />
-            <IconLink
-              linkTo="fixme"
-              imgSrc="/img/icon-tips.svg"
-              imgAlt="icon tips"
-              head="Helpful Tips"
-              subhead="Tips for running your Club"
-            />
-          </IconLinks>
-        </section>
-        <section>
-          <BottomCTA onClick={this.showAddYourClubModal} />
-        </section>
+          </section>
+          <section>
+            <Quote/>
+          </section>
+          <section>
+            <IconLinks>
+              <IconLink
+                linkTo="fixme"
+                imgSrc="/img/icon-curriculum.svg"
+                imgAlt="icon curriculum"
+                head="Curriculum"
+                subhead="Modular Web Literacy curriculum"
+              />
+              <IconLink
+                linkTo="fixme"
+                imgSrc="/img/icon-connect.svg"
+                imgAlt="icon connect"
+                head="Connect"
+                subhead="Connect with other Club Leaders"
+              />
+              <IconLink
+                linkTo="fixme"
+                imgSrc="/img/icon-tips.svg"
+                imgAlt="icon tips"
+                head="Helpful Tips"
+                subhead="Tips for running your Club"
+              />
+            </IconLinks>
+          </section>
+          <section>
+            <BottomCTA onClick={this.showAddYourClubModal} />
+          </section>
+        </div>
       </div>
     );
   }
