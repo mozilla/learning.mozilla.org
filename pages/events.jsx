@@ -1,4 +1,7 @@
 var React = require('react');
+var ReactBootstrap = require('react-bootstrap');
+var Carousel = ReactBootstrap.Carousel;
+var CarouselItem = ReactBootstrap.CarouselItem;
 
 var HeroUnit = require('../components/hero-unit.jsx');
 var PageEndCTA = require('../components/page-end-cta.jsx');
@@ -32,7 +35,22 @@ var EventsPage = React.createClass({
               Join us for the global Maker Party on July 15-31, 2015 and add your events to <a href="">our global list</a> any time of year.
             </div>
           </div>
-          <img src="http://placehold.it/800x600" style={{display: 'block', width: '100%'}} alt="TODO: Put carousel here"/>
+          <div className="carousel-holder">
+            <Carousel>
+              <CarouselItem>
+                <img width={800} height={533} alt="2014 Hive NYC Summer Quest Maker Party" src="//c3.staticflickr.com/3/2915/14592256638_55ec5cf36b_b.jpg"/>
+                <div className="carousel-caption sr-only">
+                  <h3><a href="https://www.flickr.com/photos/mozilladrumbeat/14592256638/in/set-72157647305286970">2014 Hive NYC Summer Quest Maker Party</a></h3>
+                </div>
+              </CarouselItem>
+              <CarouselItem>
+                <img width={800} height={533} alt="Appmaking" src="//c2.staticflickr.com/6/5587/15213220651_9055dffbe6.jpg"/>
+                <div className="carousel-caption sr-only">
+                  <h3><a href="https://www.flickr.com/photos/mozilladrumbeat/15213220651/in/album-72157647305286970/">Appmaking</a></h3>
+                </div>
+              </CarouselItem>
+            </Carousel>
+          </div>
           <PageEndCTA>
             <div>
               <p>Check out the highlights from  Maker Party and see more photos in our <a href="">Flickr gallery</a>.</p>
