@@ -65,7 +65,7 @@ var EventsPage = React.createClass({
                 <div className="row">
                   <div className="form-group col-sm-7 col-sm-offset-1 col-lg-4 col-lg-offset-3">
                     <label className="sr-only">Email</label>
-                    <input type="text" required className="form-control" placeholder="Your email address" />
+                    <input type="email" required className="form-control" placeholder="Your email address" />
                   </div>
                   <div className="col-sm-3 col-lg-2">
                     <button type="submit" className="btn btn-awsm btn-block">Submit Email</button>
