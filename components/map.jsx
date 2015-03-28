@@ -177,12 +177,10 @@ var Map = React.createClass({
   },
   installStylesheets: function() {
     var head = document.getElementsByTagName('head')[0];
-    this.props.stylesheets.forEach(function(url) {
-      var link = document.querySelector('link[href="' + url + '"]');
-      if (link) {
-        return;
-      }
-      link = document.createElement('link');
+    this.props.stylesheets.filter(function(url) {
+      return !document.querySelector('link[href="' + url + '"]');
+    }).forEach(function(url) {
+      var link = document.createElement('link');
       link.setAttribute('href', url);
       link.setAttribute('rel', 'stylesheet');
       head.appendChild(link);
