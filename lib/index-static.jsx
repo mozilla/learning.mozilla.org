@@ -30,7 +30,6 @@ function generateWithPageHTML(url, options, pageHTML) {
         <div id="page-holder" dangerouslySetInnerHTML={{
           __html: pageHTML
         }}></div>
-        <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js'></script>
         <script src="/commons.bundle.js"></script>
         <script src="/app.bundle.js"></script>
         <script src="https://mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>
