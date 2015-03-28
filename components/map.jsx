@@ -2,6 +2,14 @@ var urlParse = require('url').parse;
 var React = require('react');
 var request = require('superagent');
 
+var config = require('../lib/config');
+
+var DEFAULT_STYLESHEETS = config.IN_TEST_SUITE ? [] : [
+  'https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css',
+  'https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css',
+  'https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css'
+];
+
 var mapboxId = process.env.MAPBOX_MAP_ID || 'alicoding.ldmhe4f3';
 var accessToken = process.env.MAPBOX_ACCESS_TOKEN || 'pk.eyJ1IjoiYWxpY29kaW5nIiwiYSI6Il90WlNFdE0ifQ.QGGdXGA_2QH-6ujyZE2oSg';
 
@@ -116,6 +124,7 @@ var Map = React.createClass({
     username: React.PropTypes.string,
     onDelete: React.PropTypes.func.isRequired,
     onEdit: React.PropTypes.func.isRequired,
+    stylesheets: React.PropTypes.array,
     onReady: React.PropTypes.func
   },
   statics: {
@@ -161,8 +170,27 @@ var Map = React.createClass({
         });
     }
   },
+  getDefaultProps: function() {
+    return {
+      stylesheets: DEFAULT_STYLESHEETS
+    };
+  },
+  installStylesheets: function() {
+    var head = document.getElementsByTagName('head')[0];
+    this.props.stylesheets.forEach(function(url) {
+      var link = document.querySelector('link[href="' + url + '"]');
+      if (link) {
+        return;
+      }
+      link = document.createElement('link');
+      link.setAttribute('href', url);
+      link.setAttribute('rel', 'stylesheet');
+      head.appendChild(link);
+    });
+  },
   componentDidMount: function() {
     var self = this;
+    this.installStylesheets();
     require([
       // These will automatically attach to the window object.
       'mapbox.js',
