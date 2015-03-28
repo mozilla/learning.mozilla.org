@@ -9,15 +9,17 @@
 }
 
 .sidebarColorizer(@sidebarColor) {
-  background-color: @sidebarColor;
-  .sidebar-menu a {
-    &:hover, &:focus, &.active {
-      background-color: darken(@sidebarColor, 5%);
+  .sidebar {
+    background-color: @sidebarColor;
+    .sidebar-menu a {
+      &:hover, &:focus, &.active {
+        background-color: darken(@sidebarColor, 5%);
+      }
     }
-  }
 
-  .sidebar-menu a .glyphicon {
-    color: lighten(@sidebarColor, 15%);
+    .sidebar-menu a .glyphicon {
+      color: lighten(@sidebarColor, 15%);
+    }
   }
 }
 

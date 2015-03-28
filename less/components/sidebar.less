@@ -13,39 +13,33 @@ html.no-js .sidebar {
 }
 
 .page {
-  &.events .sidebar {
+  &.events {
     .sidebarColorizer(@darkBlueSidebarColor);
   }
-  &.teach-like-mozilla .sidebar {
+  &.teach-like-mozilla {
     .sidebarColorizer(@tealSidebarColor);
   }
-  &.clubs .sidebar {
+  &.clubs {
     .sidebarColorizer(@orangeSidebarColor);
   }
-  &.clubs-curriculum .sidebar {
+  &.clubs-curriculum {
     .sidebarColorizer(@lightOrangeSidebarColor);
   }
-  &.clubs-toolkit .sidebar {
+  &.clubs-toolkit {
     .sidebarColorizer(@lightOrangeSidebarColor);
   }
-  &.teaching-materials .sidebar {
+  &.teaching-materials {
     .sidebarColorizer(@blueSidebarColor);
   }
-  &.web-literacy .sidebar {
+  &.web-literacy {
     .sidebarColorizer(@darkBlueSidebarColor);
   }
-}
 
-.teach-like-mozilla, .web-literacy {
-  .teach {
-    .sidebar-subitems {
-      display: block;
-    }
-  }
-}
-
-.clubs, .clubs-curriculum, .clubs-toolkit {
-  .clubs {
+  &.teach-like-mozilla .teach,
+  &.web-literacy .teach,
+  &.clubs  .clubs,
+  &.clubs-toolkit .clubs,
+  &.clubs-curriculum .clubs {
     .sidebar-subitems {
       display: block;
     }
