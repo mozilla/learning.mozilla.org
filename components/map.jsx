@@ -115,7 +115,8 @@ var Map = React.createClass({
     clubs: React.PropTypes.array.isRequired,
     username: React.PropTypes.string,
     onDelete: React.PropTypes.func.isRequired,
-    onEdit: React.PropTypes.func.isRequired
+    onEdit: React.PropTypes.func.isRequired,
+    onReady: React.PropTypes.func
   },
   statics: {
     MarkerPopup: MarkerPopup,
@@ -161,8 +162,18 @@ var Map = React.createClass({
     }
   },
   componentDidMount: function() {
-    require('mapbox.js'); // this will automatically attach to Window object.
-    require('leaflet.markercluster');
+    var self = this;
+    require([
+      // These will automatically attach to the window object.
+      'mapbox.js',
+      'leaflet.markercluster'
+    ], function() {
+      if (self.isMounted()) {
+        self.handleDependenciesLoaded();
+      }
+    });
+  },
+  handleDependenciesLoaded: function() {
     L.mapbox.accessToken = accessToken;
     this.map = L.mapbox.map(this.refs.map.getDOMNode())
       .setView([0, 0], 2)
@@ -216,6 +227,9 @@ var Map = React.createClass({
     // marker popup button clicks to make *those* buttons usable,
     // rather than offering any new kind of interactivity.
     this.getDOMNode().addEventListener('click', this.handleClick);
+    if (this.props.onReady) {
+      this.props.onReady();
+    }
   },
   getInitialState: function() {
     return {
@@ -237,7 +251,9 @@ var Map = React.createClass({
   },
   componentWillUnmount: function() {
     this.getDOMNode().removeEventListener('click', this.handleClick);
-    this.map.remove();
+    if (this.map) {
+      this.map.remove();
+    }
   },
   handleClick: function(e) {
     var targetEl = e.target;

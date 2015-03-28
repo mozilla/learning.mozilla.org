@@ -31,7 +31,7 @@ var SAMPLE_BAR_CLUB = {
 describe("Map", function() {
   var map, xhr;
 
-  beforeEach(function() {
+  beforeEach(function(done) {
     // The map widget will try to use XHR. We want to
     // fake that so that network issues don't cause this test to fail,
     // and so that PhantomJS doesn't hang on us.
@@ -41,7 +41,10 @@ describe("Map", function() {
       clubs: [],
       username: null,
       onDelete: sinon.spy(),
-      onEdit: sinon.spy()
+      onEdit: sinon.spy(),
+      onReady: function() {
+        process.nextTick(done);
+      }
     }, {});
   });
 
@@ -52,6 +55,11 @@ describe("Map", function() {
 
   it("should render", function() {
     map.getDOMNode().className.should.match(/foo/);
+  });
+
+  it("should load leaflet + markercluster", function() {
+    L.mapbox.map.should.be.a.Function;
+    L.MarkerClusterGroup.should.be.a.Function;
   });
 });
 
