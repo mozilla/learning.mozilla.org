@@ -557,21 +557,21 @@ var ClubsPage = React.createClass({
           <section>
             <IconLinks>
               <IconLink
-                linkTo="fixme"
+                linkTo="clubs-curriculum"
                 imgSrc="/img/icon-curriculum.svg"
                 imgAlt="icon curriculum"
                 head="Curriculum"
                 subhead="Modular Web Literacy curriculum"
               />
               <IconLink
-                linkTo="fixme"
+                href="http://discourse.webmaker.org/category/meet"
                 imgSrc="/img/icon-connect.svg"
                 imgAlt="icon connect"
                 head="Connect"
                 subhead="Connect with other Club Leaders"
               />
               <IconLink
-                linkTo="fixme"
+                linkTo="clubs-toolkit"
                 imgSrc="/img/icon-tips.svg"
                 imgAlt="icon tips"
                 head="Helpful Tips"

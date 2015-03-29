@@ -52,21 +52,21 @@ var TeachLikeMozillaPage = React.createClass({
           <section>
             <IconLinks>
               <IconLink
-                linkTo="fixme"
+                href="http://mzl.la/TTWpodcasts"
                 imgSrc="/img/teach-like-mozilla-page/icon-listen.svg"
                 imgAlt="icon listen"
                 head="Listen"
                 subhead="Subscribe to our Podcast"
               />
               <IconLink
-                linkTo="fixme"
+                linkTo="web-literacy"
                 imgSrc="/img/teach-like-mozilla-page/icon-attend.svg"
                 imgAlt="icon attend"
-                head="Attend"
-                subhead="Join the next Meetup"
+                head="Learn"
+                subhead="See our Web Literacy Map"
               />
               <IconLink
-                linkTo="fixme"
+                href="http://discourse.webmaker.org/category/meet"
                 imgSrc="/img/teach-like-mozilla-page/icon-connect.svg"
                 imgAlt="icon connect"
                 head="Say Hello"

@@ -85,21 +85,21 @@ var AboutPage = React.createClass({
           <OurGoal/>
           <IconLinks>
             <IconLink
-              linkTo="https://twitter.com/webmaker"
+              href="https://twitter.com/webmaker"
               imgSrc="/img/shared-iconography/icon-twitter.svg"
               imgAlt="twitter logo"
               head="Follow Us"
               subhead="Start a conversation on Twitter"
             />
             <IconLink
-              linkTo="mailto:help@webmaker.org"
+              href="mailto:help@webmaker.org"
               imgSrc="/img/shared-iconography/icon-get-help.svg"
               imgAlt="question mark icon"
               head="Get Help"
               subhead="Email us anytime"
             />
             <IconLink
-              linkTo="http://discourse.webmaker.org/category/meet"
+              href="http://discourse.webmaker.org/category/meet"
               imgSrc="/img/shared-iconography/icon-connect.svg"
               imgAlt="illustration of two people connecting"
               head="Say Hello"
