@@ -29,12 +29,16 @@
       margin-bottom: 0;
     }
   }
-  .expander-header {
-    background-color: #EFF3F7;
-    color: #617886;
+  .focus-div {
+    .expander-header {
+      background-color: #EFF3F7;
+      color: #617886;
+    }
     &:focus {
-      color: white;
-      background-color: #5791CE;
+      .expander-header {
+        color: white;
+        background-color: #5791CE;
+      }
     }
   }
   .expander-items-container {

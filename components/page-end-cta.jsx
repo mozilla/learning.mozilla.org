@@ -2,6 +2,22 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 
+var AndAction = React.createClass({
+  render: function() {
+    if (this.props.linkTo) {
+      return (
+        <Link className="btn btn-awsm" to={this.props.linkTo}>
+          {this.props.children}
+        </Link>
+      );
+    }
+    return (
+      <a className="btn btn-awsm" onClick={this.props.onClick}>
+        {this.props.children}
+      </a>
+    );
+  }
+});
 var PageEndCTA = React.createClass({
   render: function() {
     return (
@@ -11,7 +27,9 @@ var PageEndCTA = React.createClass({
             <div>
               <img className="divider" src="/img/clubs-line-divider.svg" alt="line divider" />
               <p>{this.props.header}</p>
-              <a className="btn btn-awsm" onClick={this.props.onClick}>{this.props.cta}</a>
+              <AndAction onClick={this.props.onClick} linkTo={this.props.linkTo}>
+                {this.props.cta}
+              </AndAction>
             </div>
           </div>
         </div>
