@@ -33,7 +33,9 @@ var Expander = React.createClass({
             <span className="ion"></span>
           </div>
           <div className="expander-items-container">
-            {this.props.children}
+            <div className="items-margin">
+              {this.props.children}
+            </div>
           </div>
         </div>
       </div>
