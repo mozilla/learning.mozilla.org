@@ -4,7 +4,7 @@ var Link = Router.Link;
 
 var config = require('../lib/config');
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
-var ga = require('../lib/googleanalytics.js');
+var ga = require('react-ga');
 
 var Login = React.createClass({
   mixins: [TeachAPIClientMixin],

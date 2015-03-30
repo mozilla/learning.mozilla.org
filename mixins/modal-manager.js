@@ -1,5 +1,5 @@
 var React = require('react');
-var ga = require('../lib/googleanalytics.js');
+var ga = require('react-ga');
 
 module.exports = {
   contextTypes: {

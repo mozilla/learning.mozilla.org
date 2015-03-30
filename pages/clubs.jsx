@@ -14,7 +14,7 @@ var PageEndCTA = require('../components/page-end-cta.jsx');
 var Modal = require('../components/modal.jsx');
 var ModalManagerMixin = require('../mixins/modal-manager');
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
-var ga = require('../lib/googleanalytics.js');
+var ga = require('react-ga');
 
 var ClubListItem = React.createClass({
   propTypes: {
