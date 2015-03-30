@@ -1,6 +1,7 @@
 var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
+var ImageTag = require('./imagetag.jsx');
 
 var LinkSwap = React.createClass({
   render: function() {
@@ -27,7 +28,8 @@ var IconLink = React.createClass({
         <div className="icon-link">
           <LinkSwap linkTo={this.props.linkTo} href={this.props.href}>
             <figure>
-              <img src={this.props.imgSrc} alt={this.props.imgAlt} />
+              <ImageTag className="image" src1x={this.props.imgSrc} src2x={this.props.imgSrc2x}
+              alt={this.props.imgAlt}/>
               <figcaption>
                 <h3 className="head">{this.props.head}</h3>
                 <p className="subhead">{this.props.subhead}</p>
