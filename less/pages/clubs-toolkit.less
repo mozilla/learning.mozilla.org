@@ -1,0 +1,29 @@
+.clubs-toolkit {
+  .toolkit-expanders {
+    padding: 2.5rem 2.5rem 0 0;
+    ul {
+      li {
+        .italic {
+          font-style: italic;
+        }
+      }
+    }
+  }
+  .expander-header {
+    font-size: 1.5rem;
+    background-color: @headerBackground;
+    color: @headerText;
+  }
+  .focus-div {
+    transition: border-top 0.1s ease-in;
+    &:focus {
+      margin-top: 0;
+      border-top: 0.2rem solid @lightOrangeSidebarColor;
+    }
+  }
+  .expander-items-container {
+    background-color: @containerBackground;
+    color: @containerText;
+
+  }
+}

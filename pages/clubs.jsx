@@ -145,24 +145,6 @@ var Quote = React.createClass({
   }
 });
 
-var BottomCTA = React.createClass({
-  render: function() {
-    return(
-      <div className="row">
-        <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
-          <PageEndCTA>
-            <div>
-              <img className="divider" src="/img/clubs-line-divider.svg" alt="line divider" />
-              <p>Do you meet regularly with a group of learners to increase web literacy skills?</p>
-              <a className="btn btn-awsm" onClick={this.props.onClick}>Add your club to the map</a>
-            </div>
-          </PageEndCTA>
-        </div>
-      </div>
-    );
-  }
-});
-
 var ModalRemoveYourClub = React.createClass({
   mixins: [ModalManagerMixin, Router.Navigation, TeachAPIClientMixin],
   propTypes: {
@@ -580,7 +562,11 @@ var ClubsPage = React.createClass({
             </IconLinks>
           </section>
           <section>
-            <BottomCTA onClick={this.showAddYourClubModal} />
+            <PageEndCTA
+              onClick={this.showAddYourClubModal}
+              header="Do you meet regularly with a group of learners to increase web literacy skills?"
+              cta="add your club to the map"
+            />
           </section>
         </div>
       </div>

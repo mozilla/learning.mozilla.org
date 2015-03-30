@@ -45,6 +45,11 @@ var Sidebar = React.createClass({
           name: "Clubs Curriculum",
           link: "clubs-curriculum",
           help: "Activities to teach the web in your club."
+        },
+        {
+          name: "Clubs Toolkit",
+          link: "clubs-toolkit",
+          help: "todo hover tooltip"
         }
       ]
     }
