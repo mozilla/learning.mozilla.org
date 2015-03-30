@@ -116,9 +116,9 @@ var ActivitiesPage = React.createClass({
       <div className="inner-container activities">
         <section>
           <h1>Teaching Activities</h1>
-          <span>
+          <p>
             Start teaching others how to read, write and participate on the web with these free activities created by teachers, educators and technologists like you. Each featured activity includes step-by-step instructions and has been tested in schools, afterschool programs, libraries and community centers around the globe. Whether learning how to code, understanding why privacy matters, or creating openly-licensed web content, we believe teaching the web should be fun and engaging!
-          </span>
+          </p>
           <ActivityKit
             src1x="/img/activities-page/1x/img-activity-01.png"
             src2x="/img/activities-page/2x/img-activity-01.png"
@@ -210,9 +210,9 @@ var ActivitiesPage = React.createClass({
             description="In this activity, learners create a remix of a Wikimedia page as they think critically about the intersection of gender, culture, technology and identity."
           />
           <h2>More resources</h2>
-          <span>
-            Hive Learning Networks are city-based communities of educatios who champion digital skills and web literacy through connected learning. Visit each city's portfolio to find more inspiration, resources and projects for teaching and learning.
-          </span>
+          <p>
+            Hive Learning Networks are city-based communities of educators who champion digital skills and web literacy through connected learning. Visit each city's portfolio to find more inspiration, resources and projects for teaching and learning.
+          </p>
           <div className="hive-links row">
             <HiveLink
               src1x="/img/activities-page/svg/logo-hive.svg"
@@ -257,9 +257,9 @@ var ActivitiesPage = React.createClass({
               alt="join the global movement"
             >
               <h2>Join the global web literacy movement</h2>
-              <span>
+              <p>
                 We invite you to adopt the web literacy curriculum to meet the needs of yout group of learners. Add your local group to our global network, share any remixes you create, and help grow this movement.
-              </span>
+              </p>
               <div>
                 <Link to="mozilla-web-clubs" className="btn btn-awsm">explore clubs</Link>
               </div>
