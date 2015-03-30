@@ -46,7 +46,8 @@ var ImageTag = React.createClass({
   render: function () {
     return (
         <img src={this.props['src' + this.state.pixelDensity + 'x'] || this.props.src1x} alt={this.props.alt}
-            width={this.props.width} height={this.props.height} className={this.props.className}/>
+            width={this.props.width} height={this.props.height} className={this.props.className}
+            srcSet={this.props.src2x ? [this.props.src1x + ' 1x', this.props.src2x + ' 2x'].join(', ') : null} />
     );
   }
 });
