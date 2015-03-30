@@ -37,7 +37,9 @@ var EventsPage = React.createClass({
               <img src="/img/events-page/maker-party-logo.svg" className="img-scale-to-fit" alt="Maker Party logo"/>
             </div>
             <div className="col-sm-9 col-lg-8">
-              Join us for the global Maker Party on July 15-31, 2015 and add your events to <a href="">our global list</a> any time of year.
+              <h2>
+                Join us for the global Maker Party on July 15-31, 2015 and add your events to <a href="">our global list</a> any time of year.
+              </h2>
             </div>
           </div>
           <div className="carousel-holder">

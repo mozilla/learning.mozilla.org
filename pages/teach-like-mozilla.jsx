@@ -20,9 +20,9 @@ var TeachLikeMozillaPage = React.createClass({
         <div className="inner-container">
           <section>
             <h2>Our Values</h2>
-            <span className="sub-title">
+            <p className="sub-title">
               We are a community of educators, learners, mentors and teachers.
-            </span>
+            </p>
             <div className="row list-with-illust">
               <div className="col-sm-4 col-md-4 col-lg-4">
                 <img
