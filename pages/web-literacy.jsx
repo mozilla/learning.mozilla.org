@@ -182,25 +182,25 @@ var ActivitiesPage = React.createClass({
           </WebMaps>
           <IconLinks>
             <IconLink
-              linkTo="fixme"
+              href="https://wiki.mozilla.org/Webmaker/WebLiteracyMap"
               imgSrc="/img/web-literacy-page/icon-contribute.svg"
               imgAlt="icon contribute"
               head="Contribute"
               subhead="Join the community on defining Web Literacy at Mozilla"
             />
             <IconLink
-              linkTo="fixme"
+              href="https://mozilla.github.io/webmaker-whitepaper/"
               imgSrc="/img/web-literacy-page/icon-learn-more.svg"
               imgAlt="icon learn more"
               head="Learn More"
               subhead="This whitepaper explores why Mozilla cares about Web Literacy"
             />
             <IconLink
-              linkTo="fixme"
+              href="https://www.mozilla.org/en-US/about/manifesto/"
               imgSrc="/img/web-literacy-page/icon-mozilla.svg"
               imgAlt="icon mozilla"
               head="Get Reading"
-              subhead="Webmaker is core to the Mozilla mission and values"
+              subhead="Web Literacy is core to the Mozilla mission and values"
             />
           </IconLinks>
         </section>
