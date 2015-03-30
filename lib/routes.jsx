@@ -4,9 +4,10 @@ var Route = Router.Route;
 var Link = Router.Link;
 var DefaultRoute = Router.DefaultRoute;
 
-var ga = require('./googleanalytics.js');
+var ga = require('react-ga');
 var Page = require('../components/page.jsx');
 
+var GA_ACCOUNT = process.env.GA_ACCOUNT || 'UA-49796218-20';
 var urls = [];
 
 var routes = (
@@ -50,7 +51,8 @@ exports.generateStatic = function(url, cb) {
 };
 
 exports.run = function(location, el) {
-  ga.initialize();
+  var options = { debug: false };
+  ga.initialize(GA_ACCOUNT, options);
   Router.run(routes, location, function(Handler, state) {
     ga.pageview(state.pathname);
     React.render(<Handler/>, el);
