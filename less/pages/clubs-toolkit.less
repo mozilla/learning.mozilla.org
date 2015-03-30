@@ -1,5 +1,6 @@
 .clubs-toolkit {
   .toolkit-expanders {
+    padding: 2.5rem 2.5rem 0 0;
     ul {
       li {
         .italic {
@@ -9,18 +10,22 @@
     }
   }
   .expander-header {
-    background-color: #F5F5F5;
-    color: #617886;
+    font-size: 1.5rem;
+    background-color: @headerBackground;
+    color: @headerText;
   }
   .focus-div {
     box-sizing: padding-box;
+    border-top: .2rem solid #fff;
+    transition: border-top 0.1s ease-in;
     &:focus {
       margin-top: 0;
-      border-top: .2rem solid #E0B281;
+      border-top: 0.2rem solid @lightOrangeSidebarColor;
     }
   }
   .expander-items-container {
-    background-color: #FAFAFA;
-    color: #4D4E53;
+    background-color: @containerBackground;
+    color: @containerText;
+
   }
 }
