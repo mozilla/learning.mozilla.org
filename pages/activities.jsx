@@ -246,6 +246,7 @@ var ActivitiesPage = React.createClass({
             />
           </div>
           <ImageTag className="arrow-image"
+          width={412} height={186}
           src1x="/img/activities-page/svg/img-globe-line.svg"
           alt="arrow"/>
 

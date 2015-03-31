@@ -26,6 +26,7 @@ var TeachLikeMozillaPage = React.createClass({
             </p>
             <div className="list-with-illust">
               <Illustration
+              width={242} height={175}
               src1x="/img/teach-like-mozilla-page/icon-teach-like-mozilla.svg"
               alt="icon teach like mozilla">
                 <ul>
