@@ -1,9 +1,15 @@
 require('colors');
+require('node-jsx').install({extension: '.jsx'});
+
 var wd = require('wd');
 var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised');
 var argv = require('minimist')(process.argv.slice(2));
 var express = require('express')
+
+// Get all urls
+var urls = require('../../lib/routes.jsx').URLS;
+urls.push('/test/');
 
 var app = express();
 app.use(express.static('./dist'));
@@ -23,7 +29,7 @@ var DESIREDS = require('./desiredBrowsers');
 
 // http configuration, not needed for simple runs
 wd.configureHttp( {
-  timeout: 100000,
+  timeout: 200000,
   retryDelay: 15000,
   retries: 5
 });
@@ -115,10 +121,8 @@ describe('Basic cross-browser tests (' + desired.browserName + ')', function() {
     };
   }
 
-  it('should go to home', goTo('/'));
-  it('should go to Activities', goTo('/activities/'));
-  it('should go to Events', goTo('/events/'));
-  it('should go to Teach Like Mozilla', goTo('/teach-like-mozilla/'));
-  it('should go to Clubs', goTo('/mozilla-web-clubs/'));
+  urls.forEach(function (url) {
+    it(browserKey + ': ' + url, goTo(url));
+  });
 
 });
