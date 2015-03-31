@@ -57,7 +57,7 @@ var CurriculumSection = React.createClass({
         {this.props.activities.map(function (activity, i) {
           return (
             <div className="activity" key={i}>
-              <Illustration
+              <Illustration height={122} width={122}
               src1x={activity.image1x}
               src2x={activity.image2x}
               alt={activity.imageAlt}

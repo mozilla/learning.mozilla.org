@@ -11,7 +11,7 @@ var Intro = React.createClass({
         <div>
           <h1>About Mozilla Learning Networks</h1>
           <section className="intro">
-            <Illustration
+            <Illustration width={226} height={226}
             className="img-circle"
             src1x="/img/about-page/hive-nyc-summer-quest.jpg"
             alt="HiveLearningNYC 2014 Hive NYC Summer Quest Maker Party">
@@ -27,7 +27,7 @@ var OurFocus = React.createClass({
   render: function () {
     return (
         <section className="row list-with-illust">
-          <Illustration
+          <Illustration width={199} height={199}
           src1x="/img/about-page/about-illustration.svg"
           alt="A graphic showing an illustration of a person, a book, some gears, a map pin, and a square acedemic cap">
             <h2>Our Focus</h2>

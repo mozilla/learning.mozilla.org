@@ -67,6 +67,7 @@ var ActivityKit = React.createClass({
     return (
       <div className="activity-kit">
         <Illustration
+        height={165} width={225}
         src1x={this.props.src1x}
         src2x={this.props.src2x}
         alt={this.props.title}
@@ -249,6 +250,7 @@ var ActivitiesPage = React.createClass({
           alt="arrow"/>
 
           <Illustration src1x="/img/activities-page/svg/img-global-movement.svg"
+          height={270} width={270}
           alt="join the global movement">
             <h2>Join the global web literacy movement</h2>
             <p>
