@@ -47,11 +47,22 @@
     "webmaker-app-icons": "git://github.com/k88hudson/ionicons#webmaker-app",
     "webpack": "^1.6.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "chai": "^2.1.2",
+    "chai-as-promised": "^4.3.0",
+    "colors": "^1.0.3",
+    "express": "^4.12.3",
+    "minimist": "^1.1.1",
+    "node-jsx": "^0.12.4",
+    "parallelshell": "^1.1.1",
+    "wd": "^0.3.11"
+  },
   "scripts": {
     "test": "gulp smoketest && mocha test/*.test.js && npm run browsertest && gulp lint-test",
     "browsertest": "mocha-phantomjs -s loadImages=false dist/test/index.html",
     "smoketest": "gulp smoketest",
+    "sauce": "mocha test/crossbrowser/*.test.js --reporter spec",
+    "crossbrowser": "npm run build && parallelshell \"npm run sauce -- --browser=chrome\" \"npm run sauce -- --browser=firefox\" \"npm run sauce -- --browser=explorer\"",
     "s3": "gulp s3",
     "build": "gulp",
     "start": "gulp watch"
