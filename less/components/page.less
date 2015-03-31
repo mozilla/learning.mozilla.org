@@ -21,6 +21,29 @@
     @media screen and (min-width: 1800px) {
       margin: 0 auto;
     }
+
+    .intro {
+      padding: 2.5rem 0 0 2.5rem;
+      p, h2 {
+        text-align: center;
+        @media screen and (min-width: @screen-sm-min) {
+          text-align: left;
+        }
+      }
+      h2 {
+        margin-top: 0rem;
+        line-height: 4.7rem;
+      }
+
+      p {
+        font-size: 1.8rem;
+        line-height: 2.8rem;
+        @media screen and (min-width: @screen-md-min) {
+          font-size: 2.5rem;
+          line-height: 3.8rem;
+        }
+      }
+    }
   }
   &.clubs {
     main {
