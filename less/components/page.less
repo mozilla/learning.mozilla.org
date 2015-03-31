@@ -30,9 +30,15 @@
           text-align: left;
         }
       }
+
       h2 {
         margin-top: 0rem;
-        line-height: 4.7rem;
+        font-size: 2.5rem;
+        line-height: 3.8rem;
+        @media screen and (min-width: @screen-md-min) {
+          line-height: 4.7rem;
+          font-size: 3rem;
+        }
       }
 
       p {
