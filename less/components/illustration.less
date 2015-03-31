@@ -1,10 +1,26 @@
 .illustration {
+  .img-circle {
+    max-width: 22.6rem;
+  }
   overflow: auto;
   padding: 0 0 2rem 0;
   .image-container {
+    padding-bottom: 3rem;
+    padding-right: 0;
+  }
+  .image-container {
+    flex-shrink: 0;
     text-align: center;
-    img {
-      width: 100%;
+  }
+  .content-container {
+    width: 100%;
+  }
+  @media screen and (min-width: @screen-sm-min) {
+    display: flex;
+    align-items: center;
+    .image-container {
+      padding-right: 3rem;
+      padding-bottom: 0;
     }
   }
 }

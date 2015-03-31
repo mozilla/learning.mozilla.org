@@ -19,14 +19,6 @@ describe('ImageTag', function () {
     stubContext.unmount(imagetag);
   });
 
-  it('should detect pixel density and set state accordingly', function () {
-    if (window.devicePixelRatio > 1.5) {
-      imagetag.state.pixelDensity.should.equal(2);
-    } else {
-      imagetag.state.pixelDensity.should.equal(1);
-    }
-  });
-
   it('should set primary src based on the window’s pixel density', function () {
     if (window.devicePixelRatio > 1.5) {
       imagetag.getDOMNode().getAttribute('src').should.equal('foo2x.jpg');

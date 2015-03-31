@@ -67,11 +67,11 @@ var ActivityKit = React.createClass({
     return (
       <div className="activity-kit">
         <Illustration
-          src1x={this.props.src1x}
-          src2x={this.props.src2x}
-          alt={this.props.title}
-          link={this.props.link}
-        >
+        height={165} width={225}
+        src1x={this.props.src1x}
+        src2x={this.props.src2x}
+        alt={this.props.title}
+        link={this.props.link}>
           <div className="activity-kit-content">
             <h3><a href={this.props.link}>{this.props.title}</a></h3>
             <div>
@@ -245,26 +245,21 @@ var ActivitiesPage = React.createClass({
               link="http://hivepgh.sproutfund.org/projects/"
             />
           </div>
+          <ImageTag className="arrow-image"
+          src1x="/img/activities-page/svg/img-globe-line.svg"
+          alt="arrow"/>
 
-          <div className="row arrow-image-container">
-            <ImageTag className="arrow-image"
-              src1x="/img/activities-page/svg/img-globe-line.svg"
-              alt="arrow"/>
-          </div>
-          <div className="global-image">
-            <Illustration
-              src1x="/img/activities-page/svg/img-global-movement.svg"
-              alt="join the global movement"
-            >
-              <h2>Join the global web literacy movement</h2>
-              <p>
-                We invite you to adopt the web literacy curriculum to meet the needs of yout group of learners. Add your local group to our global network, share any remixes you create, and help grow this movement.
-              </p>
-              <div>
-                <Link to="mozilla-web-clubs" className="btn btn-awsm">explore clubs</Link>
-              </div>
-            </Illustration>
-          </div>
+          <Illustration src1x="/img/activities-page/svg/img-global-movement.svg"
+          height={270} width={270}
+          alt="join the global movement">
+            <h2>Join the global web literacy movement</h2>
+            <p>
+              We invite you to adopt the web literacy curriculum to meet the needs of yout group of learners. Add your local group to our global network, share any remixes you create, and help grow this movement.
+            </p>
+            <div>
+              <Link to="mozilla-web-clubs" className="btn btn-awsm">explore clubs</Link>
+            </div>
+          </Illustration>
         </section>
       </div>
     );

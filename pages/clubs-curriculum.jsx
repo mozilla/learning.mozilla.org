@@ -1,5 +1,6 @@
 var React = require('react');
 var ImageTag = require('../components/imagetag.jsx');
+var Illustration = require('../components/illustration.jsx');
 var Router = require('react-router');
 var Link = Router.Link;
 
@@ -8,15 +9,14 @@ var CurriculumIntro = React.createClass({
     return (
       <div>
         <h1>Clubs Curriculum</h1>
-        <section className="row intro">
-          <div className="col-sm-3 col-md-4 col-lg-3">
-            <ImageTag alt="Woman training a young man on a computer"
-                className="img-circle center" src1x="/img/clubs-curriculum-page/photo-clubs-curriculum.jpg"
-                src2x="/img/clubs-curriculum-page/photo-clubs-curriculum@2x.jpg"/>
-          </div>
-          <div className="col-sm-9 col-md-8 col-lg-9">
+        <section className="intro">
+          <Illustration
+          src1x="/img/clubs-curriculum-page/photo-clubs-curriculum.jpg"
+          src2x="/img/clubs-curriculum-page/photo-clubs-curriculum@2x.jpg"
+          alt="Woman training a young man on a computer"
+          className="img-circle">
             <h2>Activities to teach the web in your club. Developed and tested by our seasoned educator community. Easy to use, guaranteed fun. </h2>
-          </div>
+          </Illustration>
         </section>
       </div>
     );
@@ -56,21 +56,22 @@ var CurriculumSection = React.createClass({
         </h2>
         {this.props.activities.map(function (activity, i) {
           return (
-            <div className="row activity" key={i}>
-              <div className="col-sm-2 col-md-2">
-                <a href={activity.link}>
-                  <ImageTag width={122} alt={activity.imageAlt} src1x={activity.image1x} src2x={activity.image2x}/>
-                </a>
-              </div>
-              <div className="col-sm-10 col-md-10 curriculum-description">
-                <a href={activity.link}>
-                  <h3>{activity.title}</h3>
-                </a>
-                <p>
-                  <em>{activity.subtitle}</em>
-                </p>
-                <p className="description" dangerouslySetInnerHTML={{__html: activity.description}}></p>
-              </div>
+            <div className="activity" key={i}>
+              <Illustration height={122} width={122}
+              src1x={activity.image1x}
+              src2x={activity.image2x}
+              alt={activity.imageAlt}
+              link={activity.link}>
+                <div className="curriculum-description">
+                  <a href={activity.link}>
+                    <h3>{activity.title}</h3>
+                  </a>
+                  <p>
+                    <em>{activity.subtitle}</em>
+                  </p>
+                  <p className="description" dangerouslySetInnerHTML={{__html: activity.description}}></p>
+                </div>
+              </Illustration>
             </div>
           )
         })}

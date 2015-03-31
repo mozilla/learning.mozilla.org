@@ -3,6 +3,7 @@ var React = require('react');
 var HeroUnit = require('../components/hero-unit.jsx');
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
+var Illustration = require('../components/illustration.jsx');
 
 var TeachLikeMozillaPage = React.createClass({
   statics: {
@@ -23,14 +24,10 @@ var TeachLikeMozillaPage = React.createClass({
             <p className="sub-title">
               We are a community of educators, learners, mentors and teachers.
             </p>
-            <div className="row list-with-illust">
-              <div className="col-sm-4 col-md-4 col-lg-4">
-                <img
-                  src="/img/teach-like-mozilla-page/icon-teach-like-mozilla.svg"
-                  alt="icon teach like mozilla"
-                />
-              </div>
-              <div className="col-sm-8 col-md-8 col-lg-8">
+            <div className="list-with-illust">
+              <Illustration
+              src1x="/img/teach-like-mozilla-page/icon-teach-like-mozilla.svg"
+              alt="icon teach like mozilla">
                 <ul>
                   <li>
                     We teach web literacy, which encompasses the mechanics,
@@ -46,7 +43,7 @@ var TeachLikeMozillaPage = React.createClass({
                     localle relevant environment.
                   </li>
                 </ul>
-              </div>
+              </Illustration>
             </div>
           </section>
           <section>

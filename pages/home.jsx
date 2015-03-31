@@ -4,7 +4,7 @@ var Link = Router.Link;
 
 var HeroUnit = require('../components/hero-unit.jsx');
 var Blockquote = require('../components/blockquote.jsx');
-var ImageTag = require('../components/imagetag.jsx');
+var Illustration = require('../components/illustration.jsx');
 
 var CaseStudies = React.createClass({
   render: function() {
@@ -19,22 +19,6 @@ var CaseStudies = React.createClass({
   }
 });
 
-var Values = React.createClass({
-  render: function() {
-    return (
-      <div className="values row">
-        <div className="col-sm-3 col-md-4 col-lg-3">
-          <ImageTag src1x="/img/values.jpg" src2x="/img/values.jpg"
-              alt="Image reflecting our values" className="img-circle center"/>
-        </div>
-        <div className="col-sm-9 col-md-8 col-lg-9">
-          Join our community of educators and activists who want to teach digital skills and web literacy through making. <Link to="about" className="bold-link">Learn More</Link>
-        </div>
-      </div>
-    );
-  }
-});
-
 var HomePage = React.createClass({
   render: function() {
     return (
@@ -44,7 +28,14 @@ var HomePage = React.createClass({
           <div><Link to="join" className="btn btn-awsm">Join Us</Link></div>
         </HeroUnit>
         <div className="inner-container">
-          <Values/>
+          <div className="values">
+            <Illustration
+            className="img-circle"
+            src1x="/img/values.jpg" src2x="/img/values.jpg"
+            alt="Image reflecting our values">
+              Join our community of educators and activists who want to teach digital skills and web literacy through making. <Link to="about" className="bold-link">Learn More</Link>
+            </Illustration>
+          </div>
           <CaseStudies/>
         </div>
       </div>
