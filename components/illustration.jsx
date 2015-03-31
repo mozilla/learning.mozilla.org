@@ -2,8 +2,8 @@ var React = require('react');
 var ImageTag = require('./imagetag.jsx');
 
 var Illustration = React.createClass({  propTypes: {
-    width: React.PropTypes.number,
-    height: React.PropTypes.number
+    width: React.PropTypes.number.isRequired,
+    height: React.PropTypes.number.isRequired
   },
   render: function() {
     return (

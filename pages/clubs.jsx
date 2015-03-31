@@ -113,7 +113,8 @@ var HowClubWorks = React.createClass({
   render: function() {
     return(
       <div className="list-with-illust">
-        <Illustration className="center"
+        <Illustration
+        width={182} height={237}
         src1x="/img/icon-how-do-clubs-work.svg"
         alt="icon how do web clubs work">
           <h2>How do Web Clubs work?</h2>

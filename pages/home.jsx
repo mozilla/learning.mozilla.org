@@ -30,6 +30,7 @@ var HomePage = React.createClass({
         <div className="inner-container">
           <div className="values">
             <Illustration
+            height={226} width={226}
             className="img-circle"
             src1x="/img/values.jpg" src2x="/img/values.jpg"
             alt="Image reflecting our values">

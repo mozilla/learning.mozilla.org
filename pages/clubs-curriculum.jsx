@@ -11,6 +11,7 @@ var CurriculumIntro = React.createClass({
         <h1>Clubs Curriculum</h1>
         <section className="intro">
           <Illustration
+          height={204} width={204}
           src1x="/img/clubs-curriculum-page/photo-clubs-curriculum.jpg"
           src2x="/img/clubs-curriculum-page/photo-clubs-curriculum@2x.jpg"
           alt="Woman training a young man on a computer"
