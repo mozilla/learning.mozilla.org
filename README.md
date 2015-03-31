@@ -157,6 +157,7 @@ string), the boolean is true; otherwise, it's false.
 `MAPBOX_MAP_ID` | is the Mapbox map ID to use for embedded maps in the website. Optional.
 `TEACH_API_URL` | is the origin of the [Teach API][] server. Defaults to `https://teach-api.herokuapp.com`.
 `GA_ACCOUNT` | is the property ID of the Google Analytics account. E.g. `UA-123...`. It defaults to the property ID for the Teach site. Set it to `DISABLED` to disable Google Analytics entirely.
+`GA_DEBUG` | When set to 'on' will output verbose info to the console about what data is being sent to Google Analytics.
 
 ### Using Environment Variables in Local Development
 
