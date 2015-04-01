@@ -2,6 +2,14 @@ var urlParse = require('url').parse;
 var React = require('react');
 var request = require('superagent');
 
+var config = require('../lib/config');
+
+var DEFAULT_STYLESHEETS = config.IN_TEST_SUITE ? [] : [
+  'https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css',
+  'https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css',
+  'https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css'
+];
+
 var mapboxId = process.env.MAPBOX_MAP_ID || 'alicoding.ldmhe4f3';
 var accessToken = process.env.MAPBOX_ACCESS_TOKEN || 'pk.eyJ1IjoiYWxpY29kaW5nIiwiYSI6Il90WlNFdE0ifQ.QGGdXGA_2QH-6ujyZE2oSg';
 
@@ -115,7 +123,9 @@ var Map = React.createClass({
     clubs: React.PropTypes.array.isRequired,
     username: React.PropTypes.string,
     onDelete: React.PropTypes.func.isRequired,
-    onEdit: React.PropTypes.func.isRequired
+    onEdit: React.PropTypes.func.isRequired,
+    stylesheets: React.PropTypes.array,
+    onReady: React.PropTypes.func
   },
   statics: {
     MarkerPopup: MarkerPopup,
@@ -160,9 +170,36 @@ var Map = React.createClass({
         });
     }
   },
+  getDefaultProps: function() {
+    return {
+      stylesheets: DEFAULT_STYLESHEETS
+    };
+  },
+  installStylesheets: function() {
+    var head = document.getElementsByTagName('head')[0];
+    this.props.stylesheets.filter(function(url) {
+      return !document.querySelector('link[href="' + url + '"]');
+    }).forEach(function(url) {
+      var link = document.createElement('link');
+      link.setAttribute('href', url);
+      link.setAttribute('rel', 'stylesheet');
+      head.appendChild(link);
+    });
+  },
   componentDidMount: function() {
-    require('mapbox.js'); // this will automatically attach to Window object.
-    require('leaflet.markercluster');
+    var self = this;
+    this.installStylesheets();
+    require([
+      // These will automatically attach to the window object.
+      'mapbox.js',
+      'leaflet.markercluster'
+    ], function() {
+      if (self.isMounted()) {
+        self.handleDependenciesLoaded();
+      }
+    });
+  },
+  handleDependenciesLoaded: function() {
     L.mapbox.accessToken = accessToken;
     this.map = L.mapbox.map(this.refs.map.getDOMNode())
       .setView([0, 0], 2)
@@ -216,6 +253,9 @@ var Map = React.createClass({
     // marker popup button clicks to make *those* buttons usable,
     // rather than offering any new kind of interactivity.
     this.getDOMNode().addEventListener('click', this.handleClick);
+    if (this.props.onReady) {
+      this.props.onReady();
+    }
   },
   getInitialState: function() {
     return {
@@ -237,7 +277,9 @@ var Map = React.createClass({
   },
   componentWillUnmount: function() {
     this.getDOMNode().removeEventListener('click', this.handleClick);
-    this.map.remove();
+    if (this.map) {
+      this.map.remove();
+    }
   },
   handleClick: function(e) {
     var targetEl = e.target;

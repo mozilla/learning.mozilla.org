@@ -28,21 +28,35 @@ var SAMPLE_BAR_CLUB = {
   name: 'bar club'
 };
 
+var STYLESHEET_URL = 'data:text/css,' + encodeURIComponent([
+  '.foo {',
+  '  background: pink;',
+  '}'
+].join('\n'));
+
+function renderMap(done) {
+  return stubContext.render(Map, {
+    className: 'foo',
+    clubs: [],
+    stylesheets: [STYLESHEET_URL],
+    username: null,
+    onDelete: sinon.spy(),
+    onEdit: sinon.spy(),
+    onReady: function() {
+      process.nextTick(done);
+    }
+  }, {});
+}
+
 describe("Map", function() {
   var map, xhr;
 
-  beforeEach(function() {
+  beforeEach(function(done) {
     // The map widget will try to use XHR. We want to
     // fake that so that network issues don't cause this test to fail,
     // and so that PhantomJS doesn't hang on us.
     xhr = sinon.useFakeXMLHttpRequest();
-    map = stubContext.render(Map, {
-      className: 'foo',
-      clubs: [],
-      username: null,
-      onDelete: sinon.spy(),
-      onEdit: sinon.spy()
-    }, {});
+    map = renderMap(done);
   });
 
   afterEach(function() {
@@ -52,6 +66,22 @@ describe("Map", function() {
 
   it("should render", function() {
     map.getDOMNode().className.should.match(/foo/);
+  });
+
+  it("should load leaflet + markercluster", function() {
+    L.mapbox.map.should.be.a.Function;
+    L.MarkerClusterGroup.should.be.a.Function;
+  });
+
+  it("should load stylesheet(s) only once", function(done) {
+    var map2, selector = 'link[href="' + STYLESHEET_URL + '"]';
+
+    document.querySelectorAll(selector).length.should.equal(1);
+    map2 = renderMap(function() {
+      document.querySelectorAll(selector).length.should.equal(1);
+      stubContext.unmount(map2);
+      done();
+    });
   });
 });
 

@@ -17,9 +17,6 @@ function generateWithPageHTML(url, options, pageHTML) {
         <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css"/>
         <link href="https://mozorg.cdn.mozilla.net/media/css/tabzilla-min.css" rel="stylesheet" />
         <link rel="stylesheet" href={'/' + exports.CSS_FILENAME}/>
-        <link href="https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css" rel="stylesheet" />
-        <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
-        <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
         <script dangerouslySetInnerHTML={{
           __html: "document.documentElement.setAttribute('class', '');"
         }}></script>
@@ -30,7 +27,6 @@ function generateWithPageHTML(url, options, pageHTML) {
         <div id="page-holder" dangerouslySetInnerHTML={{
           __html: pageHTML
         }}></div>
-        <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js'></script>
         <script src="/commons.bundle.js"></script>
         <script src="/app.bundle.js"></script>
         <script src="https://mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>

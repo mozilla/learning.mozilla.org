@@ -26,6 +26,7 @@ module.exports = {
                       : process.env.WEBPACK_DEVTOOL || 'eval',
   output: {
     path: __dirname + '/dist',
+    publicPath: '/',
     filename: '[name].bundle.js'
   },
   module: {
