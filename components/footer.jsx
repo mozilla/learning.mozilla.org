@@ -30,7 +30,7 @@ var Footer = React.createClass({
               <a href="http://hivelearningnetworks.org/"><img src="/img/hive-logo.svg" alt="Hive logo"/></a>
             </div>
             <div className="col-sm-7 col-lg-5">
-              <p>The Hive Learning Networks are a growing constellation of communities around the globe that are championing digital skills and web literacy through connected learning. <a href="http://hivelearningnetworks.org/">Learn more</a></p>
+              <p>The Hive Learning Networks, stewarded by Mozilla, are a growing constellation of local communities around the globe that are championing digital skills and web literacy through connected learning. <a href="http://hivelearningnetworks.org/">Learn more</a></p>
             </div>
           </div>
         </div>
