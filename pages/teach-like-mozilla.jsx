@@ -41,7 +41,7 @@ var TeachLikeMozillaPage = React.createClass({
                   <li>
                     We teach and learn by making projects together and
                     openly reflecting on the process in an inclusive and
-                    localle relevant environment.
+                    locally-relevant environment.
                   </li>
                 </ul>
               </Illustration>
@@ -54,7 +54,7 @@ var TeachLikeMozillaPage = React.createClass({
                 imgSrc="/img/teach-like-mozilla-page/icon-listen.svg"
                 imgAlt="icon listen"
                 head="Listen"
-                subhead="Subscribe to our Podcast"
+                subhead="Subscribe to our podcast"
               />
               <IconLink
                 linkTo="web-literacy"
