@@ -90,7 +90,7 @@ var AboutPage = React.createClass({
               subhead="Start a conversation on Twitter"
             />
             <IconLink
-              href="mailto:help@webmaker.org"
+              href="mailto:teachtheweb@mozillafoundation.org"
               imgSrc="/img/shared-iconography/icon-get-help.svg"
               imgAlt="question mark icon"
               head="Get Help"
