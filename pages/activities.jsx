@@ -126,7 +126,7 @@ var ActivitiesPage = React.createClass({
             level="Beginner"
             link="https://keyboardkat.makes.org/thimble/LTIxMDA3NTY0ODA=/lofi-nofi-teaching-kit"
             developedBy="Kat Braybrooke, Karen Smith, Julia Vallera, Jess Klein, Chan Sansing"
-            description="This series of activities help teach web literacy concepts offline, or where access to technology is limited. Includes printable templated and games to teach coding, game design and app development."
+            description="This series of activities help teach web literacy concepts offline, or where access to technology is limited. Includes printable templates and games to teach coding, game design and app development."
           />
           <ActivityKit
             src1x="/img/activities-page/1x/img-activity-02.jpg"
@@ -171,7 +171,7 @@ var ActivitiesPage = React.createClass({
             level="Beginner-Intermediate"
             link="https://stacy.makes.org/thimble/MjAxMjIxNzYwMA==/whats-wrong-with-your-password"
             developedBy="Stacy Martin, Mozilla"
-            description="This teaching kit includes a series of activities to help leaners understand passwords-including why thery're important, best practices, and tools to help you manage multiple passwords."
+            description="This teaching kit includes a series of activities to help leaners understand passwords &mdash; including why they're important, best practices, and tools to help you manage multiple passwords."
           />
           <ActivityKit
             src1x="/img/activities-page/1x/img-activity-07.jpg"
@@ -241,7 +241,7 @@ var ActivitiesPage = React.createClass({
             />
             <HiveLink
               src1x="/img/activities-page/svg/logo-hive.svg"
-              name="hive pittsbergh"
+              name="hive pittsburgh"
               link="http://hivepgh.sproutfund.org/projects/"
             />
           </div>
@@ -255,7 +255,7 @@ var ActivitiesPage = React.createClass({
           alt="join the global movement">
             <h2>Join the global web literacy movement</h2>
             <p>
-              We invite you to adopt the web literacy curriculum to meet the needs of yout group of learners. Add your local group to our global network, share any remixes you create, and help grow this movement.
+              We invite you to adapt the web literacy curriculum to meet the needs of your group of learners. Add your local group to our global network, share any remixes you create, and help grow this movement.
             </p>
             <div>
               <Link to="mozilla-web-clubs" className="btn btn-awsm">explore clubs</Link>
