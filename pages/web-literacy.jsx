@@ -49,8 +49,8 @@ var ActivitiesPage = React.createClass({
           <WebMaps>
             <WebMap head="Explore" subhead="Reading the Web">
               <Expander head="navigation">
-                <p>Accessing the web using the common features of a browser</p>
-                <p>Using hyperlinks to access a range of resourves on the web.</p>
+                <p>Accessing the web using the common features of a browser.</p>
+                <p>Using hyperlinks to access a range of resources on the web.</p>
                 <p>Reading, evaluating, and manipulating URLs.</p>
                 <p>Recognizing the common visual cues in the services.</p>
                 <p>Exploring browser add-ons and extensions to provice additional functionality.</p>
@@ -149,7 +149,7 @@ var ActivitiesPage = React.createClass({
               <Expander head="open practices">
                 <p>Distinguishing between open and closed licensing.</p>
                 <p>Making web resources available under an open license.</p>
-                <p>Contributing to an Open Source project.</p>
+                <p>Contributing to an open source project.</p>
                 <p>Advocating for an open web.</p>
               </Expander>
             </WebMap>
