@@ -18,7 +18,13 @@ var Sidebar = React.createClass({
       link: 'events',
       help: "Find gatherings near you, or host your own",
       icon: "/img/nav/icon-nav-white-events.svg",
-      className: "events"
+      className: "events",
+      subItems: [
+        {
+          name: "Event Resources",
+          link: "event-resources"
+        }
+      ]
     },
     {
       name: "Teach Like Mozilla",

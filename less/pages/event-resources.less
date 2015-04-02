@@ -1,0 +1,43 @@
+.event-resources {
+  .event-item {
+    @media screen and (min-width: @screen-sm-min) {
+      display: flex;
+      align-items: center;
+    }
+    .event-content{
+      .event-item-header {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1.8rem;
+      }
+      .event-item-subheader {
+        font-style: italic;
+      }
+      .event-item-content {
+        padding-top: 1rem;
+        line-height: 2.2rem;
+      }
+    }
+    .event-icon {
+      text-align: center;
+      width: 12rem;
+      height: 12rem;
+      border-radius: 50%;
+      background: #E1E9FA;
+      flex-shrink: 0;
+      color: #2D4A8C;
+      margin: 1rem 3rem 1rem 0;
+      .participants-number {
+        margin: 1.5rem 0 -0.6rem;
+        font-size: 4.3rem;
+      }
+      .participants-label {
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+    }
+  }
+  .event-support-header {
+    font-weight: 200;
+  }
+}
