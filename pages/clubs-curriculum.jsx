@@ -34,7 +34,7 @@ var WebLitBasics = React.createClass({
             Learners get familiar with reading, writing and participating on the web in this six-part module. Discover
             the foundations of the web through production and collaboration. The learning objectives underpinning each
             activity are informed by Mozilla&apos;s <Link to="fixme">Web Literacy Map</Link>. Complete the activities in
-            sequence, or mix &amp; match for your learners. Need help{'? '}
+            sequence, or mix and match for your learners. Need help{'? '}
             <a href="http://discourse.webmaker.org/category/clubs">Visit our discussion forum</a> to get help and share
             your experience.
           </p>
@@ -140,7 +140,7 @@ var ClubsCurriculum = React.createClass({
           image2x: "/img/clubs-curriculum-page/img-hack-news@2x.jpg",
           imageAlt: "An illustration of a newspaper, with a headline of &ldquo;Hack the News&rdquo;",
           subtitle: "Understanding remixing",
-          description: "Learners use X-Ray Goggles to remix a news website, learning about openly-licensed resources, different forms of media, and how to create something new on the Web through remix.",
+          description: "Learners use X-Ray Goggles to remix a news website, learning about openly-licensed resources, different forms of media, and how to create something new on the Web through remixing.",
           link: "http://mozilla.github.io/webmaker-curriculum/WebLiteracyBasics-I/session02-hackthenews.html"
         },
         {
@@ -163,7 +163,7 @@ var ClubsCurriculum = React.createClass({
           image2x: "/img/clubs-curriculum-page/img-web-chef@2x.jpg",
           imageAlt: "An illustration of a chef",
           subtitle: "Understanding open practices",
-          description: "Learners teach their peers a skill and document the steps by making a web resource that includes properly attributed open content.",
+          description: "Learners teach their peers a skill and document the steps by making a web resource that includes properly-attributed open content.",
           link: "http://mozilla.github.io/webmaker-curriculum/WebLiteracyBasics-I/session03-chef.html"
         },
         {
