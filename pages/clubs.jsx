@@ -119,7 +119,7 @@ var HowClubWorks = React.createClass({
         alt="icon how do web clubs work">
           <h2>How do Web Clubs work?</h2>
           <ul>
-            <li>Grow the web literary of leaners</li>
+            <li>Grow the web literary of learners</li>
             <li>Meet regularly in classrooms, libraries, coffee shops &mdash; anywhere!</li>
             <li>Teach with open practices</li>
             <li>Guide people to learn by making</li>
