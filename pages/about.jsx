@@ -34,10 +34,10 @@ var OurFocus = React.createClass({
             <ul>
               <li>
                 We focus on peer learning that is production-centered, rooted in open practices, facilitated online and
-                in-person, localized culturally but connected globally.
+                in person, and localized culturally but connected globally.
               </li>
               <li>
-                We offer training and event models to help you develop and teach web literacy skills, and connect with
+                We offer training and event models to help you develop and teach web literacy skills and connect with
                 peers.
               </li>
               <li>
@@ -46,7 +46,7 @@ var OurFocus = React.createClass({
               </li>
               <li>
                 We support Hive Learning Networks, city-based communities where educators, organizations and learners
-                are networked for greater impact.
+                network for greater impact.
               </li>
             </ul>
           </Illustration>
@@ -101,7 +101,7 @@ var AboutPage = React.createClass({
               imgSrc="/img/shared-iconography/icon-connect.svg"
               imgAlt="illustration of two people connecting"
               head="Say Hello"
-              subhead="Connect on the Discourse forum"
+              subhead="Connect on the #teachtheweb Discourse forum"
             />
           </IconLinks>
         </div>
