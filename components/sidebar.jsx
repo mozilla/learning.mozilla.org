@@ -54,10 +54,20 @@ var Sidebar = React.createClass({
       ]
     }
   ],
+  propTypes: {
+    sidebar: React.PropTypes.string
+  },
   getInitialState: function() {
     return {
       showCollapsibleContent: false
     };
+  },
+  componentWillReceiveProps: function(nextProps) {
+    if (this.props.pathname !== nextProps.pathname) {
+      this.setState({
+        showCollapsibleContent: false
+      });
+    }
   },
   handleHamburgerClick: function() {
     this.setState({

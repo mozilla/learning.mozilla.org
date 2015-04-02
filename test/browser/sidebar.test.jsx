@@ -37,6 +37,20 @@ describe("sidebar", function() {
     collapsibleContent.props.className.should.eql('collapsible-content');
   });
 
+  it('should collapse when props.pathname changes', function() {
+    sidebar.props.pathname = '/foo';
+    sidebar.setState({showCollapsibleContent: true});
+    sidebar.componentWillReceiveProps({pathname: '/blah'});
+    sidebar.state.showCollapsibleContent.should.be.false;
+  });
+
+  it('should not collapse when props.pathname stays the same ', function() {
+    sidebar.props.pathname = '/blah';
+    sidebar.setState({showCollapsibleContent: true});
+    sidebar.componentWillReceiveProps({pathname: '/blah'});
+    sidebar.state.showCollapsibleContent.should.be.true;
+  });
+
   describe('hamburger', function() {
     it('should toggle collapsible content on click', function() {
       TestUtils.Simulate.click(hamburger);
