@@ -41,9 +41,9 @@ var stubContext = function(Component, props, stubs) {
         getCurrentRoutes: noop,
         getCurrentPathname: noop,
         getCurrentParams: noop,
-        getCurrentQuery: noop,
+        getCurrentQuery: function() { return {}; },
         isActive: noop,
-        showModal: noop,
+        showModal: sinon.spy(),
         hideModal: sinon.spy(),
         teachAPI: new StubTeachAPI()
       }, stubs);
