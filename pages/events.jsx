@@ -31,14 +31,14 @@ var EventsPage = React.createClass({
         </HeroUnit>
         <section>
           <h2>Join the Global Movement</h2>
-          <p>Since its inauguration in 2012, Maker Party has become Mozilla's largest celebration of making and learning on the web. From getting the hang of HTML to building robots to learning about remix using paper and scissors, people of all ages and from all backgrounds have come together to joyfully explore the culture, mechanics and citizenship of the web.</p>
+          <p>Since its inauguration in 2012, Maker Party has become Mozilla's largest celebration of making and learning on the web. From getting the hang of HTML to building robots to learning about remixing using paper and scissors, people of all ages and from all backgrounds have come together to joyfully explore the culture, mechanics and citizenship of the web.</p>
           <div className="values row">
             <div className="col-sm-3">
               <img src="/img/events-page/maker-party-logo.svg" className="img-scale-to-fit" alt="Maker Party logo"/>
             </div>
             <div className="col-sm-9 col-lg-8">
               <h2>
-                Join us for the global Maker Party on July 15-31, 2015 and add your events to <a href="">our global list</a> any time of year.
+                Join us for the worldwide Maker Party on July 15-31, 2015 and add your events to <a href="">our global list</a> any time of year.
               </h2>
             </div>
           </div>
