@@ -514,7 +514,6 @@ var ClubsPage = React.createClass({
         <HeroUnit image="/img/hero-clubs.jpg">
           <h1>Mozilla Web Clubs</h1>
           <div><a className="btn btn-awsm" onClick={this.showAddYourClubModal}>Add Your Club</a></div>
-          <div><p className="learn-more">or <a onClick={this.showLearnMoreModal}>find out more</a> about us</p></div>
         </HeroUnit>
         <div className="inner-container">
           <section>
