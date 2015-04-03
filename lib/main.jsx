@@ -15,6 +15,6 @@ function startRunningSite() {
   }
 }
 
-if (config.IN_STATIC_SITE) {
+if (config.IN_STATIC_SITE && window.ENABLE_JS) {
   startRunningSite();
 }

@@ -120,6 +120,16 @@ Individually running *only* the browser unit tests can be accomplished
 by first running `npm start` and then visiting http://localhost:8008/test/
 in your browser.
 
+#### Manual Tests
+
+You can also visit http://localhost:8008/test/manual/ for a basic
+manual test suite.
+
+Additionally, if you need to make sure that a page is usable with
+JS disabled, just add `safemode=on` to the querystring when visiting the
+page. This will cause the page to operate in "safe mode", meaning that
+almost no JS will run, even if JS is enabled in the browser.
+
 ## Generating A Static Site
 
 Run `npm run build` to generate a static site in `dist/` that
