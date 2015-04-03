@@ -375,6 +375,12 @@ var ModalAddOrChangeYourClub = React.createClass({
                // disable this feature.
                autoload={false}
 
+               // The Mapbox geocoding service is automatically filtering
+               // out irrelevant results for us, so show all autocomplete
+               // options. Otherwise the default filtering
+               // algorithm will actually cull out valid options!
+               filterOption={function() { return true; }}
+
                asyncOptions={Map.getAutocompleteOptions}
                onChange={this.handleLocationChange} />
             </fieldset>
