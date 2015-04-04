@@ -52,6 +52,18 @@ describe("ClubsPage", function() {
   it('triggers clubs update when mounted', function() {
     teachAPI.updateClubs.callCount.should.equal(1);
   });
+
+  it('doesn\'t show add modal if ?modal=add isn\'t in query', function() {
+    clubsPage.context.showModal.callCount.should.equal(0);
+  });
+
+  it('shows add modal if ?modal=add is in query', function() {
+    var clubsPage2 = stubContext.render(ClubsPage, {}, {
+      getCurrentQuery: function() { return {'modal': 'add'}; }
+    });
+    clubsPage2.context.showModal.callCount.should.equal(1);
+    stubContext.unmount(clubsPage2);
+  });
 });
 
 describe("ClubsPage.ClubList", function() {

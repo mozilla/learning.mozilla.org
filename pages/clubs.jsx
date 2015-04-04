@@ -468,7 +468,7 @@ var ModalLearnMore = React.createClass({
 
 
 var ClubsPage = React.createClass({
-  mixins: [ModalManagerMixin, TeachAPIClientMixin],
+  mixins: [ModalManagerMixin, TeachAPIClientMixin, Router.State],
   statics: {
     ClubList: ClubList,
     ModalAddOrChangeYourClub: ModalAddOrChangeYourClub,
@@ -482,6 +482,10 @@ var ClubsPage = React.createClass({
   },
   componentDidMount: function() {
     this.getTeachAPI().updateClubs();
+
+    if (this.getQuery().modal === 'add') {
+      this.showAddYourClubModal();
+    }
   },
   showAddYourClubModal: function() {
     this.showModal(ModalAddOrChangeYourClub, {
