@@ -133,6 +133,24 @@ var Map = React.createClass({
     setAccessToken: function(value) {
       accessToken = value;
     },
+    simplifyMapboxGeoJSON: function(features) {
+      return features.filter(function(feature) {
+        return /^place/.test(feature.id);
+      }).map(function(feature) {
+        var context = feature.context.filter(function(item) {
+          return /^(region|country)/.test(item.id);
+        }).map(function(item) {
+          return item.text;
+        });
+        var info = {
+          location: [feature.text].concat(context).join(', '),
+          latitude: feature.center[1],
+          longitude: feature.center[0]
+        };
+
+        return info;
+      });
+    },
     getAutocompleteOptions: function(input, callback) {
       var url = 'http://api.tiles.mapbox.com/v4/geocode/mapbox.places/' +
                 encodeURIComponent(input) +
@@ -155,12 +173,7 @@ var Map = React.createClass({
           // JSON ourselves.
           var features = JSON.parse(res.text).features;
           callback(null, {
-            options: features.map(function(feature) {
-              var info = {
-                location: feature.place_name,
-                latitude: feature.center[1],
-                longitude: feature.center[0]
-              };
+            options: Map.simplifyMapboxGeoJSON(features).map(function(info) {
               return {
                 value: JSON.stringify(info),
                 label: info.location

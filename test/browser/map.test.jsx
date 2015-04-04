@@ -28,6 +28,31 @@ var SAMPLE_BAR_CLUB = {
   name: 'bar club'
 };
 
+var BROOKLYN_GEOJSON = {
+  "id": "place.11201",
+  "type": "Feature",
+  "text": "Brooklyn",
+  "place_name": "Brooklyn, 11226, New York, United States",
+  "relevance": 0.99,
+  "center": [-73.9496, 40.6501],
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-73.9496, 40.6501]
+  },
+  "bbox": [-74.04191000999859, 40.56959599007123, -73.8556849917723, 40.739421009998416],
+  "properties": {},
+  "context": [{
+    "id": "postcode.1597206218",
+    "text": "11226"
+  }, {
+    "id": "region.628083222",
+    "text": "New York"
+  }, {
+    "id": "country.4150104525",
+    "text": "United States"
+  }]
+};
+
 var STYLESHEET_URL = 'data:text/css,' + encodeURIComponent([
   '.foo {',
   '  background: pink;',
@@ -162,6 +187,25 @@ describe("Map.clubsToGeoJSON()", function() {
   });
 });
 
+describe("Map.simplifyMapboxGeoJSON()", function() {
+  var simplify = Map.simplifyMapboxGeoJSON;
+
+  it("should ignore addresses", function() {
+    simplify([{
+      "id": "address.51466244506932",
+      "place_name": "Brooklyn Rd, Brooklyn, 11210, New York, United States"
+    }]).should.eql([]);
+  });
+
+  it("should accept places", function() {
+    simplify([BROOKLYN_GEOJSON]).should.eql([{
+      location: "Brooklyn, New York, United States",
+      latitude: 40.6501,
+      longitude: -73.9496
+    }]);
+  });
+});
+
 describe("Map.getAutocompleteOptions()", function() {
   var xhr, requests;
 
@@ -208,24 +252,21 @@ describe("Map.getAutocompleteOptions()", function() {
   });
 
   it("should pass results back to callback", function(done) {
-    Map.getAutocompleteOptions('blah', function(err, info) {
+    Map.getAutocompleteOptions('brooklyn', function(err, info) {
       should(err).equal(null);
       info.options.length.should.equal(1);
       JSON.parse(info.options[0].value).should.eql({
-        location: "Somewhere",
-        latitude: 2,
-        longitude: 1
+        location: "Brooklyn, New York, United States",
+        latitude: 40.6501,
+        longitude: -73.9496
       });
-      info.options[0].label.should.eql("Somewhere");
+      info.options[0].label.should.eql("Brooklyn, New York, United States");
       done();
     });
     requests[0].respond(200, {
       'Content-Type': 'application/vnd.geo+json'
     }, JSON.stringify({
-      features: [{
-        place_name: "Somewhere",
-        center: [1, 2]
-      }]
+      features: [BROOKLYN_GEOJSON]
     }));
   });
 });
