@@ -38,13 +38,15 @@ var EventItem = React.createClass({
 var LogoAsset = React.createClass({
   render: function() {
     return (
-      <div className="logo-asset-container col-sm-3 col-md-6 col-lg-3">
+      <div className="logo-asset-container col-sm-4 col-md-4 col-lg-3">
+        <div className="logo-asset-header">{this.props.head}</div>
         <ImageTag className="logo-asset-img"
         width={200} height={200}
         src1x={this.props.src1x} src2x={this.props.src2x}
         alt={this.props.alt}/>
-        <div className="logo-asset-hover">{this.props.children}</div>
-        <div>{this.props.head}</div>
+        <div className="logo-asset-hover">
+          <div className="logo-asset-center">{this.props.children}</div>
+        </div>
       </div>
     );
   }
@@ -64,9 +66,61 @@ var RemixLink = React.createClass({
   }
 });
 var Tabulator = React.createClass({
+  getInitialState: function() {
+    return {
+      activeClass: "tab-0"
+    };
+  },
+  propTypes: {
+    tabs: React.PropTypes.array
+  },
+  showTab: function(activeTab) {
+    this.setState({
+      activeClass: activeTab
+    });
+  },
+  render: function() {
+    var tabulator = this;
+    var className = "tabulator";
+    if (this.state.activeClass) {
+      className += " " + this.state.activeClass;
+    }
+    return (
+      <div className={className}>
+        <div>
+          {this.props.tabs.map(function (section, key) {
+            function onClick(e) {
+              tabulator.showTab("tab-" + key);
+            }
+            var className = "tabulator-head col-sm-3 col-md-3 col-lg-3";
+            className += " tab-" + key;
+            return (
+              <div onClick={onClick} className={className} key={key}>{section.head}</div>
+            );
+          })}
+        </div>
+        {this.props.tabs.map(function (section, key) {
+          var className = "tabulator-content-container";
+          className += " tab-" + key;
+          return (
+            <div className={className}key={key}>
+              <div className="tabulator-content">
+                {section.content}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
+});
+var EventDetail = React.createClass({
   render: function() {
     return (
-      <div></div>
+      <div>
+        <div className="event-detail-head col-sm-3 col-md-3 col-lg-3">{this.props.head}</div>
+        <div className="event-detail-content col-sm-9 col-md-9 col-lg-9">{this.props.children}</div>
+      </div>
     );
   }
 });
@@ -146,8 +200,6 @@ var EventsResources = React.createClass({
             <LogoAssetLink href="https://party.webmaker.org/party-resources/MakerPartyWallpaper-1-1920x1200.jpg">1920px x 1200px</LogoAssetLink>
             <LogoAssetLink href="https://party.webmaker.org/party-resources/MakerPartyWallpaper-1-2560x1440.jpg">2560px x 1440px</LogoAssetLink>
           </LogoAsset>
-        </div>
-        <div className="row">
           <LogoAsset head="Certificate"
           src1x="/img/event-resources-page/resource-thumbnails-08.png"
           src2x="/img/event-resources-page/resource-thumbnails-08@2x.png">
@@ -177,9 +229,64 @@ var EventsResources = React.createClass({
         <h2 id="event-details">Event Details</h2>
         <p>There are many details to consider when planning your event. Here's a list of what you need to know:</p>
 
-        <Tabulator>
-
-        </Tabulator>
+        <Tabulator tabs={[
+          {
+            "head": "the basics",
+            "content": (
+              <div>
+                <EventDetail head="Find a Venue">
+                  <div>
+                    Look for a comfortable, flexible space that's appropriate for the number of participants you expect. Contact local community spaces, museums, hackerspaces, coworking spaces, organizations, libraries, schools, or coffee shops to see if that have space available for events. Send them information on your event, the missions and what you hope to achieve and offer opportunities for their community to attend. Ensure there is reliable internet, enough power outlests and good lighting.
+                  </div>
+                </EventDetail>
+                <EventDetail head="Prepare Equipment">
+                  <div>
+                    Create a list of what equipment you need for your event. Check out the event space ahead of time to learn what additional items you might need to buy or bring. If learners need to supply their own equipment, like laptops, make sure this is communicated clearly ahead of time. Also reach out to your venue, mentors or other local organizations to see if they can lend equipment.
+                  </div>
+                </EventDetail>
+                <EventDetail head="Gather Materials">
+                  <div>
+                    Since we know there will be not-taking, brainstorming and making, you are going to need some materials. have a sign-up sheet, name tags, post-it notes, pens and paper easily accessible. Prepare any other materials you will need ahead of time and set a table aside at the event where learners can grab materials as needed.
+                  </div>
+                </EventDetail>
+                <EventDetail head="Make Some Gear">
+                  <div>
+                    Use this logo to create Maker Party t-shirts at your local print shop. Here's an example of what your shirts could look like. Don't have all the budget for printing? Ask participants to bring their own shirts and create Maker Party t-shirts with this activity. You can also pring these certificates to give to the participants at the event that successfully complete the activities.
+                  </div>
+                </EventDetail>
+                <EventDetail head="All About The Wi-Fi">
+                  <div>
+                    Have you ever heard of an event with perfect Wi-Fi? Neither have we. Prepare for the worst and have a back-up plan in case you lose connection. There are also a lot of activities that require no Internet access. Print out a few activities and keep them with you just in case.
+                  </div>
+                </EventDetail>
+              </div>
+            )
+          },
+          {
+            "head": "before event",
+            "content": (
+              <div>
+                ???
+              </div>
+            )
+          },
+          {
+            "head": "during event",
+            "content": (
+              <div>
+                ???
+              </div>
+            )
+          },
+          {
+            "head": "after event",
+            "content": (
+              <div>
+                ???
+              </div>
+            )
+          }
+        ]}/>
 
         <h2 id="event-support">Event Support</h2>
         <p>Get help from the community and our staff.</p>
