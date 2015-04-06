@@ -64,6 +64,15 @@ var Sidebar = React.createClass({
       showCollapsibleContent: !this.state.showCollapsibleContent
     });
   },
+  handleHamburgerKeyDown: function(e) {
+    // We're simulating a button, so we should simulate a click when
+    // the user presses enter or space:
+    //
+    // http://www.w3.org/TR/wai-aria-practices/#button
+    if (e.which === 13 || e.which == 32) {
+      this.handleHamburgerClick();
+    }
+  },
   render: function() {
     return (
       <div className="sidebar col-md-3">
@@ -71,7 +80,7 @@ var Sidebar = React.createClass({
           <Link to="home">
             <img src="/img/nav/mozilla-wordmark-white.svg" alt="Webmaker logo" className="moz-logo"/>
           </Link>
-          <span aria-label="toggle" role="button" onKeyUp={this.handleHamburgerClick} onKeyDown={this.handleHamburgerClick} className="glyphicon glyphicon-menu-hamburger hidden-lg hidden-md"
+          <span aria-label="toggle" role="button" onKeyDown={this.handleHamburgerKeyDown} className="glyphicon glyphicon-menu-hamburger hidden-lg hidden-md"
                 onClick={this.handleHamburgerClick} tabIndex="0" />
         </div>
         <div className={this.state.showCollapsibleContent
