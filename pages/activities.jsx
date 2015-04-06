@@ -125,7 +125,7 @@ var ActivitiesPage = React.createClass({
             title="Lo-Fi, No-Fi (Teaching Kit)"
             level="Beginner"
             link="https://keyboardkat.makes.org/thimble/LTIxMDA3NTY0ODA=/lofi-nofi-teaching-kit"
-            developedBy="Kat Braybrooke, Karen Smith, Julia Vallera, Jess Klein, Chan Sansing"
+            developedBy="Kat Braybrooke, Karen Smith, Julia Vallera, Jess Klein, Chad Sansing"
             description="This series of activities help teach web literacy concepts offline, or where access to technology is limited. Includes printable templates and games to teach coding, game design and app development."
           />
           <ActivityKit
