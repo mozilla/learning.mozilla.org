@@ -103,9 +103,12 @@ var Tabulator = React.createClass({
           var className = "tabulator-content-container";
           className += " tab-" + key;
           return (
-            <div className={className}key={key}>
-              <div className="tabulator-content">
-                {section.content}
+            <div key={key}>
+              <div className="tabulator-head-no-js">{section.head}</div>
+              <div className={className}>
+                <div className="tabulator-content">
+                  {section.content}
+                </div>
               </div>
             </div>
           );
@@ -274,7 +277,36 @@ var EventsResources = React.createClass({
             "head": "before event",
             "content": (
               <div>
-                ???
+                <EventDetail head="Add Your Event to the Map">
+                  <div>
+                    Once you have your location, date and time set, add your event to our global map so you can show it off to the world and get regular updates.
+                  </div>
+                </EventDetail>
+                <EventDetail head="Recruit Mentors">
+                  <div>
+                    Whether they’re colleagues, students or a group of talented friends, you can find volunteer mentors by tapping into your own networks. Provide them a Sample Volunteer Package with information on the event, activities, social media and any other necessary information in advance. Depending on how many volunteers you have, you might consider holding a meet-up in person or online prior to the event to answer any questions. Don't forget to gather and distribute contact information so that you can stay in touch with them in the days and weeks leading up to the event.
+                  </div>
+                </EventDetail>
+                <EventDetail head="Promote Your Event">
+                  <div>
+                    Start spreading the word - share the link to your event so people can plan to  attend or share it with others. Local coffee shops, community places, listservs, mailing lists, social networks and forums are all great places to post details. Consider making a poster with event information.
+                  </div>
+                </EventDetail>
+                <EventDetail head="Sign Up Learners">
+                  <div>
+                    Your event can be drop-in or require registration but make sure there is an effective way for individuals to indicate they are attending and can get access to event information. Having a rough idea of how many learners will attend will give you a better idea of how to prepare stations, materials and mentors.
+                  </div>
+                </EventDetail>
+                <EventDetail head="Schedule">
+                  <div>
+                    Plan your schedule ahead of time but be flexible; your participants might surprise you with interesting questions or challenges to explore. A checklist of things you will need for set-up/during/after is very useful. Don't forget to leave yourself adequate prep and clean-up time.
+                  </div>
+                </EventDetail>
+                <EventDetail head="Press">
+                  <div>
+                    Media coverage is an essential part of promoting an event and showing off what you accomplish. Use the Maker Party Press Kit for guidelines on how to reach out to local media (newspapers, blogs, local news shows). Our social media toolkit will also help you get more out of your posts online. Be sure to use hashtag #MakerParty. If your event is open to the public you may also want to invite community leaders and officials to attend.
+                  </div>
+                </EventDetail>
               </div>
             )
           },
@@ -282,7 +314,36 @@ var EventsResources = React.createClass({
             "head": "during event",
             "content": (
               <div>
-                ???
+                <EventDetail head="Design a fun experience">
+                  <div>
+                    Your event should feel like a party! Create a welcoming, creative atmosphere that might include music, decorations and providing name tags. Starting your event with an offline activity or icebreaker such as a spectrogram is a great way to get everyone socializing. Raffles and challenges are good ways to keep the crowd engaged throughout the day.
+                  </div>
+                </EventDetail>
+                <EventDetail head="Set-up">
+                  <div>
+                    When preparing for event, be sure to arrive early to set-up the space using this sample event checklist. This will allow you plenty of time in case unexpected issues arise. Use posters or other clear signage to indicate different activity stations. Make sure washrooms and exits are clearly marked. Remind facilitators to welcome newcomers, and make sure the volunteers know what their responsibilities are and who to ask if they have questions.
+                  </div>
+                </EventDetail>
+                <EventDetail head="Activities">
+                  <div>
+                    Find activity kits and tools online that encourage hands-on making, collaborating and participation from your attendees. Here are some of ours to get you started.
+                  </div>
+                </EventDetail>
+                <EventDetail head="Documentation">
+                  <div>
+                    Time flies when you’re having fun! It's often impossible to capture or get links of all the awesome things being made. Appoint a volunteer to be the photographer and make sure that activities are well-documented and that photos/video can be shared online. Use the #MakerParty hashtag so we can see them too.
+                  </div>
+                </EventDetail>
+                <EventDetail head="Share-outs">
+                  <div>
+                    Set aside time for attendees to see each others' activities and exchange ideas. At the end of the event, bring everyone back together in a circle. Celebrate what participants made and invite a few people to share their work with the entire group.
+                  </div>
+                </EventDetail>
+                <EventDetail head="Wrap-up">
+                  <div>
+                    You’re done! Make sure to check the event take down checklist to make sure you’ve covered your bases. Do your best to make sure the space is in the same condition (if not better) than when you arrived.
+                  </div>
+                </EventDetail>
               </div>
             )
           },
@@ -290,7 +351,21 @@ var EventsResources = React.createClass({
             "head": "after event",
             "content": (
               <div>
-                ???
+                <EventDetail head="Feedback">
+                  <div>
+                    Ask participants for feedback. What did they learn? What did they enjoy? If they have suggestions for improvement, be sure to take notes or invite them to blog about it.  Provide links to websites where they can continue learning new skills. Later, conduct a debrief with participating organizations and volunteers, so your next event can be even better. 
+                  </div>
+                </EventDetail>
+                <EventDetail head="Share what you learned">
+                  <div>
+                    Post pictures of your event on Twitter and Flickr using the hashtag #MakerParty or write a blog post using our sample guidelines to share a deeper reflection.
+                  </div>
+                </EventDetail>
+                <EventDetail head="Thank you’s">
+                  <div>
+                    Send a heartfelt "Thank you!" to participating organizations, volunteers, facilitators, participants, partners, the venue and anyone else who helped make your event a success. Include photos, videos and links to the work that was created. Ask for feedback on the event and discuss next steps to getting involved, learning more or hosting a future event.
+                  </div>
+                </EventDetail>
               </div>
             )
           }
