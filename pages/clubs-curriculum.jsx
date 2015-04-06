@@ -33,7 +33,7 @@ var WebLitBasics = React.createClass({
           <p>
             Learners get familiar with reading, writing and participating on the web in this six-part module. Discover
             the foundations of the web through production and collaboration. The learning objectives underpinning each
-            activity are informed by Mozilla&apos;s <Link to="fixme">Web Literacy Map</Link>. Complete the activities in
+            activity are informed by Mozilla&apos;s <Link to="web-literacy">Web Literacy Map</Link>. Complete the activities in
             sequence, or mix and match for your learners. Need help{'? '}
             <a href="http://discourse.webmaker.org/category/clubs">Visit our discussion forum</a> to get help and share
             your experience.
