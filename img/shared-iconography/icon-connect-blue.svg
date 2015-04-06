@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="-186.2 212.8 131.3 76.3" enable-background="new -186.2 212.8 131.3 76.3" xml:space="preserve">
+<title>icon-connect</title>
+<desc>Created with Sketch.</desc>
+<g id="Page-1" sketch:type="MSPage">
+	<g id="About-Page" transform="translate(-996.000000, -1114.000000)" sketch:type="MSArtboardGroup">
+		<g id="Group_1_" transform="translate(336.000000, 1113.000000)" sketch:type="MSLayerGroup">
+			<g id="icon-connect" transform="translate(658.000000, 2.000000)" sketch:type="MSShapeGroup">
+				<g id="Group">
+					<g id="Shape">
+						<path fill="#FFFFFF" stroke="#BBD8EF" stroke-width="2.5493" d="M-153.2,255.2c0,3-2.6,5.1-4.6,3.5v-3.5v-12.9v39.2
+							c0,2.3-1.9,4.1-4.2,4.1s-4.2-1.8-4.2-4.1v-22.8h-2.4v22.8c0,2.3-1.9,4.1-4.2,4.1c-2.3,0-4.2-1.8-4.2-4.1v-39.2v12.9v3.5
+							c-1.7,1.1-4.6,0.1-4.6-3.5v-20.1c0-2.2,1-3.2,3.1-3.2h21.1c2.8,0,4.2,0.4,4.2,3.2L-153.2,255.2L-153.2,255.2z M-167.5,228.9
+							c-4.1,0-7.4-3.2-7.4-7.2s3.3-7.2,7.4-7.2c4.1,0,7.4,3.2,7.4,7.2C-160.1,225.6-163.4,228.9-167.5,228.9L-167.5,228.9z"/>
+					</g>
+					<g id="Shape_1_" transform="translate(97.633136, 0.000000)">
+						<path fill="#FFFFFF" stroke="#BBD8EF" stroke-width="2.5493" d="M-153.3,255.2c0,3-2.6,5.1-4.6,3.5v-3.5v-12.9v39.2
+							c0,2.3-1.9,4.1-4.2,4.1c-2.3,0-4.2-1.8-4.2-4.1v-22.8h-2.4v22.8c0,2.3-1.9,4.1-4.2,4.1c-2.3,0-4.2-1.8-4.2-4.1v-39.2v12.9v3.5
+							c-1.7,1.1-4.6,0.1-4.6-3.5v-20.1c0-2.2,1-3.2,3.1-3.2h21.1c2.8,0,4.2,0.4,4.2,3.2L-153.3,255.2L-153.3,255.2z M-167.5,228.9
+							c-4.1,0-7.4-3.2-7.4-7.2s3.3-7.2,7.4-7.2c4.1,0,7.4,3.2,7.4,7.2C-160.1,225.6-163.4,228.9-167.5,228.9L-167.5,228.9z"/>
+					</g>
+					<path id="Shape_2_" fill="#F396AB" stroke="#BBD8EF" stroke-width="2.5493" d="M-141.5,243.3h46.1"/>
+					<ellipse id="Oval" fill="#BBD8EF" cx="-94.9" cy="243.4" rx="3" ry="3"/>
+					<path id="Shape_3_" fill="#F396AB" stroke="#BBD8EF" stroke-width="2.5493" d="M-93.7,254.2h-47.8"/>
+					<ellipse id="Oval_1_" fill="#BBD8EF" cx="-141" cy="254.2" rx="3" ry="3"/>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

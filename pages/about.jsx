@@ -60,12 +60,12 @@ var OurGoal = React.createClass({
     return (
         <section className="row page-end our-goal">
           <ImageTag alt="A stylised icon of a city"
-              className="center-block" src1x="/img/about-page/icon-city.jpg"
-              src2x="/img/about-page/icon-city@2x.jpg" width={292} height={102} />
+              className="center-block" src1x="/img/about-page/icon-city.png"
+              src2x="/img/about-page/icon-city@2x.png" width={292} height={102} />
             <p className="learn-more">
               In 2015, our goal is to foster and sustain web literacy activities in 500 cities around the globe. Join us by teaching, learning, sharing and imagining the full power of the web.
             </p>
-            <img src="/img/shared-iconography/icon-horizontal-divider.svg" alt="" className="center-block"/>
+            <img src="/img/shared-iconography/icon-horizontal-divider.svg" width={292} alt="" className="center-block"/>
         </section>
     );
   }
@@ -84,21 +84,21 @@ var AboutPage = React.createClass({
           <IconLinks>
             <IconLink
               href="https://twitter.com/webmaker"
-              imgSrc="/img/shared-iconography/icon-twitter.svg"
+              imgSrc="/img/shared-iconography/icon-twitter-blue.svg"
               imgAlt="twitter logo"
               head="Follow Us"
               subhead="Start a conversation on Twitter"
             />
             <IconLink
               href="mailto:teachtheweb@mozillafoundation.org"
-              imgSrc="/img/shared-iconography/icon-get-help.svg"
+              imgSrc="/img/shared-iconography/icon-get-help-blue.svg"
               imgAlt="question mark icon"
               head="Get Help"
               subhead="Email us anytime"
             />
             <IconLink
               href="http://discourse.webmaker.org/category/meet"
-              imgSrc="/img/shared-iconography/icon-connect.svg"
+              imgSrc="/img/shared-iconography/icon-connect-blue.svg"
               imgAlt="illustration of two people connecting"
               head="Say Hello"
               subhead="Connect on the #teachtheweb Discourse forum"

@@ -27,7 +27,7 @@ var HomePage = React.createClass({
           <h1>Unlock opportunities for all citizens of the Web.</h1>
 
           {process.env.SOFTEST_OF_LAUNCHES == 'on' ? null :
-          <div><Link to="join" className="btn btn-awsm">Join Us</Link></div>
+          <div><Link to="join" className="btn btn-awsm">Start a Mozilla Club</Link></div>
           }
 
         </HeroUnit>

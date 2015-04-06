@@ -1,6 +1,21 @@
-<svg width="293" height="12" viewBox="0 0 293 12" xmlns="http://www.w3.org/2000/svg">
-  <g fill="none">
-    <path fill="#F396AB" d="M0 5h142v1h-142zm151 0h142v1h-142z"/>
-    <path stroke="#F396AB" d="M146 .344l5.656 5.656-5.656 5.656-5.656-5.656z"/>
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-103 243.8 293 14.3"
+	 enable-background="new -103 243.8 293 14.3" xml:space="preserve">
+<title>icon-horizontal-divider</title>
+<desc>Created with Sketch.</desc>
+<g id="Page-1" sketch:type="MSPage">
+	<g id="About-Page" transform="translate(-612.000000, -1051.000000)" sketch:type="MSArtboardGroup">
+		<g id="Quote" transform="translate(500.000000, 788.000000)" sketch:type="MSLayerGroup">
+			<g id="icon-horizontal-divider" transform="translate(112.000000, 263.000000)" sketch:type="MSShapeGroup">
+				<rect id="Rectangle-94" x="-103" y="250.5" fill="#BBD8EF" width="140.9" height="1"/>
+				<rect id="Rectangle-96" x="48" y="250.5" fill="#BBD8EF" width="142" height="1"/>
+				
+					<rect id="Rectangle-95" x="39" y="247" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 -104.0782 458.8894)" fill="none" stroke="#BBD8EF" width="8" height="8"/>
+			</g>
+		</g>
+	</g>
+</g>
 </svg>
