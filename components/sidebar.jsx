@@ -76,7 +76,7 @@ var Sidebar = React.createClass({
         </div>
         <div className={this.state.showCollapsibleContent
                         ? "collapsible-content"
-                        : "hidden-xs hidden-sm collapsible-content"}>
+                        : "collapsed collapsible-content"}>
           <Login/>
           <ul className="sidebar-menu list-unstyled">
             {this.MENU_ENTRIES.map(function(entry, i) {

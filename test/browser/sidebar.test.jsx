@@ -29,7 +29,7 @@ describe("sidebar", function() {
   });
 
   it('should hide collapsible content', function() {
-    collapsibleContent.props.className.should.match(/hidden-xs/);
+    collapsibleContent.props.className.should.match(/collapsed/);
   });
 
   it('should show collapsible content', function() {

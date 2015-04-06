@@ -8,7 +8,8 @@ html.no-js .sidebar {
   .collapsible-content {
     /* The links in the sidebar are crucial to navigating the site.
      * If JS is disabled, we want the links visible at all costs. */
-    display: block !important;
+    opacity: 1 !important;
+    max-height: none !important;
   }
 }
 
@@ -54,6 +55,19 @@ html.no-js .sidebar {
 
   a {
     color: inherit;
+  }
+
+  .collapsible-content {
+    transition: all 0.5s ease;
+    opacity: 1;
+    max-height: 1400px;
+  }
+
+  @media screen and (max-width: @screen-md) {
+    .collapsible-content.collapsed {
+      opacity: 0;
+      max-height: 0;
+    }
   }
 }
 
