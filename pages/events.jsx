@@ -38,7 +38,7 @@ var EventsPage = React.createClass({
             </div>
             <div className="col-sm-9 col-lg-8">
               <h2>
-                Join us for the worldwide Maker Party on July 15-31, 2015 and add your events to <a href="">our global list</a> any time of year.
+                Join us for the worldwide Maker Party on July 15-31, 2015 and add your events to <a href="https://events.webmaker.org/">our global list</a> any time of year.
               </h2>
             </div>
           </div>
