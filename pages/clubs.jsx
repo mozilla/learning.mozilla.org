@@ -218,6 +218,22 @@ var ModalRemoveYourClub = React.createClass({
   }
 });
 
+var validateClub = function(clubState) {
+  var errors = [];
+
+  if (!clubState.name) {
+    errors.push("You must provide a name for your club.");
+  }
+  if (!clubState.description) {
+    errors.push("You must provide a description for your club.");
+  }
+  if (!clubState.location) {
+    errors.push("You must provide a location for your club.");
+  }
+
+  return errors;
+};
+
 var ModalAddOrChangeYourClub = React.createClass({
   mixins: [React.addons.LinkedStateMixin, ModalManagerMixin,
            Router.Navigation, TeachAPIClientMixin],
@@ -254,7 +270,8 @@ var ModalAddOrChangeYourClub = React.createClass({
     return _.extend(clubState, {
       step: this.getStepForAuthState(!!this.getTeachAPI().getUsername()),
       result: null,
-      networkError: false
+      networkError: false,
+      validationErrors: []
     });
   },
   getStepForAuthState: function(isLoggedIn) {
@@ -280,16 +297,18 @@ var ModalAddOrChangeYourClub = React.createClass({
     var clubState = _.pick(this.state,
       'name', 'website', 'description', 'location', 'latitude', 'longitude'
     );
+    var validationErrors = validateClub(clubState);
     e.preventDefault();
 
-    if (!this.state.location) {
-      window.alert("Please provide a location for your club.");
+    if (validationErrors.length) {
+      this.setState({validationErrors: validationErrors});
       return;
     }
 
     this.setState({
       step: this.STEP_WAIT_FOR_NETWORK,
-      networkError: false
+      networkError: false,
+      validationErrors: []
     });
     if (this.props.club) {
       clubState = _.extend({}, this.props.club, clubState);
@@ -315,6 +334,20 @@ var ModalAddOrChangeYourClub = React.createClass({
   handleJoinClick: function() {
     this.hideModal();
     this.transitionTo('join');
+  },
+  renderValidationErrors: function() {
+    if (this.state.validationErrors.length) {
+      return (
+        <div className="alert alert-danger">
+          <p>Unfortunately, your submission has some problems:</p>
+          <ul>
+          {this.state.validationErrors.map(function(text) {
+            return <li>{text}</li>;
+          })}
+          </ul>
+        </div>
+      );
+    }
   },
   render: function() {
     var content, isFormDisabled;
@@ -344,6 +377,7 @@ var ModalAddOrChangeYourClub = React.createClass({
                <p>Please try again later.</p>
              </div>
            : null}
+          {this.renderValidationErrors()}
           <form onSubmit={this.handleSubmit}>
             <fieldset>
               <label>What is the name of your Club?</label>
@@ -470,6 +504,7 @@ var ModalLearnMore = React.createClass({
 var ClubsPage = React.createClass({
   mixins: [ModalManagerMixin, TeachAPIClientMixin, Router.State],
   statics: {
+    validateClub: validateClub,
     ClubList: ClubList,
     ModalAddOrChangeYourClub: ModalAddOrChangeYourClub,
     ModalRemoveYourClub: ModalRemoveYourClub,
