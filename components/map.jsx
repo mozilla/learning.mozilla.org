@@ -207,6 +207,7 @@ var Map = React.createClass({
       'mapbox.js',
       'leaflet.markercluster'
     ], function() {
+      self.MapboxLoaded = true;
       if (self.isMounted()) {
         self.handleDependenciesLoaded();
       }
@@ -283,6 +284,9 @@ var Map = React.createClass({
     this.markers.addLayer(this.geoJsonLayer);
   },
   componentDidUpdate: function(prevProps, prevState) {
+    if (!this.MapboxLoaded) {
+      return;
+    }
     if (this.props.clubs !== prevProps.clubs ||
         this.props.username !== prevProps.username) {
       this.updateMap();

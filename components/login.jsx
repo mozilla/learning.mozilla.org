@@ -33,13 +33,21 @@ var Login = React.createClass({
   handleLoginClick: function(e) {
     e.preventDefault();
     this.setState({loggingIn: true});
-    this.getTeachAPI().startLogin();
     ga.event({ category: 'Login', action: 'Start Login' });
+    if (config.ENABLE_OAUTH2) {
+      this.getTeachAPI().startOAuth2Login();
+    } else {
+      this.getTeachAPI().startLogin();
+    }
   },
   handleLogoutClick: function(e) {
     e.preventDefault();
-    this.getTeachAPI().logout();
     ga.event({ category: 'Login', action: 'Clicked Logout' });
+    if (config.ENABLE_OAUTH2) {
+      this.getTeachAPI().startOAuth2Logout();
+    } else {
+      this.getTeachAPI().logout();
+    }
   },
   handleApiLoginError: function(err) {
     this.setState({loggingIn: false});
