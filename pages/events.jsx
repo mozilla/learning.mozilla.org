@@ -79,7 +79,7 @@ var EventsPage = React.createClass({
           <section>
             <IconLinks>
               <IconLink
-                linkTo="fixme"
+                linkTo="/events/resources"
                 imgSrc="/img/events-page/icon-curriculum.svg"
                 imgAlt="icon resources"
                 head="Event Resources"
