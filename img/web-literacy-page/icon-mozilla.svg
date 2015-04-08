@@ -1,14 +1,26 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="80px" height="61px" viewBox="0 0 80 61" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
-    <title>icon-mozilla</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Web-Literacy-Page" sketch:type="MSArtboardGroup" transform="translate(-997.000000, -915.000000)" fill="#CEE2EF">
-            <g id="Icon-Link-Three-+-Subheadline-of-icon--+-Oval-110-+-" sketch:type="MSLayerGroup" transform="translate(912.000000, 915.000000)">
-                <path d="M101.542596,6.08263208 C105.691285,2.09727301 110.807046,0 116.390658,0 C121.433477,0 125.571969,1.61174312 128.774369,4.90122746 C129.637127,5.7256248 130.469296,6.78931351 131.186954,7.83331857 C136.759585,2.21576084 141.750638,0 148.436619,0 C153.198258,0 157.711265,1.40139829 160.466992,3.73487504 C163.908611,6.66194875 165,10.1810756 165,18.3741031 L164.701172,52.0039062 L149.5284,61 L149.5284,21.4281556 C149.5284,14.2548181 148.665642,12.8677001 144.516562,12.8677001 C141.542792,12.8677001 137.363123,14.8638532 133.9317,17.9078709 L134.082031,52.796875 L118.833831,61 L118.833831,21.9904904 C118.833831,14.5107055 117.732246,12.7546156 113.302769,12.7546156 C110.359981,12.7546156 106.283842,14.2548181 102.852812,17.314274 L103.150391,52.21875 L87.2768962,61 L87.2768962,19.1865359 C87.2768962,10.5292059 86.6737501,6.78931351 85,3.84795951 L99.4213885,0 C100.482188,1.61174312 100.950038,3.04942107 101.542596,6.08263208 Z" id="icon-mozilla" sketch:type="MSShapeGroup"></path>
-            </g>
-        </g>
-    </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="-62.3 192.7 146.8 116.3" enable-background="new -62.3 192.7 146.8 116.3" xml:space="preserve">
+<path fill="#FFFFFF" stroke="#AFDBC0" stroke-width="3" stroke-miterlimit="10" d="M11.8,295.2c-4.5,0-64.4,0-64.4,0v-84.3H0.3
+	c3.8,0,6.8,3.1,11.6,6.8L11.8,295.2z"/>
+<path fill="#FFFFFF" stroke="#AFDBC0" stroke-width="3" stroke-miterlimit="10" d="M10.7,217.7c4.7-3.8,7.8-6.8,11.6-6.8h52.9v84.3
+	c0,0-59.9,0-64.4,0L10.7,217.7z"/>
+<path fill="#FFFFFF" stroke="#AFDBC0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M11.7,295c0,0.5-0.4-5.5-6.8-6.4H-48v-84.3H4.9c3.8,0,6.8,3.1,6.8,6.8L11.7,295z"/>
+<line fill="none" stroke="#AFDBC0" stroke-width="3" stroke-miterlimit="10" x1="-37.2" y1="232.8" x2="-0.9" y2="232.8"/>
+<line fill="none" stroke="#AFDBC0" stroke-width="3" stroke-miterlimit="10" x1="-37.2" y1="240.8" x2="-0.9" y2="240.8"/>
+<line fill="none" stroke="#AFDBC0" stroke-width="3" stroke-miterlimit="10" x1="-37.2" y1="248.9" x2="-0.9" y2="248.9"/>
+<line fill="none" stroke="#AFDBC0" stroke-width="3" stroke-miterlimit="10" x1="-37.2" y1="216.8" x2="-0.9" y2="216.8"/>
+<line fill="none" stroke="#AFDBC0" stroke-width="3" stroke-miterlimit="10" x1="-37.2" y1="224.8" x2="-1.1" y2="224.8"/>
+<path fill="#FFFFFF" stroke="#AFDBC0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M70.4,288.5H18.5c-4.4,0.9-7.2,6.7-6.8,6.4v-83.9c0-3.8,3.1-6.8,6.8-6.8h51.9L70.4,288.5z"/>
+<line fill="none" stroke="#AFDBC0" stroke-width="3" stroke-miterlimit="10" x1="24.7" y1="261" x2="60.9" y2="261"/>
+<line fill="none" stroke="#AFDBC0" stroke-width="3" stroke-miterlimit="10" x1="24.7" y1="269" x2="60.9" y2="269"/>
+<line fill="none" stroke="#AFDBC0" stroke-width="3" stroke-miterlimit="10" x1="24.7" y1="245.1" x2="60.9" y2="245.1"/>
+<line fill="none" stroke="#AFDBC0" stroke-width="3" stroke-miterlimit="10" x1="24.7" y1="253.2" x2="60.9" y2="253.2"/>
+<line fill="none" stroke="#AFDBC0" stroke-width="3" stroke-miterlimit="10" x1="24.7" y1="277.1" x2="60.9" y2="277.1"/>
+<rect x="26" y="217" fill="none" stroke="#AFDBC0" stroke-width="3" stroke-miterlimit="10" width="34" height="19.2"/>
+<rect x="-36.2" y="257.5" fill="none" stroke="#AFDBC0" stroke-width="3" stroke-miterlimit="10" width="34" height="19.9"/>
 </svg>

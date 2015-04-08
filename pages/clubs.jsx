@@ -49,6 +49,7 @@ var ClubListItem = React.createClass({
       <li>
         <h4><a href={club.website}>{club.name}</a></h4>
         <p><em>{club.location.split(',')[0]}</em></p>
+        <p>{club.description}</p>
         <p><small>Led by <a href={"https://webmaker.org/en-US/search?type=user&q=" + club.owner}>{club.owner}</a></small></p>
         {ownerControls}
       </li>
@@ -219,6 +220,22 @@ var ModalRemoveYourClub = React.createClass({
   }
 });
 
+var validateClub = function(clubState) {
+  var errors = [];
+
+  if (!clubState.name) {
+    errors.push("You must provide a name for your club.");
+  }
+  if (!clubState.description) {
+    errors.push("You must provide a description for your club.");
+  }
+  if (!clubState.location) {
+    errors.push("You must provide a location for your club.");
+  }
+
+  return errors;
+};
+
 var ModalAddOrChangeYourClub = React.createClass({
   mixins: [React.addons.LinkedStateMixin, ModalManagerMixin,
            Router.Navigation, TeachAPIClientMixin],
@@ -255,7 +272,8 @@ var ModalAddOrChangeYourClub = React.createClass({
     return _.extend(clubState, {
       step: this.getStepForAuthState(!!this.getTeachAPI().getUsername()),
       result: null,
-      networkError: false
+      networkError: false,
+      validationErrors: []
     });
   },
   getStepForAuthState: function(isLoggedIn) {
@@ -281,16 +299,18 @@ var ModalAddOrChangeYourClub = React.createClass({
     var clubState = _.pick(this.state,
       'name', 'website', 'description', 'location', 'latitude', 'longitude'
     );
+    var validationErrors = validateClub(clubState);
     e.preventDefault();
 
-    if (!this.state.location) {
-      window.alert("Please provide a location for your club.");
+    if (validationErrors.length) {
+      this.setState({validationErrors: validationErrors});
       return;
     }
 
     this.setState({
       step: this.STEP_WAIT_FOR_NETWORK,
-      networkError: false
+      networkError: false,
+      validationErrors: []
     });
     if (this.props.club) {
       clubState = _.extend({}, this.props.club, clubState);
@@ -325,6 +345,20 @@ var ModalAddOrChangeYourClub = React.createClass({
       this.getTeachAPI().startLogin();
     }
   },
+  renderValidationErrors: function() {
+    if (this.state.validationErrors.length) {
+      return (
+        <div className="alert alert-danger">
+          <p>Unfortunately, your submission has some problems:</p>
+          <ul>
+          {this.state.validationErrors.map(function(text) {
+            return <li>{text}</li>;
+          })}
+          </ul>
+        </div>
+      );
+    }
+  },
   render: function() {
     var content, isFormDisabled;
     var isAdd = !this.props.club;
@@ -353,6 +387,7 @@ var ModalAddOrChangeYourClub = React.createClass({
                <p>Please try again later.</p>
              </div>
            : null}
+          {this.renderValidationErrors()}
           <form onSubmit={this.handleSubmit}>
             <fieldset>
               <label>What is the name of your Club?</label>
@@ -479,6 +514,7 @@ var ModalLearnMore = React.createClass({
 var ClubsPage = React.createClass({
   mixins: [ModalManagerMixin, TeachAPIClientMixin, Router.State],
   statics: {
+    validateClub: validateClub,
     ClubList: ClubList,
     ModalAddOrChangeYourClub: ModalAddOrChangeYourClub,
     ModalRemoveYourClub: ModalRemoveYourClub,
@@ -532,7 +568,11 @@ var ClubsPage = React.createClass({
       <div>
         <HeroUnit image="/img/hero-clubs.jpg">
           <h1>Mozilla Web Clubs</h1>
+
+          {process.env.SOFTEST_OF_LAUNCHES == 'on' ? null :
           <div><a className="btn btn-awsm" onClick={this.showAddYourClubModal}>Add Your Club</a></div>
+          }
+
         </HeroUnit>
         <div className="inner-container">
           <section>
@@ -540,6 +580,9 @@ var ClubsPage = React.createClass({
           </section>
           <section>
             <WebLitMap/>
+
+            {process.env.SOFTEST_OF_LAUNCHES == 'on' ? null :
+            <div>
             <div className="mapDiv" id="mapDivID">
               <Map ref="map" className="mapDivChild"
                clubs={clubs}
@@ -552,6 +595,9 @@ var ClubsPage = React.createClass({
              username={username}
              onDelete={this.handleClubDelete}
              onEdit={this.handleClubEdit}/>
+            </div>
+            }
+
           </section>
           <section>
             <Quote/>
@@ -582,11 +628,15 @@ var ClubsPage = React.createClass({
             </IconLinks>
           </section>
           <section>
+
+            {process.env.SOFTEST_OF_LAUNCHES == 'on' ? null :
             <PageEndCTA
               onClick={this.showAddYourClubModal}
               header="Do you meet regularly with a group of learners to increase web literacy skills?"
               cta="add your club to the map"
             />
+            }
+
           </section>
         </div>
       </div>

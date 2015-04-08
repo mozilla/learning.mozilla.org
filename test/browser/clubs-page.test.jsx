@@ -134,6 +134,40 @@ describe("ClubsPage.ClubList", function() {
   });
 });
 
+describe("ClubsPage.validateClub", function() {
+  var validateClub = ClubsPage.validateClub;
+
+  function club(info) {
+    return _.extend({
+      name: 'blah',
+      description: 'blah',
+      location: 'blah'
+    }, info);
+  }
+
+  it("reports no errors when club is valid", function() {
+    validateClub(club()).should.eql([]);
+  });
+
+  it("fails when name is blank", function() {
+    validateClub(club({name: ''})).should.eql([
+      "You must provide a name for your club."
+    ]);
+  });
+
+  it("fails when description is blank", function() {
+    validateClub(club({description: ''})).should.eql([
+      "You must provide a description for your club."
+    ]);
+  });
+
+  it("fails when location is blank", function() {
+    validateClub(club({location: ''})).should.eql([
+      "You must provide a location for your club."
+    ]);
+  });
+});
+
 describe("ClubsPage.ModalAddOrChangeYourClub", function() {
   var modal, teachAPI, onSuccess;
 
@@ -196,6 +230,12 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
       modal.state.step.should.equal(modal.STEP_FORM);
     });
 
+    it("shows form validation errors", function() {
+      teachAPI.emit('username:change', 'foo');
+      modal.setState({validationErrors: ["U SUK"]});
+      modal.getDOMNode().textContent.should.match(/U SUK/);
+    });
+
     it("does not show any errors by default", function() {
       teachAPI.emit('username:change', 'foo');
       modal.getDOMNode().textContent.should.not.match(MODAL_ERROR_REGEX);
@@ -224,12 +264,23 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
       should(modal.state.latitude).equal(null);
     });
 
+    it("reports validation errors, aborts form submission", function() {
+      modal.state.validationErrors.should.eql([]);
+      teachAPI.emit('username:change', 'foo');
+      TestUtils.Simulate.submit(TestUtils.findRenderedDOMComponentWithTag(
+        modal, 'form'
+      ));
+      modal.state.validationErrors.length.should.not.equal(0);
+      teachAPI.addClub.callCount.should.equal(0);
+    });
+
     describe("when form is submitted", function() {
       var addClubCall, form;
 
       beforeEach(function() {
         teachAPI.emit('username:change', 'foo');
         modal.setState({
+          validationErrors: ['old error that should be removed'],
           name: 'blorpy',
           location: 'chicago',
           website: 'http://example.org',
@@ -243,6 +294,10 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
         TestUtils.Simulate.submit(form);
         teachAPI.addClub.callCount.should.equal(1);
         addClubCall = teachAPI.addClub.getCall(0);
+      });
+
+      it("removes old validation errors", function() {
+        modal.state.validationErrors.should.eql([]);
       });
 
       it("sends data to server", function() {
