@@ -334,10 +334,17 @@ var ModalAddOrChangeYourClub = React.createClass({
     this.props.onSuccess(this.state.result);
   },
   handleJoinClick: function() {
-    this.hideModal();
-    this.transitionTo('join');
+    if (!config.ENABLE_OAUTH2) {
+      window.alert("You need to signup for webmaker at webmaker.org, " +
+                   "then log in here using the same email address.");
+      return;
+    }
+    // TODO: Add a ga.event here for signup.
+    this.getTeachAPI().startOAuth2Login(window.location.pathname +
+                                        '?modal=add', 'signup');
   },
   handleLoginClick: function() {
+    // TODO: Add a ga.event here for login.
     if (config.ENABLE_OAUTH2) {
       this.getTeachAPI().startOAuth2Login(window.location.pathname +
                                           '?modal=add');

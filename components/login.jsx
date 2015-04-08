@@ -40,6 +40,17 @@ var Login = React.createClass({
       this.getTeachAPI().startLogin();
     }
   },
+  handleSignupClick: function(e) {
+    e.preventDefault();
+    if (!config.ENABLE_OAUTH2) {
+      window.alert("You need to signup for webmaker at webmaker.org, " +
+                   "then log in here using the same email address.");
+      return;
+    }
+    this.setState({loggingIn: true});
+    // TODO: Add a ga.event here for signup.
+    this.getTeachAPI().startOAuth2Login(null, 'signup');
+  },
   handleLogoutClick: function(e) {
     e.preventDefault();
     ga.event({ category: 'Login', action: 'Clicked Logout' });
@@ -103,7 +114,7 @@ var Login = React.createClass({
     } else {
       content = (
         <span>
-          <Link to="join">Create an account</Link> | <a href="" onClick={this.handleLoginClick}>Log in</a>
+          <a href="" onClick={this.handleSignupClick}>Create an account</a> | <a href="" onClick={this.handleLoginClick}>Log in</a>
         </span>
       );
     }
