@@ -45,10 +45,22 @@ describe("sidebar", function() {
       sidebar.state.showCollapsibleContent.should.be.false;
     });
 
-    it('should toggle collapsible content on keydown', function() {
-      TestUtils.Simulate.keyDown(hamburger, {key: 'Enter'});
+    it('should toggle collapsible content on enter', function() {
+      TestUtils.Simulate.keyDown(hamburger, {which: 13});
       sidebar.state.showCollapsibleContent.should.be.true;
-      TestUtils.Simulate.keyDown(hamburger, {key: 'Enter'});
+      TestUtils.Simulate.keyDown(hamburger, {which: 13});
+      sidebar.state.showCollapsibleContent.should.be.false;
+    });
+
+    it('should toggle collapsible content on space', function() {
+      TestUtils.Simulate.keyDown(hamburger, {which: 32});
+      sidebar.state.showCollapsibleContent.should.be.true;
+      TestUtils.Simulate.keyDown(hamburger, {which: 32});
+      sidebar.state.showCollapsibleContent.should.be.false;
+    });
+
+    it('should not toggle collapsible content on other keys', function() {
+      TestUtils.Simulate.keyDown(hamburger, {which: 27});
       sidebar.state.showCollapsibleContent.should.be.false;
     });
   });
