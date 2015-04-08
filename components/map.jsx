@@ -110,6 +110,7 @@ var MarkerPopupClub = React.createClass({
         <br/>
         <br/>
         <p>{this.props.description}</p>
+        <p><small>Led by <a href={"https://webmaker.org/en-US/search?type=user&q=" + this.props.owner}>{this.props.owner}</a></small></p>
         {website}
         {actions}
       </div>
