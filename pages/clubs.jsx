@@ -559,7 +559,11 @@ var ClubsPage = React.createClass({
       <div>
         <HeroUnit image="/img/hero-clubs.jpg">
           <h1>Mozilla Web Clubs</h1>
+
+          {process.env.SOFTEST_OF_LAUNCHES == 'on' ? null :
           <div><a className="btn btn-awsm" onClick={this.showAddYourClubModal}>Add Your Club</a></div>
+          }
+
         </HeroUnit>
         <div className="inner-container">
           <section>
@@ -567,6 +571,9 @@ var ClubsPage = React.createClass({
           </section>
           <section>
             <WebLitMap/>
+
+            {process.env.SOFTEST_OF_LAUNCHES == 'on' ? null :
+            <div>
             <div className="mapDiv" id="mapDivID">
               <Map ref="map" className="mapDivChild"
                clubs={clubs}
@@ -579,6 +586,9 @@ var ClubsPage = React.createClass({
              username={username}
              onDelete={this.handleClubDelete}
              onEdit={this.handleClubEdit}/>
+            </div>
+            }
+
           </section>
           <section>
             <Quote/>
@@ -609,11 +619,15 @@ var ClubsPage = React.createClass({
             </IconLinks>
           </section>
           <section>
+
+            {process.env.SOFTEST_OF_LAUNCHES == 'on' ? null :
             <PageEndCTA
               onClick={this.showAddYourClubModal}
               header="Do you meet regularly with a group of learners to increase web literacy skills?"
               cta="add your club to the map"
             />
+            }
+
           </section>
         </div>
       </div>
