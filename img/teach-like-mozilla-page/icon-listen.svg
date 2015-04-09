@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="-249.3 189.8 78.7 123.5" enable-background="new -249.3 189.8 78.7 123.5" xml:space="preserve">
-<path fill="none" stroke="#AFDBC0" stroke-width="2.549" stroke-miterlimit="10" d="M-232.2,278.4c-7.3,0-13.2-5.9-13.2-13.2
-	s5.9-13.2,13.2-13.2"/>
-<path fill="none" stroke="#AFDBC0" stroke-width="2.549" stroke-miterlimit="10" d="M-187.9,251.9c7.3,0,13.2,5.9,13.2,13.2
-	s-5.9,13.2-13.2,13.2"/>
-<path fill="none" stroke="#AFDBC0" stroke-width="2.549" stroke-linecap="round" stroke-miterlimit="10" d="M-243.9,258.7v-10.6
-	c0-18.6,15.1-33.7,33.7-33.7s33.7,15.1,33.7,33.7v9.9"/>
-<path fill="none" stroke="#AFDBC0" stroke-width="2.549" stroke-linecap="round" stroke-miterlimit="10" d="M-236.9,252.7v-4.6
-	c0-14.7,11.9-26.7,26.7-26.7c14.7,0,26.7,11.9,26.7,26.7v4.1"/>
-<path fill="none" stroke="#AFDBC0" stroke-width="2.549" stroke-miterlimit="10" d="M-227.9,282.1L-227.9,282.1
-	c-2.5,0-4.5-2-4.5-4.5v-25.3c0-2.5,2-4.5,4.5-4.5h0c2.5,0,4.5,2,4.5,4.5v25.3C-223.4,280.1-225.4,282.1-227.9,282.1z"/>
-<path fill="none" stroke="#AFDBC0" stroke-width="2.549" stroke-miterlimit="10" d="M-192.6,282.1L-192.6,282.1
-	c-2.5,0-4.5-2-4.5-4.5v-25.3c0-2.5,2-4.5,4.5-4.5l0,0c2.5,0,4.5,2,4.5,4.5v25.3C-188.1,280.1-190.1,282.1-192.6,282.1z"/>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="208 212 80 76.3" enable-background="new 208 212 80 76.3" xml:space="preserve">
+<g>
+	<path fill="none" stroke="#AFDBC0" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="M224.3,282.4
+		c-7.8,0-14.1-6.3-14.1-14.1s6.3-14.1,14.1-14.1"/>
+	<path fill="none" stroke="#AFDBC0" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="M271.6,254
+		c7.8,0,14.1,6.3,14.1,14.1s-6.3,14.1-14.1,14.1"/>
+	<path fill="none" stroke="#AFDBC0" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="M211.8,261.3V250
+		c0-19.9,16.1-36,36-36s36,16.1,36,36v10.6"/>
+	<path fill="none" stroke="#AFDBC0" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="M219.3,254.9V250
+		c0-15.7,12.7-28.5,28.5-28.5c15.7,0,28.5,12.7,28.5,28.5v4.4"/>
+	<path fill="none" stroke="#AFDBC0" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="M229.3,286.3L229.3,286.3
+		c-2.7,0-4.8-2.1-4.8-4.8v-27c0-2.7,2.1-4.8,4.8-4.8l0,0c2.7,0,4.8,2.1,4.8,4.8v27C234.1,284.2,231.9,286.3,229.3,286.3z"/>
+	<path fill="none" stroke="#AFDBC0" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="M266.6,286.3L266.6,286.3
+		c-2.7,0-4.8-2.1-4.8-4.8v-27c0-2.7,2.1-4.8,4.8-4.8l0,0c2.7,0,4.8,2.1,4.8,4.8v27C271.4,284.2,269.3,286.3,266.6,286.3z"/>
+</g>
 </svg>
