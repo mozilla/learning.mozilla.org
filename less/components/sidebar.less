@@ -17,6 +17,9 @@ html.no-js .sidebar {
   &.events {
     .sidebarColorizer(@darkBlueSidebarColor);
   }
+  &.event-resources {
+    .sidebarColorizer(@blueSidebarColor);
+  }
   &.teach-like-mozilla {
     .sidebarColorizer(@tealSidebarColor);
   }
@@ -40,7 +43,9 @@ html.no-js .sidebar {
   &.web-literacy .teach,
   &.clubs  .clubs,
   &.clubs-toolkit .clubs,
-  &.clubs-curriculum .clubs {
+  &.clubs-curriculum .clubs,
+  &.event-resources .events,
+  &.events .events {
     .sidebar-subitems {
       display: block;
     }

@@ -1,0 +1,209 @@
+html.no-js {
+  .tabulator {
+    .tabulator-head {
+      display: none;
+    }
+    .tabulator-head-no-js {
+      width: 100%;
+      display: block;
+      background: #BCC7E6;
+      padding: 1.3rem 1.8rem;
+      font-size: 1.5rem;
+      color: #2D4A8C;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .tabulator-content-container {
+      display: inline-block;
+    }
+  }
+}
+
+.event-resources {
+  .event-item {
+    @media screen and (min-width: @screen-sm-min) {
+      display: flex;
+      align-items: center;
+    }
+    .event-content{
+      color: #697785;
+      font-weight: 400; 
+      .event-item-header {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1.8rem;
+      }
+      .event-item-subheader {
+        font-style: italic;
+      }
+      .event-item-content {
+        padding-top: 1rem;
+        line-height: 2.2rem;
+      }
+    }
+    .event-icon {
+      display: inline-block;
+      text-align: center;
+      width: 12rem;
+      height: 12rem;
+      border-radius: 50%;
+      background: #E1E9FA;
+      flex-shrink: 0;
+      color: #2D4A8C;
+      margin: 1rem 3rem 1rem 0;
+      .participants-number {
+        margin: 1.5rem 0 -0.6rem;
+        font-size: 4.3rem;
+      }
+      .participants-label {
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+    }
+  }
+  .remix-link {
+    color: #FFF;
+    background-color: #3FB58E;
+    border-color: #38A27F;
+    display: inline-block;
+    margin-bottom: 0px;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    border-radius: 0px;
+    -moz-user-select: none;
+    &:hover {
+      text-decoration: none;
+      background-color: #349776;
+      border-color: #29755C;
+    }
+  }
+  .logo-asset-link {
+    display: block;
+  }
+  .logo-asset-container {
+    @media screen and (min-width: @screen-sm-min) {
+      position: relative;
+      margin: 2rem 0 4.3rem;
+      text-align: left;
+      .logo-asset-hover {
+        .logo-asset-center {
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        opacity: 0;
+        transition: opacity .3s ease-in-out;
+        &:hover {
+          opacity: 1;
+          background: #E3E9FA;
+        }
+        width: 20rem;
+        height: 20rem;
+        position: absolute;
+        top: 0;
+        text-align: center;
+      }
+    }
+    margin: 2rem auto 2rem;
+    text-align: center;
+    .logo-asset-img {
+      // This color is a guess
+      background: #F2F3F7;
+      width: 20rem;
+      height: 20rem;
+      margin-bottom: 1rem;
+    }
+    .logo-asset-header {
+      padding-bottom: .6rem;
+      @media screen and (min-width: @screen-sm-min) {
+        position: absolute;
+        bottom: -2.3rem;
+        padding-bottom: 0;
+      }
+    }
+  }
+  .tabulator {
+    overflow: hidden;
+    .tabulator-head {
+      // This color is a guess
+      background: #F2F3F7;
+      border-width: 0 .2rem;
+      border-style: solid;
+      border-color: white;
+      cursor: pointer;
+      text-transform: uppercase;
+      padding: 1rem 0;
+      font-size: 1.2rem;
+      text-align: center;
+      font-weight: bold;
+      margin-top: 1rem;
+      transition: all .1s ease-in-out;
+      width: 24%;
+      color: #4D4E53;
+    }
+    .tabulator-head-no-js {
+      display: none;
+    }
+    .tabulator-content-container {
+      background: #F5F7FA;
+      display: none;
+      width: 100%;
+      border-top: 0.1rem solid #BCC7E6;
+      padding: 3rem 2.2rem 0;
+      margin-bottom: 2rem;
+    }
+    &.tab-0 .tabulator-content-container.tab-0,
+    &.tab-1 .tabulator-content-container.tab-1,
+    &.tab-2 .tabulator-content-container.tab-2,
+    &.tab-3 .tabulator-content-container.tab-3 {
+      display: inline-block;
+    }
+    &.tab-0 .tabulator-head.tab-0,
+    &.tab-1 .tabulator-head.tab-1,
+    &.tab-2 .tabulator-head.tab-2,
+    &.tab-3 .tabulator-head.tab-3 {
+      background: #BCC7E6;
+      padding: 1.3rem 0;
+      font-size: 1.5rem;
+      margin-top: 0;
+      width: 28%;
+      color: #2D4A8C;
+    }
+  }
+  .event-detail-head {
+    font-weight: 600;
+    font-style: italic;
+    padding-top: 1rem;
+    border-top: 0.1rem solid #BCC7E6;
+  }
+  .event-detail-content {
+    padding: 1rem 0 4rem 2.5rem;
+    line-height: 2.8rem;
+    font-weight: 400;
+  }
+  .event-support-header {
+    font-weight: 200;
+  }
+  .event-support-panel {
+    max-width: 39.9rem;
+    width: 100%;
+    @media screen and (min-width: @screen-sm-min) {
+      width: 50%;
+    }
+    float: left;
+    margin-right: 3rem;
+    margin-bottom: 2rem;
+  }
+  .event-support-container {
+    margin-bottom: 3.5rem;
+    overflow: auto;
+  }
+}
