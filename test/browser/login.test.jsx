@@ -32,7 +32,6 @@ describe("Login", function() {
   it("removes teach API event listeners when unmounted", function() {
     var events = [
       'login:error',
-      'login:cancel',
       'login:success',
       'logout'
     ];
@@ -63,12 +62,6 @@ describe("Login", function() {
   it("shows an alert when a network error occurs", function() {
     teachAPI.emit('login:error', {});
     alerts.should.eql(["An error occurred! Please try again later."]);
-  });
-
-  it("handles login:cancel event", function() {
-    login.setState({loggingIn: true});
-    teachAPI.emit('login:cancel');
-    login.state.loggingIn.should.be.false;
   });
 
   it("handles login:success event", function() {

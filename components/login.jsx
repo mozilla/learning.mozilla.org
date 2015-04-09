@@ -71,7 +71,6 @@ var Login = React.createClass({
     LogoutLink: LogoutLink,
     teachAPIEvents: {
       'login:error': 'handleApiLoginError',
-      'login:cancel': 'handleApiLoginCancel',
       'login:success': 'handleApiLoginSuccess',
       'logout': 'handleApiLogout'
     }
@@ -105,10 +104,6 @@ var Login = React.createClass({
     this.props.alert("An error occurred! Please try again later.");
     ga.event({ category: 'Login', action: 'Error Occurred',
                nonInteraction:true});
-  },
-  handleApiLoginCancel: function() {
-    this.setState({loggingIn: false});
-    ga.event({ category: 'Login', action: 'Cancelled Login' });
   },
   handleApiLoginSuccess: function(info) {
     this.setState({username: this.getTeachAPI().getUsername(),
