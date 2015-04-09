@@ -70,15 +70,11 @@ var Login = React.createClass({
     LoginLink: LoginLink,
     LogoutLink: LogoutLink,
     teachAPIEvents: {
+      'login:start': 'handleApiLoginStart',
       'login:error': 'handleApiLoginError',
       'login:success': 'handleApiLoginSuccess',
       'logout': 'handleApiLogout'
     }
-  },
-  getDefaultProps: function() {
-    return {
-      alert: defaultAlert
-    };
   },
   componentDidMount: function() {
     var teachAPI = this.getTeachAPI();
@@ -89,21 +85,26 @@ var Login = React.createClass({
   getInitialState: function() {
     return {
       username: null,
-      loggingIn: false
+      loggingIn: false,
+      loginError: false
     };
   },
   handleApiLoginError: function(err) {
-    this.setState({loggingIn: false});
-
     if (!config.IN_TEST_SUITE) {
       console.log("Teach API error", err);
       ga.event({ category: 'Login', action: 'Teach API Error',
                 nonInteraction:true});
     }
 
-    this.props.alert("An error occurred! Please try again later.");
+    this.setState({
+      loggingIn: false,
+      loginError: true
+    });
     ga.event({ category: 'Login', action: 'Error Occurred',
                nonInteraction:true});
+  },
+  handleApiLoginStart: function() {
+    this.setState({loggingIn: true});
   },
   handleApiLoginSuccess: function(info) {
     this.setState({username: this.getTeachAPI().getUsername(),
@@ -117,10 +118,22 @@ var Login = React.createClass({
   render: function() {
     var content;
 
-    if (this.state.loggingIn) {
+    if (this.state.loginError) {
+      content = (
+        <span><small>
+          <span className="glyphicon glyphicon-flash"/>&nbsp;
+          Unable to contact login server.
+          <br/>
+          <span className="glyphicon glyphicon-flash" style={{
+            opacity: '0'
+          }}/>&nbsp;
+          Refresh the page to try again.
+        </small></span>
+      );
+    } else if (this.state.loggingIn) {
       content = (
         <span>
-          Logging in&hellip;
+          Loading&hellip;
         </span>
       );
     } else if (this.state.username) {
@@ -144,13 +157,5 @@ var Login = React.createClass({
     );
   }
 });
-
-function defaultAlert(message) {
-  if (process.browser) {
-    window.alert(message);
-  } else {
-    console.log("User alert: " + message);
-  }
-}
 
 module.exports = Login;

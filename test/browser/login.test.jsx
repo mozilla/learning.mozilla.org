@@ -11,14 +11,11 @@ var LogoutLink = Login.LogoutLink;
 var StubTeachAPI = require('./stub-teach-api');
 
 describe("Login", function() {
-  var login, teachAPI, alerts;
+  var login, teachAPI;
 
   beforeEach(function() {
     teachAPI = new StubTeachAPI();
-    alerts = [];
-    login = stubContext.render(Login, {
-      alert: function(msg) { alerts.push(msg); }
-    }, {
+    login = stubContext.render(Login, {}, {
       teachAPI: teachAPI
     });
   });
@@ -31,6 +28,7 @@ describe("Login", function() {
 
   it("removes teach API event listeners when unmounted", function() {
     var events = [
+      'login:start',
       'login:error',
       'login:success',
       'logout'
@@ -54,14 +52,15 @@ describe("Login", function() {
     login.getDOMNode().textContent.should.match(/blop/);
   });
 
-  it("shows 'logging in...' when logging in", function() {
+  it("shows 'loading...' when initializing", function() {
     login.setState({loggingIn: true});
-    login.getDOMNode().textContent.should.match(/logging in/i);
+    login.getDOMNode().textContent.should.match(/loading/i);
   });
 
-  it("shows an alert when a network error occurs", function() {
+  it("shows a message when a network error occurs", function() {
     teachAPI.emit('login:error', {});
-    alerts.should.eql(["An error occurred! Please try again later."]);
+    login.getDOMNode().textContent
+      .should.match(/unable to contact login server/i);
   });
 
   it("handles login:success event", function() {
