@@ -117,8 +117,8 @@ var HowClubWorks = React.createClass({
         <Illustration
         width={182} height={237}
         src1x="/img/icon-how-do-clubs-work.svg"
-        alt="icon how do web clubs work">
-          <h2>How do Web Clubs work?</h2>
+        alt="icon how do Mozilla clubs work">
+          <h2>How do Mozilla Clubs work?</h2>
           <ul>
             <li>Grow the web literary of learners</li>
             <li>Meet regularly in classrooms, libraries, coffee shops &mdash; anywhere!</li>
@@ -559,7 +559,7 @@ var ClubsPage = React.createClass({
       <div>
         <HeroUnit image="/img/hero-clubs.png"
                   image2x="hero-clubs@2x.png">
-          <h1>Mozilla Web Clubs</h1>
+          <h1>Mozilla Clubs</h1>
 
           {process.env.SOFTEST_OF_LAUNCHES == 'on' ? null :
           <div><a className="btn btn-awsm" onClick={this.showAddYourClubModal}>Add Your Club</a></div>
