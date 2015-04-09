@@ -1,13 +1,6 @@
 var React = require('react');
 var ImageTag = require('../components/imagetag.jsx');
 
-var LinksContainer = React.createClass({
-  render: function() {
-    return (
-      <div className="row">{this.props.children}</div>
-    );
-  }
-});
 var PageLinker = React.createClass({
   render: function() {
     return (
@@ -24,7 +17,7 @@ var EventItem = React.createClass({
       <div className="event-item">
         <div className="event-icon">
           <div className="participants-number">{this.props.participants}</div>
-          <div className="participants-label">PARTICIPANTS</div>
+          <div className="participants-label">participants</div>
         </div>
         <div className="event-content">
           <div className="event-item-header">{this.props.head}</div>
@@ -54,7 +47,7 @@ var LogoAsset = React.createClass({
 var LogoAssetLink = React.createClass({
   render: function() {
     return (
-      <a className="logo-asset-link" href={this.props.href}><span className="ion ion-ios-copy"></span>{this.props.children}</a>
+      <a className="logo-asset-link" href={this.props.href}><span className="ion ion-ios-copy">&nbsp;</span>{this.props.children}</a>
     );
   }
 });
@@ -136,9 +129,9 @@ var EventsResources = React.createClass({
     return (
       <div className="inner-container">
         <h1>Event Resources</h1>
-        <p>That you for helping us celebrate webmaking around the world! These resources will help you plan a unique event tailored especially for your audience.</p>
+        <p>Thank you for helping us celebrate webmaking around the world! These resources will help you plan a unique event tailored especially for your audience.</p>
 
-        <LinksContainer>
+        <div className="row">
           <PageLinker head="event guides" href="#event-guides">
             <p></p>
           </PageLinker>
@@ -151,7 +144,7 @@ var EventsResources = React.createClass({
           <PageLinker head="event support" href="#event-support">
             <p></p>
           </PageLinker>
-        </LinksContainer>
+        </div>
 
         <h2 id="event-guides">Event Guides</h2>
         <p>No matter the size of your event, we have a guide for you.</p>
