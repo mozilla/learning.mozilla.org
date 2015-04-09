@@ -47,7 +47,7 @@ var LogoAsset = React.createClass({
 var LogoAssetLink = React.createClass({
   render: function() {
     return (
-      <a className="logo-asset-link" href={this.props.href}><span className="ion ion-ios-copy">&nbsp;</span>{this.props.children}</a>
+      <a className="logo-asset-link" href={this.props.href}><span className="ion ion-ios-download-outline">&nbsp;</span>{this.props.children}</a>
     );
   }
 });
