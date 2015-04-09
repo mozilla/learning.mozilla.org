@@ -1,13 +1,16 @@
 var EventEmitter = require('events').EventEmitter;
+var urlParse = require('url').parse;
 var should = require('should');
 var React =require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
 var stubContext = require('./stub-context.jsx');
 var Login = require('../../components/login.jsx');
+var LoginLink = Login.LoginLink;
+var LogoutLink = Login.LogoutLink;
 var StubTeachAPI = require('./stub-teach-api');
 
-describe("login", function() {
+describe("Login", function() {
   var login, teachAPI, alerts;
 
   beforeEach(function() {
@@ -87,5 +90,58 @@ describe("login", function() {
     teachAPI.emit('logout');
     login.state.loggingIn.should.be.false;
     should(login.state.username).equal(null);
+  });
+});
+
+function renderLink(linkClass, props) {
+  var teachAPI = new StubTeachAPI();
+  teachAPI.baseURL = 'http://teach-api';
+  return stubContext.render(linkClass, props, {
+    teachAPI: teachAPI,
+    getCurrentPathname: function() {
+      return '/path';
+    }
+  });
+}
+
+describe("Login.LoginLink", function() {
+  it("should create a link w/ expected callback", function() {
+    var link = renderLink(LoginLink, {origin: 'http://teach'});
+    var info = urlParse(link.getDOMNode().href, true);
+
+    info.protocol.should.eql('http:');
+    info.host.should.eql('teach-api');
+    info.pathname.should.eql('/auth/oauth2/authorize');
+    info.query.action.should.eql('signin');
+    info.query.callback.should.eql('http://teach/path');
+  });
+
+  it("should accept action='signup'", function() {
+    var link = renderLink(LoginLink, {action: 'signup'});
+    var info = urlParse(link.getDOMNode().href, true);
+
+    info.query.action.should.eql('signup');
+  });
+
+  it("should accept callbackSearch prop", function() {
+    var link = renderLink(LoginLink, {
+      origin: 'http://teach',
+      callbackSearch: '?foo=on'
+    });
+    var info = urlParse(link.getDOMNode().href, true);
+
+    info.query.callback.should.eql('http://teach/path?foo=on');
+  });
+});
+
+describe("Login.LogoutLink", function() {
+  it("should create a link w/ expected callback", function() {
+    var link = renderLink(LogoutLink, {origin: 'http://teach'});
+    var info = urlParse(link.getDOMNode().href, true);
+
+    info.protocol.should.eql('http:');
+    info.host.should.eql('teach-api');
+    info.pathname.should.eql('/auth/oauth2/logout');
+    info.query.callback.should.eql('http://teach/path');
   });
 });

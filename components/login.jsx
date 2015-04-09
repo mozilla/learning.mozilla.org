@@ -9,8 +9,16 @@ var ga = require('react-ga');
 
 var LogoutLink = React.createClass({
   mixins: [TeachAPIClientMixin, Router.State, React.addons.PureRenderMixin],
+  propTypes: {
+    origin: React.PropTypes.string
+  },
+  getDefaultProps: function() {
+    return {
+      origin: config.ORIGIN
+    };
+  },
   render: function() {
-    var callbackURL = config.ORIGIN + this.getPathname();
+    var callbackURL = this.props.origin + this.getPathname();
     var loginBaseURL = this.getTeachAPI().baseURL;
     var href = loginBaseURL + '/auth/oauth2/logout?callback=' +
                encodeURIComponent(callbackURL);
@@ -25,15 +33,22 @@ var LogoutLink = React.createClass({
 var LoginLink = React.createClass({
   mixins: [TeachAPIClientMixin, Router.State, React.addons.PureRenderMixin],
   propTypes: {
+    origin: React.PropTypes.string,
     callbackSearch: React.PropTypes.string,
     action: React.PropTypes.string
   },
+  getDefaultProps: function() {
+    return {
+      origin: config.ORIGIN,
+      callbackSearch: '',
+      action: 'signin'
+    };
+  },
   render: function() {
-    var callbackPath = this.getPathname() +
-                       (this.props.callbackSearch || '');
-    var callbackURL = config.ORIGIN + callbackPath;
+    var callbackPath = this.getPathname() + this.props.callbackSearch;
+    var callbackURL = this.props.origin + callbackPath;
     var loginBaseURL = this.getTeachAPI().baseURL;
-    var action = this.props.action || 'signin';
+    var action = this.props.action;
     var href = loginBaseURL + '/auth/oauth2/authorize?callback=' +
                encodeURIComponent(callbackURL) + '&action=' + action;
     var props = _.extend({}, this.props, {
