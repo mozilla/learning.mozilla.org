@@ -57,7 +57,7 @@ var LoginLink = React.createClass({
 
     if (process.env.NODE_ENV !== 'production' &&
         !/^(signin|signup)$/.test(action)) {
-      console.warn("unrecognized action: " + this.props.action);
+      console.warn("unrecognized action: " + action);
     }
 
     return React.DOM.a(props, this.props.children);
