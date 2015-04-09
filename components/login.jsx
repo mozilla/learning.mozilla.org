@@ -1,4 +1,5 @@
-var React = require('react');
+var _ = require('underscore');
+var React = require('react/addons');
 var Router = require('react-router');
 var Link = Router.Link;
 
@@ -6,9 +7,53 @@ var config = require('../lib/config');
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
 var ga = require('react-ga');
 
+var LogoutLink = React.createClass({
+  mixins: [TeachAPIClientMixin, Router.State, React.addons.PureRenderMixin],
+  render: function() {
+    var callbackURL = config.ORIGIN + this.getPathname();
+    var loginBaseURL = this.getTeachAPI().baseURL;
+    var href = loginBaseURL + '/auth/oauth2/logout?callback=' +
+               encodeURIComponent(callbackURL);
+    var props = _.extend({}, this.props, {
+      href: href
+    });
+
+    return React.DOM.a(props, this.props.children);
+  }
+});
+
+var LoginLink = React.createClass({
+  mixins: [TeachAPIClientMixin, Router.State, React.addons.PureRenderMixin],
+  propTypes: {
+    callbackSearch: React.PropTypes.string,
+    action: React.PropTypes.string
+  },
+  render: function() {
+    var callbackPath = this.getPathname() +
+                       (this.props.callbackSearch || '');
+    var callbackURL = config.ORIGIN + callbackPath;
+    var loginBaseURL = this.getTeachAPI().baseURL;
+    var action = this.props.action || 'signin';
+    var href = loginBaseURL + '/auth/oauth2/authorize?callback=' +
+               encodeURIComponent(callbackURL) + '&action=' + action;
+    var props = _.extend({}, this.props, {
+      href: href
+    });
+
+    if (process.env.NODE_ENV !== 'production' &&
+        !/^(signin|signup)$/.test(action)) {
+      console.warn("unrecognized action: " + this.props.action);
+    }
+
+    return React.DOM.a(props, this.props.children);
+  }
+});
+
 var Login = React.createClass({
   mixins: [TeachAPIClientMixin],
   statics: {
+    LoginLink: LoginLink,
+    LogoutLink: LogoutLink,
     teachAPIEvents: {
       'login:error': 'handleApiLoginError',
       'login:cancel': 'handleApiLoginCancel',
@@ -22,24 +67,16 @@ var Login = React.createClass({
     };
   },
   componentDidMount: function() {
-    this.setState({username: this.getTeachAPI().getUsername()});
+    var teachAPI = this.getTeachAPI();
+
+    teachAPI.checkLoginStatus();
+    this.setState({username: teachAPI.getUsername()});
   },
   getInitialState: function() {
     return {
       username: null,
       loggingIn: false
     };
-  },
-  handleLoginClick: function(e) {
-    e.preventDefault();
-    this.setState({loggingIn: true});
-    this.getTeachAPI().startLogin();
-    ga.event({ category: 'Login', action: 'Start Login' });
-  },
-  handleLogoutClick: function(e) {
-    e.preventDefault();
-    this.getTeachAPI().logout();
-    ga.event({ category: 'Login', action: 'Clicked Logout' });
   },
   handleApiLoginError: function(err) {
     this.setState({loggingIn: false});
@@ -89,13 +126,13 @@ var Login = React.createClass({
     } else if (this.state.username) {
       content = (
         <span>
-          Logged in as {this.state.username} | <a href="" onClick={this.handleLogoutClick}>Logout</a>
+          Logged in as {this.state.username} | <LogoutLink>Logout</LogoutLink>
         </span>
       );
     } else {
       content = (
         <span>
-          <Link to="join">Create an account</Link> | <a href="" onClick={this.handleLoginClick}>Log in</a>
+          <LoginLink action="signup">Create an account</LoginLink> | <LoginLink>Log in</LoginLink>
         </span>
       );
     }

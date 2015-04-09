@@ -47,30 +47,9 @@ describe("login", function() {
     login = null;
   });
 
-  it("triggers login when user clicks login link", function() {
-    var links = TestUtils.scryRenderedDOMComponentsWithTag(login, 'a');
-
-    // We should have a "create an account link" followed by a
-    // "Log in" link.
-    links.length.should.equal(2);
-
-    TestUtils.Simulate.click(links[1]);
-    teachAPI.startLogin.callCount.should.equal(1);
-    login.state.loggingIn.should.be.true;
-  });
-
   it("shows username when logged in", function() {
     login.setState({username: "blop"});
     login.getDOMNode().textContent.should.match(/blop/);
-  });
-
-  it("triggers logout when user clicks logout link", function() {
-    login.setState({username: "foo"});
-
-    var link = TestUtils.findRenderedDOMComponentWithTag(login, 'a');
-
-    TestUtils.Simulate.click(link);
-    teachAPI.logout.callCount.should.equal(1);
   });
 
   it("shows 'logging in...' when logging in", function() {
