@@ -171,8 +171,8 @@ var ActivitiesPage = React.createClass({
             />
             <IconLink
               href="https://www.mozilla.org/en-US/about/manifesto/"
-              imgSrc="/img/web-literacy-page/icon-mozilla.svg"
-              imgAlt="icon mozilla"
+              imgSrc="/img/web-literacy-page/icon-reading.svg"
+              imgAlt="icon reading"
               head="Get Reading"
               subhead="Web Literacy is core to the Mozilla mission and values"
             />

@@ -5,22 +5,22 @@
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Web-Literacy-Page" sketch:type="MSArtboardGroup" transform="translate(-424.000000, -907.000000)">
-            <g id="Subheadline-of-icon--+-Icon-Link-One-+-Oval-108-+-Imported-Layers" sketch:type="MSLayerGroup" transform="translate(347.000000, 897.000000)">
+        <g id="Web-Literacy-Page-C1" sketch:type="MSArtboardGroup" transform="translate(-424.000000, -1129.000000)">
+            <g id="Subheadline-of-icon--+-Icon-Link-One-+-Oval-108-+-Imported-Layers" sketch:type="MSLayerGroup" transform="translate(347.000000, 1119.000000)">
                 <g id="icon-tips" transform="translate(77.000000, 11.000000)" sketch:type="MSShapeGroup">
-                    <circle id="Oval" stroke="#CEE2EF" stroke-width="2" fill="#FFFFFF" cx="48.849" cy="13.729" r="13.333"></circle>
-                    <circle id="Oval" fill="#CEE2EF" cx="48.849" cy="68.711" r="5"></circle>
-                    <path d="M48.85,26.729 L48.85,71.71" id="Shape" stroke="#CEE2EF" stroke-width="2" fill="#FFFFFF"></path>
-                    <circle id="Oval" stroke="#CEE2EF" stroke-width="2" fill="#FFFFFF" cx="82.459" cy="27.729" r="13.333"></circle>
-                    <circle id="Oval" fill="#CEE2EF" cx="82.459" cy="68.711" r="5"></circle>
-                    <path d="M82.459,41.728 L82.459,71.71" id="Shape" stroke="#CEE2EF" stroke-width="2" fill="#FFFFFF"></path>
-                    <circle id="Oval" stroke="#CEE2EF" stroke-width="2" fill="#FFFFFF" cx="15.239" cy="27.729" r="13.333"></circle>
-                    <circle id="Oval" fill="#CEE2EF" cx="15.239" cy="68.711" r="5"></circle>
-                    <path d="M15.239,41.728 L15.239,71.71" id="Shape" stroke="#CEE2EF" stroke-width="2" fill="#FFFFFF"></path>
-                    <path d="M0.349,69.229 L97.349,69.229" id="Shape" stroke="#CEE2EF" stroke-width="3" fill="#FFFFFF"></path>
-                    <path d="M82.627,22.694 L88.594,31.395 L76.662,31.395 L82.627,22.694 Z" id="Shape" fill="#CEE2EF"></path>
-                    <rect id="Rectangle-path" fill="#CEE2EF" x="10.961" y="23.395" width="9" height="9"></rect>
-                    <rect id="Rectangle-path" fill="#CEE2EF" transform="translate(49.460372, 13.892967) rotate(45.000000) translate(-49.460372, -13.892967) " x="44.9609153" y="9.39301011" width="8.9989137" height="8.99991369"></rect>
+                    <circle id="Oval" stroke="#AFDBC0" stroke-width="2" fill="#FFFFFF" cx="48.849" cy="13.729" r="13.333"></circle>
+                    <circle id="Oval" fill="#AFDBC0" cx="48.849" cy="68.711" r="5"></circle>
+                    <path d="M48.85,26.729 L48.85,71.71" id="Shape" stroke="#AFDBC0" stroke-width="2" fill="#FFFFFF"></path>
+                    <circle id="Oval" stroke="#AFDBC0" stroke-width="2" fill="#FFFFFF" cx="82.459" cy="27.729" r="13.333"></circle>
+                    <circle id="Oval" fill="#AFDBC0" cx="82.459" cy="68.711" r="5"></circle>
+                    <path d="M82.459,41.728 L82.459,71.71" id="Shape" stroke="#AFDBC0" stroke-width="2" fill="#FFFFFF"></path>
+                    <circle id="Oval" stroke="#AFDBC0" stroke-width="2" fill="#FFFFFF" cx="15.239" cy="27.729" r="13.333"></circle>
+                    <circle id="Oval" fill="#AFDBC0" cx="15.239" cy="68.711" r="5"></circle>
+                    <path d="M15.239,41.728 L15.239,71.71" id="Shape" stroke="#AFDBC0" stroke-width="2" fill="#FFFFFF"></path>
+                    <path d="M0.349,69.229 L97.349,69.229" id="Shape" stroke="#AFDBC0" stroke-width="3" fill="#FFFFFF"></path>
+                    <path d="M82.627,22.694 L88.594,31.395 L76.662,31.395 L82.627,22.694 Z" id="Shape" fill="#AFDBC0"></path>
+                    <rect id="Rectangle-path" fill="#AFDBC0" x="10.961" y="23.395" width="9" height="9"></rect>
+                    <rect id="Rectangle-path" fill="#AFDBC0" transform="translate(49.460372, 13.892967) rotate(45.000000) translate(-49.460372, -13.892967) " x="44.9609153" y="9.39301011" width="8.9989137" height="8.99991369"></rect>
                 </g>
             </g>
         </g>
