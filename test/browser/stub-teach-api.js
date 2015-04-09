@@ -5,7 +5,6 @@ function StubTeachAPI() {
   var teachAPI = new EventEmitter();
 
   teachAPI.logout = sinon.spy();
-  teachAPI.startLogin = sinon.spy();
   teachAPI.getUsername = sinon.stub();
   teachAPI.getClubs = sinon.stub();
   teachAPI.updateClubs = sinon.spy();

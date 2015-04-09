@@ -51,7 +51,6 @@ function generateWithPageHTML(url, options, pageHTML) {
         <script src="/commons.bundle.js"></script>
         <script src="/app.bundle.js"></script>
         <script src="https://mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>
-        <script src="https://login.persona.org/include.js" async></script>
       </body>
     </html>
   );
