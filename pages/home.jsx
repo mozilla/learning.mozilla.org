@@ -23,7 +23,8 @@ var HomePage = React.createClass({
   render: function() {
     return (
       <div>
-        <HeroUnit image="/img/hero-unit.jpg">
+        <HeroUnit image="/img/hero-unit.png"
+                  image2x="/img/events-page/hero-unit@2x.png">
           <h1>Unlock opportunities for all citizens of the Web.</h1>
 
           {process.env.SOFTEST_OF_LAUNCHES == 'on' ? null :

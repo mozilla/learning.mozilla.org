@@ -4,6 +4,8 @@ var Illustration = require('../components/illustration.jsx');
 var Router = require('react-router');
 var Link = Router.Link;
 
+var HeroUnit = require('../components/hero-unit.jsx');
+
 /* Displays an activity kit, with:
    image, title, difficulty, list of authors, and description
 */
@@ -113,155 +115,161 @@ var ActivitiesPage = React.createClass({
   },
   render: function() {
     return (
-      <div className="inner-container activities">
-        <section>
-          <h1>Teaching Activities</h1>
-          <p>
-            Start teaching others how to read, write and participate on the web with these free activities created by teachers, educators and technologists like you. Each featured activity includes step-by-step instructions and has been tested in schools, afterschool programs, libraries and community centers around the globe. Whether learning how to code, understanding why privacy matters, or creating openly-licensed web content, we believe teaching the web should be fun and engaging!
-          </p>
-          <ActivityKit
-            src1x="/img/activities-page/1x/img-activity-01.png"
-            src2x="/img/activities-page/2x/img-activity-01.png"
-            title="Lo-Fi, No-Fi (Teaching Kit)"
-            level="Beginner"
-            link="https://keyboardkat.makes.org/thimble/LTIxMDA3NTY0ODA=/lofi-nofi-teaching-kit"
-            developedBy="Kat Braybrooke, Karen Smith, Julia Vallera, Jess Klein, Chad Sansing"
-            description="This series of activities help teach web literacy concepts offline, or where access to technology is limited. Includes printable templates and games to teach coding, game design and app development."
-          />
-          <ActivityKit
-            src1x="/img/activities-page/1x/img-activity-02.jpg"
-            src2x="/img/activities-page/2x/img-activity-02.jpg"
-            title="Parapara Animation"
-            level="Beginner"
-            link="https://karenlouisesmith.makes.org/thimble/para-para-animation-teaching-kit"
-            developedBy="Karen Smith, Hive Toronto"
-            description="This activity helps young learners create simple animations and learn about online collaboration using Parapara."
-          />
-          <ActivityKit
-            src1x="/img/activities-page/1x/img-activity-03.png"
-            src2x="/img/activities-page/2x/img-activity-03.png"
-            title="Creative Commons GIF Exchange"
-            level="Beginner"
-            link="https://katermouse.makes.org/thimble/LTIwNjQwNTYzMjA=/creative-commons-gif-exchange-activity"
-            developedBy="MOUSE, Hive NYC"
-            description="This activity teachers students about Creative Commons licensing while creating their own animated GIFs or memes."
-          />
-          <ActivityKit
-            src1x="/img/activities-page/1x/img-activity-04.jpg"
-            src2x="/img/activities-page/2x/img-activity-04.jpg"
-            title="Erase All Kittens"
-            level="Beginner"
-            link="https://laura.makes.org/thimble/LTEzNDYxMDY4OA==/eak-activity-guide"
-            developedBy="Drum Roll - Joe Dytrych, Dee Salgal, Leonie Van Der Linde"
-            description="This activity features Erase All Kittens (E.A.K.), a fun game where learners code and create on the web by changing the source code on each level."
-          />
-          <ActivityKit
-            src1x="/img/activities-page/1x/img-activity-05.jpg"
-            src2x="/img/activities-page/2x/img-activity-05.jpg"
-            title="Image Seeking for Fantastic Visual Metaphors"
-            level="Beginner"
-            link="https://cogdog.makes.org/thimble/OTM3NDI2OTQ0/imageseeking-for-fantastic-visual-metaphors"
-            developedBy="Alan Levine"
-            description="In this activity, learners search for photos that communicate ideas and concepts, while also exploring best practices around attribution and openly-licensed content on the web."
-          />
-          <ActivityKit
-            src1x="/img/activities-page/1x/img-activity-06.jpg"
-            src2x="/img/activities-page/2x/img-activity-06.jpg"
-            title="Become a Password Pro (Teaching Kit)"
-            level="Beginner-Intermediate"
-            link="https://stacy.makes.org/thimble/MjAxMjIxNzYwMA==/whats-wrong-with-your-password"
-            developedBy="Stacy Martin, Mozilla"
-            description="This teaching kit includes a series of activities to help leaners understand passwords &mdash; including why they're important, best practices, and tools to help you manage multiple passwords."
-          />
-          <ActivityKit
-            src1x="/img/activities-page/1x/img-activity-07.jpg"
-            src2x="/img/activities-page/2x/img-activity-07.jpg"
-            title="Hack Your Notebook (Teaching Kit)"
-            level="Beginner-Intermediate"
-            link="https://laura.makes.org/thimble/LTU1NDA0MTA4OA==/hack-your-notebook-teaching-kit"
-            developedBy="Educator Inovator - Jen Dick, Jie Qi, David Cole, Chad Sansing"
-            description="In this series of activities, learners will explore the connections between art, circuitry and systems thinking by hacking their notbooks/journals with power and LEDs."
-          />
-          <ActivityKit
-            src1x="/img/activities-page/1x/img-activity-08.jpg"
-            src2x="/img/activities-page/2x/img-activity-08.jpg"
-            title="CSS Story Cards"
-            level="Intermediate"
-            link="https://mousemeredith.makes.org/thimble/MTQwOTAyNDAwMA==/css-story-card-game-activity"
-            developedBy="MOUSE, Hive NYC"
-            description="In this card game, learners work collaboratively to create a complete story using HTML and CSS."
-          />
-          <ActivityKit
-            src1x="/img/activities-page/1x/img-activity-09.jpg"
-            src2x="/img/activities-page/2x/img-activity-09.jpg"
-            title="Minecraft a Flavor of Java (Teaching Kit)"
-            level="Intermediate"
-            link="https://laura.makes.org/thimble/LTE4NDk0MjMzNg==/minecraft-a-flavor-of-java-epik"
-            developedBy="EPIK"
-            description="In this series of activities, learners develop computational thinking skills by using Java to create their own Minecraft mod."
-          />
-          <ActivityKit
-            src1x="/img/activities-page/1x/img-activity-10.jpg"
-            src2x="/img/activities-page/2x/img-activity-10.jpg"
-            title="Girls in Tech: Hacking My Media"
-            level="Intermediate"
-            link="https://laura.makes.org/thimble/MjE3Nzc2Mzg0/hacking-my-media-with-x-ray-goggles"
-            developedBy="Stephanie Guthrie, Kim Wilkens, 2013 MozGirls"
-            description="In this activity, learners create a remix of a Wikimedia page as they think critically about the intersection of gender, culture, technology and identity."
-          />
-          <h2>More resources</h2>
-          <p>
-            Hive Learning Networks are city-based communities of educators who champion digital skills and web literacy through connected learning. Visit each city's portfolio to find more inspiration, resources and projects for teaching and learning.
-          </p>
-          <div className="hive-links row">
-            <HiveLink
-              src1x="/img/activities-page/svg/logo-hive.svg"
-              name="hive new york"
-              link="http://hivenyc.org/portfolio/"
-            />
-            <HiveLink
-              src1x="/img/activities-page/svg/logo-hive.svg"
-              name="hive toronto"
-              link="http://hivetoronto.org/portfolio"
-            />
-            <HiveLink
-              src1x="/img/activities-page/svg/logo-hive-community.svg"
-              name="hive kansas city"
-              link="http://hivekc.org/portfolio/"
-            />
-            <HiveLink
-              src1x="/img/activities-page/svg/logo-hive.svg"
-              name="hive chicago"
-              link="http://hivechicago.org/portfolio"
-            />
-            <HiveLink
-              src1x="/img/activities-page/svg/logo-hive-community.svg"
-              name="hive chattanooga"
-              link=" http://hivecha.org/portfolio"
-            />
-            <HiveLink
-              src1x="/img/activities-page/svg/logo-hive.svg"
-              name="hive pittsburgh"
-              link="http://hivepgh.sproutfund.org/projects/"
-            />
-          </div>
-          <ImageTag className="arrow-image"
-          width={412} height={186}
-          src1x="/img/activities-page/svg/img-globe-line.svg"
-          alt="arrow"/>
-
-          <Illustration src1x="/img/activities-page/svg/img-global-movement.svg"
-          height={270} width={270}
-          alt="join the global movement">
-            <h2>Join the global web literacy movement</h2>
+      <div>
+        <HeroUnit image="/img/activities-page/hero-teaching-activities.png"
+                    image2x="/imv/activities-page/hero-teaching-activities@2x.png">
+            <h1>h1 Copy Needed</h1>
+        </HeroUnit>
+        <div className="inner-container activities">
+          <section>
+            <h1>Teaching Activities</h1>
             <p>
-              We invite you to adapt the web literacy curriculum to meet the needs of your group of learners. Add your local group to our global network, share any remixes you create, and help grow this movement.
+              Start teaching others how to read, write and participate on the web with these free activities created by teachers, educators and technologists like you. Each featured activity includes step-by-step instructions and has been tested in schools, afterschool programs, libraries and community centers around the globe. Whether learning how to code, understanding why privacy matters, or creating openly-licensed web content, we believe teaching the web should be fun and engaging!
             </p>
-            <div>
-              <Link to="mozilla-web-clubs" className="btn btn-awsm">explore clubs</Link>
+            <ActivityKit
+              src1x="/img/activities-page/1x/img-activity-01.png"
+              src2x="/img/activities-page/2x/img-activity-01.png"
+              title="Lo-Fi, No-Fi (Teaching Kit)"
+              level="Beginner"
+              link="https://keyboardkat.makes.org/thimble/LTIxMDA3NTY0ODA=/lofi-nofi-teaching-kit"
+              developedBy="Kat Braybrooke, Karen Smith, Julia Vallera, Jess Klein, Chad Sansing"
+              description="This series of activities help teach web literacy concepts offline, or where access to technology is limited. Includes printable templates and games to teach coding, game design and app development."
+            />
+            <ActivityKit
+              src1x="/img/activities-page/1x/img-activity-02.jpg"
+              src2x="/img/activities-page/2x/img-activity-02.jpg"
+              title="Parapara Animation"
+              level="Beginner"
+              link="https://karenlouisesmith.makes.org/thimble/para-para-animation-teaching-kit"
+              developedBy="Karen Smith, Hive Toronto"
+              description="This activity helps young learners create simple animations and learn about online collaboration using Parapara."
+            />
+            <ActivityKit
+              src1x="/img/activities-page/1x/img-activity-03.png"
+              src2x="/img/activities-page/2x/img-activity-03.png"
+              title="Creative Commons GIF Exchange"
+              level="Beginner"
+              link="https://katermouse.makes.org/thimble/LTIwNjQwNTYzMjA=/creative-commons-gif-exchange-activity"
+              developedBy="MOUSE, Hive NYC"
+              description="This activity teachers students about Creative Commons licensing while creating their own animated GIFs or memes."
+            />
+            <ActivityKit
+              src1x="/img/activities-page/1x/img-activity-04.jpg"
+              src2x="/img/activities-page/2x/img-activity-04.jpg"
+              title="Erase All Kittens"
+              level="Beginner"
+              link="https://laura.makes.org/thimble/LTEzNDYxMDY4OA==/eak-activity-guide"
+              developedBy="Drum Roll - Joe Dytrych, Dee Salgal, Leonie Van Der Linde"
+              description="This activity features Erase All Kittens (E.A.K.), a fun game where learners code and create on the web by changing the source code on each level."
+            />
+            <ActivityKit
+              src1x="/img/activities-page/1x/img-activity-05.jpg"
+              src2x="/img/activities-page/2x/img-activity-05.jpg"
+              title="Image Seeking for Fantastic Visual Metaphors"
+              level="Beginner"
+              link="https://cogdog.makes.org/thimble/OTM3NDI2OTQ0/imageseeking-for-fantastic-visual-metaphors"
+              developedBy="Alan Levine"
+              description="In this activity, learners search for photos that communicate ideas and concepts, while also exploring best practices around attribution and openly-licensed content on the web."
+            />
+            <ActivityKit
+              src1x="/img/activities-page/1x/img-activity-06.jpg"
+              src2x="/img/activities-page/2x/img-activity-06.jpg"
+              title="Become a Password Pro (Teaching Kit)"
+              level="Beginner-Intermediate"
+              link="https://stacy.makes.org/thimble/MjAxMjIxNzYwMA==/whats-wrong-with-your-password"
+              developedBy="Stacy Martin, Mozilla"
+              description="This teaching kit includes a series of activities to help leaners understand passwords &mdash; including why they're important, best practices, and tools to help you manage multiple passwords."
+            />
+            <ActivityKit
+              src1x="/img/activities-page/1x/img-activity-07.jpg"
+              src2x="/img/activities-page/2x/img-activity-07.jpg"
+              title="Hack Your Notebook (Teaching Kit)"
+              level="Beginner-Intermediate"
+              link="https://laura.makes.org/thimble/LTU1NDA0MTA4OA==/hack-your-notebook-teaching-kit"
+              developedBy="Educator Inovator - Jen Dick, Jie Qi, David Cole, Chad Sansing"
+              description="In this series of activities, learners will explore the connections between art, circuitry and systems thinking by hacking their notbooks/journals with power and LEDs."
+            />
+            <ActivityKit
+              src1x="/img/activities-page/1x/img-activity-08.jpg"
+              src2x="/img/activities-page/2x/img-activity-08.jpg"
+              title="CSS Story Cards"
+              level="Intermediate"
+              link="https://mousemeredith.makes.org/thimble/MTQwOTAyNDAwMA==/css-story-card-game-activity"
+              developedBy="MOUSE, Hive NYC"
+              description="In this card game, learners work collaboratively to create a complete story using HTML and CSS."
+            />
+            <ActivityKit
+              src1x="/img/activities-page/1x/img-activity-09.jpg"
+              src2x="/img/activities-page/2x/img-activity-09.jpg"
+              title="Minecraft a Flavor of Java (Teaching Kit)"
+              level="Intermediate"
+              link="https://laura.makes.org/thimble/LTE4NDk0MjMzNg==/minecraft-a-flavor-of-java-epik"
+              developedBy="EPIK"
+              description="In this series of activities, learners develop computational thinking skills by using Java to create their own Minecraft mod."
+            />
+            <ActivityKit
+              src1x="/img/activities-page/1x/img-activity-10.jpg"
+              src2x="/img/activities-page/2x/img-activity-10.jpg"
+              title="Girls in Tech: Hacking My Media"
+              level="Intermediate"
+              link="https://laura.makes.org/thimble/MjE3Nzc2Mzg0/hacking-my-media-with-x-ray-goggles"
+              developedBy="Stephanie Guthrie, Kim Wilkens, 2013 MozGirls"
+              description="In this activity, learners create a remix of a Wikimedia page as they think critically about the intersection of gender, culture, technology and identity."
+            />
+            <h2>More resources</h2>
+            <p>
+              Hive Learning Networks are city-based communities of educators who champion digital skills and web literacy through connected learning. Visit each city's portfolio to find more inspiration, resources and projects for teaching and learning.
+            </p>
+            <div className="hive-links row">
+              <HiveLink
+                src1x="/img/activities-page/svg/logo-hive.svg"
+                name="hive new york"
+                link="http://hivenyc.org/portfolio/"
+              />
+              <HiveLink
+                src1x="/img/activities-page/svg/logo-hive.svg"
+                name="hive toronto"
+                link="http://hivetoronto.org/portfolio"
+              />
+              <HiveLink
+                src1x="/img/activities-page/svg/logo-hive-community.svg"
+                name="hive kansas city"
+                link="http://hivekc.org/portfolio/"
+              />
+              <HiveLink
+                src1x="/img/activities-page/svg/logo-hive.svg"
+                name="hive chicago"
+                link="http://hivechicago.org/portfolio"
+              />
+              <HiveLink
+                src1x="/img/activities-page/svg/logo-hive-community.svg"
+                name="hive chattanooga"
+                link=" http://hivecha.org/portfolio"
+              />
+              <HiveLink
+                src1x="/img/activities-page/svg/logo-hive.svg"
+                name="hive pittsburgh"
+                link="http://hivepgh.sproutfund.org/projects/"
+              />
             </div>
-          </Illustration>
-        </section>
+            <ImageTag className="arrow-image"
+            width={412} height={186}
+            src1x="/img/activities-page/svg/img-globe-line.svg"
+            alt="arrow"/>
+
+            <Illustration src1x="/img/activities-page/svg/img-global-movement.svg"
+            height={270} width={270}
+            alt="join the global movement">
+              <h2>Join the global web literacy movement</h2>
+              <p>
+                We invite you to adapt the web literacy curriculum to meet the needs of your group of learners. Add your local group to our global network, share any remixes you create, and help grow this movement.
+              </p>
+              <div>
+                <Link to="mozilla-web-clubs" className="btn btn-awsm">explore clubs</Link>
+              </div>
+            </Illustration>
+          </section>
+        </div>
       </div>
     );
   }
