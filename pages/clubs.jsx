@@ -4,6 +4,7 @@ var Router = require('react-router');
 var Link = Router.Link;
 var Select = require('react-select');
 
+var config = require('../lib/config');
 var Page = require('../components/page.jsx');
 var HeroUnit = require('../components/hero-unit.jsx');
 var Map = require('../components/map.jsx');
@@ -333,8 +334,23 @@ var ModalAddOrChangeYourClub = React.createClass({
     this.props.onSuccess(this.state.result);
   },
   handleJoinClick: function() {
-    this.hideModal();
-    this.transitionTo('join');
+    if (!config.ENABLE_OAUTH2) {
+      window.alert("You need to signup for webmaker at webmaker.org, " +
+                   "then log in here using the same email address.");
+      return;
+    }
+    // TODO: Add a ga.event here for signup.
+    this.getTeachAPI().startOAuth2Login(window.location.pathname +
+                                        '?modal=add', 'signup');
+  },
+  handleLoginClick: function() {
+    // TODO: Add a ga.event here for login.
+    if (config.ENABLE_OAUTH2) {
+      this.getTeachAPI().startOAuth2Login(window.location.pathname +
+                                          '?modal=add');
+    } else {
+      this.getTeachAPI().startLogin();
+    }
   },
   renderValidationErrors: function() {
     if (this.state.validationErrors.length) {
@@ -362,7 +378,7 @@ var ModalAddOrChangeYourClub = React.createClass({
         <div>
           <p>Before you can {action} your club, you need to log in.</p>
           <button className="btn btn-primary btn-block"
-           onClick={this.getTeachAPI().startLogin}>Log In</button>
+           onClick={this.handleLoginClick}>Log In</button>
           <button className="btn btn-default btn-block"
            onClick={this.handleJoinClick}>Create an account</button>
         </div>
