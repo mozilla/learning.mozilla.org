@@ -44,12 +44,5 @@ describe("sidebar", function() {
       TestUtils.Simulate.click(hamburger);
       sidebar.state.showCollapsibleContent.should.be.false;
     });
-
-    it('should toggle collapsible content on keydown', function() {
-      TestUtils.Simulate.keyDown(hamburger, {key: 'Enter'});
-      sidebar.state.showCollapsibleContent.should.be.true;
-      TestUtils.Simulate.keyDown(hamburger, {key: 'Enter'});
-      sidebar.state.showCollapsibleContent.should.be.false;
-    });
   });
 });

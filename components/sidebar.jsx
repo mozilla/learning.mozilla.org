@@ -71,8 +71,8 @@ var Sidebar = React.createClass({
           <Link to="home">
             <img src="/img/nav/mozilla-wordmark-white.svg" alt="Webmaker logo" className="moz-logo"/>
           </Link>
-          <span aria-label="toggle" role="button" onKeyUp={this.handleHamburgerClick} onKeyDown={this.handleHamburgerClick} className="glyphicon glyphicon-menu-hamburger hidden-lg hidden-md"
-                onClick={this.handleHamburgerClick} tabIndex="0" />
+          <button aria-label="toggle" className="glyphicon glyphicon-menu-hamburger hidden-lg hidden-md"
+                  onClick={this.handleHamburgerClick} />
         </div>
         <div className={this.state.showCollapsibleContent
                         ? "collapsible-content"
