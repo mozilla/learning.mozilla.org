@@ -1,6 +1,26 @@
 var React = require('react');
+var Illustration = require('../components/illustration.jsx');
 var PageEndCTA = require('../components/page-end-cta.jsx');
 var Expander = require('../components/expander.jsx');
+
+var ToolkitIntro = React.createClass({
+  render: function () {
+    return (
+      <div>
+        <h1>Clubs Toolkit</h1>
+        <section className="intro">
+          <Illustration
+          height={204} width={204}
+          src1x="/img/clubs-toolkit-page/icon-toolkit.svg"
+          alt="icon toolkit"
+          className="img-circle">
+            <h2>Get ready to start your club! Here are some best practices and resources to help you grow your local group.</h2>
+          </Illustration>
+        </section>
+      </div>
+    );
+  }
+});
 
 var Toolkit = React.createClass({
   render: function() {
@@ -45,8 +65,7 @@ var ClubsToolkit = React.createClass({
   render: function () {
     return (
       <div className="inner-container">
-        <h1>Clubs Toolkit</h1>
-        <p>Get ready to start your club! Here are some best practices and resources to help you grow your local group.</p>
+        <ToolkitIntro/>
         <section className="toolkit-expanders">
           <Expander head="learn from peers">
             <Toolkit
@@ -94,7 +113,7 @@ var ClubsToolkit = React.createClass({
             subheader="Here are some other tips:">
               <ToolkitList>
                 <ToolkitListItem header="Meet in-person.">
-                  Make sure you have a chance to meet with your team prior to the event. 
+                  Make sure you have a chance to meet with your team prior to the event.
                   Discuss the best curriculum to use on the day, what the schedule will look like and what parts of the learning will need the most support.
                   Each team member should know what is expected of them so they are poised to give their best effort.
                 </ToolkitListItem>
@@ -105,7 +124,7 @@ var ClubsToolkit = React.createClass({
                 </ToolkitListItem>
                 <ToolkitListItem header="Practice being a facilitative teacher.">
                   Review what it means to ‘teach like Mozilla. We encourage learning through making, using participatory methods to teach, using open practices and much more.
-                  This is an important step and part of the magic of being a club leader. 
+                  This is an important step and part of the magic of being a club leader.
                 </ToolkitListItem>
                 <ToolkitListItem header="Join our discussion forum.">
                   Ask your mentors to sign up on our discussion forum, Discourse. Introduce yourselves and review advice from other mentors.
@@ -125,7 +144,7 @@ var ClubsToolkit = React.createClass({
                 <ToolkitListItem header="Print Material.">
                   Don’t underestimate the power of a good old fashioned poster that tells the details of your club.
                   Make sure they stand out so they catch the attention of passer-by’s.
-                  You can post them at bus stops, schools, local coffee shops, libraries, community centers and anywhere else that makes sense in your location. 
+                  You can post them at bus stops, schools, local coffee shops, libraries, community centers and anywhere else that makes sense in your location.
                 </ToolkitListItem>
                 <ToolkitListItem header="Community boards and mailing lists.">
                   Find places where the local community is talking and sharing about upcoming opportunities.
@@ -136,7 +155,7 @@ var ClubsToolkit = React.createClass({
                   Spread the word far and wide at the next event, function, office or place you go to.
                 </ToolkitListItem>
                 <ToolkitListItem header="Blog.">
-                  Share your experience running a club on your blog, or even write a guest post on other relevant blogs. If you’re looking for somewhere to start, join the community at NWP Digital Is where you can publish posts and connect to educators around the world. 
+                  Share your experience running a club on your blog, or even write a guest post on other relevant blogs. If you’re looking for somewhere to start, join the community at NWP Digital Is where you can publish posts and connect to educators around the world.
                 </ToolkitListItem>
               </ToolkitList>
             </Toolkit>
@@ -148,13 +167,13 @@ var ClubsToolkit = React.createClass({
                 <ToolkitListItem header="Naming.">
                   We love seeing “Mozilla Web Clubs” pop up, yet we also welcome adaptations of the name to better represent your community or language.
                   Example club names include: Mozilla Web Club Toronto, Xavier School Web All-Stars, St. Patricks Church Tech Squad or London Library Web Brigade.
-                  You can also embed your club in an existing program or brand. 
+                  You can also embed your club in an existing program or brand.
                 </ToolkitListItem>
                 <ToolkitListItem header="Mozilla branding.">
-                  The Mozilla brand helps identify your clubs as part of our global network and mission. Have a look at the Mozilla branding guidelines if you’d like to use it. 
+                  The Mozilla brand helps identify your clubs as part of our global network and mission. Have a look at the Mozilla branding guidelines if you’d like to use it.
                 </ToolkitListItem>
                 <ToolkitListItem header="Github.">
-                  Our curriculum is available via Github. You can fork any of those pages and make them your own. Share your new pages with the community, you never know who might find them helpful. 
+                  Our curriculum is available via Github. You can fork any of those pages and make them your own. Share your new pages with the community, you never know who might find them helpful.
                 </ToolkitListItem>
               </ToolkitList>
             </Toolkit>
@@ -164,7 +183,7 @@ var ClubsToolkit = React.createClass({
             header="Tell the world what you and your club are doing! Here are ways to show off the hard work that’s put into teaching and learning the web.">
               <ToolkitList>
                 <ToolkitListItem header="Social Media.">
-                  Share your club activities online. You might even consider creating a new hashtag just for your club so the learners can keep track of all that happens in one place. Write a few sample tweets and posts that your mentors and learners can share on their networks as well. Be sure to share them with us too using #teachtheweb and @Webmaker. 
+                  Share your club activities online. You might even consider creating a new hashtag just for your club so the learners can keep track of all that happens in one place. Write a few sample tweets and posts that your mentors and learners can share on their networks as well. Be sure to share them with us too using #teachtheweb and @Webmaker.
                 </ToolkitListItem>
                 <ToolkitListItem header="Website.">
                   You might want to consider creating a site where learners can showcase what they make, while potential learners can get a feel for what happens. It can also serve as the place you share your blog, integrate your social media channels and post your print materials for others to print. Wordpress, Blogger and Tumblr are all easy and free places to start. Don’t forget to share the link on our discussion forum!
