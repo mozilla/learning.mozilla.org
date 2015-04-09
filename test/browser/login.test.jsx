@@ -65,12 +65,6 @@ describe("Login", function() {
     alerts.should.eql(["An error occurred! Please try again later."]);
   });
 
-  it("tells user to make a webmaker account when needed", function() {
-    teachAPI.emit('login:error', {hasNoWebmakerAccount: true});
-    alerts.length.should.eql(1);
-    alerts[0].should.match(/Webmaker account/);
-  });
-
   it("handles login:cancel event", function() {
     login.setState({loggingIn: true});
     teachAPI.emit('login:cancel');

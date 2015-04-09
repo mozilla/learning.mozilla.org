@@ -102,19 +102,9 @@ var Login = React.createClass({
                 nonInteraction:true});
     }
 
-    if (err.hasNoWebmakerAccount) {
-      this.props.alert(
-        "An error occurred when logging in. Are you sure you " +
-        "have a Webmaker account associated with the email " +
-        "address you used?"
-      );
-      ga.event({ category: 'Login', action: 'Error: Has no Webmaker Account',
-                nonInteraction:true});
-    } else {
-      this.props.alert("An error occurred! Please try again later.");
-      ga.event({ category: 'Login', action: 'Error Occurred',
-                nonInteraction:true});
-    }
+    this.props.alert("An error occurred! Please try again later.");
+    ga.event({ category: 'Login', action: 'Error Occurred',
+               nonInteraction:true});
   },
   handleApiLoginCancel: function() {
     this.setState({loggingIn: false});
