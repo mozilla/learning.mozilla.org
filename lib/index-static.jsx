@@ -44,6 +44,10 @@ function generateWithPageHTML(url, options, pageHTML) {
         <title>Mozilla Learning</title>
       </head>
       <body>
+        <div className="no-js-warning">
+          Please <a href="https://browser-update.org/update.html">update your browser</a> or
+          enable JavaScript to access this website's full functionality.
+        </div>
         <a href="https://www.mozilla.org/" id="tabzilla" className="teach-tabzilla">mozilla</a>
         <div id="page-holder" dangerouslySetInnerHTML={{
           __html: pageHTML
