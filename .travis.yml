@@ -5,4 +5,4 @@ env:
   global:
     secure: G3YBwV29SBIqtWfP1EIyaABZ65jvzFT15vUMRSf8IZgINRkRl8p7Js38ioaYahlCIVVom02iulY5N/n/Q5qdsgckZUGYe0FYy4+Qz1Qr69rATpFCpREPh02lfkm5TojjefGdDqlm9CUJvJGhtDXIOUlAK66yd85O2gyZb9DK0CQ=
 after_success:
-  "npm run s3"
+  "NODE_ENV=production SHOW_DEV_RIBBON=on npm run s3"
