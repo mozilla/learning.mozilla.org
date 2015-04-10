@@ -251,6 +251,7 @@ gulp.task('s3', BUILD_TASKS, function() {
   var key = process.env.AWS_ACCESS_KEY;
   var secret = process.env.AWS_SECRET_KEY;
 
+  gutil.log('NODE_ENV is ' + process.env.NODE_ENV + '.');
   if (process.env.TRAVIS === 'true') {
     gutil.log('Travis build detected.');
     if (process.env.TRAVIS_PULL_REQUEST === 'false' &&
