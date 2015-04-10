@@ -1,14 +1,60 @@
 var React = require('react');
-
+var request = require('superagent');
 var HeroUnit = require('../components/hero-unit.jsx');
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
 var Illustration = require('../components/illustration.jsx');
 
-var CAROUSEL_IMG_PROPS = {
-  width: 800,
-  height: 533
-};
+var FormMailingListSignup = React.createClass({
+  mixins: [React.addons.LinkedStateMixin],
+  getInitialState: function() {
+    return {
+      formDest: "https://sendto.mozilla.org/page/s/maker-party-signup",
+      email: "",
+      privacyPolicyAgree: false
+    };
+  },
+  handleSubmit: function(e) {
+    e.preventDefault();
+    console.log(this.state.email);
+    console.log(this.state.privacyPolicyAgree);
+    console.log(this.state.formDest);
+
+    request
+      .post(this.state.formDest)
+      .withCredentials()
+      .send({
+        email: this.state.email,
+        "custom-2517": this.state.privacyPolicyAgree
+      })
+      .end(function(err, res) {
+        if (err) {
+          console.log(err);
+          window.alert("error encountered");
+        }
+      });
+  },
+  handleBtnClick: function(e) {
+    window.alert("submit btn clicked");
+  },
+  render: function() {
+    return (
+      <form action={this.state.formDest} method="POST" onSubmit={this.handleSubmit}>
+        <div className="col-sm-offset-1 col-sm-8 col-md-offset-1 col-md-8 col-lg-offset-1 col-lg-8">
+          <fieldset>
+            <input name="email" type="email" size="30" placeholder="Your email address" valueLink={this.linkState("email")} required />
+          </fieldset>
+          <fieldset>
+            <input name="custom-2517" type="checkbox" checkedLink={this.linkState("privacyPolicyAgree")} required /> I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.
+          </fieldset>
+        </div>
+        <div className="col-sm-2 col-md-2 col-lg-2 text-center">
+          <input type="submit" value="Submit Email" className="btn btn-awsm" onClick={this.handleBtnClick} />
+        </div>
+      </form>
+    );
+  }
+});
 
 var EventsPage = React.createClass({
   statics: {
@@ -63,6 +109,13 @@ var EventsPage = React.createClass({
                 <p className="callout-heading">Check out the highlights from Maker Party and see more photos in our <a href="https://www.flickr.com/photos/mozilladrumbeat/galleries/72157643962655534/">Flickr gallery</a>.</p>
               </div>
             </div>
+            <PageEndCTA
+            header="Sign up to get Maker Party updates:"
+            dividerImgSrc="/img/events-page/line-divider.svg">
+              <div className="row">
+                <FormMailingListSignup/>
+              </div>
+            </PageEndCTA>
             <section>
               <IconLinks>
                 <IconLink
