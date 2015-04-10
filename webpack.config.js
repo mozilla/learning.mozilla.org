@@ -41,6 +41,7 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin(importEnvVars([
       'SOFTEST_OF_LAUNCHES',
+      'SHOW_DEV_RIBBON',
       'NODE_ENV',
       'TEACH_API_URL',
       'GA_ACCOUNT',

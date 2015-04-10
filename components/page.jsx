@@ -5,7 +5,8 @@ var RouteHandler = Router.RouteHandler;
 var Sidebar = require('./sidebar.jsx');
 var Footer = require('./footer.jsx');
 var TeachAPI = require('../lib/teach-api');
-var DevRibbon = process.env.NODE_ENV === 'production'
+var DevRibbon = (process.env.NODE_ENV === 'production' &&
+                 process.env.SHOW_DEV_RIBBON !== 'on')
                 ? null
                 : require('./dev-ribbon.jsx');
 

@@ -156,6 +156,7 @@ string), the boolean is true; otherwise, it's false.
    Name | Description
 ------------------|---------------------------------------------
 `NODE_ENV` | set this to `production` to automatically minify code and remove various development-only affordances.
+`SHOW_DEV_RIBBON` | set this to `on` to show the "dev version" ribbon even when `NODE_ENV` is set to production. This can be used on staging sites.
 `WEBPACK_DEVTOOL` | determines the setting for the [`devtool`][] Webpack option. In development, it defaults to `eval`, while in production it defaults to `source-map`. For more details on the trade-offs between different options, see our [conversation on sourcemaps][sourcemaps-wtf].
 `LESS_AUTOPREFIXER` | set this to `off` to disable the LESS autoprefixer and enable useful CSS source maps, which is a workaround for [#413][].
 `AWS_ACCESS_KEY` | is the Amazon Web Services access key used when uploading to s3 via `npm run s3`.
