@@ -43,39 +43,31 @@ var EventsPage = React.createClass({
             </h2>
           </Illustration>
           <div className="row">
-            <div className="videoContainer">
-              <iframe src="https://www.youtube.com/embed/oko6TzPQE6Y" frameBorder="0" allowFullScreen className="video"></iframe>
+            <div className="col-sm-12 col-md-12 col-lg-12">
+              <div className="video-container">
+                <iframe src="https://www.youtube.com/embed/oko6TzPQE6Y" frameBorder="0" allowFullScreen className="video"></iframe>
+              </div>
             </div>
           </div>
-          <div className="carousel-holder">
-            <Carousel>
-              <CarouselItem>
-                <img {...CAROUSEL_IMG_PROPS} alt="2014 Hive NYC Summer Quest Maker Party" src="//c3.staticflickr.com/3/2915/14592256638_55ec5cf36b_b.jpg"/>
-                <div className="carousel-caption sr-only">
-                  <h3><a href="https://www.flickr.com/photos/mozilladrumbeat/14592256638/in/set-72157647305286970">2014 Hive NYC Summer Quest Maker Party</a></h3>
-                </div>
-              </CarouselItem>
-              <CarouselItem>
-                <img {...CAROUSEL_IMG_PROPS} alt="Appmaking" src="//c2.staticflickr.com/6/5587/15213220651_9055dffbe6.jpg"/>
-                <div className="carousel-caption sr-only">
-                  <h3><a href="https://www.flickr.com/photos/mozilladrumbeat/15213220651/in/album-72157647305286970/">Appmaking</a></h3>
-                </div>
-              </CarouselItem>
-              <CarouselItem>
-                <img {...CAROUSEL_IMG_PROPS} alt="2014 Hive NYC Summer Quest Maker Party" src="//c4.staticflickr.com/4/3905/14715964794_a9fa75002c_c.jpg"/>
-                <div className="carousel-caption sr-only">
-                  <h3><a href="https://www.flickr.com/photos/newyouthcity/14715964794/in/faves-mozilladrumbeat/">2014 Hive NYC Summer Quest Maker Party</a></h3>
-                </div>
-              </CarouselItem>
-              <CarouselItem>
-                <img {...CAROUSEL_IMG_PROPS} alt="Maker Party 2014 in India" src="//c4.staticflickr.com/4/3837/14710363742_7e03595055_b.jpg"/>
-                <div className="carousel-caption sr-only">
-                  <h3><a href="https://www.flickr.com/photos/mozilladrumbeat/14710363742/in/set-72157647527636985">Maker Party 2014 in India</a></h3>
-                </div>
-              </CarouselItem>
-            </Carousel>
+          <div className="row">
+            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+              <a href="https://www.flickr.com/photos/mozilladrumbeat/14592256638/in/set-72157647305286970"><img alt="2014 Hive NYC Summer Quest Maker Party" src="//c3.staticflickr.com/3/2915/14592256638_55ec5cf36b_b.jpg" className="flickr-thumbnail" /></a>
+            </div>
+            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+              <a href="https://www.flickr.com/photos/mozilladrumbeat/15213220651/in/album-72157647305286970/"><img alt="Appmaking" src="//c2.staticflickr.com/6/5587/15213220651_9055dffbe6.jpg" className="flickr-thumbnail" /></a>
+            </div>
+            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+              <a href="https://www.flickr.com/photos/newyouthcity/14715964794/in/faves-mozilladrumbeat/"><img alt="2014 Hive NYC Summer Quest Maker Party" src="//c4.staticflickr.com/4/3905/14715964794_a9fa75002c_c.jpg" className="flickr-thumbnail" /></a>
+            </div>
           </div>
-          <PageEndCTA>
+          <div className="row">
+            <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+              <p className="callout-heading">Check out the highlights from Maker Party and see more photos in our <a href="https://www.flickr.com/photos/mozilladrumbeat/galleries/72157643962655534/">Flickr gallery</a>.</p>
+            </div>
+          </div>
+          <PageEndCTA
+            header="Sign up to get Maker Party updates:"
+            dividerImgSrc="/img/events-page/line-divider.svg">
             <div>
               <p>Check out the highlights from  Maker Party and see more photos in our <a href="">Flickr gallery</a>.</p>
               <img className="divider" src="/img/events-page/line-divider.svg" alt="line divider" />
