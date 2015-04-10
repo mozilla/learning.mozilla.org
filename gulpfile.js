@@ -8,7 +8,7 @@ var s3 = require('gulp-s3');
 var gzip = require('gulp-gzip');
 var less = require('gulp-less');
 var cssmin = require('gulp-minify-css');
-var prettify = require('gulp-prettify');
+var prettify = require('gulp-html-prettify');
 var webpack = require('gulp-webpack');
 var plumber = require('gulp-plumber');
 var merge = require('merge-stream');
@@ -160,6 +160,7 @@ gulp.task('test-react-warnings', function() {
 gulp.task('generate-index-files', function() {
   return new IndexFileStream(require('./lib/index-static.jsx'))
     .pipe(prettify({
+      indent_char: ' ',
       indent_size: 2
     }))
     .pipe(gulp.dest('./dist'));
