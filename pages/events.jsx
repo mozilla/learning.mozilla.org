@@ -7,6 +7,7 @@ var HeroUnit = require('../components/hero-unit.jsx');
 var PageEndCTA = require('../components/page-end-cta.jsx');
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
+var Illustration = require('../components/illustration.jsx');
 
 var CAROUSEL_IMG_PROPS = {
   width: 800,
@@ -32,16 +33,15 @@ var EventsPage = React.createClass({
         <section>
           <h2>Join the Global Movement</h2>
           <p>Since its inauguration in 2012, Maker Party has become Mozilla's largest celebration of making and learning on the web. From getting the hang of HTML to building robots to learning about remixing using paper and scissors, people of all ages and from all backgrounds have come together to joyfully explore the culture, mechanics and citizenship of the web.</p>
-          <div className="values row">
-            <div className="col-sm-3">
-              <img src="/img/events-page/maker-party-logo.svg" className="img-scale-to-fit" alt="Maker Party logo"/>
-            </div>
-            <div className="col-sm-9 col-lg-8">
-              <h2>
-                Join us for the worldwide Maker Party on July 15-31, 2015 and add your events to <a href="https://events.webmaker.org/">our global list</a> any time of year.
-              </h2>
-            </div>
-          </div>
+          <Illustration
+          height={183} width={156}
+          src1x="/img/events-page/maker-party-logo.svg"
+          alt="Maker Party logo"
+          >
+            <h2>
+              Join us for the worldwide Maker Party on July 15-31, 2015 and add your events to <a href="https://events.webmaker.org/">our global list</a> any time of year.
+            </h2>
+          </Illustration>
           <div className="carousel-holder">
             <Carousel>
               <CarouselItem>
