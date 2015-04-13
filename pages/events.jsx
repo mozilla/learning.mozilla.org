@@ -44,7 +44,7 @@ var EventsPage = React.createClass({
           </Illustration>
           <div className="row">
             <div className="videoContainer">
-              <iframe src="https://www.youtube.com/embed/oko6TzPQE6Y" frameborder="0" allowfullscreen className="video"></iframe>
+              <iframe src="https://www.youtube.com/embed/oko6TzPQE6Y" frameBorder="0" allowFullScreen className="video"></iframe>
             </div>
           </div>
           <div className="carousel-holder">
