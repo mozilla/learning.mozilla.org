@@ -558,7 +558,7 @@ var ClubsPage = React.createClass({
     return (
       <div>
         <HeroUnit image="/img/hero-clubs.png"
-                  image2x="hero-clubs@2x.png">
+                  image2x="/img/hero-clubs@2x.png">
           <h1>Mozilla Clubs</h1>
 
           {process.env.SOFTEST_OF_LAUNCHES == 'on' ? null :
