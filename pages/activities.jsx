@@ -117,8 +117,8 @@ var ActivitiesPage = React.createClass({
     return (
       <div>
         <HeroUnit image="/img/activities-page/hero-teaching-activities.png"
-                    image2x="/imv/activities-page/hero-teaching-activities@2x.png">
-            <h1>Teaching Activities</h1>
+                  image2x="/img/activities-page/hero-teaching-activities@2x.png">
+          <h1>Teaching Activities</h1>
         </HeroUnit>
         <div className="inner-container activities">
           <section>
