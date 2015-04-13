@@ -42,6 +42,11 @@ var EventsPage = React.createClass({
               Join us for the worldwide Maker Party on July 15-31, 2015 and add your events to <a href="https://events.webmaker.org/">our global list</a> any time of year.
             </h2>
           </Illustration>
+          <div className="row">
+            <div className="videoContainer">
+              <iframe src="https://www.youtube.com/embed/oko6TzPQE6Y" frameBorder="0" allowFullScreen className="video"></iframe>
+            </div>
+          </div>
           <div className="carousel-holder">
             <Carousel>
               <CarouselItem>
