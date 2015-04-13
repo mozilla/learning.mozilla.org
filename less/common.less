@@ -75,3 +75,19 @@ a.bold-link {
     z-index: 100;
   }
 }
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 60%; // percentage of the videoContainer width, this gives it a fixed aspect ratio
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  .video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
