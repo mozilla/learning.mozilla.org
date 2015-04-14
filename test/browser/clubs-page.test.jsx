@@ -6,6 +6,7 @@ var React =require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
 var StubTeachAPI = require('./stub-teach-api');
+var StubRouter = require('./stub-router');
 var stubContext = require('./stub-context.jsx');
 var ClubsPage = require('../../pages/clubs.jsx');
 
@@ -59,7 +60,9 @@ describe("ClubsPage", function() {
 
   it('shows add modal if ?modal=add is in query', function() {
     var clubsPage2 = stubContext.render(ClubsPage, {}, {
-      getCurrentQuery: function() { return {'modal': 'add'}; }
+      router: new StubRouter({
+        currentQuery: {'modal': 'add'}
+      })
     });
     clubsPage2.context.showModal.callCount.should.equal(1);
     stubContext.unmount(clubsPage2);

@@ -6,47 +6,31 @@ var React =require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var sinon = window.sinon;
 
+var StubRouter = require('./stub-router');
 var StubTeachAPI = require('./stub-teach-api');
 
 var stubContext = function(Component, props, stubs) {
+  var childContext;
   var func = React.PropTypes.func;
-  var noop = function() {};
 
   return React.createClass({
     childContextTypes: {
-      makePath: func,
-      makeHref: func,
-      transitionTo: func,
-      replaceWith: func,
-      goBack: func,
-      getCurrentPath: func,
-      getCurrentRoutes: func,
-      getCurrentPathname: func,
-      getCurrentParams: func,
-      getCurrentQuery: func,
-      isActive: func,
+      router: func,
       showModal: func,
       hideModal: func,
       teachAPI: React.PropTypes.object
     },
 
     getChildContext: function() {
-      return _.extend({
-        makePath: noop,
-        makeHref: noop,
-        transitionTo: noop,
-        replaceWith: noop,
-        goBack: noop,
-        getCurrentPath: noop,
-        getCurrentRoutes: noop,
-        getCurrentPathname: noop,
-        getCurrentParams: noop,
-        getCurrentQuery: function() { return {}; },
-        isActive: noop,
-        showModal: sinon.spy(),
-        hideModal: sinon.spy(),
-        teachAPI: new StubTeachAPI()
-      }, stubs);
+      if (!childContext) {
+        childContext = _.extend({
+          router: new StubRouter(),
+          showModal: sinon.spy(),
+          hideModal: sinon.spy(),
+          teachAPI: new StubTeachAPI()
+        }, stubs);
+      }
+      return childContext;
     },
 
     render: function() {
