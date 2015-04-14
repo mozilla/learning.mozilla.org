@@ -1,6 +1,7 @@
 var React = require('react');
 var ImageTag = require('../components/imagetag.jsx');
 var Illustration = require('../components/illustration.jsx');
+var CCLicenseNote = require('../components/cc-license-note.jsx');
 var Router = require('react-router');
 var Link = Router.Link;
 
@@ -189,6 +190,7 @@ var ClubsCurriculum = React.createClass({
           );
         })}
         <LearnMoreSection/>
+        <CCLicenseNote/>
       </div>
     );
   }

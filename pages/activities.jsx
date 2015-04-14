@@ -1,6 +1,7 @@
 var React = require('react');
 var ImageTag = require('../components/imagetag.jsx');
 var Illustration = require('../components/illustration.jsx');
+var CCLicenseNote = require('../components/cc-license-note.jsx');
 var Router = require('react-router');
 var Link = Router.Link;
 
@@ -215,6 +216,7 @@ var ActivitiesPage = React.createClass({
               developedBy="Stephanie Guthrie, Kim Wilkens, 2013 MozGirls"
               description="In this activity, learners create a remix of a Wikimedia page as they think critically about the intersection of gender, culture, technology and identity."
             />
+            <CCLicenseNote/>
             <h2>More resources</h2>
             <p>
               Hive Learning Networks are city-based communities of educators who champion digital skills and web literacy through connected learning. Visit each city's portfolio to find more inspiration, resources and projects for teaching and learning.
