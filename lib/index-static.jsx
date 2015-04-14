@@ -44,13 +44,11 @@ function generateWithPageHTML(url, options, pageHTML) {
         <title>Mozilla Learning</title>
       </head>
       <body>
-        <a href="https://www.mozilla.org/" id="tabzilla" className="teach-tabzilla">mozilla</a>
         <div id="page-holder" dangerouslySetInnerHTML={{
           __html: pageHTML
         }}></div>
         <script src="/commons.bundle.js"></script>
         <script src="/app.bundle.js"></script>
-        <script src="https://mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>
         <script src="https://login.persona.org/include.js" async></script>
       </body>
     </html>

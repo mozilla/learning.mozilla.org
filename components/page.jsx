@@ -2,6 +2,7 @@ var React = require('react');
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
 
+var Tabzilla = require('./tabzilla.jsx');
 var Sidebar = require('./sidebar.jsx');
 var Footer = require('./footer.jsx');
 var TeachAPI = require('../lib/teach-api');
@@ -63,6 +64,7 @@ var Page = React.createClass({
     var pageClassName = this.getRoutes()[1].handler.pageClassName || '';
     return (
       <div>
+        <Tabzilla className="teach-tabzilla"/>
         <div className={"page container-fluid " + pageClassName}
          aria-hidden={!!this.state.modalClass}
          onFocus={this.state.modalClass && this.handleNonModalFocus}>
