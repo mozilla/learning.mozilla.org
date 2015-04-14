@@ -1,7 +1,4 @@
 var React = require('react');
-var ReactBootstrap = require('react-bootstrap');
-var Carousel = ReactBootstrap.Carousel;
-var CarouselItem = ReactBootstrap.CarouselItem;
 
 var HeroUnit = require('../components/hero-unit.jsx');
 var PageEndCTA = require('../components/page-end-cta.jsx');
