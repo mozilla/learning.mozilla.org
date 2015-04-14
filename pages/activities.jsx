@@ -132,7 +132,7 @@ var ActivitiesPage = React.createClass({
               src2x="/img/activities-page/2x/img-activity-01.png"
               title="Lo-Fi, No-Fi (Teaching Kit)"
               level="Beginner"
-              link=" https://laura.makes.org/thimble/MTUyODMwNDY0/lofi-nofi-teaching-kit"
+              link="https://laura.makes.org/thimble/MTUyODMwNDY0/lofi-nofi-teaching-kit"
               developedBy="Kat Braybrooke, Laura Hilliger, Karen Smith, Julia Vallera, Jess Klein, Chad Sansing"
               description="This series of activities help teach web literacy concepts offline, or where access to technology is limited. Includes printable templates and games to teach coding, game design and app development."
             />
