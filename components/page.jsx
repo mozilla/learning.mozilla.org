@@ -11,7 +11,9 @@ var DevRibbon = (process.env.NODE_ENV === 'production' &&
                 : require('./dev-ribbon.jsx');
 
 var Page = React.createClass({
-  mixins: [Router.State],
+  contextTypes: {
+    router: React.PropTypes.func
+  },
   childContextTypes: {
     showModal: React.PropTypes.func.isRequired,
     hideModal: React.PropTypes.func.isRequired,
@@ -60,7 +62,8 @@ var Page = React.createClass({
     }
   },
   render: function() {
-    var pageClassName = this.getRoutes()[1].handler.pageClassName || '';
+    var routes = this.context.router.getCurrentRoutes();
+    var pageClassName = routes[1].handler.pageClassName || '';
     return (
       <div>
         <div className={"page container-fluid " + pageClassName}
