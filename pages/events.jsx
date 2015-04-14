@@ -61,6 +61,18 @@ var EventsPage = React.createClass({
                   <h3><a href="https://www.flickr.com/photos/mozilladrumbeat/15213220651/in/album-72157647305286970/">Appmaking</a></h3>
                 </div>
               </CarouselItem>
+              <CarouselItem>
+                <img {...CAROUSEL_IMG_PROPS} alt="2014 Hive NYC Summer Quest Maker Party" src="//c4.staticflickr.com/4/3905/14715964794_a9fa75002c_c.jpg"/>
+                <div className="carousel-caption sr-only">
+                  <h3><a href="https://www.flickr.com/photos/newyouthcity/14715964794/in/faves-mozilladrumbeat/">2014 Hive NYC Summer Quest Maker Party</a></h3>
+                </div>
+              </CarouselItem>
+              <CarouselItem>
+                <img {...CAROUSEL_IMG_PROPS} alt="Maker Party 2014 in India" src="//c4.staticflickr.com/4/3837/14710363742_7e03595055_b.jpg"/>
+                <div className="carousel-caption sr-only">
+                  <h3><a href="https://www.flickr.com/photos/mozilladrumbeat/14710363742/in/set-72157647527636985">Maker Party 2014 in India</a></h3>
+                </div>
+              </CarouselItem>
             </Carousel>
           </div>
           <PageEndCTA>
