@@ -21,7 +21,6 @@ var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 
 require('node-jsx').install();
-require('./lib/developer-help')();
 
 // TODO: Some of our third-party components are triggering warnings
 // from react-a11y, so we need to disable it for now to prevent
@@ -191,6 +190,8 @@ gulp.task('lint-test', ['jscs', 'jshint', 'beautify']);
 gulp.task('default', BUILD_TASKS);
 
 gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
+  require('./lib/developer-help')();
+
   gulp.src(webpackConfig.entry.app)
     .pipe(webpack(_.extend({
       watch: true
