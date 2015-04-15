@@ -5,7 +5,6 @@ var config = require('./config');
 var routes = require('./routes.jsx');
 
 function startRunningSite() {
-  var url = document.querySelector('meta[name=url]').getAttribute('value');
   var pageHolder = document.getElementById('page-holder');
 
   if (config.ENABLE_PUSHSTATE) {
