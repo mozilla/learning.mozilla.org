@@ -158,7 +158,19 @@ gulp.task('test-react-warnings', function() {
 });
 
 gulp.task('generate-index-files', function() {
-  return new IndexFileStream(require('./lib/index-static.jsx'))
+  var meta = {};
+  var execSync = require('child_process').execSync;
+
+  try {
+    meta['git-rev'] = execSync('git rev-parse HEAD', {
+      cwd: __dirname,
+      encoding: 'utf8'
+    }).slice(0, 40);
+  } catch (e) {}
+
+  return new IndexFileStream(require('./lib/index-static.jsx'), {
+    meta: meta
+  })
     .pipe(prettify({
       indent_char: ' ',
       indent_size: 2
