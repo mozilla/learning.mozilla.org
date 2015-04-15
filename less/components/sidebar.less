@@ -110,7 +110,17 @@ html.no-js .sidebar {
 }
 
 .sidebar-login {
-  padding: 1rem (@grid-gutter-width / 2) 3rem
+  padding: 1rem (@grid-gutter-width / 2) 3rem;
+  .login-text {
+    img {
+      width: 2.8rem;
+      margin-right: .5rem;
+    }
+    &:after {
+      content: "|";
+      padding: 0 .8rem;
+    }
+  }
 }
 
 .sidebar-menu {

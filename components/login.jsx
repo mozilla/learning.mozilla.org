@@ -138,15 +138,19 @@ var Login = React.createClass({
       );
     } else if (this.state.username) {
       content = (
-        <span>
-          Logged in as {this.state.username} | <LogoutLink>Logout</LogoutLink>
-        </span>
+        <div>
+          <span className="login-text">Logged in as {this.state.username}</span>
+          <LogoutLink>Logout</LogoutLink>
+        </div>
       );
     } else {
       content = (
-        <span>
-          <LoginLink action="signup">Create an account</LoginLink> | <LoginLink>Log in</LoginLink>
-        </span>
+        <div>
+          <span className="login-text">
+            <img src="/img/logo-webmaker-flat.svg" alt="Webmaker logo"/><LoginLink>Log in</LoginLink>
+          </span>
+          <LoginLink action="signup">Create an account</LoginLink>
+        </div>
       );
     }
 
