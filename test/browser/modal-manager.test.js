@@ -10,11 +10,13 @@ describe('ModalManagerMixin', function() {
   it('should provide showModal() method', function(done) {
     makeFakeComponentWithContext({
       showModal: function(modalClass, modalProps) {
-        modalClass.should.eql("class");
+        modalClass.displayName.should.eql("MyModalClass");
         modalProps.should.eql("props");
         done();
       }
-    }).showModal("class", "props");
+    }).showModal({
+      displayName: "MyModalClass"
+    }, "props");
   });
 
   it('should provide hideModal() method', function(done) {
