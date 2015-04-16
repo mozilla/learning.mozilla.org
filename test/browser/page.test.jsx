@@ -14,9 +14,10 @@ var FakeModal = React.createClass({
 });
 
 describe("page", function() {
-  var handler, page;
+  var handler, page, xhr;
 
   beforeEach(function(done) {
+    xhr = sinon.useFakeXMLHttpRequest();
     Router.run(routes.routes, '/', function(Handler) {
       handler = TestUtils.renderIntoDocument(<Handler/>);
       page = TestUtils.findAllInRenderedTree(handler, function(c) {
@@ -28,6 +29,7 @@ describe("page", function() {
 
   afterEach(function() {
     React.unmountComponentAtNode(handler.getDOMNode().parentNode);
+    xhr.restore();
   });
 
   it("adds body.modal-open when modal is visible", function() {
