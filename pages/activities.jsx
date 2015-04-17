@@ -13,13 +13,13 @@ var HeroUnit = require('../components/hero-unit.jsx');
 var ActivityKit = React.createClass({
   authorLinks: {
     "Kat Braybrooke": "http://twitter.com/codekat",
+    "Laura Hilliger": "https://twitter.com/epilepticrabbit",
     "Karen Smith": "http://twitter.com/smithisgeneric",
     "Julia Vallera": "http://twitter.com/colorwheelz",
     "Jess Klein": "http://twitter.com/iamjessklein",
     "Chan Sansing": "http://twitter.com/chadsansing",
     "Hive Toronto": "http://hivetoronto.org",
-    "MOUSE": "http://mouse.org",
-    "Hive NYC": "http://hivenyc.org",
+    "MOUSE (Hive NYC member)": "http://mouse.org",
     "Drum Roll": "http://drumrollhq.com/",
     "Joe Dytrych": "",
     "Dee Salgal": "",
@@ -33,7 +33,7 @@ var ActivityKit = React.createClass({
     "David Cole": "https://www.linkedin.com/in/dcole1",
     "Chad Sansing": "http://twitter.com/chadsansing",
     "EPIK": "http://epik.org.uk/about/",
-    "Stephanie Guthrie": "http://twitter.com/amirightfolks",
+    "Steph Guthrie": "http://twitter.com/amirightfolks",
     "Kim Wilkens": "http://twitter.com/kimxtom",
     "2013 MozGirls": ""
   },
@@ -131,8 +131,8 @@ var ActivitiesPage = React.createClass({
               src2x="/img/activities-page/2x/img-activity-01.png"
               title="Lo-Fi, No-Fi (Teaching Kit)"
               level="Beginner"
-              link="https://keyboardkat.makes.org/thimble/LTIxMDA3NTY0ODA=/lofi-nofi-teaching-kit"
-              developedBy="Kat Braybrooke, Karen Smith, Julia Vallera, Jess Klein, Chad Sansing"
+              link="https://laura.makes.org/thimble/MTUyODMwNDY0/lofi-nofi-teaching-kit"
+              developedBy="Kat Braybrooke, Laura Hilliger, Karen Smith, Julia Vallera, Jess Klein, Chad Sansing"
               description="This series of activities help teach web literacy concepts offline, or where access to technology is limited. Includes printable templates and games to teach coding, game design and app development."
             />
             <ActivityKit
@@ -150,7 +150,7 @@ var ActivitiesPage = React.createClass({
               title="Creative Commons GIF Exchange"
               level="Beginner"
               link="https://katermouse.makes.org/thimble/LTIwNjQwNTYzMjA=/creative-commons-gif-exchange-activity"
-              developedBy="MOUSE, Hive NYC"
+              developedBy="MOUSE (Hive NYC member)"
               description="This activity teachers students about Creative Commons licensing while creating their own animated GIFs or memes."
             />
             <ActivityKit
@@ -195,7 +195,7 @@ var ActivitiesPage = React.createClass({
               title="CSS Story Cards"
               level="Intermediate"
               link="https://mousemeredith.makes.org/thimble/MTQwOTAyNDAwMA==/css-story-card-game-activity"
-              developedBy="MOUSE, Hive NYC"
+              developedBy="MOUSE (Hive NYC member)"
               description="In this card game, learners work collaboratively to create a complete story using HTML and CSS."
             />
             <ActivityKit
@@ -213,7 +213,7 @@ var ActivitiesPage = React.createClass({
               title="Girls in Tech: Hacking My Media"
               level="Intermediate"
               link="https://laura.makes.org/thimble/MjE3Nzc2Mzg0/hacking-my-media-with-x-ray-goggles"
-              developedBy="Stephanie Guthrie, Kim Wilkens, 2013 MozGirls"
+              developedBy="Steph Guthrie, Kim Wilkens, 2013 MozGirls"
               description="In this activity, learners create a remix of a Wikimedia page as they think critically about the intersection of gender, culture, technology and identity."
             />
             <CCLicenseNote/>

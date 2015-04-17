@@ -157,7 +157,19 @@ gulp.task('test-react-warnings', function() {
 });
 
 gulp.task('generate-index-files', function() {
-  return new IndexFileStream(require('./lib/index-static.jsx'))
+  var meta = {};
+  var execSync = require('child_process').execSync;
+
+  try {
+    meta['git-rev'] = execSync('git rev-parse HEAD', {
+      cwd: __dirname,
+      encoding: 'utf8'
+    }).slice(0, 40);
+  } catch (e) {}
+
+  return new IndexFileStream(require('./lib/index-static.jsx'), {
+    meta: meta
+  })
     .pipe(gulp.dest('./dist'));
 });
 
@@ -185,6 +197,8 @@ gulp.task('lint-test', ['jscs', 'jshint', 'beautify']);
 gulp.task('default', BUILD_TASKS);
 
 gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
+  require('./lib/developer-help')();
+
   gulp.src(webpackConfig.entry.app)
     .pipe(webpack(_.extend({
       watch: true

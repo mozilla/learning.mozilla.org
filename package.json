@@ -4,11 +4,13 @@
   "description": " Initial attempt at implementing Webmaker Learning front-page.",
   "dependencies": {
     "bootstrap": "^3.3.4",
+    "chalk": "^1.0.0",
     "es5-shim": "^4.1.0",
     "express": "^4.12.3",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.1.0",
     "gulp-gzip": "^1.0.0",
+    "gulp-html-prettify": "^0.0.1",
     "gulp-if": "^1.2.5",
     "gulp-jsbeautify": "^0.1.1",
     "gulp-jscs": "^1.4.0",

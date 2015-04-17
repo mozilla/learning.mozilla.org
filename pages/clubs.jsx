@@ -14,6 +14,7 @@ var PageEndCTA = require('../components/page-end-cta.jsx');
 var Modal = require('../components/modal.jsx');
 var ModalManagerMixin = require('../mixins/modal-manager');
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
+var LoginLink = require('../components/login.jsx').LoginLink;
 var ga = require('react-ga');
 
 var Illustration = require('../components/illustration.jsx');
@@ -120,7 +121,7 @@ var HowClubWorks = React.createClass({
         alt="icon how do Mozilla clubs work">
           <h2>How do Mozilla Clubs work?</h2>
           <ul>
-            <li>Grow the web literary of learners</li>
+            <li>Grow the web literacy of learners</li>
             <li>Meet regularly in classrooms, libraries, coffee shops &mdash; anywhere!</li>
             <li>Teach with open practices</li>
             <li>Guide people to learn by making</li>
@@ -335,10 +336,6 @@ var ModalAddOrChangeYourClub = React.createClass({
     this.hideModal();
     this.props.onSuccess(this.state.result);
   },
-  handleJoinClick: function() {
-    this.hideModal();
-    this.context.router.transitionTo('join');
-  },
   renderValidationErrors: function() {
     if (this.state.validationErrors.length) {
       return (
@@ -364,10 +361,8 @@ var ModalAddOrChangeYourClub = React.createClass({
       content = (
         <div>
           <p>Before you can {action} your club, you need to log in.</p>
-          <button className="btn btn-primary btn-block"
-           onClick={this.getTeachAPI().startLogin}>Log In</button>
-          <button className="btn btn-default btn-block"
-           onClick={this.handleJoinClick}>Create an account</button>
+          <LoginLink callbackSearch="?modal=add" className="btn btn-primary btn-block">Log In</LoginLink>
+          <LoginLink callbackSearch="?modal=add" action="signup" className="btn btn-default btn-block">Create an account</LoginLink>
         </div>
       );
     } else if (this.state.step == this.STEP_FORM ||

@@ -303,73 +303,22 @@ describe('TeachAPI', function() {
     });
   });
 
-  describe('startLogin()', function() {
-    var personaCb;
-
-    beforeEach(function() {
-      personaCb = null;
-      window.navigator.id = {
-        get: function(cb) {
-          personaCb = cb;
-        }
-      };
-    });
-
-    afterEach(function() {
-      delete window.navigator.id;
-    });
-
-    it('does nothing if given no assertion', function(done) {
+  describe('checkLoginStatus()', function() {
+    it('sends credentials with request', function() {
       var api = new TeachAPI({storage: storage});
 
-      api.startLogin();
-      api.on('login:cancel', function() {
-        requests.should.eql([]);
-        done();
-      });
-      personaCb(null);
-    });
-
-    it('emits error if navigator.id is falsy', function(done) {
-      var api = new TeachAPI({storage: storage});
-
-      delete window.navigator.id;
-      api.once('login:error', function(err) {
-        err.message.should.eql('navigator.id does not exist');
-        done();
-      });
-      api.startLogin();
-    });
-
-    it('sends assertion to Teach API server', function() {
-      var api = new TeachAPI({
-        baseURL: 'http://example.org',
-        storage: storage
-      });
-
-      api.startLogin();
-      personaCb('hi');
-
-      requests.length.should.eql(1);
-
-      var r = requests[0];
-
-      r.url.should.eql('http://example.org/auth/persona');
-      r.requestHeaders.should.eql({
-        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
-      });
-      r.requestBody.should.eql('assertion=hi');
+      api.checkLoginStatus();
+      requests.length.should.equal(1);
+      requests[0].withCredentials.should.be.true;
     });
 
     it('emits error upon general failure', function(done) {
       var api = new TeachAPI({storage: storage});
 
-      api.startLogin();
-      personaCb('hi');
+      api.checkLoginStatus();
 
       api.on('login:error', function(err) {
         err.response.text.should.eql('nope');
-        err.hasNoWebmakerAccount.should.be.false;
         done();
       });
 
@@ -378,23 +327,20 @@ describe('TeachAPI', function() {
       }, 'nope');
     });
 
-    it('reports when email has no Webmaker acct', function(done) {
+    it('calls logout', function() {
       var api = new TeachAPI({storage: storage});
 
-      api.startLogin();
-      personaCb('hi');
+      api.logout = sinon.spy();
+      storage['TEACH_API_LOGIN_INFO'] = '{"username": "boop"}';
+      api.checkLoginStatus();
 
-      api.on('login:error', function(err) {
-        err.hasNoWebmakerAccount.should.be.true;
-        done();
-      });
-
-      requests[0].respond(403, {
-        'Content-Type': 'text/html'
-      }, 'invalid assertion or email');
+      requests[0].respond(200, {
+        'Content-Type': 'application/json'
+      }, JSON.stringify({username: null}));
+      api.logout.callCount.should.equal(1);
     });
 
-    it('stores login info and emits events upon success', function(done) {
+    it('stores login info, emits events on login', function(done) {
       var usernameEventEmitted = false;
       var api = new TeachAPI({storage: storage});
       var loginInfo = {
@@ -402,8 +348,7 @@ describe('TeachAPI', function() {
         'token': 'blah'
       };
 
-      api.startLogin();
-      personaCb('hi');
+      api.checkLoginStatus();
 
       api.on('username:change', function(username) {
         username.should.eql('foo');

@@ -6,9 +6,23 @@ var TeachAPI = require('../lib/teach-api');
 
 var DevModal = React.createClass({
   render: function() {
+    var rev = document.querySelector('meta[name="git-rev"]');
+
+    if (rev) {
+      rev = rev.getAttribute('content');
+      rev = (
+        <span> based on commit <code>
+            <a target="_blank"
+               href={"https://github.com/mozilla/teach.webmaker.org/commit/" + rev}>
+              {rev.slice(0, 10)}
+            </a>
+        </code></span>
+      );
+    }
+
     return (
       <Modal modalTitle="Development Version">
-        <p>This is a development version of the <a href="https://github.com/mozilla/teach.webmaker.org" target="_blank">Teach Site</a>.</p>
+        <p>This is a development version of the <a href="https://github.com/mozilla/teach.webmaker.org" target="_blank">Teach Site</a>{rev}.</p>
 
         <a href="http://invis.io/9G2DK7SR2" target="_blank" className="btn btn-block btn-default">
           <span className="glyphicon glyphicon glyphicon-plane"/> Site Map
