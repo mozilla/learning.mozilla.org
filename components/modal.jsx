@@ -1,5 +1,4 @@
 var React = require('react/addons');
-var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 var ModalManagerMixin = require('../mixins/modal-manager');
 
@@ -22,7 +21,7 @@ var Modal = React.createClass({
     }
   },
   render: function() {
-    var modal = (
+    return (
       <div className="modal show"
          key={this.props.modalTitle}
          role="dialog"
@@ -41,12 +40,6 @@ var Modal = React.createClass({
             </div>
           </div>
         </div>
-    );
-
-    return (
-      <ReactCSSTransitionGroup transitionName="modal">
-        {modal}
-      </ReactCSSTransitionGroup>
     );
   }
 });

@@ -1,4 +1,5 @@
-var React = require('react');
+var React = require('react/addons');
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
 
@@ -75,13 +76,16 @@ var Page = React.createClass({
           </div>
           <Footer/>
         </div>
+
+        <ReactCSSTransitionGroup transitionName="modal">
         {this.state.modalClass
-         ? <div ref="modalHolder">
+         ? <div ref="modalHolder" key={1}>
              {React.createElement(this.state.modalClass,
                                   this.state.modalProps)}
              <div className="modal-backdrop"/>
            </div>
          : null}
+        </ReactCSSTransitionGroup>
       </div>
     );
   }
