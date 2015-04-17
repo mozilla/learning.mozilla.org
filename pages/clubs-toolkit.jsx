@@ -46,10 +46,7 @@ var ToolkitList = React.createClass({
 
 var ToolkitListItem = React.createClass({
   render: function() {
-    var header = this.props.header;
-    if (this.props.headerHref) {
-      header = <a href={this.props.headerHref}>{this.props.header}</a>;
-    }
+    var header = this.props.headerHref ? <a href={this.props.headerHref}>{this.props.header}</a> : this.props.header;
 
     return (
       <li>
