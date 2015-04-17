@@ -98,15 +98,15 @@ body .modal {
 // modal fade in/out animation
 .modal-enter {
   opacity: 0.01;
-  transition: opacity 10s ease-in;
-  .modal-enter-active {
+  transition: opacity 0.25s ease-in;
+  &.modal-enter-active {
     opacity: 1;
   }
 }
 
 .modal-leave {
   opacity: 1;
-  transition: opacity 10s ease-in;
+  transition: opacity 0.25s ease-in;
   &.modal-leave-active {
     opacity: 0.01;
   }
