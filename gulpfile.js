@@ -22,6 +22,10 @@ var rename = require('gulp-rename');
 
 require('node-jsx').install();
 
+if (process.env.HTML5_NOVALIDATE === 'on') {
+  require('./lib/novalidate').install();
+}
+
 // TODO: Some of our third-party components are triggering warnings
 // from react-a11y, so we need to disable it for now to prevent
 // warning spam. Hopefully in the future we can find a way to

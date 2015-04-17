@@ -40,6 +40,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin(importEnvVars([
+      'HTML5_NOVALIDATE',
       'LESS_AUTOPREFIXER',
       'SOFTEST_OF_LAUNCHES',
       'SHOW_DEV_RIBBON',

@@ -18,6 +18,10 @@ if (config.IN_STATIC_SITE && window.ENABLE_JS) {
   startRunningSite();
 }
 
+if (process.env.HTML5_NOVALIDATE === 'on') {
+  require('./novalidate').install();
+}
+
 if (process.env.NODE_ENV !== 'production') {
   require('./developer-help')();
 }
