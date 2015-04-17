@@ -8,7 +8,10 @@ var TeachAPIClientMixin = require('../mixins/teach-api-client');
 var ga = require('react-ga');
 
 var LogoutLink = React.createClass({
-  mixins: [TeachAPIClientMixin, Router.State, React.addons.PureRenderMixin],
+  mixins: [TeachAPIClientMixin, React.addons.PureRenderMixin],
+  contextTypes: {
+    router: React.PropTypes.func
+  },
   propTypes: {
     origin: React.PropTypes.string
   },
@@ -18,7 +21,8 @@ var LogoutLink = React.createClass({
     };
   },
   render: function() {
-    var callbackURL = this.props.origin + this.getPathname();
+    var callbackURL = this.props.origin +
+                      this.context.router.getCurrentPathname();
     var loginBaseURL = this.getTeachAPI().baseURL;
     var href = loginBaseURL + '/auth/oauth2/logout?callback=' +
                encodeURIComponent(callbackURL);
@@ -31,7 +35,10 @@ var LogoutLink = React.createClass({
 });
 
 var LoginLink = React.createClass({
-  mixins: [TeachAPIClientMixin, Router.State, React.addons.PureRenderMixin],
+  mixins: [TeachAPIClientMixin, React.addons.PureRenderMixin],
+  contextTypes: {
+    router: React.PropTypes.func
+  },
   propTypes: {
     origin: React.PropTypes.string,
     callbackSearch: React.PropTypes.string,
@@ -45,7 +52,8 @@ var LoginLink = React.createClass({
     };
   },
   render: function() {
-    var callbackPath = this.getPathname() + this.props.callbackSearch;
+    var callbackPath = this.context.router.getCurrentPathname() +
+                       this.props.callbackSearch;
     var callbackURL = this.props.origin + callbackPath;
     var loginBaseURL = this.getTeachAPI().baseURL;
     var action = this.props.action;

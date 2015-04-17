@@ -17,7 +17,7 @@ module.exports = function StubRouter(options) {
     goBack: noop,
     getCurrentPath: noop,
     getCurrentRoutes: noop,
-    getCurrentPathname: noop,
+    getCurrentPathname: function() { return options.currentPathname || {}; },
     getCurrentParams: noop,
     getCurrentQuery: function() { return options.currentQuery || {}; },
     isActive: noop

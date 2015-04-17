@@ -9,6 +9,7 @@ var Login = require('../../components/login.jsx');
 var LoginLink = Login.LoginLink;
 var LogoutLink = Login.LogoutLink;
 var StubTeachAPI = require('./stub-teach-api');
+var StubRouter = require('./stub-router');
 
 describe("Login", function() {
   var login, teachAPI;
@@ -84,9 +85,9 @@ function renderLink(linkClass, props) {
   teachAPI.baseURL = 'http://teach-api';
   return stubContext.render(linkClass, props, {
     teachAPI: teachAPI,
-    getCurrentPathname: function() {
-      return '/path';
-    }
+    router: new StubRouter({
+      currentPathname: '/path'
+    })
   });
 }
 
