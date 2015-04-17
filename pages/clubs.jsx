@@ -19,6 +19,29 @@ var ga = require('react-ga');
 
 var Illustration = require('../components/illustration.jsx');
 
+var PlaceSquare = React.createClass({
+  NUM_HASH_COLORS: 6,
+  hashColor: function() {
+    var loc = this.props.location;
+    var sum = 0;
+
+    for (var i = 0; i < loc.length; i++) {
+      sum += loc.charCodeAt(i);
+    }
+
+    return 'hash-color-' + (sum % this.NUM_HASH_COLORS);
+  },
+  render: function() {
+    var abbr = this.props.location.slice(0, 3);
+
+    return (
+      <div className={"media-object place-square " + this.hashColor()}>
+        <span>{abbr}</span>
+      </div>
+    );
+  }
+});
+
 var ClubListItem = React.createClass({
   propTypes: {
     club: React.PropTypes.object.isRequired,
@@ -33,7 +56,7 @@ var ClubListItem = React.createClass({
 
     if (isOwned) {
       ownerControls = (
-        <p>
+        <div className="owner-controls">
           <button className="btn btn-default btn-xs" onClick={this.props.onEdit.bind(null, club.url)}>
             <span className="glyphicon glyphicon-pencil"></span> Edit
           </button>
@@ -41,17 +64,23 @@ var ClubListItem = React.createClass({
           <button className="btn btn-default btn-xs" onClick={this.props.onDelete.bind(null, club.url, club.name)}>
             <span className="glyphicon glyphicon-trash"></span> Remove
           </button>
-        </p>
+        </div>
       );
     }
 
     return (
-      <li>
-        <h4><a href={club.website}>{club.name}</a></h4>
-        <p><em>{club.location.split(',')[0]}</em></p>
-        <p>{club.description}</p>
-        <p><small>Led by <a href={"https://webmaker.org/en-US/search?type=user&q=" + club.owner}>{club.owner}</a></small></p>
-        {ownerControls}
+      <li className="media club">
+        <div className="media-left">
+          <PlaceSquare location={club.location}/>
+        </div>
+        <div className="media-body">
+          <h4 className="media-heading"><a href={club.website}>{club.name}</a></h4>
+          <div className="location">{club.location.split(',')[0]}</div>
+          <div className="leader">
+            Led by <a href={"https://webmaker.org/en-US/search?type=user&q=" + club.owner}>{club.owner}</a>
+          </div>
+          {ownerControls}
+        </div>
       </li>
     );
   }
@@ -70,10 +99,10 @@ var ClubList = React.createClass({
     Item: ClubListItem
   },
   renderColumn: function(key, clubs) {
-    var colClass = 'col-xs-' + (this.GRID_COLUMNS_PER_ROW / this.COLUMNS);
+    var colClass = 'col-sm-' + (this.GRID_COLUMNS_PER_ROW / this.COLUMNS);
     return (
       <div className={colClass} key={key}>
-        <ul className="list-unstyled">
+        <ul className="media-list clubs">
           {clubs.map(function(club, i) {
             return  <ClubListItem key={i} club={club}
                                   username={this.props.username}
