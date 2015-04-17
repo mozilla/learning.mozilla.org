@@ -1,4 +1,5 @@
 var React = require('react/addons');
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 var ModalManagerMixin = require('../mixins/modal-manager');
 
@@ -21,24 +22,31 @@ var Modal = React.createClass({
     }
   },
   render: function() {
-    return (
+    var modal = (
       <div className="modal show"
-       role="dialog"
-       aria-labelledby="modal-label"
-       onClick={this.handleOutsideOfModalClick}>
-        <div className="modal-dialog">
-          <div className="modal-header">
-            <button type="button" className="close"
-             onClick={this.hideModal}>&times;</button>
-            <div className="modal-title" id="modal-label">
-              {this.props.modalTitle}
+         key={this.props.modalTitle}
+         role="dialog"
+         aria-labelledby="modal-label"
+         onClick={this.handleOutsideOfModalClick}>
+          <div className="modal-dialog">
+            <div className="modal-header">
+              <button type="button" className="close"
+               onClick={this.hideModal}>&times;</button>
+              <div className="modal-title" id="modal-label">
+                {this.props.modalTitle}
+              </div>
+            </div>
+            <div className="modal-body">
+              {this.props.children}
             </div>
           </div>
-          <div className="modal-body">
-            {this.props.children}
-          </div>
         </div>
-      </div>
+    );
+
+    return (
+      <ReactCSSTransitionGroup transitionName="modal">
+        {modal}
+      </ReactCSSTransitionGroup>
     );
   }
 });
