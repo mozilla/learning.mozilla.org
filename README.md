@@ -149,10 +149,6 @@ the **Environment Variables** section below for more details.
 The following environment variables can be used to modify how the
 software works.
 
-**Note:** When an environment variable is described as representing a
-boolean value, if the variable exists with *any* value (even the empty
-string), the boolean is true; otherwise, it's false.
-
    Name | Description
 ------------------|---------------------------------------------
 `NODE_ENV` | set this to `production` to automatically minify code and remove various development-only affordances.
