@@ -20,7 +20,6 @@ var ActivityKit = React.createClass({
     "Chan Sansing": "http://twitter.com/chadsansing",
     "Hive Toronto": "http://hivetoronto.org",
     "MOUSE (Hive NYC member)": "http://mouse.org",
-    "Hive NYC": "http://hivenyc.org",
     "Drum Roll": "http://drumrollhq.com/",
     "Joe Dytrych": "",
     "Dee Salgal": "",
@@ -151,7 +150,7 @@ var ActivitiesPage = React.createClass({
               title="Creative Commons GIF Exchange"
               level="Beginner"
               link="https://katermouse.makes.org/thimble/LTIwNjQwNTYzMjA=/creative-commons-gif-exchange-activity"
-              developedBy="MOUSE (Hive NYC member), Hive NYC"
+              developedBy="MOUSE (Hive NYC member)"
               description="This activity teachers students about Creative Commons licensing while creating their own animated GIFs or memes."
             />
             <ActivityKit
@@ -196,7 +195,7 @@ var ActivitiesPage = React.createClass({
               title="CSS Story Cards"
               level="Intermediate"
               link="https://mousemeredith.makes.org/thimble/MTQwOTAyNDAwMA==/css-story-card-game-activity"
-              developedBy="MOUSE (Hive NYC member), Hive NYC"
+              developedBy="MOUSE (Hive NYC member)"
               description="In this card game, learners work collaboratively to create a complete story using HTML and CSS."
             />
             <ActivityKit
