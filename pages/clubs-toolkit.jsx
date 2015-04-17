@@ -46,21 +46,15 @@ var ToolkitList = React.createClass({
 
 var ToolkitListItem = React.createClass({
   render: function() {
+    var header = this.props.header;
     if (this.props.headerHref) {
-      return (
-        <li>
-          <p>
-            <span className="italic"><a href={this.props.headerHref}>{this.props.header}</a> </span>
-            <span>{this.props.children}</span>
-          </p>
-        </li>
-      );
+      header = <a href={this.props.headerHref}>{this.props.header}</a>;
     }
 
     return (
       <li>
         <p>
-          <span className="italic">{this.props.header} </span>
+          <span className="italic">{header} </span>
           <span>{this.props.children}</span>
         </p>
       </li>
