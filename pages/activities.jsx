@@ -2,6 +2,8 @@ var React = require('react');
 var ImageTag = require('../components/imagetag.jsx');
 var Illustration = require('../components/illustration.jsx');
 var CCLicenseNote = require('../components/cc-license-note.jsx');
+var IconLinks = require('../components/icon-links.jsx');
+var IconLink = require('../components/icon-link.jsx');
 var Router = require('react-router');
 var Link = Router.Link;
 
@@ -253,22 +255,31 @@ var ActivitiesPage = React.createClass({
                 link="http://hivepgh.sproutfund.org/projects/"
               />
             </div>
-            <ImageTag className="arrow-image"
-            width={412} height={186}
-            src1x="/img/activities-page/svg/img-globe-line.svg"
-            alt="arrow"/>
-
-            <Illustration src1x="/img/activities-page/svg/img-global-movement.svg"
-            height={270} width={270}
-            alt="join the global movement">
-              <h2>Join the global web literacy movement</h2>
-              <p>
-                We invite you to adapt the web literacy curriculum to meet the needs of your group of learners. Add your local group to our global network, share any remixes you create, and help grow this movement.
-              </p>
-              <div>
-                <Link to="mozilla-web-clubs" className="btn btn-awsm">explore clubs</Link>
-              </div>
-            </Illustration>
+          </section>
+          <section>
+            <IconLinks>
+              <IconLink
+                linkTo="mozilla-web-clubs"
+                imgSrc="/img/activities-page/svg/icon-connect.svg"
+                imgAlt="icon clubs"
+                head="Build"
+                subhead="Start a Club in your community"
+              />
+              <IconLink
+                linkTo="teach-like-mozilla"
+                imgSrc="/img/activities-page/svg/icon-curriculum.svg"
+                imgAlt="icon teach like mozilla"
+                head="Grow"
+                subhead="Learn about our approach to teaching"
+              />
+              <IconLink
+                linkTo="web-literacy"
+                imgSrc="/img/activities-page/svg/icon-learn.svg"
+                imgAlt="icon web literacy"
+                head="Explore"
+                subhead="See our Web Literacy Map"
+              />
+            </IconLinks>
           </section>
         </div>
       </div>
