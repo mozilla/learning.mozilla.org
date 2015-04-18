@@ -28,6 +28,7 @@ var ClubListItem = React.createClass({
   },
   render: function() {
     var club = this.props.club;
+    var clubName = club.website ? <a href={club.website}>{club.name}</a> : club.name;
     var isOwned = (club.owner === this.props.username);
     var ownerControls = null;
 
@@ -47,7 +48,7 @@ var ClubListItem = React.createClass({
 
     return (
       <li>
-        <h4><a href={club.website}>{club.name}</a></h4>
+        <h4>{clubName}</h4>
         <p><em>{club.location.split(',')[0]}</em></p>
         <p>{club.description}</p>
         <p><small>Led by <a href={"https://webmaker.org/en-US/search?type=user&q=" + club.owner}>{club.owner}</a></small></p>
