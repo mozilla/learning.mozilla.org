@@ -130,6 +130,10 @@ JS disabled, just add `safemode=on` to the querystring when visiting the
 page. This will cause the page to operate in "safe mode", meaning that
 almost no JS will run, even if JS is enabled in the browser.
 
+If you need to make sure that a form is usable with browsers that
+don't support HTML5 form validation, see the documentation for the
+`HTML5_NOVALIDATE` environment variable below.
+
 ## Generating A Static Site
 
 Run `npm run build` to generate a static site in `dist/` that
@@ -166,6 +170,7 @@ software works.
 `GA_ACCOUNT` | is the property ID of the Google Analytics account. E.g. `UA-123...`. It defaults to the property ID for the Teach site. Set it to `DISABLED` to disable Google Analytics entirely.
 `GA_DEBUG` | When set to 'on' will output verbose info to the console about what data is being sent to Google Analytics.
 `SOFTEST_OF_LAUNCHES` | When set to 'on' will enable the [softest of launches][589].
+`HTML5_NOVALIDATE` | When set to 'on' will add the `novalidate` attribute to all forms. Useful for simulating browsers that don't support [HTML5 form validation][].
 
 ### Using Environment Variables in Local Development
 
@@ -205,3 +210,4 @@ want to create a batch file that uses
   [#413]: https://github.com/mozilla/teach.webmaker.org/issues/413
   [source maps]: http://blog.teamtreehouse.com/introduction-source-maps
   [589]: https://github.com/mozilla/teach.webmaker.org/issues/589
+  [HTML5 form validation]: http://caniuse.com/#feat=form-validation
