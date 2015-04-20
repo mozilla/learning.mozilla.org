@@ -257,7 +257,13 @@ var ModalAddOrChangeYourClub = React.createClass({
     // If club is provided, then we're a 'change' dialog, otherwise
     // we're an 'add' dialog.
     club: React.PropTypes.object,
+    idPrefix: React.PropTypes.string,
     onSuccess: React.PropTypes.func.isRequired
+  },
+  getDefaultProps: function() {
+    return {
+      idPrefix: 'ModalAddOrChangeYourClub_'
+    };
   },
   statics: {
     teachAPIEvents: {
@@ -367,6 +373,7 @@ var ModalAddOrChangeYourClub = React.createClass({
     var action = isAdd ? "add" : "change";
     var modalTitle = isAdd ? "Add Your Club To The Map"
                            : "Change Your Club";
+    var idPrefix = this.props.idPrefix;
 
     if (this.state.step == this.STEP_AUTH) {
       content = (
@@ -390,8 +397,8 @@ var ModalAddOrChangeYourClub = React.createClass({
           {this.renderValidationErrors()}
           <form onSubmit={this.handleSubmit}>
             <fieldset>
-              <label>What is the name of your Club?</label>
-              <input type="text" placeholder="We love creative Club names"
+              <label htmlFor={idPrefix + "name"}>What is the name of your Club?</label>
+              <input type="text" id={idPrefix + "name"} placeholder="We love creative Club names"
                disabled={isFormDisabled}
                required
                valueLink={this.linkState('name')} />
@@ -429,14 +436,16 @@ var ModalAddOrChangeYourClub = React.createClass({
                onChange={this.handleLocationChange} />
             </fieldset>
             <fieldset>
-              <label>What is your Club&lsquo;s website?</label>
+              <label htmlFor={idPrefix + "website"}>What is your Club&lsquo;s website?</label>
               <input type="text" placeholder="www.myclubwebsite.com"
+               id={idPrefix + "website"}
                disabled={isFormDisabled}
                valueLink={this.linkState('website')} />
             </fieldset>
             <fieldset>
-              <label>What do you focus your efforts on?</label>
+              <label htmlFor={idPrefix + "description"}>What do you focus your efforts on?</label>
               <textarea rows="5" placeholder="Please provide a brief description of your Club."
+               id={idPrefix + "description"}
                disabled={isFormDisabled}
                required
                valueLink={this.linkState('description')} />

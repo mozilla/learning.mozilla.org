@@ -29,6 +29,25 @@ function ensureFormFieldsDisabledValue(component, isDisabled) {
   }
 }
 
+function ensureLabelLinkage(component, id) {
+  var el = component.getDOMNode();
+  var field = el.querySelector('#' + id);
+  var label = el.querySelector('label[for="' + id + '"]');
+
+  if (!field)
+    throw new Error('no form field found with id ' + id);
+
+  if (['input', 'textarea'].indexOf(field.nodeName.toLowerCase()) == -1)
+    throw new Error(field.nodeName.toLowerCase() +
+                    '#' + id + ' is not a form field');
+
+  if (!label)
+    throw new Error('no label found for id ' + id);
+
+  if (label.textContent.trim() == 0)
+    throw new Error('empty label found for id ' + id);
+}
+
 describe("ClubsPage", function() {
   var clubsPage, teachAPI, xhr;
 
@@ -248,6 +267,14 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
     it("enables form inputs by default", function() {
       teachAPI.emit('username:change', 'foo');
       ensureFormFieldsDisabledValue(modal, false);
+    });
+
+    it("has valid labels for form elements", function() {
+      teachAPI.emit('username:change', 'foo');
+
+      ensureLabelLinkage(modal, 'ModalAddOrChangeYourClub_name');
+      ensureLabelLinkage(modal, 'ModalAddOrChangeYourClub_website');
+      ensureLabelLinkage(modal, 'ModalAddOrChangeYourClub_description');
     });
 
     it("handles location changes containing JSON", function() {
