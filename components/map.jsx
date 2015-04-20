@@ -153,7 +153,7 @@ var Map = React.createClass({
       });
     },
     getAutocompleteOptions: function(input, callback) {
-      var url = 'http://api.tiles.mapbox.com/v4/geocode/mapbox.places/' +
+      var url = '//api.tiles.mapbox.com/v4/geocode/mapbox.places/' +
                 encodeURIComponent(input) +
                 '.json?access_token=' + accessToken;
       if (!input) {
