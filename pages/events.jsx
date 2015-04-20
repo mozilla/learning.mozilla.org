@@ -1,7 +1,6 @@
 var React = require('react');
 
 var HeroUnit = require('../components/hero-unit.jsx');
-var PageEndCTA = require('../components/page-end-cta.jsx');
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
 var Illustration = require('../components/illustration.jsx');
@@ -62,26 +61,6 @@ var EventsPage = React.createClass({
               <p className="callout-heading">Check out the highlights from Maker Party and see more photos in our <a href="https://www.flickr.com/photos/mozilladrumbeat/galleries/72157643962655534/">Flickr gallery</a>.</p>
             </div>
           </div>
-          <PageEndCTA
-            header="Sign up to get Maker Party updates:"
-            dividerImgSrc="/img/events-page/line-divider.svg">
-            <div>
-              <p>Check out the highlights from  Maker Party and see more photos in our <a href="">Flickr gallery</a>.</p>
-              <img className="divider" src="/img/events-page/line-divider.svg" alt="line divider" />
-              <p>Sign up to get Maker Party updates:</p>
-              <form className="maker-party-signup" onSubmit={this.handleSubmit}>
-                <div className="row">
-                  <div className="form-group col-sm-7 col-sm-offset-1 col-lg-4 col-lg-offset-3">
-                    <label className="sr-only">Email</label>
-                    <input type="email" required className="form-control" placeholder="Your email address" />
-                  </div>
-                  <div className="col-sm-3 col-lg-2">
-                    <button type="submit" className="btn btn-awsm btn-block">Submit Email</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </PageEndCTA>
           <section>
             <IconLinks>
               <IconLink

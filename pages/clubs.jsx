@@ -221,6 +221,16 @@ var ModalRemoveYourClub = React.createClass({
   }
 });
 
+var normalizeClub = function(clubState) {
+  var state = _.extend({}, clubState);
+
+  if (state.website && !/^https?:\/\//.test(state.website)) {
+    state.website = 'http://' + state.website;
+  }
+
+  return state;
+};
+
 var validateClub = function(clubState) {
   var errors = [];
 
@@ -232,6 +242,9 @@ var validateClub = function(clubState) {
   }
   if (!clubState.location) {
     errors.push("You must provide a location for your club.");
+  }
+  if (clubState.website && !/\./.test(clubState.website)) {
+    errors.push("Your club's website must be a valid URL.");
   }
 
   return errors;
@@ -303,9 +316,9 @@ var ModalAddOrChangeYourClub = React.createClass({
   },
   handleSubmit: function(e) {
     var teachAPI = this.getTeachAPI();
-    var clubState = _.pick(this.state,
+    var clubState = normalizeClub(_.pick(this.state,
       'name', 'website', 'description', 'location', 'latitude', 'longitude'
-    );
+    ));
     var validationErrors = validateClub(clubState);
     e.preventDefault();
 
@@ -424,7 +437,7 @@ var ModalAddOrChangeYourClub = React.createClass({
             </fieldset>
             <fieldset>
               <label htmlFor={idPrefix + "website"}>What is your Club&lsquo;s website?</label>
-              <input type="url" placeholder="http://www.myclubwebsite.com"
+              <input type="text" placeholder="www.myclubwebsite.com"
                id={idPrefix + "website"}
                disabled={isFormDisabled}
                valueLink={this.linkState('website')} />
@@ -475,6 +488,7 @@ var ModalAddOrChangeYourClub = React.createClass({
 var ClubsPage = React.createClass({
   mixins: [ModalManagerMixin, TeachAPIClientMixin, Router.State],
   statics: {
+    normalizeClub: normalizeClub,
     validateClub: validateClub,
     ClubList: ClubList,
     ModalAddOrChangeYourClub: ModalAddOrChangeYourClub,
