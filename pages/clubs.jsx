@@ -14,6 +14,7 @@ var PageEndCTA = require('../components/page-end-cta.jsx');
 var Modal = require('../components/modal.jsx');
 var ModalManagerMixin = require('../mixins/modal-manager');
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
+var LoginLink = require('../components/login.jsx').LoginLink;
 var ga = require('react-ga');
 
 var Illustration = require('../components/illustration.jsx');
@@ -27,6 +28,7 @@ var ClubListItem = React.createClass({
   },
   render: function() {
     var club = this.props.club;
+    var clubName = club.website ? <a href={club.website}>{club.name}</a> : club.name;
     var isOwned = (club.owner === this.props.username);
     var ownerControls = null;
 
@@ -46,7 +48,7 @@ var ClubListItem = React.createClass({
 
     return (
       <li>
-        <h4><a href={club.website}>{club.name}</a></h4>
+        <h4>{clubName}</h4>
         <p><em>{club.location.split(',')[0]}</em></p>
         <p>{club.description}</p>
         <p><small>Led by <a href={"https://webmaker.org/en-US/search?type=user&q=" + club.owner}>{club.owner}</a></small></p>
@@ -117,10 +119,10 @@ var HowClubWorks = React.createClass({
         <Illustration
         width={182} height={237}
         src1x="/img/icon-how-do-clubs-work.svg"
-        alt="icon how do web clubs work">
-          <h2>How do Web Clubs work?</h2>
+        alt="icon how do Mozilla clubs work">
+          <h2>How do Mozilla Clubs work?</h2>
           <ul>
-            <li>Grow the web literary of learners</li>
+            <li>Grow the web literacy of learners</li>
             <li>Meet regularly in classrooms, libraries, coffee shops &mdash; anywhere!</li>
             <li>Teach with open practices</li>
             <li>Guide people to learn by making</li>
@@ -332,10 +334,6 @@ var ModalAddOrChangeYourClub = React.createClass({
     this.hideModal();
     this.props.onSuccess(this.state.result);
   },
-  handleJoinClick: function() {
-    this.hideModal();
-    this.transitionTo('join');
-  },
   renderValidationErrors: function() {
     if (this.state.validationErrors.length) {
       return (
@@ -361,10 +359,8 @@ var ModalAddOrChangeYourClub = React.createClass({
       content = (
         <div>
           <p>Before you can {action} your club, you need to log in.</p>
-          <button className="btn btn-primary btn-block"
-           onClick={this.getTeachAPI().startLogin}>Log In</button>
-          <button className="btn btn-default btn-block"
-           onClick={this.handleJoinClick}>Create an account</button>
+          <LoginLink callbackSearch="?modal=add" className="btn btn-primary btn-block">Log In</LoginLink>
+          <LoginLink callbackSearch="?modal=add" action="signup" className="btn btn-default btn-block">Create an account</LoginLink>
         </div>
       );
     } else if (this.state.step == this.STEP_FORM ||
@@ -558,8 +554,8 @@ var ClubsPage = React.createClass({
     return (
       <div>
         <HeroUnit image="/img/hero-clubs.png"
-                  image2x="hero-clubs@2x.png">
-          <h1>Mozilla Web Clubs</h1>
+                  image2x="/img/hero-clubs@2x.png">
+          <h1>Mozilla Clubs</h1>
 
           {process.env.SOFTEST_OF_LAUNCHES == 'on' ? null :
           <div><a className="btn btn-awsm" onClick={this.showAddYourClubModal}>Add Your Club</a></div>

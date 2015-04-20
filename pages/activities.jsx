@@ -1,6 +1,9 @@
 var React = require('react');
 var ImageTag = require('../components/imagetag.jsx');
 var Illustration = require('../components/illustration.jsx');
+var CCLicenseNote = require('../components/cc-license-note.jsx');
+var IconLinks = require('../components/icon-links.jsx');
+var IconLink = require('../components/icon-link.jsx');
 var Router = require('react-router');
 var Link = Router.Link;
 
@@ -12,13 +15,13 @@ var HeroUnit = require('../components/hero-unit.jsx');
 var ActivityKit = React.createClass({
   authorLinks: {
     "Kat Braybrooke": "http://twitter.com/codekat",
+    "Laura Hilliger": "https://twitter.com/epilepticrabbit",
     "Karen Smith": "http://twitter.com/smithisgeneric",
     "Julia Vallera": "http://twitter.com/colorwheelz",
     "Jess Klein": "http://twitter.com/iamjessklein",
     "Chan Sansing": "http://twitter.com/chadsansing",
     "Hive Toronto": "http://hivetoronto.org",
-    "MOUSE": "http://mouse.org",
-    "Hive NYC": "http://hivenyc.org",
+    "MOUSE (Hive NYC member)": "http://mouse.org",
     "Drum Roll": "http://drumrollhq.com/",
     "Joe Dytrych": "",
     "Dee Salgal": "",
@@ -32,7 +35,7 @@ var ActivityKit = React.createClass({
     "David Cole": "https://www.linkedin.com/in/dcole1",
     "Chad Sansing": "http://twitter.com/chadsansing",
     "EPIK": "http://epik.org.uk/about/",
-    "Stephanie Guthrie": "http://twitter.com/amirightfolks",
+    "Steph Guthrie": "http://twitter.com/amirightfolks",
     "Kim Wilkens": "http://twitter.com/kimxtom",
     "2013 MozGirls": ""
   },
@@ -117,12 +120,11 @@ var ActivitiesPage = React.createClass({
     return (
       <div>
         <HeroUnit image="/img/activities-page/hero-teaching-activities.png"
-                    image2x="/imv/activities-page/hero-teaching-activities@2x.png">
-            <h1>h1 Copy Needed</h1>
+                  image2x="/img/activities-page/hero-teaching-activities@2x.png">
+          <h1>Teaching Activities</h1>
         </HeroUnit>
         <div className="inner-container activities">
           <section>
-            <h1>Teaching Activities</h1>
             <p>
               Start teaching others how to read, write and participate on the web with these free activities created by teachers, educators and technologists like you. Each featured activity includes step-by-step instructions and has been tested in schools, afterschool programs, libraries and community centers around the globe. Whether learning how to code, understanding why privacy matters, or creating openly-licensed web content, we believe teaching the web should be fun and engaging!
             </p>
@@ -131,8 +133,8 @@ var ActivitiesPage = React.createClass({
               src2x="/img/activities-page/2x/img-activity-01.png"
               title="Lo-Fi, No-Fi (Teaching Kit)"
               level="Beginner"
-              link="https://keyboardkat.makes.org/thimble/LTIxMDA3NTY0ODA=/lofi-nofi-teaching-kit"
-              developedBy="Kat Braybrooke, Karen Smith, Julia Vallera, Jess Klein, Chad Sansing"
+              link="https://laura.makes.org/thimble/MTUyODMwNDY0/lofi-nofi-teaching-kit"
+              developedBy="Kat Braybrooke, Laura Hilliger, Karen Smith, Julia Vallera, Jess Klein, Chad Sansing"
               description="This series of activities help teach web literacy concepts offline, or where access to technology is limited. Includes printable templates and games to teach coding, game design and app development."
             />
             <ActivityKit
@@ -150,7 +152,7 @@ var ActivitiesPage = React.createClass({
               title="Creative Commons GIF Exchange"
               level="Beginner"
               link="https://katermouse.makes.org/thimble/LTIwNjQwNTYzMjA=/creative-commons-gif-exchange-activity"
-              developedBy="MOUSE, Hive NYC"
+              developedBy="MOUSE (Hive NYC member)"
               description="This activity teachers students about Creative Commons licensing while creating their own animated GIFs or memes."
             />
             <ActivityKit
@@ -195,7 +197,7 @@ var ActivitiesPage = React.createClass({
               title="CSS Story Cards"
               level="Intermediate"
               link="https://mousemeredith.makes.org/thimble/MTQwOTAyNDAwMA==/css-story-card-game-activity"
-              developedBy="MOUSE, Hive NYC"
+              developedBy="MOUSE (Hive NYC member)"
               description="In this card game, learners work collaboratively to create a complete story using HTML and CSS."
             />
             <ActivityKit
@@ -203,7 +205,7 @@ var ActivitiesPage = React.createClass({
               src2x="/img/activities-page/2x/img-activity-09.jpg"
               title="Minecraft a Flavor of Java (Teaching Kit)"
               level="Intermediate"
-              link="https://laura.makes.org/thimble/LTE4NDk0MjMzNg==/minecraft-a-flavor-of-java-epik"
+              link="https://epik.makes.org/thimble/NjU2MTQ2OTQ0/minecraft-a-flavor-of-java-epik"
               developedBy="EPIK"
               description="In this series of activities, learners develop computational thinking skills by using Java to create their own Minecraft mod."
             />
@@ -212,10 +214,11 @@ var ActivitiesPage = React.createClass({
               src2x="/img/activities-page/2x/img-activity-10.jpg"
               title="Girls in Tech: Hacking My Media"
               level="Intermediate"
-              link="https://laura.makes.org/thimble/MjE3Nzc2Mzg0/hacking-my-media-with-x-ray-goggles"
-              developedBy="Stephanie Guthrie, Kim Wilkens, 2013 MozGirls"
+              link="https://stephguthrie.makes.org/thimble/ODU3ODAxMjE2/hacking-my-media-with-x-ray-goggles"
+              developedBy="Steph Guthrie, Kim Wilkens, 2013 MozGirls"
               description="In this activity, learners create a remix of a Wikimedia page as they think critically about the intersection of gender, culture, technology and identity."
             />
+            <CCLicenseNote/>
             <h2>More resources</h2>
             <p>
               Hive Learning Networks are city-based communities of educators who champion digital skills and web literacy through connected learning. Visit each city's portfolio to find more inspiration, resources and projects for teaching and learning.
@@ -252,22 +255,31 @@ var ActivitiesPage = React.createClass({
                 link="http://hivepgh.sproutfund.org/projects/"
               />
             </div>
-            <ImageTag className="arrow-image"
-            width={412} height={186}
-            src1x="/img/activities-page/svg/img-globe-line.svg"
-            alt="arrow"/>
-
-            <Illustration src1x="/img/activities-page/svg/img-global-movement.svg"
-            height={270} width={270}
-            alt="join the global movement">
-              <h2>Join the global web literacy movement</h2>
-              <p>
-                We invite you to adapt the web literacy curriculum to meet the needs of your group of learners. Add your local group to our global network, share any remixes you create, and help grow this movement.
-              </p>
-              <div>
-                <Link to="mozilla-web-clubs" className="btn btn-awsm">explore clubs</Link>
-              </div>
-            </Illustration>
+          </section>
+          <section>
+            <IconLinks>
+              <IconLink
+                linkTo="mozilla-web-clubs"
+                imgSrc="/img/activities-page/svg/icon-connect.svg"
+                imgAlt="icon clubs"
+                head="Build"
+                subhead="Start a Club in your community"
+              />
+              <IconLink
+                linkTo="teach-like-mozilla"
+                imgSrc="/img/activities-page/svg/icon-curriculum.svg"
+                imgAlt="icon teach like mozilla"
+                head="Grow"
+                subhead="Learn about our approach to teaching"
+              />
+              <IconLink
+                linkTo="web-literacy"
+                imgSrc="/img/activities-page/svg/icon-learn.svg"
+                imgAlt="icon web literacy"
+                head="Explore"
+                subhead="See our Web Literacy Map"
+              />
+            </IconLinks>
           </section>
         </div>
       </div>

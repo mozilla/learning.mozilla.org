@@ -47,7 +47,7 @@ var LogoAsset = React.createClass({
 var LogoAssetLink = React.createClass({
   render: function() {
     return (
-      <a className="logo-asset-link" href={this.props.href}><span className="ion ion-ios-copy">&nbsp;</span>{this.props.children}</a>
+      <a className="logo-asset-link" href={this.props.href}><span className="ion ion-ios-download-outline">&nbsp;</span>{this.props.children}</a>
     );
   }
 });
@@ -80,12 +80,12 @@ var Tabulator = React.createClass({
     }
     return (
       <div className={className}>
-        <div>
+        <div className="tabulator-head-container">
           {this.props.tabs.map(function (section, key) {
             function onClick(e) {
               tabulator.showTab("tab-" + key);
             }
-            var className = "tabulator-head col-sm-3 col-md-3 col-lg-3";
+            var className = "tabulator-head col-xs-3 col-sm-3 col-md-3 col-lg-3";
             className += " tab-" + key;
             return (
               <div onClick={onClick} className={className} key={key}>{section.head}</div>

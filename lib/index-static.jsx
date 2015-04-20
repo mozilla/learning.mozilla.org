@@ -1,3 +1,4 @@
+var _  = require('underscore');
 var React = require('react');
 
 var routes = require('./routes.jsx');
@@ -24,7 +25,9 @@ function featureDetect() {
 }
 
 function generateWithPageHTML(url, options, pageHTML) {
-  options = options || {};
+  options = _.defaults(options || {}, {
+    meta: {}
+  });
 
   // Make sure any changes to this file are reflected in
   // index.html too.
@@ -32,9 +35,11 @@ function generateWithPageHTML(url, options, pageHTML) {
     <html className="no-js">
       <head>
         <meta charSet="utf-8"/>
-        <meta name="url" value={url}/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,700,600italic,700italic,800,800italic"/>
+        {Object.keys(options.meta).map(function(name, i) {
+          return <meta key={i} name={name} content={options.meta[name]}/>;
+        })}
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,700,600italic,700italic,800,800italic"/>
         <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css"/>
         <link href="https://mozorg.cdn.mozilla.net/media/css/tabzilla-min.css" rel="stylesheet" />
         <link rel="stylesheet" href={'/' + exports.CSS_FILENAME}/>
@@ -55,7 +60,6 @@ function generateWithPageHTML(url, options, pageHTML) {
         <script src="/commons.bundle.js"></script>
         <script src="/app.bundle.js"></script>
         <script src="https://mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>
-        <script src="https://login.persona.org/include.js" async></script>
       </body>
     </html>
   );

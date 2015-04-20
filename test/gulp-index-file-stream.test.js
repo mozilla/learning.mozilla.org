@@ -7,7 +7,7 @@ describe('gulp-index-file-stream', function() {
   var indexStatic = {
     URLS: ['/', '/foo/'],
     generate: function(url, options, cb) {
-      options.should.eql({});
+      options.should.eql({meta: {}});
       process.nextTick(function() {
         cb('i am ' + url);
       });
