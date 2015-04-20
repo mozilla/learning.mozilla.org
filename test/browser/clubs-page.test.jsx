@@ -477,19 +477,3 @@ describe("ClubsPage.ModalRemoveYourClub", function() {
     });
   });
 });
-
-describe("ClubsPage.ModalLearnMore", function() {
-  var modal;
-
-  beforeEach(function() {
-    modal = stubContext.render(ClubsPage.ModalLearnMore);
-  });
-
-  afterEach(function() {
-    stubContext.unmount(modal);
-  });
-
-  it("renders", function() {
-    modal.getDOMNode().textContent.should.match(/learn more/i);
-  });
-});

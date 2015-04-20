@@ -463,41 +463,6 @@ var ModalAddOrChangeYourClub = React.createClass({
   }
 });
 
-
-var ModalLearnMore = React.createClass({
-  handleSubmit: function(e) {
-
-    // Once this is wired up, the GA tracking should be fired after validation
-    ga.event({ category: 'Enquiries', action: 'Request to Find Out More' });
-
-    e.preventDefault();
-    window.alert("Sorry, this functionality has not yet been implemented.");
-  },
-  render: function() {
-    return(
-      <Modal modalTitle="Learn More About Mozilla Clubs">
-        <form onSubmit={this.handleSubmit}>
-          <fieldset>
-            <label>What is your first name?</label>
-            <input type="text" placeholder="We're a friendly bunch, promise!" />
-          </fieldset>
-          <fieldset>
-            <label>Where does it take place?</label>
-            <input type="text" placeholder="Type in a city or a country" />
-          </fieldset>
-          <fieldset>
-            <label>What is your e-mail?</label>
-            <p className="small">A member of our team will personally reach out to you.</p>
-            <input type="email" placeholder="email@example.com" />
-          </fieldset>
-          <input type="submit" className="btn" value="Find Out More" />
-        </form>
-      </Modal>
-    );
-  }
-});
-
-
 var ClubsPage = React.createClass({
   mixins: [ModalManagerMixin, TeachAPIClientMixin, Router.State],
   statics: {
@@ -505,7 +470,6 @@ var ClubsPage = React.createClass({
     ClubList: ClubList,
     ModalAddOrChangeYourClub: ModalAddOrChangeYourClub,
     ModalRemoveYourClub: ModalRemoveYourClub,
-    ModalLearnMore: ModalLearnMore,
     teachAPIEvents: {
       'clubs:change': 'forceUpdate',
       'username:change': 'forceUpdate'
@@ -523,9 +487,6 @@ var ClubsPage = React.createClass({
     this.showModal(ModalAddOrChangeYourClub, {
       onSuccess: this.handleAddClubSuccess
     });
-  },
-  showLearnMoreModal: function() {
-    this.showModal(ModalLearnMore);
   },
   handleAddClubSuccess: function(club) {
     this.refs.map.getDOMNode().scrollIntoView();
