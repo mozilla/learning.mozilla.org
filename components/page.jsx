@@ -77,7 +77,11 @@ var Page = React.createClass({
           <Footer/>
         </div>
 
-        <TimeoutTransitionGroup transitionName="modal">
+        <TimeoutTransitionGroup transitionName="modal"
+                                enterTimeout={0}
+                                leaveTimeout={0}
+                                transitionEnter={true}
+                                transitionLeave={true}>
         {this.state.modalClass
          ? <div ref="modalHolder" key={1}>
              {React.createElement(this.state.modalClass,
