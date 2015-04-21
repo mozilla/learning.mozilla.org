@@ -40,7 +40,7 @@
     "react-a11y": "0.0.6",
     "react-ga": "^1.0.8",
     "react-router": "^0.12.4",
-    "react-select": "^0.4.2",
+    "react-select": "0.4.6",
     "should": "^5.1.0",
     "superagent": "^1.1.0",
     "underscore": "^1.8.2",
