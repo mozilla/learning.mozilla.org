@@ -78,8 +78,8 @@ var Page = React.createClass({
         </div>
 
         <TimeoutTransitionGroup transitionName="modal"
-                                enterTimeout={0}
-                                leaveTimeout={0}
+                                enterTimeout={250}
+                                leaveTimeout={250}
                                 transitionEnter={true}
                                 transitionLeave={true}>
         {this.state.modalClass

@@ -1,4 +1,10 @@
 /**
+ *  This file is taken from https://github.com/Khan/react-components/blob/master/js/timeout-transition-group.jsx
+ *  and used as a suggested fix for ReactCSSTransitionGroup's transition event firing bug
+ *  (https://github.com/facebook/react/issues/1707#issuecomment-88641559)
+ */
+
+/**
  * The CSSTransitionGroup component uses the 'transitionend' event, which
  * browsers will not send for any number of reasons, including the
  * transitioning node not being painted or in an unfocused tab.
