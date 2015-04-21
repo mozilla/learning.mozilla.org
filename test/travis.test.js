@@ -7,7 +7,7 @@ function env(options) {
   return _.extend({
     TRAVIS: 'true',
     TRAVIS_PULL_REQUEST: 'false',
-    TRAVIS_BRANCH: 'develop'    
+    TRAVIS_BRANCH: 'master'
   }, options);
 }
 
@@ -27,7 +27,6 @@ describe('travis.getS3Env', function() {
   });
 
   it('returns env for branch', function() {
-    getS3Env(env({TRAVIS_BRANCH: 'master'}))
-      .NODE_ENV.should.equal('production');
+    getS3Env(env()).NODE_ENV.should.equal('production');
   });
 });
