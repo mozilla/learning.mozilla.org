@@ -270,7 +270,7 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
     }));
 });
 
-gulp.task('travis-after-success', function() {
+gulp.task('travis-after-success', function(cb) {
   var env = travis.getS3Env();
 
   if (env === null) {
@@ -285,9 +285,10 @@ gulp.task('travis-after-success', function() {
     }).on('close', function(code) {
       if (code !== 0) {
         gutil.log(gutil.colors.red.bold('Error deploying to S3!'));
-        process.exit(code);
+        cb(new Error('gulp s3 failed with exit code ' + code));
       } else {
         gutil.log('Site deployed to S3.');
+        cb(null);
       }
     });
 });
