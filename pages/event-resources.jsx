@@ -1,5 +1,7 @@
 var React = require('react');
 var ImageTag = require('../components/imagetag.jsx');
+var Router = require('react-router');
+var Link = Router.Link;
 
 var PageLinker = React.createClass({
   render: function() {
@@ -255,12 +257,12 @@ var EventsResources = React.createClass({
                 </EventDetail>
                 <EventDetail head="Make Some Gear">
                   <div>
-                    Use this logo to create Maker Party t-shirts at your local print shop. Here's an example of what your shirts could look like. Don't have all the budget for printing? Ask participants to bring their own shirts and create Maker Party t-shirts with this activity. You can also pring these certificates to give to the participants at the event that successfully complete the activities.
+                    Use this <a href="/event-resources/MakerPartyLogo.eps">logo</a> to create Maker Party t-shirts at your local print shop. Here's an example of what your <a href="/event-resources/makerparty_tshirtpreview.jpg">shirts</a> could look like. Don't have all the budget for printing? Ask participants to bring their own shirts and create Maker Party t-shirts with <a href="https://tbx.makes.org/thimble/stencil-a-tshirt">this activity</a>. You can also pring these <a href="https://makerparty2014.makes.org/thimble/LTEzNDM3NTAxNDQ=/maker-party-love-bomb">certificates</a> to give to the participants at the event that successfully complete the activities.
                   </div>
                 </EventDetail>
                 <EventDetail head="All About The Wi-Fi">
                   <div>
-                    Have you ever heard of an event with perfect Wi-Fi? Neither have we. Prepare for the worst and have a back-up plan in case you lose connection. There are also a lot of activities that require no Internet access. Print out a few activities and keep them with you just in case.
+                    Have you ever heard of an event with perfect Wi-Fi? Neither have we. Prepare for the worst and have a back-up plan in case you lose connection. There are also a lot of <a href="https://keyboardkat.makes.org/thimble/LTIxMDA3NTY0ODA=/lofi-nofi-teaching-kit">activities that require no Internet access</a>. Print out a few activities and keep them with you just in case.
                   </div>
                 </EventDetail>
               </div>
@@ -272,17 +274,17 @@ var EventsResources = React.createClass({
               <div>
                 <EventDetail head="Add Your Event to the Map">
                   <div>
-                    Once you have your location, date and time set, add your event to our global map so you can show it off to the world and get regular updates.
+                    Once you have your location, date and time set, add your event to <a href="https://events.webmaker.org">our global map</a> so you can show it off to the world and get regular updates.
                   </div>
                 </EventDetail>
                 <EventDetail head="Recruit Mentors">
                   <div>
-                    Whether they’re colleagues, students or a group of talented friends, you can find volunteer mentors by tapping into your own networks. Provide them a Sample Volunteer Package with information on the event, activities, social media and any other necessary information in advance. Depending on how many volunteers you have, you might consider holding a meet-up in person or online prior to the event to answer any questions. Don't forget to gather and distribute contact information so that you can stay in touch with them in the days and weeks leading up to the event.
+                    Whether they’re colleagues, students or a group of talented friends, you can find volunteer mentors by tapping into your own networks. Provide them a <a href="/event-resources/Sample_Volunteer_Package.pdf">Sample Volunteer Package</a> with information on the event, activities, social media and any other necessary information in advance. Depending on how many volunteers you have, you might consider holding a meet-up in person or online prior to the event to answer any questions. Don't forget to gather and distribute contact information so that you can stay in touch with them in the days and weeks leading up to the event.
                   </div>
                 </EventDetail>
                 <EventDetail head="Promote Your Event">
                   <div>
-                    Start spreading the word - share the link to your event so people can plan to  attend or share it with others. Local coffee shops, community places, listservs, mailing lists, social networks and forums are all great places to post details. Consider making a poster with event information.
+                    Start spreading the word - share the link to your event so people can plan to attend or share it with others. Local coffee shops, community places, listservs, mailing lists, social networks and forums are all great places to post details. Consider making a <a href="https://techkim.makes.org/thimble/maker-party-movie-poster">poster</a> with event information.
                   </div>
                 </EventDetail>
                 <EventDetail head="Sign Up Learners">
@@ -297,7 +299,7 @@ var EventsResources = React.createClass({
                 </EventDetail>
                 <EventDetail head="Press">
                   <div>
-                    Media coverage is an essential part of promoting an event and showing off what you accomplish. Use the Maker Party Press Kit for guidelines on how to reach out to local media (newspapers, blogs, local news shows). Our social media toolkit will also help you get more out of your posts online. Be sure to use hashtag #MakerParty. If your event is open to the public you may also want to invite community leaders and officials to attend.
+                    Media coverage is an essential part of promoting an event and showing off what you accomplish. Use the <a href="https://wiki.mozilla.org/Maker_Party/Communications/Press_Kit">Maker Party Press Kit</a> for guidelines on how to reach out to local media (newspapers, blogs, local news shows). Our <a href="https://wiki.mozilla.org/Maker_Party/Communications/Social_Media_Guide">social media toolkit</a> will also help you get more out of your posts online. Be sure to use hashtag <a href="https://twitter.com/search?f=realtime&q=%23makerparty">#MakerParty</a>. If your event is open to the public you may also want to invite community leaders and officials to attend.
                   </div>
                 </EventDetail>
               </div>
@@ -309,22 +311,22 @@ var EventsResources = React.createClass({
               <div>
                 <EventDetail head="Design a fun experience">
                   <div>
-                    Your event should feel like a party! Create a welcoming, creative atmosphere that might include music, decorations and providing name tags. Starting your event with an offline activity or icebreaker such as a spectrogram is a great way to get everyone socializing. Raffles and challenges are good ways to keep the crowd engaged throughout the day.
+                    Your event should feel like a party! Create a welcoming, creative atmosphere that might include music, decorations and providing name tags. Starting your event with an offline activity or icebreaker such as a <a href="https://mozteach.makes.org/thimble/how-to-run-a-spectrogram-icebreaker">spectrogram</a> is a great way to get everyone socializing. Raffles and challenges are good ways to keep the crowd engaged throughout the day.
                   </div>
                 </EventDetail>
                 <EventDetail head="Set-up">
                   <div>
-                    When preparing for event, be sure to arrive early to set-up the space using this sample event checklist. This will allow you plenty of time in case unexpected issues arise. Use posters or other clear signage to indicate different activity stations. Make sure washrooms and exits are clearly marked. Remind facilitators to welcome newcomers, and make sure the volunteers know what their responsibilities are and who to ask if they have questions.
+                    When preparing for event, be sure to arrive early to set-up the space using this sample <a href="/event-resources/Event_Set_Up_Checklist.pdf">event checklist</a>. This will allow you plenty of time in case unexpected issues arise. Use posters or other clear signage to indicate different activity stations. Make sure washrooms and exits are clearly marked. Remind facilitators to welcome newcomers, and make sure the volunteers know what their responsibilities are and who to ask if they have questions.
                   </div>
                 </EventDetail>
                 <EventDetail head="Activities">
                   <div>
-                    Find activity kits and tools online that encourage hands-on making, collaborating and participation from your attendees. Here are some of ours to get you started.
+                    Find activity kits and tools online that encourage hands-on making, collaborating and participation from your attendees. Here are <Link to="activities">some of ours</Link> to get you started.
                   </div>
                 </EventDetail>
                 <EventDetail head="Documentation">
                   <div>
-                    Time flies when you’re having fun! It's often impossible to capture or get links of all the awesome things being made. Appoint a volunteer to be the photographer and make sure that activities are well-documented and that photos/video can be shared online. Use the #MakerParty hashtag so we can see them too.
+                    Time flies when you’re having fun! It's often impossible to capture or get links of all the awesome things being made. Appoint a volunteer to be the photographer and make sure that activities are well-documented and that photos/video can be shared online. Use the <a href="https://twitter.com/search?f=realtime&q=%23makerparty">#MakerParty</a> hashtag so we can see them too.
                   </div>
                 </EventDetail>
                 <EventDetail head="Share-outs">
@@ -334,7 +336,7 @@ var EventsResources = React.createClass({
                 </EventDetail>
                 <EventDetail head="Wrap-up">
                   <div>
-                    You’re done! Make sure to check the event take down checklist to make sure you’ve covered your bases. Do your best to make sure the space is in the same condition (if not better) than when you arrived.
+                    You’re done! Make sure to check the <a href="/event-resources/Event_Take_Down_Checklist.pdf">event take down checklist</a> to make sure you’ve covered your bases. Do your best to make sure the space is in the same condition (if not better) than when you arrived.
                   </div>
                 </EventDetail>
               </div>
@@ -346,17 +348,17 @@ var EventsResources = React.createClass({
               <div>
                 <EventDetail head="Feedback">
                   <div>
-                    Ask participants for feedback. What did they learn? What did they enjoy? If they have suggestions for improvement, be sure to take notes or invite them to blog about it.  Provide links to websites where they can continue learning new skills. Later, conduct a debrief with participating organizations and volunteers, so your next event can be even better. 
+                    Ask participants for feedback. What did they learn? What did they enjoy? If they have suggestions for improvement, be sure to take notes or invite them to blog about it.  Provide links to websites where they can continue learning new skills. Later, conduct a debrief with participating organizations and volunteers, so your next event can be even better.
                   </div>
                 </EventDetail>
                 <EventDetail head="Share what you learned">
                   <div>
-                    Post pictures of your event on Twitter and Flickr using the hashtag #MakerParty or write a blog post using our sample guidelines to share a deeper reflection.
+                    Post pictures of your event on Twitter and Flickr using the hashtag <a href="https://twitter.com/search?f=realtime&q=%23makerparty">#MakerParty</a> or write a blog post using our <a href="/event-resources/Sample_Blog_Post_Guidelines.pdf">sample guidelines</a> to share a deeper reflection.
                   </div>
                 </EventDetail>
                 <EventDetail head="Thank you’s">
                   <div>
-                    Send a heartfelt "Thank you!" to participating organizations, volunteers, facilitators, participants, partners, the venue and anyone else who helped make your event a success. Include photos, videos and links to the work that was created. Ask for feedback on the event and discuss next steps to getting involved, learning more or hosting a future event.
+                    <a href="/event-resources/Sample_Thank_You_Letters.pdf">Send a heartfelt</a> "Thank you!" to participating organizations, volunteers, facilitators, participants, partners, the venue and anyone else who helped make your event a success. Include photos, videos and links to the work that was created. Ask for feedback on the event and discuss next steps to getting involved, learning more or hosting a future event.
                   </div>
                 </EventDetail>
               </div>
