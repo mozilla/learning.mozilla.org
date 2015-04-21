@@ -54,6 +54,7 @@
     "browsertest": "node test/browser/run-in-phantom.js",
     "smoketest": "gulp smoketest",
     "s3": "gulp s3",
+    "travis-after-success": "gulp travis-after-success",
     "build": "gulp",
     "start": "gulp watch"
   },

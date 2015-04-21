@@ -31,6 +31,7 @@ require('node-jsx').install();
 
 var IndexFileStream = require('./lib/gulp-index-file-stream');
 var webpackConfig = require('./webpack.config');
+var travis = require('./lib/travis');
 
 var BUILD_TASKS = [
   'beautify',
@@ -269,28 +270,42 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
     }));
 });
 
+gulp.task('travis-after-success', function() {
+  var env = travis.getS3Env();
+
+  if (env === null) {
+    gutil.log('Current build does not need to be pushed to S3.');
+    return;
+  }
+
+  require('child_process')
+    .spawn(process.execPath, [process.argv[1], 's3'], {
+      env: _.extend({}, process.env, env),
+      stdio: 'inherit'
+    }).on('close', function(code) {
+      if (code !== 0) {
+        gutil.log(gutil.colors.red.bold('Error deploying to S3!'));
+        process.exit(code);
+      } else {
+        gutil.log('Site deployed to S3.');
+      }
+    });
+});
+
 gulp.task('s3', BUILD_TASKS, function() {
   var key = process.env.AWS_ACCESS_KEY;
   var secret = process.env.AWS_SECRET_KEY;
 
   gutil.log('NODE_ENV is ' + process.env.NODE_ENV + '.');
-  if (process.env.TRAVIS === 'true') {
-    gutil.log('Travis build detected.');
-    if (process.env.TRAVIS_PULL_REQUEST === 'false' &&
-        process.env.TRAVIS_BRANCH === TRAVIS_DEPLOY_TO_S3_BRANCH) {
-      gutil.log('Pushing to S3.');
-    } else {
-      gutil.log('Current travis build is either a PR or not on the ' +
-                TRAVIS_DEPLOY_TO_S3_BRANCH +
-                ' branch, so not pushing to S3.');
-      return;
-    }
-  }
 
   if (!key || !secret) {
     throw new Error('Please set AWS_ACCESS_KEY and AWS_SECRET_KEY ' +
     'in your environment.');
   }
+
+  // WARNING: Even if deploying to S3 fails, no errors will be raised.
+  // https://github.com/nkostelnik/gulp-s3/issues/47
+
   return gulp.src('./dist/**')
     .pipe(gzip())
     .pipe(s3({
