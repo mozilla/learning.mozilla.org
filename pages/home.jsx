@@ -27,10 +27,6 @@ var HomePage = React.createClass({
                   image2x="/img/hero-unit@2x.png">
           <h1>Unlock opportunities for all citizens of the Web.</h1>
 
-          {process.env.SOFTEST_OF_LAUNCHES == 'on' ? null :
-          <div><Link to="join" className="btn btn-awsm">Start a Mozilla Club</Link></div>
-          }
-
         </HeroUnit>
         <div className="inner-container">
           <div className="values">
