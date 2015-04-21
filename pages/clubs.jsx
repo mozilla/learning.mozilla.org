@@ -28,6 +28,7 @@ var ClubListItem = React.createClass({
   },
   render: function() {
     var club = this.props.club;
+    var clubName = club.website ? <a href={club.website}>{club.name}</a> : club.name;
     var isOwned = (club.owner === this.props.username);
     var ownerControls = null;
 
@@ -47,7 +48,7 @@ var ClubListItem = React.createClass({
 
     return (
       <li>
-        <h4><a href={club.website}>{club.name}</a></h4>
+        <h4>{clubName}</h4>
         <p><em>{club.location.split(',')[0]}</em></p>
         <p>{club.description}</p>
         <p><small>Led by <a href={"https://webmaker.org/en-US/search?type=user&q=" + club.owner}>{club.owner}</a></small></p>
@@ -220,6 +221,16 @@ var ModalRemoveYourClub = React.createClass({
   }
 });
 
+var normalizeClub = function(clubState) {
+  var state = _.extend({}, clubState);
+
+  if (state.website && !/^https?:\/\//.test(state.website)) {
+    state.website = 'http://' + state.website;
+  }
+
+  return state;
+};
+
 var validateClub = function(clubState) {
   var errors = [];
 
@@ -231,6 +242,9 @@ var validateClub = function(clubState) {
   }
   if (!clubState.location) {
     errors.push("You must provide a location for your club.");
+  }
+  if (clubState.website && !/\./.test(clubState.website)) {
+    errors.push("Your club's website must be a valid URL.");
   }
 
   return errors;
@@ -246,7 +260,13 @@ var ModalAddOrChangeYourClub = React.createClass({
     // If club is provided, then we're a 'change' dialog, otherwise
     // we're an 'add' dialog.
     club: React.PropTypes.object,
+    idPrefix: React.PropTypes.string,
     onSuccess: React.PropTypes.func.isRequired
+  },
+  getDefaultProps: function() {
+    return {
+      idPrefix: 'ModalAddOrChangeYourClub_'
+    };
   },
   statics: {
     teachAPIEvents: {
@@ -299,9 +319,9 @@ var ModalAddOrChangeYourClub = React.createClass({
   },
   handleSubmit: function(e) {
     var teachAPI = this.getTeachAPI();
-    var clubState = _.pick(this.state,
+    var clubState = normalizeClub(_.pick(this.state,
       'name', 'website', 'description', 'location', 'latitude', 'longitude'
-    );
+    ));
     var validationErrors = validateClub(clubState);
     e.preventDefault();
 
@@ -356,6 +376,7 @@ var ModalAddOrChangeYourClub = React.createClass({
     var action = isAdd ? "add" : "change";
     var modalTitle = isAdd ? "Add Your Club To The Map"
                            : "Change Your Club";
+    var idPrefix = this.props.idPrefix;
 
     if (this.state.step == this.STEP_AUTH) {
       content = (
@@ -379,8 +400,8 @@ var ModalAddOrChangeYourClub = React.createClass({
           {this.renderValidationErrors()}
           <form onSubmit={this.handleSubmit}>
             <fieldset>
-              <label>What is the name of your Club?</label>
-              <input type="text" placeholder="We love creative Club names"
+              <label htmlFor={idPrefix + "name"}>What is the name of your Club?</label>
+              <input type="text" id={idPrefix + "name"} placeholder="We love creative Club names"
                disabled={isFormDisabled}
                required
                valueLink={this.linkState('name')} />
@@ -418,14 +439,16 @@ var ModalAddOrChangeYourClub = React.createClass({
                onChange={this.handleLocationChange} />
             </fieldset>
             <fieldset>
-              <label>What is your Club&lsquo;s website?</label>
-              <input type="url" placeholder="http://www.myclubwebsite.com"
+              <label htmlFor={idPrefix + "website"}>What is your Club&lsquo;s website?</label>
+              <input type="text" placeholder="www.myclubwebsite.com"
+               id={idPrefix + "website"}
                disabled={isFormDisabled}
                valueLink={this.linkState('website')} />
             </fieldset>
             <fieldset>
-              <label>What do you focus your efforts on?</label>
+              <label htmlFor={idPrefix + "description"}>What do you focus your efforts on?</label>
               <textarea rows="5" placeholder="Please provide a brief description of your Club."
+               id={idPrefix + "description"}
                disabled={isFormDisabled}
                required
                valueLink={this.linkState('description')} />
@@ -465,52 +488,17 @@ var ModalAddOrChangeYourClub = React.createClass({
   }
 });
 
-
-var ModalLearnMore = React.createClass({
-  handleSubmit: function(e) {
-
-    // Once this is wired up, the GA tracking should be fired after validation
-    ga.event({ category: 'Enquiries', action: 'Request to Find Out More' });
-
-    e.preventDefault();
-    window.alert("Sorry, this functionality has not yet been implemented.");
-  },
-  render: function() {
-    return(
-      <Modal modalTitle="Learn More About Mozilla Clubs">
-        <form onSubmit={this.handleSubmit}>
-          <fieldset>
-            <label>What is your first name?</label>
-            <input type="text" placeholder="We're a friendly bunch, promise!" />
-          </fieldset>
-          <fieldset>
-            <label>Where does it take place?</label>
-            <input type="text" placeholder="Type in a city or a country" />
-          </fieldset>
-          <fieldset>
-            <label>What is your e-mail?</label>
-            <p className="small">A member of our team will personally reach out to you.</p>
-            <input type="email" placeholder="email@example.com" />
-          </fieldset>
-          <input type="submit" className="btn" value="Find Out More" />
-        </form>
-      </Modal>
-    );
-  }
-});
-
-
 var ClubsPage = React.createClass({
   mixins: [ModalManagerMixin, TeachAPIClientMixin],
   contextTypes: {
     router: React.PropTypes.func
   },
   statics: {
+    normalizeClub: normalizeClub,
     validateClub: validateClub,
     ClubList: ClubList,
     ModalAddOrChangeYourClub: ModalAddOrChangeYourClub,
     ModalRemoveYourClub: ModalRemoveYourClub,
-    ModalLearnMore: ModalLearnMore,
     teachAPIEvents: {
       'clubs:change': 'forceUpdate',
       'username:change': 'forceUpdate'
@@ -528,9 +516,6 @@ var ClubsPage = React.createClass({
     this.showModal(ModalAddOrChangeYourClub, {
       onSuccess: this.handleAddClubSuccess
     });
-  },
-  showLearnMoreModal: function() {
-    this.showModal(ModalLearnMore);
   },
   handleAddClubSuccess: function(club) {
     this.refs.map.getDOMNode().scrollIntoView();

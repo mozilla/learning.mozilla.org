@@ -30,6 +30,25 @@ function ensureFormFieldsDisabledValue(component, isDisabled) {
   }
 }
 
+function ensureLabelLinkage(component, id) {
+  var el = component.getDOMNode();
+  var field = el.querySelector('#' + id);
+  var label = el.querySelector('label[for="' + id + '"]');
+
+  if (!field)
+    throw new Error('no form field found with id ' + id);
+
+  if (['input', 'textarea'].indexOf(field.nodeName.toLowerCase()) == -1)
+    throw new Error(field.nodeName.toLowerCase() +
+                    '#' + id + ' is not a form field');
+
+  if (!label)
+    throw new Error('no label found for id ' + id);
+
+  if (label.textContent.trim() == 0)
+    throw new Error('empty label found for id ' + id);
+}
+
 describe("ClubsPage", function() {
   var clubsPage, teachAPI, xhr;
 
@@ -137,6 +156,26 @@ describe("ClubsPage.ClubList", function() {
   });
 });
 
+describe("ClubsPage.normalizeClub", function() {
+  var normalizeClub = ClubsPage.normalizeClub;
+
+  it("prepends http:// to website if needed", function() {
+    normalizeClub({website: 'foo'}).website.should.eql('http://foo');
+  });
+
+  it("doesn't change website if it is blank", function() {
+    normalizeClub({website: ''}).website.should.eql('');
+  });
+
+  it("doesn't change website if it has http://", function() {
+    normalizeClub({website: 'http://foo'}).website.should.eql('http://foo');
+  });
+
+  it("doesn't change website if it has https://", function() {
+    normalizeClub({website: 'https://fo'}).website.should.eql('https://fo');
+  });
+});
+
 describe("ClubsPage.validateClub", function() {
   var validateClub = ClubsPage.validateClub;
 
@@ -167,6 +206,12 @@ describe("ClubsPage.validateClub", function() {
   it("fails when location is blank", function() {
     validateClub(club({location: ''})).should.eql([
       "You must provide a location for your club."
+    ]);
+  });
+
+  it("fails when website is malformed", function() {
+    validateClub(club({website: 'http://foo'})).should.eql([
+      "Your club's website must be a valid URL."
     ]);
   });
 });
@@ -227,6 +272,14 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
       ensureFormFieldsDisabledValue(modal, false);
     });
 
+    it("has valid labels for form elements", function() {
+      teachAPI.emit('username:change', 'foo');
+
+      ensureLabelLinkage(modal, 'ModalAddOrChangeYourClub_name');
+      ensureLabelLinkage(modal, 'ModalAddOrChangeYourClub_website');
+      ensureLabelLinkage(modal, 'ModalAddOrChangeYourClub_description');
+    });
+
     it("handles location changes containing JSON", function() {
       modal.handleLocationChange(JSON.stringify({
         location: 'foo',
@@ -264,7 +317,7 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
           validationErrors: ['old error that should be removed'],
           name: 'blorpy',
           location: 'chicago',
-          website: 'http://example.org',
+          website: 'example.org',
           description: 'this is my club'
         });
         form = TestUtils.findRenderedDOMComponentWithTag(
@@ -344,7 +397,7 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
       name: 'blah',
       description: 'my club',
       location: 'somewhere',
-      website: 'http://boop',
+      website: 'http://boop.com',
       latitude: 42,
       longitude: 8
     };
@@ -366,7 +419,7 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
       modal.state.name.should.eql("blah");
       modal.state.description.should.eql("my club");
       modal.state.location.should.eql("somewhere");
-      modal.state.website.should.eql("http://boop");
+      modal.state.website.should.eql("http://boop.com");
     });
 
     describe("when form is submitted", function() {
@@ -392,7 +445,7 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
           name: 'changed blah',
           description: 'my club',
           location: 'somewhere',
-          website: 'http://boop',
+          website: 'http://boop.com',
           latitude: 42,
           longitude: 8
         });
@@ -478,21 +531,5 @@ describe("ClubsPage.ModalRemoveYourClub", function() {
       modal.state.networkError.should.be.false;
       modal.getDOMNode().textContent.should.not.match(MODAL_ERROR_REGEX);
     });
-  });
-});
-
-describe("ClubsPage.ModalLearnMore", function() {
-  var modal;
-
-  beforeEach(function() {
-    modal = stubContext.render(ClubsPage.ModalLearnMore);
-  });
-
-  afterEach(function() {
-    stubContext.unmount(modal);
-  });
-
-  it("renders", function() {
-    modal.getDOMNode().textContent.should.match(/learn more/i);
   });
 });

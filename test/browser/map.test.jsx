@@ -238,7 +238,7 @@ describe("Map.getAutocompleteOptions()", function() {
     Map.getAutocompleteOptions('blah', function() {});
     requests.length.should.eql(1);
     requests[0].method.should.eql('get');
-    requests[0].url.should.eql('http://api.tiles.mapbox.com/v4/geocode/' +
+    requests[0].url.should.eql('//api.tiles.mapbox.com/v4/geocode/' +
                                'mapbox.places/blah.json?' +
                                'access_token=mytoken');
   });

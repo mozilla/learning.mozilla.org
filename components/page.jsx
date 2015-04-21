@@ -1,4 +1,5 @@
-var React = require('react');
+var React = require('react/addons');
+var TimeoutTransitionGroup = require('../components/timeout-transition-group.jsx');
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
 
@@ -78,13 +79,20 @@ var Page = React.createClass({
           </div>
           <Footer/>
         </div>
+
+        <TimeoutTransitionGroup transitionName="modal"
+                                enterTimeout={250}
+                                leaveTimeout={250}
+                                transitionEnter={true}
+                                transitionLeave={true}>
         {this.state.modalClass
-         ? <div ref="modalHolder">
+         ? <div ref="modalHolder" key={1}>
              {React.createElement(this.state.modalClass,
                                   this.state.modalProps)}
              <div className="modal-backdrop"/>
            </div>
          : null}
+        </TimeoutTransitionGroup>
       </div>
     );
   }

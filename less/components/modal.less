@@ -94,3 +94,20 @@ body .modal {
   /* Workaround for https://github.com/twbs/bootstrap/issues/14839. */
   -webkit-overflow-scrolling: auto;
 }
+
+// modal fade in/out animation
+.modal-enter {
+  opacity: 0.01;
+  transition: opacity 0.25s ease-in;
+  &.modal-enter-active {
+    opacity: 1;
+  }
+}
+
+.modal-leave {
+  opacity: 1;
+  transition: opacity 0.25s ease-in;
+  &.modal-leave-active {
+    opacity: 0.01;
+  }
+}

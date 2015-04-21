@@ -7,7 +7,6 @@ body {
   font-size: 1.6rem;
   font-weight: 300;
   color: @bodyTextColor;
-  border-top: 0.2rem solid @white;
 }
 
 h1 {
@@ -74,6 +73,44 @@ a.bold-link {
     right: 0;
     z-index: 100;
   }
+}
+
+.no-js-warning {
+  display: none;
+  background: darkgray;
+  color: white;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.no-js-warning a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+html.no-js .no-js-warning {
+  display: block;
+}
+
+#tabzilla-panel {
+  font-size: 1.1rem;
+  #tabzilla-nav {
+    ul li {
+      h2 {
+        font-size: 1.3rem;
+      }
+      &#tabzilla-search input[type="search"] {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  #tabzilla-promo #tabzilla-promo-gear.snippet a h4 {
+    font-size: 3.2rem;
+  }
+}
+
+#page-holder {
+  border-top: 0.2rem solid @white;
 }
 
 .video-container {

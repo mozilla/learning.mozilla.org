@@ -39,7 +39,7 @@
     "react": "^0.13.1",
     "react-ga": "^1.0.12",
     "react-router": "^0.13.2",
-    "react-select": "^0.4.6",
+    "react-select": "0.4.6",
     "should": "^5.1.0",
     "superagent": "^1.1.0",
     "underscore": "^1.8.2",
@@ -53,6 +53,7 @@
     "browsertest": "node test/browser/run-in-phantom.js",
     "smoketest": "gulp smoketest",
     "s3": "gulp s3",
+    "travis-after-success": "gulp travis-after-success",
     "build": "gulp",
     "start": "gulp watch"
   },
