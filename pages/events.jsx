@@ -4,52 +4,60 @@ var HeroUnit = require('../components/hero-unit.jsx');
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
 var Illustration = require('../components/illustration.jsx');
+var PageEndCTA = require('../components/page-end-cta.jsx');
+
+var validateSignupForm = function(signUpFormState) {
+  var errors = [];
+  // regex copied from http://stackoverflow.com/a/46181
+  var regexEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+  if (!regexEmail.test(signUpFormState.email)) {
+    errors.push("Please enter an email address.");
+  }
+
+  return errors;
+};
 
 var FormMailingListSignup = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
   getInitialState: function() {
     return {
-      formDest: "https://sendto.mozilla.org/page/s/maker-party-signup",
       email: "",
-      privacyPolicyAgree: false
+      validationErrors: []
     };
   },
   handleSubmit: function(e) {
-    e.preventDefault();
-    console.log(this.state.email);
-    console.log(this.state.privacyPolicyAgree);
-    console.log(this.state.formDest);
+    var validationErrors = validateSignupForm(_.pick(this.state,"email"));
 
-    request
-      .post(this.state.formDest)
-      .withCredentials()
-      .send({
-        email: this.state.email,
-        "custom-2517": this.state.privacyPolicyAgree
-      })
-      .end(function(err, res) {
-        if (err) {
-          console.log(err);
-          window.alert("error encountered");
-        }
-      });
+    if (validationErrors.length) {
+      e.preventDefault();
+      this.setState({validationErrors: validationErrors});
+      return;
+    }
   },
-  handleBtnClick: function(e) {
-    window.alert("submit btn clicked");
+  renderValidationErrors: function() {
+    if (this.state.validationErrors.length) {
+      return (
+        <div className="alert alert-danger">
+          <p className="error-msg">Please enter an email address.</p>
+        </div>
+      );
+    }
   },
   render: function() {
     return (
-      <form action={this.state.formDest} method="POST" onSubmit={this.handleSubmit}>
+      <form className="mailinglist-signup" action="https://sendto.mozilla.org/page/s/maker-party-signup-for-teach-site" method="POST" onSubmit={this.handleSubmit}>
         <div className="col-sm-offset-1 col-sm-8 col-md-offset-1 col-md-8 col-lg-offset-1 col-lg-8">
           <fieldset>
             <input name="email" type="email" size="30" placeholder="Your email address" valueLink={this.linkState("email")} required />
           </fieldset>
           <fieldset>
-            <input name="custom-2517" type="checkbox" checkedLink={this.linkState("privacyPolicyAgree")} required /> I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.
+            <input name="custom-3460" type="checkbox" checked readOnly required hidden />
+            <p className="pp-note">&#10003; I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.</p>
           </fieldset>
+          {this.renderValidationErrors()}
         </div>
         <div className="col-sm-2 col-md-2 col-lg-2 text-center">
-          <input type="submit" value="Submit Email" className="btn btn-awsm" onClick={this.handleBtnClick} />
+          <input type="submit" value="Submit Email" className="btn btn-awsm" />
         </div>
       </form>
     );
