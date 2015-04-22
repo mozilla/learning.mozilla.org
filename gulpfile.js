@@ -1,5 +1,4 @@
 var path = require('path');
-var webserver = require('gulp-webserver');
 var _ = require('underscore');
 var gulp = require('gulp');
 var gulpif = require('gulp-if');
@@ -30,7 +29,9 @@ require('node-jsx').install();
 
 var IndexFileStream = require('./lib/gulp-index-file-stream');
 var webpackConfig = require('./webpack.config');
+var config = require('./lib/config');
 var travis = require('./lib/travis');
+var server = require('./test/browser/server');
 
 var BUILD_TASKS = [
   'beautify',
@@ -72,7 +73,7 @@ function handleError() {
 gulp.task('sitemap', ['generate-index-files'], function() {
   gulp.src('dist/**/*.html')
     .pipe(sitemap({
-      siteUrl: process.env.ORIGIN || 'https://teach.webmaker.org'
+      siteUrl: config.ORIGIN
     }))
     .pipe(gulp.dest('./dist'));
 });
@@ -253,14 +254,10 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
     process.exit(0);
   });
 
-  gulp.src('dist')
-    .pipe(webserver({
-      livereload: {
-        enable: true
-      },
-      host: '0.0.0.0',
-      port: 8008
-    }));
+  server.create().listen(config.DEV_SERVER_PORT, function() {
+    gutil.log('Development server listening at ' +
+              gutil.colors.green.bold(config.ORIGIN) + '.');
+  });
 });
 
 gulp.task('travis-after-success', function(cb) {
