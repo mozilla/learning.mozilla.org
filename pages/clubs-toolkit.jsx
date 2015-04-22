@@ -248,15 +248,11 @@ var ClubsToolkit = React.createClass({
           </Expander>
         </section>
         <section>
-
-          {process.env.SOFTEST_OF_LAUNCHES == 'on' ? null :
           <PageEndCTA
             linkTo="mozilla-web-clubs"
             header="Do you meet regularly with a group of learners to increase web literacy skills?"
             cta="add your club to the map"
           />
-          }
-
         </section>
       </div>
     );
