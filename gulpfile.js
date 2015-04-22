@@ -29,6 +29,7 @@ require('node-jsx').install();
 
 var IndexFileStream = require('./lib/gulp-index-file-stream');
 var webpackConfig = require('./webpack.config');
+var config = require('./lib/config');
 var travis = require('./lib/travis');
 var server = require('./test/browser/server');
 
@@ -253,9 +254,9 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
     process.exit(0);
   });
 
-  server.create().listen(8008, function() {
+  server.create().listen(config.DEV_SERVER_PORT, function() {
     gutil.log('Development server listening at ' +
-              gutil.colors.green.bold('http://localhost:8008') + '.');
+              gutil.colors.green.bold(config.ORIGIN) + '.');
   });
 });
 
