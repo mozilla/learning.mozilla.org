@@ -84,9 +84,7 @@ var Sidebar = React.createClass({
                         ? "collapsible-content"
                         : "collapsed collapsible-content"}>
 
-          {process.env.SOFTEST_OF_LAUNCHES == 'on' ? null :
           <Login/>
-          }
 
           <ul className="sidebar-menu list-unstyled">
             {this.MENU_ENTRIES.map(function(entry, i) {
