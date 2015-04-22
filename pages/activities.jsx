@@ -114,6 +114,7 @@ var HiveLink = React.createClass({
 
 var ActivitiesPage = React.createClass({
   statics: {
+    pageTitle: 'Teaching Activities',
     pageClassName: 'teaching-materials'
   },
   render: function() {
