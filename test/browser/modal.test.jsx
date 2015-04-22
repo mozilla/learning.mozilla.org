@@ -5,6 +5,10 @@ var TestUtils = React.addons.TestUtils;
 
 var Modal = require('../../components/modal.jsx');
 
+var neverCalled = function() {
+  throw new Error("this should never be called");
+};
+
 var FakePage = React.createClass({
   childContextTypes: {
     hideModal: React.PropTypes.func.isRequired,
@@ -13,9 +17,7 @@ var FakePage = React.createClass({
   getChildContext: function() {
     return {
       hideModal: this.props.onHideModal,
-      showModal: function() {
-        throw new Error("this should never be called");
-      }
+      showModal: neverCalled
     };
   },
   render: function() {

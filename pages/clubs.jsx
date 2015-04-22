@@ -252,7 +252,10 @@ var validateClub = function(clubState) {
 
 var ModalAddOrChangeYourClub = React.createClass({
   mixins: [React.addons.LinkedStateMixin, ModalManagerMixin,
-           Router.Navigation, TeachAPIClientMixin],
+           TeachAPIClientMixin],
+  contextTypes: {
+    router: React.PropTypes.func
+  },
   propTypes: {
     // If club is provided, then we're a 'change' dialog, otherwise
     // we're an 'add' dialog.
@@ -486,7 +489,10 @@ var ModalAddOrChangeYourClub = React.createClass({
 });
 
 var ClubsPage = React.createClass({
-  mixins: [ModalManagerMixin, TeachAPIClientMixin, Router.State],
+  mixins: [ModalManagerMixin, TeachAPIClientMixin],
+  contextTypes: {
+    router: React.PropTypes.func
+  },
   statics: {
     normalizeClub: normalizeClub,
     validateClub: validateClub,
@@ -502,7 +508,7 @@ var ClubsPage = React.createClass({
   componentDidMount: function() {
     this.getTeachAPI().updateClubs();
 
-    if (this.getQuery().modal === 'add') {
+    if (this.context.router.getCurrentQuery().modal === 'add') {
       this.showAddYourClubModal();
     }
   },
