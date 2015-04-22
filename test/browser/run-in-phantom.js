@@ -1,15 +1,9 @@
-var http = require('http');
 var path = require('path');
 var chalk = require('chalk');
-var express = require('express');
 
 var ROOT_DIR = path.normalize(path.join(__dirname, '..', '..'));
 
-var app = express();
-
-var server = http.createServer(app);
-
-app.use(express.static(path.join(ROOT_DIR, 'dist')));
+var server = require('./server').create();
 
 server.listen(0, function() {
   var baseURL = 'http://localhost:' + server.address().port;
