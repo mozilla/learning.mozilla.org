@@ -57,8 +57,6 @@ var LINT_DIRS = [
 
 var LESS_FILES = './less/**/*.less';
 
-var TRAVIS_DEPLOY_TO_S3_BRANCH = 'develop';
-
 function onError(err) {
   gutil.log(gutil.colors.red(err));
   gutil.beep();
