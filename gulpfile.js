@@ -73,7 +73,7 @@ function handleError() {
 gulp.task('sitemap', ['generate-index-files'], function() {
   gulp.src('dist/**/*.html')
     .pipe(sitemap({
-      siteUrl: process.env.ORIGIN || 'https://teach.webmaker.org'
+      siteUrl: config.ORIGIN
     }))
     .pipe(gulp.dest('./dist'));
 });
