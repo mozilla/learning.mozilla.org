@@ -13,8 +13,6 @@ var urls = [];
 
 var routes = (
   <Route handler={Page}>
-    <Route name="join" path="/join/"
-     handler={require('../pages/join.jsx')}/>
     <Route name="about" path="/about/"
      handler={require('../pages/about.jsx')}/>
     <Route name="activities" path="/activities/"
