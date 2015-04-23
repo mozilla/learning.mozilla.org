@@ -10,6 +10,7 @@ var DevRibbon = (process.env.NODE_ENV === 'production' &&
                  process.env.SHOW_DEV_RIBBON !== 'on')
                 ? null
                 : require('./dev-ribbon.jsx');
+var config = require('../lib/config');
 
 var Page = React.createClass({
   statics: {
@@ -48,6 +49,15 @@ var Page = React.createClass({
   },
   hideModal: function() {
     this.setState({modalClass: null, modalProps: null});
+  },
+  componentDidMount: function() {
+    if (process.env.NODE_ENV !== 'production' && !config.IN_TEST_SUITE) {
+      var title = Page.titleForHandler(this.getCurrentPageHandler());
+      if (document.title !== title) {
+        console.warn("Document title is '" + document.title + "' but " +
+                     "expected it to be '" + title + "'.");
+      }
+    }
   },
   componentDidUpdate: function(prevProps, prevState) {
     if (this.state.modalClass && !prevState.modalClass) {
