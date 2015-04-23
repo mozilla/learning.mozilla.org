@@ -6,28 +6,32 @@ var Expander = React.createClass({
       expanded: false
     };
   },
-  blur: function() {
+  collapse: function() {
     this.setState({
       expanded: false
     });
   },
-  focus: function(e) {
+  expand: function() {
     this.setState({
       expanded: true
     });
   },
-  onClick: function(e) {
+  onClick: function() {
     if (this.state.expanded) {
-      this.getDOMNode().querySelector(".focus-div").blur();
+      this.collapse();
     } else {
-      this.getDOMNode().querySelector(".focus-div").focus();
+      this.expand();
     }
     e.preventDefault();
   },
   render: function() {
+    var className = "expand-div";
+    if (this.state.expanded) {
+      className += " expanded";
+    }
     return (
       <div className="expander-container">
-        <div className="focus-div" tabIndex="0" onBlur={this.blur} onFocus={this.focus}>
+        <div className={className} tabIndex="0" onBlur={this.collapse} onFocus={this.expand}>
           <div onMouseDown={this.onClick} className="expander-header">
             {this.props.head}
             <span className="ion"></span>

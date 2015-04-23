@@ -1,3 +1,17 @@
+html.no-js {
+  .expander-container {
+    .expand-div {
+      outline: 0;
+      .ion {
+        display: none;
+      }
+      .expander-items-container {
+        max-height: none;
+      }
+    }
+  }
+}
+
 .expander-container {
   .expander-header {
     cursor: pointer;
@@ -15,9 +29,9 @@
       }
     }
   }
-  .focus-div {
+  .expand-div {
     border-top: .2rem solid #fff;
-    &:focus {
+    &.expanded {
       outline: 0;
       .ion {
         &:before {
