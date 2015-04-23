@@ -5,8 +5,6 @@ var Crawler = require('simplecrawler');
 var server = require('./server').create();
 
 server.listen(0, function() {
-  var baseURL = 'http://localhost:' + server.address().port;
-
   var crawler = new Crawler("localhost", "/", server.address().port);
 
   crawler.on('complete', function() {
