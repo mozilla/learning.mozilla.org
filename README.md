@@ -183,18 +183,13 @@ want to create a batch file that uses
 
 ## References
 
-* [Cassie's original PSD files][psd]
-* [Cassie's Teach Website mockups on Red Pen][redpen_teach]
-* [Cassie's Club Page mockups on Red Pen][redpen_club]
+* [Roadmap][roadmap]
 
 <!-- links -->
 
-  [psd]: https://www.dropbox.com/sh/2kbwq2cl9x6q0r8/AAA2Io_uv8sW0MVqyZr4H8Tca?dl=0#/
-  [redpen_teach]: https://redpen.io/p/tv97d65122e4dcb2ab
-  [redpen_club]: https://redpen.io/p/jza7e4f541a24313ff
   [`devtool`]: http://webpack.github.io/docs/configuration.html#devtool
   [sourcemaps-wtf]: https://github.com/mozilla/teach.webmaker.org/pull/147#discussion-diff-25879885
-  [roadmap]: https://wiki.mozilla.org/Learning/Networks/Product-Roadmap
+  [roadmap]: http://wiki.webmaker.org/Teach
   [mocha]: http://mochajs.org/
   [mocha (1)]: http://mochajs.org/#usage
   [should]: https://www.npmjs.com/package/should
