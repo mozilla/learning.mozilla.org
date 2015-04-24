@@ -41,6 +41,7 @@ function generateWithPageHTML(url, options, pageHTML) {
         })}
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,700,600italic,700italic,800,800italic"/>
         <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/vendor/webmaker-app-icons/css/ionicons.min.css"/>
         <link href="https://mozorg.cdn.mozilla.net/media/css/tabzilla-min.css" rel="stylesheet" />
         <link rel="stylesheet" href={'/' + exports.CSS_FILENAME}/>
         <script dangerouslySetInnerHTML={{
