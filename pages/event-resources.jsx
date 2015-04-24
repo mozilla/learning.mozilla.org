@@ -262,7 +262,7 @@ var EventsResources = React.createClass({
                 </EventDetail>
                 <EventDetail head="Gather Materials">
                   <div>
-                    Since we know there will be not-taking, brainstorming and making, you are going to need some materials. have a sign-up sheet, name tags, post-it notes, pens and paper easily accessible. Prepare any other materials you will need ahead of time and set a table aside at the event where learners can grab materials as needed.
+                    Since we know there will be note-taking, brainstorming and making, you are going to need some materials. have a sign-up sheet, name tags, post-it notes, pens and paper easily accessible. Prepare any other materials you will need ahead of time and set a table aside at the event where learners can grab materials as needed.
                   </div>
                 </EventDetail>
                 <EventDetail head="Make Some Gear">
