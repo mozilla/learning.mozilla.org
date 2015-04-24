@@ -54,7 +54,7 @@ var ActivitiesPage = React.createClass({
                   <li>Using hyperlinks to access a range of resources on the web.</li>
                   <li>Reading, evaluating, and manipulating URLs.</li>
                   <li>Recognizing the common visual cues in the services.</li>
-                  <li>Exploring browser add-ons and extensions to provice additional functionality.</li>
+                  <li>Exploring browser add-ons and extensions to provide additional functionality.</li>
                 </ul>
               </Expander>
               <Expander head="web mechanics">
