@@ -262,12 +262,12 @@ var EventsResources = React.createClass({
                 </EventDetail>
                 <EventDetail head="Gather Materials">
                   <div>
-                    Since we know there will be not-taking, brainstorming and making, you are going to need some materials. have a sign-up sheet, name tags, post-it notes, pens and paper easily accessible. Prepare any other materials you will need ahead of time and set a table aside at the event where learners can grab materials as needed.
+                    Since we know there will be note-taking, brainstorming and making, you are going to need some materials. Have a sign-up sheet, name tags, post-it notes, pens and paper easily accessible. Prepare any other materials you will need ahead of time and set a table aside at the event where learners can grab materials as needed.
                   </div>
                 </EventDetail>
                 <EventDetail head="Make Some Gear">
                   <div>
-                    Use this <a href="/event-resources/MakerPartyLogo.eps">logo</a> to create Maker Party t-shirts at your local print shop. Here's an example of what your <a href="/event-resources/makerparty_tshirtpreview.jpg">shirts</a> could look like. Don't have all the budget for printing? Ask participants to bring their own shirts and create Maker Party t-shirts with <a href="https://tbx.makes.org/thimble/stencil-a-tshirt">this activity</a>. You can also pring these <a href="https://makerparty2014.makes.org/thimble/LTEzNDM3NTAxNDQ=/maker-party-love-bomb">certificates</a> to give to the participants at the event that successfully complete the activities.
+                    Use this <a href="/event-resources/MakerPartyLogo.eps">logo</a> to create Maker Party t-shirts at your local print shop. Here's an example of what your <a href="/event-resources/makerparty_tshirtpreview.jpg">shirts</a> could look like. Don't have all the budget for printing? Ask participants to bring their own shirts and create Maker Party t-shirts with <a href="https://tbx.makes.org/thimble/stencil-a-tshirt">this activity</a>. You can also print these <a href="https://makerparty2014.makes.org/thimble/LTEzNDM3NTAxNDQ=/maker-party-love-bomb">certificates</a> to give to the participants at the event that successfully complete the activities.
                   </div>
                 </EventDetail>
                 <EventDetail head="All About The Wi-Fi">
