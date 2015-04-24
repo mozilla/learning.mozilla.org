@@ -35,8 +35,7 @@ var Sidebar = React.createClass({
       subItems: [
         {
           name: "Web Literacy",
-          link: "web-literacy",
-          help: "skills and competencies needed for reading, writing and participating on the web."
+          link: "web-literacy"
         }
       ]
     },
@@ -49,13 +48,11 @@ var Sidebar = React.createClass({
       subItems: [
         {
           name: "Clubs Curriculum",
-          link: "clubs-curriculum",
-          help: "Activities to teach the web in your club."
+          link: "clubs-curriculum"
         },
         {
           name: "Clubs Toolkit",
-          link: "clubs-toolkit",
-          help: "todo hover tooltip"
+          link: "clubs-toolkit"
         }
       ]
     }
@@ -101,7 +98,7 @@ var Sidebar = React.createClass({
                       entry.subItems.map(function (item, key) {
                         return (
                           <li key={key}>
-                            <Link to={item.link} title={item.help}>
+                            <Link to={item.link}>
                               {item.name}
                             </Link>
                           </li>
