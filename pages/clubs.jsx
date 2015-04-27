@@ -362,8 +362,8 @@ var ModalAddOrChangeYourClub = React.createClass({
         <div className="alert alert-danger">
           <p>Unfortunately, your submission has some problems:</p>
           <ul>
-          {this.state.validationErrors.map(function(text) {
-            return <li>{text}</li>;
+          {this.state.validationErrors.map(function(text,i) {
+            return <li key={i}>{text}</li>;
           })}
           </ul>
         </div>
