@@ -113,8 +113,8 @@ see the documentation for [mocha (1)][].
 These tests exercise the code that runs in the user's browser. They're
 located in the `test/browser` directory.
 
-Browser test files are *not* automatically discovered and should
-be explicitly `require`'d in `test/browser/main.js`.
+Each test file should end with `.test.js` or `.test.jsx` and will be
+automatically discovered by the test runner.
 
 Individually running *only* the browser unit tests can be accomplished
 by first running `npm start` and then visiting http://localhost:8008/test/
