@@ -48,8 +48,16 @@ exports.URLS = urls;
 exports.routes = routes;
 
 exports.generateStatic = function(url, cb) {
-  Router.run(routes, url, function(Handler) {
-    cb(React.renderToString(<Handler/>));
+  var router = Router.create({
+    routes: routes,
+    location: url
+  });
+  router.run(function(Handler) {
+    var pageHandler = Page.handlerForPage(router, url);
+
+    cb(React.renderToString(<Handler/>), {
+      title: Page.titleForHandler(pageHandler)
+    });
   });
 };
 
