@@ -7,6 +7,7 @@ var Illustration = require('../components/illustration.jsx');
 
 var TeachLikeMozillaPage = React.createClass({
   statics: {
+    pageTitle: 'Teach Like Mozilla',
     pageClassName: 'teach-like-mozilla'
   },
   render: function() {

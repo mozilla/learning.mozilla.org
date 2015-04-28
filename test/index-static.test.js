@@ -19,4 +19,13 @@ describe('index-static', function() {
       done();
     });
   });
+
+  it('should include page title', function(done) {
+    indexStatic.generate('/', {
+      title: 'hello there'
+    }, function(html) {
+      html.should.match(/\<title\>hello there\<\/title\>/);
+      done();
+    });
+  });
 });

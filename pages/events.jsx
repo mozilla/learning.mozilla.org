@@ -12,6 +12,7 @@ var CAROUSEL_IMG_PROPS = {
 
 var EventsPage = React.createClass({
   statics: {
+    pageTitle: 'Events',
     pageClassName: 'events'
   },
   handleSubmit: function(e) {

@@ -503,6 +503,7 @@ var ClubsPage = React.createClass({
       'clubs:change': 'forceUpdate',
       'username:change': 'forceUpdate'
     },
+    pageTitle: "Clubs",
     pageClassName: "clubs"
   },
   componentDidMount: function() {

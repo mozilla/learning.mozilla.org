@@ -106,6 +106,7 @@ var LearnMoreSection = React.createClass({
 
 var ClubsCurriculum = React.createClass({
   statics: {
+    pageTitle: 'Clubs Curriculum',
     pageClassName: 'clubs-curriculum'
   },
   curriculum: [

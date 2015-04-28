@@ -61,6 +61,7 @@ var ToolkitListItem = React.createClass({
 
 var ClubsToolkit = React.createClass({
   statics: {
+    pageTitle: 'Clubs Toolkit',
     pageClassName: 'clubs-toolkit'
   },
   showAddYourClubModal: function() {},

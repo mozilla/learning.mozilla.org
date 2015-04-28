@@ -10,8 +10,23 @@ var DevRibbon = (process.env.NODE_ENV === 'production' &&
                  process.env.SHOW_DEV_RIBBON !== 'on')
                 ? null
                 : require('./dev-ribbon.jsx');
+var config = require('../lib/config');
 
 var Page = React.createClass({
+  statics: {
+    handlerForPage: function(router, url) {
+      return router.match(url).routes[1].handler;
+    },
+    titleForHandler: function(handler) {
+      var title = 'Mozilla Learning';
+
+      if (handler.pageTitle) {
+        title = handler.pageTitle + ' - ' + title;
+      }
+
+      return title;
+    }
+  },
   contextTypes: {
     router: React.PropTypes.func
   },
@@ -19,6 +34,9 @@ var Page = React.createClass({
     showModal: React.PropTypes.func.isRequired,
     hideModal: React.PropTypes.func.isRequired,
     teachAPI: React.PropTypes.object.isRequired
+  },
+  getCurrentPageHandler: function() {
+    return this.context.router.getCurrentRoutes()[1].handler;
   },
   getInitialState: function() {
     return {
@@ -32,12 +50,22 @@ var Page = React.createClass({
   hideModal: function() {
     this.setState({modalClass: null, modalProps: null});
   },
+  componentDidMount: function() {
+    if (process.env.NODE_ENV !== 'production' && !config.IN_TEST_SUITE) {
+      var title = Page.titleForHandler(this.getCurrentPageHandler());
+      if (document.title !== title) {
+        console.warn("Document title is '" + document.title + "' but " +
+                     "expected it to be '" + title + "'.");
+      }
+    }
+  },
   componentDidUpdate: function(prevProps, prevState) {
     if (this.state.modalClass && !prevState.modalClass) {
       document.body.classList.add('modal-open');
     } else if (!this.state.modalClass && prevState.modalClass) {
       document.body.classList.remove('modal-open');
     }
+    document.title = Page.titleForHandler(this.getCurrentPageHandler());
   },
   getTeachAPI: function() {
     if (!this.teachAPI) {
@@ -63,8 +91,7 @@ var Page = React.createClass({
     }
   },
   render: function() {
-    var routes = this.context.router.getCurrentRoutes();
-    var pageClassName = routes[1].handler.pageClassName || '';
+    var pageClassName = this.getCurrentPageHandler().pageClassName || '';
     return (
       <div>
         <div className={"page container-fluid " + pageClassName}
