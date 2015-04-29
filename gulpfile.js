@@ -203,6 +203,75 @@ gulp.task('lint-test', ['jscs', 'jshint', 'beautify']);
 
 gulp.task('default', BUILD_TASKS);
 
+function watchIndexFiles() {
+  var fs = require('fs');
+  var nodeModules = {};
+  var outputDir = path.join(__dirname, 'dist', 'index-static');
+  var outputFilename = 'index-static.bundle.js';
+
+  // http://jlongster.com/Backend-Apps-with-Webpack--Part-I
+  fs.readdirSync('node_modules')
+    .filter(function(x) {
+      return ['.bin'].indexOf(x) === -1;
+    })
+    .forEach(function(mod) {
+      nodeModules[mod] = 'commonjs ' + mod;
+    });
+  nodeModules['react/addons'] = 'commonjs react/addons';
+
+  var compiler = require('webpack')({
+    entry: './lib/index-static.jsx',
+    target: 'node',
+    devtool: 'sourcemap',
+    externals: nodeModules,
+    module: {
+      loaders: [
+        { test: /\.jsx$/, loader: 'jsx-loader' }
+      ]
+    },
+    output: {
+      path: outputDir,
+      filename: outputFilename
+    }
+  });
+
+  compiler.watch(200, function(err, stats) {
+    if (err) {
+      console.log("FATAL ERROR", err);
+      return;
+    }
+    var jsonStats = stats.toJson();
+    var hasErrors = jsonStats.errors.length > 0;
+    if (hasErrors) {
+      console.log(stats.toString({colors: true}));
+    }
+    if (jsonStats.warnings.length > 0) {
+      console.log(stats.toString({colors: true}));
+    }
+    if (!hasErrors) {
+      var vm = require('vm');
+      var filename = path.join(outputDir, outputFilename);
+      var js = fs.readFileSync(filename, 'utf-8');
+      var sandbox = vm.createContext({
+        process: process,
+        require: require,
+        global: global,
+        console: console
+      });
+
+      console.log("Rebuilding index HTML files.");
+
+      var indexStatic = vm.runInContext(js, sandbox, {filename: filename});
+
+      new IndexFileStream(indexStatic, {})
+        .on('end', function() {
+          console.log("Index HTML files rebuilt.");
+        })
+        .pipe(gulp.dest('./dist'));
+    }
+  });
+}
+
 gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
   require('./lib/developer-help')();
 
@@ -212,31 +281,7 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
     }, webpackConfig)))
     .pipe(gulp.dest('./dist'));
 
-  gulp.watch([
-    'lib/**',
-    'components/**',
-    'mixins/**',
-    'pages/**'
-  ], function() {
-    gutil.log('Rebuilding index HTML files.');
-
-    // Ugh, because the *old* version of our index files are
-    // already in node's require cache, we can't reload them, so
-    // we'll run gulp in a subprocess so that it uses the latest
-    // code.
-    //
-    // TODO: Figure out a better solution for this.
-    require('child_process')
-      .exec('gulp sitemap', function(err, stdout, stderr) {
-        if (err) {
-          gutil.log(gutil.colors.red.bold('Error rebuilding index files!'));
-          gutil.log(stdout);
-          gutil.log(stderr);
-        } else {
-          gutil.log('Index HTML files rebuilt.');
-        }
-      });
-  });
+  watchIndexFiles();
 
   gulp.watch('img/**', ['copy-images']);
   gulp.watch('event-resources/**', ['copy-event-resources']);
