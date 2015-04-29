@@ -221,7 +221,7 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
   }, function(indexStatic) {
     new IndexFileStream(indexStatic, {})
       .on('end', function() {
-        console.log("Index HTML files rebuilt.");
+        console.log('Index HTML files rebuilt.');
       })
       .pipe(gulp.dest('./dist'));
   });
