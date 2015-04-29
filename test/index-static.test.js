@@ -8,13 +8,11 @@ describe('index-static', function() {
   this.timeout(10000);
 
   beforeEach(function(done) {
-    if (indexStatic) return done();
-    indexStaticWatcher.build(function success() {
-      indexStatic = indexStaticWatcher.getBundle();
+    indexStaticWatcher.build(function(err, newIndexStatic) {
+      if (err) return done(err);
+
+      indexStatic = newIndexStatic;
       done();
-    }, function fail() {
-      done(new Error('building ' + indexStaticWatcher.outputFilename +
-                     ' failed'));
     });
   });
 

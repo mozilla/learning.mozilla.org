@@ -1,4 +1,5 @@
 var path = require('path');
+var PassThrough = require('stream').PassThrough;
 var _ = require('underscore');
 var gulp = require('gulp');
 var gulpif = require('gulp-if');
@@ -70,6 +71,7 @@ function handleError() {
 }
 
 function createIndexFileStream() {
+  var stream = new PassThrough({ objectMode: true });
   var meta = {};
   var execSync = require('child_process').execSync;
 
@@ -80,9 +82,18 @@ function createIndexFileStream() {
     }).slice(0, 40);
   } catch (e) {}
 
-  return new IndexFileStream(indexStaticWatcher.getBundle(), {
-    meta: meta
+  indexStaticWatcher.build(function(err, indexStatic) {
+    if (err) {
+      return stream.emit('error', err);
+    }
+    new IndexFileStream(indexStatic, {
+      meta: meta
+    }).on('error', function(err) {
+      stream.emit('error', err);
+    }).pipe(stream);
   });
+
+  return stream;
 }
 
 gulp.task('sitemap', ['generate-index-files'], function() {
@@ -91,13 +102,6 @@ gulp.task('sitemap', ['generate-index-files'], function() {
       siteUrl: config.ORIGIN
     }))
     .pipe(gulp.dest('./dist'));
-});
-
-gulp.task('compile-index-static-bundle', function(cb) {
-  indexStaticWatcher.build(function ok() { cb(); }, function fail() {
-    cb(new Error('compiling ' + indexStaticWatcher.outputFilename +
-                 ' failed'));
-  });
 });
 
 gulp.task('copy-test-dirs', function() {
@@ -166,9 +170,7 @@ gulp.task('smoketest', BUILD_TASKS.concat([
   gutil.log(gutil.colors.green.bold('Yay, smoke test passes!'));
 });
 
-gulp.task('test-react-warnings', [
-  'compile-index-static-bundle'
-], function() {
+gulp.task('test-react-warnings', function() {
   var oldWarn = console.warn;
   var warnings = 0;
 
@@ -187,9 +189,7 @@ gulp.task('test-react-warnings', [
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('generate-index-files', [
-  'compile-index-static-bundle'
-], function() {
+gulp.task('generate-index-files', function() {
   return createIndexFileStream().pipe(gulp.dest('./dist'));
 });
 
