@@ -69,8 +69,16 @@ function generateWithPageHTML(url, options, pageHTML) {
 }
 
 function generate(url, options, cb) {
-  routes.generateStatic(url, function(html) {
-    cb(generateWithPageHTML(url, options, html));
+  routes.generateStatic(url, function(err, html) {
+    var pageHTML;
+
+    if (err) return cb(err);
+    try {
+      pageHTML = generateWithPageHTML(url, options, html);
+    } catch(e) {
+      err = e;
+    }
+    cb(err, pageHTML);
   });
 };
 

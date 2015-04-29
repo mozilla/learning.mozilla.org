@@ -49,7 +49,14 @@ exports.routes = routes;
 
 exports.generateStatic = function(url, cb) {
   Router.run(routes, url, function(Handler) {
-    cb(React.renderToString(<Handler/>));
+    var html;
+    var err = null;
+    try {
+      html = React.renderToString(<Handler/>);
+    } catch (e) {
+      err = e;
+    }
+    cb(err, html);
   });
 };
 

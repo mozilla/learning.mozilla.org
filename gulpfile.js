@@ -220,6 +220,10 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
     externalModules: ['react/addons']
   }, function(indexStatic) {
     new IndexFileStream(indexStatic, {})
+      .on('error', function(err) {
+        gutil.log('Error rebuilding index HTML files.');
+        gutil.log(gutil.colors.red.bold(err.stack));
+      })
       .on('end', function() {
         gutil.log('Index HTML files rebuilt.');
       })

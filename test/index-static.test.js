@@ -6,7 +6,8 @@ var indexStatic = require('../lib/index-static.jsx');
 
 describe('index-static', function() {
   it('should work w/o meta options', function(done) {
-    indexStatic.generate('/', {}, function(html) {
+    indexStatic.generate('/', {}, function(err, html) {
+      should(err).equal(null);
       done();
     });
   });
@@ -14,7 +15,8 @@ describe('index-static', function() {
   it('should include meta options', function(done) {
     indexStatic.generate('/', {
       meta: { foo: 'bar' }
-    }, function(html) {
+    }, function(err, html) {
+      should(err).equal(null);
       html.should.match(/meta name="foo" content="bar"/);
       done();
     });
