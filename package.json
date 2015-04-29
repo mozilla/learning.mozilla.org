@@ -41,6 +41,7 @@
     "react-select": "0.4.6",
     "should": "^5.1.0",
     "simplecrawler": "^0.5.2",
+    "source-map-support": "^0.2.10",
     "superagent": "^1.1.0",
     "underscore": "^1.8.2",
     "vinyl": "^0.4.6",
