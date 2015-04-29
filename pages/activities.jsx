@@ -260,7 +260,7 @@ var ActivitiesPage = React.createClass({
           <section>
             <IconLinks>
               <IconLink
-                linkTo="mozilla-web-clubs"
+                linkTo="mozilla-clubs"
                 imgSrc="/img/activities-page/svg/icon-connect.svg"
                 imgAlt="icon clubs"
                 head="Build"

@@ -23,7 +23,7 @@ var routes = (
      handler={require('../pages/events.jsx')}/>
     <Route name="event-resources" path="/events/resources/"
      handler={require('../pages/event-resources.jsx')}/>
-    <Route name="mozilla-web-clubs" path="/clubs/"
+    <Route name="mozilla-clubs" path="/clubs/"
      handler={require('../pages/clubs.jsx')}/>
     <Route name="clubs-curriculum" path="/clubs/curriculum/"
      handler={require('../pages/clubs-curriculum.jsx')}/>
