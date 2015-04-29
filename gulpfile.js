@@ -28,6 +28,7 @@ require('node-jsx').install();
 // require('react-a11y')();
 
 var IndexFileStream = require('./lib/gulp-index-file-stream');
+var indexStaticWatcher = require('./lib/index-static-watcher');
 var webpackConfig = require('./webpack.config');
 var config = require('./lib/config');
 var travis = require('./lib/travis');
@@ -203,69 +204,6 @@ gulp.task('lint-test', ['jscs', 'jshint', 'beautify']);
 
 gulp.task('default', BUILD_TASKS);
 
-function watchIndexFiles() {
-  var fs = require('fs');
-  var nodeModules = {};
-  var outputDir = path.join(__dirname, 'dist', 'index-static');
-  var outputFilename = 'index-static.bundle.js';
-
-  // http://jlongster.com/Backend-Apps-with-Webpack--Part-I
-  fs.readdirSync('node_modules')
-    .filter(function(x) {
-      return ['.bin'].indexOf(x) === -1;
-    })
-    .forEach(function(mod) {
-      nodeModules[mod] = 'commonjs ' + mod;
-    });
-  nodeModules['react/addons'] = 'commonjs react/addons';
-
-  var compiler = require('webpack')({
-    entry: './lib/index-static.jsx',
-    target: 'node',
-    devtool: 'sourcemap',
-    externals: nodeModules,
-    module: {
-      loaders: [
-        { test: /\.jsx$/, loader: 'jsx-loader' }
-      ]
-    },
-    output: {
-      library: 'yup', // Actual value isn't used, just needs to be a string.
-      libraryTarget: 'commonjs2',
-      path: outputDir,
-      filename: outputFilename
-    }
-  });
-
-  compiler.watch(200, function(err, stats) {
-    if (err) {
-      console.log("Fatal error during compiler.watch()", err);
-      return;
-    }
-    var jsonStats = stats.toJson();
-    var hasErrors = jsonStats.errors.length > 0;
-    if (hasErrors) {
-      console.log(stats.toString({colors: true}));
-    }
-    if (jsonStats.warnings.length > 0) {
-      console.log(stats.toString({colors: true}));
-    }
-    if (!hasErrors) {
-      var filename = path.join(outputDir, outputFilename);
-
-      delete require.cache[filename];
-
-      var indexStatic = require(filename);
-
-      new IndexFileStream(indexStatic, {})
-        .on('end', function() {
-          console.log("Index HTML files rebuilt.");
-        })
-        .pipe(gulp.dest('./dist'));
-    }
-  });
-}
-
 gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
   require('./lib/developer-help')();
 
@@ -275,7 +213,18 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
     }, webpackConfig)))
     .pipe(gulp.dest('./dist'));
 
-  watchIndexFiles();
+  indexStaticWatcher({
+    delay: 200,
+    nodeModulesDir: path.join(__dirname, 'node_modules'),
+    outputDir: path.join(__dirname, 'dist', 'index-static'),
+    externalModules: ['react/addons']
+  }, function(indexStatic) {
+    new IndexFileStream(indexStatic, {})
+      .on('end', function() {
+        console.log("Index HTML files rebuilt.");
+      })
+      .pipe(gulp.dest('./dist'));
+  });
 
   gulp.watch('img/**', ['copy-images']);
   gulp.watch('event-resources/**', ['copy-event-resources']);
