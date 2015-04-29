@@ -230,6 +230,8 @@ function watchIndexFiles() {
       ]
     },
     output: {
+      library: 'yup', // Actual value isn't used, just needs to be a string.
+      libraryTarget: 'commonjs2',
       path: outputDir,
       filename: outputFilename
     }
@@ -237,7 +239,7 @@ function watchIndexFiles() {
 
   compiler.watch(200, function(err, stats) {
     if (err) {
-      console.log("FATAL ERROR", err);
+      console.log("Fatal error during compiler.watch()", err);
       return;
     }
     var jsonStats = stats.toJson();
@@ -249,19 +251,11 @@ function watchIndexFiles() {
       console.log(stats.toString({colors: true}));
     }
     if (!hasErrors) {
-      var vm = require('vm');
       var filename = path.join(outputDir, outputFilename);
-      var js = fs.readFileSync(filename, 'utf-8');
-      var sandbox = vm.createContext({
-        process: process,
-        require: require,
-        global: global,
-        console: console
-      });
 
-      console.log("Rebuilding index HTML files.");
+      delete require.cache[filename];
 
-      var indexStatic = vm.runInContext(js, sandbox, {filename: filename});
+      var indexStatic = require(filename);
 
       new IndexFileStream(indexStatic, {})
         .on('end', function() {
