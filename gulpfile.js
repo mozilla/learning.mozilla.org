@@ -18,7 +18,7 @@ var jshint = require('gulp-jshint');
 var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 
-require('node-jsx').install();
+require('node-jsx').install({ extension: '.jsx' });
 
 // TODO: Some of our third-party components are triggering warnings
 // from react-a11y, so we need to disable it for now to prevent

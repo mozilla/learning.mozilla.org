@@ -1,6 +1,6 @@
 var should = require('should');
 
-require('node-jsx').install();
+require('node-jsx').install({ extension: '.jsx' });
 
 var indexStatic = require('../lib/index-static.jsx');
 
