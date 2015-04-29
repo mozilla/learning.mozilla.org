@@ -18,8 +18,6 @@ var jshint = require('gulp-jshint');
 var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 
-require('node-jsx').install({ extension: '.jsx' });
-
 // TODO: Some of our third-party components are triggering warnings
 // from react-a11y, so we need to disable it for now to prevent
 // warning spam. Hopefully in the future we can find a way to
@@ -75,12 +73,35 @@ function handleError() {
   });
 }
 
+function createIndexFileStream() {
+  var meta = {};
+  var execSync = require('child_process').execSync;
+
+  try {
+    meta['git-rev'] = execSync('git rev-parse HEAD', {
+      cwd: __dirname,
+      encoding: 'utf8'
+    }).slice(0, 40);
+  } catch (e) {}
+
+  return new IndexFileStream(indexStaticWatcher.getBundle(), {
+    meta: meta
+  });
+}
+
 gulp.task('sitemap', ['generate-index-files'], function() {
   gulp.src('dist/**/*.html')
     .pipe(sitemap({
       siteUrl: config.ORIGIN
     }))
     .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('compile-index-static-bundle', function(cb) {
+  indexStaticWatcher.build(function ok() { cb(); }, function fail() {
+    cb(new Error('compiling ' + indexStaticWatcher.outputFilename +
+                 ' failed'));
+  });
 });
 
 gulp.task('copy-test-dirs', function() {
@@ -149,7 +170,9 @@ gulp.task('smoketest', BUILD_TASKS.concat([
   gutil.log(gutil.colors.green.bold('Yay, smoke test passes!'));
 });
 
-gulp.task('test-react-warnings', function() {
+gulp.task('test-react-warnings', [
+  'compile-index-static-bundle'
+], function() {
   var oldWarn = console.warn;
   var warnings = 0;
 
@@ -158,7 +181,7 @@ gulp.task('test-react-warnings', function() {
     gutil.log(gutil.colors.red.bold(message));
   };
 
-  return new IndexFileStream(require('./lib/index-static.jsx'))
+  return createIndexFileStream()
     .on('end', function() {
       console.warn = oldWarn;
       if (warnings) {
@@ -168,21 +191,10 @@ gulp.task('test-react-warnings', function() {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('generate-index-files', function() {
-  var meta = {};
-  var execSync = require('child_process').execSync;
-
-  try {
-    meta['git-rev'] = execSync('git rev-parse HEAD', {
-      cwd: __dirname,
-      encoding: 'utf8'
-    }).slice(0, 40);
-  } catch (e) {}
-
-  return new IndexFileStream(require('./lib/index-static.jsx'), {
-    meta: meta
-  })
-    .pipe(gulp.dest('./dist'));
+gulp.task('generate-index-files', [
+  'compile-index-static-bundle'
+], function() {
+  return createIndexFileStream().pipe(gulp.dest('./dist'));
 });
 
 gulp.task('beautify', function () {
@@ -217,8 +229,8 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
     }, webpackConfig)))
     .pipe(gulp.dest('./dist'));
 
-  indexStaticWatcher.watch(200, function(indexStatic) {
-    new IndexFileStream(indexStatic, {})
+  indexStaticWatcher.watch(200, function() {
+    createIndexFileStream()
       .on('error', function(err) {
         gutil.log('Error rebuilding index HTML files.');
         gutil.log(gutil.colors.red.bold(err.stack));
