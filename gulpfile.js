@@ -28,11 +28,15 @@ require('node-jsx').install({ extension: '.jsx' });
 // require('react-a11y')();
 
 var IndexFileStream = require('./lib/gulp-index-file-stream');
-var indexStaticWatcher = require('./lib/index-static-watcher');
 var webpackConfig = require('./webpack.config');
 var config = require('./lib/config');
 var travis = require('./lib/travis');
 var server = require('./test/browser/server');
+var indexStaticWatcher = require('./lib/index-static-watcher')({
+  nodeModulesDir: path.join(__dirname, 'node_modules'),
+  outputDir: path.join(__dirname, 'dist', 'index-static'),
+  externalModules: ['react/addons']
+});
 
 var BUILD_TASKS = [
   'beautify',
@@ -213,12 +217,7 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
     }, webpackConfig)))
     .pipe(gulp.dest('./dist'));
 
-  indexStaticWatcher({
-    delay: 200,
-    nodeModulesDir: path.join(__dirname, 'node_modules'),
-    outputDir: path.join(__dirname, 'dist', 'index-static'),
-    externalModules: ['react/addons']
-  }, function(indexStatic) {
+  indexStaticWatcher.watch(200, function(indexStatic) {
     new IndexFileStream(indexStatic, {})
       .on('error', function(err) {
         gutil.log('Error rebuilding index HTML files.');
