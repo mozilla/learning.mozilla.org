@@ -1,10 +1,23 @@
 var should = require('should');
 
-require('node-jsx').install({ extension: '.jsx' });
-
-var indexStatic = require('../lib/index-static.jsx');
+var indexStaticWatcher = require('../lib/index-static-watcher').create();
 
 describe('index-static', function() {
+  var indexStatic;
+
+  this.timeout(10000);
+
+  beforeEach(function(done) {
+    if (indexStatic) return done();
+    indexStaticWatcher.build(function success() {
+      indexStatic = indexStaticWatcher.getBundle();
+      done();
+    }, function fail() {
+      done(new Error('building ' + indexStaticWatcher.outputFilename +
+                     ' failed'));
+    });
+  });
+
   it('should work w/o meta options', function(done) {
     indexStatic.generate('/', {}, function(err, html) {
       should(err).equal(null);

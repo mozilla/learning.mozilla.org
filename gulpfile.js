@@ -30,11 +30,7 @@ var webpackConfig = require('./webpack.config');
 var config = require('./lib/config');
 var travis = require('./lib/travis');
 var server = require('./test/browser/server');
-var indexStaticWatcher = require('./lib/index-static-watcher')({
-  nodeModulesDir: path.join(__dirname, 'node_modules'),
-  outputDir: path.join(__dirname, 'dist', 'index-static'),
-  externalModules: ['react/addons']
-});
+var indexStaticWatcher = require('./lib/index-static-watcher').create();
 
 var BUILD_TASKS = [
   'beautify',
