@@ -48,15 +48,21 @@ exports.URLS = urls;
 exports.routes = routes;
 
 exports.generateStatic = function(url, cb) {
-  Router.run(routes, url, function(Handler) {
-    var html;
+  var router = Router.create({
+    routes: routes,
+    location: url
+  });
+  router.run(function(Handler) {
+    var pageHandler, html, title;
     var err = null;
     try {
       html = React.renderToString(<Handler/>);
+      pageHandler = Page.handlerForPage(router, url);
+      title = Page.titleForHandler(pageHandler);
     } catch (e) {
       err = e;
     }
-    cb(err, html);
+    cb(err, html, { title: title });
   });
 };
 

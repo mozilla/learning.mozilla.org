@@ -47,7 +47,7 @@ function generateWithPageHTML(url, options, pageHTML) {
         <script dangerouslySetInnerHTML={{
           __html: "(" + featureDetect.toString() + ")();"
         }}></script>
-        <title>Mozilla Learning</title>
+        <title>{options.title}</title>
       </head>
       <body>
         <div className="no-js-warning">
@@ -69,11 +69,12 @@ function generateWithPageHTML(url, options, pageHTML) {
 }
 
 function generate(url, options, cb) {
-  routes.generateStatic(url, function(err, html) {
+  routes.generateStatic(url, function(err, html, metadata) {
     var pageHTML;
 
     if (err) return cb(err);
     try {
+      options = _.extend({ title: metadata.title }, options);
       pageHTML = generateWithPageHTML(url, options, html);
     } catch(e) {
       err = e;

@@ -29,6 +29,7 @@ var WebMap = React.createClass({
 
 var ActivitiesPage = React.createClass({
   statics: {
+    pageTitle: "Web Literacy",
     pageClassName: "web-literacy"
   },
   render: function() {

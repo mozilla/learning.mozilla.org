@@ -132,6 +132,7 @@ var EventDetail = React.createClass({
 
 var EventsResources = React.createClass({
   statics: {
+    pageTitle: 'Event Resources',
     pageClassName: 'event-resources'
   },
   render: function() {
