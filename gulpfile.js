@@ -72,9 +72,9 @@ function handleError() {
   });
 }
 
-// cleanup /dist in the initial build steps
+// cleanup ./dist in the initial build steps
 gulp.task('cleanup-dist', function (cb) {
-  del(['/dist/*'], cb);
+  del(['./dist/*'], cb);
 });
 
 gulp.task('sitemap', ['generate-index-files'], function() {
