@@ -23,6 +23,7 @@ to [Semantic Versioning](http://semver.org/).
 - The background color on the hero unit is now gray, which makes
   the text readable while the background image is still loading.
 - The Web Literacy Map now uses bullet points instead of paragraphs.
+- Browser-side tests are now automatically discovered by the test runner.
 
 ## 0.0.1 - 2015-04-22
 ### Added
