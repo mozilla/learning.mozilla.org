@@ -186,7 +186,7 @@ gulp.task('test-react-warnings', function() {
         this.emit('error', new Error('At least one warning was logged.'));
       }
     })
-    .pipe(gulp.dest('./dist'));
+    .on('data', function() {});
 });
 
 gulp.task('generate-index-files', function() {
