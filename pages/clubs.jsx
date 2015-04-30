@@ -118,7 +118,7 @@ var HowClubWorks = React.createClass({
       <div className="list-with-illust">
         <Illustration
         width={182} height={237}
-        src1x="/img/icon-how-do-clubs-work.svg"
+        src1x="/img/clubs-page/svg/icon-how-do-clubs-work.svg"
         alt="icon how do Mozilla clubs work">
           <h2>How do Mozilla Clubs work?</h2>
           <ul>
@@ -207,7 +207,7 @@ var ModalRemoveYourClub = React.createClass({
     } else {
       content = (
         <div className="text-center">
-          <p><img className="globe" src="/img/globe-without-pin.svg"/></p>
+          <p><img className="globe" src="/img/svg/globe-without-pin.svg"/></p>
           <h2>Your club has been removed.</h2>
         </div>
       );
@@ -465,7 +465,7 @@ var ModalAddOrChangeYourClub = React.createClass({
     } else if (this.state.step == this.STEP_SHOW_RESULT) {
       content = (
         <div className="text-center">
-          <p><img className="globe" src="/img/globe-with-pin.svg"/></p>
+          <p><img className="globe" src="/img/svg/globe-with-pin.svg"/></p>
           {isAdd
            ? <div>
                <h2>We've added your Club!</h2>
@@ -575,21 +575,21 @@ var ClubsPage = React.createClass({
             <IconLinks>
               <IconLink
                 linkTo="clubs-curriculum"
-                imgSrc="/img/icon-curriculum.svg"
+              imgSrc="/img/clubs-page/svg/icon-curriculum.svg"
                 imgAlt="icon curriculum"
                 head="Curriculum"
                 subhead="Modular Web Literacy curriculum"
               />
               <IconLink
                 href="http://discourse.webmaker.org/category/meet"
-                imgSrc="/img/icon-connect.svg"
+                imgSrc="/img/clubs-page/svg/icon-connect.svg"
                 imgAlt="icon connect"
                 head="Connect"
                 subhead="Connect with other Club Leaders"
               />
               <IconLink
                 linkTo="clubs-toolkit"
-                imgSrc="/img/icon-tips.svg"
+                imgSrc="/img/clubs-page/svg/icon-tips.svg"
                 imgAlt="icon tips"
                 head="Helpful Tips"
                 subhead="Tips for running your Club"

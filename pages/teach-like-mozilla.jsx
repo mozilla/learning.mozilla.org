@@ -28,7 +28,7 @@ var TeachLikeMozillaPage = React.createClass({
             <div className="list-with-illust">
               <Illustration
               width={242} height={175}
-              src1x="/img/teach-like-mozilla-page/icon-teach-like-mozilla.svg"
+              src1x="/img/teach-like-mozilla-page/svg/icon-teach-like-mozilla.svg"
               alt="icon teach like mozilla">
                 <ul>
                   <li>
@@ -52,21 +52,21 @@ var TeachLikeMozillaPage = React.createClass({
             <IconLinks>
               <IconLink
                 href="http://mzl.la/TTWpodcasts"
-                imgSrc="/img/teach-like-mozilla-page/icon-listen.svg"
+                imgSrc="/img/teach-like-mozilla-page/svg/icon-listen.svg"
                 imgAlt="icon listen"
                 head="Listen"
                 subhead="Subscribe to our podcast"
               />
               <IconLink
                 linkTo="web-literacy"
-                imgSrc="/img/teach-like-mozilla-page/icon-learn.svg"
+                imgSrc="/img/teach-like-mozilla-page/svg/icon-learn.svg"
                 imgAlt="icon learn"
                 head="Learn"
                 subhead="See our Web Literacy Map"
               />
               <IconLink
                 href="http://discourse.webmaker.org/category/meet"
-                imgSrc="/img/teach-like-mozilla-page/icon-connect.svg"
+                imgSrc="/img/teach-like-mozilla-page/svg/icon-connect.svg"
                 imgAlt="icon connect"
                 head="Say Hello"
                 subhead="Meet the teach community"

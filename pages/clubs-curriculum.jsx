@@ -98,7 +98,7 @@ var LearnMoreSection = React.createClass({
           <p className="learn-more">
             <Link to="web-literacy">Learn More</Link>
           </p>
-          <img src="/img/clubs-curriculum-page/web-literacy-divider.svg" alt="" className="center-block"/>
+          <img src="/img/clubs-curriculum-page/svg/web-literacy-divider.svg" alt="" className="center-block"/>
       </section>
     );
   }
