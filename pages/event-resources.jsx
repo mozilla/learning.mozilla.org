@@ -193,8 +193,8 @@ var EventsResources = React.createClass({
           alt="Brand Palette Image"
           src1x="/img/event-resources-page/resource-thumbnails-03.png"
           src2x="/img/event-resources-page/resource-thumbnails-03@2x.png">
-            <LogoAssetLink href="">Download EPS</LogoAssetLink>
-            <LogoAssetLink href="">Download PNG</LogoAssetLink>
+            <LogoAssetLink href="https://party.webmaker.org/party-resources/MakerPartyBrandPalette.eps">Download EPS</LogoAssetLink>
+            <LogoAssetLink href="https://party.webmaker.org/party-resources/MakerPartyBrandPalette.png">Download PNG</LogoAssetLink>
           </LogoAsset>
           <LogoAsset head="Poster"
           alt="Poster Image"
@@ -389,7 +389,7 @@ var EventsResources = React.createClass({
             alt="ask the community image"/>
             <h3 className="event-support-header">Ask The Community</h3>
             <p>
-              We have a large, global community of people like you who have hosted events and have lots of advice to share. Visit our <a href="">discussion forum</a> to ask questions or share your own advice and experience with others.
+              We have a large, global community of people like you who have hosted events and have lots of advice to share. Visit our <a href="http://discourse.webmaker.org/category/maker-party">discussion forum</a> to ask questions or share your own advice and experience with others.
             </p>
           </div>
           <div className="event-support-panel">
@@ -400,7 +400,7 @@ var EventsResources = React.createClass({
             alt="request support image"/>
             <h3 className="event-support-header">Request Support</h3>
             <p>
-              Still can't find an answer to your question? Our team is here to help you with all things Maker Party. <a href="">Contact us</a> and we will get back to you as soon as possible.
+              Still can't find an answer to your question? Our team is here to help you with all things Maker Party. <a href="mailto:teachtheweb@mozillafoundation.org">Contact us</a> and we will get back to you as soon as possible.
             </p>
           </div>
         </div>
