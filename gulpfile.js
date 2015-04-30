@@ -17,6 +17,7 @@ var jscs = require('gulp-jscs');
 var jshint = require('gulp-jshint');
 var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
+var del = require('del');
 
 require('node-jsx').install();
 
@@ -34,6 +35,7 @@ var travis = require('./lib/travis');
 var server = require('./test/browser/server');
 
 var BUILD_TASKS = [
+  'cleanup-dist',
   'beautify',
   'copy-test-dirs',
   'copy-images',
@@ -70,6 +72,11 @@ function handleError() {
   });
 }
 
+// cleanup /dist in the initial build steps
+gulp.task('cleanup-dist', function (cb) {
+  del(['/dist/*'], cb);
+});
+
 gulp.task('sitemap', ['generate-index-files'], function() {
   gulp.src('dist/**/*.html')
     .pipe(sitemap({
@@ -100,7 +107,6 @@ gulp.task('copy-event-resources', function () {
     base: '.'
   }).pipe(gulp.dest('./dist'));
 });
-
 gulp.task('copy-webmaker-app-icons', function () {
   return gulp.src(['node_modules/webmaker-app-icons/css/**', 'node_modules/webmaker-app-icons/fonts/**'], {
     base: 'node_modules/webmaker-app-icons'
