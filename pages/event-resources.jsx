@@ -14,6 +14,13 @@ var PageLinker = React.createClass({
   }
 });
 var EventItem = React.createClass({
+  propTypes: {
+    participants: React.PropTypes.string.isRequired,
+    linkToGuide: React.PropTypes.string.isRequired,
+    head: React.PropTypes.string.isRequired,
+    subHead: React.PropTypes.string.isRequired,
+    content: React.PropTypes.string.isRequired
+  },
   render: function() {
     return (
       <div className="event-item">
@@ -22,7 +29,7 @@ var EventItem = React.createClass({
           <div className="participants-label">participants</div>
         </div>
         <div className="event-content">
-          <div className="event-item-header">{this.props.head}</div>
+          <div className="event-item-header"><a href={this.props.linkToGuide}>{this.props.head}</a></div>
           <div className="event-item-subheader">{this.props.subHead}</div>
           <p className="event-item-content">{this.props.content}</p>
         </div>
@@ -125,6 +132,7 @@ var EventDetail = React.createClass({
 
 var EventsResources = React.createClass({
   statics: {
+    pageTitle: 'Event Resources',
     pageClassName: 'event-resources'
   },
   render: function() {
@@ -152,16 +160,19 @@ var EventsResources = React.createClass({
         <p>No matter the size of your event, we have a guide for you.</p>
 
         <EventItem participants="2-5"
+          linkToGuide="https://michelle.makes.org/thimble/LTE2NjE1MzQyMDg=/how-to-host-a-maker-party-small"
           head="small event"
           subHead="Perfect for 2 to 5 participants"
           content="A fun way to spend an hour on a rainy day, hang out as a family, learn to hack with a friend, and make cool things on the web."
         />
         <EventItem participants="5-50"
+          linkToGuide="https://michelle.makes.org/thimble/LTE1Nzc2NDgxMjg=/how-to-host-a-maker-party-medium"
           head="medium event"
           subHead="Great for 5 to 50 participants"
           content="A fantastic way to team up people with different skill-sets to collaboratively build something new or improve something existing on the web, all while learning and teaching new skills."
         />
         <EventItem participants="50+"
+          linkToGuide="https://michelle.makes.org/thimble/LTEzMDkyMTI2NzI=/how-to-host-a-maker-party-large"
           head="large event"
           subHead="For those ready for the adventure of 50+ participants"
           content="A rewarding way to bring together local organizations in a science fair setting to demonstrate cool web ideas, provice fun hands-on activities, and introduce your community to making and hacking."
@@ -182,8 +193,8 @@ var EventsResources = React.createClass({
           alt="Brand Palette Image"
           src1x="/img/event-resources-page/resource-thumbnails-03.png"
           src2x="/img/event-resources-page/resource-thumbnails-03@2x.png">
-            <LogoAssetLink href="">Download EPS</LogoAssetLink>
-            <LogoAssetLink href="">Download PNG</LogoAssetLink>
+            <LogoAssetLink href="https://party.webmaker.org/party-resources/MakerPartyBrandPalette.eps">Download EPS</LogoAssetLink>
+            <LogoAssetLink href="https://party.webmaker.org/party-resources/MakerPartyBrandPalette.png">Download PNG</LogoAssetLink>
           </LogoAsset>
           <LogoAsset head="Poster"
           alt="Poster Image"
@@ -252,12 +263,12 @@ var EventsResources = React.createClass({
                 </EventDetail>
                 <EventDetail head="Gather Materials">
                   <div>
-                    Since we know there will be not-taking, brainstorming and making, you are going to need some materials. have a sign-up sheet, name tags, post-it notes, pens and paper easily accessible. Prepare any other materials you will need ahead of time and set a table aside at the event where learners can grab materials as needed.
+                    Since we know there will be note-taking, brainstorming and making, you are going to need some materials. Have a sign-up sheet, name tags, post-it notes, pens and paper easily accessible. Prepare any other materials you will need ahead of time and set a table aside at the event where learners can grab materials as needed.
                   </div>
                 </EventDetail>
                 <EventDetail head="Make Some Gear">
                   <div>
-                    Use this <a href="/event-resources/MakerPartyLogo.eps">logo</a> to create Maker Party t-shirts at your local print shop. Here's an example of what your <a href="/event-resources/makerparty_tshirtpreview.jpg">shirts</a> could look like. Don't have all the budget for printing? Ask participants to bring their own shirts and create Maker Party t-shirts with <a href="https://tbx.makes.org/thimble/stencil-a-tshirt">this activity</a>. You can also pring these <a href="https://makerparty2014.makes.org/thimble/LTEzNDM3NTAxNDQ=/maker-party-love-bomb">certificates</a> to give to the participants at the event that successfully complete the activities.
+                    Use this <a href="/event-resources/MakerPartyLogo.eps">logo</a> to create Maker Party t-shirts at your local print shop. Here's an example of what your <a href="/event-resources/makerparty_tshirtpreview.jpg">shirts</a> could look like. Don't have all the budget for printing? Ask participants to bring their own shirts and create Maker Party t-shirts with <a href="https://tbx.makes.org/thimble/stencil-a-tshirt">this activity</a>. You can also print these <a href="https://makerparty2014.makes.org/thimble/LTEzNDM3NTAxNDQ=/maker-party-love-bomb">certificates</a> to give to the participants at the event that successfully complete the activities.
                   </div>
                 </EventDetail>
                 <EventDetail head="All About The Wi-Fi">
@@ -378,7 +389,7 @@ var EventsResources = React.createClass({
             alt="ask the community image"/>
             <h3 className="event-support-header">Ask The Community</h3>
             <p>
-              We have a large, global community of people like you who have hosted events and have lots of advice to share. Visit our <a href="">discussion forum</a> to ask questions or share your own advice and experience with others.
+              We have a large, global community of people like you who have hosted events and have lots of advice to share. Visit our <a href="http://discourse.webmaker.org/category/maker-party">discussion forum</a> to ask questions or share your own advice and experience with others.
             </p>
           </div>
           <div className="event-support-panel">
@@ -389,7 +400,7 @@ var EventsResources = React.createClass({
             alt="request support image"/>
             <h3 className="event-support-header">Request Support</h3>
             <p>
-              Still can't find an answer to your question? Our team is here to help you with all things Maker Party. <a href="">Contact us</a> and we will get back to you as soon as possible.
+              Still can't find an answer to your question? Our team is here to help you with all things Maker Party. <a href="mailto:teachtheweb@mozillafoundation.org">Contact us</a> and we will get back to you as soon as possible.
             </p>
           </div>
         </div>

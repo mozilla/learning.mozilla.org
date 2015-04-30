@@ -13,8 +13,6 @@ var urls = [];
 
 var routes = (
   <Route handler={Page}>
-    <Route name="join" path="/join/"
-     handler={require('../pages/join.jsx')}/>
     <Route name="about" path="/about/"
      handler={require('../pages/about.jsx')}/>
     <Route name="activities" path="/activities/"
@@ -25,7 +23,7 @@ var routes = (
      handler={require('../pages/events.jsx')}/>
     <Route name="event-resources" path="/events/resources/"
      handler={require('../pages/event-resources.jsx')}/>
-    <Route name="mozilla-web-clubs" path="/clubs/"
+    <Route name="mozilla-clubs" path="/clubs/"
      handler={require('../pages/clubs.jsx')}/>
     <Route name="clubs-curriculum" path="/clubs/curriculum/"
      handler={require('../pages/clubs-curriculum.jsx')}/>
@@ -50,8 +48,16 @@ exports.URLS = urls;
 exports.routes = routes;
 
 exports.generateStatic = function(url, cb) {
-  Router.run(routes, url, function(Handler) {
-    cb(React.renderToString(<Handler/>));
+  var router = Router.create({
+    routes: routes,
+    location: url
+  });
+  router.run(function(Handler) {
+    var pageHandler = Page.handlerForPage(router, url);
+
+    cb(React.renderToString(<Handler/>), {
+      title: Page.titleForHandler(pageHandler)
+    });
   });
 };
 

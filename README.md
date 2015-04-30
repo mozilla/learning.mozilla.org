@@ -113,8 +113,8 @@ see the documentation for [mocha (1)][].
 These tests exercise the code that runs in the user's browser. They're
 located in the `test/browser` directory.
 
-Browser test files are *not* automatically discovered and should
-be explicitly `require`'d in `test/browser/main.js`.
+Each test file should end with `.test.js` or `.test.jsx` and will be
+automatically discovered by the test runner.
 
 Individually running *only* the browser unit tests can be accomplished
 by first running `npm start` and then visiting http://localhost:8008/test/
@@ -165,7 +165,6 @@ software works.
 `TEACH_API_URL` | is the origin of the [Teach API][] server. Defaults to `https://teach-api.herokuapp.com`.
 `GA_ACCOUNT` | is the property ID of the Google Analytics account. E.g. `UA-123...`. It defaults to the property ID for the Teach site. Set it to `DISABLED` to disable Google Analytics entirely.
 `GA_DEBUG` | When set to 'on' will output verbose info to the console about what data is being sent to Google Analytics.
-`SOFTEST_OF_LAUNCHES` | When set to 'on' will enable the [softest of launches][589].
 
 ### Using Environment Variables in Local Development
 
@@ -184,18 +183,13 @@ want to create a batch file that uses
 
 ## References
 
-* [Cassie's original PSD files][psd]
-* [Cassie's Teach Website mockups on Red Pen][redpen_teach]
-* [Cassie's Club Page mockups on Red Pen][redpen_club]
+* [Roadmap][roadmap]
 
 <!-- links -->
 
-  [psd]: https://www.dropbox.com/sh/2kbwq2cl9x6q0r8/AAA2Io_uv8sW0MVqyZr4H8Tca?dl=0#/
-  [redpen_teach]: https://redpen.io/p/tv97d65122e4dcb2ab
-  [redpen_club]: https://redpen.io/p/jza7e4f541a24313ff
   [`devtool`]: http://webpack.github.io/docs/configuration.html#devtool
   [sourcemaps-wtf]: https://github.com/mozilla/teach.webmaker.org/pull/147#discussion-diff-25879885
-  [roadmap]: https://wiki.mozilla.org/Learning/Networks/Product-Roadmap
+  [roadmap]: http://wiki.webmaker.org/Teach
   [mocha]: http://mochajs.org/
   [mocha (1)]: http://mochajs.org/#usage
   [should]: https://www.npmjs.com/package/should
@@ -204,4 +198,3 @@ want to create a batch file that uses
   [Teach API]: https://github.com/mozilla/teach-api
   [#413]: https://github.com/mozilla/teach.webmaker.org/issues/413
   [source maps]: http://blog.teamtreehouse.com/introduction-source-maps
-  [589]: https://github.com/mozilla/teach.webmaker.org/issues/589

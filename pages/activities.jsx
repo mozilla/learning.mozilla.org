@@ -114,6 +114,7 @@ var HiveLink = React.createClass({
 
 var ActivitiesPage = React.createClass({
   statics: {
+    pageTitle: 'Teaching Activities',
     pageClassName: 'teaching-materials'
   },
   render: function() {
@@ -259,7 +260,7 @@ var ActivitiesPage = React.createClass({
           <section>
             <IconLinks>
               <IconLink
-                linkTo="mozilla-web-clubs"
+                linkTo="mozilla-clubs"
                 imgSrc="/img/activities-page/svg/icon-connect.svg"
                 imgAlt="icon clubs"
                 head="Build"
