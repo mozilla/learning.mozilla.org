@@ -140,7 +140,7 @@ var Quote = React.createClass({
       <div className="row">
         <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
           <Blockquote className="primary-quote" author="Mikko K, Helsinki, Finland"
-              imgSrc="/img/mikko-finland@1x.png" imgSrc2x="/img/mikko-finland@2x.png" imgAlt="Mikko Finland Quote">
+              imgSrc="/img/clubs-page/mikko-finland.png" imgSrc2x="/img/clubs-page/mikko-finland@2x.png" imgAlt="Mikko Finland Quote">
 
             <p>The idea of teachers and students learning at the same time is what makes me excited about this work.</p>
           </Blockquote>
@@ -544,8 +544,8 @@ var ClubsPage = React.createClass({
 
     return (
       <div>
-        <HeroUnit image="/img/hero-clubs.png"
-                  image2x="/img/hero-clubs@2x.png">
+        <HeroUnit image="/img/clubs-page/hero-clubs.png"
+                  image2x="/img/clubs-page/hero-clubs@2x.png">
           <h1>Mozilla Clubs</h1>
           <div><a className="btn btn-awsm" onClick={this.showAddYourClubModal}>Add Your Club</a></div>
         </HeroUnit>
