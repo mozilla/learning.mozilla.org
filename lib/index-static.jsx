@@ -29,8 +29,6 @@ function generateWithPageHTML(url, options, pageHTML) {
     meta: {}
   });
 
-  // Make sure any changes to this file are reflected in
-  // index.html too.
   var content = (
     <html className="no-js">
       <head>
