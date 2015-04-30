@@ -1,5 +1,10 @@
 # Contribution Guidelines
 
+## Getting Help
+
+If you have any questions about anything in this document, please
+feel free to join us in the **#webmaker** channel on irc.mozilla.org!
+
 ## Reporting Issues
 
 - **Search for existing issues.** Please check to see if someone else
@@ -40,7 +45,7 @@ described in the [README][], automatically checks for most of this.
 
 If you're writing any JavaScript code, please add automated tests 
 to exercise it. Guidance on how to do this can be found in the
-[README][].
+[README][]. If you need any help, please ask!
 
 ### Operating Systems
 
