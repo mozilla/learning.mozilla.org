@@ -25,7 +25,7 @@ var PageEndCTA = React.createClass({
         <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
           <div className="page-end-cta">
             <div>
-              <img className="divider" src="/img/svg/clubs-line-divider.svg" alt="line divider" />
+              <img className="divider" src="/img/components/page-end-cta/svg/line-divider.svg" alt="line divider" />
               <p>{this.props.header}</p>
               <AndAction onClick={this.props.onClick} linkTo={this.props.linkTo}>
                 {this.props.cta}

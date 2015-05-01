@@ -184,29 +184,29 @@ var EventsResources = React.createClass({
         <div className="row">
           <LogoAsset head="Maker Party Logo"
           alt="Maker Party Logo Image"
-          src1x="/img/event-resources-page/resource-thumbnails-01.png"
-          src2x="/img/event-resources-page/resource-thumbnails-01@2x.png">
+          src1x="/img/pages/event-resources/resource-thumbnails-01.png"
+          src2x="/img/pages/event-resources/resource-thumbnails-01@2x.png">
             <LogoAssetLink href="https://party.webmaker.org/party-resources/MakerPartyLogo.eps">Download EPS</LogoAssetLink>
             <LogoAssetLink href="https://party.webmaker.org/party-resources/MakerPartyLogo.png">Download PNG</LogoAssetLink>
           </LogoAsset>
           <LogoAsset head="Brand Palette"
           alt="Brand Palette Image"
-          src1x="/img/event-resources-page/resource-thumbnails-03.png"
-          src2x="/img/event-resources-page/resource-thumbnails-03@2x.png">
+          src1x="/img/pages/event-resources/resource-thumbnails-03.png"
+          src2x="/img/pages/event-resources/resource-thumbnails-03@2x.png">
             <LogoAssetLink href="https://party.webmaker.org/party-resources/MakerPartyBrandPalette.eps">Download EPS</LogoAssetLink>
             <LogoAssetLink href="https://party.webmaker.org/party-resources/MakerPartyBrandPalette.png">Download PNG</LogoAssetLink>
           </LogoAsset>
           <LogoAsset head="Poster"
           alt="Poster Image"
-          src1x="/img/event-resources-page/resource-thumbnails-07.png"
-          src2x="/img/event-resources-page/resource-thumbnails-07@2x.png">
+          src1x="/img/pages/event-resources/resource-thumbnails-07.png"
+          src2x="/img/pages/event-resources/resource-thumbnails-07@2x.png">
             <LogoAssetLink href="https://party.webmaker.org/party-resources/MakerPartyBanner.eps">Download EPS</LogoAssetLink>
             <LogoAssetLink href="https://party.webmaker.org/party-resources/MakerPartyBanner.png">Download PNG</LogoAssetLink>
           </LogoAsset>
           <LogoAsset head="Desktop Wallpaper"
           alt="Desktop Wallpaper Image"
-          src1x="/img/event-resources-page/resource-thumbnails-10.png"
-          src2x="/img/event-resources-page/resource-thumbnails-10@2x.png">
+          src1x="/img/pages/event-resources/resource-thumbnails-10.png"
+          src2x="/img/pages/event-resources/resource-thumbnails-10@2x.png">
             <LogoAssetLink href="https://party.webmaker.org/party-resources/MakerPartyWallpaper-1-320x480.jpg">320px x 480px</LogoAssetLink>
             <LogoAssetLink href="https://party.webmaker.org/party-resources/MakerPartyWallpaper-1-640x1136.jpg">640px x 1136px</LogoAssetLink>
             <LogoAssetLink href="https://party.webmaker.org/party-resources/MakerPartyWallpaper-1-768x1280.jpg">768px x 1280px</LogoAssetLink>
@@ -215,28 +215,28 @@ var EventsResources = React.createClass({
           </LogoAsset>
           <LogoAsset head="Certificate"
           alt="Certificate Image"
-          src1x="/img/event-resources-page/resource-thumbnails-08.png"
-          src2x="/img/event-resources-page/resource-thumbnails-08@2x.png">
+          src1x="/img/pages/event-resources/resource-thumbnails-08.png"
+          src2x="/img/pages/event-resources/resource-thumbnails-08@2x.png">
             <RemixLink href="https://makerparty2014.makes.org/thimble/LTEzNDM3NTAxNDQ=/maker-party-love-bomb">Download EPS</RemixLink>
           </LogoAsset>
           <LogoAsset head="Table Cloth Design"
           alt="Table Cloth Design Image"
-          src1x="/img/event-resources-page/resource-thumbnails-04.png"
-          src2x="/img/event-resources-page/resource-thumbnails-04@2x.png">
+          src1x="/img/pages/event-resources/resource-thumbnails-04.png"
+          src2x="/img/pages/event-resources/resource-thumbnails-04@2x.png">
             <LogoAssetLink href="https://party.webmaker.org/party-resources/MakerPartyTableClothDesign.eps">Download EPS</LogoAssetLink>
             <LogoAssetLink href="https://party.webmaker.org/party-resources/MakerPartyTableClothDesign.png">Download PNG</LogoAssetLink>
           </LogoAsset>
           <LogoAsset head="Buttons"
           alt="Buttons Image"
-          src1x="/img/event-resources-page/resource-thumbnails-06.png"
-          src2x="/img/event-resources-page/resource-thumbnails-06@2x.png">
+          src1x="/img/pages/event-resources/resource-thumbnails-06.png"
+          src2x="/img/pages/event-resources/resource-thumbnails-06@2x.png">
             <LogoAssetLink href="https://party.webmaker.org/party-resources/MakerPartyButtons.eps">Download EPS</LogoAssetLink>
             <LogoAssetLink href="https://party.webmaker.org/party-resources/MakerPartyButtons.png">Download PNG</LogoAssetLink>
           </LogoAsset>
           <LogoAsset head="KUMI Papertoy"
           alt="KUMI Papertoy Image"
-          src1x="/img/event-resources-page/resource-thumbnails-09.png"
-          src2x="/img/event-resources-page/resource-thumbnails-09@2x.png">
+          src1x="/img/pages/event-resources/resource-thumbnails-09.png"
+          src2x="/img/pages/event-resources/resource-thumbnails-09@2x.png">
             <LogoAssetLink href="https://party.webmaker.org/party-resources/KUMI-Papertoy-yellow.pdf">Yellow T-sirt</LogoAssetLink>
             <LogoAssetLink href="https://party.webmaker.org/party-resources/KUMI-Papertoy-blue.pdf">Teal T-shirt</LogoAssetLink>
             <LogoAssetLink href="https://party.webmaker.org/party-resources/KUMI-Papertoy-blank-tees.pdf">Design Your Own T-shirt</LogoAssetLink>
@@ -384,8 +384,8 @@ var EventsResources = React.createClass({
           <div className="event-support-panel">
             <ImageTag
             width={399} height={254}
-            src1x="/img/event-resources-page/ask-the-community-image.png"
-            src2x="/img/event-resources-page/ask-the-community-image@2x.png"
+            src1x="/img/pages/event-resources/ask-the-community-image.png"
+            src2x="/img/pages/event-resources/ask-the-community-image@2x.png"
             alt="ask the community image"/>
             <h3 className="event-support-header">Ask The Community</h3>
             <p>
@@ -395,8 +395,8 @@ var EventsResources = React.createClass({
           <div className="event-support-panel">
             <ImageTag
             width={399} height={254}
-            src1x="/img/event-resources-page/request-support-image.png"
-            src2x="/img/event-resources-page/request-support-image@2x.png"
+            src1x="/img/pages/event-resources/request-support-image.png"
+            src2x="/img/pages/event-resources/request-support-image@2x.png"
             alt="request support image"/>
             <h3 className="event-support-header">Request Support</h3>
             <p>

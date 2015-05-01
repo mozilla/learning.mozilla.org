@@ -10,14 +10,14 @@ var Sidebar = React.createClass({
       name: "Teaching Activities",
       link: 'activities',
       help: "Activities and lesson plans to get you started",
-      icon: "/img/nav/icon-nav-white-materials.svg",
+      icon: "/img/components/sidebar/svg/icon-nav-white-materials.svg",
       className: "activities"
     },
     {
       name: "Events",
       link: 'events',
       help: "Find gatherings near you, or host your own",
-      icon: "/img/nav/icon-nav-white-events.svg",
+      icon: "/img/components/sidebar/svg/icon-nav-white-events.svg",
       className: "events",
       subItems: [
         {
@@ -30,7 +30,7 @@ var Sidebar = React.createClass({
       name: "Teach Like Mozilla",
       link: 'teach-like-mozilla',
       help: "Learn about our approach to teaching the Web",
-      icon: "/img/nav/icon-nav-white-gears.svg",
+      icon: "/img/components/sidebar/svg/icon-nav-white-gears.svg",
       className: "teach",
       subItems: [
         {
@@ -43,7 +43,7 @@ var Sidebar = React.createClass({
       name: "Mozilla Clubs",
       link: 'mozilla-clubs',
       help: "Join our global community of local chapters",
-      icon: "/img/nav/icon-nav-white-globe.svg",
+      icon: "/img/components/sidebar/svg/icon-nav-white-globe.svg",
       className: "clubs",
       subItems: [
         {
@@ -72,7 +72,7 @@ var Sidebar = React.createClass({
       <div className="sidebar col-md-3">
         <div className="sidebar-header">
           <Link to="home">
-            <img src="/img/nav/mozilla-wordmark-white.svg" alt="Webmaker logo" className="moz-logo"/>
+            <img src="/img/components/sidebar/svg/mozilla-wordmark-white.svg" alt="Webmaker logo" className="moz-logo"/>
           </Link>
           <button aria-label="toggle" className="glyphicon glyphicon-menu-hamburger hidden-lg hidden-md"
                   onClick={this.handleHamburgerClick} />

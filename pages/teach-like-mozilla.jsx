@@ -14,8 +14,8 @@ var TeachLikeMozillaPage = React.createClass({
     return (
       <div>
         <HeroUnit
-          image="/img/teach-like-mozilla-page/hero-teach-like-mozilla.png"
-          image2x="/img/teach-like-mozilla-page/hero-teach-like-mozilla@2x.png">
+          image="/img/pages/teach-like-mozilla/hero-teach-like-mozilla.png"
+          image2x="/img/pages/teach-like-mozilla/hero-teach-like-mozilla@2x.png">
           <h1>Teach Like Mozilla</h1>
           <h2>We learn best by making & reflecting, together.</h2>
         </HeroUnit>
@@ -28,7 +28,7 @@ var TeachLikeMozillaPage = React.createClass({
             <div className="list-with-illust">
               <Illustration
               width={242} height={175}
-              src1x="/img/teach-like-mozilla-page/svg/icon-teach-like-mozilla.svg"
+              src1x="/img/pages/teach-like-mozilla/svg/icon-teach-like-mozilla.svg"
               alt="icon teach like mozilla">
                 <ul>
                   <li>
@@ -52,21 +52,21 @@ var TeachLikeMozillaPage = React.createClass({
             <IconLinks>
               <IconLink
                 href="http://mzl.la/TTWpodcasts"
-                imgSrc="/img/teach-like-mozilla-page/svg/icon-listen.svg"
+                imgSrc="/img/pages/teach-like-mozilla/svg/icon-listen.svg"
                 imgAlt="icon listen"
                 head="Listen"
                 subhead="Subscribe to our podcast"
               />
               <IconLink
                 linkTo="web-literacy"
-                imgSrc="/img/teach-like-mozilla-page/svg/icon-learn.svg"
+                imgSrc="/img/pages/teach-like-mozilla/svg/icon-learn.svg"
                 imgAlt="icon learn"
                 head="Learn"
                 subhead="See our Web Literacy Map"
               />
               <IconLink
                 href="http://discourse.webmaker.org/category/meet"
-                imgSrc="/img/teach-like-mozilla-page/svg/icon-connect.svg"
+                imgSrc="/img/pages/teach-like-mozilla/svg/icon-connect.svg"
                 imgAlt="icon connect"
                 head="Say Hello"
                 subhead="Meet the teach community"

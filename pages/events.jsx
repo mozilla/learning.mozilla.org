@@ -22,8 +22,8 @@ var EventsPage = React.createClass({
   render: function() {
     return (
       <div>
-        <HeroUnit image="/img/events-page/hero-events.png"
-                  image2x="/img/events-page/hero-events@2x.png">
+        <HeroUnit image="/img/pages/events/hero-events.png"
+                  image2x="/img/pages/events/hero-events@2x.png">
           <h1>Host a Maker Party</h1>
           <h2>Celebrate teaching and learning with others</h2>
         </HeroUnit>
@@ -33,7 +33,7 @@ var EventsPage = React.createClass({
             <p>Since its inauguration in 2012, Maker Party has become Mozilla's largest celebration of making and learning on the web. From getting the hang of HTML to building robots to learning about remixing using paper and scissors, people of all ages and from all backgrounds have come together to joyfully explore the culture, mechanics and citizenship of the web.</p>
             <Illustration
             height={183} width={156}
-            src1x="/img/events-page/svg/maker-party-logo.svg"
+            src1x="/img/pages/events/svg/maker-party-logo.svg"
             alt="Maker Party logo"
             >
               <h2>
@@ -67,21 +67,21 @@ var EventsPage = React.createClass({
               <IconLinks>
                 <IconLink
                   linkTo="event-resources"
-                  imgSrc="/img/events-page/svg/icon-curriculum.svg"
+                  imgSrc="/img/pages/events/svg/icon-curriculum.svg"
                   imgAlt="icon resources"
                   head="Event Resources"
                   subhead="Plan a unique event"
                 />
                 <IconLink
                   href="http://discourse.webmaker.org/category/maker-party"
-                  imgSrc="/img/events-page/svg/icon-connect.svg"
+                  imgSrc="/img/pages/events/svg/icon-connect.svg"
                   imgAlt="icon connect"
                   head="Join the Conversation"
                   subhead="Talk to others about your event"
                 />
                 <IconLink
                   href="https://events.webmaker.org/"
-                  imgSrc="/img/events-page/svg/icon-add-event.svg"
+                  imgSrc="/img/pages/events/svg/icon-add-event.svg"
                   imgAlt="icon add event"
                   head="Add Your Event"
                   subhead="Join the global movement"

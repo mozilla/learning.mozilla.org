@@ -120,8 +120,8 @@ var ActivitiesPage = React.createClass({
   render: function() {
     return (
       <div>
-        <HeroUnit image="/img/activities-page/hero-teaching-activities.png"
-                  image2x="/img/activities-page/hero-teaching-activities@2x.png">
+        <HeroUnit image="/img/pages/activities/hero-teaching-activities.png"
+                  image2x="/img/pages/activities/hero-teaching-activities@2x.png">
           <h1>Teaching Activities</h1>
         </HeroUnit>
         <div className="inner-container activities">
@@ -130,8 +130,8 @@ var ActivitiesPage = React.createClass({
               Start teaching others how to read, write and participate on the web with these free activities created by teachers, educators and technologists like you. Each featured activity includes step-by-step instructions and has been tested in schools, afterschool programs, libraries and community centers around the globe. Whether learning how to code, understanding why privacy matters, or creating openly-licensed web content, we believe teaching the web should be fun and engaging!
             </p>
             <ActivityKit
-              src1x="/img/activities-page/img-activity-01.png"
-              src2x="/img/activities-page/img-activity-01@2x.png"
+              src1x="/img/pages/activities/img-activity-01.png"
+              src2x="/img/pages/activities/img-activity-01@2x.png"
               title="Lo-Fi, No-Fi (Teaching Kit)"
               level="Beginner"
               link="https://laura.makes.org/thimble/MTUyODMwNDY0/lofi-nofi-teaching-kit"
@@ -139,8 +139,8 @@ var ActivitiesPage = React.createClass({
               description="This series of activities help teach web literacy concepts offline, or where access to technology is limited. Includes printable templates and games to teach coding, game design and app development."
             />
             <ActivityKit
-              src1x="/img/activities-page/img-activity-02.jpg"
-              src2x="/img/activities-page/img-activity-02@2x.jpg"
+              src1x="/img/pages/activities/img-activity-02.jpg"
+              src2x="/img/pages/activities/img-activity-02@2x.jpg"
               title="Parapara Animation"
               level="Beginner"
               link="https://karenlouisesmith.makes.org/thimble/para-para-animation-teaching-kit"
@@ -148,8 +148,8 @@ var ActivitiesPage = React.createClass({
               description="This activity helps young learners create simple animations and learn about online collaboration using Parapara."
             />
             <ActivityKit
-              src1x="/img/activities-page/img-activity-03.png"
-              src2x="/img/activities-page/img-activity-03@2x.png"
+              src1x="/img/pages/activities/img-activity-03.png"
+              src2x="/img/pages/activities/img-activity-03@2x.png"
               title="Creative Commons GIF Exchange"
               level="Beginner"
               link="https://katermouse.makes.org/thimble/LTIwNjQwNTYzMjA=/creative-commons-gif-exchange-activity"
@@ -157,8 +157,8 @@ var ActivitiesPage = React.createClass({
               description="This activity teachers students about Creative Commons licensing while creating their own animated GIFs or memes."
             />
             <ActivityKit
-              src1x="/img/activities-page/img-activity-04.jpg"
-              src2x="/img/activities-page/img-activity-04@2x.jpg"
+              src1x="/img/pages/activities/img-activity-04.jpg"
+              src2x="/img/pages/activities/img-activity-04@2x.jpg"
               title="Erase All Kittens"
               level="Beginner"
               link="https://laura.makes.org/thimble/LTEzNDYxMDY4OA==/eak-activity-guide"
@@ -166,8 +166,8 @@ var ActivitiesPage = React.createClass({
               description="This activity features Erase All Kittens (E.A.K.), a fun game where learners code and create on the web by changing the source code on each level."
             />
             <ActivityKit
-              src1x="/img/activities-page/img-activity-05.jpg"
-              src2x="/img/activities-page/img-activity-05@2x.jpg"
+              src1x="/img/pages/activities/img-activity-05.jpg"
+              src2x="/img/pages/activities/img-activity-05@2x.jpg"
               title="Image Seeking for Fantastic Visual Metaphors"
               level="Beginner"
               link="https://cogdog.makes.org/thimble/OTM3NDI2OTQ0/imageseeking-for-fantastic-visual-metaphors"
@@ -175,8 +175,8 @@ var ActivitiesPage = React.createClass({
               description="In this activity, learners search for photos that communicate ideas and concepts, while also exploring best practices around attribution and openly-licensed content on the web."
             />
             <ActivityKit
-              src1x="/img/activities-page/img-activity-06.jpg"
-              src2x="/img/activities-page/img-activity-06@2x.jpg"
+              src1x="/img/pages/activities/img-activity-06.jpg"
+              src2x="/img/pages/activities/img-activity-06@2x.jpg"
               title="Become a Password Pro (Teaching Kit)"
               level="Beginner-Intermediate"
               link="https://stacy.makes.org/thimble/MjAxMjIxNzYwMA==/whats-wrong-with-your-password"
@@ -184,8 +184,8 @@ var ActivitiesPage = React.createClass({
               description="This teaching kit includes a series of activities to help leaners understand passwords &mdash; including why they're important, best practices, and tools to help you manage multiple passwords."
             />
             <ActivityKit
-              src1x="/img/activities-page/img-activity-07.jpg"
-              src2x="/img/activities-page/img-activity-07@2x.jpg"
+              src1x="/img/pages/activities/img-activity-07.jpg"
+              src2x="/img/pages/activities/img-activity-07@2x.jpg"
               title="Hack Your Notebook (Teaching Kit)"
               level="Beginner-Intermediate"
               link="https://laura.makes.org/thimble/LTU1NDA0MTA4OA==/hack-your-notebook-teaching-kit"
@@ -193,8 +193,8 @@ var ActivitiesPage = React.createClass({
               description="In this series of activities, learners will explore the connections between art, circuitry and systems thinking by hacking their notbooks/journals with power and LEDs."
             />
             <ActivityKit
-              src1x="/img/activities-page/img-activity-08.jpg"
-              src2x="/img/activities-page/img-activity-08@2x.jpg"
+              src1x="/img/pages/activities/img-activity-08.jpg"
+              src2x="/img/pages/activities/img-activity-08@2x.jpg"
               title="CSS Story Cards"
               level="Intermediate"
               link="https://mousemeredith.makes.org/thimble/MTQwOTAyNDAwMA==/css-story-card-game-activity"
@@ -202,8 +202,8 @@ var ActivitiesPage = React.createClass({
               description="In this card game, learners work collaboratively to create a complete story using HTML and CSS."
             />
             <ActivityKit
-              src1x="/img/activities-page/img-activity-09.jpg"
-              src2x="/img/activities-page/img-activity-09@2x.jpg"
+              src1x="/img/pages/activities/img-activity-09.jpg"
+              src2x="/img/pages/activities/img-activity-09@2x.jpg"
               title="Minecraft a Flavor of Java (Teaching Kit)"
               level="Intermediate"
               link="https://epik.makes.org/thimble/NjU2MTQ2OTQ0/minecraft-a-flavor-of-java-epik"
@@ -211,8 +211,8 @@ var ActivitiesPage = React.createClass({
               description="In this series of activities, learners develop computational thinking skills by using Java to create their own Minecraft mod."
             />
             <ActivityKit
-              src1x="/img/activities-page/img-activity-10.jpg"
-              src2x="/img/activities-page/img-activity-10@2x.jpg"
+              src1x="/img/pages/activities/img-activity-10.jpg"
+              src2x="/img/pages/activities/img-activity-10@2x.jpg"
               title="Girls in Tech: Hacking My Media"
               level="Intermediate"
               link="https://stephguthrie.makes.org/thimble/ODU3ODAxMjE2/hacking-my-media-with-x-ray-goggles"
@@ -226,32 +226,32 @@ var ActivitiesPage = React.createClass({
             </p>
             <div className="hive-links row">
               <HiveLink
-                src1x="/img/activities-page/svg/logo-hive.svg"
+                src1x="/img/pages/activities/svg/logo-hive.svg"
                 name="hive new york"
                 link="http://hivenyc.org/portfolio/"
               />
               <HiveLink
-                src1x="/img/activities-page/svg/logo-hive.svg"
+                src1x="/img/pages/activities/svg/logo-hive.svg"
                 name="hive toronto"
                 link="http://hivetoronto.org/portfolio"
               />
               <HiveLink
-                src1x="/img/activities-page/svg/logo-hive-community.svg"
+                src1x="/img/pages/activities/svg/logo-hive-community.svg"
                 name="hive kansas city"
                 link="http://hivekc.org/portfolio/"
               />
               <HiveLink
-                src1x="/img/activities-page/svg/logo-hive.svg"
+                src1x="/img/pages/activities/svg/logo-hive.svg"
                 name="hive chicago"
                 link="http://hivechicago.org/portfolio"
               />
               <HiveLink
-                src1x="/img/activities-page/svg/logo-hive-community.svg"
+                src1x="/img/pages/activities/svg/logo-hive-community.svg"
                 name="hive chattanooga"
                 link=" http://hivecha.org/portfolio"
               />
               <HiveLink
-                src1x="/img/activities-page/svg/logo-hive.svg"
+                src1x="/img/pages/activities/svg/logo-hive.svg"
                 name="hive pittsburgh"
                 link="http://hivepgh.sproutfund.org/projects/"
               />
@@ -261,21 +261,21 @@ var ActivitiesPage = React.createClass({
             <IconLinks>
               <IconLink
                 linkTo="mozilla-clubs"
-                imgSrc="/img/activities-page/svg/icon-connect.svg"
+                imgSrc="/img/pages/activities/svg/icon-connect.svg"
                 imgAlt="icon clubs"
                 head="Build"
                 subhead="Start a Club in your community"
               />
               <IconLink
                 linkTo="teach-like-mozilla"
-                imgSrc="/img/activities-page/svg/icon-curriculum.svg"
+                imgSrc="/img/pages/activities/svg/icon-curriculum.svg"
                 imgAlt="icon teach like mozilla"
                 head="Grow"
                 subhead="Learn about our approach to teaching"
               />
               <IconLink
                 linkTo="web-literacy"
-                imgSrc="/img/activities-page/svg/icon-learn.svg"
+                imgSrc="/img/pages/activities/svg/icon-learn.svg"
                 imgAlt="icon web literacy"
                 head="Explore"
                 subhead="See our Web Literacy Map"

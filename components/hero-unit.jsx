@@ -40,7 +40,7 @@ var HeroUnit = React.createClass({
           <span style={{color: 'transparent'}}>
             MOZILLAAAAAAAAA!!
           </span>
-          <img src="/img/shared-iconography/mozilla_wordmark_white.svg" alt="Mozilla logo"/>
+          <img src="/img/components/hero-unit/svg/mozilla_wordmark_white.svg" alt="Mozilla logo"/>
         </marquee>
       );
     }
