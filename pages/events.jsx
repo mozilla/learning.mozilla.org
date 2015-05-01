@@ -1,4 +1,5 @@
 var React = require('react');
+var Router = require('react-router');
 var request = require('superagent');
 var HeroUnit = require('../components/hero-unit.jsx');
 var IconLinks = require('../components/icon-links.jsx');
@@ -69,6 +70,9 @@ var EventsPage = React.createClass({
     pageTitle: 'Events',
     pageClassName: 'events'
   },
+  contextTypes: {
+    router: React.PropTypes.func.isRequired
+  },
   handleSubmit: function(e) {
     e.preventDefault();
     window.alert("Sorry, this feature has not yet been implemented.");
@@ -118,10 +122,20 @@ var EventsPage = React.createClass({
               </div>
             </div>
             <PageEndCTA
-            header="Sign up to get Maker Party updates:"
+            header=""
             dividerImgSrc="/img/events-page/line-divider.svg">
-              <div className="row">
-                <FormMailingListSignup/>
+              <div className="row" id="mailinglist">
+                { (this.context.router.getCurrentQuery().mailinglist === "thank")
+                 ?
+                  <div>
+                    <p>Thank you for signing up!</p>
+                  </div>
+                 :
+                   <div>
+                    <p>Sign up to get Maker Party updates:</p>
+                    <FormMailingListSignup/>
+                  </div>
+                }
               </div>
             </PageEndCTA>
             <section>
