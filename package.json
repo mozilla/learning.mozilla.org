@@ -5,6 +5,7 @@
   "dependencies": {
     "bootstrap": "^3.3.4",
     "chalk": "^1.0.0",
+    "del": "^1.0.0",
     "es5-shim": "^4.1.0",
     "express": "^4.12.3",
     "gulp": "^3.8.11",
