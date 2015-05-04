@@ -73,6 +73,7 @@ var OurGoal = React.createClass({
 
 var AboutPage = React.createClass({
   statics: {
+    pageTitle: 'About',
     pageClassName: 'about-page'
   },
   render: function () {

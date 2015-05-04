@@ -8,12 +8,12 @@
       margin-bottom: 0;
     }
   }
-  .focus-div {
+  .expand-div {
     .expander-header {
       background-color: #EFF3F7;
       color: #617886;
     }
-    &:focus {
+    &.expanded {
       .expander-header {
         color: white;
         background-color: #5791CE;
@@ -23,5 +23,8 @@
   .expander-items-container {
     background-color: #F5F9FC;
     color: #617886;
+    ul {
+      padding-left: 0;
+    }
   }
 }

@@ -61,6 +61,7 @@ var ToolkitListItem = React.createClass({
 
 var ClubsToolkit = React.createClass({
   statics: {
+    pageTitle: 'Clubs Toolkit',
     pageClassName: 'clubs-toolkit'
   },
   showAddYourClubModal: function() {},
@@ -167,9 +168,7 @@ var ClubsToolkit = React.createClass({
               <p>Your club is yours to design. However if you like, here are some tips if you choose to use our branding, change the name or hack the materials.</p>
               <ToolkitList>
                 <ToolkitListItem header="Naming.">
-                  We love seeing “Mozilla Web Clubs” pop up, yet we also welcome adaptations of the name to better represent your community or language.
-                  Example club names include: Mozilla Web Club Toronto, Xavier School Web All-Stars, St. Patricks Church Tech Squad or London Library Web Brigade.
-                  You can also embed your club in an existing program or brand.
+                  We love seeing Mozilla Clubs pop up, yet we also welcome adaptations of the name to better represent your community or language. Example club names include: Toronto Mozilla Club Toronto, Xavier School Web All-Stars, St. Patricks Church Tech Squad or London Library Web Brigade. You can also embed your club in an existing program or brand.
                 </ToolkitListItem>
                 <ToolkitListItem header="Mozilla branding.">
                   The Mozilla brand helps identify your clubs as part of our global network and mission. Have a look at the <a href="https://www.mozilla.org/en-US/styleguide/identity/mozilla/branding/">Mozilla branding guidelines</a> if you’d like to use it.
@@ -248,15 +247,11 @@ var ClubsToolkit = React.createClass({
           </Expander>
         </section>
         <section>
-
-          {process.env.SOFTEST_OF_LAUNCHES == 'on' ? null :
           <PageEndCTA
-            linkTo="mozilla-web-clubs"
+            linkTo="mozilla-clubs"
             header="Do you meet regularly with a group of learners to increase web literacy skills?"
             cta="add your club to the map"
           />
-          }
-
         </section>
       </div>
     );

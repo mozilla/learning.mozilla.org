@@ -41,12 +41,13 @@ function generateWithPageHTML(url, options, pageHTML) {
         })}
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,700,600italic,700italic,800,800italic"/>
         <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/vendor/webmaker-app-icons/css/ionicons.min.css"/>
         <link href="https://mozorg.cdn.mozilla.net/media/css/tabzilla-min.css" rel="stylesheet" />
         <link rel="stylesheet" href={'/' + exports.CSS_FILENAME}/>
         <script dangerouslySetInnerHTML={{
           __html: "(" + featureDetect.toString() + ")();"
         }}></script>
-        <title>Mozilla Learning</title>
+        <title>{options.title}</title>
       </head>
       <body>
         <div className="no-js-warning">
@@ -68,8 +69,10 @@ function generateWithPageHTML(url, options, pageHTML) {
 }
 
 function generate(url, options, cb) {
-  routes.generateStatic(url, function(html) {
-    cb(generateWithPageHTML(url, options, html));
+  routes.generateStatic(url, function(html, metadata) {
+    cb(generateWithPageHTML(url, _.extend({
+      title: metadata.title
+    }, options), html));
   });
 };
 
