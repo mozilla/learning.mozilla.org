@@ -5,6 +5,8 @@ which uses the format described in
 to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
+
+## [0.0.2][] - 2015-05-04
 ### Added
 - During automated testing, the the entire site is now spidered for missing
   links. This uncovered a few broken links, which were fixed.
@@ -30,3 +32,4 @@ to [Semantic Versioning](http://semver.org/).
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
 [unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.1...HEAD
+[0.0.2]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.1...v0.0.2
