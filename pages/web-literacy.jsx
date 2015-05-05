@@ -39,7 +39,7 @@ var ActivitiesPage = React.createClass({
         <section className="intro">
           <Illustration
           width={210} height={210}
-          src1x="/img/web-literacy-page/icon-web-literacy.svg"
+          src1x="/img/pages/web-literacy/svg/icon-web-literacy.svg"
           alt="web literacy illustration">
             <h2>
               Web Literacy is the skills and competencies needed for reading, writing, and participating on the Web.
@@ -188,21 +188,21 @@ var ActivitiesPage = React.createClass({
           <IconLinks>
             <IconLink
               href="https://wiki.mozilla.org/Webmaker/WebLiteracyMap"
-              imgSrc="/img/web-literacy-page/icon-contribute.svg"
+              imgSrc="/img/pages/web-literacy/svg/icon-contribute.svg"
               imgAlt="icon contribute"
               head="Contribute"
               subhead="Join the community on defining Web Literacy at Mozilla"
             />
             <IconLink
               href="https://mozilla.github.io/webmaker-whitepaper/"
-              imgSrc="/img/web-literacy-page/icon-learn-more.svg"
+              imgSrc="/img/pages/web-literacy/svg/icon-learn-more.svg"
               imgAlt="icon learn more"
               head="Learn More"
               subhead="This whitepaper explores why Mozilla cares about Web Literacy"
             />
             <IconLink
               href="https://www.mozilla.org/en-US/about/manifesto/"
-              imgSrc="/img/web-literacy-page/icon-reading.svg"
+              imgSrc="/img/pages/web-literacy/svg/icon-reading.svg"
               imgAlt="icon reading"
               head="Get Reading"
               subhead="Web Literacy is core to the Mozilla mission and values"

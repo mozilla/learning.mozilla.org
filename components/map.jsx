@@ -241,7 +241,7 @@ var Map = React.createClass({
         );
 
         marker.setIcon(L.icon({
-          "iconUrl": "/img/map-marker.svg",
+          "iconUrl": "/img/components/map/svg/map-marker.svg",
           "iconSize": [33, 33],
           "iconAnchor": [15, 15]
         }));

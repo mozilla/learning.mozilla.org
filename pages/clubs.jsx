@@ -118,7 +118,7 @@ var HowClubWorks = React.createClass({
       <div className="list-with-illust">
         <Illustration
         width={182} height={237}
-        src1x="/img/icon-how-do-clubs-work.svg"
+        src1x="/img/pages/clubs/svg/icon-how-do-clubs-work.svg"
         alt="icon how do Mozilla clubs work">
           <h2>How do Mozilla Clubs work?</h2>
           <ul>
@@ -140,7 +140,7 @@ var Quote = React.createClass({
       <div className="row">
         <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
           <Blockquote className="primary-quote" author="Mikko K, Helsinki, Finland"
-              imgSrc="/img/mikko-finland@1x.png" imgSrc2x="/img/mikko-finland@2x.png" imgAlt="Mikko Finland Quote">
+              imgSrc="/img/pages/clubs/mikko-finland.png" imgSrc2x="/img/pages/clubs/mikko-finland@2x.png" imgAlt="Mikko Finland Quote">
 
             <p>The idea of teachers and students learning at the same time is what makes me excited about this work.</p>
           </Blockquote>
@@ -207,7 +207,7 @@ var ModalRemoveYourClub = React.createClass({
     } else {
       content = (
         <div className="text-center">
-          <p><img className="globe" src="/img/globe-without-pin.svg"/></p>
+          <p><img className="globe" src="/img/pages/clubs/svg/globe-without-pin.svg"/></p>
           <h2>Your club has been removed.</h2>
         </div>
       );
@@ -465,7 +465,7 @@ var ModalAddOrChangeYourClub = React.createClass({
     } else if (this.state.step == this.STEP_SHOW_RESULT) {
       content = (
         <div className="text-center">
-          <p><img className="globe" src="/img/globe-with-pin.svg"/></p>
+          <p><img className="globe" src="/img/pages/clubs/svg/globe-with-pin.svg"/></p>
           {isAdd
            ? <div>
                <h2>We've added your Club!</h2>
@@ -544,8 +544,8 @@ var ClubsPage = React.createClass({
 
     return (
       <div>
-        <HeroUnit image="/img/hero-clubs.png"
-                  image2x="/img/hero-clubs@2x.png">
+        <HeroUnit image="/img/pages/clubs/hero-clubs.png"
+                  image2x="/img/pages/clubs/hero-clubs@2x.png">
           <h1>Mozilla Clubs</h1>
           <div><a className="btn btn-awsm" onClick={this.showAddYourClubModal}>Add Your Club</a></div>
         </HeroUnit>
@@ -575,21 +575,21 @@ var ClubsPage = React.createClass({
             <IconLinks>
               <IconLink
                 linkTo="clubs-curriculum"
-                imgSrc="/img/icon-curriculum.svg"
+              imgSrc="/img/pages/clubs/svg/icon-curriculum.svg"
                 imgAlt="icon curriculum"
                 head="Curriculum"
                 subhead="Modular Web Literacy curriculum"
               />
               <IconLink
                 href="http://discourse.webmaker.org/category/meet"
-                imgSrc="/img/icon-connect.svg"
+                imgSrc="/img/pages/clubs/svg/icon-connect.svg"
                 imgAlt="icon connect"
                 head="Connect"
                 subhead="Connect with other Club Leaders"
               />
               <IconLink
                 linkTo="clubs-toolkit"
-                imgSrc="/img/icon-tips.svg"
+                imgSrc="/img/pages/clubs/svg/icon-tips.svg"
                 imgAlt="icon tips"
                 head="Helpful Tips"
                 subhead="Tips for running your Club"
