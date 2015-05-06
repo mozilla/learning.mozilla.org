@@ -6,10 +6,9 @@ var Link = Router.Link;
 var PageLinker = React.createClass({
   render: function() {
     return (
-      <div className="page-linker col-sm-3 col-md-3 col-lg-3">
+      <li className="page-linker">
         <a href={this.props.href}>{this.props.head}</a>
-        {this.props.children}
-      </div>
+      </li>
     );
   }
 });
@@ -142,18 +141,12 @@ var EventsResources = React.createClass({
         <p>Thank you for helping us celebrate webmaking around the world! These resources will help you plan a unique event tailored especially for your audience.</p>
 
         <div className="row">
-          <PageLinker head="event guides" href="#event-guides">
-            <p></p>
-          </PageLinker>
-          <PageLinker head="logos & assets" href="#logo-assets">
-            <p></p>
-          </PageLinker>
-          <PageLinker head="event details" href="#event-details">
-            <p></p>
-          </PageLinker>
-          <PageLinker head="event support" href="#event-support">
-            <p></p>
-          </PageLinker>
+          <ul className="caret-list">
+            <PageLinker head="event guides" href="#event-guides"></PageLinker>
+            <PageLinker head="logos & assets" href="#logo-assets"></PageLinker>
+            <PageLinker head="event details" href="#event-details"></PageLinker>
+            <PageLinker head="event support" href="#event-support"></PageLinker>
+          </ul>
         </div>
 
         <h2 id="event-guides">Event Guides</h2>
