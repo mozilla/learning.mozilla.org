@@ -49,10 +49,12 @@ var FormMailingListSignup = React.createClass({
       <form className="mailinglist-signup" action="https://sendto.mozilla.org/page/s/maker-party-signup-for-teach-site" method="POST" onSubmit={this.handleSubmit}>
         <div className="col-sm-offset-1 col-sm-8 col-md-offset-1 col-md-8 col-lg-offset-1 col-lg-8">
           <fieldset>
-            <input name="email" type="email" size="30" placeholder="Your email address" valueLink={this.linkState("email")} required />
+            <label htmlFor="mailinglist-email" className="sr-only">email</label>
+            <input id="mailinglist-email" name="email" type="email" size="30" placeholder="Your email address" valueLink={this.linkState("email")} required />
           </fieldset>
           <fieldset>
-            <input name="custom-3460" type="checkbox" checked readOnly required hidden />
+            <label htmlFor="mailinglist-pp-note" className="sr-only">I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a></label>
+            <input id="mailinglist-pp-note" name="custom-3460" type="checkbox" checked readOnly required hidden />
             <p className="pp-note">&#10003; I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.</p>
           </fieldset>
           {this.renderValidationErrors()}
@@ -123,7 +125,7 @@ var EventsPage = React.createClass({
             </div>
             <PageEndCTA
             header=""
-            dividerImgSrc="/img/events-page/line-divider.svg">
+            dividerImgSrc="/img/pages/events/svg/line-divider.svg">
               <div className="row" id="mailinglist">
                 { (this.context.router.getCurrentQuery().mailinglist === "thank")
                  ?
