@@ -251,7 +251,7 @@ var ClubsToolkit = React.createClass({
             linkTo="mozilla-clubs"
             header="Do you meet regularly with a group of learners to increase web literacy skills?"
             cta="add your club to the map"
-            dividerImgSrc="/img/clubs-line-divider.svg"
+            dividerImgSrc="/img/pages/clubs/svg/line-divider.svg"
           />
         </section>
       </div>
