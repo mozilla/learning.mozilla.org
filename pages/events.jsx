@@ -127,7 +127,7 @@ var EventsPage = React.createClass({
             header=""
             dividerImgSrc="/img/pages/events/svg/line-divider.svg">
               <div className="row" id="mailinglist">
-                { (this.context.router.getCurrentQuery().mailinglist === "thank")
+                { (this.context.router.getCurrentQuery().mailinglist === "thanks")
                  ?
                   <div>
                     <p>Thank you for signing up!</p>
