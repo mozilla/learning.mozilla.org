@@ -16,7 +16,7 @@ var Expander = React.createClass({
       expanded: true
     });
   },
-  onClick: function() {
+  handleClick: function(e) {
     if (this.state.expanded) {
       this.collapse();
     } else {
@@ -32,7 +32,7 @@ var Expander = React.createClass({
     return (
       <div className="expander-container">
         <div className={className} tabIndex="0" onBlur={this.collapse} onFocus={this.expand}>
-          <div onMouseDown={this.onClick} className="expander-header">
+          <div onClick={this.handleClick} className="expander-header">
             {this.props.head}
             <span className="ion"></span>
           </div>
