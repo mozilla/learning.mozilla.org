@@ -26,7 +26,7 @@ var ActivityKit = React.createClass({
     "Joe Dytrych": "",
     "Dee Salgal": "",
     "Leonie Van Der Linde": "",
-    "Alan Levine": "http://twitter.com/cogdog",
+    "Alan Levine": " http://cogdog.info",
     "Stacy Martin": "https://www.linkedin.com/in/stacycmartin",
     "Mozilla": "https://webmaker.org",
     "Educator Inovator": "http://educatorinnovator.org/",
@@ -170,7 +170,7 @@ var ActivitiesPage = React.createClass({
               src2x="/img/pages/activities/img-activity-05@2x.jpg"
               title="Image Seeking for Fantastic Visual Metaphors"
               level="Beginner"
-              link="https://cogdog.makes.org/thimble/OTM3NDI2OTQ0/imageseeking-for-fantastic-visual-metaphors"
+              link="https://cogdog.makes.org/thimble/LTEyMjQ4NjUyOA==/imageseeking-for-fantastic-visual-metaphors"
               developedBy="Alan Levine"
               description="In this activity, learners search for photos that communicate ideas and concepts, while also exploring best practices around attribution and openly-licensed content on the web."
             />
