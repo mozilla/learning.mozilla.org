@@ -26,7 +26,7 @@ var ActivityKit = React.createClass({
     "Joe Dytrych": "",
     "Dee Salgal": "",
     "Leonie Van Der Linde": "",
-    "Alan Levine": " http://cogdog.info",
+    "Alan Levine": "http://cogdog.info",
     "Stacy Martin": "https://www.linkedin.com/in/stacycmartin",
     "Mozilla": "https://webmaker.org",
     "Educator Inovator": "http://educatorinnovator.org/",
