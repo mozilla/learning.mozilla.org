@@ -6,13 +6,17 @@ var stubContext = require('./stub-context.jsx');
 var Expander = require('../../components/expander.jsx');
 
 describe("Expander", function() {
-  var expander, itemContainer;
+  var expander, itemContainer, itemHeader;
 
   beforeEach(function() {
     expander = stubContext.render(Expander, {});
     itemContainer = TestUtils.findRenderedDOMComponentWithClass(
       expander,
       'expand-div'
+    );
+    itemHeader = TestUtils.findRenderedDOMComponentWithClass(
+      expander,
+      'expander-header'
     );
   });
 
