@@ -70,7 +70,12 @@ var FormMailingListSignup = React.createClass({
 var EventsPage = React.createClass({
   statics: {
     pageTitle: 'Events',
-    pageClassName: 'events'
+    pageClassName: 'events',
+    FormMailingListSignup: FormMailingListSignup,
+    validateSignupForm: validateSignupForm
+  },
+  contextTypes: {
+    router: React.PropTypes.func.isRequired
   },
   contextTypes: {
     router: React.PropTypes.func.isRequired
@@ -129,7 +134,7 @@ var EventsPage = React.createClass({
               <div className="row" id="mailinglist">
                 { (this.context.router.getCurrentQuery().mailinglist === "thanks")
                  ?
-                  <div>
+                  <div className="thank-you-message">
                     <p>Thank you for signing up!</p>
                   </div>
                  :
