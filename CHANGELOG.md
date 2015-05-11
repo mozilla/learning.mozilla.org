@@ -5,6 +5,8 @@ which uses the format described in
 to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
+
+## [0.0.3][] - 2015-05-11
 ### Added
 - Added `CONTRIBUTING.md` file.
 
@@ -47,5 +49,6 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.2...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.3...HEAD
+[0.0.3]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.2...v0.0.3
 [0.0.2]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.1...v0.0.2
