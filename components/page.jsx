@@ -99,7 +99,7 @@ var Page = React.createClass({
          onFocus={this.state.modalClass && this.handleNonModalFocus}>
           {DevRibbon ? <DevRibbon/> : null}
           <div className="row">
-            <Sidebar/>
+            <Sidebar pathname={this.getPathname()} />
             <main className="content col-md-9">
               <RouteHandler/>
             </main>
