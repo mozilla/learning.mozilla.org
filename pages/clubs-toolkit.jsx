@@ -168,7 +168,7 @@ var ClubsToolkit = React.createClass({
               <p>Your club is yours to design. However if you like, here are some tips if you choose to use our branding, change the name or hack the materials.</p>
               <ToolkitList>
                 <ToolkitListItem header="Naming.">
-                  We love seeing Mozilla Clubs pop up, yet we also welcome adaptations of the name to better represent your community or language. Example club names include: Toronto Mozilla Club Toronto, Xavier School Web All-Stars, St. Patricks Church Tech Squad or London Library Web Brigade. You can also embed your club in an existing program or brand.
+                  We love seeing Mozilla Clubs pop up, yet we also welcome adaptations of the name to better represent your community or language. Example club names include: Toronto Mozilla Club, Xavier School Web All-Stars, St. Patrick's Church Tech Squad or London Library Web Brigade. You can also embed your club in an existing program or brand.
                 </ToolkitListItem>
                 <ToolkitListItem header="Mozilla branding.">
                   The Mozilla brand helps identify your clubs as part of our global network and mission. Have a look at the <a href="https://www.mozilla.org/en-US/styleguide/identity/mozilla/branding/">Mozilla branding guidelines</a> if you’d like to use it.
