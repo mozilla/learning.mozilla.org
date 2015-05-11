@@ -1,8 +1,29 @@
 .page-end-cta {
   p {
-    font-size: 2.4rem;
-    margin-top: 2.5rem;
     .callout-heading;
   }
   text-align: center;
+  form {
+    text-align: left;
+    fieldset:last-child {
+      margin-bottom: 1.5rem;
+      @media (min-width: @screen-sm-min) {
+        margin-bottom: 0;
+      }
+    }
+    input {
+      padding: 1rem 1.5rem;
+      border-radius: .4rem;
+      border: .1rem solid @grey;
+    }
+    input[type="email"] {
+      width: 100%;
+    }
+    input[type="checkbox"] + div {
+      text-align: left;
+    }
+    input[type="submit"] {
+      margin-top: 0;
+    }
+  }
 }
