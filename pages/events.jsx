@@ -134,7 +134,7 @@ var EventsPage = React.createClass({
               <div className="row" id="mailinglist">
                 { (this.context.router.getCurrentQuery().mailinglist === "thanks")
                  ?
-                  <div className="thank-you-message">
+                  <div>
                     <p>Thank you for signing up!</p>
                   </div>
                  :

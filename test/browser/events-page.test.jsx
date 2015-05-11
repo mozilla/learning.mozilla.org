@@ -20,7 +20,8 @@ describe("EventsPage", function() {
   });
 
   it("shows mailinglist form if ?mailinglist=thanks isn't in query", function() {
-    TestUtils.scryRenderedDOMComponentsWithClass(eventsPage,"thank-you-message").length.should.equal(0);
+    TestUtils.findRenderedDOMComponentWithClass(eventsPage, "page-end-cta")
+             .getDOMNode().textContent.should.not.match(/thank you/i);
     TestUtils.scryRenderedComponentsWithType(eventsPage,EventsPage.FormMailingListSignup).length.should.equal(1);
   });
 
@@ -30,7 +31,8 @@ describe("EventsPage", function() {
         currentQuery: {'mailinglist': 'thanks'}
       })
     });
-    TestUtils.scryRenderedDOMComponentsWithClass(eventsPage2,"thank-you-message").length.should.equal(1);
+    TestUtils.findRenderedDOMComponentWithClass(eventsPage2, "page-end-cta")
+             .getDOMNode().textContent.should.match(/thank you/i);
     TestUtils.scryRenderedComponentsWithType(eventsPage2,EventsPage.FormMailingListSignup).length.should.equal(0);
     stubContext.unmount(eventsPage2);
   });
