@@ -155,7 +155,7 @@ var Login = React.createClass({
       content = (
         <div>
           <span className="login-text">
-            <img src="/img/logo-webmaker-flat.svg" alt="Webmaker logo"/><LoginLink>Log in</LoginLink>
+            <img src="/img/components/login/svg/logo-webmaker-flat.svg" alt="Webmaker logo"/><LoginLink>Log in</LoginLink>
           </span>
           <LoginLink action="signup">Create an account</LoginLink>
         </div>

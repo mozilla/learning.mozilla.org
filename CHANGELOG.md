@@ -6,6 +6,24 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.3][] - 2015-05-11
+### Added
+- Added `CONTRIBUTING.md` file.
+
+### Changed
+- Reorganized the `img` directory.
+- Downloadable event resources are now hosted on S3, at
+  stuff.webmaker.org, rather than in the git repository.
+- Intra-page links at the top of the Event Resources page are now
+  styled using all-caps and carets.
+- The link to the "Image Seeking for Fantastic Visual Metaphors"
+  teaching activity has been updated to the latest version. The
+  author's name now links to his website rather than his Twitter handle.
+
+### Removed
+- Removed jsbeautify, which removes superfluous JS files from the
+  distribution directory.
+
 ## [0.0.2][] - 2015-05-04
 ### Added
 - During automated testing, the the entire site is now spidered for missing
@@ -31,5 +49,6 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.1...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.3...HEAD
+[0.0.3]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.2...v0.0.3
 [0.0.2]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.1...v0.0.2

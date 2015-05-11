@@ -1,6 +1,6 @@
 {
   "name": "teach.webmaker.org",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": " Initial attempt at implementing Webmaker Learning front-page.",
   "dependencies": {
     "bootstrap": "^3.3.4",
@@ -12,7 +12,6 @@
     "gulp-gzip": "^1.0.0",
     "gulp-html-prettify": "^0.0.1",
     "gulp-if": "^1.2.5",
-    "gulp-jsbeautify": "^0.1.1",
     "gulp-jscs": "^1.4.0",
     "gulp-jshint": "^1.9.2",
     "gulp-less": "^3.0.1",

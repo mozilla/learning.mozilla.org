@@ -20,6 +20,14 @@ html.no-js {
 }
 
 .event-resources {
+  .page-linker {
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    &:before {
+      color: @darkBlueSidebarColor;
+    }
+  }
   .event-item {
     @media screen and (min-width: @screen-sm-min) {
       display: flex;
@@ -27,7 +35,7 @@ html.no-js {
     }
     .event-content{
       color: #697785;
-      font-weight: 400; 
+      font-weight: 400;
       .event-item-header {
         text-transform: uppercase;
         font-weight: bold;

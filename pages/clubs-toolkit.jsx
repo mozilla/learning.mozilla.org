@@ -13,7 +13,7 @@ var ToolkitIntro = React.createClass({
         <section className="intro">
           <Illustration
           height={204} width={204}
-          src1x="/img/clubs-toolkit-page/icon-toolkit.svg"
+          src1x="/img/pages/clubs-toolkit/svg/icon-toolkit.svg"
           alt="icon toolkit"
           className="img-circle">
             <h2>Get ready to start your club! Here are some best practices and resources to help you grow your local group.</h2>

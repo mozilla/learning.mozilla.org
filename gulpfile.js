@@ -12,7 +12,6 @@ var plumber = require('gulp-plumber');
 var merge = require('merge-stream');
 var sourcemaps = require('gulp-sourcemaps');
 var sitemap = require('gulp-sitemap');
-var beautify = require('gulp-jsbeautify');
 var jscs = require('gulp-jscs');
 var jshint = require('gulp-jshint');
 var autoprefixer = require('gulp-autoprefixer');
@@ -34,7 +33,6 @@ var travis = require('./lib/travis');
 var server = require('./test/browser/server');
 
 var BUILD_TASKS = [
-  'beautify',
   'copy-test-dirs',
   'copy-images',
   'copy-event-resources',
@@ -180,12 +178,6 @@ gulp.task('generate-index-files', function() {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('beautify', function () {
-  gulp.src(LINT_DIRS)
-      .pipe(beautify({ config: 'node_modules/mofo-style/linters/.jsbeautifyrc' }))
-      .pipe(gulp.dest('dist'));
-});
-
 gulp.task('jshint', function() {
   return gulp.src(LINT_DIRS)
       .pipe(jshint({ lookup: 'node_modules/mofo-style/linters/.jshintrc' }))
@@ -199,7 +191,7 @@ gulp.task('jscs', function () {
       .pipe(jscs({ configPath: 'node_modules/mofo-style/linters/.jscsrc' }));
 });
 
-gulp.task('lint-test', ['jscs', 'jshint', 'beautify']);
+gulp.task('lint-test', ['jscs', 'jshint']);
 
 gulp.task('default', BUILD_TASKS);
 
