@@ -32,10 +32,10 @@ describe("Expander", function() {
     itemContainer.props.className.should.not.match(/expanded/);
   });
 
-  it('should toggle collapsible content on click', function() {
-    TestUtils.Simulate.click(itemHeader);
+  it('should toggle collapsible content on mouse down', function() {
+    TestUtils.Simulate.mouseDown(itemHeader);
     itemContainer.props.className.should.match(/expanded/);
-    TestUtils.Simulate.click(itemHeader);
+    TestUtils.Simulate.mouseDown(itemHeader);
     itemContainer.props.className.should.not.match(/expanded/);
   });
 
