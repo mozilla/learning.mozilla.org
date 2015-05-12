@@ -5,6 +5,13 @@ which uses the format described in
 to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
+### Added
+- Added a Maker Party mailing list sign-up form on the Events page.
+
+### Changed
+- Fixed a few typos on the Clubs Toolkit page.
+- Fixed broken collapse/expand functionality on the Clubs Toolkit
+  and Web Literacy pages.
 
 ## [0.0.3][] - 2015-05-11
 ### Added
