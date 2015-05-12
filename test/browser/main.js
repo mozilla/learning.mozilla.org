@@ -23,5 +23,8 @@ if (process.env.NODE_ENV === 'production') {
     });
   });
 } else {
+  if (/PhantomJS/.test(window.navigator.userAgent)) {
+    require('./phantomjs-img-hack').install();
+  }
   require('val!./find-tests.js');
 }
