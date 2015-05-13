@@ -46,7 +46,9 @@ module.exports = {
       'TEACH_API_URL',
       'GA_ACCOUNT',
       'MAPBOX_ACCESS_TOKEN',
-      'MAPBOX_MAP_ID'
+      'MAPBOX_MAP_ID',
+      'MAILINGLIST_URL',
+      'MAILINGLIST_PRIVACY_NAME'
     ])),
     new webpack.optimize.CommonsChunkPlugin('commons',
                                             'commons.bundle.js')

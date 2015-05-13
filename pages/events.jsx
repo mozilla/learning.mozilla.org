@@ -46,7 +46,7 @@ var FormMailingListSignup = React.createClass({
   },
   render: function() {
     return (
-      <form className="mailinglist-signup" action="https://sendto.mozilla.org/page/s/maker-party-signup-for-teach-site" method="POST" onSubmit={this.handleSubmit}>
+      <form className="mailinglist-signup" action={process.env.MAILINGLIST_URL} method="POST" onSubmit={this.handleSubmit}>
         <div className="col-sm-offset-1 col-sm-8 col-md-offset-1 col-md-8 col-lg-offset-1 col-lg-8">
           <fieldset>
             <label htmlFor="mailinglist-email" className="sr-only">email</label>
@@ -54,7 +54,7 @@ var FormMailingListSignup = React.createClass({
           </fieldset>
           <fieldset>
             <label htmlFor="mailinglist-pp-note" className="sr-only">I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a></label>
-            <input id="mailinglist-pp-note" name="custom-3460" type="checkbox" checked readOnly required hidden />
+            <input id="mailinglist-pp-note" name={process.env.MAILINGLIST_PRIVACY_NAME} type="checkbox" checked readOnly required hidden />
             <p className="pp-note">&#10003; I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.</p>
           </fieldset>
           {this.renderValidationErrors()}
