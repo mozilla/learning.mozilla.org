@@ -7,8 +7,6 @@ var DefaultRoute = Router.DefaultRoute;
 var ga = require('react-ga');
 var Page = require('../components/page.jsx');
 
-var GA_ACCOUNT = process.env.GA_ACCOUNT || 'UA-49796218-20';
-var GA_DEBUG = process.env.GA_DEBUG || 'off';
 var urls = [];
 
 var routes = (
@@ -62,11 +60,6 @@ exports.generateStatic = function(url, cb) {
 };
 
 exports.run = function(location, el) {
-  var options = {};
-  if (GA_DEBUG === 'on') {
-    options.debug = true;
-  }
-  ga.initialize(GA_ACCOUNT, options);
   Router.run(routes, location, function(Handler, state) {
     ga.pageview(state.pathname);
     React.render(<Handler/>, el);
