@@ -5,6 +5,8 @@ which uses the format described in
 to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
+
+## [0.0.4][] - 2015-05-13
 ### Added
 - Added a Maker Party mailing list sign-up form on the Events page.
 - Stats on visitors whose browsers trigger the website to run
@@ -61,6 +63,7 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.3...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.4...HEAD
+[0.0.4]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.2...v0.0.3
 [0.0.2]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.1...v0.0.2
