@@ -7,6 +7,11 @@ to [Semantic Versioning](http://semver.org/).
 ## [Unreleased][unreleased]
 ### Added
 - Added a Maker Party mailing list sign-up form on the Events page.
+- Stats on visitors whose browsers trigger the website to run
+  in "safe mode" (i.e., with most JS disabled) are now logged in
+  Google Analytics.
+- A bullet point about the legal implications of financial
+  contributions has been added to the Clubs Toolkit page.
 
 ### Changed
 - Fixed a few typos on the Clubs Toolkit page.
