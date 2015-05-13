@@ -1,19 +1,84 @@
 var React = require('react');
-
+var Router = require('react-router');
+var request = require('superagent');
 var HeroUnit = require('../components/hero-unit.jsx');
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
 var Illustration = require('../components/illustration.jsx');
+var PageEndCTA = require('../components/page-end-cta.jsx');
 
-var CAROUSEL_IMG_PROPS = {
-  width: 800,
-  height: 533
+var validateSignupForm = function(signUpFormState) {
+  var errors = [];
+  // regex copied from http://stackoverflow.com/a/46181
+  var regexEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+  if (!regexEmail.test(signUpFormState.email)) {
+    errors.push("Please enter an email address.");
+  }
+
+  return errors;
 };
+
+var FormMailingListSignup = React.createClass({
+  mixins: [React.addons.LinkedStateMixin],
+  getInitialState: function() {
+    return {
+      email: "",
+      validationErrors: []
+    };
+  },
+  handleSubmit: function(e) {
+    var validationErrors = validateSignupForm(_.pick(this.state,"email"));
+
+    if (validationErrors.length) {
+      e.preventDefault();
+      this.setState({validationErrors: validationErrors});
+      return;
+    }
+  },
+  renderValidationErrors: function() {
+    if (this.state.validationErrors.length) {
+      return (
+        <div className="alert alert-danger">
+          <p className="error-msg">Please enter an email address.</p>
+        </div>
+      );
+    }
+  },
+  render: function() {
+    return (
+      <form className="mailinglist-signup" action="https://sendto.mozilla.org/page/s/maker-party-signup-for-teach-site" method="POST" onSubmit={this.handleSubmit}>
+        <div className="col-sm-offset-1 col-sm-8 col-md-offset-1 col-md-8 col-lg-offset-1 col-lg-8">
+          <fieldset>
+            <label htmlFor="mailinglist-email" className="sr-only">email</label>
+            <input id="mailinglist-email" name="email" type="email" size="30" placeholder="Your email address" valueLink={this.linkState("email")} required />
+          </fieldset>
+          <fieldset>
+            <label htmlFor="mailinglist-pp-note" className="sr-only">I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a></label>
+            <input id="mailinglist-pp-note" name="custom-3460" type="checkbox" checked readOnly required hidden />
+            <p className="pp-note">&#10003; I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.</p>
+          </fieldset>
+          {this.renderValidationErrors()}
+        </div>
+        <div className="col-sm-2 col-md-2 col-lg-2 text-center">
+          <input type="submit" value="Submit Email" className="btn btn-awsm" />
+        </div>
+      </form>
+    );
+  }
+});
 
 var EventsPage = React.createClass({
   statics: {
     pageTitle: 'Events',
-    pageClassName: 'events'
+    pageClassName: 'events',
+    FormMailingListSignup: FormMailingListSignup,
+    validateSignupForm: validateSignupForm
+  },
+  contextTypes: {
+    router: React.PropTypes.func.isRequired
+  },
+  contextTypes: {
+    router: React.PropTypes.func.isRequired
   },
   handleSubmit: function(e) {
     e.preventDefault();
@@ -63,6 +128,23 @@ var EventsPage = React.createClass({
                 <p className="callout-heading">Check out the highlights from Maker Party and see more photos in our <a href="https://www.flickr.com/photos/mozilladrumbeat/galleries/72157643962655534/">Flickr gallery</a>.</p>
               </div>
             </div>
+            <PageEndCTA
+            header=""
+            dividerImgSrc="/img/pages/events/svg/line-divider.svg">
+              <div className="row" id="mailinglist">
+                { (this.context.router.getCurrentQuery().mailinglist === "thanks")
+                 ?
+                  <div>
+                    <p>Thank you for signing up!</p>
+                  </div>
+                 :
+                   <div>
+                    <p>Sign up to get Maker Party updates:</p>
+                    <FormMailingListSignup/>
+                  </div>
+                }
+              </div>
+            </PageEndCTA>
             <section>
               <IconLinks>
                 <IconLink

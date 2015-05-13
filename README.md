@@ -184,6 +184,8 @@ want to create a batch file that uses
 ## References
 
 * [Roadmap][roadmap]
+* [Change Log][changelog]
+* [Contribution Guidelines][contributing]
 
 <!-- links -->
 
@@ -198,3 +200,5 @@ want to create a batch file that uses
   [Teach API]: https://github.com/mozilla/teach-api
   [#413]: https://github.com/mozilla/teach.webmaker.org/issues/413
   [source maps]: http://blog.teamtreehouse.com/introduction-source-maps
+  [changelog]: https://github.com/mozilla/teach.webmaker.org/blob/develop/CHANGELOG.md
+  [contributing]: https://github.com/mozilla/teach.webmaker.org/blob/develop/CONTRIBUTING.md
