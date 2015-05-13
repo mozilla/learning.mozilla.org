@@ -239,6 +239,9 @@ var ClubsToolkit = React.createClass({
                 <ToolkitListItem header="Fundraise within the local community.">
                   Use your creativity to set up a donation box in a local space or even run your own online fundraising campaign <a href="https://www.indiegogo.com/projects/mozilla-festival-east-africa">like this one</a>.
                 </ToolkitListItem>
+                <ToolkitListItem header="Registration.">
+                  Many jurisdictions require you to register if you solicit contributions from people or organizations in their borders for charitable or educational activities and raise more than a threshold amount; some jurisdictions require registration of clubs and associations in other circumstances as well. Check the rules applicable to you before proceeding.
+                </ToolkitListItem>
                 <ToolkitListItem header="More ideas!">
                   As always, there are a <a href="http://thenextweb.com/dd/2015/02/18/300-awesome-free-things-massive-list-free-resources-know/">variety of resources available online</a> that are easy and free to use. Be sure to search around and see what others, even the Mozilla community, has already shared.
                 </ToolkitListItem>
