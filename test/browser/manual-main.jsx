@@ -52,6 +52,13 @@ var RouteThumbnail = React.createClass({
 var RouteTest = React.createClass({
   render: function() {
     var props = this.props;
+    var origin = window.location.protocol + '//' + window.location.host;
+    var absoluteURL = origin + this.props.url;
+    var encodedURL = encodeURIComponent(absoluteURL);
+    var insightsURL = "https://developers.google.com/speed/pagespeed/" +
+                      "insights/?url=" + encodedURL;
+    var tenonURL = "http://tenon.io/testNow.php?url=" + encodedURL;
+
     return (
       <div>
         <h2 className="route">
@@ -59,6 +66,14 @@ var RouteTest = React.createClass({
             {this.props.url}
           </a>
         </h2>
+        <div className="actions btn-group">
+          <a href={insightsURL} className="btn btn-default btn-sm" target="_blank">
+            <img src="pagespeed-64.png" /> PageSpeed Insights
+          </a>
+          <a href={tenonURL} className="btn btn-default btn-sm" target="_blank">
+            <img src="tenon-logo.png" /> Tenon
+          </a>
+        </div>
         <div className="examples">
           {
             DEVICES.map(function (device, i) {
