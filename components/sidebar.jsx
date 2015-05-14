@@ -72,7 +72,7 @@ var Sidebar = React.createClass({
       <div className="sidebar col-md-3">
         <div className="sidebar-header">
           <Link to="home">
-            <img src="/img/components/sidebar/svg/mozilla-wordmark-white.svg" alt="Webmaker logo" className="moz-logo"/>
+            <img src="/img/components/sidebar/svg/mozilla-wordmark-white.svg" alt="Mozilla logo" className="moz-logo"/>
           </Link>
           <button aria-label="toggle" className="glyphicon glyphicon-menu-hamburger hidden-lg hidden-md"
                   onClick={this.handleHamburgerClick} />
