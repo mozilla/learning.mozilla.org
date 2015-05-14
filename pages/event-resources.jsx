@@ -276,11 +276,6 @@ var EventsResources = React.createClass({
             "head": "before event",
             "content": (
               <div>
-                <EventDetail head="Add Your Event to the Map">
-                  <div>
-                    Once you have your location, date and time set, add your event to <a href="https://events.webmaker.org">our global map</a> so you can show it off to the world and get regular updates.
-                  </div>
-                </EventDetail>
                 <EventDetail head="Recruit Mentors">
                   <div>
                     Whether they’re colleagues, students or a group of talented friends, you can find volunteer mentors by tapping into your own networks. Provide them a <a href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/Sample_Volunteer_Package.pdf">Sample Volunteer Package</a> with information on the event, activities, social media and any other necessary information in advance. Depending on how many volunteers you have, you might consider holding a meet-up in person or online prior to the event to answer any questions. Don't forget to gather and distribute contact information so that you can stay in touch with them in the days and weeks leading up to the event.

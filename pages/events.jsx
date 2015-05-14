@@ -116,7 +116,7 @@ var EventsPage = React.createClass({
             alt="Maker Party logo"
             >
               <h2>
-                Join us for the worldwide Maker Party on July 15-31, 2015 and add your events to <a href="https://events.webmaker.org/">our global list</a> any time of year.
+                Join us for the worldwide Maker Party on July 15-31, 2015.
               </h2>
             </Illustration>
             <div className="row">
@@ -167,13 +167,6 @@ var EventsPage = React.createClass({
                   imgAlt="icon connect"
                   head="Join the Conversation"
                   subhead="Talk to others about your event"
-                />
-                <IconLink
-                  href="https://events.webmaker.org/"
-                  imgSrc="/img/pages/events/svg/icon-add-event.svg"
-                  imgAlt="icon add event"
-                  head="Add Your Event"
-                  subhead="Join the global movement"
                 />
               </IconLinks>
             </section>
