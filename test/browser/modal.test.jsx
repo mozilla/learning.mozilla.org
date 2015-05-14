@@ -24,7 +24,7 @@ var FakePage = React.createClass({
     return (
       <div>
         <Modal ref="modal">
-          i am modal content
+          <p>i am modal content</p>
         </Modal>
       </div>
     );

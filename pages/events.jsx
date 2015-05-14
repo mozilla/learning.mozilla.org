@@ -2,6 +2,8 @@ var React = require('react');
 var Router = require('react-router');
 var request = require('superagent');
 var HeroUnit = require('../components/hero-unit.jsx');
+var Modal = require('../components/modal.jsx');
+var ModalManagerMixin = require('../mixins/modal-manager');
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
 var Illustration = require('../components/illustration.jsx');
@@ -67,7 +69,18 @@ var FormMailingListSignup = React.createClass({
   }
 });
 
+var ThankYouModal = React.createClass({
+  render: function() {
+    return (
+      <Modal modalTite="">
+        <p>Thanks for signing up!</p>
+      </Modal>
+    );
+  }
+});
+
 var EventsPage = React.createClass({
+  mixins: [ModalManagerMixin],
   statics: {
     pageTitle: 'Events',
     pageClassName: 'events',
@@ -83,6 +96,11 @@ var EventsPage = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
     window.alert("Sorry, this feature has not yet been implemented.");
+  },
+  componentDidMount: function() {
+    if (this.context.router.getCurrentQuery().mailinglist === "thanks") {
+      this.showModal(ThankYouModal);
+    }
   },
   render: function() {
     return (
@@ -132,17 +150,10 @@ var EventsPage = React.createClass({
             header=""
             dividerImgSrc="/img/pages/events/svg/line-divider.svg">
               <div className="row" id="mailinglist">
-                { (this.context.router.getCurrentQuery().mailinglist === "thanks")
-                 ?
-                  <div>
-                    <p>Thank you for signing up!</p>
-                  </div>
-                 :
-                   <div>
-                    <p>Sign up to get Maker Party updates:</p>
-                    <FormMailingListSignup/>
-                  </div>
-                }
+                <div>
+                  <p>Sign up to get Maker Party updates:</p>
+                  <FormMailingListSignup/>
+                </div>
               </div>
             </PageEndCTA>
             <section>
