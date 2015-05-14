@@ -72,7 +72,7 @@ var FormMailingListSignup = React.createClass({
 var ThankYouModal = React.createClass({
   render: function() {
     return (
-      <Modal modalTite="">
+      <Modal>
         <p>Thanks for signing up!</p>
       </Modal>
     );
