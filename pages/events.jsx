@@ -93,10 +93,6 @@ var EventsPage = React.createClass({
   contextTypes: {
     router: React.PropTypes.func.isRequired
   },
-  handleSubmit: function(e) {
-    e.preventDefault();
-    window.alert("Sorry, this feature has not yet been implemented.");
-  },
   componentDidMount: function() {
     if (this.context.router.getCurrentQuery().mailinglist === "thanks") {
       this.showModal(ThankYouModal);
