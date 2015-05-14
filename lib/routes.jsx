@@ -51,11 +51,16 @@ exports.generateStatic = function(url, cb) {
     location: url
   });
   router.run(function(Handler) {
-    var pageHandler = Page.handlerForPage(router, url);
-
-    cb(React.renderToString(<Handler/>), {
-      title: Page.titleForHandler(pageHandler)
-    });
+    var pageHandler, html, title;
+    var err = null;
+    try {
+      html = React.renderToString(<Handler/>);
+      pageHandler = Page.handlerForPage(router, url);
+      title = Page.titleForHandler(pageHandler);
+    } catch (e) {
+      err = e;
+    }
+    cb(err, html, { title: title });
   });
 };
 

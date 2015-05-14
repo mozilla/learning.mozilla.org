@@ -9,10 +9,26 @@ describe('gulp-index-file-stream', function() {
     generate: function(url, options, cb) {
       options.should.eql({meta: {}});
       process.nextTick(function() {
-        cb('i am ' + url);
+        cb(null, 'i am ' + url);
       });
     }
   };
+
+  it('should propagate errors', function(done) {
+    var stream = new IndexFileStream({
+      URLS: ['/'],
+      generate: function(url, options, cb) {
+        process.nextTick(function() {
+          cb(new Error('oof'));
+        });
+      }
+    });
+    stream.on('data', function() {});
+    stream.on('error', function(err) {
+      err.message.should.eql('oof');
+      done();
+    });
+  });
 
   it('should emit Vinyl file objects', function(done) {
     var stream = new IndexFileStream(indexStatic);

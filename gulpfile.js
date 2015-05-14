@@ -1,4 +1,5 @@
 var path = require('path');
+var PassThrough = require('stream').PassThrough;
 var _ = require('underscore');
 var gulp = require('gulp');
 var gulpif = require('gulp-if');
@@ -17,8 +18,6 @@ var jshint = require('gulp-jshint');
 var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 
-require('node-jsx').install();
-
 // TODO: Some of our third-party components are triggering warnings
 // from react-a11y, so we need to disable it for now to prevent
 // warning spam. Hopefully in the future we can find a way to
@@ -31,6 +30,7 @@ var webpackConfig = require('./webpack.config');
 var config = require('./lib/config');
 var travis = require('./lib/travis');
 var server = require('./test/browser/server');
+var indexStaticWatcher = require('./lib/index-static-watcher').create();
 
 var BUILD_TASKS = [
   'copy-test-dirs',
@@ -66,6 +66,32 @@ function handleError() {
   return plumber({
     errorHandler: onError
   });
+}
+
+function createIndexFileStream() {
+  var stream = new PassThrough({ objectMode: true });
+  var meta = {};
+  var execSync = require('child_process').execSync;
+
+  try {
+    meta['git-rev'] = execSync('git rev-parse HEAD', {
+      cwd: __dirname,
+      encoding: 'utf8'
+    }).slice(0, 40);
+  } catch (e) {}
+
+  indexStaticWatcher.build(function(err, indexStatic) {
+    if (err) {
+      return stream.emit('error', err);
+    }
+    new IndexFileStream(indexStatic, {
+      meta: meta
+    }).on('error', function(err) {
+      stream.emit('error', err);
+    }).pipe(stream);
+  });
+
+  return stream;
 }
 
 gulp.task('sitemap', ['generate-index-files'], function() {
@@ -151,31 +177,22 @@ gulp.task('test-react-warnings', function() {
     gutil.log(gutil.colors.red.bold(message));
   };
 
-  return new IndexFileStream(require('./lib/index-static.jsx'))
+  return createIndexFileStream()
     .on('end', function() {
       console.warn = oldWarn;
       if (warnings) {
         this.emit('error', new Error('At least one warning was logged.'));
       }
     })
-    .pipe(gulp.dest('./dist'));
+    .on('data', function() {
+      // Drain the stream. We don't actually need to do anything with
+      // the data, we just want to make sure no warnings are logged while
+      // the stream's data is being generated.
+    });
 });
 
 gulp.task('generate-index-files', function() {
-  var meta = {};
-  var execSync = require('child_process').execSync;
-
-  try {
-    meta['git-rev'] = execSync('git rev-parse HEAD', {
-      cwd: __dirname,
-      encoding: 'utf8'
-    }).slice(0, 40);
-  } catch (e) {}
-
-  return new IndexFileStream(require('./lib/index-static.jsx'), {
-    meta: meta
-  })
-    .pipe(gulp.dest('./dist'));
+  return createIndexFileStream().pipe(gulp.dest('./dist'));
 });
 
 gulp.task('jshint', function() {
@@ -204,30 +221,16 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
     }, webpackConfig)))
     .pipe(gulp.dest('./dist'));
 
-  gulp.watch([
-    'lib/**',
-    'components/**',
-    'mixins/**',
-    'pages/**'
-  ], function() {
-    gutil.log('Rebuilding index HTML files.');
-
-    // Ugh, because the *old* version of our index files are
-    // already in node's require cache, we can't reload them, so
-    // we'll run gulp in a subprocess so that it uses the latest
-    // code.
-    //
-    // TODO: Figure out a better solution for this.
-    require('child_process')
-      .exec('gulp sitemap', function(err, stdout, stderr) {
-        if (err) {
-          gutil.log(gutil.colors.red.bold('Error rebuilding index files!'));
-          gutil.log(stdout);
-          gutil.log(stderr);
-        } else {
-          gutil.log('Index HTML files rebuilt.');
-        }
-      });
+  indexStaticWatcher.watch(200, function() {
+    createIndexFileStream()
+      .on('error', function(err) {
+        gutil.log('Error rebuilding index HTML files.');
+        gutil.log(gutil.colors.red.bold(err.stack));
+      })
+      .on('end', function() {
+        gutil.log('Index HTML files rebuilt.');
+      })
+      .pipe(gulp.dest('./dist'));
   });
 
   gulp.watch('img/**', ['copy-images']);
