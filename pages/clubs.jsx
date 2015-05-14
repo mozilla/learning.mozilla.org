@@ -407,7 +407,7 @@ var ModalAddOrChangeYourClub = React.createClass({
                valueLink={this.linkState('name')} />
             </fieldset>
             <fieldset>
-              <label>Where are you located?</label>
+              <label>Where are you located?<span className="optional-text">optional</span></label>
               <Select
                disabled={isFormDisabled}
                placeholder="Type in a city or a country"
@@ -439,7 +439,7 @@ var ModalAddOrChangeYourClub = React.createClass({
                onChange={this.handleLocationChange} />
             </fieldset>
             <fieldset>
-              <label htmlFor={idPrefix + "website"}>What is your Club&lsquo;s website?</label>
+              <label htmlFor={idPrefix + "website"}>What is your Club&lsquo;s website?<span className="optional-text">optional</span></label>
               <input type="text" placeholder="www.myclubwebsite.com"
                id={idPrefix + "website"}
                disabled={isFormDisabled}
