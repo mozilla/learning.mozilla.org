@@ -14,9 +14,9 @@ var Sidebar = React.createClass({
       className: "activities"
     },
     {
-      name: "Events",
+      name: "Maker Party",
       link: 'events',
-      help: "Find gatherings near you, or host your own",
+      help: "Host a one-time event or workshop",
       icon: "/img/components/sidebar/svg/icon-nav-white-events.svg",
       className: "events",
       subItems: [
