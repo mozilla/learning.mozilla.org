@@ -36,6 +36,14 @@ var FormMailingListSignup = React.createClass({
       this.setState({validationErrors: validationErrors});
       return;
     }
+
+    if (process.env.NODE_ENV !== 'production' &&
+        !process.env.MAILINGLIST_URL) {
+      e.preventDefault();
+      alert("MAILINGLIST_URL is not defined. Simulating " +
+            "a successful mailing list signup now.");
+      window.location = "?mailinglist=thanks";
+    }
   },
   renderValidationErrors: function() {
     if (this.state.validationErrors.length) {
