@@ -186,7 +186,11 @@ gulp.task('test-react-warnings', function() {
         this.emit('error', new Error('At least one warning was logged.'));
       }
     })
-    .on('data', function() {});
+    .on('data', function() {
+      // Drain the stream. We don't actually need to do anything with
+      // the data, we just want to make sure no warnings are logged while
+      // the stream's data is being generated.
+    });
 });
 
 gulp.task('generate-index-files', function() {
