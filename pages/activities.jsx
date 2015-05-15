@@ -135,7 +135,7 @@ var ActivitiesPage = React.createClass({
               src2x="/img/pages/activities/img-activity-curriculum@2x.png"
               title="Web Literacy Basics (Teaching Kit) "
               level="Beginner"
-              link="/clubs/curriculum/"
+              link="/activities/web-lit-basics/"
               developedBy="Our seasoned educator community"
               description="This six-part series helps learners become familiar with reading, writing and participating on the web. They'll discover the foundations of the web through production and collaboration. This is an ideal kit for Mozilla Clubs."
             />
