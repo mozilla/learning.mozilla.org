@@ -131,8 +131,8 @@ var ActivitiesPage = React.createClass({
               Start teaching others how to read, write and participate on the web with these free activities created by teachers, educators and technologists like you. Each featured activity includes step-by-step instructions and has been tested in schools, afterschool programs, libraries and community centers around the globe. Whether learning how to code, understanding why privacy matters, or creating openly-licensed web content, we believe teaching the web should be fun and engaging!
             </p>
             <ActivityKit
-              src1x=""
-              src2x=""
+              src1x="/img/pages/activities/img-activity-curriculum.png"
+              src2x="/img/pages/activities/img-activity-curriculum@2x.png"
               title="Web Literacy Basics (Teaching Kit) "
               level="Beginner"
               link="/clubs/curriculum/"
