@@ -13,8 +13,8 @@ var CurriculumIntro = React.createClass({
         <section className="intro">
           <Illustration
           height={204} width={204}
-          src1x="/img/pages/clubs-curriculum/photo-clubs-curriculum.jpg"
-          src2x="/img/pages/clubs-curriculum/photo-clubs-curriculum@2x.jpg"
+          src1x="/img/pages/web-lit-basics/photo-clubs-curriculum.jpg"
+          src2x="/img/pages/web-lit-basics/photo-clubs-curriculum@2x.jpg"
           alt="Woman training a young man on a computer"
           className="img-circle">
             <h2>Learners get familiar with reading, writing and participating on the web in this six-part module. Discover the foundations of the web through production and collaboration.</h2>
@@ -83,7 +83,7 @@ var CurriculumSection = React.createClass({
 var ClubsCurriculum = React.createClass({
   statics: {
     pageTitle: 'Clubs Curriculum',
-    pageClassName: 'clubs-curriculum'
+    pageClassName: 'web-lit-basics'
   },
   curriculum: [
     {
@@ -91,8 +91,8 @@ var ClubsCurriculum = React.createClass({
       activities: [
         {
           title: "Kraken the Code",
-          image1x: "/img/pages/clubs-curriculum/img-kraken-code.jpg",
-          image2x: "/img/pages/clubs-curriculum/img-kraken-code@2x.jpg",
+          image1x: "/img/pages/web-lit-basics/img-kraken-code.jpg",
+          image2x: "/img/pages/web-lit-basics/img-kraken-code@2x.jpg",
           imageAlt: "An illustration of water with a sea monster and a boat in it",
           subtitle: "Understanding credibility",
           description: "Learners use the Internet to solve the mystery of The Kraken, a legendary sea creature, while also learning about search terms, keywords, and how to assess the validity and relevance of web sources.",
@@ -100,8 +100,8 @@ var ClubsCurriculum = React.createClass({
         },
         {
           title: "Ping Kong",
-          image1x: "/img/pages/clubs-curriculum/img-ping-kong.jpg",
-          image2x: "/img/pages/clubs-curriculum/img-ping-kong@2x.jpg",
+          image1x: "/img/pages/web-lit-basics/img-ping-kong.jpg",
+          image2x: "/img/pages/web-lit-basics/img-ping-kong@2x.jpg",
           imageAlt: "An illustration of the Empire State Building, with several helicopters circling",
           subtitle: "Understanding web mechanics",
           description: "For many, &ldquo;the Internet&rdquo; is an abstract and overwhelming concept. This activity challenges learners to think concretely about how the internet communicates with a computer.",
@@ -114,8 +114,8 @@ var ClubsCurriculum = React.createClass({
       activities: [
         {
           title: "Hack the News",
-          image1x: "/img/pages/clubs-curriculum/img-hack-news.jpg",
-          image2x: "/img/pages/clubs-curriculum/img-hack-news@2x.jpg",
+          image1x: "/img/pages/web-lit-basics/img-hack-news.jpg",
+          image2x: "/img/pages/web-lit-basics/img-hack-news@2x.jpg",
           imageAlt: "An illustration of a newspaper, with a headline of &ldquo;Hack the News&rdquo;",
           subtitle: "Understanding remixing",
           description: "Learners use X-Ray Goggles to remix a news website, learning about openly-licensed resources, different forms of media, and how to create something new on the Web through remixing.",
@@ -123,8 +123,8 @@ var ClubsCurriculum = React.createClass({
         },
         {
           title: "HTML Puzzle Boxes",
-          image1x: "/img/pages/clubs-curriculum/img-puzzle-boxes.jpg",
-          image2x: "/img/pages/clubs-curriculum/img-puzzle-boxes@2x.jpg",
+          image1x: "/img/pages/web-lit-basics/img-puzzle-boxes.jpg",
+          image2x: "/img/pages/web-lit-basics/img-puzzle-boxes@2x.jpg",
           imageAlt: "A photograph of several paper boxes with HTML tags on them",
           subtitle: "Understanding composing for the web",
           description: "Learners race to sequence the paper boxes labeled with HTML tags, becoming familiar with the most common HTML tags and how to structure a web page.",
@@ -137,8 +137,8 @@ var ClubsCurriculum = React.createClass({
       activities: [
         {
           title: "Web Chef",
-          image1x: "/img/pages/clubs-curriculum/img-web-chef.jpg",
-          image2x: "/img/pages/clubs-curriculum/img-web-chef@2x.jpg",
+          image1x: "/img/pages/web-lit-basics/img-web-chef.jpg",
+          image2x: "/img/pages/web-lit-basics/img-web-chef@2x.jpg",
           imageAlt: "An illustration of a chef",
           subtitle: "Understanding open practices",
           description: "Learners teach their peers a skill and document the steps by making a web resource that includes properly-attributed open content.",
@@ -146,8 +146,8 @@ var ClubsCurriculum = React.createClass({
         },
         {
           title: "Final Project: Story of Us",
-          image1x: "/img/pages/clubs-curriculum/img-story-of-us.jpg",
-          image2x: "/img/pages/clubs-curriculum/img-story-of-us@2x.jpg",
+          image1x: "/img/pages/web-lit-basics/img-story-of-us.jpg",
+          image2x: "/img/pages/web-lit-basics/img-story-of-us@2x.jpg",
           imageAlt: "An illustration of a hand holding a smart phone",
           subtitle: "Understanding community participation",
           description: "Learners tell their Story of Self, use it to reflect  on what they have learned, and how they want to participate on the web and with their community going forward.",
