@@ -3,6 +3,9 @@
 This is an initial attempt at implementing the Webmaker Learning
 website.
 
+**For a summary of the most recent changes to the project, please
+see [`CHANGELOG.md`][changelog]. It's awesome.**
+
 # Overview
 
 This software consists of two major parts:
