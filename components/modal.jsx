@@ -5,8 +5,7 @@ var ModalManagerMixin = require('../mixins/modal-manager');
 var Modal = React.createClass({
   mixins: [React.addons.PureRenderMixin, ModalManagerMixin],
   propTypes: {
-    modalTitle: React.PropTypes.string,
-    children: React.PropTypes.object.isRequired
+    modalTitle: React.PropTypes.string
   },
   componentDidMount: function() {
     document.addEventListener('keydown', this.handleKeyDown);
