@@ -17,7 +17,7 @@ var CurriculumIntro = React.createClass({
           src2x="/img/pages/clubs-curriculum/photo-clubs-curriculum@2x.jpg"
           alt="Woman training a young man on a computer"
           className="img-circle">
-            <h2>Activities to teach the web in your club. Developed and tested by our seasoned educator community. Easy to use, guaranteed fun. </h2>
+            <h2>Learners get familiar with reading, writing and participating on the web in this six-part module. Discover the foundations of the web through production and collaboration.</h2>
           </Illustration>
         </section>
       </div>
@@ -32,9 +32,7 @@ var WebLitBasics = React.createClass({
         <div className="col-sm-12">
           <h2>Web Literacy Basics</h2>
           <p>
-            Learners get familiar with reading, writing and participating on the web in this six-part module. Discover
-            the foundations of the web through production and collaboration. The learning objectives underpinning each
-            activity are informed by Mozilla&apos;s <Link to="web-literacy">Web Literacy Map</Link>. Complete the activities in
+            The learning objectives underpinning each activity are informed by Mozilla&apos;s <Link to="web-literacy">Web Literacy Map</Link>. Complete the activities in
             sequence, or mix and match for your learners. Need help{'? '}
             <a href="http://discourse.webmaker.org/category/clubs">Visit our discussion forum</a> to get help and share
             your experience.
@@ -77,28 +75,6 @@ var CurriculumSection = React.createClass({
             </div>
           )
         })}
-      </section>
-    );
-  }
-});
-
-var LearnMoreSection = React.createClass({
-  render: function () {
-    return (
-      <section className="row page-end">
-        <ImageTag alt="Icon representing Web Literacy—A smart phone inside a stylized atom illustration"
-            className="center-block" src1x="/img/pages/clubs-curriculum/icon-web-literacy.jpg"
-            src2x="/img/pages/clubs-curriculum/icon-web-literacy@2x.jpg" width={292} height={102} />
-          <h3 className="learn-more">
-            <em>What is Web Literacy{'?'}</em></h3>
-          <p className="learn-more">
-            Mozilla defines Web Literacy as the skills and competencies needed for reading, writing, and participating
-            on the web.
-          </p>
-          <p className="learn-more">
-            <Link to="web-literacy">Learn More</Link>
-          </p>
-          <img src="/img/pages/clubs-curriculum/svg/web-literacy-divider.svg" alt="" className="center-block"/>
       </section>
     );
   }
@@ -190,7 +166,6 @@ var ClubsCurriculum = React.createClass({
               <CurriculumSection title={section.title} key={key} activities={section.activities} />
           );
         })}
-        <LearnMoreSection/>
         <CCLicenseNote/>
       </div>
     );

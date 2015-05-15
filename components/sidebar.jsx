@@ -47,10 +47,6 @@ var Sidebar = React.createClass({
       className: "clubs",
       subItems: [
         {
-          name: "Clubs Curriculum",
-          link: "clubs-curriculum"
-        },
-        {
           name: "Clubs Toolkit",
           link: "clubs-toolkit"
         }
