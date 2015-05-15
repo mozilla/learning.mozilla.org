@@ -62,6 +62,10 @@ understands symbolic links.
 If possible, manually test your changes on the latest version of
 Firefox, Chrome, Internet Explorer, and Safari.
 
+To ensure that the site is accessible, consider using a
+screen reader like [VoiceOver][] (OS X) or [NVDA][] (Windows) to
+visit any pages you've added or changed.
+
 ### Diagnostics
 
 For any pages you've added or changed, make sure you
@@ -100,3 +104,5 @@ changes haven't introduced any [Mixed Content][] warnings.
 [Tenon]: http://tenon.io/
 [ngrok]: https://ngrok.com/
 [Mixed Content]: https://developer.mozilla.org/en-US/docs/Security/MixedContent
+[VoiceOver]: http://webaim.org/articles/voiceover/
+[NVDA]: https://www.marcozehe.de/articles/how-to-use-nvda-and-firefox-to-test-your-web-pages-for-accessibility/
