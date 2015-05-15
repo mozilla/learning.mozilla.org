@@ -1,4 +1,5 @@
 var urlResolve = require('url').resolve;
+var urlParse = require('url').parse;
 var React = require('react');
 
 var Modal = require('../components/modal.jsx');
@@ -7,36 +8,67 @@ var TeachAPI = require('../lib/teach-api');
 
 var ICON_IMG_STYLE = { width: '1em', height: '1em' };
 
-var getAbsoluteURL = function(url) {
-  var origin = window.location.protocol + '//' + window.location.host;
-  return urlResolve(origin, url);
+// http://stackoverflow.com/a/2814102
+var PRIVATE_IP_REGEX = /(^127\.0\.0\.1)|(^10\.)|(^172\.1[6-9]\.)|(^172\.2[0-9]\.)|(^172\.3[0-1]\.)|(^192\.168\.)/;
+
+var PRIVATE_HOSTNAME_REGEX = /^(localhost)$/;
+
+var DiagnosticToolMixin = {
+  getAbsoluteURL: function() {
+    var origin = window.location.protocol + '//' + window.location.host;
+    return urlResolve(origin, this.props.url || window.location.href);
+  },
+  handleClick: function(e) {
+    var hostname = urlParse(this.getAbsoluteURL()).hostname;
+
+    if (PRIVATE_IP_REGEX.test(hostname) ||
+        PRIVATE_HOSTNAME_REGEX.test(hostname)) {
+      var ok = window.confirm(
+        "Your hostname (" + hostname + ") is not publicly accessible " +
+        "from the internet. Click OK to visit ngrok.com, which will " +
+        "allow you to expose your local server to the internet so you " +
+        "can use " + this.constructor.toolName + "."
+      );
+      e.preventDefault();
+      if (ok) {
+        window.open('https://ngrok.com/');
+      }
+    }
+  }
 };
 
 var InsightsLink = React.createClass({
+  mixins: [DiagnosticToolMixin],
+  statics: {
+    toolName: 'PageSpeed Insights'
+  },
   render: function() {
-    var url = getAbsoluteURL(this.props.url || window.location.href);
     var insightsURL = "https://developers.google.com/speed/pagespeed/" +
-                      "insights/?url=" + encodeURIComponent(url);
+                      "insights/?url=" +
+                      encodeURIComponent(this.getAbsoluteURL());
 
     return (
-      <a href={insightsURL} target="_blank" {...this.props}>
+      <a href={insightsURL} onClick={this.handleClick} target="_blank" {...this.props}>
         <img src="/img/components/dev-ribbon/pagespeed-64.png"
-         style={ICON_IMG_STYLE} /> PageSpeed Insights
+         style={ICON_IMG_STYLE} /> {this.constructor.toolName}
       </a>
     );
   }
 });
 
 var TenonLink = React.createClass({
+  mixins: [DiagnosticToolMixin],
+  statics: {
+    toolName: 'Tenon'
+  },
   render: function() {
-    var url = getAbsoluteURL(this.props.url || window.location.href);
     var tenonURL = "http://tenon.io/testNow.php?url=" +
-                   encodeURIComponent(url);
+                   encodeURIComponent(this.getAbsoluteURL());
 
     return (
-      <a href={tenonURL} target="_blank" {...this.props}>
+      <a href={tenonURL} onClick={this.handleClick} target="_blank" {...this.props}>
         <img src="/img/components/dev-ribbon/tenon-logo.png"
-         style={ICON_IMG_STYLE} /> Tenon
+         style={ICON_IMG_STYLE} /> {this.constructor.toolName}
       </a>
     );
   }
