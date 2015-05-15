@@ -62,6 +62,23 @@ understands symbolic links.
 If possible, manually test your changes on the latest version of
 Firefox, Chrome, Internet Explorer, and Safari.
 
+### Diagnostics
+
+For any pages you've added or changed, make sure you
+use [PageSpeed Insights][] to ensure the page is fast on all
+devices, and use [Tenon][] to ensure it's accessible.
+
+You can conveniently run any of these tools on the current page
+by clicking the "Dev Version" ribbon at the top-right of any
+page on the site.
+
+### HTTPS
+
+We often develop using http, but the production site is always
+hosted via https. Consider using a tool like [ngrok][] to easily
+tunnel into your local server over https to ensure that your
+changes haven't introduced any [Mixed Content][] warnings.
+
 ## Pull requests
 
 - Before submitting a PR, run `npm test` to ensure that everything
@@ -79,3 +96,7 @@ Firefox, Chrome, Internet Explorer, and Safari.
 [CHANGELOG]: https://github.com/mozilla/teach.webmaker.org/blob/develop/CHANGELOG.md
 [js]: https://github.com/MozillaFoundation/javascript-style-guide
 [synonym]: https://help.github.com/articles/closing-issues-via-commit-messages
+[PageSpeed Insights]: https://developers.google.com/speed/pagespeed/insights/
+[Tenon]: http://tenon.io/
+[ngrok]: https://ngrok.com/
+[Mixed Content]: https://developer.mozilla.org/en-US/docs/Security/MixedContent
