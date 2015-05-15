@@ -122,13 +122,8 @@ in your browser.
 
 #### Manual Tests
 
-You can also visit http://localhost:8008/test/manual/ for a basic
-manual test suite.
-
-Additionally, if you need to make sure that a page is usable with
-JS disabled, just add `safemode=on` to the querystring when visiting the
-page. This will cause the page to operate in "safe mode", meaning that
-almost no JS will run, even if JS is enabled in the browser.
+For detailed information about manual testing, see the
+[Manual Testing][] section of `CONTRIBUTING.md`.
 
 ## Generating A Static Site
 
@@ -204,3 +199,4 @@ want to create a batch file that uses
   [source maps]: http://blog.teamtreehouse.com/introduction-source-maps
   [changelog]: https://github.com/mozilla/teach.webmaker.org/blob/develop/CHANGELOG.md
   [contributing]: https://github.com/mozilla/teach.webmaker.org/blob/develop/CONTRIBUTING.md
+  [Manual Testing]: https://github.com/mozilla/teach.webmaker.org/blob/develop/CONTRIBUTING.md#manual-testing
