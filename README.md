@@ -1,7 +1,6 @@
 [![Build Status](https://travis-ci.org/mozilla/teach.webmaker.org.svg)](https://travis-ci.org/mozilla/teach.webmaker.org)
 
-This is an initial attempt at implementing the Webmaker Learning
-website.
+This is the source code for [teach.mozilla.org][].
 
 **For a summary of the most recent changes to the project, please
 see [`CHANGELOG.md`][changelog]. It's awesome.**
@@ -24,7 +23,7 @@ may eventually evolve into becoming a dynamic server.
 
 ### Dependencies
 
-To get a local version of teach.webmaker.org running, you'll need to have [git](http://git-scm.com/) and [node](http://nodejs.org/) installed on your local machine.
+To get a local version of the site running, you'll need to have [git](http://git-scm.com/) and [node](http://nodejs.org/) installed on your local machine.
 
 ### Clone
 
@@ -189,6 +188,7 @@ want to create a batch file that uses
 
 <!-- links -->
 
+  [teach.mozilla.org]: https://teach.mozilla.org
   [`devtool`]: http://webpack.github.io/docs/configuration.html#devtool
   [sourcemaps-wtf]: https://github.com/mozilla/teach.webmaker.org/pull/147#discussion-diff-25879885
   [roadmap]: http://wiki.webmaker.org/Teach
