@@ -31,3 +31,9 @@
   background-color: @submitBtnColor;
   margin: 1rem 0 1.5rem 0;
 }
+
+.retina2x(@rules) {
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    @rules();
+  }
+}

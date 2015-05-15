@@ -23,8 +23,7 @@ var HomePage = React.createClass({
   render: function() {
     return (
       <div>
-        <HeroUnit image="/img/pages/home/hero-unit.png"
-                  image2x="/img/pages/home/hero-unit@2x.png">
+        <HeroUnit>
           <h1>Unlock opportunities for all citizens of the Web.</h1>
 
         </HeroUnit>
