@@ -1,6 +1,7 @@
 var querystring = require('querystring');
 var React = require('react');
 
+var DevRibbon = require('../../components/dev-ribbon.jsx');
 var routes = require('../../lib/routes.jsx');
 
 var DEVICES = [
@@ -52,12 +53,6 @@ var RouteThumbnail = React.createClass({
 var RouteTest = React.createClass({
   render: function() {
     var props = this.props;
-    var origin = window.location.protocol + '//' + window.location.host;
-    var absoluteURL = origin + this.props.url;
-    var encodedURL = encodeURIComponent(absoluteURL);
-    var insightsURL = "https://developers.google.com/speed/pagespeed/" +
-                      "insights/?url=" + encodedURL;
-    var tenonURL = "http://tenon.io/testNow.php?url=" + encodedURL;
 
     return (
       <div>
@@ -67,12 +62,8 @@ var RouteTest = React.createClass({
           </a>
         </h2>
         <div className="actions btn-group">
-          <a href={insightsURL} className="btn btn-default btn-sm" target="_blank">
-            <img src="pagespeed-64.png" /> PageSpeed Insights
-          </a>
-          <a href={tenonURL} className="btn btn-default btn-sm" target="_blank">
-            <img src="tenon-logo.png" /> Tenon
-          </a>
+          <DevRibbon.TenonLink className="btn btn-default btn-sm" url={this.props.url} />
+          <DevRibbon.InsightsLink className="btn btn-default btn-sm" url={this.props.url} />
         </div>
         <div className="examples">
           {

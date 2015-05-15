@@ -1,8 +1,46 @@
+var urlResolve = require('url').resolve;
 var React = require('react');
 
 var Modal = require('../components/modal.jsx');
 var ModalManagerMixin = require('../mixins/modal-manager');
 var TeachAPI = require('../lib/teach-api');
+
+var ICON_IMG_STYLE = { width: '1em', height: '1em' };
+
+var getAbsoluteURL = function(url) {
+  var origin = window.location.protocol + '//' + window.location.host;
+  return urlResolve(origin, url);
+};
+
+var InsightsLink = React.createClass({
+  render: function() {
+    var url = getAbsoluteURL(this.props.url || window.location.href);
+    var insightsURL = "https://developers.google.com/speed/pagespeed/" +
+                      "insights/?url=" + encodeURIComponent(url);
+
+    return (
+      <a href={insightsURL} target="_blank" {...this.props}>
+        <img src="/img/components/dev-ribbon/pagespeed-64.png"
+         style={ICON_IMG_STYLE} /> PageSpeed Insights
+      </a>
+    );
+  }
+});
+
+var TenonLink = React.createClass({
+  render: function() {
+    var url = getAbsoluteURL(this.props.url || window.location.href);
+    var tenonURL = "http://tenon.io/testNow.php?url=" +
+                   encodeURIComponent(url);
+
+    return (
+      <a href={tenonURL} target="_blank" {...this.props}>
+        <img src="/img/components/dev-ribbon/tenon-logo.png"
+         style={ICON_IMG_STYLE} /> Tenon
+      </a>
+    );
+  }
+});
 
 var DevModal = React.createClass({
   render: function() {
@@ -39,6 +77,9 @@ var DevModal = React.createClass({
         <a href="/test/" target="_blank" className="btn btn-block btn-default">
           <span className="glyphicon glyphicon glyphicon-heart"/> Test Suite
         </a>
+        <h3>Diagnostic Tools</h3>
+        <TenonLink className="btn btn-block btn-default"/>
+        <InsightsLink className="btn btn-block btn-default"/>
       </Modal>
     );
   }
@@ -46,6 +87,10 @@ var DevModal = React.createClass({
 
 module.exports = React.createClass({
   mixins: [ModalManagerMixin],
+  statics: {
+    TenonLink: TenonLink,
+    InsightsLink: InsightsLink
+  },
   handleClick: function(e) {
     e.preventDefault();
     this.showModal(DevModal);
