@@ -97,10 +97,15 @@ var Page = React.createClass({
         <div className={"page container-fluid " + pageClassName}
          aria-hidden={!!this.state.modalClass}
          onFocus={this.state.modalClass && this.handleNonModalFocus}>
+          <a href="#content" className="sr-only sr-only-focusable skip-to-content">
+            Skip to main content
+          </a>
+
           {DevRibbon ? <DevRibbon/> : null}
+
           <div className="row">
             <Sidebar/>
-            <main className="content col-md-9" role="main">
+            <main className="content col-md-9" role="main" id="content" tabIndex="-1">
               <RouteHandler/>
             </main>
           </div>
