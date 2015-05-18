@@ -128,11 +128,9 @@ module.exports = React.createClass({
     this.showModal(DevModal);
   },
   render: function() {
-    // We're using role="link" to stop react-a11y from annoying us;
-    // this code is only for development, don't worry about a11y.
     return (
       <div className="dev-ribbon-holder">
-        <a className="dev-ribbon" href="#" role="link" onClick={this.handleClick}>
+        <a className="dev-ribbon" href="" onClick={this.handleClick}>
           Dev Version
         </a>
       </div>
