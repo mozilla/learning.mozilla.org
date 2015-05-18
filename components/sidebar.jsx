@@ -67,6 +67,11 @@ var Sidebar = React.createClass({
       showCollapsibleContent: !this.state.showCollapsibleContent
     });
   },
+  handleFocus: function() {
+    this.setState({
+      showCollapsibleContent: true
+    });
+  },
   render: function() {
     return (
       <div className="sidebar col-md-3">
@@ -77,7 +82,8 @@ var Sidebar = React.createClass({
           <button aria-label="toggle" className="glyphicon glyphicon-menu-hamburger hidden-lg hidden-md"
                   onClick={this.handleHamburgerClick} />
         </div>
-        <div className={this.state.showCollapsibleContent
+        <div onFocus={this.handleFocus}
+             className={this.state.showCollapsibleContent
                         ? "collapsible-content"
                         : "collapsed collapsible-content"}>
 
