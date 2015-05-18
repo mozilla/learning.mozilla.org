@@ -76,7 +76,9 @@ almost no JS will run, even if JS is enabled in the browser.
 
 To ensure that the site is accessible, consider using a
 screen reader like [VoiceOver][] (OS X) or [NVDA][] (Windows) to
-visit any pages you've added or changed.
+visit any pages you've added or changed. And if you've added
+or changed any JavaScript-based logic for UI, make sure it
+satisfies the Paciello Group's [Web Components punch list][].
 
 ##### Diagnostics
 
@@ -118,3 +120,4 @@ changes haven't introduced any [Mixed Content][] warnings.
 [Mixed Content]: https://developer.mozilla.org/en-US/docs/Security/MixedContent
 [VoiceOver]: http://webaim.org/articles/voiceover/
 [NVDA]: https://www.marcozehe.de/articles/how-to-use-nvda-and-firefox-to-test-your-web-pages-for-accessibility/
+[Web Components punch list]: http://www.paciellogroup.com/blog/2014/09/web-components-punch-list/
