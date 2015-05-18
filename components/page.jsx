@@ -100,7 +100,7 @@ var Page = React.createClass({
           {DevRibbon ? <DevRibbon/> : null}
           <div className="row">
             <Sidebar/>
-            <main className="content col-md-9">
+            <main className="content col-md-9" role="main">
               <RouteHandler/>
             </main>
           </div>

@@ -5,7 +5,7 @@ var Link = Router.Link;
 var Footer = React.createClass({
   render: function() {
     return (
-      <footer className="row">
+      <footer className="row" role="contentinfo">
         <div className="sidebar col-md-3">
           <div className="row">
             <div className="col-xs-6">
