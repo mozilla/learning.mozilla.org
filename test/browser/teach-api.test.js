@@ -114,6 +114,26 @@ describe('TeachAPI', function() {
     should(api.getUsername()).equal("boop");
   });
 
+  it('reports admin URL when user is staff', function() {
+    var api = new TeachAPI({storage: storage});
+
+    storage['TEACH_API_LOGIN_INFO'] = '{"admin_url": "http://admin"}';
+    should(api.getAdminURL()).equal("http://admin");
+  });
+
+  it('reports admin URL as null when user is not staff', function() {
+    var api = new TeachAPI({storage: storage});
+
+    storage['TEACH_API_LOGIN_INFO'] = '{"username": "boop"}';
+    should(api.getAdminURL()).equal(null);
+  });
+
+  it('reports admin URL as null if logged out', function() {
+    var api = new TeachAPI({storage: storage});
+
+    should(api.getAdminURL()).equal(null);
+  });
+
   it('reports username is null if logged out', function() {
     var api = new TeachAPI({storage: storage});
 
