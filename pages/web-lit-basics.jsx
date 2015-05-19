@@ -9,7 +9,7 @@ var CurriculumIntro = React.createClass({
   render: function () {
     return (
       <div>
-        <h1>Clubs Curriculum</h1>
+        <h1>Web Literacy Basics</h1>
         <section className="intro">
           <Illustration
           height={204} width={204}
@@ -30,7 +30,7 @@ var WebLitBasics = React.createClass({
     return (
       <section className="row web-lit-basics">
         <div className="col-sm-12">
-          <h2>Web Literacy Basics</h2>
+          <h2>Learning Objectives</h2>
           <p>
             The learning objectives underpinning each activity are informed by Mozilla&apos;s <Link to="web-literacy">Web Literacy Map</Link>. Complete the activities in
             sequence, or mix and match for your learners. Need help{'? '}
@@ -82,7 +82,7 @@ var CurriculumSection = React.createClass({
 
 var ClubsCurriculum = React.createClass({
   statics: {
-    pageTitle: 'Clubs Curriculum',
+    pageTitle: 'Web Literacy Basics',
     pageClassName: 'web-lit-basics'
   },
   curriculum: [
