@@ -60,7 +60,7 @@ describe("Login", function() {
     login.getDOMNode().textContent.should.not.match(ADMIN_RE);
   });
 
-  it("doesn't show admin link for non-staff users", function() {
+  it("shows admin link for staff users", function() {
     teachAPI.getAdminURL.returns("http://admin");
     login.setState({username: "blop"});
     login.getDOMNode().textContent.should.match(ADMIN_RE);
