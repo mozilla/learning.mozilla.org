@@ -37,6 +37,11 @@ describe("sidebar", function() {
     collapsibleContent.props.className.should.eql('collapsible-content');
   });
 
+  it('should show collapsible content when focused', function() {
+    TestUtils.Simulate.focus(collapsibleContent);
+    collapsibleContent.props.className.should.eql('collapsible-content');
+  });
+
   describe('hamburger', function() {
     it('should toggle collapsible content on click', function() {
       TestUtils.Simulate.click(hamburger);
