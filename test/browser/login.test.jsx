@@ -11,6 +11,8 @@ var LogoutLink = Login.LogoutLink;
 var StubTeachAPI = require('./stub-teach-api');
 var StubRouter = require('./stub-router');
 
+var ADMIN_RE = /administration/i;
+
 describe("Login", function() {
   var login, teachAPI;
 
@@ -51,6 +53,17 @@ describe("Login", function() {
   it("shows username when logged in", function() {
     login.setState({username: "blop"});
     login.getDOMNode().textContent.should.match(/blop/);
+  });
+
+  it("doesn't show admin link for non-staff users", function() {
+    login.setState({username: "blop"});
+    login.getDOMNode().textContent.should.not.match(ADMIN_RE);
+  });
+
+  it("shows admin link for staff users", function() {
+    teachAPI.getAdminURL.returns("http://admin");
+    login.setState({username: "blop"});
+    login.getDOMNode().textContent.should.match(ADMIN_RE);
   });
 
   it("shows 'loading...' when initializing", function() {

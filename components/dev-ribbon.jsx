@@ -97,9 +97,6 @@ var DevModal = React.createClass({
         <a href="http://invis.io/9G2DK7SR2" target="_blank" className="btn btn-block btn-default">
           <span className="glyphicon glyphicon glyphicon-plane"/> Site Map
         </a>
-        <a href={TeachAPI.getDefaultURL() + '/admin'} target="_blank" className="btn btn-block btn-default">
-          <span className="glyphicon glyphicon glyphicon-wrench"/> Admin UI
-        </a>
         <a href="https://github.com/mozilla/teach.webmaker.org/issues" target="_blank" className="btn btn-block btn-default">
           <span className="glyphicon glyphicon glyphicon-exclamation-sign"/> File An Issue on GitHub
         </a>
