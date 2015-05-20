@@ -5,6 +5,8 @@ which uses the format described in
 to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
+
+## [0.0.5][] - 2015-05-20
 ### Added
 - A link to "Site Administration" now appears under the logout
   link if the current user is staff.
@@ -115,7 +117,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.4...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.5...HEAD
+[0.0.5]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.2...v0.0.3
 [0.0.2]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.1...v0.0.2
