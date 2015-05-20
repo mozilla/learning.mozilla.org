@@ -70,7 +70,7 @@ var Sidebar = React.createClass({
   },
   render: function() {
     return (
-      <div className="sidebar col-md-3">
+      <div className="sidebar col-md-3" role="navigation">
         <div className="sidebar-header">
           <Link to="home">
             <img src="/img/components/sidebar/svg/mozilla-wordmark-white.svg" alt="Mozilla Learning Home" className="moz-logo"/>

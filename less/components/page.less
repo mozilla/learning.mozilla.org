@@ -1,3 +1,19 @@
+a.skip-to-content:focus {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100000;
+  background-color: @sidebarColor;
+  color: white;
+  padding: 0.5em;
+  outline: 1px solid white;
+}
+
+// http://getbootstrap.com/getting-started/#skip-navigation
+#content:focus {
+  outline: none;
+}
+
 .page {
   &.container-fluid {
     @media (min-width: @screen-md-min) {

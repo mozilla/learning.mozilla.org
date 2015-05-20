@@ -9,6 +9,10 @@
 }
 
 .sidebarColorizer(@sidebarColor) {
+  a.skip-to-content:focus {
+    background-color: @sidebarColor;
+  }
+
   .sidebar {
     background-color: @sidebarColor;
     .sidebar-menu a {
