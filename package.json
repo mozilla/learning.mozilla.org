@@ -57,7 +57,7 @@
     "smoketest": "gulp smoketest",
     "pres3": "rm -rf dist",
     "s3": "gulp s3",
-    "travis-after-success": "rm -rf dist",
+    "pretravis-after-success": "rm -rf dist",
     "travis-after-success": "gulp travis-after-success",
     "prebuild": "rm -rf dist",
     "build": "gulp",
