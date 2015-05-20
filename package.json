@@ -53,9 +53,13 @@
     "test": "gulp smoketest && mocha test/*.test.js && npm run browsertest && gulp lint-test && npm run spider",
     "spider": "node test/browser/spider.js",
     "browsertest": "node test/browser/run-in-phantom.js",
+    "presmoketest": "rm -rf dist",
     "smoketest": "gulp smoketest",
+    "pres3": "rm -rf dist",
     "s3": "gulp s3",
+    "travis-after-success": "rm -rf dist",
     "travis-after-success": "gulp travis-after-success",
+    "prebuild": "rm -rf dist",
     "build": "gulp",
     "prestart": "rm -rf dist",
     "start": "gulp watch"
