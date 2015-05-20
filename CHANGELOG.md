@@ -18,11 +18,13 @@ to [Semantic Versioning](http://semver.org/).
   to `CONTRIBUTING.md`.
 - Added environment variables `MAILINGLIST_URL`
   and `MAILINGLIST_PRIVACY_NAME`.
-- Aspects of the structure and accuracy of this
-  changelog are now verified by the automated test suite.
 - The site now generates `index.html` files for redirects. This
   was done so that `/clubs/curriculum/` redirects to 
   `/activities/web-lit-basics/`.
+- `lib/changelog.js` can be used as a node script to help
+  update `CHANGELOG.md`.
+- Aspects of the structure and accuracy of this
+  changelog are now verified by the automated test suite.
 
 ### Changed
 - The Clubs Curriculum page has been renamed to 
