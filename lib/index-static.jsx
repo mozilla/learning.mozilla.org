@@ -29,8 +29,6 @@ function generateWithPageHTML(url, options, pageHTML) {
     meta: {}
   });
 
-  // Make sure any changes to this file are reflected in
-  // index.html too.
   var content = (
     <html className="no-js">
       <head>
@@ -69,10 +67,17 @@ function generateWithPageHTML(url, options, pageHTML) {
 }
 
 function generate(url, options, cb) {
-  routes.generateStatic(url, function(html, metadata) {
-    cb(generateWithPageHTML(url, _.extend({
-      title: metadata.title
-    }, options), html));
+  routes.generateStatic(url, function(err, html, metadata) {
+    var pageHTML;
+
+    if (err) return cb(err);
+    try {
+      options = _.extend({ title: metadata.title }, options);
+      pageHTML = generateWithPageHTML(url, options, html);
+    } catch(e) {
+      err = e;
+    }
+    cb(err, pageHTML);
   });
 };
 

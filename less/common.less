@@ -150,3 +150,20 @@ html.no-js .no-js-warning {
     }
   }
 }
+
+/**********
+* Form
+*/
+
+.optional-text {
+  color: @grey;
+  font-style: italic;
+  font-weight: normal;
+  &:before {
+    content: " (";
+  }
+  &:after {
+    content: ")";
+  }
+}
+

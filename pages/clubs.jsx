@@ -439,7 +439,7 @@ var ModalAddOrChangeYourClub = React.createClass({
                onChange={this.handleLocationChange} />
             </fieldset>
             <fieldset>
-              <label htmlFor={idPrefix + "website"}>What is your Club&lsquo;s website?</label>
+              <label htmlFor={idPrefix + "website"}>What is your Club&lsquo;s website?<span className="optional-text">optional</span></label>
               <input type="text" placeholder="www.myclubwebsite.com"
                id={idPrefix + "website"}
                disabled={isFormDisabled}
@@ -574,7 +574,7 @@ var ClubsPage = React.createClass({
           <section>
             <IconLinks>
               <IconLink
-                linkTo="clubs-curriculum"
+                linkTo="web-lit-basics"
               imgSrc="/img/pages/clubs/svg/icon-curriculum.svg"
                 imgAlt="icon curriculum"
                 head="Curriculum"
@@ -595,14 +595,6 @@ var ClubsPage = React.createClass({
                 subhead="Tips for running your Club"
               />
             </IconLinks>
-          </section>
-          <section>
-            <PageEndCTA
-              onClick={this.showAddYourClubModal}
-              header="Do you meet regularly with a group of learners to increase web literacy skills?"
-              cta="add your club to the map"
-              dividerImgSrc="/img/pages/clubs/svg/line-divider.svg"
-            />
           </section>
         </div>
       </div>

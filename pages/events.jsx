@@ -2,6 +2,8 @@ var React = require('react');
 var Router = require('react-router');
 var request = require('superagent');
 var HeroUnit = require('../components/hero-unit.jsx');
+var Modal = require('../components/modal.jsx');
+var ModalManagerMixin = require('../mixins/modal-manager');
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
 var Illustration = require('../components/illustration.jsx');
@@ -34,6 +36,14 @@ var FormMailingListSignup = React.createClass({
       this.setState({validationErrors: validationErrors});
       return;
     }
+
+    if (process.env.NODE_ENV !== 'production' &&
+        !process.env.MAILINGLIST_URL) {
+      e.preventDefault();
+      alert("MAILINGLIST_URL is not defined. Simulating " +
+            "a successful mailing list signup now.");
+      window.location = "?mailinglist=thanks";
+    }
   },
   renderValidationErrors: function() {
     if (this.state.validationErrors.length) {
@@ -46,7 +56,7 @@ var FormMailingListSignup = React.createClass({
   },
   render: function() {
     return (
-      <form className="mailinglist-signup" action="https://sendto.mozilla.org/page/s/maker-party-signup-for-teach-site" method="POST" onSubmit={this.handleSubmit}>
+      <form className="mailinglist-signup" action={process.env.MAILINGLIST_URL} method="POST" onSubmit={this.handleSubmit}>
         <div className="col-sm-offset-1 col-sm-8 col-md-offset-1 col-md-8 col-lg-offset-1 col-lg-8">
           <fieldset>
             <label htmlFor="mailinglist-email" className="sr-only">email</label>
@@ -54,7 +64,7 @@ var FormMailingListSignup = React.createClass({
           </fieldset>
           <fieldset>
             <label htmlFor="mailinglist-pp-note" className="sr-only">I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a></label>
-            <input id="mailinglist-pp-note" name="custom-3460" type="checkbox" checked readOnly required hidden />
+            <input id="mailinglist-pp-note" name={process.env.MAILINGLIST_PRIVACY_NAME} type="checkbox" checked readOnly required hidden />
             <p className="pp-note">&#10003; I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.</p>
           </fieldset>
           {this.renderValidationErrors()}
@@ -67,7 +77,18 @@ var FormMailingListSignup = React.createClass({
   }
 });
 
+var ThankYouModal = React.createClass({
+  render: function() {
+    return (
+      <Modal>
+        <p>Thanks for signing up!</p>
+      </Modal>
+    );
+  }
+});
+
 var EventsPage = React.createClass({
+  mixins: [ModalManagerMixin],
   statics: {
     pageTitle: 'Events',
     pageClassName: 'events',
@@ -80,9 +101,10 @@ var EventsPage = React.createClass({
   contextTypes: {
     router: React.PropTypes.func.isRequired
   },
-  handleSubmit: function(e) {
-    e.preventDefault();
-    window.alert("Sorry, this feature has not yet been implemented.");
+  componentDidMount: function() {
+    if (this.context.router.getCurrentQuery().mailinglist === "thanks") {
+      this.showModal(ThankYouModal);
+    }
   },
   render: function() {
     return (
@@ -102,7 +124,7 @@ var EventsPage = React.createClass({
             alt="Maker Party logo"
             >
               <h2>
-                Join us for the worldwide Maker Party on July 15-31, 2015 and add your events to <a href="https://events.webmaker.org/">our global list</a> any time of year.
+                Join us for the worldwide Maker Party on July 15-31, 2015.
               </h2>
             </Illustration>
             <div className="row">
@@ -132,17 +154,10 @@ var EventsPage = React.createClass({
             header=""
             dividerImgSrc="/img/pages/events/svg/line-divider.svg">
               <div className="row" id="mailinglist">
-                { (this.context.router.getCurrentQuery().mailinglist === "thanks")
-                 ?
-                  <div>
-                    <p>Thank you for signing up!</p>
-                  </div>
-                 :
-                   <div>
-                    <p>Sign up to get Maker Party updates:</p>
-                    <FormMailingListSignup/>
-                  </div>
-                }
+                <div>
+                  <p>Sign up to get Maker Party updates:</p>
+                  <FormMailingListSignup/>
+                </div>
               </div>
             </PageEndCTA>
             <section>
@@ -160,13 +175,6 @@ var EventsPage = React.createClass({
                   imgAlt="icon connect"
                   head="Join the Conversation"
                   subhead="Talk to others about your event"
-                />
-                <IconLink
-                  href="https://events.webmaker.org/"
-                  imgSrc="/img/pages/events/svg/icon-add-event.svg"
-                  imgAlt="icon add event"
-                  head="Add Your Event"
-                  subhead="Join the global movement"
                 />
               </IconLinks>
             </section>

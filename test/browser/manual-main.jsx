@@ -1,6 +1,7 @@
 var querystring = require('querystring');
 var React = require('react');
 
+var DevRibbon = require('../../components/dev-ribbon.jsx');
 var routes = require('../../lib/routes.jsx');
 
 var DEVICES = [
@@ -52,6 +53,7 @@ var RouteThumbnail = React.createClass({
 var RouteTest = React.createClass({
   render: function() {
     var props = this.props;
+
     return (
       <div>
         <h2 className="route">
@@ -59,6 +61,10 @@ var RouteTest = React.createClass({
             {this.props.url}
           </a>
         </h2>
+        <div className="actions btn-group">
+          <DevRibbon.TenonLink className="btn btn-default btn-sm" url={this.props.url} />
+          <DevRibbon.InsightsLink className="btn btn-default btn-sm" url={this.props.url} />
+        </div>
         <div className="examples">
           {
             DEVICES.map(function (device, i) {

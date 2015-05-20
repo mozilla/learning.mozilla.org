@@ -24,19 +24,17 @@ var LinkSwap = React.createClass({
 var IconLink = React.createClass({
   render: function() {
     return (
-      <div className="col-sm-4 col-md-4 col-lg-4">
-        <div className="icon-link">
-          <LinkSwap linkTo={this.props.linkTo} href={this.props.href}>
-            <figure>
-              <ImageTag className="image" src1x={this.props.imgSrc} src2x={this.props.imgSrc2x}
-              alt={this.props.imgAlt}/>
-              <figcaption>
-                <h3 className="head">{this.props.head}</h3>
-                <p className="subhead">{this.props.subhead}</p>
-              </figcaption>
-            </figure>
-          </LinkSwap>
-        </div>
+      <div className="icon-link">
+        <LinkSwap linkTo={this.props.linkTo} href={this.props.href}>
+          <figure>
+            <ImageTag className="image" src1x={this.props.imgSrc} src2x={this.props.imgSrc2x}
+            alt={this.props.imgAlt}/>
+            <figcaption>
+              <h3 className="head">{this.props.head}</h3>
+              <p className="subhead">{this.props.subhead}</p>
+            </figcaption>
+          </figure>
+        </LinkSwap>
       </div>
     );
   }

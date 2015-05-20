@@ -14,9 +14,9 @@ var Sidebar = React.createClass({
       className: "activities"
     },
     {
-      name: "Events",
+      name: "Maker Party",
       link: 'events',
-      help: "Find gatherings near you, or host your own",
+      help: "Host a one-time event or workshop",
       icon: "/img/components/sidebar/svg/icon-nav-white-events.svg",
       className: "events",
       subItems: [
@@ -47,10 +47,6 @@ var Sidebar = React.createClass({
       className: "clubs",
       subItems: [
         {
-          name: "Clubs Curriculum",
-          link: "clubs-curriculum"
-        },
-        {
           name: "Clubs Toolkit",
           link: "clubs-toolkit"
         }
@@ -67,17 +63,23 @@ var Sidebar = React.createClass({
       showCollapsibleContent: !this.state.showCollapsibleContent
     });
   },
+  handleFocus: function() {
+    this.setState({
+      showCollapsibleContent: true
+    });
+  },
   render: function() {
     return (
       <div className="sidebar col-md-3">
         <div className="sidebar-header">
           <Link to="home">
-            <img src="/img/components/sidebar/svg/mozilla-wordmark-white.svg" alt="Webmaker logo" className="moz-logo"/>
+            <img src="/img/components/sidebar/svg/mozilla-wordmark-white.svg" alt="Mozilla Learning Home" className="moz-logo"/>
           </Link>
           <button aria-label="toggle" className="glyphicon glyphicon-menu-hamburger hidden-lg hidden-md"
                   onClick={this.handleHamburgerClick} />
         </div>
-        <div className={this.state.showCollapsibleContent
+        <div onFocus={this.handleFocus}
+             className={this.state.showCollapsibleContent
                         ? "collapsible-content"
                         : "collapsed collapsible-content"}>
 
@@ -88,7 +90,10 @@ var Sidebar = React.createClass({
               return (
                 <li key={i} className={entry.className}>
                   <Link to={entry.link}>
-                    <img src={entry.icon} alt={entry.name}/>
+                    <img src={entry.icon}
+                     /* The sidebar icon is purely decorative, so leave
+                      * the alt attribute empty. */
+                     alt=""/>
                     <strong>{entry.name}</strong>
                     <div className="help-text hidden-xs hidden-sm">{entry.help}</div>
                     <span className="glyphicon glyphicon-menu-right"></span>

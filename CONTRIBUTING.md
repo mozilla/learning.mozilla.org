@@ -47,7 +47,9 @@ If you're writing any JavaScript code, please add automated tests
 to exercise it. Guidance on how to do this can be found in the
 [README][]. If you need any help, please ask!
 
-### Operating Systems
+### Manual Testing
+
+#### Operating Systems
 
 If you're changing anything that needs to be run by developers, please
 try to manually test your changes on a Unix-like OS (Linux/OS X) and
@@ -57,10 +59,43 @@ To that end, please don't assume that users have Unix tools like
 `cp`, `xargs`, and `bash` on their system, or that their OS
 understands symbolic links.
 
-### Browsers
+#### Browsers
 
 If possible, manually test your changes on the latest version of
 Firefox, Chrome, Internet Explorer, and Safari.
+
+Visiting http://localhost:8008/test/manual/ will give you a
+"bird's eye view" of the site's major routes at different viewport
+dimensions, which can be useful for ensuring that your changes
+are responsive.
+
+Additionally, if you need to make sure that a page is usable with
+JS disabled, just add `safemode=on` to the querystring when visiting the
+page. This will cause the page to operate in "safe mode", meaning that
+almost no JS will run, even if JS is enabled in the browser.
+
+To ensure that the site is accessible, consider using a
+screen reader like [VoiceOver][] (OS X) or [NVDA][] (Windows) to
+visit any pages you've added or changed. And if you've added
+or changed any JavaScript-based logic for UI, make sure it
+satisfies the Paciello Group's [Web Components punch list][].
+
+##### Diagnostics
+
+For any pages you've added or changed, make sure you
+use [PageSpeed Insights][] to ensure the page is fast on all
+devices, and use [Tenon][] to ensure it's accessible.
+
+You can conveniently run any of these tools on the current page
+by clicking the "Dev Version" ribbon at the top-right of any
+page on the site.
+
+##### HTTPS
+
+We often develop using http, but the production site is always
+hosted via https. Consider using a tool like [ngrok][] to easily
+tunnel into your local server over https to ensure that your
+changes haven't introduced any [Mixed Content][] warnings.
 
 ## Pull requests
 
@@ -79,3 +114,10 @@ Firefox, Chrome, Internet Explorer, and Safari.
 [CHANGELOG]: https://github.com/mozilla/teach.webmaker.org/blob/develop/CHANGELOG.md
 [js]: https://github.com/MozillaFoundation/javascript-style-guide
 [synonym]: https://help.github.com/articles/closing-issues-via-commit-messages
+[PageSpeed Insights]: https://developers.google.com/speed/pagespeed/insights/
+[Tenon]: http://tenon.io/
+[ngrok]: https://ngrok.com/
+[Mixed Content]: https://developer.mozilla.org/en-US/docs/Security/MixedContent
+[VoiceOver]: http://webaim.org/articles/voiceover/
+[NVDA]: https://www.marcozehe.de/articles/how-to-use-nvda-and-firefox-to-test-your-web-pages-for-accessibility/
+[Web Components punch list]: http://www.paciellogroup.com/blog/2014/09/web-components-punch-list/
