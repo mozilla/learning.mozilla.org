@@ -71,20 +71,18 @@ if (!module.parent) {
   console.log('Initializing server.');
 
   if (PRODUCTION) {
-    gulp.start('less', 'webpack', function(err) {
+    console.log("Production mode enabled. Note that 'npm install' is");
+    console.log("assumed to have been run with NODE_ENV='production'.");
+    console.log("If this was not the case, some or all static assets");
+    console.log("may be out of date.");
+    indexStaticWatcher.build(function(err, newIndexStatic) {
       if (err) {
         throw err;
       }
 
-      indexStaticWatcher.build(function(err, newIndexStatic) {
-        if (err) {
-          throw err;
-        }
-
-        console.log('Built server-side bundle.');
-        updateIndexStatic(newIndexStatic);
-        startApp();
-      });
+      console.log('Built server-side bundle.');
+      updateIndexStatic(newIndexStatic);
+      startApp();
     });
   } else {
     require('./lib/developer-help')();

@@ -50,6 +50,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "postinstall": "gulp postinstall",
     "pretest": "rm -rf dist",
     "test": "gulp smoketest && mocha test/*.test.js && npm run browsertest && gulp lint-test && npm run spider",
     "spider": "node test/browser/spider.js",

@@ -311,4 +311,13 @@ gulp.task('s3', BUILD_TASKS, function() {
     }));
 });
 
+if (process.env.NODE_ENV === 'production') {
+  gulp.task('postinstall', [
+    'webpack',
+    'less'
+  ]);
+} else {
+  gulp.task('postinstall');
+}
+
 module.exports.LESS_FILES = LESS_FILES;
