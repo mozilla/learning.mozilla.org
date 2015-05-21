@@ -8,8 +8,8 @@ var Router = require('react-router');
 var webpackConfig = require('./webpack.config.js');
 var indexStaticWatcher = require('./lib/index-static-watcher').create();
 var gulpfile = require('./gulpfile');
-
-var PORT = process.env.PORT || 8008;
+var
+ PORT = process.env.PORT || 8008;
 var PRODUCTION = (process.env.NODE_ENV === 'production');
 var DIST_DIR = path.join(__dirname, 'dist');
 var WATCH_DELAY = 300;
@@ -71,10 +71,11 @@ if (!module.parent) {
   console.log('Initializing server.');
 
   if (PRODUCTION) {
-    console.log("Production mode enabled. Note that 'npm install' is");
-    console.log("assumed to have been run with NODE_ENV='production'.");
-    console.log("If this was not the case, some or all static assets");
-    console.log("may be out of date.");
+    console.log([
+      'Production mode enabled. Note that "npm install" is assumed to',
+      'have recently been run with NODE_ENV="production". If this is not',
+      'the case, some or all static assets may be out of date.'
+    ].join('\n'));
     indexStaticWatcher.build(function(err, newIndexStatic) {
       if (err) {
         throw err;
