@@ -18,13 +18,6 @@ var jshint = require('gulp-jshint');
 var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 
-// TODO: Some of our third-party components are triggering warnings
-// from react-a11y, so we need to disable it for now to prevent
-// warning spam. Hopefully in the future we can find a way to
-// tell react-a11y to squelch warnings from third-party components.
-//
-// require('react-a11y')();
-
 var IndexFileStream = require('./lib/gulp-index-file-stream');
 var webpackConfig = require('./webpack.config');
 var config = require('./lib/config');
