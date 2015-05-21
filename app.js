@@ -1,13 +1,9 @@
 var path = require('path');
 var fs = require('fs');
 var express = require('express');
-var gulp = require('gulp');
-var webpack = require('webpack');
 var Router = require('react-router');
 
-var webpackConfig = require('./webpack.config.js');
 var indexStaticWatcher = require('./lib/index-static-watcher').create();
-var gulpfile = require('./gulpfile');
 var PORT = process.env.PORT || 8008;
 var PRODUCTION = (process.env.NODE_ENV === 'production');
 var DIST_DIR = path.join(__dirname, 'dist');
@@ -16,7 +12,6 @@ var WATCH_DELAY = 300;
 var indexStatic;
 var router;
 var app = express();
-var webpackCompiler = webpack(webpackConfig);
 
 var startApp = function() {
   app.listen(PORT, function() {
@@ -25,6 +20,9 @@ var startApp = function() {
 };
 
 var startDevApp = function() {
+  var gulp = require('gulp');
+  var gulpfile = require('./gulpfile');
+
   require('./lib/developer-help')();
 
   indexStaticWatcher.watch(WATCH_DELAY, function(newIndexStatic) {
@@ -63,9 +61,9 @@ var startProdApp = function() {
 
 var updateIndexStatic = function(newIndexStatic) {
   indexStatic = newIndexStatic;
-  router = Router.create({
+  router = indexStatic ? Router.create({
     routes: indexStatic.routes
-  });
+  }) : null;
 };
 
 if (!fs.existsSync(DIST_DIR)) {
@@ -73,7 +71,7 @@ if (!fs.existsSync(DIST_DIR)) {
 }
 
 app.use(function(req, res, next) {
-  if (!PRODUCTION && !router) {
+  if (!router) {
     return res.send('Please wait while the server-side bundle regenerates.');
   }
   if (!router.match(req.url)) {
@@ -89,8 +87,16 @@ app.use(function(req, res, next) {
 
 app.use(express.static(DIST_DIR));
 
+app.DIST_DIR = DIST_DIR;
+app.updateIndexStatic = updateIndexStatic;
+module.exports = app;
+
 if (!module.parent) {
   console.log('Initializing server.');
 
-  PRODUCTION ? startProdApp() : startDevApp();
+  if (PRODUCTION) {
+    startProdApp();
+  } else {
+    startDevApp();
+  }
 }

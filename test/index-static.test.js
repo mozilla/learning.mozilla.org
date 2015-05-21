@@ -1,30 +1,19 @@
 var should = require('should');
 
-var indexStaticWatcher = require('../lib/index-static-watcher').create();
+var indexStatic = require('./index-static-singleton');
 
 describe('index-static', function() {
-  var indexStatic;
-
-  this.timeout(10000);
-
-  beforeEach(function(done) {
-    indexStaticWatcher.build(function(err, newIndexStatic) {
-      if (err) return done(err);
-
-      indexStatic = newIndexStatic;
-      done();
-    });
-  });
+  beforeEach(indexStatic.build);
 
   it('should work w/o meta options', function(done) {
-    indexStatic.generate('/', {}, function(err, html) {
+    indexStatic.get().generate('/', {}, function(err, html) {
       should(err).equal(null);
       done();
     });
   });
 
   it('should include meta options', function(done) {
-    indexStatic.generate('/', {
+    indexStatic.get().generate('/', {
       meta: { foo: 'bar' }
     }, function(err, html) {
       should(err).equal(null);
@@ -34,7 +23,7 @@ describe('index-static', function() {
   });
 
   it('should include page title', function(done) {
-    indexStatic.generate('/', {
+    indexStatic.get().generate('/', {
       title: 'hello there'
     }, function(err, html) {
       should(err).equal(null);
