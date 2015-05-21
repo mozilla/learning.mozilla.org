@@ -30,9 +30,7 @@
     "merge-stream": "^0.1.7",
     "minimist": "^1.1.1",
     "mocha": "^2.1.0",
-    "mocha-phantomjs": "^3.5.3",
     "mofo-style": "^1.0.1",
-    "phantomjs": "^1.9.16",
     "react": "^0.13.1",
     "react-ga": "^1.0.12",
     "react-router": "^0.13.2",
@@ -47,7 +45,10 @@
     "webmaker-app-icons": "git://github.com/k88hudson/ionicons#teach",
     "webpack": "^1.6.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha-phantomjs": "^3.5.3",
+    "phantomjs": "^1.9.16"
+  },
   "scripts": {
     "postinstall": "gulp postinstall",
     "pretest": "rm -rf dist",
