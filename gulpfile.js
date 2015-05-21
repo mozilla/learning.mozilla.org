@@ -212,14 +212,18 @@ gulp.task('lint-test', ['jscs', 'jshint']);
 
 gulp.task('default', BUILD_TASKS);
 
-gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
-  require('./lib/developer-help')();
-
-  gulp.src(webpackConfig.entry.app)
+gulp.task('watch-webpack', function() {
+  return gulp.src(webpackConfig.entry.app)
     .pipe(webpack(_.extend({
       watch: true
     }, webpackConfig)))
     .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
+  require('./lib/developer-help')();
+
+  gulp.start('watch-webpack');
 
   indexStaticWatcher.watch(200, function() {
     createIndexFileStream()
@@ -306,3 +310,5 @@ gulp.task('s3', BUILD_TASKS, function() {
       }
     }));
 });
+
+module.exports.LESS_FILES = LESS_FILES;
