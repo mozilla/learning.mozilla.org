@@ -41,6 +41,7 @@ describe('app', function() {
         .end(nextRequest);
     }
 
+    urls.length.should.not.equal(0);
     nextRequest();
   });
 
