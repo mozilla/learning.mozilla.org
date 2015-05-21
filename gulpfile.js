@@ -18,13 +18,6 @@ var jshint = require('gulp-jshint');
 var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 
-// TODO: Some of our third-party components are triggering warnings
-// from react-a11y, so we need to disable it for now to prevent
-// warning spam. Hopefully in the future we can find a way to
-// tell react-a11y to squelch warnings from third-party components.
-//
-// require('react-a11y')();
-
 var IndexFileStream = require('./lib/gulp-index-file-stream');
 var webpackConfig = require('./webpack.config');
 var config = require('./lib/config');
@@ -35,7 +28,6 @@ var indexStaticWatcher = require('./lib/index-static-watcher').create();
 var BUILD_TASKS = [
   'copy-test-dirs',
   'copy-images',
-  'copy-event-resources',
   'copy-bootstrap',
   'copy-webmaker-app-icons',
   'less',
@@ -115,12 +107,6 @@ gulp.task('copy-test-dirs', function() {
 
 gulp.task('copy-images', function () {
   return gulp.src('img/**', {
-    base: '.'
-  }).pipe(gulp.dest('./dist'));
-});
-
-gulp.task('copy-event-resources', function () {
-  return gulp.src('event-resources/**', {
     base: '.'
   }).pipe(gulp.dest('./dist'));
 });
@@ -238,7 +224,6 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
   });
 
   gulp.watch('img/**', ['copy-images']);
-  gulp.watch('event-resources/**', ['copy-event-resources']);
   gulp.watch(LESS_FILES, ['less']);
   gulp.watch('test/browser/static/**', ['copy-test-dirs']);
   gulp.watch([
