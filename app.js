@@ -8,19 +8,10 @@ var Router = require('react-router');
 var webpackConfig = require('./webpack.config.js');
 var indexStaticWatcher = require('./lib/index-static-watcher').create();
 var gulpfile = require('./gulpfile');
-var
- PORT = process.env.PORT || 8008;
+var PORT = process.env.PORT || 8008;
 var PRODUCTION = (process.env.NODE_ENV === 'production');
 var DIST_DIR = path.join(__dirname, 'dist');
 var WATCH_DELAY = 300;
-var STATIC_DIRS = [
-  ['/', 'dist'],
-  ['/test', 'test/browser/static'],
-  ['/test', 'node_modules/mocha'],
-  ['/img', 'img'],
-  ['/vendor/webmaker-app-icons', 'node_modules/webmaker-app-icons'],
-  ['/vendor/bootstrap', 'node_modules/bootstrap/dist']
-];
 
 var indexStatic;
 var router;
@@ -59,13 +50,7 @@ app.use(function(req, res, next) {
   });
 });
 
-STATIC_DIRS.forEach(function(info) {
-  var abspath = path.join(__dirname, info[1]);
-  if (!fs.existsSync(abspath)) {
-    throw new Error('Directory does not exist: ' + info[1]);
-  }
-  app.use(info[0], express.static(abspath));
-});
+app.use(express.static(DIST_DIR));
 
 if (!module.parent) {
   console.log('Initializing server.');
@@ -95,6 +80,8 @@ if (!module.parent) {
 
     gulp.start('watch-webpack');
     gulp.start('less');
+    gulp.start('copy-static-files');
+    gulp.start('watch-static-files');
 
     gulp.watch(gulpfile.LESS_FILES, ['less']).on('change', function() {
       console.log('Rebuilding LESS files.');

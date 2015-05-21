@@ -25,15 +25,15 @@ var travis = require('./lib/travis');
 var server = require('./test/browser/server');
 var indexStaticWatcher = require('./lib/index-static-watcher').create();
 
-var BUILD_TASKS = [
-  'copy-test-dirs',
-  'copy-images',
-  'copy-bootstrap',
-  'copy-webmaker-app-icons',
+var MINIMAL_BUILD_TASKS = [
+  'copy-static-files',
   'less',
-  'webpack',
-  'sitemap'
+  'webpack'
 ];
+
+var BUILD_TASKS = MINIMAL_BUILD_TASKS.concat([
+  'sitemap'
+]);
 
 var LINT_DIRS = [
     '*.js',
@@ -93,6 +93,13 @@ gulp.task('sitemap', ['generate-index-files'], function() {
     }))
     .pipe(gulp.dest('./dist'));
 });
+
+gulp.task('copy-static-files', [
+  'copy-test-dirs',
+  'copy-images',
+  'copy-bootstrap',
+  'copy-webmaker-app-icons',
+]);
 
 gulp.task('copy-test-dirs', function() {
   return merge(
@@ -206,10 +213,15 @@ gulp.task('watch-webpack', function() {
     .pipe(gulp.dest('./dist'));
 });
 
+gulp.task('watch-static-files', function() {
+  gulp.watch('img/**', ['copy-images']);
+  gulp.watch('test/browser/static/**', ['copy-test-dirs']);
+});
+
 gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
   require('./lib/developer-help')();
 
-  gulp.start('watch-webpack');
+  gulp.start('watch-webpack', 'watch-static-files');
 
   indexStaticWatcher.watch(200, function() {
     createIndexFileStream()
@@ -223,9 +235,7 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
       .pipe(gulp.dest('./dist'));
   });
 
-  gulp.watch('img/**', ['copy-images']);
   gulp.watch(LESS_FILES, ['less']);
-  gulp.watch('test/browser/static/**', ['copy-test-dirs']);
   gulp.watch([
     'gulpfile.js',
     'package.json',
@@ -297,10 +307,7 @@ gulp.task('s3', BUILD_TASKS, function() {
 });
 
 if (process.env.NODE_ENV === 'production') {
-  gulp.task('postinstall', [
-    'webpack',
-    'less'
-  ]);
+  gulp.task('postinstall', MINIMAL_BUILD_TASKS);
 } else {
   gulp.task('postinstall');
 }
