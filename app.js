@@ -24,6 +24,43 @@ var startApp = function() {
   });
 };
 
+var startDevApp = function() {
+  require('./lib/developer-help')();
+
+  indexStaticWatcher.watch(WATCH_DELAY, function(newIndexStatic) {
+    updateIndexStatic(newIndexStatic);
+    console.log('Rebuilt server-side bundle.');
+  });
+
+  gulp.start('watch-webpack');
+  gulp.start('less');
+  gulp.start('copy-static-files');
+  gulp.start('watch-static-files');
+
+  gulp.watch(gulpfile.LESS_FILES, ['less']).on('change', function() {
+    console.log('Rebuilding LESS files.');
+  });
+
+  startApp();
+};
+
+var startProdApp = function() {
+  console.log([
+    'Production mode enabled. Note that "npm install" is assumed to',
+    'have recently been run with NODE_ENV="production". If this is not',
+    'the case, some or all static assets may be out of date.'
+  ].join('\n'));
+  indexStaticWatcher.build(function(err, newIndexStatic) {
+    if (err) {
+      throw err;
+    }
+
+    console.log('Built server-side bundle.');
+    updateIndexStatic(newIndexStatic);
+    startApp();
+  });
+};
+
 var updateIndexStatic = function(newIndexStatic) {
   indexStatic = newIndexStatic;
   router = Router.create({
@@ -55,38 +92,5 @@ app.use(express.static(DIST_DIR));
 if (!module.parent) {
   console.log('Initializing server.');
 
-  if (PRODUCTION) {
-    console.log([
-      'Production mode enabled. Note that "npm install" is assumed to',
-      'have recently been run with NODE_ENV="production". If this is not',
-      'the case, some or all static assets may be out of date.'
-    ].join('\n'));
-    indexStaticWatcher.build(function(err, newIndexStatic) {
-      if (err) {
-        throw err;
-      }
-
-      console.log('Built server-side bundle.');
-      updateIndexStatic(newIndexStatic);
-      startApp();
-    });
-  } else {
-    require('./lib/developer-help')();
-
-    indexStaticWatcher.watch(WATCH_DELAY, function(newIndexStatic) {
-      updateIndexStatic(newIndexStatic);
-      console.log('Rebuilt server-side bundle.');
-    });
-
-    gulp.start('watch-webpack');
-    gulp.start('less');
-    gulp.start('copy-static-files');
-    gulp.start('watch-static-files');
-
-    gulp.watch(gulpfile.LESS_FILES, ['less']).on('change', function() {
-      console.log('Rebuilding LESS files.');
-    });
-
-    startApp();
-  }
+  PRODUCTION ? startProdApp() : startDevApp();
 }
