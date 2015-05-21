@@ -98,7 +98,7 @@ gulp.task('copy-static-files', [
   'copy-test-dirs',
   'copy-images',
   'copy-bootstrap',
-  'copy-webmaker-app-icons',
+  'copy-webmaker-app-icons'
 ]);
 
 gulp.task('copy-test-dirs', function() {
