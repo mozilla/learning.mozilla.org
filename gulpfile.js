@@ -1,6 +1,5 @@
 var path = require('path');
 var PassThrough = require('stream').PassThrough;
-var execSync = require('child_process').execSync;
 var _ = require('underscore');
 var gulp = require('gulp');
 var gulpif = require('gulp-if');
@@ -48,7 +47,6 @@ var LINT_DIRS = [
 ];
 
 var LESS_FILES = './less/**/*.less';
-var GIT_REV_FILE = path.join(__dirname, 'dist', 'git-rev.txt');
 
 function onError(err) {
   gutil.log(gutil.colors.red(err));
@@ -62,19 +60,16 @@ function handleError() {
   });
 }
 
-function getGitRev() {
-  return execSync('git rev-parse HEAD', {
-    cwd: __dirname,
-    encoding: 'utf8'
-  }).slice(0, 40);
-}
-
 function createIndexFileStream() {
   var stream = new PassThrough({ objectMode: true });
   var meta = {};
+  var execSync = require('child_process').execSync;
 
   try {
-    meta['git-rev'] = getGitRev();
+    meta['git-rev'] = execSync('git rev-parse HEAD', {
+      cwd: __dirname,
+      encoding: 'utf8'
+    }).slice(0, 40);
   } catch (e) {}
 
   indexStaticWatcher.build(function(err, indexStatic) {
@@ -312,13 +307,9 @@ gulp.task('s3', BUILD_TASKS, function() {
 });
 
 if (process.env.NODE_ENV === 'production') {
-  gulp.task('postinstall', MINIMAL_BUILD_TASKS, function() {
-    require('fs').writeFileSync(GIT_REV_FILE, getGitRev());
-  });
+  gulp.task('postinstall', MINIMAL_BUILD_TASKS);
 } else {
   gulp.task('postinstall');
 }
 
 module.exports.LESS_FILES = LESS_FILES;
-module.exports.GIT_REV_FILE = GIT_REV_FILE;
-module.exports.getGitRev = getGitRev;

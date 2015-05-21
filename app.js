@@ -15,7 +15,6 @@ var WATCH_DELAY = 300;
 
 var indexStatic;
 var router;
-var pageMeta = {};
 var app = express();
 var webpackCompiler = webpack(webpackConfig);
 
@@ -43,9 +42,7 @@ app.use(function(req, res, next) {
   if (!router.match(req.url)) {
     return next('route');
   }
-  indexStatic.generate(req.url, {
-    meta: pageMeta
-  }, function(err, html) {
+  indexStatic.generate(req.url, {}, function(err, html) {
     if (err) {
       return next(err);
     }
@@ -64,9 +61,6 @@ if (!module.parent) {
       'have recently been run with NODE_ENV="production". If this is not',
       'the case, some or all static assets may be out of date.'
     ].join('\n'));
-    pageMeta['git-rev'] = fs.readFileSync(gulpfile.GIT_REV_FILE, 'utf-8');
-    console.log('This server is based on git commit ' +
-                pageMeta['git-rev'] + '.');
     indexStaticWatcher.build(function(err, newIndexStatic) {
       if (err) {
         throw err;
@@ -78,10 +72,6 @@ if (!module.parent) {
     });
   } else {
     require('./lib/developer-help')();
-
-    try {
-      pageMeta['git-rev'] = gulpfile.getGitRev();
-    } catch (e) {}
 
     indexStaticWatcher.watch(WATCH_DELAY, function(newIndexStatic) {
       updateIndexStatic(newIndexStatic);
