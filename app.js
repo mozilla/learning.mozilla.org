@@ -74,6 +74,9 @@ app.use(function(req, res, next) {
   if (!router) {
     return res.send('Please wait while the server-side bundle regenerates.');
   }
+  if (req.path in indexStatic.REDIRECTS) {
+    return res.redirect(indexStatic.REDIRECTS[req.path]);
+  }
   if (!router.match(req.url)) {
     return next('route');
   }

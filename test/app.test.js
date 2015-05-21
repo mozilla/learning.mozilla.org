@@ -23,7 +23,9 @@ describe('app', function() {
   });
 
   it('returns 200 at all public HTML pages', function(done) {
-    var urls = indexStatic.get().URLS.slice();
+    var urls = indexStatic.get().URLS.filter(function(url) {
+      return !(url in indexStatic.get().REDIRECTS);
+    });
 
     function nextRequest(lastErr) {
       if (lastErr) {
@@ -58,6 +60,14 @@ describe('app', function() {
         fs.unlinkSync(filename);
         done(err);
       });
+  });
+
+  it('redirects old routes to new ones', function(done) {
+    request(app)
+      .get('/clubs/curriculum/')
+      .expect('Location', '/activities/web-lit-basics/')
+      .expect(302)
+      .end(done);
   });
 
   it('reports 404s', function(done) {

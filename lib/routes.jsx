@@ -52,6 +52,7 @@ React.Children.forEach(routes.props.children, function(item) {
 });
 
 exports.URLS = urls;
+exports.REDIRECTS = redirects;
 
 exports.routes = routes;
 
