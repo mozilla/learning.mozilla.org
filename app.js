@@ -78,6 +78,9 @@ app.use(function(req, res, next) {
     return res.redirect(indexStatic.REDIRECTS[req.path]);
   }
   if (!router.match(req.url)) {
+    if (router.match(req.path + '/')) {
+      return res.redirect(req.path + '/');
+    }
     return next('route');
   }
   indexStatic.generate(req.url, {}, function(err, html) {

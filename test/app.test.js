@@ -70,6 +70,14 @@ describe('app', function() {
       .end(done);
   });
 
+  it('adds trailing slash to public HTML pages', function(done) {
+    request(app)
+      .get('/clubs')
+      .expect('Location', '/clubs/')
+      .expect(302)
+      .end(done);
+  });
+
   it('reports 404s', function(done) {
     request(app)
       .get('/asdfasdfasdf')
