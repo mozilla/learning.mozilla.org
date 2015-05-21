@@ -36,7 +36,6 @@
     "react-router": "^0.13.2",
     "react-select": "0.4.6",
     "should": "^5.1.0",
-    "simplecrawler": "^0.5.2",
     "source-map-support": "^0.2.10",
     "superagent": "^1.1.0",
     "underscore": "^1.8.2",
@@ -47,7 +46,8 @@
   },
   "devDependencies": {
     "mocha-phantomjs": "^3.5.3",
-    "phantomjs": "^1.9.16"
+    "phantomjs": "^1.9.16",
+    "simplecrawler": "^0.5.2"
   },
   "scripts": {
     "postinstall": "gulp postinstall",
