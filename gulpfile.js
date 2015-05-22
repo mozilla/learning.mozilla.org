@@ -22,7 +22,8 @@ var IndexFileStream = require('./lib/gulp-index-file-stream');
 var webpackConfig = require('./webpack.config');
 var config = require('./lib/config');
 var travis = require('./lib/travis');
-var server = require('./test/browser/server');
+var staticServer = require('./test/browser/server');
+var lightweightDynamicServer = require('./app');
 var indexStaticWatcher = require('./lib/index-static-watcher').create();
 
 var MINIMAL_BUILD_TASKS = [
@@ -47,6 +48,7 @@ var LINT_DIRS = [
 ];
 
 var LESS_FILES = './less/**/*.less';
+var WATCH_DELAY = 200;
 
 function onError(err) {
   gutil.log(gutil.colors.red(err));
@@ -206,7 +208,10 @@ gulp.task('lint-test', ['jscs', 'jshint']);
 gulp.task('default', BUILD_TASKS);
 
 gulp.task('watch-webpack', function() {
-  return gulp.src(webpackConfig.entry.app)
+  // We're specifically not returning the stream here,
+  // because if we do that, this task would never end,
+  // and tasks that depend on this one would never be run.
+  gulp.src(webpackConfig.entry.app)
     .pipe(webpack(_.extend({
       watch: true
     }, webpackConfig)))
@@ -218,12 +223,30 @@ gulp.task('watch-static-files', function() {
   gulp.watch('test/browser/static/**', ['copy-test-dirs']);
 });
 
-gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
+gulp.task('watch-non-reloadable-files', function() {
+  gulp.watch([
+    'gulpfile.js',
+    'package.json',
+    'webpack.config.js',
+    'app.js'
+  ], function(event) {
+    var filename = path.basename(event.path);
+    var cmd = process.argv[2] === 'app' ? 'npm run app' : 'npm start';
+    gutil.log(gutil.colors.red.bold(filename + ' was ' + event.type + '.'));
+    gutil.log(gutil.colors.red.bold('Please restart the server ' +
+                                    'with "' + cmd + '".'));
+    process.exit(0);
+  });
+});
+
+gulp.task('watch', _.without(BUILD_TASKS, 'webpack').concat([
+  'watch-webpack',
+  'watch-static-files',
+  'watch-non-reloadable-files'
+]), function() {
   require('./lib/developer-help')();
 
-  gulp.start('watch-webpack', 'watch-static-files');
-
-  indexStaticWatcher.watch(200, function() {
+  indexStaticWatcher.watch(WATCH_DELAY, function() {
     createIndexFileStream()
       .on('error', function(err) {
         gutil.log('Error rebuilding index HTML files.');
@@ -236,20 +259,29 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
   });
 
   gulp.watch(LESS_FILES, ['less']);
-  gulp.watch([
-    'gulpfile.js',
-    'package.json',
-    'webpack.config.js'
-  ], function(event) {
-    var filename = path.basename(event.path);
-    gutil.log(gutil.colors.red.bold(filename + ' was ' + event.type + '.'));
-    gutil.log(gutil.colors.red.bold('Please restart the watch process ' +
-                                    'with "npm start".'));
-    process.exit(0);
+
+  staticServer.create().listen(config.DEV_SERVER_PORT, function() {
+    gutil.log('Development server listening at ' +
+              gutil.colors.green.bold(config.ORIGIN) + '.');
+  });
+});
+
+gulp.task('app', _.without(MINIMAL_BUILD_TASKS, 'webpack').concat([
+  'watch-webpack',
+  'watch-static-files',
+  'watch-non-reloadable-files'
+]), function() {
+  require('./lib/developer-help')();
+
+  indexStaticWatcher.watch(WATCH_DELAY, function(newIndexStatic) {
+    lightweightDynamicServer.updateIndexStatic(newIndexStatic);
+    console.log('Rebuilt server-side bundle.');
   });
 
-  server.create().listen(config.DEV_SERVER_PORT, function() {
-    gutil.log('Development server listening at ' +
+  gulp.watch(LESS_FILES, ['less']);
+
+  lightweightDynamicServer.listen(config.DEV_SERVER_PORT, function() {
+    gutil.log('Lightweight dynamic server listening at ' +
               gutil.colors.green.bold(config.ORIGIN) + '.');
   });
 });

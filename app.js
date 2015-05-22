@@ -7,40 +7,10 @@ var indexStaticWatcher = require('./lib/index-static-watcher').create();
 var PORT = process.env.PORT || 8008;
 var PRODUCTION = (process.env.NODE_ENV === 'production');
 var DIST_DIR = path.join(__dirname, 'dist');
-var WATCH_DELAY = 300;
 
 var indexStatic;
 var router;
 var app = express();
-
-var startApp = function() {
-  app.listen(PORT, function() {
-    console.log('Listening on port', PORT);
-  });
-};
-
-var startDevApp = function() {
-  var gulp = require('gulp');
-  var gulpfile = require('./gulpfile');
-
-  require('./lib/developer-help')();
-
-  indexStaticWatcher.watch(WATCH_DELAY, function(newIndexStatic) {
-    updateIndexStatic(newIndexStatic);
-    console.log('Rebuilt server-side bundle.');
-  });
-
-  gulp.start('watch-webpack');
-  gulp.start('less');
-  gulp.start('copy-static-files');
-  gulp.start('watch-static-files');
-
-  gulp.watch(gulpfile.LESS_FILES, ['less']).on('change', function() {
-    console.log('Rebuilding LESS files.');
-  });
-
-  startApp();
-};
 
 var startProdApp = function() {
   console.log([
@@ -55,7 +25,9 @@ var startProdApp = function() {
 
     console.log('Built server-side bundle.');
     updateIndexStatic(newIndexStatic);
-    startApp();
+    app.listen(PORT, function() {
+      console.log('Listening on port', PORT);
+    });
   });
 };
 
@@ -103,6 +75,10 @@ if (!module.parent) {
   if (PRODUCTION) {
     startProdApp();
   } else {
-    startDevApp();
+    console.log([
+      'This server can only be run as a script when NODE_ENV="production".',
+      'To run it in development mode, please use "npm run app".'
+    ].join('\n'));
+    process.exit(1);
   }
 }

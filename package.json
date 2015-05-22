@@ -62,6 +62,8 @@
     "s3": "gulp s3",
     "pretravis-after-success": "rm -rf dist",
     "travis-after-success": "gulp travis-after-success",
+    "preapp": "rm -rf dist",
+    "app": "gulp app",
     "prebuild": "rm -rf dist",
     "build": "gulp",
     "prestart": "rm -rf dist",
