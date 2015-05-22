@@ -42,6 +42,12 @@ p {
   }
 }
 
+blockquote {
+  p {
+    font-size: 2.5rem;
+  }
+}
+
 main {
   .list-with-illust {
     ol,
@@ -63,6 +69,15 @@ a.bold-link {
   font-weight: 700;
   font-size: 1.5rem;
   white-space: pre;
+}
+
+a.more {
+  font-weight: 600;
+  &:after {
+    content: "\f30f";
+    font-family: "Ionicons";
+    margin: 0 .5rem;
+  }
 }
 
 .teach-tabzilla#tabzilla {
@@ -111,6 +126,11 @@ html.no-js .no-js-warning {
 
 #page-holder {
   border-top: 0.2rem solid @white;
+}
+
+#content {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .video-container {

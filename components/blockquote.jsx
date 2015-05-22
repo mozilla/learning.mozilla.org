@@ -15,12 +15,12 @@ var Blockquote = React.createClass({
   render: function() {
     return (
       <blockquote className={this.props.className}>
+        {this.props.children}
         <figure>
           <ImageTag src1x={this.props.imgSrc} src2x={this.props.imgSrc2x}
               alt={this.props.imgAlt}
               width={this.props.imgWidth || 148} height={this.props.imgHeight || 148} />
         </figure>
-        {this.props.children}
         <small>{this.props.author}</small>
       </blockquote>
     );
