@@ -5,6 +5,27 @@ which uses the format described in
 to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
+### Added
+- A number of accessibility improvements have been added:
+  - Pages on the site now have "contentinfo", "main", and
+    "navigation" landmark roles.
+  - Pages now indicate that they are in English.
+  - More purely decorative images have null alt attributes.
+  - Skip navigation has been added at the top of the page.
+
+### Changed
+- The `dist` dir is now cleaned up frequently during
+  development, ensuring that old files don't stay
+  around for too long.
+- `lib/changelog.js bump` now makes it easier to issue
+  new releases of the site.
+- The dev version modal now links to the latest release
+  of the site if the current git revision is unavailable.
+
+### Removed
+- `gulp-html-prettify` is no longer listed as a dependency
+  in `package.json` (it hasn't been used by any code for
+  some time).
 
 ## [0.0.5][] - 2015-05-20
 ### Added
