@@ -7,10 +7,10 @@ to [Semantic Versioning](http://semver.org/).
 ## [Unreleased][unreleased]
 ### Added
 - A number of accessibility improvements have been added:
-  - Pages on the site now have "contentinfo", "main", and
-    "navigation" landmark roles.
+  - Pages on the site now have `contentinfo`, `main`, and
+    `navigation` landmark roles.
   - Pages now indicate that they are in English.
-  - More purely decorative images have null alt attributes.
+  - More purely decorative images have null `alt` attributes.
   - Skip navigation has been added at the top of the page.
 
 ### Changed
