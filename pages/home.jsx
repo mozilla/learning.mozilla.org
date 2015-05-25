@@ -30,8 +30,56 @@ var BlogSection= React.createClass({
     return (
       <div className="blog-section">
         <div className="row">
-          <div className="col-sm-8 col-md-8 col-lg-8">
+          <div className="col-sm-12 col-md-12 col-lg-12">
             <h2>On the Blog</h2>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-sm-8 col-md-8 col-lg-8">
+            <div id="featured-post">
+              <div className="entry-posted-container">
+                <p className="entry-posted">
+                  <time className="published" title="2015-05-18T09:36:18+00:00" datetime="2015-05-18T09:36:18+00:00">
+                    <span className="posted-month">May</span>
+                    <span className="posted-date">18</span>
+                    <span className="posted-year">2015</span>
+                  </time>
+                </p>
+              </div>
+              <div className="entry-header-container">
+                <h3 className="entry-title">Maker Party is Right Around the Corner: July 15 – July 31!</h3>
+                <cite className="author">
+                  <a href="https://blog.webmaker.org/author/amira-dhalla" title="See all 12 posts by Amira Dhalla">Amira Dhalla</a>
+                </cite>
+              </div>
+              <p className="excerpt">
+                Maker Party 2015 is less than two months away! The party starts on July 15 and runs to July 31. Each day, makers, mentors, and learners across the world will celebrate making and teaching by running events to create awesome things on the open Web.
+              </p>
+              <a className="more" href="">Continue reading</a>
+            </div>
+          </div>
+          <div className="col-sm-4 col-md-4 col-lg-4">
+            <ul id="recent-posts">
+              <li>
+                <a className="post-title">April 2015 Board Presentation</a>
+                <time className="published" title="2015-05-18T09:36:18+00:00" datetime="2015-05-18T09:36:18+00:00">
+                  <span>May 13, 2015</span>
+                </time>
+              </li>
+              <li>
+                <a className="post-title">What’s next for Thimble?</a>
+                <time className="published" title="2015-05-18T09:36:18+00:00" datetime="2015-05-18T09:36:18+00:00">
+                  <span>May 12, 2015</span>
+                </time>
+              </li>
+              <li>
+                <a className="post-title">What’s next for Webmaker tools</a>
+                <time className="published" title="2015-05-18T09:36:18+00:00" datetime="2015-05-18T09:36:18+00:00">
+                  <span>May 4, 2015</span>
+                </time>
+              </li>
+            </ul>
+            <a className="more" href="">See all blog posts</a>
           </div>
         </div>
       </div>

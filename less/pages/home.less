@@ -1,7 +1,81 @@
-@quote-symbol-size: 5rem;
+.blog-section {
+  margin: 3rem 0;
+  h2 {
+    margin-bottom: 3rem;
+  }
+}
+
+#featured-post {
+  .entry-posted-container {
+    float: left;
+    .entry-posted {
+      color: @white;
+      background: @sidebarColor;
+      width: 6rem;
+      height: 6rem;
+      border-radius: 50%;
+      text-align: center;
+      padding: .8rem;
+      margin-right: 2rem;
+    }
+    .posted-month,
+    .posted-date,
+    .posted-year {
+      display: block;
+      line-height: 1;
+    }
+    .posted-month {
+      text-transform: uppercase;
+      font-size: 1rem;
+    }
+    .posted-date {
+      font-size: 2rem;
+    }
+    .posted-year {
+      font-size: 1rem;
+    }
+  }
+  .entry-header-container {
+    float: left;
+    width: calc(~"100% - 8rem");
+    .entry-title {
+      font-size: 2.4rem;
+      font-weight: 500;
+      margin: 0;
+    }
+    .author {
+      font-style: normal;
+      font-size: 1.4rem;
+    }
+  }
+  .excerpt {
+    clear: both;
+    font-size: 1.8rem;
+    padding-top: 2rem;
+  }
+}
+
+#recent-posts {
+  list-style-type: none;
+  font-size: 1.4rem;
+  padding-left: 0;
+  li {
+    border-bottom: .1rem solid @sidebarColor;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+  }
+  .post-title {
+    display: block;
+    font-weight: 500;
+  }
+  .published {
+    color: #808080;
+  }
+}
+
 .quote {
   background: #EBF2F5;
-  padding: 2rem 0;
+  padding: 3rem 0;
 }
 
 .about-us {
