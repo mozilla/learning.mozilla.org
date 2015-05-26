@@ -25,7 +25,119 @@ var CaseStudies = React.createClass({
   }
 });
 
-var BlogSection= React.createClass({
+var FeaturedPost = React.createClass({
+  propTypes: {
+    data: React.PropTypes.object.isRequired
+  },
+  render: function() {
+    var publishedDate = new Date(this.props.data.publishedDate);
+    var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][publishedDate.getMonth()];
+    return(
+      <div id="featured-post">
+        <div className="entry-posted-container">
+          <p className="entry-posted">
+            <time className="published" title={this.props.data.publishedDate} dateTime={this.props.data.publishedDate} >
+              <span className="posted-month">{month}</span>
+              <span className="posted-date">{publishedDate.getDate()}</span>
+              <span className="posted-year">{publishedDate.getFullYear()}</span>
+            </time>
+          </p>
+        </div>
+        <div className="entry-header-container">
+          <h3 className="entry-title"><a href={this.props.data.link}>{this.props.data.title}</a></h3>
+          <cite className="author">{this.props.data.author}</cite>
+        </div>
+        <p className="excerpt">
+          {this.props.data.contentSnippet}
+        </p>
+        <a className="more" href={this.props.data.link}>Continue reading</a>
+      </div>
+    );
+  },
+});
+
+var LatestPosts = React.createClass({
+  propTypes: {
+    data: React.PropTypes.array.isRequired
+  },
+  render: function() {
+    function formatDate(theDate) {
+      return ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][theDate.getMonth()] + " " +
+        theDate.getDate() + ", " +
+        theDate.getFullYear();
+    }
+    return (
+      <ul id="recent-posts">
+        {
+          this.props.data.map(function(post, i) {
+            return (
+              <li key={i}>
+                <a className="post-title">{post.title}</a>
+                <time className="published" title={post.publishedDate} dateTime={post.publishedDate}>
+                  <span>{formatDate(new Date(post.publishedDate))}</span>
+                </time>
+              </li>
+            )
+          })
+        }
+      </ul>
+    );
+  }
+});
+
+var BlogSection = React.createClass({
+  getInitialState: function() {
+    return {
+      featuredPostData: {
+        title: "",
+        author: "",
+        publishedDate: "",
+        contentSnippet: "",
+        link: ""
+      },
+      latestPostsData: []
+    }
+  },
+  loadGoogleAPI: function(callback) {
+    var head = document.getElementsByTagName("head")[0];
+    var gScript = document.createElement("script");
+    gScript.setAttribute("src", "https://www.google.com/jsapi");
+    gScript.onload = callback;
+    head.appendChild(gScript);
+    this.setState({googleAPILoaded: true});
+  },
+  componentDidMount: function() {
+    var self = this;
+    var google;
+    this.loadGoogleAPI(function() {
+      google = window.google;
+      if (google) {
+        google.load("feeds", "1", {
+          callback: function() {
+            var feed = new google.feeds.Feed("https://blog.webmaker.org/tag/teachtheweb/feed");
+            var latestPosts = [];
+            feed.load(function(result) {
+              var post;
+              for (var i=0; i<4; i++) {
+                post = result.feed.entries[i];
+                latestPosts.push({
+                  title: post.title,
+                  author: post.author,
+                  publishedDate: post.publishedDate,
+                  contentSnippet: post.contentSnippet,
+                  link: post.link
+                });
+              }
+              self.setState({
+                featuredPostData: latestPosts[0],
+                latestPostsData: latestPosts.slice(1)
+              });
+            });
+          }
+        });
+      }
+    });
+  },
   render: function() {
     return (
       <div className="blog-section">
@@ -36,50 +148,11 @@ var BlogSection= React.createClass({
         </div>
         <div className="row">
           <div className="col-sm-8 col-md-8 col-lg-8">
-            <div id="featured-post">
-              <div className="entry-posted-container">
-                <p className="entry-posted">
-                  <time className="published" title="2015-05-18T09:36:18+00:00" datetime="2015-05-18T09:36:18+00:00">
-                    <span className="posted-month">May</span>
-                    <span className="posted-date">18</span>
-                    <span className="posted-year">2015</span>
-                  </time>
-                </p>
-              </div>
-              <div className="entry-header-container">
-                <h3 className="entry-title">Maker Party is Right Around the Corner: July 15 – July 31!</h3>
-                <cite className="author">
-                  <a href="https://blog.webmaker.org/author/amira-dhalla" title="See all 12 posts by Amira Dhalla">Amira Dhalla</a>
-                </cite>
-              </div>
-              <p className="excerpt">
-                Maker Party 2015 is less than two months away! The party starts on July 15 and runs to July 31. Each day, makers, mentors, and learners across the world will celebrate making and teaching by running events to create awesome things on the open Web.
-              </p>
-              <a className="more" href="">Continue reading</a>
-            </div>
+            <FeaturedPost data={this.state.featuredPostData} />
           </div>
           <div className="col-sm-4 col-md-4 col-lg-4">
-            <ul id="recent-posts">
-              <li>
-                <a className="post-title">April 2015 Board Presentation</a>
-                <time className="published" title="2015-05-18T09:36:18+00:00" datetime="2015-05-18T09:36:18+00:00">
-                  <span>May 13, 2015</span>
-                </time>
-              </li>
-              <li>
-                <a className="post-title">What’s next for Thimble?</a>
-                <time className="published" title="2015-05-18T09:36:18+00:00" datetime="2015-05-18T09:36:18+00:00">
-                  <span>May 12, 2015</span>
-                </time>
-              </li>
-              <li>
-                <a className="post-title">What’s next for Webmaker tools</a>
-                <time className="published" title="2015-05-18T09:36:18+00:00" datetime="2015-05-18T09:36:18+00:00">
-                  <span>May 4, 2015</span>
-                </time>
-              </li>
-            </ul>
-            <a className="more" href="">See all blog posts</a>
+            <LatestPosts data={this.state.latestPostsData} />
+            <a className="more" href="https://blog.webmaker.org/tag/teachtheweb/">See all blog posts</a>
           </div>
         </div>
       </div>
