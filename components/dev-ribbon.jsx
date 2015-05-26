@@ -5,6 +5,7 @@ var React = require('react');
 var Modal = require('../components/modal.jsx');
 var ModalManagerMixin = require('../mixins/modal-manager');
 var TeachAPI = require('../lib/teach-api');
+var packageJSON = require('../package.json');
 
 var ICON_IMG_STYLE = { width: '1em', height: '1em' };
 
@@ -86,6 +87,15 @@ var DevModal = React.createClass({
                href={"https://github.com/mozilla/teach.webmaker.org/commit/" + rev}>
               {rev.slice(0, 10)}
             </a>
+        </code></span>
+      );
+    } else {
+      rev = (
+        <span> based on version <code>
+          <a target="_blank"
+             href={"https://github.com/mozilla/teach.webmaker.org/releases/tag/v" + packageJSON.version}>
+             {packageJSON.version}
+          </a>
         </code></span>
       );
     }

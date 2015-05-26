@@ -104,7 +104,7 @@ var HiveLink = React.createClass({
           <ImageTag className="image-tag"
             src1x={this.props.src1x}
             src2x={this.props.src2x}
-            alt={this.props.name}
+            alt=""
           />
           <span>{this.props.name}</span>
         </a>

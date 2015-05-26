@@ -6,6 +6,35 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.6][] - 2015-05-26
+### Added
+- A number of accessibility improvements have been added:
+  - Pages on the site now have `contentinfo`, `main`, and
+    `navigation` landmark roles.
+  - Pages now indicate that they are in English.
+  - More purely decorative images have null `alt` attributes.
+  - Skip navigation has been added at the top of the page.
+  - Expander components on the Clubs Toolkit and Web Literacy pages now
+    use heading tags instead of divs.
+  - The logo assets in the Event Resources page are now keyboard
+    accessible.
+
+### Changed
+- All mentions of the @Webmaker Twitter handle (in the footer and
+  the About and Clubs Toolkit pages) have been changed to @MozTeach.
+- The `dist` dir is now cleaned up frequently during
+  development, ensuring that old files don't stay
+  around for too long.
+- `lib/changelog.js bump` now makes it easier to issue
+  new releases of the site.
+- The dev version modal now links to the latest release
+  of the site if the current git revision is unavailable.
+
+### Removed
+- `gulp-html-prettify` is no longer listed as a dependency
+  in `package.json` (it hasn't been used by any code for
+  some time).
+
 ## [0.0.5][] - 2015-05-20
 ### Added
 - A link to "Site Administration" now appears under the logout
@@ -117,7 +146,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.5...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.6...HEAD
+[0.0.6]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.2...v0.0.3

@@ -37,6 +37,15 @@ var EventItem = React.createClass({
   }
 });
 var LogoAsset = React.createClass({
+  getInitialState: function() {
+    return { hasKeyboardFocus: false };
+  },
+  handleFocus: function() {
+    this.setState({ hasKeyboardFocus: true });
+  },
+  handleBlur: function() {
+    this.setState({ hasKeyboardFocus: false });
+  },
   render: function() {
     return (
       <div className="logo-asset-container col-sm-4 col-md-4 col-lg-3">
@@ -45,7 +54,9 @@ var LogoAsset = React.createClass({
         width={200} height={200}
         src1x={this.props.src1x} src2x={this.props.src2x}
         alt={this.props.alt}/>
-        <div className="logo-asset-hover">
+        <div className={"logo-asset-hover " + (
+          this.state.hasKeyboardFocus ? "has-keyboard-focus" : ""
+         )} onFocus={this.handleFocus} onBlur={this.handleBlur}>
           <div className="logo-asset-center">{this.props.children}</div>
         </div>
       </div>
@@ -132,7 +143,8 @@ var EventDetail = React.createClass({
 var EventsResources = React.createClass({
   statics: {
     pageTitle: 'Event Resources',
-    pageClassName: 'event-resources'
+    pageClassName: 'event-resources',
+    LogoAsset: LogoAsset
   },
   render: function() {
     return (
