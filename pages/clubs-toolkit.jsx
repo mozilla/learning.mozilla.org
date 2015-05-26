@@ -5,6 +5,8 @@ var Illustration = require('../components/illustration.jsx');
 var PageEndCTA = require('../components/page-end-cta.jsx');
 var Expander = require('../components/expander.jsx');
 
+var config = require('../lib/config');
+
 var ToolkitIntro = React.createClass({
   render: function () {
     return (
@@ -79,7 +81,7 @@ var ClubsToolkit = React.createClass({
                   Read what others have done and get your questions answered.
                 </ToolkitListItem>
                 <ToolkitListItem header="Twitter.">
-                  Our community loves to tweet! Share ideas and send pictures to <a href="https://twitter.com/webmakerhttps://twitter.com/search?q=%23teachtheweb">@Webmaker</a> and use the tag <a href="https://twitter.com/search?q=%23teachtheweb">#TeachTheWeb</a>
+                  Our community loves to tweet! Share ideas and send pictures to <a href={config.TWITTER_LINK}>@Webmaker</a> and use the tag <a href="https://twitter.com/search?q=%23teachtheweb">#TeachTheWeb</a>
                 </ToolkitListItem>
                 <ToolkitListItem header="Email.">
                   We’re always here to answer your questions and connect you to other clubs. Send an email to <a href="mailto:help@webmaker.org">help@webmaker.org</a>
@@ -184,7 +186,7 @@ var ClubsToolkit = React.createClass({
               <p>Tell the world what you and your club are doing! Here are ways to show off the hard work that’s put into teaching and learning the web.</p>
               <ToolkitList>
                 <ToolkitListItem header="Social Media.">
-                  Share your club activities online. You might even consider creating a new hashtag just for your club so the learners can keep track of all that happens in one place. Write a few sample tweets and posts that your mentors and learners can share on their networks as well. Be sure to share them with us too using <a href="https://twitter.com/search?q=%23teachtheweb">#teachtheweb</a> and <a href="https://twitter.com/webmaker">@Webmaker</a>.
+                  Share your club activities online. You might even consider creating a new hashtag just for your club so the learners can keep track of all that happens in one place. Write a few sample tweets and posts that your mentors and learners can share on their networks as well. Be sure to share them with us too using <a href="https://twitter.com/search?q=%23teachtheweb">#teachtheweb</a> and <a href={config.TWITTER_LINK}>@Webmaker</a>.
                 </ToolkitListItem>
                 <ToolkitListItem header="Website.">
                   You might want to consider creating a site where learners can showcase what they make, while potential learners can get a feel for what happens. It can also serve as the place you share your blog, integrate your social media channels and post your print materials for others to print. <a href="https://wordpress.com/">Wordpress</a>, <a href="https://www.blogger.com/">Blogger</a> and <a href="https://www.tumblr.com/">Tumblr</a> are all easy and free places to start. Don’t forget to share the link on <a href="http://discourse.webmaker.org/category/clubs">our discussion forum</a>!
