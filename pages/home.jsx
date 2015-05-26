@@ -15,7 +15,7 @@ var CaseStudies = React.createClass({
         <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
           <div>
             <Blockquote author="Maurya C. New York, United States"
-                imgSrc="/img/pages/home/maurya-nyc.png" imgSrc2x="/img/pages/home/maurya-nyc@2x.png" imgAlt="Maurya NYC Quote">
+                imgSrc="/img/pages/home/maurya-nyc.png" imgSrc2x="/img/pages/home/maurya-nyc@2x.png">
               <p>"Web literacy is about more than coding - it's about how you can be a better web citizen."</p>
             </Blockquote>
           </div>
@@ -33,7 +33,7 @@ var FeaturedPost = React.createClass({
     var publishedDate = new Date(this.props.data.publishedDate);
     var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][publishedDate.getMonth()];
     return(
-      <div id="featured-post">
+      <div className="featured-post">
         <div className="entry-posted-container">
           <p className="entry-posted">
             <time className="published" title={this.props.data.publishedDate} dateTime={this.props.data.publishedDate} >
@@ -67,7 +67,7 @@ var LatestPosts = React.createClass({
         theDate.getFullYear();
     }
     return (
-      <ul id="recent-posts">
+      <ul className="recent-posts">
         {
           this.props.data.map(function(post, i) {
             return (
@@ -191,21 +191,21 @@ var HomePage = React.createClass({
             <IconLink
               href="https://twitter.com/webmaker"
               imgSrc="/img/pages/about/svg/icon-twitter-blue.svg"
-              imgAlt="twitter logo"
+              imgAlt=""
               head="Follow Us"
               subhead="Start a conversation on Twitter"
             />
             <IconLink
               href="mailto:teachtheweb@mozillafoundation.org"
               imgSrc="/img/pages/about/svg/icon-get-help-blue.svg"
-              imgAlt="question mark icon"
+              imgAlt=""
               head="Get Help"
               subhead="Email us anytime"
             />
             <IconLink
               href="http://discourse.webmaker.org/category/meet"
               imgSrc="/img/pages/about/svg/icon-connect-blue.svg"
-              imgAlt="illustration of two people connecting"
+              imgAlt=""
               head="Say Hello"
               subhead="Connect on the Discourse forum"
             />
