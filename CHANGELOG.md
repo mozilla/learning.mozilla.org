@@ -12,8 +12,14 @@ to [Semantic Versioning](http://semver.org/).
   - Pages now indicate that they are in English.
   - More purely decorative images have null `alt` attributes.
   - Skip navigation has been added at the top of the page.
+  - Expander components on the Clubs Toolkit and Web Literacy pages now
+    use heading tags instead of divs.
+  - The logo assets in the Event Resources page are now keyboard
+    accessible.
 
 ### Changed
+- All mentions of the @Webmaker Twitter handle (in the footer and
+  the About and Clubs Toolkit pages) have been changed to @MozTeach.
 - The `dist` dir is now cleaned up frequently during
   development, ensuring that old files don't stay
   around for too long.
