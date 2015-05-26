@@ -5,6 +5,8 @@ var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
 var Illustration = require('../components/illustration.jsx');
 
+var config = require('../lib/config');
+
 var Intro = React.createClass({
   render: function () {
     return (
@@ -84,7 +86,7 @@ var AboutPage = React.createClass({
           <OurGoal/>
           <IconLinks>
             <IconLink
-              href="https://twitter.com/webmaker"
+              href={config.TWITTER_LINK}
               imgSrc="/img/pages/about/svg/icon-twitter-blue.svg"
               imgAlt="twitter logo"
               head="Follow Us"
