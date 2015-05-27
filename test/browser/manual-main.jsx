@@ -56,10 +56,12 @@ var RouteThumbnail = React.createClass({
   },
   componentDidMount: function() {
     window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('resize', this.handleScroll);
     this.handleScroll();
   },
   componentWillUnmount: function() {
     window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('resize', this.handleScroll);
     window.clearTimeout(this.timeout);
   },
   render: function() {
