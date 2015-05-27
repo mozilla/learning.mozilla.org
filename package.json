@@ -38,6 +38,7 @@
     "react-ga": "^1.0.12",
     "react-router": "^0.13.2",
     "react-select": "0.4.6",
+    "sanitize-html": "^1.6.1",
     "should": "^5.1.0",
     "simplecrawler": "^0.5.2",
     "source-map-support": "^0.2.10",
