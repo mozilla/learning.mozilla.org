@@ -1,5 +1,5 @@
 var querystring = require('querystring');
-var React = require('react');
+var React = require('react/addons');
 
 var DevRibbon = require('../../components/dev-ribbon.jsx');
 var routes = require('../../lib/routes.jsx');
@@ -31,8 +31,10 @@ var DEVICES = [
 });
 
 var RouteThumbnail = React.createClass({
+  LOAD_DELAY: 250,
+  mixins: [React.addons.PureRenderMixin],
   getInitialState: function() {
-    return { isVisible: false };
+    return { isVisible: false, hasBeenVisible: false };
   },
   handleScroll: function() {
     var rect = this.refs.holder.getDOMNode().getBoundingClientRect();
@@ -44,12 +46,21 @@ var RouteThumbnail = React.createClass({
 
     this.setState({ isVisible: isVisible });
   },
+  componentWillUpdate: function(nextProps, nextState) {
+    if (this.state.isVisible !== nextState.isVisible) {
+      window.clearTimeout(this.timeout);
+      this.timeout = window.setTimeout(function() {
+        this.setState({ hasBeenVisible: nextState.isVisible });
+      }.bind(this), this.LOAD_DELAY);
+    }
+  },
   componentDidMount: function() {
     window.addEventListener('scroll', this.handleScroll);
     this.handleScroll();
   },
   componentWillUnmount: function() {
     window.removeEventListener('scroll', this.handleScroll);
+    window.clearTimeout(this.timeout);
   },
   render: function() {
     var style = {
@@ -59,7 +70,7 @@ var RouteThumbnail = React.createClass({
     var sandbox = this.props.enableJS ? null : "";
     var thumbnail;
 
-    if (this.state.isVisible) {
+    if (this.state.hasBeenVisible) {
       thumbnail = (
         <iframe src={this.props.url} style={style} sandbox={sandbox}/>
       );
