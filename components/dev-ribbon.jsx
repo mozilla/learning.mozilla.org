@@ -77,6 +77,8 @@ var TenonLink = React.createClass({
 
 var DevModal = React.createClass({
   render: function() {
+    var testURL = "/test/";
+    var testName = "Test Suite";
     var rev = document.querySelector('meta[name="git-rev"]');
 
     if (rev) {
@@ -100,6 +102,11 @@ var DevModal = React.createClass({
       );
     }
 
+    if (process.env.NODE_ENV === 'production') {
+      testURL = "/test/manual/";
+      testName = "Manual Test Suite";
+    }
+
     return (
       <Modal modalTitle="Development Version">
         <p>This is a development version of the <a href="https://github.com/mozilla/teach.webmaker.org" target="_blank">Teach Site</a>{rev}.</p>
@@ -113,8 +120,8 @@ var DevModal = React.createClass({
         <a href={TeachAPI.getDefaultURL()} target="_blank" className="btn btn-block btn-default">
           <span className="glyphicon glyphicon glyphicon-cloud"/> REST API Documentation
         </a>
-        <a href="/test/" target="_blank" className="btn btn-block btn-default">
-          <span className="glyphicon glyphicon glyphicon-heart"/> Test Suite
+        <a href={testURL} target="_blank" className="btn btn-block btn-default">
+          <span className="glyphicon glyphicon glyphicon-heart"/> {testName}
         </a>
         <h3>Diagnostic Tools</h3>
         <TenonLink className="btn btn-block btn-default"/>
