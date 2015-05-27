@@ -5,6 +5,8 @@ which uses the format described in
 to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
+### Added
+- `srcset` attributes are now link-checked during automated testing.
 
 ## [0.0.6][] - 2015-05-26
 ### Added
