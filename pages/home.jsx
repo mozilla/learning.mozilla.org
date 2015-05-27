@@ -1,12 +1,15 @@
 var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
+var moment = require('moment');
 
 var HeroUnit = require('../components/hero-unit.jsx');
 var Blockquote = require('../components/blockquote.jsx');
 var Illustration = require('../components/illustration.jsx');
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
+
+var config = require('../lib/config');
 
 var CaseStudies = React.createClass({
   render: function() {
@@ -30,16 +33,15 @@ var FeaturedPost = React.createClass({
     data: React.PropTypes.object.isRequired
   },
   render: function() {
-    var publishedDate = new Date(this.props.data.publishedDate);
-    var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][publishedDate.getMonth()];
+    var parsedDate = moment(this.props.data.publishedDate);
     return(
       <div className="featured-post">
         <div className="entry-posted-container">
           <p className="entry-posted">
             <time className="published" title={this.props.data.publishedDate} dateTime={this.props.data.publishedDate} >
-              <span className="posted-month">{month}</span>
-              <span className="posted-date">{publishedDate.getDate()}</span>
-              <span className="posted-year">{publishedDate.getFullYear()}</span>
+              <span className="posted-month">{parsedDate.format("MMM")}</span>
+              <span className="posted-date">{parsedDate.format("DD")}</span>
+              <span className="posted-year">{parsedDate.format("YYYY")}</span>
             </time>
           </p>
         </div>
@@ -61,11 +63,6 @@ var LatestPosts = React.createClass({
     data: React.PropTypes.array.isRequired
   },
   render: function() {
-    function formatDate(theDate) {
-      return ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][theDate.getMonth()] + " " +
-        theDate.getDate() + ", " +
-        theDate.getFullYear();
-    }
     return (
       <ul className="recent-posts">
         {
@@ -74,7 +71,7 @@ var LatestPosts = React.createClass({
               <li key={i}>
                 <a className="post-title">{post.title}</a>
                 <time className="published" title={post.publishedDate} dateTime={post.publishedDate}>
-                  <span>{formatDate(new Date(post.publishedDate))}</span>
+                  <span>{moment(post.publishedDate).format("MMM DD, YYYY")}</span>
                 </time>
               </li>
             )
@@ -189,7 +186,7 @@ var HomePage = React.createClass({
         <div className="inner-container">
           <IconLinks>
             <IconLink
-              href="https://twitter.com/webmaker"
+              href={config.TWITTER_LINK}
               imgSrc="/img/pages/about/svg/icon-twitter-blue.svg"
               imgAlt=""
               head="Follow Us"
