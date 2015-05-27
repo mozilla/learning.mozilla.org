@@ -137,6 +137,11 @@ var DevModal = React.createClass({
         <h3>Diagnostic Tools</h3>
         <TenonLink className="btn btn-block btn-default"/>
         <InsightsLink className="btn btn-block btn-default"/>
+
+        <br/>
+        <p><small>
+          For hints on manual testing and more, please see the <a href="https://github.com/mozilla/teach.webmaker.org/blob/develop/CONTRIBUTING.md">Contribution Guidelines</a>.
+        </small></p>
       </Modal>
     );
   }
