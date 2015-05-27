@@ -38,9 +38,9 @@ var FeaturedPost = React.createClass({
       <div className="featured-post">
         <div className="entry-posted-container">
           <p className="entry-posted">
-            <time className="published" title={this.props.data.publishedDate} dateTime={this.props.data.publishedDate} >
+            <time className="published" dateTime={this.props.data.publishedDate} >
               <span className="posted-month">{parsedDate.format("MMM")}</span>
-              <span className="posted-date">{parsedDate.format("DD")}</span>
+              <span className="posted-date">{parsedDate.format("D")}</span>
               <span className="posted-year">{parsedDate.format("YYYY")}</span>
             </time>
           </p>
@@ -70,8 +70,8 @@ var LatestPosts = React.createClass({
             return (
               <li key={i}>
                 <a className="post-title">{post.title}</a>
-                <time className="published" title={post.publishedDate} dateTime={post.publishedDate}>
-                  <span>{moment(post.publishedDate).format("MMM DD, YYYY")}</span>
+                <time className="published" dateTime={post.publishedDate}>
+                  <span>{moment(post.publishedDate).format("MMM D, YYYY")}</span>
                 </time>
               </li>
             )
@@ -167,46 +167,54 @@ var HomePage = React.createClass({
 
         </HeroUnit>
         <div className="inner-container">
-          <div className="about-us">
-            <Illustration
-              height={200} width={200}
-              src1x="/img/pages/about/about-illustration.svg" src2x="/img/pages/about/about-illustration.svg"
-              alt="">
-                <h2>About Us</h2>
-                <p>We want more people to see themselves as citizens of the web. Mozilla Learning Networks offers programs and a global community dedicated to helping people learn the most important skills of our age: <em>the ability to read, write and participate in the digital world.</em> <Link to="about" className="more">Learn more</Link></p>
-            </Illustration>
-          </div>
-          <BlogSection/>
+          <section>
+            <div className="about-us">
+              <Illustration
+                height={200} width={200}
+                src1x="/img/pages/about/about-illustration.svg" src2x="/img/pages/about/about-illustration.svg"
+                alt="">
+                  <h2>About Us</h2>
+                  <p>We want more people to see themselves as citizens of the web. Mozilla Learning Networks offers programs and a global community dedicated to helping people learn the most important skills of our age: <em>the ability to read, write and participate in the digital world.</em> <Link to="about" className="more">Learn more</Link></p>
+              </Illustration>
+            </div>
+          </section>
+          <section>
+            <BlogSection/>
+          </section>
         </div>
         <div className="quote">
           <div className="inner-container">
-            <CaseStudies/>
+            <section>
+              <CaseStudies/>
+            </section>
           </div>
         </div>
         <div className="inner-container">
-          <IconLinks>
-            <IconLink
-              href={config.TWITTER_LINK}
-              imgSrc="/img/pages/about/svg/icon-twitter-blue.svg"
-              imgAlt=""
-              head="Follow Us"
-              subhead="Start a conversation on Twitter"
-            />
-            <IconLink
-              href="mailto:teachtheweb@mozillafoundation.org"
-              imgSrc="/img/pages/about/svg/icon-get-help-blue.svg"
-              imgAlt=""
-              head="Get Help"
-              subhead="Email us anytime"
-            />
-            <IconLink
-              href="http://discourse.webmaker.org/category/meet"
-              imgSrc="/img/pages/about/svg/icon-connect-blue.svg"
-              imgAlt=""
-              head="Say Hello"
-              subhead="Connect on the Discourse forum"
-            />
-          </IconLinks>
+          <section>
+            <IconLinks>
+              <IconLink
+                href={config.TWITTER_LINK}
+                imgSrc="/img/pages/about/svg/icon-twitter-blue.svg"
+                imgAlt=""
+                head="Follow Us"
+                subhead="Start a conversation on Twitter"
+              />
+              <IconLink
+                href="mailto:teachtheweb@mozillafoundation.org"
+                imgSrc="/img/pages/about/svg/icon-get-help-blue.svg"
+                imgAlt=""
+                head="Get Help"
+                subhead="Email us anytime"
+              />
+              <IconLink
+                href="http://discourse.webmaker.org/category/meet"
+                imgSrc="/img/pages/about/svg/icon-connect-blue.svg"
+                imgAlt=""
+                head="Say Hello"
+                subhead="Connect on the Discourse forum"
+              />
+            </IconLinks>
+          </section>
         </div>
       </div>
     );
