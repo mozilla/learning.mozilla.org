@@ -31,19 +31,51 @@ var DEVICES = [
 });
 
 var RouteThumbnail = React.createClass({
+  getInitialState: function() {
+    return { isVisible: false };
+  },
+  handleScroll: function() {
+    var rect = this.refs.holder.getDOMNode().getBoundingClientRect();
+    var width = window.innerWidth || document.documentElement.clientWidth;
+    var height = window.innerHeight || document.documentElement.clientHeight;
+
+    var isVisible = (rect.bottom >= 0 && rect.top <= height &&
+                     rect.right >= 0 && rect.left <= width);
+
+    this.setState({ isVisible: isVisible });
+  },
+  componentDidMount: function() {
+    window.addEventListener('scroll', this.handleScroll);
+    this.handleScroll();
+  },
+  componentWillUnmount: function() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
   render: function() {
+    var style = {
+      width: this.props.width + 'px',
+      height: this.props.height + 'px'
+    };
+    var sandbox = this.props.enableJS ? null : "";
+    var thumbnail;
+
+    if (this.state.isVisible) {
+      thumbnail = (
+        <iframe src={this.props.url} style={style} sandbox={sandbox}/>
+      );
+    } else {
+      thumbnail = (
+        <div className="unloaded-thumbnail" style={style}/>
+      );
+    }
+
     return (
       <div className="route-thumbnail">
         <h4>{this.props.name} <span className="text-muted">
           {this.props.width}x{this.props.height}
         </span></h4>
-        <div ref="iframeHolder">
-          <iframe src={this.props.url} style={{
-            width: this.props.width + 'px',
-            height: this.props.height + 'px'
-          }} sandbox={
-            this.props.enableJS ? null : ""
-          }></iframe>
+        <div ref="holder">
+          {thumbnail}
         </div>
       </div>
     );
