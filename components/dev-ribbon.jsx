@@ -89,7 +89,18 @@ var DevModal = React.createClass({
                href={"https://github.com/mozilla/teach.webmaker.org/commit/" + rev}>
               {rev.slice(0, 10)}
             </a>
-        </code></span>
+        </code>, which is based on version <code>
+          <a target="_blank"
+             href={"https://github.com/mozilla/teach.webmaker.org/releases/tag/v" + packageJSON.version}>
+             {packageJSON.version}
+          </a>
+        </code> (potentially with <a
+          target="_blank"
+          href={"https://github.com/mozilla/teach.webmaker.org/compare/v" +
+                packageJSON.version + "..." + rev}>
+            changes
+          </a>)
+        </span>
       );
     } else {
       rev = (
