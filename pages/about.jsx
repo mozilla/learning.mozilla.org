@@ -104,7 +104,7 @@ var AboutPage = React.createClass({
               imgSrc="/img/pages/about/svg/icon-connect-blue.svg"
               imgAlt="illustration of two people connecting"
               head="Say Hello"
-              subhead="Connect on the #teachtheweb Discourse forum"
+              subhead="Connect on the Discourse forum"
             />
           </IconLinks>
         </div>

@@ -65,6 +65,15 @@ a.bold-link {
   white-space: pre;
 }
 
+a.more {
+  font-weight: 600;
+  &:after {
+    content: "\f30f";
+    font-family: "Ionicons";
+    margin: 0 .5rem;
+  }
+}
+
 .teach-tabzilla#tabzilla {
   display: none;
   @media screen and (min-width: @screen-md-min) {
@@ -111,6 +120,11 @@ html.no-js .no-js-warning {
 
 #page-holder {
   border-top: 0.2rem solid @white;
+}
+
+#content {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .video-container {

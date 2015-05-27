@@ -31,6 +31,7 @@ to [Semantic Versioning](http://semver.org/).
   new releases of the site.
 - The dev version modal now links to the latest release
   of the site if the current git revision is unavailable.
+- New homepage design
 
 ### Removed
 - `gulp-html-prettify` is no longer listed as a dependency
@@ -52,7 +53,7 @@ to [Semantic Versioning](http://semver.org/).
 - Added environment variables `MAILINGLIST_URL`
   and `MAILINGLIST_PRIVACY_NAME`.
 - The site now generates `index.html` files for redirects. This
-  was done so that `/clubs/curriculum/` redirects to 
+  was done so that `/clubs/curriculum/` redirects to
   `/activities/web-lit-basics/`.
 - `lib/changelog.js` can be used as a node script to help
   update `CHANGELOG.md`.
@@ -60,7 +61,7 @@ to [Semantic Versioning](http://semver.org/).
   changelog are now verified by the automated test suite.
 
 ### Changed
-- The Clubs Curriculum page has been renamed to 
+- The Clubs Curriculum page has been renamed to
   Web Literacy Basics, and is now available at
   `/activities/web-lit-basics/`. It's no longer accessible
   through the sidebar, but is instead listed as the
@@ -74,7 +75,7 @@ to [Semantic Versioning](http://semver.org/).
   collapsed area becomes focused, improving navigation for
   sighted users who can only use the keyboard for navigation.
 - Signing up for the Maker Party mailing list now shows
-  a "Thank you" modal when the user is returned to the 
+  a "Thank you" modal when the user is returned to the
   site from BSD.
 - Moved all documentation about manual testing to
   `CONTRIBUTING.md`.

@@ -46,12 +46,16 @@ var HeroUnit = React.createClass({
     }
 
     return (
-      <div className="row">
+      <div className="row hero-unit-row">
         <div className="col-md-12 hero-unit" style={{
           backgroundImage: 'url(' + this.state.image + ')'
         }}>
-          {marquee}
-          {this.props.children}
+          <div>
+            <div className="inner-container">
+              {marquee}
+              {this.props.children}
+            </div>
+          </div>
         </div>
       </div>
     );
