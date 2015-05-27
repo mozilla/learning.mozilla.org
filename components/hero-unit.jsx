@@ -50,8 +50,12 @@ var HeroUnit = React.createClass({
         <div className="col-md-12 hero-unit" style={{
           backgroundImage: 'url(' + this.state.image + ')'
         }}>
-          {marquee}
-          {this.props.children}
+          <div>
+            <div className="inner-container">
+              {marquee}
+              {this.props.children}
+            </div>
+          </div>
         </div>
       </div>
     );

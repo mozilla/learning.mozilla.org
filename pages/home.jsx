@@ -2,12 +2,15 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 var moment = require('moment');
+var sanitizeHtml = require('sanitize-html');
 
 var HeroUnit = require('../components/hero-unit.jsx');
 var Blockquote = require('../components/blockquote.jsx');
 var Illustration = require('../components/illustration.jsx');
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
+var IconButtons = require('../components/icon-buttons.jsx');
+var IconButton = require('../components/icon-button.jsx');
 
 var config = require('../lib/config');
 
@@ -107,8 +110,8 @@ var BlogSection = React.createClass({
     var self = this;
     var google;
     this.loadGoogleAPI(function() {
-      google = window.google;
-      if (google) {
+      if (self.isMounted() && window.google) {
+        google = window.google;
         google.load("feeds", "1", {
           callback: function() {
             var feed = new google.feeds.Feed("https://blog.webmaker.org/tag/teachtheweb/feed");
@@ -121,7 +124,9 @@ var BlogSection = React.createClass({
                   title: post.title,
                   author: post.author,
                   publishedDate: post.publishedDate,
-                  contentSnippet: post.contentSnippet,
+                  contentSnippet: sanitizeHtml(post.content, {
+                    allowedTags: []
+                  }).split(" ").slice(0,70).join(" ") + "...",
                   link: post.link
                 });
               }
@@ -164,6 +169,23 @@ var HomePage = React.createClass({
         <HeroUnit image="/img/pages/home/hero-unit.png"
                   image2x="/img/pages/home/hero-unit@2x.png">
           <h1>The Mozilla Learning Network</h1>
+          <IconButtons>
+            <IconButton
+              linkTo="activities"
+              imgSrc="/img/pages/home/svg/icon-teachanactivity.svg"
+              head="Teach an Activity"
+            />
+            <IconButton
+              linkTo="events"
+              imgSrc="/img/pages/home/svg/icon-hostanevent.svg"
+              head="Host an Event"
+            />
+            <IconButton
+              linkTo="mozilla-clubs"
+              imgSrc="/img/pages/home/svg/icon-startamozillaclub.svg"
+              head="Start A Mozilla Club"
+            />
+          </IconButtons>
 
         </HeroUnit>
         <div className="inner-container">
