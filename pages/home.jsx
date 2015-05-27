@@ -72,7 +72,7 @@ var LatestPosts = React.createClass({
           this.props.data.map(function(post, i) {
             return (
               <li key={i}>
-                <a className="post-title">{post.title}</a>
+                <a className="post-title" href={post.link}>{post.title}</a>
                 <time className="published" dateTime={post.publishedDate}>
                   <span>{moment(post.publishedDate).format("MMM D, YYYY")}</span>
                 </time>
@@ -117,22 +117,27 @@ var BlogSection = React.createClass({
             var feed = new google.feeds.Feed("https://blog.webmaker.org/tag/teachtheweb/feed");
             var latestPosts = [];
             feed.load(function(result) {
+              var featured = result.feed.entries[0];
               var post;
-              for (var i=0; i<4; i++) {
+              for (var i=1; i<4; i++) {
                 post = result.feed.entries[i];
                 latestPosts.push({
                   title: post.title,
-                  author: post.author,
                   publishedDate: post.publishedDate,
-                  contentSnippet: sanitizeHtml(post.content, {
-                    allowedTags: []
-                  }).split(" ").slice(0,70).join(" ") + "...",
                   link: post.link
                 });
               }
               self.setState({
-                featuredPostData: latestPosts[0],
-                latestPostsData: latestPosts.slice(1)
+                featuredPostData: {
+                  title: featured.title,
+                  author: featured.author,
+                  publishedDate: featured.publishedDate,
+                  contentSnippet: sanitizeHtml(featured.content, {
+                    allowedTags: []
+                  }).split(" ").slice(0,70).join(" ") + "...",
+                  link: post.link
+                },
+                latestPostsData: latestPosts
               });
             });
           }
@@ -186,7 +191,6 @@ var HomePage = React.createClass({
               head="Start A Mozilla Club"
             />
           </IconButtons>
-
         </HeroUnit>
         <div className="inner-container">
           <section>
