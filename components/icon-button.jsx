@@ -28,7 +28,6 @@ var IconButton = React.createClass({
     href: React.PropTypes.string,
     imgSrc: React.PropTypes.string.isRequired,
     imgSrc2X: React.PropTypes.string,
-    imgAlt: React.PropTypes.string.isRequired,
     head: React.PropTypes.string.isRequired,
     subhead: React.PropTypes.string
   },
@@ -38,7 +37,7 @@ var IconButton = React.createClass({
         <LinkSwap linkTo={this.props.linkTo} href={this.props.href}>
           <figure>
             <ImageTag className="image" src1x={this.props.imgSrc} src2x={this.props.imgSrc2x}
-            alt={this.props.imgAlt} height="50" />
+            alt="" height={50} />
             <figcaption>
               <p className="link-text">{this.props.head}</p>
             </figcaption>
