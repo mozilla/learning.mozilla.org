@@ -2,7 +2,6 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 var moment = require('moment');
-var sanitizeHtml = require('sanitize-html');
 
 var HeroUnit = require('../components/hero-unit.jsx');
 var Blockquote = require('../components/blockquote.jsx');
@@ -14,7 +13,7 @@ var IconButton = require('../components/icon-button.jsx');
 
 var config = require('../lib/config');
 
-var blogFeedLoader = require('../lib/blog-feed-loader');
+var loadBlogPosts = require('../lib/blog-feed-loader');
 
 var CaseStudies = React.createClass({
   render: function() {
@@ -88,26 +87,33 @@ var LatestPosts = React.createClass({
 });
 
 var BlogSection = React.createClass({
+  getDefaultProps: function() {
+    return {
+      loadBlogPosts: loadBlogPosts
+    };
+  },
   getInitialState: function() {
     return {
-      featuredPostData: {
+      featuredPost: {
         title: "",
         author: "",
         publishedDate: "",
         contentSnippet: "",
         link: ""
       },
-      latestPostsData: []
+      latestPosts: []
     }
   },
   componentDidMount: function() {
-    var self = this;
-    blogFeedLoader(this, window, "https://blog.webmaker.org/tag/teachtheweb/feed", function(data) {
-      self.setState({
-        featuredPostData: data.featuredPostData,
-        latestPostsData: data.latestPostsData
+    this.props.loadBlogPosts(function(data) {
+      if (!this.isMounted()) {
+        return;
+      }
+      this.setState({
+        featuredPost: data.featuredPosts,
+        latestPosts: data.latestPosts
       });
-    });
+    }.bind(this));
   },
   render: function() {
     return (
@@ -119,10 +125,10 @@ var BlogSection = React.createClass({
         </div>
         <div className="row">
           <div className="col-sm-8 col-md-8 col-lg-8">
-            <FeaturedPost data={this.state.featuredPostData} />
+            <FeaturedPost data={this.state.featuredPost} />
           </div>
           <div className="col-sm-4 col-md-4 col-lg-4">
-            <LatestPosts data={this.state.latestPostsData} />
+            <LatestPosts data={this.state.latestPosts} />
             <a className="more" href="https://blog.webmaker.org/tag/teachtheweb/">See all blog posts</a>
           </div>
         </div>
