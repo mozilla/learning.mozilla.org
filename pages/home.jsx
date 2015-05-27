@@ -2,7 +2,6 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 var moment = require('moment');
-var sanitizeHtml = require('sanitize-html');
 
 var HeroUnit = require('../components/hero-unit.jsx');
 var Blockquote = require('../components/blockquote.jsx');
@@ -14,7 +13,7 @@ var IconButton = require('../components/icon-button.jsx');
 
 var config = require('../lib/config');
 
-var blogFeedLoader = require('../lib/blog-feed-loader');
+var loadBlogPosts = require('../lib/blog-feed-loader');
 
 var CaseStudies = React.createClass({
   render: function() {
@@ -88,6 +87,11 @@ var LatestPosts = React.createClass({
 });
 
 var BlogSection = React.createClass({
+  getDefaultProps: function() {
+    return {
+      loadBlogPosts: loadBlogPosts
+    };
+  },
   getInitialState: function() {
     return {
       featuredPostData: {
@@ -101,13 +105,15 @@ var BlogSection = React.createClass({
     }
   },
   componentDidMount: function() {
-    var self = this;
-    blogFeedLoader(this, window, "https://blog.webmaker.org/tag/teachtheweb/feed", function(data) {
-      self.setState({
-        featuredPostData: data.featuredPostData,
-        latestPostsData: data.latestPostsData
+    this.props.loadBlogPosts(function(data) {
+      if (!this.isMounted()) {
+        return;
+      }
+      this.setState({
+        featuredPostData: data.featuredPosts,
+        latestPostsData: data.latestPosts
       });
-    });
+    }.bind(this));
   },
   render: function() {
     return (
