@@ -94,14 +94,14 @@ var BlogSection = React.createClass({
   },
   getInitialState: function() {
     return {
-      featuredPostData: {
+      featuredPost: {
         title: "",
         author: "",
         publishedDate: "",
         contentSnippet: "",
         link: ""
       },
-      latestPostsData: []
+      latestPosts: []
     }
   },
   componentDidMount: function() {
@@ -110,8 +110,8 @@ var BlogSection = React.createClass({
         return;
       }
       this.setState({
-        featuredPostData: data.featuredPosts,
-        latestPostsData: data.latestPosts
+        featuredPost: data.featuredPosts,
+        latestPosts: data.latestPosts
       });
     }.bind(this));
   },
@@ -125,10 +125,10 @@ var BlogSection = React.createClass({
         </div>
         <div className="row">
           <div className="col-sm-8 col-md-8 col-lg-8">
-            <FeaturedPost data={this.state.featuredPostData} />
+            <FeaturedPost data={this.state.featuredPost} />
           </div>
           <div className="col-sm-4 col-md-4 col-lg-4">
-            <LatestPosts data={this.state.latestPostsData} />
+            <LatestPosts data={this.state.latestPosts} />
             <a className="more" href="https://blog.webmaker.org/tag/teachtheweb/">See all blog posts</a>
           </div>
         </div>
