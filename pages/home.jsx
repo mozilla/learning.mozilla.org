@@ -14,6 +14,8 @@ var IconButton = require('../components/icon-button.jsx');
 
 var config = require('../lib/config');
 
+var blogFeedLoader = require('../lib/blog-feed-loader');
+
 var CaseStudies = React.createClass({
   render: function() {
     return (
@@ -98,51 +100,13 @@ var BlogSection = React.createClass({
       latestPostsData: []
     }
   },
-  loadGoogleAPI: function(callback) {
-    var head = document.getElementsByTagName("head")[0];
-    var gScript = document.createElement("script");
-    gScript.setAttribute("src", "https://www.google.com/jsapi");
-    gScript.onload = callback;
-    head.appendChild(gScript);
-    this.setState({googleAPILoaded: true});
-  },
   componentDidMount: function() {
     var self = this;
-    var google;
-    this.loadGoogleAPI(function() {
-      if (self.isMounted() && window.google) {
-        google = window.google;
-        google.load("feeds", "1", {
-          callback: function() {
-            var feed = new google.feeds.Feed("https://blog.webmaker.org/tag/teachtheweb/feed");
-            var latestPosts = [];
-            feed.load(function(result) {
-              var featured = result.feed.entries[0];
-              var post;
-              for (var i=1; i<4; i++) {
-                post = result.feed.entries[i];
-                latestPosts.push({
-                  title: post.title,
-                  publishedDate: post.publishedDate,
-                  link: post.link
-                });
-              }
-              self.setState({
-                featuredPostData: {
-                  title: featured.title,
-                  author: featured.author,
-                  publishedDate: featured.publishedDate,
-                  contentSnippet: sanitizeHtml(featured.content, {
-                    allowedTags: []
-                  }).split(" ").slice(0,70).join(" ") + "...",
-                  link: post.link
-                },
-                latestPostsData: latestPosts
-              });
-            });
-          }
-        });
-      }
+    blogFeedLoader(this, window, "https://blog.webmaker.org/tag/teachtheweb/feed", function(data) {
+      self.setState({
+        featuredPostData: data.featuredPostData,
+        latestPostsData: data.latestPostsData
+      });
     });
   },
   render: function() {
