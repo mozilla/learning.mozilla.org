@@ -22,8 +22,9 @@ to [Semantic Versioning](http://semver.org/).
     accessible.
 
 ### Changed
-- The homepage has been refreshed to better inform
-the site vistors what they can do on the site.
+- Homepage has been refreshed to better inform
+  the site vistors what they can do on the site.
+- Homepage now shows the latest blog posts on https://blog.webmaker.org/
 - All mentions of the @Webmaker Twitter handle (in the footer and
   the About and Clubs Toolkit pages) have been changed to @MozTeach.
 - The `dist` dir is now cleaned up frequently during
