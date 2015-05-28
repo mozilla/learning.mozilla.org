@@ -118,6 +118,8 @@ var EventsPage = React.createClass({
           <section>
             <h2>Join the Global Movement</h2>
             <p>Since its inauguration in 2012, Maker Party has become Mozilla's largest celebration of making and learning on the web. From getting the hang of HTML to building robots to learning about remixing using paper and scissors, people of all ages and from all backgrounds have come together to joyfully explore the culture, mechanics and citizenship of the web.</p>
+          </section>
+          <section>
             <Illustration
             height={183} width={156}
             src1x="/img/pages/events/svg/maker-party-logo.svg"
@@ -127,6 +129,8 @@ var EventsPage = React.createClass({
                 Join us for the worldwide Maker Party on July 15-31, 2015.
               </h2>
             </Illustration>
+          </section>
+          <section>
             <div className="row">
               <div className="col-sm-12 col-md-12 col-lg-12">
                 <div className="video-container">
@@ -150,6 +154,8 @@ var EventsPage = React.createClass({
                 <p className="callout-heading">Check out the highlights from Maker Party and see more photos in our <a href="https://www.flickr.com/photos/mozilladrumbeat/galleries/72157643962655534/">Flickr gallery</a>.</p>
               </div>
             </div>
+          </section>
+          <section>
             <PageEndCTA
             header=""
             dividerImgSrc="/img/pages/events/svg/line-divider.svg">
@@ -160,24 +166,24 @@ var EventsPage = React.createClass({
                 </div>
               </div>
             </PageEndCTA>
-            <section>
-              <IconLinks>
-                <IconLink
-                  linkTo="event-resources"
-                  imgSrc="/img/pages/events/svg/icon-curriculum.svg"
-                  imgAlt="icon resources"
-                  head="Event Resources"
-                  subhead="Plan a unique event"
-                />
-                <IconLink
-                  href="http://discourse.webmaker.org/category/maker-party"
-                  imgSrc="/img/pages/events/svg/icon-connect.svg"
-                  imgAlt="icon connect"
-                  head="Join the Conversation"
-                  subhead="Talk to others about your event"
-                />
-              </IconLinks>
             </section>
+          <section>
+            <IconLinks>
+              <IconLink
+                linkTo="event-resources"
+                imgSrc="/img/pages/events/svg/icon-curriculum.svg"
+                imgAlt="icon resources"
+                head="Event Resources"
+                subhead="Plan a unique event"
+              />
+              <IconLink
+                href="http://discourse.webmaker.org/category/maker-party"
+                imgSrc="/img/pages/events/svg/icon-connect.svg"
+                imgAlt="icon connect"
+                head="Join the Conversation"
+                subhead="Talk to others about your event"
+              />
+            </IconLinks>
           </section>
         </div>
       </div>

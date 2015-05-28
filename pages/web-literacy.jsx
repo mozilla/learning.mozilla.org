@@ -35,8 +35,8 @@ var ActivitiesPage = React.createClass({
   render: function() {
     return (
       <div className="inner-container">
-        <h1>Web Literacy</h1>
         <section className="intro">
+          <h1>Web Literacy</h1>
           <Illustration
           width={210} height={210}
           src1x="/img/pages/web-literacy/svg/icon-web-literacy.svg"
@@ -185,6 +185,8 @@ var ActivitiesPage = React.createClass({
               </Expander>
             </WebMap>
           </WebMaps>
+        </section>
+        <section>
           <IconLinks>
             <IconLink
               href="https://wiki.mozilla.org/Webmaker/WebLiteracyMap"

@@ -8,19 +8,17 @@ var Link = Router.Link;
 var CurriculumIntro = React.createClass({
   render: function () {
     return (
-      <div>
+      <section className="intro">
         <h1>Web Literacy Basics</h1>
-        <section className="intro">
-          <Illustration
-          height={204} width={204}
-          src1x="/img/pages/web-lit-basics/photo-clubs-curriculum.jpg"
-          src2x="/img/pages/web-lit-basics/photo-clubs-curriculum@2x.jpg"
-          alt="Woman training a young man on a computer"
-          className="img-circle">
-            <h2>Learners get familiar with reading, writing and participating on the web in this six-part module. Discover the foundations of the web through production and collaboration.</h2>
-          </Illustration>
-        </section>
-      </div>
+        <Illustration
+        height={204} width={204}
+        src1x="/img/pages/web-lit-basics/photo-clubs-curriculum.jpg"
+        src2x="/img/pages/web-lit-basics/photo-clubs-curriculum@2x.jpg"
+        alt="Woman training a young man on a computer"
+        className="img-circle">
+          <h2>Learners get familiar with reading, writing and participating on the web in this six-part module. Discover the foundations of the web through production and collaboration.</h2>
+        </Illustration>
+      </section>
     );
   }
 });
@@ -28,16 +26,14 @@ var CurriculumIntro = React.createClass({
 var WebLitBasics = React.createClass({
   render: function () { // TODO: update Link to weblit after #396 is merged
     return (
-      <section className="row web-lit-basics">
-        <div className="col-sm-12">
-          <h2>Learning Objectives</h2>
-          <p>
-            The learning objectives underpinning each activity are informed by Mozilla&apos;s <Link to="web-literacy">Web Literacy Map</Link>. Complete the activities in
-            sequence, or mix and match for your learners. Need help{'? '}
-            <a href="http://discourse.webmaker.org/category/clubs">Visit our discussion forum</a> to get help and share
-            your experience.
-          </p>
-        </div>
+      <section className="web-lit-basics">
+        <h2>Learning Objectives</h2>
+        <p>
+          The learning objectives underpinning each activity are informed by Mozilla&apos;s <Link to="web-literacy">Web Literacy Map</Link>. Complete the activities in
+          sequence, or mix and match for your learners. Need help{'? '}
+          <a href="http://discourse.webmaker.org/category/clubs">Visit our discussion forum</a> to get help and share
+          your experience.
+        </p>
       </section>
     );
   }
@@ -166,7 +162,9 @@ var ClubsCurriculum = React.createClass({
               <CurriculumSection title={section.title} key={key} activities={section.activities} />
           );
         })}
-        <CCLicenseNote/>
+        <section>
+          <CCLicenseNote/>
+        </section>
       </div>
     );
   }

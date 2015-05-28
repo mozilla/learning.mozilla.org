@@ -54,7 +54,10 @@ main {
 }
 
 section {
-  padding: 2.5rem;
+  padding: 1.5rem;
+  @media screen and (min-width: @screen-md-min) {
+    padding: 2.5rem;
+  }
 }
 
 a.bold-link {
@@ -155,7 +158,7 @@ html.no-js .no-js-warning {
 
 .caret-list {
   list-style-type: none;
-  padding-left: 2rem;
+  padding-left: 0;
   li {
     &:before {
       content: "\f363";

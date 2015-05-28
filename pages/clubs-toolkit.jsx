@@ -10,18 +10,16 @@ var config = require('../lib/config');
 var ToolkitIntro = React.createClass({
   render: function () {
     return (
-      <div>
+      <section className="intro">
         <h1>Clubs Toolkit</h1>
-        <section className="intro">
-          <Illustration
-          height={204} width={204}
-          src1x="/img/pages/clubs-toolkit/svg/icon-toolkit.svg"
-          alt="icon toolkit"
-          className="img-circle">
-            <h2>Get ready to start your club! Here are some best practices and resources to help you grow your local group.</h2>
-          </Illustration>
-        </section>
-      </div>
+        <Illustration
+        height={204} width={204}
+        src1x="/img/pages/clubs-toolkit/svg/icon-toolkit.svg"
+        alt="icon toolkit"
+        className="img-circle">
+          <h2>Get ready to start your club! Here are some best practices and resources to help you grow your local group.</h2>
+        </Illustration>
+      </section>
     );
   }
 });

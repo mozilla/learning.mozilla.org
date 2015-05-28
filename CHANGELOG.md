@@ -14,6 +14,8 @@ to [Semantic Versioning](http://semver.org/).
   - Skip navigation has been added at the top of the page.
 
 ### Changed
+- The homepage has been refreshed to better inform
+the site vistors what they can do on the site.
 - The `dist` dir is now cleaned up frequently during
   development, ensuring that old files don't stay
   around for too long.
@@ -21,7 +23,6 @@ to [Semantic Versioning](http://semver.org/).
   new releases of the site.
 - The dev version modal now links to the latest release
   of the site if the current git revision is unavailable.
-- New homepage design
 
 ### Removed
 - `gulp-html-prettify` is no longer listed as a dependency

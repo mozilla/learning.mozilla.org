@@ -10,17 +10,15 @@ var config = require('../lib/config');
 var Intro = React.createClass({
   render: function () {
     return (
-        <div>
-          <h1>About Mozilla Learning Networks</h1>
-          <section className="intro">
-            <Illustration width={226} height={226}
-            className="img-circle"
-            src1x="/img/pages/about/hive-nyc-summer-quest.jpg"
-            alt="HiveLearningNYC 2014 Hive NYC Summer Quest Maker Party">
-              <p>We want more people to see themselves as citizens of the web. Mozilla Learning Networks offers programs and a global community dedicated to helping people learn the most important skills of our age: <em>the ability to read, write and participate in the digital world.</em></p>
-            </Illustration>
-          </section>
-        </div>
+      <section className="intro">
+        <h1>About Mozilla Learning Networks</h1>
+        <Illustration width={226} height={226}
+        className="img-circle"
+        src1x="/img/pages/about/hive-nyc-summer-quest.jpg"
+        alt="HiveLearningNYC 2014 Hive NYC Summer Quest Maker Party">
+          <p>We want more people to see themselves as citizens of the web. Mozilla Learning Networks offers programs and a global community dedicated to helping people learn the most important skills of our age: <em>the ability to read, write and participate in the digital world.</em></p>
+        </Illustration>
+      </section>
     );
   }
 });
@@ -28,7 +26,7 @@ var Intro = React.createClass({
 var OurFocus = React.createClass({
   render: function () {
     return (
-        <section className="row list-with-illust">
+        <section className="list-with-illust">
           <Illustration width={199} height={199}
           src1x="/img/pages/about/about-illustration.svg"
           alt="A graphic showing an illustration of a person, a book, some gears, a map pin, and a square acedemic cap">
@@ -60,7 +58,7 @@ var OurFocus = React.createClass({
 var OurGoal = React.createClass({
   render: function () {
     return (
-        <section className="row page-end our-goal">
+        <section className="page-end our-goal">
           <ImageTag alt="A stylised icon of a city"
               className="center-block" src1x="/img/pages/about/icon-city.png"
               src2x="/img/pages/about/icon-city@2x.png" width={292} height={102} />
