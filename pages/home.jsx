@@ -37,7 +37,7 @@ var FeaturedPost = React.createClass({
     data: React.PropTypes.object.isRequired
   },
   render: function() {
-    var parsedDate = moment(this.props.data.publishedDate);
+    var parsedDate = moment(new Date(this.props.data.publishedDate));
     return(
       <div className="featured-post">
         <div className="entry-posted-container">
@@ -75,7 +75,7 @@ var LatestPosts = React.createClass({
               <li key={i}>
                 <a className="post-title" href={post.link}>{post.title}</a>
                 <time className="published" dateTime={post.publishedDate}>
-                  <span>{moment(post.publishedDate).format("MMM D, YYYY")}</span>
+                  <span>{moment(new Date(post.publishedDate)).format("MMM D, YYYY")}</span>
                 </time>
               </li>
             )
