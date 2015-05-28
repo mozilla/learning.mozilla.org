@@ -54,7 +54,10 @@ main {
 }
 
 section {
-  padding: 2.5rem;
+  padding: 1.5rem;
+  @media screen and (min-width: @screen-md-min) {
+    padding: @section-padding-vertical @section-padding-horizontal;
+  }
 }
 
 a.bold-link {
@@ -63,6 +66,15 @@ a.bold-link {
   font-weight: 700;
   font-size: 1.5rem;
   white-space: pre;
+}
+
+a.more {
+  font-weight: 600;
+  &:after {
+    content: "\f30f";
+    font-family: "Ionicons";
+    margin: 0 .5rem;
+  }
 }
 
 .teach-tabzilla#tabzilla {

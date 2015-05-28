@@ -1,4 +1,8 @@
 .btn {
+  // button text should be wrapped.
+  // we shouldn't assume button text can always fit into one line,
+  // especially knowing that the site will be localized in the future
+  white-space: normal;
   &.btn-awsm {
     position: relative;
     width: 100%;

@@ -29,6 +29,7 @@
     "mapbox.js": "^2.1.5",
     "merge-stream": "^0.1.7",
     "minimist": "^1.1.1",
+    "moment": "^2.10.3",
     "mocha": "^2.1.0",
     "mocha-phantomjs": "^3.5.3",
     "mofo-style": "^1.0.1",
