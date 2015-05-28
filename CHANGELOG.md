@@ -8,6 +8,12 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - `srcset` attributes are now link-checked during automated testing.
 
+### Changed
+- Homepage has been refreshed to better inform
+  the site vistors of what they can do on the site.
+- Homepage now shows the latest blog posts from
+  https://blog.webmaker.org/.
+
 ## [0.0.6][] - 2015-05-26
 ### Added
 - A number of accessibility improvements have been added:
@@ -22,9 +28,6 @@ to [Semantic Versioning](http://semver.org/).
     accessible.
 
 ### Changed
-- Homepage has been refreshed to better inform
-  the site vistors what they can do on the site.
-- Homepage now shows the latest blog posts on https://blog.webmaker.org/
 - All mentions of the @Webmaker Twitter handle (in the footer and
   the About and Clubs Toolkit pages) have been changed to @MozTeach.
 - The `dist` dir is now cleaned up frequently during
