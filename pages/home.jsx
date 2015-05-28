@@ -177,12 +177,10 @@ var HomePage = React.createClass({
             <BlogSection/>
           </section>
         </div>
-        <div className="quote">
-          <div className="inner-container">
-            <section>
-              <CaseStudies/>
-            </section>
-          </div>
+        <div className="row quote">
+          <section>
+            <CaseStudies/>
+          </section>
         </div>
         <div className="inner-container">
           <IconLinks>
