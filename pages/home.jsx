@@ -179,35 +179,39 @@ var HomePage = React.createClass({
           </section>
         </div>
         <div className="quote">
+          <div className="inner-container">
+            <section>
+              <CaseStudies/>
+            </section>
+          </div>
+        </div>
+        <div className="inner-container">
           <section>
-            <CaseStudies/>
+            <IconLinks>
+              <IconLink
+                href={config.TWITTER_LINK}
+                imgSrc="/img/pages/about/svg/icon-twitter-blue.svg"
+                imgAlt=""
+                head="Follow Us"
+                subhead="Start a conversation on Twitter"
+              />
+              <IconLink
+                href="mailto:teachtheweb@mozillafoundation.org"
+                imgSrc="/img/pages/about/svg/icon-get-help-blue.svg"
+                imgAlt=""
+                head="Get Help"
+                subhead="Email us anytime"
+              />
+              <IconLink
+                href="http://discourse.webmaker.org/category/meet"
+                imgSrc="/img/pages/about/svg/icon-connect-blue.svg"
+                imgAlt=""
+                head="Say Hello"
+                subhead="Connect on the Discourse forum"
+              />
+            </IconLinks>
           </section>
         </div>
-        <section>
-          <IconLinks>
-            <IconLink
-              href={config.TWITTER_LINK}
-              imgSrc="/img/pages/about/svg/icon-twitter-blue.svg"
-              imgAlt=""
-              head="Follow Us"
-              subhead="Start a conversation on Twitter"
-            />
-            <IconLink
-              href="mailto:teachtheweb@mozillafoundation.org"
-              imgSrc="/img/pages/about/svg/icon-get-help-blue.svg"
-              imgAlt=""
-              head="Get Help"
-              subhead="Email us anytime"
-            />
-            <IconLink
-              href="http://discourse.webmaker.org/category/meet"
-              imgSrc="/img/pages/about/svg/icon-connect-blue.svg"
-              imgAlt=""
-              head="Say Hello"
-              subhead="Connect on the Discourse forum"
-            />
-          </IconLinks>
-        </section>
       </div>
     );
   }
