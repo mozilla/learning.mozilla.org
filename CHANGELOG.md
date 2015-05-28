@@ -7,12 +7,19 @@ to [Semantic Versioning](http://semver.org/).
 ## [Unreleased][unreleased]
 ### Added
 - `srcset` attributes are now link-checked during automated testing.
+- The dev version modal now *always* links to the latest release
+  of the site, and potentially a link to the changes between the
+  latest release and the current commit. It also links to
+  `CONTRIBUTING.md`.
+- A reference to novalidate.com has been added to `CONTRIBUTING.md`.
 
 ### Changed
 - Homepage has been refreshed to better inform
   the site vistors of what they can do on the site.
 - Homepage now shows the latest blog posts from
   https://blog.webmaker.org/.
+- Various performance improvements to the manual test page have
+  been added.
 
 ## [0.0.6][] - 2015-05-26
 ### Added
