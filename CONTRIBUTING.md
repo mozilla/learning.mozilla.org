@@ -80,6 +80,17 @@ visit any pages you've added or changed. And if you've added
 or changed any JavaScript-based logic for UI, make sure it
 satisfies the Paciello Group's [Web Components punch list][].
 
+##### HTML5 Form Validation
+
+If you've created or made changes to any forms, make sure they
+work with browsers that don't support HTML5 form validation
+by using the [novalidate][] bookmarklet. Alternatively, you can
+paste the following into your Web console before submitting a form:
+
+```javascript
+for(var f=document.forms,i=f.length;i--;)f[i].setAttribute("novalidate",i)
+```
+
 ##### Diagnostics
 
 For any pages you've added or changed, make sure you
@@ -121,3 +132,4 @@ changes haven't introduced any [Mixed Content][] warnings.
 [VoiceOver]: http://webaim.org/articles/voiceover/
 [NVDA]: https://www.marcozehe.de/articles/how-to-use-nvda-and-firefox-to-test-your-web-pages-for-accessibility/
 [Web Components punch list]: http://www.paciellogroup.com/blog/2014/09/web-components-punch-list/
+[novalidate]: http://novalidate.com/

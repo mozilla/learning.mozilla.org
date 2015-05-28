@@ -6,6 +6,23 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.7][] - 2015-05-28
+### Added
+- `srcset` attributes are now link-checked during automated testing.
+- The dev version modal now *always* links to the latest release
+  of the site, and potentially a link to the changes between the
+  latest release and the current commit. It also links to
+  `CONTRIBUTING.md`.
+- A reference to novalidate.com has been added to `CONTRIBUTING.md`.
+
+### Changed
+- Homepage has been refreshed to better inform
+  the site vistors of what they can do on the site.
+- Homepage now shows the latest blog posts from
+  https://blog.webmaker.org/.
+- Various performance improvements to the manual test page have
+  been added.
+
 ## [0.0.6][] - 2015-05-26
 ### Added
 - A number of accessibility improvements have been added:
@@ -50,7 +67,7 @@ to [Semantic Versioning](http://semver.org/).
 - Added environment variables `MAILINGLIST_URL`
   and `MAILINGLIST_PRIVACY_NAME`.
 - The site now generates `index.html` files for redirects. This
-  was done so that `/clubs/curriculum/` redirects to 
+  was done so that `/clubs/curriculum/` redirects to
   `/activities/web-lit-basics/`.
 - `lib/changelog.js` can be used as a node script to help
   update `CHANGELOG.md`.
@@ -58,7 +75,7 @@ to [Semantic Versioning](http://semver.org/).
   changelog are now verified by the automated test suite.
 
 ### Changed
-- The Clubs Curriculum page has been renamed to 
+- The Clubs Curriculum page has been renamed to
   Web Literacy Basics, and is now available at
   `/activities/web-lit-basics/`. It's no longer accessible
   through the sidebar, but is instead listed as the
@@ -72,7 +89,7 @@ to [Semantic Versioning](http://semver.org/).
   collapsed area becomes focused, improving navigation for
   sighted users who can only use the keyboard for navigation.
 - Signing up for the Maker Party mailing list now shows
-  a "Thank you" modal when the user is returned to the 
+  a "Thank you" modal when the user is returned to the
   site from BSD.
 - Moved all documentation about manual testing to
   `CONTRIBUTING.md`.
@@ -146,7 +163,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.6...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.7...HEAD
+[0.0.7]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.6...v0.0.7
 [0.0.6]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.3...v0.0.4

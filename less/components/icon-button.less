@@ -1,0 +1,25 @@
+.icon-button {
+  a.btn.btn-awsm {
+    width: 100%;
+    color: @blueSidebarColor;
+    background-color: @paleBlue;
+    box-shadow: 0px 0.4rem 0px @blueSidebarColor,
+                0px 0.1rem 0px rgba(255, 255, 255, 0.5) inset;
+    &:hover {
+      color: @bodyTextColor;
+      background-color: @awsmBtnColor;
+      top: 0;
+      box-shadow: 0px 0.4rem 0px #C4A74F,
+                  0px 0.1rem 0px rgba(255, 255, 255, 0.5) inset;
+      img {
+        filter: grayscale(100%);
+      }
+    }
+  }
+  .link-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 1rem 0 .8rem 0;
+  }
+}

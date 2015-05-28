@@ -77,6 +77,8 @@ var TenonLink = React.createClass({
 
 var DevModal = React.createClass({
   render: function() {
+    var testURL = "/test/";
+    var testName = "Test Suite";
     var rev = document.querySelector('meta[name="git-rev"]');
 
     if (rev) {
@@ -87,7 +89,18 @@ var DevModal = React.createClass({
                href={"https://github.com/mozilla/teach.webmaker.org/commit/" + rev}>
               {rev.slice(0, 10)}
             </a>
-        </code></span>
+        </code>, which is based on version <code>
+          <a target="_blank"
+             href={"https://github.com/mozilla/teach.webmaker.org/releases/tag/v" + packageJSON.version}>
+             {packageJSON.version}
+          </a>
+        </code> (potentially with <a
+          target="_blank"
+          href={"https://github.com/mozilla/teach.webmaker.org/compare/v" +
+                packageJSON.version + "..." + rev}>
+            changes
+          </a>)
+        </span>
       );
     } else {
       rev = (
@@ -98,6 +111,11 @@ var DevModal = React.createClass({
           </a>
         </code></span>
       );
+    }
+
+    if (process.env.NODE_ENV === 'production') {
+      testURL = "/test/manual/";
+      testName = "Manual Test Suite";
     }
 
     return (
@@ -113,12 +131,17 @@ var DevModal = React.createClass({
         <a href={TeachAPI.getDefaultURL()} target="_blank" className="btn btn-block btn-default">
           <span className="glyphicon glyphicon glyphicon-cloud"/> REST API Documentation
         </a>
-        <a href="/test/" target="_blank" className="btn btn-block btn-default">
-          <span className="glyphicon glyphicon glyphicon-heart"/> Test Suite
+        <a href={testURL} target="_blank" className="btn btn-block btn-default">
+          <span className="glyphicon glyphicon glyphicon-heart"/> {testName}
         </a>
         <h3>Diagnostic Tools</h3>
         <TenonLink className="btn btn-block btn-default"/>
         <InsightsLink className="btn btn-block btn-default"/>
+
+        <br/>
+        <p><small>
+          For hints on manual testing and more, please see the <a href="https://github.com/mozilla/teach.webmaker.org/blob/develop/CONTRIBUTING.md">Contribution Guidelines</a>.
+        </small></p>
       </Modal>
     );
   }
