@@ -294,6 +294,7 @@ var ModalAddOrChangeYourClub = React.createClass({
     }
     return _.extend(clubState, {
       step: this.getStepForAuthState(!!this.getTeachAPI().getUsername()),
+      hasReadFactSheet: false,
       result: null,
       networkError: false,
       validationErrors: []
@@ -323,6 +324,11 @@ var ModalAddOrChangeYourClub = React.createClass({
       'name', 'website', 'description', 'location', 'latitude', 'longitude'
     ));
     var validationErrors = validateClub(clubState);
+
+    if (!this.props.club && !this.state.hasReadFactSheet) {
+      validationErrors.push("You must read the Mozilla Clubs Fact Sheet.");
+    }
+
     e.preventDefault();
 
     if (validationErrors.length) {
@@ -400,8 +406,8 @@ var ModalAddOrChangeYourClub = React.createClass({
           {this.renderValidationErrors()}
           <form onSubmit={this.handleSubmit}>
             <fieldset>
-              <label htmlFor={idPrefix + "name"}>What is the name of your Club?</label>
-              <input type="text" id={idPrefix + "name"} placeholder="We love creative Club names"
+              <label htmlFor={idPrefix + "name"}>Who is your Mozilla Club affiliated with?</label>
+              <input type="text" id={idPrefix + "name"} placeholder="Name of organization, school, group"
                disabled={isFormDisabled}
                required
                valueLink={this.linkState('name')} />
@@ -446,13 +452,21 @@ var ModalAddOrChangeYourClub = React.createClass({
                valueLink={this.linkState('website')} />
             </fieldset>
             <fieldset>
-              <label htmlFor={idPrefix + "description"}>What do you focus your efforts on?</label>
-              <textarea rows="5" placeholder="Please provide a brief description of your Club."
+              <label htmlFor={idPrefix + "description"}>How do you teach the Web?</label>
+              <textarea rows="5" placeholder="Please provide a brief description of your Club activities."
                id={idPrefix + "description"}
                disabled={isFormDisabled}
                required
                valueLink={this.linkState('description')} />
             </fieldset>
+            {isAdd ? <div className="checkbox">
+              <label>
+                <input type="checkbox"
+                 disabled={isFormDisabled}
+                 checkedLink={this.linkState('hasReadFactSheet')}
+                 required /> I have read the <a href="http://mozilla.github.io/learning-networks/clubs/" target="_blank">Mozilla Clubs Fact Sheet</a>.
+              </label>
+            </div> : null}
             <input type="submit" className="btn"
              disabled={isFormDisabled}
              value={isFormDisabled

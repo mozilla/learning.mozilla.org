@@ -298,6 +298,15 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
       should(modal.state.latitude).equal(null);
     });
 
+    it("requires user to read fact sheet", function() {
+      teachAPI.emit('username:change', 'foo');
+      TestUtils.Simulate.submit(TestUtils.findRenderedDOMComponentWithTag(
+        modal, 'form'
+      ));
+      modal.state.validationErrors
+        .should.containEql('You must read the Mozilla Clubs Fact Sheet.');
+    });
+
     it("reports validation errors, aborts form submission", function() {
       modal.state.validationErrors.should.eql([]);
       teachAPI.emit('username:change', 'foo');
@@ -318,7 +327,8 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
           name: 'blorpy',
           location: 'chicago',
           website: 'example.org',
-          description: 'this is my club'
+          description: 'this is my club',
+          hasReadFactSheet: true
         });
         form = TestUtils.findRenderedDOMComponentWithTag(
           modal,
