@@ -407,7 +407,7 @@ var ModalAddOrChangeYourClub = React.createClass({
           <form onSubmit={this.handleSubmit}>
             <fieldset>
               <label htmlFor={idPrefix + "name"}>Who is your Mozilla Club affiliated with?</label>
-              <input type="text" id={idPrefix + "name"} placeholder="Name your organization, school, community group, etc."
+              <input type="text" id={idPrefix + "name"} placeholder="Name of organization, school, group"
                disabled={isFormDisabled}
                required
                valueLink={this.linkState('name')} />
