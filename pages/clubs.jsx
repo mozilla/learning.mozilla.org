@@ -294,6 +294,7 @@ var ModalAddOrChangeYourClub = React.createClass({
     }
     return _.extend(clubState, {
       step: this.getStepForAuthState(!!this.getTeachAPI().getUsername()),
+      hasReadFactSheet: false,
       result: null,
       networkError: false,
       validationErrors: []
@@ -323,6 +324,11 @@ var ModalAddOrChangeYourClub = React.createClass({
       'name', 'website', 'description', 'location', 'latitude', 'longitude'
     ));
     var validationErrors = validateClub(clubState);
+
+    if (!this.props.club && !this.state.hasReadFactSheet) {
+      validationErrors.push("You must read the Mozilla Clubs Fact Sheet.");
+    }
+
     e.preventDefault();
 
     if (validationErrors.length) {
@@ -453,6 +459,14 @@ var ModalAddOrChangeYourClub = React.createClass({
                required
                valueLink={this.linkState('description')} />
             </fieldset>
+            {isAdd ? <div className="checkbox">
+              <label>
+                <input type="checkbox"
+                 disabled={isFormDisabled}
+                 checkedLink={this.linkState('hasReadFactSheet')}
+                 required /> I have read the <a href="http://mozilla.github.io/learning-networks/clubs/" target="_blank">Mozilla Clubs Fact Sheet</a>.
+              </label>
+            </div> : null}
             <input type="submit" className="btn"
              disabled={isFormDisabled}
              value={isFormDisabled
