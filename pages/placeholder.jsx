@@ -6,7 +6,7 @@ var PlaceholderPage = React.createClass({
   render: function() {
     return (
       <div>
-        <HeroUnit image="/img/hero-unit.jpg">
+        <HeroUnit>
           <h1>Placeholder: {this.props.title}</h1>
         </HeroUnit>
         <h2>This is a placeholder page for &ldquo;{this.props.title}&rdquo;.</h2>

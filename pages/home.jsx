@@ -143,8 +143,7 @@ var HomePage = React.createClass({
   render: function() {
     return (
       <div>
-        <HeroUnit image="/img/pages/home/hero-unit.png"
-                  image2x="/img/pages/home/hero-unit@2x.png">
+        <HeroUnit>
           <h1>The Mozilla Learning Network</h1>
           <IconButtons>
             <IconButton

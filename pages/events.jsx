@@ -109,8 +109,7 @@ var EventsPage = React.createClass({
   render: function() {
     return (
       <div>
-        <HeroUnit image="/img/pages/events/hero-events.png"
-                  image2x="/img/pages/events/hero-events@2x.png">
+        <HeroUnit>
           <h1>Host a Maker Party</h1>
           <h2>Celebrate teaching and learning with others</h2>
         </HeroUnit>

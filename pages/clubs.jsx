@@ -558,8 +558,7 @@ var ClubsPage = React.createClass({
 
     return (
       <div>
-        <HeroUnit image="/img/pages/clubs/hero-clubs.png"
-                  image2x="/img/pages/clubs/hero-clubs@2x.png">
+        <HeroUnit>
           <h1>Mozilla Clubs</h1>
           <div><a className="btn btn-awsm" onClick={this.showAddYourClubModal}>Add Your Club</a></div>
         </HeroUnit>

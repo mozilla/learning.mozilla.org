@@ -121,8 +121,7 @@ var ActivitiesPage = React.createClass({
   render: function() {
     return (
       <div>
-        <HeroUnit image="/img/pages/activities/hero-teaching-activities.png"
-                  image2x="/img/pages/activities/hero-teaching-activities@2x.png">
+        <HeroUnit>
           <h1>Teaching Activities</h1>
         </HeroUnit>
         <div className="inner-container activities">
