@@ -400,8 +400,8 @@ var ModalAddOrChangeYourClub = React.createClass({
           {this.renderValidationErrors()}
           <form onSubmit={this.handleSubmit}>
             <fieldset>
-              <label htmlFor={idPrefix + "name"}>What is the name of your Club?</label>
-              <input type="text" id={idPrefix + "name"} placeholder="We love creative Club names"
+              <label htmlFor={idPrefix + "name"}>Who is your Mozilla Club affiliated with?</label>
+              <input type="text" id={idPrefix + "name"} placeholder="Name your organization, school, community group, etc."
                disabled={isFormDisabled}
                required
                valueLink={this.linkState('name')} />
@@ -446,8 +446,8 @@ var ModalAddOrChangeYourClub = React.createClass({
                valueLink={this.linkState('website')} />
             </fieldset>
             <fieldset>
-              <label htmlFor={idPrefix + "description"}>What do you focus your efforts on?</label>
-              <textarea rows="5" placeholder="Please provide a brief description of your Club."
+              <label htmlFor={idPrefix + "description"}>How do you teach the Web?</label>
+              <textarea rows="5" placeholder="Please provide a brief description of your Club activities."
                id={idPrefix + "description"}
                disabled={isFormDisabled}
                required
