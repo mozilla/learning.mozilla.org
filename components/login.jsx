@@ -123,6 +123,21 @@ var Login = React.createClass({
     this.setState({username: null, loggingIn: false});
     ga.event({ category: 'Login', action: 'Logged Out' });
   },
+  renderAdminLink: function() {
+    var adminURL = this.getTeachAPI().getAdminURL();
+
+    if (!adminURL) return null;
+    return (
+      <div>
+        <br/>
+        <span className="glyphicon glyphicon-wrench"></span>
+        &nbsp;&nbsp;
+        <a href={adminURL}>
+          Site Administration
+        </a>
+      </div>
+    );
+  },
   render: function() {
     var content;
 
@@ -149,6 +164,7 @@ var Login = React.createClass({
         <div>
           <span className="login-text">Logged in as {this.state.username}</span>
           <LogoutLink>Logout</LogoutLink>
+          {this.renderAdminLink()}
         </div>
       );
     } else {

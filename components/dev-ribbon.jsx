@@ -5,6 +5,7 @@ var React = require('react');
 var Modal = require('../components/modal.jsx');
 var ModalManagerMixin = require('../mixins/modal-manager');
 var TeachAPI = require('../lib/teach-api');
+var packageJSON = require('../package.json');
 
 var ICON_IMG_STYLE = { width: '1em', height: '1em' };
 
@@ -76,6 +77,8 @@ var TenonLink = React.createClass({
 
 var DevModal = React.createClass({
   render: function() {
+    var testURL = "/test/";
+    var testName = "Test Suite";
     var rev = document.querySelector('meta[name="git-rev"]');
 
     if (rev) {
@@ -86,8 +89,33 @@ var DevModal = React.createClass({
                href={"https://github.com/mozilla/teach.webmaker.org/commit/" + rev}>
               {rev.slice(0, 10)}
             </a>
+        </code>, which is based on version <code>
+          <a target="_blank"
+             href={"https://github.com/mozilla/teach.webmaker.org/releases/tag/v" + packageJSON.version}>
+             {packageJSON.version}
+          </a>
+        </code> (potentially with <a
+          target="_blank"
+          href={"https://github.com/mozilla/teach.webmaker.org/compare/v" +
+                packageJSON.version + "..." + rev}>
+            changes
+          </a>)
+        </span>
+      );
+    } else {
+      rev = (
+        <span> based on version <code>
+          <a target="_blank"
+             href={"https://github.com/mozilla/teach.webmaker.org/releases/tag/v" + packageJSON.version}>
+             {packageJSON.version}
+          </a>
         </code></span>
       );
+    }
+
+    if (process.env.NODE_ENV === 'production') {
+      testURL = "/test/manual/";
+      testName = "Manual Test Suite";
     }
 
     return (
@@ -97,21 +125,23 @@ var DevModal = React.createClass({
         <a href="http://invis.io/9G2DK7SR2" target="_blank" className="btn btn-block btn-default">
           <span className="glyphicon glyphicon glyphicon-plane"/> Site Map
         </a>
-        <a href={TeachAPI.getDefaultURL() + '/admin'} target="_blank" className="btn btn-block btn-default">
-          <span className="glyphicon glyphicon glyphicon-wrench"/> Admin UI
-        </a>
         <a href="https://github.com/mozilla/teach.webmaker.org/issues" target="_blank" className="btn btn-block btn-default">
           <span className="glyphicon glyphicon glyphicon-exclamation-sign"/> File An Issue on GitHub
         </a>
         <a href={TeachAPI.getDefaultURL()} target="_blank" className="btn btn-block btn-default">
           <span className="glyphicon glyphicon glyphicon-cloud"/> REST API Documentation
         </a>
-        <a href="/test/" target="_blank" className="btn btn-block btn-default">
-          <span className="glyphicon glyphicon glyphicon-heart"/> Test Suite
+        <a href={testURL} target="_blank" className="btn btn-block btn-default">
+          <span className="glyphicon glyphicon glyphicon-heart"/> {testName}
         </a>
         <h3>Diagnostic Tools</h3>
         <TenonLink className="btn btn-block btn-default"/>
         <InsightsLink className="btn btn-block btn-default"/>
+
+        <br/>
+        <p><small>
+          For hints on manual testing and more, please see the <a href="https://github.com/mozilla/teach.webmaker.org/blob/develop/CONTRIBUTING.md">Contribution Guidelines</a>.
+        </small></p>
       </Modal>
     );
   }
@@ -128,11 +158,9 @@ module.exports = React.createClass({
     this.showModal(DevModal);
   },
   render: function() {
-    // We're using role="link" to stop react-a11y from annoying us;
-    // this code is only for development, don't worry about a11y.
     return (
       <div className="dev-ribbon-holder">
-        <a className="dev-ribbon" href="#" role="link" onClick={this.handleClick}>
+        <a className="dev-ribbon" href="" onClick={this.handleClick}>
           Dev Version
         </a>
       </div>

@@ -5,8 +5,106 @@ which uses the format described in
 to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
+
+## [0.0.7][] - 2015-05-28
+### Added
+- `srcset` attributes are now link-checked during automated testing.
+- The dev version modal now *always* links to the latest release
+  of the site, and potentially a link to the changes between the
+  latest release and the current commit. It also links to
+  `CONTRIBUTING.md`.
+- A reference to novalidate.com has been added to `CONTRIBUTING.md`.
+
 ### Changed
-- Added environment variables `MAILINGLIST_URL` and `MAILINGLIST_PRIVACY_NAME`.
+- Homepage has been refreshed to better inform
+  the site vistors of what they can do on the site.
+- Homepage now shows the latest blog posts from
+  https://blog.webmaker.org/.
+- Various performance improvements to the manual test page have
+  been added.
+
+## [0.0.6][] - 2015-05-26
+### Added
+- A number of accessibility improvements have been added:
+  - Pages on the site now have `contentinfo`, `main`, and
+    `navigation` landmark roles.
+  - Pages now indicate that they are in English.
+  - More purely decorative images have null `alt` attributes.
+  - Skip navigation has been added at the top of the page.
+  - Expander components on the Clubs Toolkit and Web Literacy pages now
+    use heading tags instead of divs.
+  - The logo assets in the Event Resources page are now keyboard
+    accessible.
+
+### Changed
+- All mentions of the @Webmaker Twitter handle (in the footer and
+  the About and Clubs Toolkit pages) have been changed to @MozTeach.
+- The `dist` dir is now cleaned up frequently during
+  development, ensuring that old files don't stay
+  around for too long.
+- `lib/changelog.js bump` now makes it easier to issue
+  new releases of the site.
+- The dev version modal now links to the latest release
+  of the site if the current git revision is unavailable.
+
+### Removed
+- `gulp-html-prettify` is no longer listed as a dependency
+  in `package.json` (it hasn't been used by any code for
+  some time).
+
+## [0.0.5][] - 2015-05-20
+### Added
+- A link to "Site Administration" now appears under the logout
+  link if the current user is staff.
+- The word "(optional)" has been added next to non-required
+  fields in the "Add Your Club" modal.
+- Links to view the current page/route in PageSpeed Insights
+  and Tenon have been added to the dev version modal and
+  the manual tests page. Users are directed to install ngrok
+  if they're accessing the pages at a non-public IP.
+- Added notes about accessibility testing and ngrok
+  to `CONTRIBUTING.md`.
+- Added environment variables `MAILINGLIST_URL`
+  and `MAILINGLIST_PRIVACY_NAME`.
+- The site now generates `index.html` files for redirects. This
+  was done so that `/clubs/curriculum/` redirects to
+  `/activities/web-lit-basics/`.
+- `lib/changelog.js` can be used as a node script to help
+  update `CHANGELOG.md`.
+- Aspects of the structure and accuracy of this
+  changelog are now verified by the automated test suite.
+
+### Changed
+- The Clubs Curriculum page has been renamed to
+  Web Literacy Basics, and is now available at
+  `/activities/web-lit-basics/`. It's no longer accessible
+  through the sidebar, but is instead listed as the
+  first teaching kit in the Teaching Activities page.
+- The "Events" section on the sidebar has been renamed to
+  "Maker Party".
+- A number of `alt` attributes for purely decorative
+  images in the sidebar have been nulled, streamlining
+  the experience for users with screen readers.
+- The hamburger always expands if one of the links in its
+  collapsed area becomes focused, improving navigation for
+  sighted users who can only use the keyboard for navigation.
+- Signing up for the Maker Party mailing list now shows
+  a "Thank you" modal when the user is returned to the
+  site from BSD.
+- Moved all documentation about manual testing to
+  `CONTRIBUTING.md`.
+- We're now using webpack to generate the static
+  `index.html` files, massively speeding up their
+  regeneration during development. The webpack bundle
+  used to generate the index files is put in a new
+  `build` directory.
+
+## Removed
+- References to "add your event" have been removed from
+  the site, as we're not collecting data about individual
+  Maker Party events this year.
+- Unlinked calls-to-action have been removed from the bottom
+  of the Clubs and Clubs Toolkit pages.
 
 ## [0.0.4][] - 2015-05-13
 ### Added
@@ -65,7 +163,10 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.4...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.7...HEAD
+[0.0.7]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.6...v0.0.7
+[0.0.6]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.5...v0.0.6
+[0.0.5]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.2...v0.0.3
 [0.0.2]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.1...v0.0.2

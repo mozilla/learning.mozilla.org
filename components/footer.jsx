@@ -2,17 +2,19 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 
+var config = require('../lib/config');
+
 var Footer = React.createClass({
   render: function() {
     return (
-      <footer className="row">
+      <footer className="row" role="contentinfo">
         <div className="sidebar col-md-3">
           <div className="row">
             <div className="col-xs-6">
               <ul className="list-unstyled">
                 <li><a href="https://webmaker.org/">Webmaker</a></li>
                 <li><a href="https://sendto.mozilla.org/">Donate</a></li>
-                <li><a href="https://twitter.com/webmaker">Twitter</a></li>
+                <li><a href={config.TWITTER_LINK}>Twitter</a></li>
               </ul>
             </div>
             <div className="col-xs-6">
@@ -27,10 +29,10 @@ var Footer = React.createClass({
         <div className="content col-md-9">
           <div className="row">
             <div className="col-sm-4 col-sm-offset-1">
-              <a href="http://hivelearningnetworks.org/"><img src="/img/components/footer/svg/hive-logo.svg" alt="Hive logo"/></a>
+              <a href="http://hivelearningnetworks.org/"><img src="/img/components/footer/svg/hive-logo.svg" alt="hivelearningnetworks.org"/></a>
             </div>
             <div className="col-sm-7 col-lg-5">
-              <p>The Hive Learning Networks, stewarded by Mozilla, are a growing constellation of local communities around the globe that are championing digital skills and web literacy through connected learning. <a href="http://hivelearningnetworks.org/">Learn more</a></p>
+              <p>The Hive Learning Networks, stewarded by Mozilla, are a growing constellation of local communities around the globe that are championing digital skills and web literacy through connected learning. <a href="http://hivelearningnetworks.org/">Learn more<span className="sr-only"> about Hive Learning Networks</span></a></p>
             </div>
           </div>
         </div>

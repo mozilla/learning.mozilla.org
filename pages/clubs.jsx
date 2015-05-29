@@ -573,7 +573,7 @@ var ClubsPage = React.createClass({
           <section>
             <IconLinks>
               <IconLink
-                linkTo="clubs-curriculum"
+                linkTo="web-lit-basics"
               imgSrc="/img/pages/clubs/svg/icon-curriculum.svg"
                 imgAlt="icon curriculum"
                 head="Curriculum"

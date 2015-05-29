@@ -32,10 +32,10 @@ var Expander = React.createClass({
     return (
       <div className="expander-container">
         <div className={className} tabIndex="0" onBlur={this.collapse} onFocus={this.expand}>
-          <div onMouseDown={this.handleMouseDown} className="expander-header">
+          <h4 onMouseDown={this.handleMouseDown} className="expander-header">
             {this.props.head}
             <span className="ion"></span>
-          </div>
+          </h4>
           <div className="expander-items-container">
             <div className="items-margin">
               {this.props.children}

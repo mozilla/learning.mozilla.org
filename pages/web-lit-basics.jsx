@@ -9,15 +9,15 @@ var CurriculumIntro = React.createClass({
   render: function () {
     return (
       <div>
-        <h1>Clubs Curriculum</h1>
+        <h1>Web Literacy Basics</h1>
         <section className="intro">
           <Illustration
           height={204} width={204}
-          src1x="/img/pages/clubs-curriculum/photo-clubs-curriculum.jpg"
-          src2x="/img/pages/clubs-curriculum/photo-clubs-curriculum@2x.jpg"
+          src1x="/img/pages/web-lit-basics/photo-clubs-curriculum.jpg"
+          src2x="/img/pages/web-lit-basics/photo-clubs-curriculum@2x.jpg"
           alt="Woman training a young man on a computer"
           className="img-circle">
-            <h2>Activities to teach the web in your club. Developed and tested by our seasoned educator community. Easy to use, guaranteed fun. </h2>
+            <h2>Learners get familiar with reading, writing and participating on the web in this six-part module. Discover the foundations of the web through production and collaboration.</h2>
           </Illustration>
         </section>
       </div>
@@ -30,11 +30,9 @@ var WebLitBasics = React.createClass({
     return (
       <section className="row web-lit-basics">
         <div className="col-sm-12">
-          <h2>Web Literacy Basics</h2>
+          <h2>Learning Objectives</h2>
           <p>
-            Learners get familiar with reading, writing and participating on the web in this six-part module. Discover
-            the foundations of the web through production and collaboration. The learning objectives underpinning each
-            activity are informed by Mozilla&apos;s <Link to="web-literacy">Web Literacy Map</Link>. Complete the activities in
+            The learning objectives underpinning each activity are informed by Mozilla&apos;s <Link to="web-literacy">Web Literacy Map</Link>. Complete the activities in
             sequence, or mix and match for your learners. Need help{'? '}
             <a href="http://discourse.webmaker.org/category/clubs">Visit our discussion forum</a> to get help and share
             your experience.
@@ -82,32 +80,10 @@ var CurriculumSection = React.createClass({
   }
 });
 
-var LearnMoreSection = React.createClass({
-  render: function () {
-    return (
-      <section className="row page-end">
-        <ImageTag alt="Icon representing Web Literacy—A smart phone inside a stylized atom illustration"
-            className="center-block" src1x="/img/pages/clubs-curriculum/icon-web-literacy.jpg"
-            src2x="/img/pages/clubs-curriculum/icon-web-literacy@2x.jpg" width={292} height={102} />
-          <h3 className="learn-more">
-            <em>What is Web Literacy{'?'}</em></h3>
-          <p className="learn-more">
-            Mozilla defines Web Literacy as the skills and competencies needed for reading, writing, and participating
-            on the web.
-          </p>
-          <p className="learn-more">
-            <Link to="web-literacy">Learn More</Link>
-          </p>
-          <img src="/img/pages/clubs-curriculum/svg/web-literacy-divider.svg" alt="" className="center-block"/>
-      </section>
-    );
-  }
-});
-
 var ClubsCurriculum = React.createClass({
   statics: {
-    pageTitle: 'Clubs Curriculum',
-    pageClassName: 'clubs-curriculum'
+    pageTitle: 'Web Literacy Basics',
+    pageClassName: 'web-lit-basics'
   },
   curriculum: [
     {
@@ -115,8 +91,8 @@ var ClubsCurriculum = React.createClass({
       activities: [
         {
           title: "Kraken the Code",
-          image1x: "/img/pages/clubs-curriculum/img-kraken-code.jpg",
-          image2x: "/img/pages/clubs-curriculum/img-kraken-code@2x.jpg",
+          image1x: "/img/pages/web-lit-basics/img-kraken-code.jpg",
+          image2x: "/img/pages/web-lit-basics/img-kraken-code@2x.jpg",
           imageAlt: "An illustration of water with a sea monster and a boat in it",
           subtitle: "Understanding credibility",
           description: "Learners use the Internet to solve the mystery of The Kraken, a legendary sea creature, while also learning about search terms, keywords, and how to assess the validity and relevance of web sources.",
@@ -124,8 +100,8 @@ var ClubsCurriculum = React.createClass({
         },
         {
           title: "Ping Kong",
-          image1x: "/img/pages/clubs-curriculum/img-ping-kong.jpg",
-          image2x: "/img/pages/clubs-curriculum/img-ping-kong@2x.jpg",
+          image1x: "/img/pages/web-lit-basics/img-ping-kong.jpg",
+          image2x: "/img/pages/web-lit-basics/img-ping-kong@2x.jpg",
           imageAlt: "An illustration of the Empire State Building, with several helicopters circling",
           subtitle: "Understanding web mechanics",
           description: "For many, &ldquo;the Internet&rdquo; is an abstract and overwhelming concept. This activity challenges learners to think concretely about how the internet communicates with a computer.",
@@ -138,8 +114,8 @@ var ClubsCurriculum = React.createClass({
       activities: [
         {
           title: "Hack the News",
-          image1x: "/img/pages/clubs-curriculum/img-hack-news.jpg",
-          image2x: "/img/pages/clubs-curriculum/img-hack-news@2x.jpg",
+          image1x: "/img/pages/web-lit-basics/img-hack-news.jpg",
+          image2x: "/img/pages/web-lit-basics/img-hack-news@2x.jpg",
           imageAlt: "An illustration of a newspaper, with a headline of &ldquo;Hack the News&rdquo;",
           subtitle: "Understanding remixing",
           description: "Learners use X-Ray Goggles to remix a news website, learning about openly-licensed resources, different forms of media, and how to create something new on the Web through remixing.",
@@ -147,8 +123,8 @@ var ClubsCurriculum = React.createClass({
         },
         {
           title: "HTML Puzzle Boxes",
-          image1x: "/img/pages/clubs-curriculum/img-puzzle-boxes.jpg",
-          image2x: "/img/pages/clubs-curriculum/img-puzzle-boxes@2x.jpg",
+          image1x: "/img/pages/web-lit-basics/img-puzzle-boxes.jpg",
+          image2x: "/img/pages/web-lit-basics/img-puzzle-boxes@2x.jpg",
           imageAlt: "A photograph of several paper boxes with HTML tags on them",
           subtitle: "Understanding composing for the web",
           description: "Learners race to sequence the paper boxes labeled with HTML tags, becoming familiar with the most common HTML tags and how to structure a web page.",
@@ -161,8 +137,8 @@ var ClubsCurriculum = React.createClass({
       activities: [
         {
           title: "Web Chef",
-          image1x: "/img/pages/clubs-curriculum/img-web-chef.jpg",
-          image2x: "/img/pages/clubs-curriculum/img-web-chef@2x.jpg",
+          image1x: "/img/pages/web-lit-basics/img-web-chef.jpg",
+          image2x: "/img/pages/web-lit-basics/img-web-chef@2x.jpg",
           imageAlt: "An illustration of a chef",
           subtitle: "Understanding open practices",
           description: "Learners teach their peers a skill and document the steps by making a web resource that includes properly-attributed open content.",
@@ -170,8 +146,8 @@ var ClubsCurriculum = React.createClass({
         },
         {
           title: "Final Project: Story of Us",
-          image1x: "/img/pages/clubs-curriculum/img-story-of-us.jpg",
-          image2x: "/img/pages/clubs-curriculum/img-story-of-us@2x.jpg",
+          image1x: "/img/pages/web-lit-basics/img-story-of-us.jpg",
+          image2x: "/img/pages/web-lit-basics/img-story-of-us@2x.jpg",
           imageAlt: "An illustration of a hand holding a smart phone",
           subtitle: "Understanding community participation",
           description: "Learners tell their Story of Self, use it to reflect  on what they have learned, and how they want to participate on the web and with their community going forward.",
@@ -190,7 +166,6 @@ var ClubsCurriculum = React.createClass({
               <CurriculumSection title={section.title} key={key} activities={section.activities} />
           );
         })}
-        <LearnMoreSection/>
         <CCLicenseNote/>
       </div>
     );

@@ -37,7 +37,8 @@ var ActivityKit = React.createClass({
     "EPIK": "http://epik.org.uk/about/",
     "Steph Guthrie": "http://twitter.com/amirightfolks",
     "Kim Wilkens": "http://twitter.com/kimxtom",
-    "2013 MozGirls": ""
+    "2013 MozGirls": "",
+    "Our seasoned educator community": ""
   },
   render: function() {
     // Generates a nice list of autors with links to their sites.
@@ -103,7 +104,7 @@ var HiveLink = React.createClass({
           <ImageTag className="image-tag"
             src1x={this.props.src1x}
             src2x={this.props.src2x}
-            alt={this.props.name}
+            alt=""
           />
           <span>{this.props.name}</span>
         </a>
@@ -128,6 +129,15 @@ var ActivitiesPage = React.createClass({
             <p>
               Start teaching others how to read, write and participate on the web with these free activities created by teachers, educators and technologists like you. Each featured activity includes step-by-step instructions and has been tested in schools, afterschool programs, libraries and community centers around the globe. Whether learning how to code, understanding why privacy matters, or creating openly-licensed web content, we believe teaching the web should be fun and engaging!
             </p>
+            <ActivityKit
+              src1x="/img/pages/activities/img-activity-curriculum.png"
+              src2x="/img/pages/activities/img-activity-curriculum@2x.png"
+              title="Web Literacy Basics (Teaching Kit) "
+              level="Beginner"
+              link="/activities/web-lit-basics/"
+              developedBy="Our seasoned educator community"
+              description="This six-part series helps learners become familiar with reading, writing and participating on the web. They'll discover the foundations of the web through production and collaboration. This is an ideal kit for Mozilla Clubs."
+            />
             <ActivityKit
               src1x="/img/pages/activities/img-activity-01.png"
               src2x="/img/pages/activities/img-activity-01@2x.png"
