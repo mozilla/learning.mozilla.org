@@ -6,6 +6,18 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.8][] - 2015-06-01
+### Added
+- The add club modal now requires users to mark a checkbox labeled
+  "I have read the Mozilla Clubs Fact Sheet".
+
+### Changed
+- The list of recent blog posts on the homepage is no longer hard-coded,
+  but dynamically pulled from the blog's RSS feed via the Google Feed API.
+- The add/change club modal has better prompts so content featured
+  publicly feels more in fidelity with clubs.
+- Pages now load faster on devices with retina displays.
+
 ## [0.0.7][] - 2015-05-28
 ### Added
 - `srcset` attributes are now link-checked during automated testing.
@@ -163,7 +175,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.7...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.8...HEAD
+[0.0.8]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.7...v0.0.8
 [0.0.7]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.6...v0.0.7
 [0.0.6]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.4...v0.0.5

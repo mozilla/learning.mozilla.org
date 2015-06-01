@@ -1,6 +1,7 @@
 var querystring = require('querystring');
 var React = require('react/addons');
 
+var GoogleBlogFeedLoader = require('./manual-google-blog-feed-loader.jsx');
 var DevRibbon = require('../../components/dev-ribbon.jsx');
 var routes = require('../../lib/routes.jsx');
 
@@ -151,6 +152,10 @@ var ManualTests = React.createClass({
         </nav>
         <div className="container-fluid">
           <h1>Manual Tests</h1>
+          <h2>Internet Services</h2>
+          <p>The following require internet services to work and may be slow depending on your network connection.</p>
+          <GoogleBlogFeedLoader/>
+          <h2>Routes</h2>
           <p>Below are thumbnails of all the pages on the site, rendered <strong>{
             this.props.enableJS ? "with" : "without"
           }</strong> JavaScript enabled.</p>

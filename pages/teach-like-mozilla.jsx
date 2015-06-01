@@ -13,9 +13,7 @@ var TeachLikeMozillaPage = React.createClass({
   render: function() {
     return (
       <div>
-        <HeroUnit
-          image="/img/pages/teach-like-mozilla/hero-teach-like-mozilla.png"
-          image2x="/img/pages/teach-like-mozilla/hero-teach-like-mozilla@2x.png">
+        <HeroUnit>
           <h1>Teach Like Mozilla</h1>
           <h2>We learn best by making & reflecting, together.</h2>
         </HeroUnit>
