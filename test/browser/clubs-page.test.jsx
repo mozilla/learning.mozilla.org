@@ -385,7 +385,7 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
         modal.state.networkError.should.be.false;
         modal.state.result.should.eql({url: 'http://foo'});
         modal.getDOMNode().textContent
-          .should.match(/your club is now displayed on our map/i);
+          .should.match(/thanks for your submission/i);
       });
 
       it("calls onSuccess when user clicks final button", function() {
