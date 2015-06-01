@@ -58,9 +58,9 @@ var TeachLikeMozillaPage = React.createClass({
               <IconLink
                 linkTo="web-literacy"
                 imgSrc="/img/pages/teach-like-mozilla/svg/icon-learn.svg"
-                imgAlt="icon learn"
-                head="Learn"
-                subhead="See our Web Literacy Map"
+                imgAlt="icon understand"
+                head="Understand"
+                subhead="Learn more about the Web Literacy Map"
               />
               <IconLink
                 href="http://discourse.webmaker.org/category/meet"
