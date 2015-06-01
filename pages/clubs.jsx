@@ -19,9 +19,6 @@ var ga = require('react-ga');
 
 var Illustration = require('../components/illustration.jsx');
 
-var PENDING_TEXT = "This club is pending approval and is not visible to other users.";
-var DENIED_TEXT = "This club has been denied approval and is not visible to other users.";
-
 var ClubListItem = React.createClass({
   propTypes: {
     club: React.PropTypes.object.isRequired,
@@ -37,9 +34,9 @@ var ClubListItem = React.createClass({
     var ownerControls = null;
 
     if (club.status === 'pending') {
-      status = <div className="alert alert-warning">{PENDING_TEXT}</div>;
+      status = <div className="alert alert-warning">{Map.CLUB_PENDING_TEXT}</div>;
     } else if (club.status === 'denied') {
-      status = <div className="alert alert-danger">{DENIED_TEXT}</div>;
+      status = <div className="alert alert-danger">{Map.CLUB_DENIED_TEXT}</div>;
     }
 
     if (isOwned) {

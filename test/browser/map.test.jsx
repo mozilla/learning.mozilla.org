@@ -14,6 +14,7 @@ var SAMPLE_FOO_CLUB = {
   description: 'my club',
   website: 'http://example.org/',
   location: 'fooville',
+  status: 'approved',
   name: 'my club'
 };
 
@@ -25,6 +26,7 @@ var SAMPLE_BAR_CLUB = {
   description: 'bar club',
   website: 'http://example.org/bar',
   location: 'barville',
+  status: 'approved',
   name: 'bar club'
 };
 
@@ -129,6 +131,22 @@ describe("Map.MarkerPopup", function() {
     findButtons(popup).length.should.equal(2);
   });
 
+  it("should show when club is pending", function() {
+    var club = _.extend({}, SAMPLE_FOO_CLUB, {status: 'pending'});
+    var popup = TestUtils.renderIntoDocument(
+      <Map.MarkerPopup clubs={[club]} username="bar" />
+    );
+    popup.getDOMNode().textContent.should.match(/pending/);
+  });
+
+  it("should show when club is denied", function() {
+    var club = _.extend({}, SAMPLE_FOO_CLUB, {status: 'denied'});
+    var popup = TestUtils.renderIntoDocument(
+      <Map.MarkerPopup clubs={[club]} username="bar" />
+    );
+    popup.getDOMNode().textContent.should.match(/denied/);
+  });
+
   it("should not show website when it is blank", function() {
     var club = _.extend({}, SAMPLE_FOO_CLUB, {website: ''});
     var popup = TestUtils.renderIntoDocument(
@@ -157,6 +175,7 @@ describe("Map.clubsToGeoJSON()", function() {
       }, properties: {
         clubs: [{
           url: 'http://server/clubs/1/',
+          status: 'approved',
           owner: 'foo',
           description: 'my club',
           website: 'http://example.org/',
