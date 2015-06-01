@@ -88,21 +88,18 @@ var AboutPage = React.createClass({
             <IconLink
               href={config.TWITTER_LINK}
               imgSrc="/img/pages/about/svg/icon-twitter-blue.svg"
-              imgAlt="twitter logo"
               head="Follow Us"
               subhead="Start a conversation on Twitter"
             />
             <IconLink
               href="mailto:teachtheweb@mozillafoundation.org"
               imgSrc="/img/pages/about/svg/icon-get-help-blue.svg"
-              imgAlt="question mark icon"
               head="Get Help"
               subhead="Email us anytime"
             />
             <IconLink
               href="http://discourse.webmaker.org/category/meet"
               imgSrc="/img/pages/about/svg/icon-connect-blue.svg"
-              imgAlt="illustration of two people connecting"
               head="Say Hello"
               subhead="Connect on the #teachtheweb Discourse forum"
             />
