@@ -5,6 +5,8 @@ which uses the format described in
 to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
+
+## [0.0.8][] - 2015-06-01
 ### Added
 - The add club modal now requires users to mark a checkbox labeled
   "I have read the Mozilla Clubs Fact Sheet".
@@ -173,7 +175,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.7...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.8...HEAD
+[0.0.8]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.7...v0.0.8
 [0.0.7]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.6...v0.0.7
 [0.0.6]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.4...v0.0.5
