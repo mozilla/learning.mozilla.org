@@ -97,6 +97,7 @@ describe("ClubsPage.ClubList", function() {
     owner: 'foo',
     website: 'http://example.org',
     location: 'Somewhere, USA',
+    status: 'approved',
     name: 'foo club'
   }];
 
@@ -119,6 +120,24 @@ describe("ClubsPage.ClubList", function() {
       );
       var btns = TestUtils.scryRenderedDOMComponentsWithTag(item, 'button');
       btns.length.should.equal(0);
+    });
+
+    it("shows pending info when status is pending", function() {
+      var item = TestUtils.renderIntoDocument(
+        <Item club={_.extend({}, clubs[0], {
+          status: 'pending'
+        })} onDelete={noop} onEdit={noop} />
+      );
+      item.getDOMNode().textContent.should.match(/pending/);
+    });
+
+    it("shows denied info when status is denied", function() {
+      var item = TestUtils.renderIntoDocument(
+        <Item club={_.extend({}, clubs[0], {
+          status: 'denied'
+        })} onDelete={noop} onEdit={noop} />
+      );
+      item.getDOMNode().textContent.should.match(/denied/);
     });
 
     describe("buttons", function() {
