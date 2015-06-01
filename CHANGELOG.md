@@ -5,6 +5,16 @@ which uses the format described in
 to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
+### Added
+- The add club modal now requires users to mark a checkbox labeled
+  "I have read the Mozilla Clubs Fact Sheet".
+
+### Changed
+- The list of recent blog posts on the homepage is no longer hard-coded,
+  but dynamically pulled from the blog's RSS feed via the Google Feed API.
+- The add/change club modal has better prompts so content featured
+  publicly feels more in fidelity with clubs.
+- Pages now load faster on devices with retina displays.
 
 ## [0.0.7][] - 2015-05-28
 ### Added
