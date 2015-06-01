@@ -12,7 +12,7 @@ var IconButtons = require('../components/icon-buttons.jsx');
 var IconButton = require('../components/icon-button.jsx');
 
 var config = require('../lib/config');
-var loadBlogPosts = require('../lib/blog-feed-loader');
+var loadBlogPosts = require('../lib/google-blog-feed-loader');
 
 var CaseStudies = React.createClass({
   render: function() {
@@ -109,7 +109,7 @@ var BlogSection = React.createClass({
         return;
       }
       this.setState({
-        featuredPost: data.featuredPosts,
+        featuredPost: data.featuredPost,
         latestPosts: data.latestPosts
       });
     }.bind(this));
