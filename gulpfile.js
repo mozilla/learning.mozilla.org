@@ -18,6 +18,7 @@ var jshint = require('gulp-jshint');
 var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 
+var TransifexFileStream = require('./lib/transifex');
 var IndexFileStream = require('./lib/gulp-index-file-stream');
 var webpackConfig = require('./webpack.config');
 var config = require('./lib/config');
@@ -140,6 +141,22 @@ gulp.task('less', function() {
     .pipe(rename('styles.css'))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('transifex', function() {
+  var userpass = (process.env.TRANSIFEX_USERPASS || '').match(/^(.+):(.+)$/);
+
+  if (!userpass) {
+    throw new Error('Please set TRANSIFEX_USERPASS in your environment ' +
+                    'to a string of the form `user:pass`.');
+  }
+
+  return new TransifexFileStream({
+    project: 'webmaker',
+    resource: 'weblit',
+    user: userpass[1],
+    pass: userpass[2]
+  }).pipe(gulp.dest('./locale/weblit'));
 });
 
 gulp.task('webpack', function() {

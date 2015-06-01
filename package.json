@@ -49,6 +49,7 @@
     "webpack": "^1.6.0"
   },
   "devDependencies": {
+    "json-stable-stringify": "^1.0.0",
     "nock": "^2.3.0"
   },
   "scripts": {
