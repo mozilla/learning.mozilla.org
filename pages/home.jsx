@@ -109,7 +109,7 @@ var BlogSection = React.createClass({
         return;
       }
       this.setState({
-        featuredPost: data.featuredPosts,
+        featuredPost: data.featuredPost,
         latestPosts: data.latestPosts
       });
     }.bind(this));
