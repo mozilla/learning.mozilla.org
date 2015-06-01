@@ -48,7 +48,9 @@
     "webmaker-app-icons": "git://github.com/k88hudson/ionicons#teach",
     "webpack": "^1.6.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nock": "^2.3.0"
+  },
   "scripts": {
     "pretest": "rm -rf dist",
     "test": "gulp smoketest && mocha test/*.test.js && npm run browsertest && gulp lint-test && npm run spider",
