@@ -7,7 +7,6 @@ var ActivitySection = React.createClass({
     activities: React.PropTypes.array.isRequired
   },
   render: function () {
-    console.log("this.props.title", this.props.title);
     return (
       <section className="activity-section">
         <h2>

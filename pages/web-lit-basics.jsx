@@ -1,5 +1,6 @@
 var React = require('react');
 var Illustration = require('../components/illustration.jsx');
+var ActivitySection = require('../components/activity-section.jsx');
 var CCLicenseNote = require('../components/cc-license-note.jsx');
 var Router = require('react-router');
 var Link = Router.Link;
@@ -37,43 +38,6 @@ var WebLitBasics = React.createClass({
             your experience.
           </p>
         </div>
-      </section>
-    );
-  }
-});
-
-var CurriculumSection = React.createClass({
-  propTypes: {
-    title: React.PropTypes.string.isRequired,
-    activities: React.PropTypes.array.isRequired
-  },
-  render: function () {
-    return (
-      <section>
-        <h2 className="curriculum-section-header">
-          Section {this.props.title}
-        </h2>
-        {this.props.activities.map(function (activity, i) {
-          return (
-            <div className="activity" key={i}>
-              <Illustration height={122} width={122}
-              src1x={activity.image1x}
-              src2x={activity.image2x}
-              alt={activity.imageAlt}
-              link={activity.link}>
-                <div className="curriculum-description">
-                  <a href={activity.link}>
-                    <h3>{activity.title}</h3>
-                  </a>
-                  <p>
-                    <em>{activity.subtitle}</em>
-                  </p>
-                  <p className="description" dangerouslySetInnerHTML={{__html: activity.description}}></p>
-                </div>
-              </Illustration>
-            </div>
-          )
-        })}
       </section>
     );
   }
@@ -162,7 +126,7 @@ var ClubsCurriculum = React.createClass({
         <WebLitBasics/>
         {this.curriculum.map(function (section, key) {
           return (
-              <CurriculumSection title={section.title} key={key} activities={section.activities} />
+            <ActivitySection title={section.title} key={key} activities={section.activities} />
           );
         })}
         <CCLicenseNote/>

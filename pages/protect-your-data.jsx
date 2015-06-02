@@ -27,7 +27,7 @@ var Intro = React.createClass({
 
 
 var LearningObjectives = React.createClass({
-  render: function () { // TODO: update Link to weblit after #396 is merged
+  render: function () {
     return (
       <section className="row web-lit-basics">
         <div className="col-sm-12">
