@@ -139,6 +139,15 @@ var ActivitiesPage = React.createClass({
               description="This six-part series helps learners become familiar with reading, writing and participating on the web. They'll discover the foundations of the web through production and collaboration. This is an ideal kit for Mozilla Clubs."
             />
             <ActivityKit
+              src1x="/img/pages/protect-your-data/protect-your-data.png"
+              src2x="/img/pages/protect-your-data/protect-your-data@2x.png"
+              title="Protect Your Data"
+              level="???"
+              link="/activities/protect-your-data/"
+              developedBy="???"
+              description="???"
+            />
+            <ActivityKit
               src1x="/img/pages/activities/img-activity-01.png"
               src2x="/img/pages/activities/img-activity-01@2x.png"
               title="Lo-Fi, No-Fi (Teaching Kit)"
