@@ -140,7 +140,7 @@ var Quote = React.createClass({
       <div className="row">
         <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
           <Blockquote className="primary-quote" author="Mikko K, Helsinki, Finland"
-              imgSrc="/img/pages/clubs/mikko-finland.png" imgSrc2x="/img/pages/clubs/mikko-finland@2x.png" imgAlt="Mikko Finland Quote">
+              imgSrc="/img/pages/clubs/mikko-finland.png" imgSrc2x="/img/pages/clubs/mikko-finland@2x.png">
 
             <p>The idea of teachers and students learning at the same time is what makes me excited about this work.</p>
           </Blockquote>
@@ -588,22 +588,19 @@ var ClubsPage = React.createClass({
             <IconLinks>
               <IconLink
                 linkTo="web-lit-basics"
-              imgSrc="/img/pages/clubs/svg/icon-curriculum.svg"
-                imgAlt="icon curriculum"
+                imgSrc="/img/pages/clubs/svg/icon-curriculum.svg"
                 head="Curriculum"
                 subhead="Modular Web Literacy curriculum"
               />
               <IconLink
                 href="http://discourse.webmaker.org/category/meet"
                 imgSrc="/img/pages/clubs/svg/icon-connect.svg"
-                imgAlt="icon connect"
                 head="Connect"
                 subhead="Connect with other Club Leaders"
               />
               <IconLink
                 linkTo="clubs-toolkit"
                 imgSrc="/img/pages/clubs/svg/icon-tips.svg"
-                imgAlt="icon tips"
                 head="Helpful Tips"
                 subhead="Tips for running your Club"
               />
