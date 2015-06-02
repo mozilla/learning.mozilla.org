@@ -11,13 +11,13 @@ var Intro = React.createClass({
   render: function () {
     return (
         <div>
-          <h1>About Mozilla Learning Networks</h1>
+          <h1>About the Mozilla Learning Networks</h1>
           <section className="intro">
             <Illustration width={226} height={226}
             className="img-circle"
             src1x="/img/pages/about/hive-nyc-summer-quest.jpg"
             alt="HiveLearningNYC 2014 Hive NYC Summer Quest Maker Party">
-              <p>We want more people to see themselves as citizens of the web. Mozilla Learning Networks offers programs and a global community dedicated to helping people learn the most important skills of our age: <em>the ability to read, write and participate in the digital world.</em></p>
+              <p>We want more people to see themselves as citizens of the web. The Mozilla Learning Networks offers programs and a global community dedicated to helping people learn the most important skills of our age: <em>the ability to read, write and participate in the digital world.</em></p>
             </Illustration>
           </section>
         </div>
