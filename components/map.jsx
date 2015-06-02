@@ -9,8 +9,6 @@ var DEFAULT_STYLESHEETS = config.IN_TEST_SUITE ? [] : [
   'https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css',
   'https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css'
 ];
-var CLUB_PENDING_TEXT = "This club is pending approval and is not visible to other users.";
-var CLUB_DENIED_TEXT = "This club has been denied approval and is not visible to other users.";
 
 var mapboxId = process.env.MAPBOX_MAP_ID || 'alicoding.ldmhe4f3';
 var accessToken = process.env.MAPBOX_ACCESS_TOKEN || 'pk.eyJ1IjoiYWxpY29kaW5nIiwiYSI6Il90WlNFdE0ifQ.QGGdXGA_2QH-6ujyZE2oSg';
@@ -73,6 +71,40 @@ var MarkerPopup = React.createClass({
   }
 });
 
+var ClubStatusLabel = React.createClass({
+  propTypes: {
+    status: React.PropTypes.string.isRequired,
+    showApproved: React.PropTypes.bool
+  },
+  render: function() {
+    if (this.props.status === 'pending') {
+      return (
+        <span className="label label-warning"
+         title="This club is pending approval and is not visible to other users.">
+          pending
+        </span>
+      );
+    } else if (this.props.status === 'denied') {
+      return (
+        <span className="label label-danger"
+         title="This club has been denied approval and is not visible to other users.">
+          denied
+        </span>
+      );
+    }
+    if (this.props.showApproved) {
+      return (
+        <span className="label label-success"
+         title="This club has been approved and is visible to everyone.">
+          approved
+        </span>
+      );
+    } else {
+      return <span></span>;
+    }
+  }
+});
+
 var MarkerPopupClub = React.createClass({
   getWebsiteDomain: function() {
     return urlParse(this.props.website).hostname;
@@ -80,7 +112,6 @@ var MarkerPopupClub = React.createClass({
   render: function() {
     var website = null;
     var actions = null;
-    var status = null;
 
     if (this.props.website) {
       website = (
@@ -88,12 +119,6 @@ var MarkerPopupClub = React.createClass({
           {this.getWebsiteDomain()}
         </a></p>
       );
-    }
-
-    if (this.props.status === 'pending') {
-      status = <span className="label label-warning" title={CLUB_PENDING_TEXT}>pending</span>;
-    } else if (this.props.status === 'denied') {
-      status = <span className="label label-danger" title={CLUB_DENIED_TEXT}>denied</span>;
     }
 
     if (this.props.isOwned) {
@@ -115,7 +140,7 @@ var MarkerPopupClub = React.createClass({
 
     return (
       <div>
-        <b>{this.props.title} {status}<br/></b>
+        <b>{this.props.title} <ClubStatusLabel status={this.props.status}/><br/></b>
         <i>{this.props.location}</i>
         <br/>
         <br/>
@@ -139,8 +164,7 @@ var Map = React.createClass({
     onReady: React.PropTypes.func
   },
   statics: {
-    CLUB_PENDING_TEXT: CLUB_PENDING_TEXT,
-    CLUB_DENIED_TEXT: CLUB_DENIED_TEXT,
+    ClubStatusLabel: ClubStatusLabel,
     MarkerPopup: MarkerPopup,
     clubsToGeoJSON: geoJSONit,
     setAccessToken: function(value) {

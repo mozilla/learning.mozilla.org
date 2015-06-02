@@ -23,21 +23,14 @@ var ClubListItem = React.createClass({
   propTypes: {
     club: React.PropTypes.object.isRequired,
     username: React.PropTypes.string,
-    onDelete: React.PropTypes.func.isRequired,
-    onEdit: React.PropTypes.func.isRequired
+    onDelete: React.PropTypes.func,
+    onEdit: React.PropTypes.func
   },
   render: function() {
     var club = this.props.club;
     var clubName = club.website ? <a href={club.website}>{club.name}</a> : club.name;
     var isOwned = (club.owner === this.props.username);
-    var status = null;
     var ownerControls = null;
-
-    if (club.status === 'pending') {
-      status = <div className="alert alert-warning">{Map.CLUB_PENDING_TEXT}</div>;
-    } else if (club.status === 'denied') {
-      status = <div className="alert alert-danger">{Map.CLUB_DENIED_TEXT}</div>;
-    }
 
     if (isOwned) {
       ownerControls = (
@@ -55,11 +48,10 @@ var ClubListItem = React.createClass({
 
     return (
       <li>
-        <h4>{clubName}</h4>
+        <h4>{clubName} <Map.ClubStatusLabel showApproved={isOwned} status={club.status}/></h4>
         <p><em>{club.location.split(',')[0]}</em></p>
         <p>{club.description}</p>
         <p><small>Led by <a href={"https://webmaker.org/en-US/search?type=user&q=" + club.owner}>{club.owner}</a></small></p>
-        {status}
         {ownerControls}
       </li>
     );
@@ -72,8 +64,8 @@ var ClubList = React.createClass({
   propTypes: {
     clubs: React.PropTypes.array.isRequired,
     username: React.PropTypes.string,
-    onDelete: React.PropTypes.func.isRequired,
-    onEdit: React.PropTypes.func.isRequired
+    onDelete: React.PropTypes.func,
+    onEdit: React.PropTypes.func
   },
   statics: {
     Item: ClubListItem
@@ -510,6 +502,54 @@ var ModalAddOrChangeYourClub = React.createClass({
   }
 });
 
+var ClubLists = React.createClass({
+  propTypes: {
+    clubs: React.PropTypes.array.isRequired,
+    username: React.PropTypes.string,
+    onDelete: React.PropTypes.func.isRequired,
+    onEdit: React.PropTypes.func.isRequired
+  },
+  render: function() {
+    var username = this.props.username;
+    var userClubs = [];
+    var otherClubs = [];
+    var userHasUnapprovedClubs = false;
+
+    this.props.clubs.forEach(function(club) {
+      if (club.owner === username) {
+        if (club.status !== 'approved') {
+          userHasUnapprovedClubs = true;
+        }
+        userClubs.push(club);
+      } else {
+        otherClubs.push(club);
+      }
+    });
+
+    return (
+      <div>
+        {userClubs.length ? (
+          <div>
+            <h3>My Clubs</h3>
+            <ClubList
+             clubs={userClubs}
+             username={username}
+             onDelete={this.props.onDelete}
+             onEdit={this.props.onEdit}/>
+             {userHasUnapprovedClubs ? (
+               <div className="alert alert-warning">
+                 <strong>Note:</strong> All clubs pending approval or denied are not visible to other users.
+               </div>
+             ) : null}
+          </div>
+        ) : null}
+        <h3>Club List</h3>
+        <ClubList clubs={otherClubs}/>
+      </div>
+    );
+  }
+});
+
 var ClubsPage = React.createClass({
   mixins: [ModalManagerMixin, TeachAPIClientMixin],
   contextTypes: {
@@ -583,8 +623,7 @@ var ClubsPage = React.createClass({
                onDelete={this.handleClubDelete}
                onEdit={this.handleClubEdit}/>
             </div>
-            <ClubList
-             clubs={clubs}
+            <ClubLists clubs={clubs}
              username={username}
              onDelete={this.handleClubDelete}
              onEdit={this.handleClubEdit}/>
