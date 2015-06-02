@@ -55,7 +55,6 @@ var ProtectYourData = React.createClass({
           title: "IP Tracer",
           image1x: "/img/pages/protect-your-data/img-iptracer.png",
           image2x: "/img/pages/protect-your-data/img-iptracer@2x.png",
-          imageAlt: "",
           subtitle: "Understanding privacy",
           description: "Learners explore internet protocol (IP) addresses and create a map to illustrate their associations with individuals, devices, or websites.",
           link: "http://mozilla.github.io/webmaker-curriculum/ProtectingYourData/session01-ip.html"
@@ -64,7 +63,6 @@ var ProtectYourData = React.createClass({
           title: "Understanding security",
           image1x: "/img/pages/protect-your-data/img-password.png",
           image2x: "/img/pages/protect-your-data/img-password@2x.png",
-          imageAlt: "",
           subtitle: "Understanding web mechanics",
           description: "Learners investigate the differences between weak and strong passwords, and create a collage to document bad password practices.",
           link: "http://mozilla.github.io/webmaker-curriculum/ProtectingYourData/session01-password-collage.html"
@@ -78,7 +76,6 @@ var ProtectYourData = React.createClass({
           title: "Cookies and Third-Party Tracking",
           image1x: "/img/pages/protect-your-data/img-cookies.png",
           image2x: "/img/pages/protect-your-data/img-cookies@2x.png",
-          imageAlt: "",
           subtitle: "Understanding privacy and open practices",
           description: "Using a free and open source tool called Mozilla Lightbeam, learners see how cookies and third-party trackers monitor their everyday tasks on the web. Then they divide into teams and race to see who can gather the most trackers.",
           link: "http://mozilla.github.io/webmaker-curriculum/ProtectingYourData/session02-lightbeam.html"
@@ -87,7 +84,6 @@ var ProtectYourData = React.createClass({
           title: "Draw Secure Passwords",
           image1x: "/img/pages/protect-your-data/img-password.png",
           image2x: "/img/pages/protect-your-data/img-password@2x.png",
-          imageAlt: "",
           subtitle: "Understanding privacy and security",
           description: "Learners generate pass-phrases, pronounceable and random passwords based on best practices. Then they create a survey to pass along their knowledge to friends and family.",
           link: "http://mozilla.github.io/webmaker-curriculum/ProtectingYourData/session02-secure-passwords.html"
@@ -101,7 +97,6 @@ var ProtectYourData = React.createClass({
           title: "Data Trail Timeline",
           image1x: "/img/pages/protect-your-data/img-datatrail.png",
           image2x: "/img/pages/protect-your-data/img-datatrail@2x.png",
-          imageAlt: "",
           subtitle: "Understanding remixing, privacy",
           description: "Learners create a timeline, video or slideshow remix to demonstrate how information gets collected by companies and other organizations throughout the course of a typical day.",
           link: "http://mozilla.github.io/webmaker-curriculum/ProtectingYourData/session03-datatrail.html"
@@ -110,7 +105,6 @@ var ProtectYourData = React.createClass({
           title: "Privacy Coach",
           image1x: "/img/pages/protect-your-data/img-privacycoach.png",
           image2x: "/img/pages/protect-your-data/img-privacycoach@2x.png",
-          imageAlt: "",
           subtitle: "Understanding privacy and open practices",
           description: "Learners become privacy mentors to their peers by sharing their expertise through discussion or creating their own &ldquo;recipe&rdquo; documentation on privacy.",
           link: "http://mozilla.github.io/webmaker-curriculum/ProtectingYourData/session03-privacycoach.html"
