@@ -34,6 +34,7 @@ function generateWithPageHTML(url, options, pageHTML) {
       <head>
         <meta charSet="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta property="og:description" content="We want more people to see themselves as citizens of the web. The Mozilla Learning Network offers programs and a global community dedicated to helping people learn the most important skills of our age: the ability to read, write and participate in the digital world."/>
         {Object.keys(options.meta).map(function(name, i) {
           return <meta key={i} name={name} content={options.meta[name]}/>;
         })}
