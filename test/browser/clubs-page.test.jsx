@@ -88,6 +88,71 @@ describe("ClubsPage", function() {
   });
 });
 
+describe("ClubsPage.ClubLists", function() {
+  var ClubLists = ClubsPage.ClubLists;
+  var noop = function() {};
+  var clubs = [{
+    owner: 'foo',
+    website: 'http://example.org',
+    location: 'Somewhere, USA',
+    status: 'approved',
+    name: 'foo club'
+  }, {
+    owner: 'bar',
+    website: 'http://example.org/bar',
+    location: 'Somewhere Else, USA',
+    status: 'pending',
+    name: 'bar club'
+  }];
+
+  it("doesn't show 'My Clubs' when logged out", function() {
+    var lists = TestUtils.renderIntoDocument(
+      <ClubLists clubs={clubs} onDelete={noop} onEdit={noop}/>
+    );
+    lists.getDOMNode().textContent.should.not.match(/My Clubs/);
+  });
+
+  it("shows 'My Clubs' when logged-in user has clubs", function() {
+    var lists = TestUtils.renderIntoDocument(
+      <ClubLists clubs={clubs} onDelete={noop} onEdit={noop} username="foo"/>
+    );
+    lists.getDOMNode().textContent.should.match(/My Clubs/);
+  });
+
+  it("properly separates user's clubs from other clubs", function() {
+    var lists = TestUtils.renderIntoDocument(
+      <ClubLists clubs={clubs} onDelete={noop} onEdit={noop} username="foo"/>
+    );
+    lists.state.userClubs.should.eql([clubs[0]]);
+    lists.state.otherClubs.should.eql([clubs[1]]);
+  });
+
+  it("doesn't show note about unapproved clubs if there aren't any", function() {
+    var lists = TestUtils.renderIntoDocument(
+      <ClubLists clubs={clubs} onDelete={noop} onEdit={noop} username="foo"/>
+    );
+    lists.getDOMNode().textContent.should.not.match(/Note:/);
+    lists.state.userHasUnapprovedClubs.should.be.false;
+  });
+
+  it("shows note about unapproved clubs if there are any", function() {
+    var lists = TestUtils.renderIntoDocument(
+      <ClubLists clubs={clubs} onDelete={noop} onEdit={noop} username="bar"/>
+    );
+    lists.getDOMNode().textContent.should.match(/Note:/);
+    lists.state.userHasUnapprovedClubs.should.be.true;
+  });
+
+  it("updates its state when its props change", function() {
+    var lists = TestUtils.renderIntoDocument(
+      <ClubLists clubs={[]} onDelete={noop} onEdit={noop}/>
+    );
+    lists.state.userHasUnapprovedClubs.should.be.false;
+    lists.componentWillReceiveProps({ clubs: clubs, username: 'bar' });
+    lists.state.userHasUnapprovedClubs.should.be.true;
+  });
+});
+
 describe("ClubsPage.ClubList", function() {
   var ClubList = ClubsPage.ClubList;
   var Item = ClubList.Item;

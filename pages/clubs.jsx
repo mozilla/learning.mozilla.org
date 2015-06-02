@@ -509,13 +509,16 @@ var ClubLists = React.createClass({
     onDelete: React.PropTypes.func.isRequired,
     onEdit: React.PropTypes.func.isRequired
   },
-  render: function() {
-    var username = this.props.username;
+  componentWillMount: function() {
+    this.componentWillReceiveProps(this.props);
+  },
+  componentWillReceiveProps: function(props) {
+    var username = props.username;
     var userClubs = [];
     var otherClubs = [];
     var userHasUnapprovedClubs = false;
 
-    this.props.clubs.forEach(function(club) {
+    props.clubs.forEach(function(club) {
       if (club.owner === username) {
         if (club.status !== 'approved') {
           userHasUnapprovedClubs = true;
@@ -526,17 +529,24 @@ var ClubLists = React.createClass({
       }
     });
 
+    this.setState({
+      userClubs: userClubs,
+      otherClubs: otherClubs,
+      userHasUnapprovedClubs: userHasUnapprovedClubs
+    });
+  },
+  render: function() {
     return (
       <div>
-        {userClubs.length ? (
+        {this.state.userClubs.length ? (
           <div>
             <h3>My Clubs</h3>
             <ClubList
-             clubs={userClubs}
-             username={username}
+             clubs={this.state.userClubs}
+             username={this.props.username}
              onDelete={this.props.onDelete}
              onEdit={this.props.onEdit}/>
-             {userHasUnapprovedClubs ? (
+             {this.state.userHasUnapprovedClubs ? (
                <div className="alert alert-warning">
                  <strong>Note:</strong> All clubs pending approval or denied are not visible to other users.
                </div>
@@ -544,7 +554,7 @@ var ClubLists = React.createClass({
           </div>
         ) : null}
         <h3>Club List</h3>
-        <ClubList clubs={otherClubs}/>
+        <ClubList clubs={this.state.otherClubs}/>
       </div>
     );
   }
@@ -559,6 +569,7 @@ var ClubsPage = React.createClass({
     normalizeClub: normalizeClub,
     validateClub: validateClub,
     ClubList: ClubList,
+    ClubLists: ClubLists,
     ModalAddOrChangeYourClub: ModalAddOrChangeYourClub,
     ModalRemoveYourClub: ModalRemoveYourClub,
     teachAPIEvents: {
