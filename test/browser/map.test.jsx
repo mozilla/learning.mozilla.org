@@ -225,6 +225,36 @@ describe("Map.simplifyMapboxGeoJSON()", function() {
   });
 });
 
+describe("Map.ClubStatusLabel", function() {
+  it("is empty when status is approved and showApproved is false", function() {
+    var label = TestUtils.renderIntoDocument(
+      <Map.ClubStatusLabel status="approved" />
+    );
+    label.getDOMNode().textContent.should.equal('');
+  });
+
+  it("is 'approved' when status is approved and showApproved is true", function() {
+    var label = TestUtils.renderIntoDocument(
+      <Map.ClubStatusLabel status="approved" showApproved />
+    );
+    label.getDOMNode().textContent.should.equal('approved');
+  });
+
+  it("is 'denied' when status is denied", function() {
+    var label = TestUtils.renderIntoDocument(
+      <Map.ClubStatusLabel status="denied" />
+    );
+    label.getDOMNode().textContent.should.equal('denied');
+  });
+
+  it("is 'pending' when status is pending", function() {
+    var label = TestUtils.renderIntoDocument(
+      <Map.ClubStatusLabel status="pending" />
+    );
+    label.getDOMNode().textContent.should.equal('pending');
+  });
+});
+
 describe("Map.getAutocompleteOptions()", function() {
   var xhr, requests;
 
