@@ -73,7 +73,11 @@ var MarkerPopup = React.createClass({
 
 var ClubStatusLabel = React.createClass({
   propTypes: {
-    status: React.PropTypes.string.isRequired,
+    status: React.PropTypes.oneOf([
+      'pending',
+      'approved',
+      'denied'
+    ]).isRequired,
     showApproved: React.PropTypes.bool
   },
   render: function() {
