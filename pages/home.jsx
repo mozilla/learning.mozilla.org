@@ -109,7 +109,7 @@ var BlogSection = React.createClass({
         return;
       }
       this.setState({
-        featuredPost: data.featuredPosts,
+        featuredPost: data.featuredPost,
         latestPosts: data.latestPosts
       });
     }.bind(this));
@@ -171,7 +171,7 @@ var HomePage = React.createClass({
                 src1x="/img/pages/about/about-illustration.svg" src2x="/img/pages/about/about-illustration.svg"
                 alt="">
                   <h2>About Us</h2>
-                  <p>We want more people to see themselves as citizens of the web. Mozilla Learning Networks offers programs and a global community dedicated to helping people learn the most important skills of our age: <em>the ability to read, write and participate in the digital world.</em> <Link to="about" className="more">Learn more</Link></p>
+                  <p>We want more people to see themselves as citizens of the web. The Mozilla Learning Network offers programs and a global community dedicated to helping people learn the most important skills of our age: <em>the ability to read, write and participate in the digital world.</em> <Link to="about" className="more">Learn more</Link></p>
               </Illustration>
             </div>
           </section>
@@ -189,21 +189,18 @@ var HomePage = React.createClass({
             <IconLink
               href={config.TWITTER_LINK}
               imgSrc="/img/pages/about/svg/icon-twitter-blue.svg"
-              imgAlt=""
               head="Follow Us"
               subhead="Start a conversation on Twitter"
             />
             <IconLink
               href="mailto:teachtheweb@mozillafoundation.org"
               imgSrc="/img/pages/about/svg/icon-get-help-blue.svg"
-              imgAlt=""
               head="Get Help"
               subhead="Email us anytime"
             />
             <IconLink
               href="http://discourse.webmaker.org/category/meet"
               imgSrc="/img/pages/about/svg/icon-connect-blue.svg"
-              imgAlt=""
               head="Say Hello"
               subhead="Connect on the Discourse forum"
             />

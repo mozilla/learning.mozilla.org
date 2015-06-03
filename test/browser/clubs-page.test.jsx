@@ -88,6 +88,71 @@ describe("ClubsPage", function() {
   });
 });
 
+describe("ClubsPage.ClubLists", function() {
+  var ClubLists = ClubsPage.ClubLists;
+  var noop = function() {};
+  var clubs = [{
+    owner: 'foo',
+    website: 'http://example.org',
+    location: 'Somewhere, USA',
+    status: 'approved',
+    name: 'foo club'
+  }, {
+    owner: 'bar',
+    website: 'http://example.org/bar',
+    location: 'Somewhere Else, USA',
+    status: 'pending',
+    name: 'bar club'
+  }];
+
+  it("doesn't show 'My Clubs' when logged out", function() {
+    var lists = TestUtils.renderIntoDocument(
+      <ClubLists clubs={clubs} onDelete={noop} onEdit={noop}/>
+    );
+    lists.getDOMNode().textContent.should.not.match(/My Clubs/);
+  });
+
+  it("shows 'My Clubs' when logged-in user has clubs", function() {
+    var lists = TestUtils.renderIntoDocument(
+      <ClubLists clubs={clubs} onDelete={noop} onEdit={noop} username="foo"/>
+    );
+    lists.getDOMNode().textContent.should.match(/My Clubs/);
+  });
+
+  it("properly separates user's clubs from other clubs", function() {
+    var lists = TestUtils.renderIntoDocument(
+      <ClubLists clubs={clubs} onDelete={noop} onEdit={noop} username="foo"/>
+    );
+    lists.state.userClubs.should.eql([clubs[0]]);
+    lists.state.otherClubs.should.eql([clubs[1]]);
+  });
+
+  it("doesn't show note about unapproved clubs if there aren't any", function() {
+    var lists = TestUtils.renderIntoDocument(
+      <ClubLists clubs={clubs} onDelete={noop} onEdit={noop} username="foo"/>
+    );
+    lists.getDOMNode().textContent.should.not.match(/Note:/);
+    lists.state.userHasUnapprovedClubs.should.be.false;
+  });
+
+  it("shows note about unapproved clubs if there are any", function() {
+    var lists = TestUtils.renderIntoDocument(
+      <ClubLists clubs={clubs} onDelete={noop} onEdit={noop} username="bar"/>
+    );
+    lists.getDOMNode().textContent.should.match(/Note:/);
+    lists.state.userHasUnapprovedClubs.should.be.true;
+  });
+
+  it("updates its state when its props change", function() {
+    var lists = TestUtils.renderIntoDocument(
+      <ClubLists clubs={[]} onDelete={noop} onEdit={noop}/>
+    );
+    lists.state.userHasUnapprovedClubs.should.be.false;
+    lists.componentWillReceiveProps({ clubs: clubs, username: 'bar' });
+    lists.state.userHasUnapprovedClubs.should.be.true;
+  });
+});
+
 describe("ClubsPage.ClubList", function() {
   var ClubList = ClubsPage.ClubList;
   var Item = ClubList.Item;
@@ -97,6 +162,7 @@ describe("ClubsPage.ClubList", function() {
     owner: 'foo',
     website: 'http://example.org',
     location: 'Somewhere, USA',
+    status: 'approved',
     name: 'foo club'
   }];
 
@@ -119,6 +185,24 @@ describe("ClubsPage.ClubList", function() {
       );
       var btns = TestUtils.scryRenderedDOMComponentsWithTag(item, 'button');
       btns.length.should.equal(0);
+    });
+
+    it("shows pending info when status is pending", function() {
+      var item = TestUtils.renderIntoDocument(
+        <Item club={_.extend({}, clubs[0], {
+          status: 'pending'
+        })} onDelete={noop} onEdit={noop} />
+      );
+      item.getDOMNode().textContent.should.match(/pending/);
+    });
+
+    it("shows denied info when status is denied", function() {
+      var item = TestUtils.renderIntoDocument(
+        <Item club={_.extend({}, clubs[0], {
+          status: 'denied'
+        })} onDelete={noop} onEdit={noop} />
+      );
+      item.getDOMNode().textContent.should.match(/denied/);
     });
 
     describe("buttons", function() {
@@ -366,7 +450,7 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
         modal.state.networkError.should.be.false;
         modal.state.result.should.eql({url: 'http://foo'});
         modal.getDOMNode().textContent
-          .should.match(/your club is now displayed on our map/i);
+          .should.match(/thanks for your submission/i);
       });
 
       it("calls onSuccess when user clicks final button", function() {

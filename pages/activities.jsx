@@ -38,7 +38,10 @@ var ActivityKit = React.createClass({
     "Steph Guthrie": "http://twitter.com/amirightfolks",
     "Kim Wilkens": "http://twitter.com/kimxtom",
     "2013 MozGirls": "",
-    "Our seasoned educator community": ""
+    "Our seasoned educator community": "",
+    "the Office of the Privacy Commissioner of Canada": "https://www.priv.gc.ca/index_e.asp",
+    "Mozilla Privacy": "https://www.mozilla.org/privacy/"
+
   },
   render: function() {
     // Generates a nice list of autors with links to their sites.
@@ -46,13 +49,17 @@ var ActivityKit = React.createClass({
     // Displays the last author with an "and" and an oxford comma.
     var _this = this;
     var hasDash = this.props.developedBy.indexOf("-") > -1;
-    var developedByArray = this.props.developedBy.replace("-", ",").split(",");
+    var hasInPartnershipWith = this.props.developedBy.indexOf("in partnership with") > -1;
+    var developedByArray = this.props.developedBy.replace("-", ",").replace("in partnership with", ",").split(",");
     var developedByElements = developedByArray.map(function (author, key) {
       author = author.trim();
       var separator = ", ";
       if (key === 0 && hasDash) {
-        separator = " - "
-      } else if (key === developedByArray.length-1) {
+        separator = " - ";
+      } else if (key === 0 && hasInPartnershipWith) {
+        separator = " in partnership with ";
+      }
+      else if (key === developedByArray.length-1) {
         separator = "";
       } else if (key === developedByArray.length-2) {
         separator = ", and ";
@@ -137,6 +144,15 @@ var ActivitiesPage = React.createClass({
               link="/activities/web-lit-basics/"
               developedBy="Our seasoned educator community"
               description="This six-part series helps learners become familiar with reading, writing and participating on the web. They'll discover the foundations of the web through production and collaboration. This is an ideal kit for Mozilla Clubs."
+            />
+            <ActivityKit
+              src1x="/img/pages/protect-your-data/protect-your-data.png"
+              src2x="/img/pages/protect-your-data/protect-your-data@2x.png"
+              title="Protect Your Data"
+              level="Beginner"
+              link="/activities/protect-your-data/"
+              developedBy="Hive Toronto in partnership with the Office of the Privacy Commissioner of Canada, Mozilla Privacy"
+              description="These six hands-on activities engage learners in thinking critically about online privacy by creating secure passwords, understanding how and where their data is being collected, and more. This is an ideal kit for Mozilla Clubs."
             />
             <ActivityKit
               src1x="/img/pages/activities/img-activity-01.png"
@@ -271,21 +287,18 @@ var ActivitiesPage = React.createClass({
               <IconLink
                 linkTo="mozilla-clubs"
                 imgSrc="/img/pages/activities/svg/icon-connect.svg"
-                imgAlt="icon clubs"
                 head="Build"
                 subhead="Start a Club in your community"
               />
               <IconLink
                 linkTo="teach-like-mozilla"
                 imgSrc="/img/pages/activities/svg/icon-curriculum.svg"
-                imgAlt="icon teach like mozilla"
                 head="Grow"
                 subhead="Learn about our approach to teaching"
               />
               <IconLink
                 linkTo="web-literacy"
                 imgSrc="/img/pages/activities/svg/icon-learn.svg"
-                imgAlt="icon web literacy"
                 head="Explore"
                 subhead="See our Web Literacy Map"
               />

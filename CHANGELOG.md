@@ -6,14 +6,44 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.9][] - 2015-06-03
+### Added
+- A new "Protect Your Data" teaching activity has been added,
+  and is now available at `activities/protect-your-data/`.
+
+### Changed
+- New clubs are no longer automatically publicly visible; instead, they
+  are initially set to a "pending" state, and can be approved or
+  denied by staff on the back-end. A "My Clubs" section above the
+  rest of the clubs now informs the user about their clubs and their
+  approval statuses. Users are also informed about the approval flow
+  when they add a new club.
+- The list of recent blog posts on the homepage is no longer hard-coded,
+  but dynamically pulled from the blog's RSS feed via the Google Feed API.
+  (We thought this was in 0.0.8, but it wasn't.)
+- The "Learn" CTA at the bottom of the Teach Like Mozilla page
+  has been changed to "Understand", with the sub-copy changed to
+  "Learn more about the Web Literacy Map".
+- The Home and About pages now consistently refer to "the Mozilla
+  Learning Network", rather than "Mozilla Learning Networks".
+- The decorative icons at the bottom CTAs of pages now have null
+  `alt` text, improving accessibility.
+- When sharing a Teach site page on Facebook, the page description is
+  now the blurb from the About Us page ("We want more people to see
+  themselves as citizens of the web...") rather than the footer text
+  ("The Hive Learning Networks, stewarded by Mozilla...").
+- When the Web Literacy Basics page is shown, the Mozilla Clubs section of
+  the nav is no longer expanded.
+
 ## [0.0.8][] - 2015-06-01
 ### Added
 - The add club modal now requires users to mark a checkbox labeled
   "I have read the Mozilla Clubs Fact Sheet".
 
 ### Changed
-- The list of recent blog posts on the homepage is no longer hard-coded,
-  but dynamically pulled from the blog's RSS feed via the Google Feed API.
+- ~~The list of recent blog posts on the homepage is no longer hard-coded,
+  but dynamically pulled from the blog's RSS feed via the Google Feed API.~~
+  (This change didn't actually make it into the release.)
 - The add/change club modal has better prompts so content featured
   publicly feels more in fidelity with clubs.
 - Pages now load faster on devices with retina displays.
@@ -175,7 +205,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.8...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.9...HEAD
+[0.0.9]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.8...v0.0.9
 [0.0.8]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.7...v0.0.8
 [0.0.7]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.6...v0.0.7
 [0.0.6]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.5...v0.0.6

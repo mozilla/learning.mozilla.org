@@ -164,14 +164,12 @@ var EventsPage = React.createClass({
                 <IconLink
                   linkTo="event-resources"
                   imgSrc="/img/pages/events/svg/icon-curriculum.svg"
-                  imgAlt="icon resources"
                   head="Event Resources"
                   subhead="Plan a unique event"
                 />
                 <IconLink
                   href="http://discourse.webmaker.org/category/maker-party"
                   imgSrc="/img/pages/events/svg/icon-connect.svg"
-                  imgAlt="icon connect"
                   head="Join the Conversation"
                   subhead="Talk to others about your event"
                 />

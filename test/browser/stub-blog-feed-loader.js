@@ -1,5 +1,5 @@
 var FAKE_POSTS = {
-  "featuredPosts": {
+  "featuredPost": {
     "title": "What’s next for Thimble?",
     "author": "Hannah Kane",
     "publishedDate": "Tue, 12 May 2015 10:47:33 -0700",

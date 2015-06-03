@@ -11,13 +11,13 @@ var Intro = React.createClass({
   render: function () {
     return (
         <div>
-          <h1>About Mozilla Learning Networks</h1>
+          <h1>About the Mozilla Learning Network</h1>
           <section className="intro">
             <Illustration width={226} height={226}
             className="img-circle"
             src1x="/img/pages/about/hive-nyc-summer-quest.jpg"
             alt="HiveLearningNYC 2014 Hive NYC Summer Quest Maker Party">
-              <p>We want more people to see themselves as citizens of the web. Mozilla Learning Networks offers programs and a global community dedicated to helping people learn the most important skills of our age: <em>the ability to read, write and participate in the digital world.</em></p>
+              <p>We want more people to see themselves as citizens of the web. The Mozilla Learning Network offers programs and a global community dedicated to helping people learn the most important skills of our age: <em>the ability to read, write and participate in the digital world.</em></p>
             </Illustration>
           </section>
         </div>
@@ -88,21 +88,18 @@ var AboutPage = React.createClass({
             <IconLink
               href={config.TWITTER_LINK}
               imgSrc="/img/pages/about/svg/icon-twitter-blue.svg"
-              imgAlt="twitter logo"
               head="Follow Us"
               subhead="Start a conversation on Twitter"
             />
             <IconLink
               href="mailto:teachtheweb@mozillafoundation.org"
               imgSrc="/img/pages/about/svg/icon-get-help-blue.svg"
-              imgAlt="question mark icon"
               head="Get Help"
               subhead="Email us anytime"
             />
             <IconLink
               href="http://discourse.webmaker.org/category/meet"
               imgSrc="/img/pages/about/svg/icon-connect-blue.svg"
-              imgAlt="illustration of two people connecting"
               head="Say Hello"
               subhead="Connect on the #teachtheweb Discourse forum"
             />
