@@ -138,7 +138,8 @@ var BlogSection = React.createClass({
 
 var HomePage = React.createClass({
   statics: {
-    pageClassName: 'home-page'
+    pageClassName: 'home-page',
+    BlogSection: BlogSection
   },
   render: function() {
     return (
