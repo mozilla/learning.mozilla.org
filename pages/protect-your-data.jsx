@@ -33,7 +33,7 @@ var LearningObjectives = React.createClass({
         <div className="col-sm-12">
           <h2>Learning Objectives</h2>
           <p>
-            These activities will help your learners understand how to take control of their privacy in a networked world. Complete the activities in sequence, or mix and match. <a href="http://discourse.webmaker.org/category/clubs">Visit our discussion forum</a> to get help and share your experience.
+            These activities will help your learners understand how to take control of their privacy in a networked world. Complete the activities in sequence, or mix and match. Visit <a href="http://discourse.webmaker.org/category/clubs">our discussion forum</a> to get help and share your experience.
           </p>
         </div>
       </section>
