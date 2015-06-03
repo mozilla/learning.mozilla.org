@@ -23,8 +23,8 @@ var ClubListItem = React.createClass({
   propTypes: {
     club: React.PropTypes.object.isRequired,
     username: React.PropTypes.string,
-    onDelete: React.PropTypes.func.isRequired,
-    onEdit: React.PropTypes.func.isRequired
+    onDelete: React.PropTypes.func,
+    onEdit: React.PropTypes.func
   },
   render: function() {
     var club = this.props.club;
@@ -48,7 +48,7 @@ var ClubListItem = React.createClass({
 
     return (
       <li>
-        <h4>{clubName}</h4>
+        <h4>{clubName} <Map.ClubStatusLabel showApproved={isOwned} status={club.status}/></h4>
         <p><em>{club.location.split(',')[0]}</em></p>
         <p>{club.description}</p>
         <p><small>Led by <a href={"https://webmaker.org/en-US/search?type=user&q=" + club.owner}>{club.owner}</a></small></p>
@@ -64,8 +64,8 @@ var ClubList = React.createClass({
   propTypes: {
     clubs: React.PropTypes.array.isRequired,
     username: React.PropTypes.string,
-    onDelete: React.PropTypes.func.isRequired,
-    onEdit: React.PropTypes.func.isRequired
+    onDelete: React.PropTypes.func,
+    onEdit: React.PropTypes.func
   },
   statics: {
     Item: ClubListItem
@@ -482,8 +482,8 @@ var ModalAddOrChangeYourClub = React.createClass({
           <p><img className="globe" src="/img/pages/clubs/svg/globe-with-pin.svg"/></p>
           {isAdd
            ? <div>
-               <h2>We've added your Club!</h2>
-               <p>Your club is now displayed on our map. Go ahead, take a look!</p>
+               <h2>Thanks for your submission!</h2>
+               <p>We&lsquo;ll review it and be in touch shortly. In the meantime, your club will only be visible to you.</p>
              </div>
            : <h2>Your club has been changed.</h2>}
           <button className="btn btn-block"
@@ -502,6 +502,64 @@ var ModalAddOrChangeYourClub = React.createClass({
   }
 });
 
+var ClubLists = React.createClass({
+  propTypes: {
+    clubs: React.PropTypes.array.isRequired,
+    username: React.PropTypes.string,
+    onDelete: React.PropTypes.func.isRequired,
+    onEdit: React.PropTypes.func.isRequired
+  },
+  componentWillMount: function() {
+    this.componentWillReceiveProps(this.props);
+  },
+  componentWillReceiveProps: function(props) {
+    var username = props.username;
+    var userClubs = [];
+    var otherClubs = [];
+    var userHasUnapprovedClubs = false;
+
+    props.clubs.forEach(function(club) {
+      if (club.owner === username) {
+        if (club.status !== 'approved') {
+          userHasUnapprovedClubs = true;
+        }
+        userClubs.push(club);
+      } else {
+        otherClubs.push(club);
+      }
+    });
+
+    this.setState({
+      userClubs: userClubs,
+      otherClubs: otherClubs,
+      userHasUnapprovedClubs: userHasUnapprovedClubs
+    });
+  },
+  render: function() {
+    return (
+      <div>
+        {this.state.userClubs.length ? (
+          <div>
+            <h3>My Clubs</h3>
+            <ClubList
+             clubs={this.state.userClubs}
+             username={this.props.username}
+             onDelete={this.props.onDelete}
+             onEdit={this.props.onEdit}/>
+             {this.state.userHasUnapprovedClubs ? (
+               <div className="alert alert-warning">
+                 <strong>Note:</strong> All clubs pending approval or denied are not visible to other users.
+               </div>
+             ) : null}
+          </div>
+        ) : null}
+        <h3>Club List</h3>
+        <ClubList clubs={this.state.otherClubs}/>
+      </div>
+    );
+  }
+});
+
 var ClubsPage = React.createClass({
   mixins: [ModalManagerMixin, TeachAPIClientMixin],
   contextTypes: {
@@ -511,6 +569,7 @@ var ClubsPage = React.createClass({
     normalizeClub: normalizeClub,
     validateClub: validateClub,
     ClubList: ClubList,
+    ClubLists: ClubLists,
     ModalAddOrChangeYourClub: ModalAddOrChangeYourClub,
     ModalRemoveYourClub: ModalRemoveYourClub,
     teachAPIEvents: {
@@ -575,8 +634,7 @@ var ClubsPage = React.createClass({
                onDelete={this.handleClubDelete}
                onEdit={this.handleClubEdit}/>
             </div>
-            <ClubList
-             clubs={clubs}
+            <ClubLists clubs={clubs}
              username={username}
              onDelete={this.handleClubDelete}
              onEdit={this.handleClubEdit}/>

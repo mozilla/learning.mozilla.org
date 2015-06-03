@@ -157,6 +157,26 @@ describe('TeachAPI', function() {
       });
     });
 
+    it('aborts earlier in-progress calls', function() {
+      api.updateClubs();
+      api.updateClubs();
+      requests.length.should.equal(2);
+      requests[0].aborted.should.be.true;
+    });
+
+    it('is not called when username changes, no club listeners', function() {
+      api.updateClubs = sinon.spy();
+      api.emit('username:change');
+      api.updateClubs.callCount.should.equal(0);
+    });
+
+    it('is called when username changes, club listeners exist', function() {
+      api.updateClubs = sinon.spy();
+      api.on('clubs:change', function() {});
+      api.emit('username:change');
+      api.updateClubs.callCount.should.equal(1);
+    });
+
     it('accesses /api/clubs/', function() {
       api.updateClubs();
       requests.length.should.equal(1);
