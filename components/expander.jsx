@@ -6,7 +6,13 @@ var Expander = React.createClass({
       expanded: false
     };
   },
-  collapse: function() {
+  componentDidMount: function() {
+    if (this.props.id && window.location.hash === '#' + this.props.id) {
+      this.expand();
+      this.refs.header.getDOMNode().focus();
+    }
+  },
+  collapse: function(e) {
     this.setState({
       expanded: false
     });
@@ -22,7 +28,12 @@ var Expander = React.createClass({
     } else {
       this.expand();
     }
-    e.preventDefault();
+  },
+  handleKeyUp: function() {
+    // We've just been focused via the keyboard. Toggling the content
+    // is annoying to fiddle with via pure keyboard navigation, so just
+    // expand our content.
+    this.expand();
   },
   render: function() {
     var className = "expand-div";
@@ -31,12 +42,19 @@ var Expander = React.createClass({
     }
     return (
       <div className="expander-container">
-        <div className={className} tabIndex="0" onBlur={this.collapse} onFocus={this.expand}>
-          <h4 onMouseDown={this.handleMouseDown} className="expander-header">
+        <div className={className}>
+          <h4 ref="header" className="expander-header" id={this.props.id}
+           tabIndex="0" onKeyUp={this.handleKeyUp}
+           onMouseDown={this.handleMouseDown}>
             {this.props.head}
             <span className="ion"></span>
           </h4>
-          <div className="expander-items-container">
+          <div className="expander-items-container" onFocus={this.expand}>
+            {this.props.id
+             ? <a className="expander-permalink"
+                href={"#" + this.props.id}
+                title="Permalink to this section">&sect;</a>
+             : null}
             <div className="items-margin">
               {this.props.children}
             </div>
