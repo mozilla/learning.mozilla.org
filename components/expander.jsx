@@ -1,12 +1,15 @@
 var React = require('react');
 
+var ATTRACT_ATTENTION_DURATION = 4000;
+
 var Expander = React.createClass({
   propTypes: {
     id: React.PropTypes.string
   },
   getInitialState: function() {
     return {
-      expanded: false
+      expanded: false,
+      attractAttention: false
     };
   },
   componentDidMount: function() {
@@ -19,6 +22,7 @@ var Expander = React.createClass({
     if (this.props.id) {
       window.removeEventListener('hashchange', this.handleHashChange);
     }
+    this.cancelAttractAttention();
   },
   componentDidUpdate: function(prevProps) {
     if (process.env.NODE_ENV !== 'production') {
@@ -39,9 +43,22 @@ var Expander = React.createClass({
   },
   handleHashChange: function() {
     if (window.location.hash === '#' + this.props.id) {
-      this.expand();
+      this.setState({
+        expanded: true,
+        attractAttention: true
+      });
+      this.attractTimeout = window.setTimeout(this.cancelAttractAttention,
+                                              ATTRACT_ATTENTION_DURATION);
       this.refs.header.getDOMNode().focus();
+    } else if (this.state.attractAttention) {
+      this.cancelAttractAttention();
     }
+  },
+  cancelAttractAttention: function() {
+    window.clearTimeout(this.attractTimeout);
+    this.setState({
+      attractAttention: false
+    });
   },
   handleMouseDown: function(e) {
     if (this.state.expanded) {
@@ -62,6 +79,9 @@ var Expander = React.createClass({
     var className = "expand-div";
     if (this.state.expanded) {
       className += " expanded";
+    }
+    if (this.state.attractAttention) {
+      className += " attract-attention";
     }
     return (
       <div className="expander-container">
