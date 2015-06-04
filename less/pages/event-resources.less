@@ -1,4 +1,4 @@
-html.no-js {
+.tabulator-hide-nothing() {
   .tabulator {
     .tabulator-head {
       display: none;
@@ -16,6 +16,20 @@ html.no-js {
     .tabulator-content-container {
       display: inline-block;
     }
+  }
+}
+
+html.no-js {
+  .tabulator-hide-nothing();
+}
+
+@media print {
+  .tabulator-hide-nothing();
+  .tabulator-head-no-js {
+    display: block !important;
+  }
+  .tabulator-content-container {
+    display: inline-block !important;
   }
 }
 
