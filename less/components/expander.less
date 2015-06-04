@@ -1,4 +1,4 @@
-html.no-js {
+.expander-hide-nothing() {
   .expander-container {
     .expand-div {
       outline: 0;
@@ -12,17 +12,12 @@ html.no-js {
   }
 }
 
+html.no-js {
+  .expander-hide-nothing();
+}
+
 @media print {
-  .expander-container {
-    .expand-div {
-      .ion {
-        display: none;
-      }
-      .expander-items-container {
-        max-height: none;
-      }
-    }
-  }
+  .expander-hide-nothing();
 }
 
 .expander-container {
