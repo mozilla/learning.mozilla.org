@@ -12,6 +12,19 @@ html.no-js {
   }
 }
 
+@media print {
+  .expander-container {
+    .expand-div {
+      .ion {
+        display: none;
+      }
+      .expander-items-container {
+        max-height: none;
+      }
+    }
+  }
+}
+
 .expander-container {
   .expander-header {
     cursor: pointer;
