@@ -1,15 +1,30 @@
 var React = require('react');
 
 var Expander = React.createClass({
+  propTypes: {
+    id: React.PropTypes.string
+  },
   getInitialState: function() {
     return {
       expanded: false
     };
   },
   componentDidMount: function() {
-    if (this.props.id && window.location.hash === '#' + this.props.id) {
-      this.expand();
-      this.refs.header.getDOMNode().focus();
+    if (this.props.id) {
+      window.addEventListener('hashchange', this.handleHashChange);
+      this.handleHashChange();
+    }
+  },
+  componentWillUnmount: function() {
+    if (this.props.id) {
+      window.removeEventListener('hashchange', this.handleHashChange);
+    }
+  },
+  componentDidUpdate: function(prevProps) {
+    if (process.env.NODE_ENV !== 'production') {
+      if (prevProps.id !== this.props.id) {
+        console.warn('"id" prop is expected to be constant, but changed.');
+      }
     }
   },
   collapse: function(e) {
@@ -21,6 +36,12 @@ var Expander = React.createClass({
     this.setState({
       expanded: true
     });
+  },
+  handleHashChange: function() {
+    if (window.location.hash === '#' + this.props.id) {
+      this.expand();
+      this.refs.header.getDOMNode().focus();
+    }
   },
   handleMouseDown: function(e) {
     if (this.state.expanded) {
