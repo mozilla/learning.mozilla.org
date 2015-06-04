@@ -50,11 +50,13 @@ var Expander = React.createClass({
       this.expand();
     }
   },
-  handleKeyUp: function() {
-    // We've just been focused via the keyboard. Toggling the content
-    // is annoying to fiddle with via pure keyboard navigation, so just
-    // expand our content.
-    this.expand();
+  handleKeyUp: function(e) {
+    if (e.which === 9) {
+      // We've just been focused via the keyboard. Toggling the content
+      // is annoying to fiddle with via pure keyboard navigation, so just
+      // expand our content.
+      this.expand();
+    }
   },
   render: function() {
     var className = "expand-div";
