@@ -92,7 +92,7 @@ var AboutPage = React.createClass({
               subhead="Start a conversation on Twitter"
             />
             <IconLink
-              href="mailto:teachtheweb@mozillafoundation.org"
+              href={"mailto:"+config.TEACH_THE_WEB_EMAIL}
               imgSrc="/img/pages/about/svg/icon-get-help-blue.svg"
               head="Get Help"
               subhead="Email us anytime"

@@ -3,6 +3,8 @@ var ImageTag = require('../components/imagetag.jsx');
 var Router = require('react-router');
 var Link = Router.Link;
 
+var config = require('../lib/config');
+
 var PageLinker = React.createClass({
   render: function() {
     return (
@@ -400,7 +402,7 @@ var EventsResources = React.createClass({
             alt="request support image"/>
             <h3 className="event-support-header">Request Support</h3>
             <p>
-              Still can't find an answer to your question? Our team is here to help you with all things Maker Party. <a href="mailto:teachtheweb@mozillafoundation.org">Contact us</a> and we will get back to you as soon as possible.
+              Still can't find an answer to your question? Our team is here to help you with all things Maker Party. <a href={"mailto:"+config.TEACH_THE_WEB_EMAIL}>Contact us</a> and we will get back to you as soon as possible.
             </p>
           </div>
         </div>
