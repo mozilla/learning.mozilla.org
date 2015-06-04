@@ -84,7 +84,7 @@ var ClubsToolkit = React.createClass({
                   Our community loves to tweet! Share ideas and send pictures to <a href={config.TWITTER_LINK}>{config.TWITTER_HANDLE}</a> and use the tag <a href="https://twitter.com/search?q=%23teachtheweb">#TeachTheWeb</a>
                 </ToolkitListItem>
                 <ToolkitListItem header="Email.">
-                  We’re always here to answer your questions and connect you to other clubs. Send an email to <a href="mailto:help@webmaker.org">help@webmaker.org</a>
+                  We’re always here to answer your questions and connect you to other clubs. Send an email to <a href={"mailto:"+config.TEACH_THE_WEB_EMAIL}>{config.TEACH_THE_WEB_EMAIL}</a>
                 </ToolkitListItem>
               </ToolkitList>
             </Toolkit>
