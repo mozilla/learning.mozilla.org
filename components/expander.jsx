@@ -43,16 +43,20 @@ var Expander = React.createClass({
   },
   handleHashChange: function() {
     if (window.location.hash === '#' + this.props.id) {
-      this.setState({
-        expanded: true,
-        attractAttention: true
-      });
-      this.attractTimeout = window.setTimeout(this.cancelAttractAttention,
-                                              ATTRACT_ATTENTION_DURATION);
+      this.attractAttention();
       this.refs.header.getDOMNode().focus();
     } else if (this.state.attractAttention) {
       this.cancelAttractAttention();
     }
+  },
+  attractAttention: function() {
+    this.setState({
+      expanded: true,
+      attractAttention: true
+    });
+    window.clearTimeout(this.attractTimeout);
+    this.attractTimeout = window.setTimeout(this.cancelAttractAttention,
+                                            ATTRACT_ATTENTION_DURATION);
   },
   cancelAttractAttention: function() {
     window.clearTimeout(this.attractTimeout);
@@ -71,8 +75,8 @@ var Expander = React.createClass({
     if (e.which === 9) {
       // We've just been focused via the keyboard. Toggling the content
       // is annoying to fiddle with via pure keyboard navigation, so just
-      // expand our content.
-      this.expand();
+      // expand our content and attract attention to it.
+      this.attractAttention();
     }
   },
   render: function() {
