@@ -13,7 +13,7 @@ And if you want to make things a lot easier, you can generate a custom
 version of this document by running:
 
 ```
-node lib/changelog.js 0.0.4 toolness
+node lib/changelog.js release 0.0.4 toolness
 ```
 
 These instructions also assume that your `develop` branch currently
