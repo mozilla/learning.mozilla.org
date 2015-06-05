@@ -33,35 +33,36 @@ var CaseStudies = React.createClass({
 
 var FeaturedPost = React.createClass({
   propTypes: {
-    data: React.PropTypes.object.isRequired
+    title: React.PropTypes.string.isRequired,
+    author: React.PropTypes.string.isRequired,
+    publishedDate: React.PropTypes.string.isRequired,
+    contentSnippet: React.PropTypes.string.isRequired,
+    link: React.PropTypes.string.isRequired
   },
-  componentWillUpdate: function(nextProps, nextState) {
-    this.parsedMomentDate = moment(new Date(nextProps.data.publishedDate));
-  },
-  parsedMomentDate: null,
   render: function() {
+    var parsedMomentDate = this.props.publishedDate ? moment(new Date(this.props.publishedDate)) : null;
     return(
       <div className="featured-post">
-        { this.parsedMomentDate ?
+        { parsedMomentDate ?
           // shows this section only when featured post data has been loaded
           <div>
             <div className="entry-posted-container">
               <p className="entry-posted">
-                <time className="published" dateTime={this.props.data.publishedDate} >
-                  <span className="posted-month">{this.parsedMomentDate.format("MMM")}</span>
-                  <span className="posted-date">{this.parsedMomentDate.format("D")}</span>
-                  <span className="posted-year">{this.parsedMomentDate.format("YYYY")}</span>
+                <time className="published" dateTime={this.props.publishedDate} >
+                  <span className="posted-month">{parsedMomentDate.format("MMM")}</span>
+                  <span className="posted-date">{parsedMomentDate.format("D")}</span>
+                  <span className="posted-year">{parsedMomentDate.format("YYYY")}</span>
                 </time>
               </p>
             </div>
             <div className="entry-header-container">
-              <h3 className="entry-title"><a href={this.props.data.link}>{this.props.data.title}</a></h3>
-              <cite className="author">{this.props.data.author}</cite>
+              <h3 className="entry-title"><a href={this.props.link}>{this.props.title}</a></h3>
+              <cite className="author">{this.props.author}</cite>
             </div>
             <p className="excerpt">
-              {this.props.data.contentSnippet}
+              {this.props.contentSnippet}
             </p>
-            <a className="more" href={this.props.data.link}>Continue reading</a>
+            <a className="more" href={this.props.link}>Continue reading</a>
           </div>
           : null
         }
@@ -72,7 +73,7 @@ var FeaturedPost = React.createClass({
 
 var LatestPosts = React.createClass({
   propTypes: {
-    data: React.PropTypes.array.isRequired
+    posts: React.PropTypes.array.isRequired
   },
   render: function() {
     return (
@@ -133,7 +134,7 @@ var BlogSection = React.createClass({
         </div>
         <div className="row">
           <div className="col-sm-8 col-md-8 col-lg-8">
-            <FeaturedPost data={this.state.featuredPost} />
+            <FeaturedPost {...this.state.featuredPost} />
           </div>
           <div className="col-sm-4 col-md-4 col-lg-4">
             <LatestPosts data={this.state.latestPosts} />
