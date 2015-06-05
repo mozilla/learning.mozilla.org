@@ -35,27 +35,36 @@ var FeaturedPost = React.createClass({
   propTypes: {
     data: React.PropTypes.object.isRequired
   },
+  componentWillUpdate: function(nextProps, nextState) {
+    this.parsedMomentDate = moment(new Date(nextProps.data.publishedDate));
+  },
+  parsedMomentDate: null,
   render: function() {
-    var parsedDate = moment(new Date(this.props.data.publishedDate));
     return(
       <div className="featured-post">
-        <div className="entry-posted-container">
-          <p className="entry-posted">
-            <time className="published" dateTime={this.props.data.publishedDate} >
-              <span className="posted-month">{parsedDate.format("MMM")}</span>
-              <span className="posted-date">{parsedDate.format("D")}</span>
-              <span className="posted-year">{parsedDate.format("YYYY")}</span>
-            </time>
-          </p>
-        </div>
-        <div className="entry-header-container">
-          <h3 className="entry-title"><a href={this.props.data.link}>{this.props.data.title}</a></h3>
-          <cite className="author">{this.props.data.author}</cite>
-        </div>
-        <p className="excerpt">
-          {this.props.data.contentSnippet}
-        </p>
-        <a className="more" href={this.props.data.link}>Continue reading</a>
+        { this.parsedMomentDate ?
+          // shows this section only when featured post data has been loaded
+          <div>
+            <div className="entry-posted-container">
+              <p className="entry-posted">
+                <time className="published" dateTime={this.props.data.publishedDate} >
+                  <span className="posted-month">{this.parsedMomentDate.format("MMM")}</span>
+                  <span className="posted-date">{this.parsedMomentDate.format("D")}</span>
+                  <span className="posted-year">{this.parsedMomentDate.format("YYYY")}</span>
+                </time>
+              </p>
+            </div>
+            <div className="entry-header-container">
+              <h3 className="entry-title"><a href={this.props.data.link}>{this.props.data.title}</a></h3>
+              <cite className="author">{this.props.data.author}</cite>
+            </div>
+            <p className="excerpt">
+              {this.props.data.contentSnippet}
+            </p>
+            <a className="more" href={this.props.data.link}>Continue reading</a>
+          </div>
+          : null
+        }
       </div>
     );
   },
