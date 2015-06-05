@@ -199,7 +199,7 @@ var ClubsToolkit = React.createClass({
           </Expander>
           <Expander head="write, remix, or find curriculum">
             <Toolkit>
-              <p>Within our <a href="http://mozilla.github.io/webmaker-curriculum/">club curriculum</a> you will find activities developed by Mozilla and our communities to help guide you through your regular meetups. Here’s some of what we’ve learned from our early club leaders,</p>
+              <p>Within our <Link to="activities">club curriculum</Link> you will find activities developed by Mozilla and our communities to help guide you through your regular meetups. Here’s some of what we’ve learned from our early club leaders,</p>
               <ToolkitList>
                 <ToolkitListItem header="Format.">
                   Clubs can come in the form of daily, weekly, bi-weekly, monthly or after school meetups. The time and place for your club meetings can vary, but the meetups should remain consistent so that the learning can be on-going and learners have time to grow and complete multiple activities.
