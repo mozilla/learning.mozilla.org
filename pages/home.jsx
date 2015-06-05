@@ -79,7 +79,7 @@ var LatestPosts = React.createClass({
     return (
       <ul className="recent-posts">
         {
-          this.props.data.map(function(post, i) {
+          this.props.posts.map(function(post, i) {
             return (
               <li key={i}>
                 <a className="post-title" href={post.link}>{post.title}</a>
@@ -137,7 +137,7 @@ var BlogSection = React.createClass({
             <FeaturedPost {...this.state.featuredPost} />
           </div>
           <div className="col-sm-4 col-md-4 col-lg-4">
-            <LatestPosts data={this.state.latestPosts} />
+            <LatestPosts posts={this.state.latestPosts} />
             <a className="more" href="https://blog.webmaker.org/tag/teachtheweb/">See all blog posts</a>
           </div>
         </div>
