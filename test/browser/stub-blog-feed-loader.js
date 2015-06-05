@@ -28,5 +28,4 @@ var FAKE_POSTS = {
 module.exports = function(cb) {
   process.nextTick(cb.bind(null, FAKE_POSTS));
 };
-
 module.exports.FAKE_POSTS = FAKE_POSTS;
