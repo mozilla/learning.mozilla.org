@@ -1,35 +1,13 @@
 var React = require('react');
 
-var ATTRACT_ATTENTION_DURATION = 4000;
+var AnchorManagerMixin = require('../mixins/anchor-manager');
 
 var Expander = React.createClass({
-  propTypes: {
-    id: React.PropTypes.string
-  },
+  mixins: [AnchorManagerMixin],
   getInitialState: function() {
     return {
-      expanded: false,
-      attractAttention: false
+      expanded: false
     };
-  },
-  componentDidMount: function() {
-    if (this.props.id) {
-      window.addEventListener('hashchange', this.handleHashChange);
-      this.handleHashChange();
-    }
-  },
-  componentWillUnmount: function() {
-    if (this.props.id) {
-      window.removeEventListener('hashchange', this.handleHashChange);
-    }
-    this.cancelAttractAttention();
-  },
-  componentDidUpdate: function(prevProps) {
-    if (process.env.NODE_ENV !== 'production') {
-      if (prevProps.id !== this.props.id) {
-        console.warn('"id" prop is expected to be constant, but changed.');
-      }
-    }
   },
   collapse: function(e) {
     this.setState({
@@ -41,28 +19,8 @@ var Expander = React.createClass({
       expanded: true
     });
   },
-  handleHashChange: function() {
-    if (window.location.hash === '#' + this.props.id) {
-      this.attractAttention();
-      this.refs.header.getDOMNode().focus();
-    } else if (this.state.attractAttention) {
-      this.cancelAttractAttention();
-    }
-  },
-  attractAttention: function() {
-    this.setState({
-      expanded: true,
-      attractAttention: true
-    });
-    window.clearTimeout(this.attractTimeout);
-    this.attractTimeout = window.setTimeout(this.cancelAttractAttention,
-                                            ATTRACT_ATTENTION_DURATION);
-  },
-  cancelAttractAttention: function() {
-    window.clearTimeout(this.attractTimeout);
-    this.setState({
-      attractAttention: false
-    });
+  handleAttractAttentionToAnchor: function() {
+    this.expand();
   },
   handleMouseDown: function(e) {
     if (this.state.expanded) {
@@ -76,7 +34,7 @@ var Expander = React.createClass({
       // We've just been focused via the keyboard. Toggling the content
       // is annoying to fiddle with via pure keyboard navigation, so just
       // expand our content and attract attention to it.
-      this.attractAttention();
+      this.attractAttentionToAnchor();
     }
   },
   render: function() {
@@ -84,22 +42,23 @@ var Expander = React.createClass({
     if (this.state.expanded) {
       className += " expanded";
     }
-    if (this.state.attractAttention) {
+    if (this.state.attractAttentionToAnchor) {
       className += " attract-attention";
     }
     return (
       <div className="expander-container">
         <div className={className}>
-          <h4 ref="header" className="expander-header" id={this.props.id}
+          <h4 ref="header" className="expander-header"
+           id={this.props.anchorId}
            tabIndex="0" onKeyUp={this.handleKeyUp}
            onMouseDown={this.handleMouseDown}>
             {this.props.head}
             <span className="ion"></span>
           </h4>
           <div className="expander-items-container" onFocus={this.expand}>
-            {this.props.id
+            {this.props.anchorId
              ? <a className="expander-permalink"
-                href={"#" + this.props.id}
+                href={"#" + this.props.anchorId}
                 title="Permalink to this section">&sect;</a>
              : null}
             <div className="items-margin">
