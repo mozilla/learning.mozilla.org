@@ -49,6 +49,7 @@ AnchorManager.prototype = {
       this.initialized = true;
     }
     this.handleHashChange();
+    return component;
   },
   unregister: function(component) {
     var anchorId = component.props.anchorId;
