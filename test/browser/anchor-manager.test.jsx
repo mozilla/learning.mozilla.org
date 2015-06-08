@@ -158,7 +158,7 @@ describe('AnchorManager', function() {
 });
 
 describe('AnchorManagerMixin', function() {
-  var manager, anchors;
+  var manager, anchors, clock;
 
   var SampleAnchorClass = React.createClass({
     mixins: [AnchorManagerMixin],
@@ -181,6 +181,7 @@ describe('AnchorManagerMixin', function() {
   };
 
   beforeEach(function() {
+    clock = sinon.useFakeTimers();
     manager = createAnchorManager();
     anchors = [];
   });
@@ -188,6 +189,7 @@ describe('AnchorManagerMixin', function() {
   afterEach(function() {
     anchors.slice().forEach(unmountAnchor);
     anchors.length.should.equal(0);
+    clock.restore();
   });
 
   it('should not do anything if anchorId is not defined', function() {
@@ -213,5 +215,28 @@ describe('AnchorManagerMixin', function() {
 
     m1.should.be.an.Object;
     m1.should.equal(m2);
+  });
+
+  it('logs warning if props.anchorId changes', function() {
+    var a = renderAnchor({anchorId: 'foo'});
+    sinon.stub(console, 'warn');
+    a.componentDidUpdate({anchorId: 'bar'});
+    console.warn.callCount.should.equal(1);
+    console.warn.getCall(0).args.should.eql([
+      '"anchorId" prop is expected to be constant, but changed.'
+    ]);
+    console.warn.restore();
+  });
+
+  it('cancels attract timeout on unmount', function() {
+    var a = renderAnchor({anchorId: 'foo'});
+    sinon.spy(a, 'cancelAttractAttentionToAnchor');
+    a.attractAttentionToAnchor();
+    a.cancelAttractAttentionToAnchor.callCount.should.equal(0);
+    unmountAnchor(a);
+    a.cancelAttractAttentionToAnchor.callCount.should.equal(1);
+    clock.tick(999999999);
+    a.cancelAttractAttentionToAnchor.callCount.should.equal(1);
+    a.cancelAttractAttentionToAnchor.restore();
   });
 });
