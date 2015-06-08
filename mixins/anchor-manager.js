@@ -29,9 +29,76 @@ var React = require('react');
 
 var DEFAULT_ATTRACT_DURATION = 4000;
 
+var AnchorManager = function() {
+  this.anchorMap = {};
+  this.initialized = false;
+  this.currentAnchor = null;
+  this.handleHashChange = this.handleHashChange.bind(this);
+};
+
+AnchorManager.prototype = {
+  register: function(component) {
+    var anchorId = component.props.anchorId;
+    if (process.env.NODE_ENV !== 'production' &&
+        anchorId in this.anchorMap) {
+      console.warn('Anchor for #' + anchorId + ' already registered.');
+    }
+    this.anchorMap[anchorId] = component;
+    if (!this.initialized) {
+      this.initialize();
+      this.initialized = true;
+    }
+    this.handleHashChange();
+  },
+  unregister: function(component) {
+    var anchorId = component.props.anchorId;
+    if (process.env.NODE_ENV !== 'production') {
+      if (!(anchorId in this.anchorMap)) {
+        console.warn('Anchor for #' + anchorId + ' does not exist.');
+      } else if (this.anchorMap[anchorId] !== component) {
+        console.warn('Anchor mismatch for #' + anchorId + '.');
+      }
+    }
+    if (this.currentAnchor === component) {
+      this.currentAnchor = null;
+    }
+    delete this.anchorMap[anchorId];
+  },
+  initialize: function() {
+    window.addEventListener('hashchange', this.handleHashChange);
+  },
+  getHash: function() {
+    return window.location.hash.slice(1);
+  },
+  handleHashChange: function() {
+    var newAnchor = this.anchorMap[this.getHash()];
+
+    if (this.currentAnchor) {
+      if (newAnchor === this.currentAnchor) {
+        return;
+      } else {
+        this.currentAnchor.handleNavigateFromAnchor();
+        this.currentAnchor = null;
+      }
+    }
+    if (newAnchor) {
+      this.currentAnchor = newAnchor;
+      this.currentAnchor.handleNavigateToAnchor();
+    }
+  }
+};
+
+var defaultAnchorManager = new AnchorManager();
+
 var AnchorManagerMixin = {
   propTypes: {
-    anchorId: React.PropTypes.string
+    anchorId: React.PropTypes.string,
+    anchorManager: React.PropTypes.object
+  },
+  getDefaultProps: function() {
+    return {
+      anchorManager: defaultAnchorManager
+    };
   },
   getInitialState: function() {
     return {
@@ -40,31 +107,21 @@ var AnchorManagerMixin = {
   },
   componentDidMount: function() {
     if (this.props.anchorId) {
-      window.addEventListener('hashchange', this.handleHashChange);
-      this.handleHashChange();
+      this.props.anchorManager.register(this);
     }
   },
   componentWillUnmount: function() {
     if (this.props.anchorId) {
-      window.removeEventListener('hashchange', this.handleHashChange);
+      this.props.anchorManager.unregister(this);
     }
     this.cancelAttractAttentionToAnchor();
   },
-  componentDidUpdate: function(prevProps) {
-    if (process.env.NODE_ENV !== 'production') {
-      if (prevProps.anchorId !== this.props.anchorId) {
-        console.warn('"anchorId" prop is expected to be constant, ' +
-                     'but changed.');
-      }
-    }
+  handleNavigateToAnchor: function() {
+    this.attractAttentionToAnchor();
+    this.refs.header.getDOMNode().focus();
   },
-  handleHashChange: function() {
-    if (window.location.hash === '#' + this.props.anchorId) {
-      this.attractAttentionToAnchor();
-      this.refs.header.getDOMNode().focus();
-    } else if (this.state.attractAttentionToAnchor) {
-      this.cancelAttractAttentionToAnchor();
-    }
+  handleNavigateFromAnchor: function() {
+    this.cancelAttractAttentionToAnchor();
   },
   attractAttentionToAnchor: function() {
     this.setState({
@@ -86,5 +143,17 @@ var AnchorManagerMixin = {
     });
   }
 };
+
+if (process.env.NODE_ENV !== 'production') {
+  AnchorManagerMixin.componentDidUpdate = function(prevProps) {
+    if (prevProps.anchorId !== this.props.anchorId) {
+      console.warn('"anchorId" prop is expected to be constant, ' +
+                   'but changed.');
+    }
+  };
+  if (require('../lib/config').IN_TEST_SUITE) {
+    AnchorManagerMixin.AnchorManager = AnchorManager;
+  }
+}
 
 module.exports = AnchorManagerMixin;
