@@ -174,7 +174,7 @@ var HomePage = React.createClass({
             />
           </IconButtons>
         </HeroUnit>
-        <div className="row makerparty-banner">
+        <div className="row full-row makerparty-banner">
           <div className="inner-container">
             <section>
               <Illustration
