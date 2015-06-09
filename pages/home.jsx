@@ -174,6 +174,19 @@ var HomePage = React.createClass({
             />
           </IconButtons>
         </HeroUnit>
+        <div className="row makerparty-banner">
+          <div className="inner-container">
+            <section>
+              <Illustration
+                height={200} width={384}
+                src1x="/img/pages/home/maker-party-banner.png" src2x="/img/pages/home/maker-party-banner@2x.png"
+                alt="">
+                  <p>Maker Party is Mozilla's global campaign to teach the web. Participate in our year-round party by hosting or attending events to teach, build and share amazing things online.</p>
+                  <Link className="btn btn-awsm" to="events">Host a Maker Party</Link>
+              </Illustration>
+            </section>
+          </div>
+        </div>
         <div className="inner-container">
           <section>
             <div className="about-us">
