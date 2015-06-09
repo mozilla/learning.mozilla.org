@@ -38,6 +38,7 @@ function geoJSONit(data) {
       "description": i.description,
       "website": i.website,
       "location": i.location,
+      "status": i.status,
       "title": i.name
     });
   });
@@ -67,6 +68,44 @@ var MarkerPopup = React.createClass({
         }, this)}
       </div>
     );
+  }
+});
+
+var ClubStatusLabel = React.createClass({
+  propTypes: {
+    status: React.PropTypes.oneOf([
+      'pending',
+      'approved',
+      'denied'
+    ]).isRequired,
+    showApproved: React.PropTypes.bool
+  },
+  render: function() {
+    if (this.props.status === 'pending') {
+      return (
+        <span className="label label-warning"
+         title="This club is pending approval and is not visible to other users.">
+          pending
+        </span>
+      );
+    } else if (this.props.status === 'denied') {
+      return (
+        <span className="label label-danger"
+         title="This club has been denied approval and is not visible to other users.">
+          denied
+        </span>
+      );
+    }
+    if (this.props.showApproved) {
+      return (
+        <span className="label label-success"
+         title="This club has been approved and is visible to everyone.">
+          approved
+        </span>
+      );
+    } else {
+      return <span></span>;
+    }
   }
 });
 
@@ -105,7 +144,7 @@ var MarkerPopupClub = React.createClass({
 
     return (
       <div>
-        <b>{this.props.title}<br/></b>
+        <b>{this.props.title} <ClubStatusLabel status={this.props.status}/><br/></b>
         <i>{this.props.location}</i>
         <br/>
         <br/>
@@ -129,6 +168,7 @@ var Map = React.createClass({
     onReady: React.PropTypes.func
   },
   statics: {
+    ClubStatusLabel: ClubStatusLabel,
     MarkerPopup: MarkerPopup,
     clubsToGeoJSON: geoJSONit,
     setAccessToken: function(value) {

@@ -14,6 +14,7 @@ var SAMPLE_FOO_CLUB = {
   description: 'my club',
   website: 'http://example.org/',
   location: 'fooville',
+  status: 'approved',
   name: 'my club'
 };
 
@@ -25,6 +26,7 @@ var SAMPLE_BAR_CLUB = {
   description: 'bar club',
   website: 'http://example.org/bar',
   location: 'barville',
+  status: 'approved',
   name: 'bar club'
 };
 
@@ -129,6 +131,22 @@ describe("Map.MarkerPopup", function() {
     findButtons(popup).length.should.equal(2);
   });
 
+  it("should show when club is pending", function() {
+    var club = _.extend({}, SAMPLE_FOO_CLUB, {status: 'pending'});
+    var popup = TestUtils.renderIntoDocument(
+      <Map.MarkerPopup clubs={[club]} username="bar" />
+    );
+    popup.getDOMNode().textContent.should.match(/pending/);
+  });
+
+  it("should show when club is denied", function() {
+    var club = _.extend({}, SAMPLE_FOO_CLUB, {status: 'denied'});
+    var popup = TestUtils.renderIntoDocument(
+      <Map.MarkerPopup clubs={[club]} username="bar" />
+    );
+    popup.getDOMNode().textContent.should.match(/denied/);
+  });
+
   it("should not show website when it is blank", function() {
     var club = _.extend({}, SAMPLE_FOO_CLUB, {website: ''});
     var popup = TestUtils.renderIntoDocument(
@@ -157,6 +175,7 @@ describe("Map.clubsToGeoJSON()", function() {
       }, properties: {
         clubs: [{
           url: 'http://server/clubs/1/',
+          status: 'approved',
           owner: 'foo',
           description: 'my club',
           website: 'http://example.org/',
@@ -203,6 +222,36 @@ describe("Map.simplifyMapboxGeoJSON()", function() {
       latitude: 40.6501,
       longitude: -73.9496
     }]);
+  });
+});
+
+describe("Map.ClubStatusLabel", function() {
+  it("is empty when status is approved and showApproved is false", function() {
+    var label = TestUtils.renderIntoDocument(
+      <Map.ClubStatusLabel status="approved" />
+    );
+    label.getDOMNode().textContent.should.equal('');
+  });
+
+  it("is 'approved' when status is approved and showApproved is true", function() {
+    var label = TestUtils.renderIntoDocument(
+      <Map.ClubStatusLabel status="approved" showApproved />
+    );
+    label.getDOMNode().textContent.should.equal('approved');
+  });
+
+  it("is 'denied' when status is denied", function() {
+    var label = TestUtils.renderIntoDocument(
+      <Map.ClubStatusLabel status="denied" />
+    );
+    label.getDOMNode().textContent.should.equal('denied');
+  });
+
+  it("is 'pending' when status is pending", function() {
+    var label = TestUtils.renderIntoDocument(
+      <Map.ClubStatusLabel status="pending" />
+    );
+    label.getDOMNode().textContent.should.equal('pending');
   });
 });
 

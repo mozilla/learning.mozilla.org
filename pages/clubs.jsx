@@ -23,8 +23,8 @@ var ClubListItem = React.createClass({
   propTypes: {
     club: React.PropTypes.object.isRequired,
     username: React.PropTypes.string,
-    onDelete: React.PropTypes.func.isRequired,
-    onEdit: React.PropTypes.func.isRequired
+    onDelete: React.PropTypes.func,
+    onEdit: React.PropTypes.func
   },
   render: function() {
     var club = this.props.club;
@@ -48,7 +48,7 @@ var ClubListItem = React.createClass({
 
     return (
       <li>
-        <h4>{clubName}</h4>
+        <h4>{clubName} <Map.ClubStatusLabel showApproved={isOwned} status={club.status}/></h4>
         <p><em>{club.location.split(',')[0]}</em></p>
         <p>{club.description}</p>
         <p><small>Led by <a href={"https://webmaker.org/en-US/search?type=user&q=" + club.owner}>{club.owner}</a></small></p>
@@ -64,8 +64,8 @@ var ClubList = React.createClass({
   propTypes: {
     clubs: React.PropTypes.array.isRequired,
     username: React.PropTypes.string,
-    onDelete: React.PropTypes.func.isRequired,
-    onEdit: React.PropTypes.func.isRequired
+    onDelete: React.PropTypes.func,
+    onEdit: React.PropTypes.func
   },
   statics: {
     Item: ClubListItem
@@ -140,7 +140,7 @@ var Quote = React.createClass({
       <div className="row">
         <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
           <Blockquote className="primary-quote" author="Mikko K, Helsinki, Finland"
-              imgSrc="/img/pages/clubs/mikko-finland.png" imgSrc2x="/img/pages/clubs/mikko-finland@2x.png" imgAlt="Mikko Finland Quote">
+              imgSrc="/img/pages/clubs/mikko-finland.png" imgSrc2x="/img/pages/clubs/mikko-finland@2x.png">
 
             <p>The idea of teachers and students learning at the same time is what makes me excited about this work.</p>
           </Blockquote>
@@ -294,6 +294,7 @@ var ModalAddOrChangeYourClub = React.createClass({
     }
     return _.extend(clubState, {
       step: this.getStepForAuthState(!!this.getTeachAPI().getUsername()),
+      hasReadFactSheet: false,
       result: null,
       networkError: false,
       validationErrors: []
@@ -323,6 +324,11 @@ var ModalAddOrChangeYourClub = React.createClass({
       'name', 'website', 'description', 'location', 'latitude', 'longitude'
     ));
     var validationErrors = validateClub(clubState);
+
+    if (!this.props.club && !this.state.hasReadFactSheet) {
+      validationErrors.push("You must read the Mozilla Clubs Fact Sheet.");
+    }
+
     e.preventDefault();
 
     if (validationErrors.length) {
@@ -400,8 +406,8 @@ var ModalAddOrChangeYourClub = React.createClass({
           {this.renderValidationErrors()}
           <form onSubmit={this.handleSubmit}>
             <fieldset>
-              <label htmlFor={idPrefix + "name"}>What is the name of your Club?</label>
-              <input type="text" id={idPrefix + "name"} placeholder="We love creative Club names"
+              <label htmlFor={idPrefix + "name"}>Who is your Mozilla Club affiliated with?</label>
+              <input type="text" id={idPrefix + "name"} placeholder="Name of organization, school, group"
                disabled={isFormDisabled}
                required
                valueLink={this.linkState('name')} />
@@ -446,13 +452,21 @@ var ModalAddOrChangeYourClub = React.createClass({
                valueLink={this.linkState('website')} />
             </fieldset>
             <fieldset>
-              <label htmlFor={idPrefix + "description"}>What do you focus your efforts on?</label>
-              <textarea rows="5" placeholder="Please provide a brief description of your Club."
+              <label htmlFor={idPrefix + "description"}>How do you teach the Web?</label>
+              <textarea rows="5" placeholder="Please provide a brief description of your Club activities."
                id={idPrefix + "description"}
                disabled={isFormDisabled}
                required
                valueLink={this.linkState('description')} />
             </fieldset>
+            {isAdd ? <div className="checkbox">
+              <label>
+                <input type="checkbox"
+                 disabled={isFormDisabled}
+                 checkedLink={this.linkState('hasReadFactSheet')}
+                 required /> I have read the <a href="http://mozilla.github.io/learning-networks/clubs/" target="_blank">Mozilla Clubs Fact Sheet</a>.
+              </label>
+            </div> : null}
             <input type="submit" className="btn"
              disabled={isFormDisabled}
              value={isFormDisabled
@@ -468,8 +482,8 @@ var ModalAddOrChangeYourClub = React.createClass({
           <p><img className="globe" src="/img/pages/clubs/svg/globe-with-pin.svg"/></p>
           {isAdd
            ? <div>
-               <h2>We've added your Club!</h2>
-               <p>Your club is now displayed on our map. Go ahead, take a look!</p>
+               <h2>Thanks for your submission!</h2>
+               <p>We&lsquo;ll review it and be in touch shortly. In the meantime, your club will only be visible to you.</p>
              </div>
            : <h2>Your club has been changed.</h2>}
           <button className="btn btn-block"
@@ -488,6 +502,64 @@ var ModalAddOrChangeYourClub = React.createClass({
   }
 });
 
+var ClubLists = React.createClass({
+  propTypes: {
+    clubs: React.PropTypes.array.isRequired,
+    username: React.PropTypes.string,
+    onDelete: React.PropTypes.func.isRequired,
+    onEdit: React.PropTypes.func.isRequired
+  },
+  componentWillMount: function() {
+    this.componentWillReceiveProps(this.props);
+  },
+  componentWillReceiveProps: function(props) {
+    var username = props.username;
+    var userClubs = [];
+    var otherClubs = [];
+    var userHasUnapprovedClubs = false;
+
+    props.clubs.forEach(function(club) {
+      if (club.owner === username) {
+        if (club.status !== 'approved') {
+          userHasUnapprovedClubs = true;
+        }
+        userClubs.push(club);
+      } else {
+        otherClubs.push(club);
+      }
+    });
+
+    this.setState({
+      userClubs: userClubs,
+      otherClubs: otherClubs,
+      userHasUnapprovedClubs: userHasUnapprovedClubs
+    });
+  },
+  render: function() {
+    return (
+      <div>
+        {this.state.userClubs.length ? (
+          <div>
+            <h3>My Clubs</h3>
+            <ClubList
+             clubs={this.state.userClubs}
+             username={this.props.username}
+             onDelete={this.props.onDelete}
+             onEdit={this.props.onEdit}/>
+             {this.state.userHasUnapprovedClubs ? (
+               <div className="alert alert-warning">
+                 <strong>Note:</strong> All clubs pending approval or denied are not visible to other users.
+               </div>
+             ) : null}
+          </div>
+        ) : null}
+        <h3>Club List</h3>
+        <ClubList clubs={this.state.otherClubs}/>
+      </div>
+    );
+  }
+});
+
 var ClubsPage = React.createClass({
   mixins: [ModalManagerMixin, TeachAPIClientMixin],
   contextTypes: {
@@ -497,6 +569,7 @@ var ClubsPage = React.createClass({
     normalizeClub: normalizeClub,
     validateClub: validateClub,
     ClubList: ClubList,
+    ClubLists: ClubLists,
     ModalAddOrChangeYourClub: ModalAddOrChangeYourClub,
     ModalRemoveYourClub: ModalRemoveYourClub,
     teachAPIEvents: {
@@ -544,8 +617,7 @@ var ClubsPage = React.createClass({
 
     return (
       <div>
-        <HeroUnit image="/img/pages/clubs/hero-clubs.png"
-                  image2x="/img/pages/clubs/hero-clubs@2x.png">
+        <HeroUnit>
           <h1>Mozilla Clubs</h1>
           <div><a className="btn btn-awsm" onClick={this.showAddYourClubModal}>Add Your Club</a></div>
         </HeroUnit>
@@ -562,8 +634,7 @@ var ClubsPage = React.createClass({
                onDelete={this.handleClubDelete}
                onEdit={this.handleClubEdit}/>
             </div>
-            <ClubList
-             clubs={clubs}
+            <ClubLists clubs={clubs}
              username={username}
              onDelete={this.handleClubDelete}
              onEdit={this.handleClubEdit}/>
@@ -575,22 +646,19 @@ var ClubsPage = React.createClass({
             <IconLinks>
               <IconLink
                 linkTo="web-lit-basics"
-              imgSrc="/img/pages/clubs/svg/icon-curriculum.svg"
-                imgAlt="icon curriculum"
+                imgSrc="/img/pages/clubs/svg/icon-curriculum.svg"
                 head="Curriculum"
                 subhead="Modular Web Literacy curriculum"
               />
               <IconLink
                 href="http://discourse.webmaker.org/category/meet"
                 imgSrc="/img/pages/clubs/svg/icon-connect.svg"
-                imgAlt="icon connect"
                 head="Connect"
                 subhead="Connect with other Club Leaders"
               />
               <IconLink
                 linkTo="clubs-toolkit"
                 imgSrc="/img/pages/clubs/svg/icon-tips.svg"
-                imgAlt="icon tips"
                 head="Helpful Tips"
                 subhead="Tips for running your Club"
               />

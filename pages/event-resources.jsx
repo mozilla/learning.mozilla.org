@@ -3,6 +3,8 @@ var ImageTag = require('../components/imagetag.jsx');
 var Router = require('react-router');
 var Link = Router.Link;
 
+var config = require('../lib/config');
+
 var PageLinker = React.createClass({
   render: function() {
     return (
@@ -37,6 +39,15 @@ var EventItem = React.createClass({
   }
 });
 var LogoAsset = React.createClass({
+  getInitialState: function() {
+    return { hasKeyboardFocus: false };
+  },
+  handleFocus: function() {
+    this.setState({ hasKeyboardFocus: true });
+  },
+  handleBlur: function() {
+    this.setState({ hasKeyboardFocus: false });
+  },
   render: function() {
     return (
       <div className="logo-asset-container col-sm-4 col-md-4 col-lg-3">
@@ -45,7 +56,9 @@ var LogoAsset = React.createClass({
         width={200} height={200}
         src1x={this.props.src1x} src2x={this.props.src2x}
         alt={this.props.alt}/>
-        <div className="logo-asset-hover">
+        <div className={"logo-asset-hover " + (
+          this.state.hasKeyboardFocus ? "has-keyboard-focus" : ""
+         )} onFocus={this.handleFocus} onBlur={this.handleBlur}>
           <div className="logo-asset-center">{this.props.children}</div>
         </div>
       </div>
@@ -132,7 +145,8 @@ var EventDetail = React.createClass({
 var EventsResources = React.createClass({
   statics: {
     pageTitle: 'Event Resources',
-    pageClassName: 'event-resources'
+    pageClassName: 'event-resources',
+    LogoAsset: LogoAsset
   },
   render: function() {
     return (
@@ -388,7 +402,7 @@ var EventsResources = React.createClass({
             alt="request support image"/>
             <h3 className="event-support-header">Request Support</h3>
             <p>
-              Still can't find an answer to your question? Our team is here to help you with all things Maker Party. <a href="mailto:teachtheweb@mozillafoundation.org">Contact us</a> and we will get back to you as soon as possible.
+              Still can't find an answer to your question? Our team is here to help you with all things Maker Party. <a href={"mailto:"+config.TEACH_THE_WEB_EMAIL}>Contact us</a> and we will get back to you as soon as possible.
             </p>
           </div>
         </div>

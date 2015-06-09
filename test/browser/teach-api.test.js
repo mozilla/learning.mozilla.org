@@ -22,11 +22,21 @@ describe('TeachAPI', function() {
   it('emits username:change event on logout', function(done) {
     var api = new TeachAPI({storage: storage});
 
+    storage['TEACH_API_LOGIN_INFO'] = '{"username": "bop"}';
     api.on('username:change', function(username) {
       should(username).equal(null);
       done();
     });
     api.logout();
+  });
+
+  it('emits no username:change on logout when unchanged', function() {
+    var api = new TeachAPI({storage: storage});
+    var eventFired = false;
+
+    api.on('username:change', function(username) { eventFired = true; });
+    api.logout();
+    eventFired.should.be.false;
   });
 
   it('clears storage on logout', function(done) {
@@ -155,6 +165,26 @@ describe('TeachAPI', function() {
         storage: storage,
         baseURL: 'http://example.org'
       });
+    });
+
+    it('aborts earlier in-progress calls', function() {
+      api.updateClubs();
+      api.updateClubs();
+      requests.length.should.equal(2);
+      requests[0].aborted.should.be.true;
+    });
+
+    it('is not called when username changes, no club listeners', function() {
+      api.updateClubs = sinon.spy();
+      api.emit('username:change');
+      api.updateClubs.callCount.should.equal(0);
+    });
+
+    it('is called when username changes, club listeners exist', function() {
+      api.updateClubs = sinon.spy();
+      api.on('clubs:change', function() {});
+      api.emit('username:change');
+      api.updateClubs.callCount.should.equal(1);
     });
 
     it('accesses /api/clubs/', function() {
@@ -379,6 +409,30 @@ describe('TeachAPI', function() {
         JSON.parse(storage['TEACH_API_LOGIN_INFO'])
           .should.eql(loginInfo);
         usernameEventEmitted.should.be.true;
+        done();
+      });
+
+      requests[0].respond(200, {
+        'Content-Type': 'application/json'
+      }, JSON.stringify(loginInfo));
+    });
+
+    it('only emits username:change on login if changed', function(done) {
+      var usernameEventEmitted = false;
+      var api = new TeachAPI({storage: storage});
+      var loginInfo = {
+        'username': 'foo',
+        'token': 'blah'
+      };
+
+      storage['TEACH_API_LOGIN_INFO'] = JSON.stringify(loginInfo);
+      api.checkLoginStatus();
+
+      api.on('username:change', function(username) {
+        usernameEventEmitted = true;
+      });
+      api.on('login:success', function() {
+        usernameEventEmitted.should.be.false;
         done();
       });
 

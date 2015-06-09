@@ -2,6 +2,8 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 
+var config = require('../lib/config');
+
 var Footer = React.createClass({
   render: function() {
     return (
@@ -12,7 +14,7 @@ var Footer = React.createClass({
               <ul className="list-unstyled">
                 <li><a href="https://webmaker.org/">Webmaker</a></li>
                 <li><a href="https://sendto.mozilla.org/">Donate</a></li>
-                <li><a href="https://twitter.com/webmaker">Twitter</a></li>
+                <li><a href={config.TWITTER_LINK}>Twitter</a></li>
               </ul>
             </div>
             <div className="col-xs-6">

@@ -1,6 +1,6 @@
 {
   "name": "teach.webmaker.org",
-  "version": "0.0.5",
+  "version": "0.0.9",
   "description": " Initial attempt at implementing Webmaker Learning front-page.",
   "dependencies": {
     "bootstrap": "^3.3.4",
@@ -29,6 +29,7 @@
     "mapbox.js": "^2.1.5",
     "merge-stream": "^0.1.7",
     "minimist": "^1.1.1",
+    "moment": "^2.10.3",
     "mocha": "^2.1.0",
     "mofo-style": "^1.0.1",
     "react": "^0.13.1",
@@ -48,7 +49,9 @@
     "mocha-phantomjs": "^3.5.3",
     "phantomjs": "^1.9.16",
     "simplecrawler": "^0.5.2",
-    "supertest": "^1.0.1"
+    "supertest": "^1.0.1",
+    "marked": "^0.3.3",
+    "open": "0.0.5"
   },
   "scripts": {
     "postinstall": "gulp postinstall",

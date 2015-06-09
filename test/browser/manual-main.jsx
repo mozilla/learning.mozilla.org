@@ -1,6 +1,7 @@
 var querystring = require('querystring');
-var React = require('react');
+var React = require('react/addons');
 
+var GoogleBlogFeedLoader = require('./manual-google-blog-feed-loader.jsx');
 var DevRibbon = require('../../components/dev-ribbon.jsx');
 var routes = require('../../lib/routes.jsx');
 
@@ -31,19 +32,64 @@ var DEVICES = [
 });
 
 var RouteThumbnail = React.createClass({
+  LOAD_DELAY: 250,
+  mixins: [React.addons.PureRenderMixin],
+  getInitialState: function() {
+    return { isVisible: false, hasBeenVisible: false };
+  },
+  handleScroll: function() {
+    var rect = this.refs.holder.getDOMNode().getBoundingClientRect();
+    var width = window.innerWidth || document.documentElement.clientWidth;
+    var height = window.innerHeight || document.documentElement.clientHeight;
+
+    var isVisible = (rect.bottom >= 0 && rect.top <= height &&
+                     rect.right >= 0 && rect.left <= width);
+
+    this.setState({ isVisible: isVisible });
+  },
+  componentWillUpdate: function(nextProps, nextState) {
+    if (this.state.isVisible !== nextState.isVisible) {
+      window.clearTimeout(this.timeout);
+      this.timeout = window.setTimeout(function() {
+        this.setState({ hasBeenVisible: nextState.isVisible });
+      }.bind(this), this.LOAD_DELAY);
+    }
+  },
+  componentDidMount: function() {
+    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('resize', this.handleScroll);
+    this.handleScroll();
+  },
+  componentWillUnmount: function() {
+    window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('resize', this.handleScroll);
+    window.clearTimeout(this.timeout);
+  },
   render: function() {
+    var style = {
+      width: this.props.width + 'px',
+      height: this.props.height + 'px'
+    };
+    var sandbox = this.props.enableJS ? null : "";
+    var thumbnail;
+
+    if (this.state.hasBeenVisible) {
+      thumbnail = (
+        <iframe src={this.props.url} style={style} sandbox={sandbox}/>
+      );
+    } else {
+      thumbnail = (
+        <div className="unloaded-thumbnail" style={style}/>
+      );
+    }
+
     return (
       <div className="route-thumbnail">
         <h4>{this.props.name} <span className="text-muted">
           {this.props.width}x{this.props.height}
         </span></h4>
-        <div ref="iframeHolder">
-          <iframe src={this.props.url} style={{
-            width: this.props.width + 'px',
-            height: this.props.height + 'px'
-          }} sandbox={
-            this.props.enableJS ? null : ""
-          }></iframe>
+        <div ref="holder">
+          {thumbnail}
         </div>
       </div>
     );
@@ -106,6 +152,10 @@ var ManualTests = React.createClass({
         </nav>
         <div className="container-fluid">
           <h1>Manual Tests</h1>
+          <h2>Internet Services</h2>
+          <p>The following require internet services to work and may be slow depending on your network connection.</p>
+          <GoogleBlogFeedLoader/>
+          <h2>Routes</h2>
           <p>Below are thumbnails of all the pages on the site, rendered <strong>{
             this.props.enableJS ? "with" : "without"
           }</strong> JavaScript enabled.</p>

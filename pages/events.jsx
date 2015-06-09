@@ -109,8 +109,7 @@ var EventsPage = React.createClass({
   render: function() {
     return (
       <div>
-        <HeroUnit image="/img/pages/events/hero-events.png"
-                  image2x="/img/pages/events/hero-events@2x.png">
+        <HeroUnit>
           <h1>Host a Maker Party</h1>
           <h2>Celebrate teaching and learning with others</h2>
         </HeroUnit>
@@ -165,14 +164,12 @@ var EventsPage = React.createClass({
                 <IconLink
                   linkTo="event-resources"
                   imgSrc="/img/pages/events/svg/icon-curriculum.svg"
-                  imgAlt="icon resources"
                   head="Event Resources"
                   subhead="Plan a unique event"
                 />
                 <IconLink
                   href="http://discourse.webmaker.org/category/maker-party"
                   imgSrc="/img/pages/events/svg/icon-connect.svg"
-                  imgAlt="icon connect"
                   head="Join the Conversation"
                   subhead="Talk to others about your event"
                 />
