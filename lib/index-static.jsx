@@ -85,3 +85,5 @@ function generate(url, options, cb) {
 exports.generate = generate;
 exports.CSS_FILENAME = "styles.css";
 exports.URLS = routes.URLS;
+exports.REDIRECTS = routes.REDIRECTS;
+exports.routes = routes.routes;
