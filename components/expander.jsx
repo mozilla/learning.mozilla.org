@@ -31,7 +31,7 @@ var Expander = React.createClass({
     }
   },
   handleKeyUp: function(e) {
-    if (e.which === 9 && this.props.anchorId) {
+    if (e.which === 9) {
       // We've just been focused via the keyboard. Toggling the content
       // is annoying to fiddle with via pure keyboard navigation, so just
       // expand our content and attract attention to it.

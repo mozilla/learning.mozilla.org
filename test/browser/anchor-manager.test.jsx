@@ -1,23 +1,9 @@
-var _ = require('underscore');
 var React = require('react/addons');
 var should = require('should');
 var sinon = window.sinon;
 
 var AnchorManagerMixin = require('../../mixins/anchor-manager');
-
-var createAnchorManager = function() {
-  var manager = new AnchorManagerMixin.AnchorManager();
-
-  // Stub out the methods that access the window object.
-  manager.initialize = sinon.stub();
-  manager.getHash = sinon.stub();
-
-  manager.simulateHashChange = function(hash) {
-    manager.getHash.returns(hash);
-    manager.handleHashChange();
-  };
-  return manager;
-};
+var StubAnchorManager = require('./stub-anchor-manager');
 
 describe('AnchorManager', function() {
   var manager;
@@ -31,7 +17,7 @@ describe('AnchorManager', function() {
   };
 
   beforeEach(function() {
-    manager = createAnchorManager();
+    manager = StubAnchorManager();
   });
 
   it('should initialize itself only upon registration', function() {
@@ -182,7 +168,7 @@ describe('AnchorManagerMixin', function() {
 
   beforeEach(function() {
     clock = sinon.useFakeTimers();
-    manager = createAnchorManager();
+    manager = StubAnchorManager();
     anchors = [];
   });
 
