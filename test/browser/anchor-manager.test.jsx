@@ -239,4 +239,37 @@ describe('AnchorManagerMixin', function() {
     a.cancelAttractAttentionToAnchor.callCount.should.equal(1);
     a.cancelAttractAttentionToAnchor.restore();
   });
+
+  it('does not attract attention to anchor when mounted', function() {
+    var a = renderAnchor({anchorId: 'foo'});
+    a.state.attractAttentionToAnchor.should.be.false;
+  });
+
+  it('attracts attention to anchor when navigated to', function() {
+    var a = renderAnchor({anchorId: 'foo'});
+    manager.simulateHashChange('foo');
+    a.state.attractAttentionToAnchor.should.be.true;
+  });
+
+  it('stops attracting attention to anchor after some time', function() {
+    var a = renderAnchor({anchorId: 'foo'});
+    manager.simulateHashChange('foo');
+    clock.tick(AnchorManagerMixin.DEFAULT_ATTRACT_DURATION + 1);
+    a.state.attractAttentionToAnchor.should.be.false;
+  });
+
+  it('waits ATTRACT_ATTENTION_TO_ANCHOR_DURATION if defined', function() {
+    var a = renderAnchor({anchorId: 'foo'});
+    a.ATTRACT_ATTENTION_TO_ANCHOR_DURATION = 10;
+    a.attractAttentionToAnchor();
+    clock.tick(11);
+    a.state.attractAttentionToAnchor.should.be.false;
+  });
+
+  it('calls handleAttractAttentionToAnchor() if defined', function() {
+    var a = renderAnchor({anchorId: 'foo'});
+    a.handleAttractAttentionToAnchor = sinon.spy();
+    a.attractAttentionToAnchor();
+    a.handleAttractAttentionToAnchor.callCount.should.equal(1);
+  });
 });

@@ -21,6 +21,7 @@ var Expander = React.createClass({
   },
   handleAttractAttentionToAnchor: function() {
     this.expand();
+    this.refs.header.getDOMNode().focus();
   },
   handleMouseDown: function(e) {
     if (this.state.expanded) {
@@ -30,7 +31,7 @@ var Expander = React.createClass({
     }
   },
   handleKeyUp: function(e) {
-    if (e.which === 9) {
+    if (e.which === 9 && this.props.anchorId) {
       // We've just been focused via the keyboard. Toggling the content
       // is annoying to fiddle with via pure keyboard navigation, so just
       // expand our content and attract attention to it.

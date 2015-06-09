@@ -119,7 +119,6 @@ var AnchorManagerMixin = {
   },
   handleNavigateToAnchor: function() {
     this.attractAttentionToAnchor();
-    this.refs.header.getDOMNode().focus();
   },
   handleNavigateFromAnchor: function() {
     this.cancelAttractAttentionToAnchor();
@@ -154,6 +153,7 @@ if (process.env.NODE_ENV !== 'production') {
   };
   if (require('../lib/config').IN_TEST_SUITE) {
     AnchorManagerMixin.AnchorManager = AnchorManager;
+    AnchorManagerMixin.DEFAULT_ATTRACT_DURATION = DEFAULT_ATTRACT_DURATION;
   }
 }
 
