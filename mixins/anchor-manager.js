@@ -5,14 +5,16 @@
 // Any component that uses this mixin supports an `anchorId` prop,
 // which is the URL fragment (without the leading hash) of the anchor.
 // This is expected to be constant throughout the lifetime of the
-// component. (If `anchorId` is undefined, the mixin will be disabled.)
+// component. (If `anchorId` is undefined, the mixin will be largely
+// disabled.)
 //
 // When the window's location hash matches the component's anchor id,
 // either at component mount time or during the `hashchange` window
 // event, the component's `attractAttentionToAnchor` state will be
 // set to `true` for 4 seconds. Additionally, if the component
 // defines a `handleAttractAttentionToAnchor` method, it will be
-// called.
+// called. (The `attractAttentionToAnchor` method can be used to
+// manually trigger this behavior as well.)
 //
 // The 4-second default can be changed if the component defines
 // an instance variable called `ATTRACT_ATTENTION_TO_ANCHOR_DURATION`,
@@ -29,6 +31,13 @@ var React = require('react');
 
 var DEFAULT_ATTRACT_DURATION = 4000;
 
+// AnchorManager is a largely private singleton class that maintains a
+// registry mapping anchor names to React components and listens for
+// location hash changes.
+//
+// When a registered component needs to be navigated to, its
+// `handleNavigateToAnchor` method is called; when it needs to
+// be navigated from, its `handleNavigateFromAnchor` method is called.
 var AnchorManager = function() {
   this.anchorMap = {};
   this.initialized = false;
