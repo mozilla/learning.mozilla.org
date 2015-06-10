@@ -5,6 +5,25 @@ which uses the format described in
 to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
+### Added
+- The release process has been documented in `RELEASE.md`.
+- An experimental lightweight dynamic server has been added, which
+  dynamically generates requested HTML content. Documentation
+  can be found in `README.md`.
+- Unit tests have been added for the homepage.
+
+### Changed
+- The marker popups in the Clubs map are now much easier to read.
+- All `mailto:` links on the website now point to
+  `teachtheweb@mozillafoundation.org`.
+- The "club curriculum" link under the "Write, Remix, or find Curriculum"
+  section of the Clubs Toolkit now points to the Teaching Activities
+  page.
+- The Clubs Toolkit, Web Literacy Map, and Event Details section
+  of the Event Resources page are now useful when printed. (Previously,
+  their collapsed/inactive content would be hidden.)
+- The Clubs page no longer makes superfluous network requests to
+  retrieve the Clubs list.
 
 ## [0.0.9][] - 2015-06-03
 ### Added
