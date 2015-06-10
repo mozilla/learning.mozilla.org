@@ -125,6 +125,13 @@ html.no-js .no-js-warning {
   border-top: 0.2rem solid @white;
 }
 
+.row.full-row {
+  // apply .full-row class on full width row WITH non-white background colour
+  // the following left and right paddings are to offset the negative left/right margin set on .row
+  padding-left: (@grid-gutter-width / 2);
+  padding-right: (@grid-gutter-width / 2);
+}
+
 .video-container {
   position: relative;
   width: 100%;
