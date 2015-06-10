@@ -59,14 +59,14 @@ var MarkerPopup = React.createClass({
   },
   render: function() {
     return (
-      <div>
+      <ul className="popup-clubs-list">
         {this.props.clubs.map(function(club, i) {
           return React.createElement(MarkerPopupClub, _.extend({
             key: i,
             isOwned: club.owner == this.props.username
           }, club));
         }, this)}
-      </div>
+      </ul>
     );
   }
 });
@@ -114,20 +114,21 @@ var MarkerPopupClub = React.createClass({
     return urlParse(this.props.website).hostname;
   },
   render: function() {
+    var title = <h4>{this.props.title} <ClubStatusLabel status={this.props.status}/></h4>;
     var website = null;
     var actions = null;
 
     if (this.props.website) {
-      website = (
-        <p><a href={this.props.website} target="_blank">
-          {this.getWebsiteDomain()}
-        </a></p>
+      title = (
+        <a href={this.props.website} target="_blank">
+          {title}
+        </a>
       );
     }
 
     if (this.props.isOwned) {
       actions = (
-        <div>
+        <div className="action-panel">
           <button className="btn btn-default btn-xs"
            data-club-action="edit" data-club-url={this.props.url}>
             <span className="glyphicon glyphicon-pencil"></span> Edit
@@ -143,16 +144,14 @@ var MarkerPopupClub = React.createClass({
     }
 
     return (
-      <div>
-        <b>{this.props.title} <ClubStatusLabel status={this.props.status}/><br/></b>
-        <i>{this.props.location}</i>
-        <br/>
-        <br/>
+      <li>
+        {title}
+        <p><i>{this.props.location}</i></p>
         <p>{this.props.description}</p>
-        <p><small>Led by <a href={"https://webmaker.org/en-US/search?type=user&q=" + this.props.owner}>{this.props.owner}</a></small></p>
+        <p>Led by <a href={"https://webmaker.org/en-US/search?type=user&q=" + this.props.owner}>{this.props.owner}</a></p>
         {website}
         {actions}
-      </div>
+      </li>
     );
   }
 });
