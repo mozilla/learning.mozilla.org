@@ -47,6 +47,12 @@ var LINT_DIRS = [
     '!test/**/*.js'
 ];
 
+var IMG_FILE_TYPES = [
+  'img/**/*.jpg',
+  'img/**/*.png',
+  'img/**/*.svg'
+];
+
 var LESS_FILES = './less/**/*.less';
 var WATCH_DELAY = 200;
 
@@ -115,7 +121,7 @@ gulp.task('copy-test-dirs', function() {
 });
 
 gulp.task('copy-images', function () {
-  return gulp.src('img/**', {
+  return gulp.src(IMG_FILE_TYPES, {
     base: '.'
   }).pipe(gulp.dest('./dist'));
 });
@@ -219,11 +225,7 @@ gulp.task('watch-webpack', function() {
 });
 
 gulp.task('watch-static-files', function() {
-  gulp.watch([
-    'img/**/*.png',
-    'img/**/*.jpg',
-    'img/**/*.svg'
-  ], ['copy-images']);
+  gulp.watch(IMG_FILE_TYPES, ['copy-images']);
   gulp.watch('test/browser/static/**', ['copy-test-dirs']);
 });
 
