@@ -219,7 +219,11 @@ gulp.task('watch-webpack', function() {
 });
 
 gulp.task('watch-static-files', function() {
-  gulp.watch('img/**', ['copy-images']);
+  gulp.watch([
+    'img/**/*.png',
+    'img/**/*.jpg',
+    'img/**/*.svg'
+  ], ['copy-images']);
   gulp.watch('test/browser/static/**', ['copy-test-dirs']);
 });
 
