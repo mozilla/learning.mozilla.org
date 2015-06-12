@@ -1,0 +1,67 @@
+.tools-page {
+  .inner-container .intro {
+    h2 {
+      text-align: left;
+    }
+  }
+  .intro {
+    margin-top: 2rem;
+    @media screen and (min-width: @screen-md-min) {
+      margin-top: 0;
+      h1 {
+        // add top margin when Tabzilla is present
+        margin-top: 3.5rem;
+      }
+    }
+  }
+  .callout-heading {
+    text-align: center;
+  }
+}
+
+.tools-col {
+  margin-bottom: 3rem;
+  @media screen and (min-width: @screen-md-min) {
+    margin-bottom: 0;
+  }
+  h2 {
+    text-align: center;
+  }
+  .image-container {
+    padding-bottom: 0;
+  }
+  .sample-activity {
+    text-align: center;
+    border-bottom: .1rem solid @lightGrey;
+    overflow-x: hidden;
+    .label-container {
+      display: block;
+    }
+    .label {
+      position: relative;
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        width: 20rem;
+        border-top: .1rem solid @lightGrey;
+        top: 50%;
+      }
+      &:before {
+        right: 100%;
+      }
+      &:after {
+        left: 100%;
+      }
+    }
+    a {
+      display: block;
+      padding: 2rem;
+    }
+  }
+}
+
+.horizontal-divider {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
