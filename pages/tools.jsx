@@ -27,7 +27,7 @@ var ToolsIntro = React.createClass({
 var ToolsColumn = React.createClass({
   propTypes: {
     name: React.PropTypes.string.isRequired,
-    desctiption: React.PropTypes.string.isRequired,
+    description: React.PropTypes.string.isRequired,
     link: React.PropTypes.string.isRequired,
     src1x: React.PropTypes.string.isRequired,
     src2x: React.PropTypes.string.isRequired,
@@ -53,7 +53,7 @@ var ToolsColumn = React.createClass({
           alt=""
           verticalLayout>
           <h2><a href={this.props.link}>{this.props.name}</a></h2>
-          <p>{this.props.desctiption}</p>
+          <p>{this.props.description}</p>
         </Illustration>
         {sampleActivity}
       </div>
@@ -65,7 +65,7 @@ var ToolsSection = React.createClass({
   tools: [
     {
       name: "X-Ray Goggles",
-      desctiption: "This code inspector lets you view and remix the code of your favorite web pages.",
+      description: "This code inspector lets you view and remix the code of your favorite web pages.",
       link: "https://webmaker.org/goggles",
       src1x: "/img/pages/tools/xray-goggles.png",
       src2x: "/img/pages/tools/xray-goggles@2x.png",
@@ -74,7 +74,7 @@ var ToolsSection = React.createClass({
     },
     {
       name: "Thimble",
-      desctiption: "This code editor helps you learn HTML and CSS by creating and remixing Web projects.",
+      description: "This code editor helps you learn HTML and CSS by creating and remixing Web projects.",
       link: "https://thimble.webmaker.org",
       src1x: "/img/pages/tools/thimble.png",
       src2x: "/img/pages/tools/thimble@2x.png",
@@ -83,7 +83,7 @@ var ToolsSection = React.createClass({
     },
     {
       name: "Webmaker",
-      desctiption: "Webmaker lets you create, discover and share content in your language on your mobile device.",
+      description: "Webmaker lets you create, discover and share content in your language on your mobile device.",
       link: "https://webmaker.org",
       src1x: "/img/pages/tools/webmaker.jpg",
       src2x: "/img/pages/tools/webmaker@2x.jpg"
