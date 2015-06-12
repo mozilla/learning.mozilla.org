@@ -158,14 +158,13 @@ var HomePage = React.createClass({
           <h1>The Mozilla Learning Network</h1>
           <IconButtons>
             <IconButton
+              imgSrc="/img/pages/home/svg/icon-teach-man-chalkboard-pledge.svg"
+              head="Pledge to Teach"
+            />
+            <IconButton
               linkTo="activities"
               imgSrc="/img/pages/home/svg/icon-teachanactivity.svg"
               head="Teach an Activity"
-            />
-            <IconButton
-              linkTo="events"
-              imgSrc="/img/pages/home/svg/icon-hostanevent.svg"
-              head="Host an Event"
             />
             <IconButton
               linkTo="mozilla-clubs"
