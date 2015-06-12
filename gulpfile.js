@@ -19,6 +19,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 
 var IndexFileStream = require('./lib/gulp-index-file-stream');
+var imageConverter = require('./lib/gulp-image-converter');
 var webpackConfig = require('./webpack.config');
 var config = require('./lib/config');
 var travis = require('./lib/travis');
@@ -121,9 +122,28 @@ gulp.task('copy-test-dirs', function() {
 });
 
 gulp.task('copy-images', function () {
+  var TO_JPEG = {
+    format: 'jpg',
+    formatParams: {
+      quality: 70
+    }
+  };
   return gulp.src(IMG_FILE_TYPES, {
     base: '.'
-  }).pipe(gulp.dest('./dist'));
+  }).pipe(imageConverter({
+    files: {
+      'img/pages/home/hero-unit@2x.png': TO_JPEG,
+      'img/pages/home/hero-unit.png': TO_JPEG,
+      'img/pages/activities/hero-teaching-activities@2x.png': TO_JPEG,
+      'img/pages/activities/hero-teaching-activities.png': TO_JPEG,
+      'img/pages/clubs/hero-clubs@2x.png': TO_JPEG,
+      'img/pages/clubs/hero-clubs.png': TO_JPEG,
+      'img/pages/events/hero-events@2x.png': TO_JPEG,
+      'img/pages/events/hero-events.png': TO_JPEG,
+      'img/pages/teach-like-mozilla/hero-teach-like-mozilla@2x.png': TO_JPEG,
+      'img/pages/teach-like-mozilla/hero-teach-like-mozilla.png': TO_JPEG
+    }
+  })).pipe(gulp.dest('./dist'));
 });
 
 gulp.task('copy-webmaker-app-icons', function () {
