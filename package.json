@@ -37,6 +37,7 @@
     "react-ga": "^1.0.12",
     "react-router": "^0.13.2",
     "react-select": "0.4.6",
+    "replace-ext": "0.0.1",
     "should": "^5.1.0",
     "source-map-support": "^0.2.10",
     "superagent": "^1.1.0",
