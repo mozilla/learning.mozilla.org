@@ -19,6 +19,8 @@ var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 
 var IndexFileStream = require('./lib/gulp-index-file-stream');
+var imageConverter = require('./lib/gulp-image-converter');
+var imageConvertConfig = require('./image-convert.config');
 var webpackConfig = require('./webpack.config');
 var config = require('./lib/config');
 var travis = require('./lib/travis');
@@ -121,9 +123,17 @@ gulp.task('copy-test-dirs', function() {
 });
 
 gulp.task('copy-images', function () {
+  imageConvertConfig.reload();
   return gulp.src(IMG_FILE_TYPES, {
     base: '.'
-  }).pipe(gulp.dest('./dist'));
+  }).pipe(imageConverter(imageConvertConfig.patterns))
+    .on('unconverted-patterns', function(patterns) {
+      gutil.log(gutil.colors.red.bold(
+        'No images matched the pattern(s): ' + patterns
+      ));
+      gutil.log('Please edit image-convert.config.js to fix this.');
+    })
+    .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('copy-webmaker-app-icons', function () {
@@ -225,7 +235,9 @@ gulp.task('watch-webpack', function() {
 });
 
 gulp.task('watch-static-files', function() {
-  gulp.watch(IMG_FILE_TYPES, ['copy-images']);
+  gulp.watch(IMG_FILE_TYPES.concat([
+    'image-convert.config.js'
+  ]), ['copy-images']);
   gulp.watch('test/browser/static/**', ['copy-test-dirs']);
 });
 
