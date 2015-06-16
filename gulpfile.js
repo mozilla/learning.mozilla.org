@@ -108,6 +108,7 @@ gulp.task('copy-static-files', [
   'copy-test-dirs',
   'copy-images',
   'copy-bootstrap',
+  'copy-fontawesome',
   'copy-webmaker-app-icons'
 ]);
 
@@ -146,6 +147,12 @@ gulp.task('copy-bootstrap', function () {
   return gulp.src(['node_modules/bootstrap/dist/css/**', 'node_modules/bootstrap/dist/fonts/**'], {
     base: 'node_modules/bootstrap/dist'
   }).pipe(gulp.dest('./dist/vendor/bootstrap'));
+});
+
+gulp.task('copy-fontawesome', function () {
+  return gulp.src(['node_modules/font-awesome/css/**', 'node_modules/font-awesome/fonts/**'], {
+    base: 'node_modules/font-awesome'
+  }).pipe(gulp.dest('./dist/vendor/font-awesome'));
 });
 
 gulp.task('less', function() {
