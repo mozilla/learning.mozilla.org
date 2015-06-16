@@ -22,6 +22,7 @@ describe("Expander", function() {
     clock = sinon.useFakeTimers();
     anchorManager = StubAnchorManager();
     expander = stubContext.render(Expander, _.extend({
+      head: 'heading text',
       anchorManager: anchorManager
     }, props));
     itemContainer = TestUtils.findRenderedDOMComponentWithClass(

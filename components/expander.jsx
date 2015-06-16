@@ -4,12 +4,15 @@ var AnchorManagerMixin = require('../mixins/anchor-manager');
 
 var Expander = React.createClass({
   mixins: [AnchorManagerMixin],
+  propTypes: {
+    head: React.PropTypes.node.isRequired
+  },
   getInitialState: function() {
     return {
       expanded: false
     };
   },
-  collapse: function(e) {
+  collapse: function() {
     this.setState({
       expanded: false
     });
