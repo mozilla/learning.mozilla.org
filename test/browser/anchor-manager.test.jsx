@@ -163,7 +163,7 @@ describe('AnchorManagerMixin', function() {
 
   var unmountAnchor = function(anchor) {
     React.unmountComponentAtNode(anchor.getDOMNode().parentNode);
-    anchors.splice(anchors.indexOf(anchor, 1));
+    anchors.splice(anchors.indexOf(anchor), 1);
   };
 
   beforeEach(function() {
@@ -248,6 +248,7 @@ describe('AnchorManagerMixin', function() {
     var a = renderAnchor({anchorId: 'foo'});
     a.ATTRACT_ATTENTION_TO_ANCHOR_DURATION = 10;
     a.attractAttentionToAnchor();
+    a.state.attractAttentionToAnchor.should.be.true;
     clock.tick(11);
     a.state.attractAttentionToAnchor.should.be.false;
   });
