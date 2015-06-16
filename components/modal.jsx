@@ -5,7 +5,13 @@ var ModalManagerMixin = require('../mixins/modal-manager');
 var Modal = React.createClass({
   mixins: [React.addons.PureRenderMixin, ModalManagerMixin],
   propTypes: {
-    modalTitle: React.PropTypes.string
+    modalTitle: React.PropTypes.string,
+    isLiveRegion: React.PropTypes.bool
+  },
+  getDefaultProps: function() {
+    return {
+      isLiveRegion: false
+    };
   },
   componentDidMount: function() {
     document.addEventListener('keydown', this.handleKeyDown);
@@ -30,6 +36,7 @@ var Modal = React.createClass({
        tabIndex="-1"
        role="dialog"
        aria-labelledby="modal-label"
+       aria-live={this.props.isLiveRegion ? "polite" : "off"}
        onClick={this.handleOutsideOfModalClick}>
         <div className="modal-dialog">
           <div className="modal-header">

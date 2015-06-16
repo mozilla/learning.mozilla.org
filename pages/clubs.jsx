@@ -195,7 +195,7 @@ var ModalRemoveYourClub = React.createClass({
       content = (
         <div>
           {this.state.networkError
-           ? <div className="alert alert-danger">
+           ? <div className="alert alert-danger" role="alert">
                <p>Unfortunately, an error occurred when trying to remove your club.</p>
                <p>Please try again later.</p>
              </div>
@@ -220,7 +220,7 @@ var ModalRemoveYourClub = React.createClass({
     }
 
     return (
-      <Modal modalTitle="Remove Your Club">
+      <Modal modalTitle="Remove Your Club" isLiveRegion>
         {content}
       </Modal>
     );
@@ -504,7 +504,7 @@ var ModalAddOrChangeYourClub = React.createClass({
     }
 
     return(
-      <Modal modalTitle={modalTitle}>
+      <Modal modalTitle={modalTitle} isLiveRegion>
         {content}
       </Modal>
     );
