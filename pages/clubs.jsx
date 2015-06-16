@@ -370,14 +370,17 @@ var ModalAddOrChangeYourClub = React.createClass({
   },
   renderValidationErrors: function() {
     if (this.state.validationErrors.length) {
+      // Note that we originally had this be a list of errors,
+      // but NVDA doesn't speak lists within role="alert", so
+      // we had to make them paragraphs. Bizarre.
       return (
-        <div className="alert alert-danger">
-          <p>Unfortunately, your submission has some problems:</p>
-          <ul>
+        <div className="alert alert-danger" role="alert">
+          <p><strong>
+            Unfortunately, your submission has some problems.
+          </strong></p>
           {this.state.validationErrors.map(function(text,i) {
-            return <li key={i}>{text}</li>;
+            return <p key={i}>{text}</p>;
           })}
-          </ul>
         </div>
       );
     }
@@ -404,7 +407,7 @@ var ModalAddOrChangeYourClub = React.createClass({
       content = (
         <div>
           {this.state.networkError
-           ? <div className="alert alert-danger">
+           ? <div className="alert alert-danger" role="alert">
                <p>Unfortunately, an error occurred when trying to {action} your club.</p>
                <p>Please try again later.</p>
              </div>
@@ -629,7 +632,7 @@ var ClubsPage = React.createClass({
       <div>
         <HeroUnit>
           <h1>Mozilla Clubs</h1>
-          <div><a className="btn btn-awsm" onClick={this.showAddYourClubModal}>Add Your Club</a></div>
+          <div><button className="btn btn-awsm" onClick={this.showAddYourClubModal}>Add Your Club</button></div>
         </HeroUnit>
         <div className="inner-container">
           <section>
