@@ -59,11 +59,20 @@ var Page = React.createClass({
       }
     }
   },
+  componentWillUpdate: function(nextProps, nextState) {
+    if (!this.state.modalClass && nextState.modalClass) {
+      this._preModalActiveElement = document.activeElement;
+    }
+  },
   componentDidUpdate: function(prevProps, prevState) {
     if (this.state.modalClass && !prevState.modalClass) {
       document.body.classList.add('modal-open');
     } else if (!this.state.modalClass && prevState.modalClass) {
       document.body.classList.remove('modal-open');
+      if (this._preModalActiveElement) {
+        this._preModalActiveElement.focus();
+        this._preModalActiveElement = null;
+      }
     }
     document.title = Page.titleForHandler(this.getCurrentPageHandler());
   },

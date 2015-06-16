@@ -9,6 +9,7 @@ var Modal = React.createClass({
   },
   componentDidMount: function() {
     document.addEventListener('keydown', this.handleKeyDown);
+    this.getDOMNode().focus();
   },
   componentWillUnmount: function() {
     document.removeEventListener('keydown', this.handleKeyDown);
@@ -26,6 +27,7 @@ var Modal = React.createClass({
   render: function() {
     return (
       <div className="modal show"
+       tabIndex="-1"
        role="dialog"
        aria-labelledby="modal-label"
        onClick={this.handleOutsideOfModalClick}>
