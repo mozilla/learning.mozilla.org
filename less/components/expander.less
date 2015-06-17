@@ -32,11 +32,10 @@ html.no-js {
     font-size: inherit;
     line-height: inherit;
     transition: background-color 0.5s ease;
-    .ion {
+    &:after {
       float: right;
-      &:before {
-        content: "\f123";
-      }
+      content: "\f078";
+      font-family: "FontAwesome";
     }
   }
   .expander-header:focus {
@@ -48,9 +47,9 @@ html.no-js {
   .expand-div {
     border-top: .2rem solid #fff;
     &.expanded {
-      .ion {
-        &:before {
-          content: "\f126";
+      .expander-header {
+        &:after {
+          content: "\f077";
         }
       }
       .expander-items-container {

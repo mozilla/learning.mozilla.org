@@ -57,7 +57,6 @@ var Expander = React.createClass({
            tabIndex="0" onKeyUp={this.handleKeyUp}
            onMouseDown={this.handleMouseDown}>
             {this.props.head}
-            <span className="ion"></span>
           </h4>
           <div className="expander-items-container" onFocus={this.expand}>
             {this.props.anchorId
