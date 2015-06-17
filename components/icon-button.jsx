@@ -4,18 +4,23 @@ var Link = Router.Link;
 var ImageTag = require('./imagetag.jsx');
 
 var LinkSwap = React.createClass({
+  propTypes: {
+    linkTo: React.PropTypes.string,
+    href: React.PropTypes.string,
+    onClick: React.PropTypes.func
+  },
   render: function() {
     var classes =  "btn btn-awsm";
     // Swap out Link or a simple anchor depending on the props we have.
     if (this.props.linkTo) {
       return (
-        <Link to={this.props.linkTo} className={classes}>
+        <Link to={this.props.linkTo} className={classes} onClick={this.props.onClick}>
           {this.props.children}
         </Link>
       )
     }
     return (
-      <a href={this.props.href} className={classes}>
+      <a href={this.props.href} className={classes} onClick={this.props.onClick}>
         {this.props.children}
       </a>
     )
@@ -29,12 +34,13 @@ var IconButton = React.createClass({
     imgSrc: React.PropTypes.string.isRequired,
     imgSrc2X: React.PropTypes.string,
     head: React.PropTypes.string.isRequired,
-    subhead: React.PropTypes.string
+    subhead: React.PropTypes.string,
+    onClick: React.PropTypes.func
   },
   render: function() {
     return (
       <div className="icon-button">
-        <LinkSwap linkTo={this.props.linkTo} href={this.props.href}>
+        <LinkSwap linkTo={this.props.linkTo} href={this.props.href} onClick={this.props.onClick}>
           <figure>
             <ImageTag className="image" src1x={this.props.imgSrc} src2x={this.props.imgSrc2x}
             alt="" height={50} />

@@ -10,6 +10,9 @@ var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
 var IconButtons = require('../components/icon-buttons.jsx');
 var IconButton = require('../components/icon-button.jsx');
+var Modal = require('../components/modal.jsx');
+var ModalManagerMixin = require('../mixins/modal-manager');
+var ImageTag = require('../components/imagetag.jsx');
 
 var config = require('../lib/config');
 var loadBlogPosts = require('../lib/blog-feed-loader');
@@ -146,10 +149,57 @@ var BlogSection = React.createClass({
   }
 });
 
+var ModalPledge = React.createClass({
+  mixins: [ModalManagerMixin, React.addons.LinkedStateMixin],
+  getInitialState: function() {
+    return {
+      email: "",
+      validationErrors: []
+    };
+  },
+  handleSubmit: function() {
+
+  },
+  render: function() {
+    return (
+      <Modal modalTitle="" foldedStyle className="modal-pledge">
+        <ImageTag className="image center-block"
+                  src1x="/img/pages/home/svg/icon-teach-man-chalkboard-pledge.svg"
+                  src2x="/img/pages/home/svg/icon-teach-man-chalkboard-pledge.svg"
+                  alt="" width={150} height={150} />
+        <p>Because the Web is a global public resource that's integral to modern life, <strong>I pledge to:</strong></p>
+        <ul>
+          <li>teach others digital literacy skills through hands-on making</li>
+          <li>help people move beyond simply consuming the web to creating it</li>
+          <li>be a passionate advocate of an open and accessible web</li>
+        </ul>
+        <p><strong>Pledge now, and we'll follow up with with details about how you can teach the web!</strong></p>
+        <form onSubmit={this.handleSubmit}>
+          <fieldset>
+            <label htmlFor="pledge-email" className="sr-only">email</label>
+            <input id="pledge-email" name="email" type="email" size="30" placeholder="Your email address" valueLink={this.linkState("email")} required />
+          </fieldset>
+          <fieldset>
+            <label htmlFor="pledge-pp-note" className="sr-only">I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a></label>
+            <input id="pledge-pp-note" name={process.env.MAILINGLIST_PRIVACY_NAME} type="checkbox" checked readOnly required hidden />
+            <p className="pp-note">&#10003; I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.</p>
+          </fieldset>
+          <input type="submit" value="Submit Email" className="btn btn-awsm" />
+        </form>
+      </Modal>
+    )
+  }
+});
+
 var HomePage = React.createClass({
   statics: {
     pageClassName: 'home-page',
     BlogSection: BlogSection
+  },
+  mixins: [ModalManagerMixin],
+  handlePledgeBtnClick: function() {
+    this.showModal(ModalPledge, {
+    });
   },
   render: function() {
     return (
@@ -160,6 +210,7 @@ var HomePage = React.createClass({
             <IconButton
               imgSrc="/img/pages/home/svg/icon-teach-man-chalkboard-pledge.svg"
               head="Pledge to Teach"
+              onClick={this.handlePledgeBtnClick}
             />
             <IconButton
               linkTo="activities"

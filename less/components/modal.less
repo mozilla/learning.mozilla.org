@@ -11,6 +11,10 @@
     width: 50rem;
     margin: 10rem auto;
   }
+  p {
+    font-size: inherit;
+    line-height: inherit;
+  }
   .modal-header {
     background-color: #EDEDED;
     border-bottom: .1rem solid @modal-inner-border-color;
@@ -88,6 +92,45 @@
         background: saturate(@orangeSidebarColor, 10%);
       }
     }
+  }
+}
+
+.modal-dialog.folded {
+  // folded corner effect on non-solid background
+  // based on http://stackoverflow.com/a/26241310
+  border: none;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  .modal-header {
+    background-color: transparent;
+    border-bottom: none;
+    &:before {
+      position: absolute;
+      content: "";
+      top: 0;
+      right: 0;
+      border-top: 2rem solid transparent;
+      border-left: 2rem solid @lightGrey;
+      border-bottom: 2rem solid @lightGrey;
+      border-right: 2rem solid transparent;
+    }
+    button {
+      position: relative;
+      top: .5rem;
+    }
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    width: 1000%;
+    height: 1000%;
+    top: 4rem;
+    background: @white none repeat scroll 0% 0%;
+    transform-origin: 50% 0 0;
+    transform: rotate(45deg);
+    z-index: -1;
+    right: -500%;
   }
 }
 

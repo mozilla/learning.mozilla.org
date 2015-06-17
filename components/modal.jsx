@@ -5,7 +5,9 @@ var ModalManagerMixin = require('../mixins/modal-manager');
 var Modal = React.createClass({
   mixins: [React.addons.PureRenderMixin, ModalManagerMixin],
   propTypes: {
-    modalTitle: React.PropTypes.string
+    modalTitle: React.PropTypes.string,
+    foldedStyle: React.PropTypes.bool,
+    className: React.PropTypes.string
   },
   componentDidMount: function() {
     document.addEventListener('keydown', this.handleKeyDown);
@@ -24,12 +26,16 @@ var Modal = React.createClass({
     }
   },
   render: function() {
+    var classes = this.props.foldedStyle ? "modal-dialog folded" : "modal-dialog";
+    if (this.props.className) {
+      classes += " " + this.props.className;
+    }
     return (
       <div className="modal show"
        role="dialog"
        aria-labelledby="modal-label"
        onClick={this.handleOutsideOfModalClick}>
-        <div className="modal-dialog">
+        <div className={classes}>
           <div className="modal-header">
             <button type="button" className="close"
              onClick={this.hideModal}>&times;</button>
