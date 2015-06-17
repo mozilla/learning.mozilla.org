@@ -6,14 +6,30 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 ### Added
+- A banner has been added to the homepage to promote Maker Party,
+  a Mozilla global campaign.
+- Each section in the Web Literacy Map can now be visited via a
+  unique permalink. Clicking on the section sign (§) at the top-right
+  of each expander section will set browser's current URL to a
+  permalink for the section. Visiting a section directly through its
+  permalink will also automatically expand that section to attract
+  users' attention.
+- Tools page has been added (https://teach.mozilla.org/tools). Currently
+  there's no UI element on the site that leads to that page. However,
+  a menu item "Tools" will be added to the sidebar in a follow-up release.
 - The release process has been documented in `RELEASE.md`.
 - An experimental lightweight dynamic server has been added, which
   dynamically generates requested HTML content. Documentation
   can be found in `README.md`.
 - Unit tests have been added for the homepage.
+- Hero unit images have been optimized and converted to JPG. In fact
+  an image converter helper is in place now so we can easily optimize any
+  images in the future.
 
 ### Changed
 - The marker popups in the Clubs map are now much easier to read.
+- Clicking on the location label of a Club will automatically zoom to
+  that location pin on the Clubs map.
 - All `mailto:` links on the website now point to
   `teachtheweb@mozillafoundation.org`.
 - The "club curriculum" link under the "Write, Remix, or find Curriculum"
@@ -24,6 +40,13 @@ to [Semantic Versioning](http://semver.org/).
   their collapsed/inactive content would be hidden.)
 - The Clubs page no longer makes superfluous network requests to
   retrieve the Clubs list.
+- Only .jpg, .png, and .svg files in the `/img` directory are being watched
+  (when running `npm start`) and copied to the `/dist` directory.
+- Ionicons icon font has been dropped for FontAwesome.
+- Hero unit background images are positioned at center top. This improves
+  focus on the main visual interests on the photographs, especially on
+  mobile viewports.
+
 
 ## [0.0.9][] - 2015-06-03
 ### Added
