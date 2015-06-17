@@ -34,6 +34,8 @@ var routes = (
      handler={require('../pages/clubs-toolkit.jsx')}/>
     <Route name="teach-like-mozilla" path="/teach-like-mozilla/"
      handler={require('../pages/teach-like-mozilla.jsx')}/>
+    <Route name="tools" path="/tools/"
+     handler={require('../pages/tools.jsx')}/>
     <Route name="fixme" path="/fixme/"
      handler={require('../pages/fixme.jsx')}/>
     <DefaultRoute name="home"
@@ -54,6 +56,7 @@ React.Children.forEach(routes.props.children, function(item) {
 });
 
 exports.URLS = urls;
+exports.REDIRECTS = redirects;
 
 exports.routes = routes;
 

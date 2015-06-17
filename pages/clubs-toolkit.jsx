@@ -84,7 +84,7 @@ var ClubsToolkit = React.createClass({
                   Our community loves to tweet! Share ideas and send pictures to <a href={config.TWITTER_LINK}>{config.TWITTER_HANDLE}</a> and use the tag <a href="https://twitter.com/search?q=%23teachtheweb">#TeachTheWeb</a>
                 </ToolkitListItem>
                 <ToolkitListItem header="Email.">
-                  We’re always here to answer your questions and connect you to other clubs. Send an email to <a href="mailto:help@webmaker.org">help@webmaker.org</a>
+                  We’re always here to answer your questions and connect you to other clubs. Send an email to <a href={"mailto:"+config.TEACH_THE_WEB_EMAIL}>{config.TEACH_THE_WEB_EMAIL}</a>
                 </ToolkitListItem>
               </ToolkitList>
             </Toolkit>
@@ -199,7 +199,7 @@ var ClubsToolkit = React.createClass({
           </Expander>
           <Expander head="write, remix, or find curriculum">
             <Toolkit>
-              <p>Within our <a href="http://mozilla.github.io/webmaker-curriculum/">club curriculum</a> you will find activities developed by Mozilla and our communities to help guide you through your regular meetups. Here’s some of what we’ve learned from our early club leaders,</p>
+              <p>Within our <Link to="activities">club curriculum</Link> you will find activities developed by Mozilla and our communities to help guide you through your regular meetups. Here’s some of what we’ve learned from our early club leaders,</p>
               <ToolkitList>
                 <ToolkitListItem header="Format.">
                   Clubs can come in the form of daily, weekly, bi-weekly, monthly or after school meetups. The time and place for your club meetings can vary, but the meetups should remain consistent so that the learning can be on-going and learners have time to grow and complete multiple activities.

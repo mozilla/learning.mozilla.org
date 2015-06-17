@@ -4,7 +4,7 @@
   width: 100%;
   .mapDivChild {
     position: relative;
-    height: 500px;
+    height: 50rem;
   }
 }
 
@@ -19,4 +19,29 @@
 .map > div {
   position: relative;
   height: 100%;
+}
+
+.popup-clubs-list {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+  li {
+    h4 {
+      margin-bottom: .5rem;
+    }
+    p {
+      font-size: 1.2rem;
+      line-height: 1.2;
+    }
+  }
+  .action-panel {
+    margin-top: 1rem;
+    text-align: right;
+  }
+}
+
+.leaflet-popup-content {
+  max-height: 48.5rem;
+  margin-top: 2rem;
+  overflow-y: auto;
 }

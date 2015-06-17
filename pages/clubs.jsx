@@ -24,7 +24,11 @@ var ClubListItem = React.createClass({
     club: React.PropTypes.object.isRequired,
     username: React.PropTypes.string,
     onDelete: React.PropTypes.func,
-    onEdit: React.PropTypes.func
+    onEdit: React.PropTypes.func,
+    onZoomToLocation: React.PropTypes.func.isRequired
+  },
+  handleLocationClick: function() {
+    this.props.onZoomToLocation(this.props.club);
   },
   render: function() {
     var club = this.props.club;
@@ -49,7 +53,7 @@ var ClubListItem = React.createClass({
     return (
       <li>
         <h4>{clubName} <Map.ClubStatusLabel showApproved={isOwned} status={club.status}/></h4>
-        <p><em>{club.location.split(',')[0]}</em></p>
+        <p><span className="club-location" onClick={this.handleLocationClick}><span className="glyphicon glyphicon-map-marker"/> {club.location.split(',')[0]}</span></p>
         <p>{club.description}</p>
         <p><small>Led by <a href={"https://webmaker.org/en-US/search?type=user&q=" + club.owner}>{club.owner}</a></small></p>
         {ownerControls}
@@ -65,7 +69,8 @@ var ClubList = React.createClass({
     clubs: React.PropTypes.array.isRequired,
     username: React.PropTypes.string,
     onDelete: React.PropTypes.func,
-    onEdit: React.PropTypes.func
+    onEdit: React.PropTypes.func,
+    onZoomToLocation: React.PropTypes.func.isRequired
   },
   statics: {
     Item: ClubListItem
@@ -79,7 +84,8 @@ var ClubList = React.createClass({
             return  <ClubListItem key={i} club={club}
                                   username={this.props.username}
                                   onEdit={this.props.onEdit}
-                                  onDelete={this.props.onDelete} />;
+                                  onDelete={this.props.onDelete}
+                                  onZoomToLocation={this.props.onZoomToLocation} />;
           }, this)}
         </ul>
       </div>
@@ -507,7 +513,8 @@ var ClubLists = React.createClass({
     clubs: React.PropTypes.array.isRequired,
     username: React.PropTypes.string,
     onDelete: React.PropTypes.func.isRequired,
-    onEdit: React.PropTypes.func.isRequired
+    onEdit: React.PropTypes.func.isRequired,
+    onZoomToLocation: React.PropTypes.func.isRequired
   },
   componentWillMount: function() {
     this.componentWillReceiveProps(this.props);
@@ -545,7 +552,8 @@ var ClubLists = React.createClass({
              clubs={this.state.userClubs}
              username={this.props.username}
              onDelete={this.props.onDelete}
-             onEdit={this.props.onEdit}/>
+             onEdit={this.props.onEdit}
+             onZoomToLocation={this.props.onZoomToLocation}/>
              {this.state.userHasUnapprovedClubs ? (
                <div className="alert alert-warning">
                  <strong>Note:</strong> All clubs pending approval or denied are not visible to other users.
@@ -554,7 +562,9 @@ var ClubLists = React.createClass({
           </div>
         ) : null}
         <h3>Club List</h3>
-        <ClubList clubs={this.state.otherClubs}/>
+        <ClubList
+         clubs={this.state.otherClubs}
+         onZoomToLocation={this.props.onZoomToLocation}/>
       </div>
     );
   }
@@ -588,10 +598,10 @@ var ClubsPage = React.createClass({
   },
   showAddYourClubModal: function() {
     this.showModal(ModalAddOrChangeYourClub, {
-      onSuccess: this.handleAddClubSuccess
+      onSuccess: this.handleZoomToClub
     });
   },
-  handleAddClubSuccess: function(club) {
+  handleZoomToClub: function(club) {
     this.refs.map.getDOMNode().scrollIntoView();
     this.refs.map.focusOnClub(club);
   },
@@ -607,7 +617,7 @@ var ClubsPage = React.createClass({
     });
     this.showModal(ModalAddOrChangeYourClub, {
       club: club,
-      onSuccess: this.handleAddClubSuccess
+      onSuccess: this.handleZoomToClub
     });
   },
   render: function() {
@@ -637,7 +647,8 @@ var ClubsPage = React.createClass({
             <ClubLists clubs={clubs}
              username={username}
              onDelete={this.handleClubDelete}
-             onEdit={this.handleClubEdit}/>
+             onEdit={this.handleClubEdit}
+             onZoomToLocation={this.handleZoomToClub} />
           </section>
           <section>
             <Quote/>

@@ -1,7 +1,6 @@
-html.no-js {
+.expander-hide-nothing() {
   .expander-container {
     .expand-div {
-      outline: 0;
       .ion {
         display: none;
       }
@@ -10,6 +9,14 @@ html.no-js {
       }
     }
   }
+}
+
+html.no-js {
+  .expander-hide-nothing();
+}
+
+@media print {
+  .expander-hide-nothing();
 }
 
 .expander-container {
@@ -25,20 +32,24 @@ html.no-js {
     font-size: inherit;
     line-height: inherit;
     transition: background-color 0.5s ease;
-    .ion {
+    &:after {
       float: right;
-      &:before {
-        content: "\f123";
-      }
+      content: "\f078";
+      font-family: "FontAwesome";
     }
+  }
+  .expander-header:focus {
+    /* Keyboard focus for this element doesn't mean anything for the
+     * UI, because we instantly expand the section as soon as we
+     * notice that it's been focused via the keyboard. */
+    outline: none;
   }
   .expand-div {
     border-top: .2rem solid #fff;
     &.expanded {
-      outline: 0;
-      .ion {
-        &:before {
-          content: "\f126";
+      .expander-header {
+        &:after {
+          content: "\f077";
         }
       }
       .expander-items-container {
@@ -47,7 +58,17 @@ html.no-js {
       }
     }
   }
+  .expand-div.expanded.attract-attention .expander-items-container {
+    animation-name: attract;
+    animation-duration: 4s;
+  }
+  @keyframes attract {
+    from {
+      background: orange;
+    }
+  }
   .expander-items-container {
+    position: relative;
     text-align: left;
     overflow: hidden;
     max-height: 0;
@@ -60,5 +81,11 @@ html.no-js {
       line-height: 2.2rem;
       font-weight: 400;
     }
+  }
+  .expander-permalink {
+    opacity: 0.66;
+    position: absolute;
+    right: 0.25rem;
+    top: 0.25rem;
   }
 }

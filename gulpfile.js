@@ -19,21 +19,24 @@ var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 
 var IndexFileStream = require('./lib/gulp-index-file-stream');
+var imageConverter = require('./lib/gulp-image-converter');
+var imageConvertConfig = require('./image-convert.config');
 var webpackConfig = require('./webpack.config');
 var config = require('./lib/config');
 var travis = require('./lib/travis');
-var server = require('./test/browser/server');
+var staticServer = require('./test/browser/server');
+var lightweightDynamicServer = require('./app');
 var indexStaticWatcher = require('./lib/index-static-watcher').create();
 
-var BUILD_TASKS = [
-  'copy-test-dirs',
-  'copy-images',
-  'copy-bootstrap',
-  'copy-webmaker-app-icons',
+var MINIMAL_BUILD_TASKS = [
+  'copy-static-files',
   'less',
-  'webpack',
-  'sitemap'
+  'webpack'
 ];
+
+var BUILD_TASKS = MINIMAL_BUILD_TASKS.concat([
+  'sitemap'
+]);
 
 var LINT_DIRS = [
     '*.js',
@@ -46,7 +49,14 @@ var LINT_DIRS = [
     '!test/**/*.js'
 ];
 
+var IMG_FILE_TYPES = [
+  'img/**/*.jpg',
+  'img/**/*.png',
+  'img/**/*.svg'
+];
+
 var LESS_FILES = './less/**/*.less';
+var WATCH_DELAY = 200;
 
 function onError(err) {
   gutil.log(gutil.colors.red(err));
@@ -94,6 +104,13 @@ gulp.task('sitemap', ['generate-index-files'], function() {
     .pipe(gulp.dest('./dist'));
 });
 
+gulp.task('copy-static-files', [
+  'copy-test-dirs',
+  'copy-images',
+  'copy-bootstrap',
+  'copy-fontawesome'
+]);
+
 gulp.task('copy-test-dirs', function() {
   return merge(
     gulp.src('test/browser/static/**', {
@@ -106,21 +123,29 @@ gulp.task('copy-test-dirs', function() {
 });
 
 gulp.task('copy-images', function () {
-  return gulp.src('img/**', {
+  imageConvertConfig.reload();
+  return gulp.src(IMG_FILE_TYPES, {
     base: '.'
-  }).pipe(gulp.dest('./dist'));
-});
-
-gulp.task('copy-webmaker-app-icons', function () {
-  return gulp.src(['node_modules/webmaker-app-icons/css/**', 'node_modules/webmaker-app-icons/fonts/**'], {
-    base: 'node_modules/webmaker-app-icons'
-  }).pipe(gulp.dest('./dist/vendor/webmaker-app-icons'));
+  }).pipe(imageConverter(imageConvertConfig.patterns))
+    .on('unconverted-patterns', function(patterns) {
+      gutil.log(gutil.colors.red.bold(
+        'No images matched the pattern(s): ' + patterns
+      ));
+      gutil.log('Please edit image-convert.config.js to fix this.');
+    })
+    .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('copy-bootstrap', function () {
   return gulp.src(['node_modules/bootstrap/dist/css/**', 'node_modules/bootstrap/dist/fonts/**'], {
     base: 'node_modules/bootstrap/dist'
   }).pipe(gulp.dest('./dist/vendor/bootstrap'));
+});
+
+gulp.task('copy-fontawesome', function () {
+  return gulp.src(['node_modules/font-awesome/css/**', 'node_modules/font-awesome/fonts/**'], {
+    base: 'node_modules/font-awesome'
+  }).pipe(gulp.dest('./dist/vendor/font-awesome'));
 });
 
 gulp.task('less', function() {
@@ -198,16 +223,48 @@ gulp.task('lint-test', ['jscs', 'jshint']);
 
 gulp.task('default', BUILD_TASKS);
 
-gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
-  require('./lib/developer-help')();
-
+gulp.task('watch-webpack', function() {
+  // We're specifically not returning the stream here,
+  // because if we do that, this task would never end,
+  // and tasks that depend on this one would never be run.
   gulp.src(webpackConfig.entry.app)
     .pipe(webpack(_.extend({
       watch: true
     }, webpackConfig)))
     .pipe(gulp.dest('./dist'));
+});
 
-  indexStaticWatcher.watch(200, function() {
+gulp.task('watch-static-files', function() {
+  gulp.watch(IMG_FILE_TYPES.concat([
+    'image-convert.config.js'
+  ]), ['copy-images']);
+  gulp.watch('test/browser/static/**', ['copy-test-dirs']);
+});
+
+gulp.task('watch-non-reloadable-files', function() {
+  gulp.watch([
+    'gulpfile.js',
+    'package.json',
+    'webpack.config.js',
+    'app.js'
+  ], function(event) {
+    var filename = path.basename(event.path);
+    var cmd = process.argv[2] === 'app' ? 'npm run app' : 'npm start';
+    gutil.log(gutil.colors.red.bold(filename + ' was ' + event.type + '.'));
+    gutil.log(gutil.colors.red.bold('Please restart the server ' +
+                                    'with "' + cmd + '".'));
+    process.exit(0);
+  });
+});
+
+gulp.task('watch', _.without(BUILD_TASKS, 'webpack').concat([
+  'watch-webpack',
+  'watch-static-files',
+  'watch-non-reloadable-files'
+]), function() {
+  require('./lib/developer-help')();
+
+  indexStaticWatcher.watch(WATCH_DELAY, function() {
     createIndexFileStream()
       .on('error', function(err) {
         gutil.log('Error rebuilding index HTML files.');
@@ -219,23 +276,30 @@ gulp.task('watch', _.without(BUILD_TASKS, 'webpack'), function() {
       .pipe(gulp.dest('./dist'));
   });
 
-  gulp.watch('img/**', ['copy-images']);
   gulp.watch(LESS_FILES, ['less']);
-  gulp.watch('test/browser/static/**', ['copy-test-dirs']);
-  gulp.watch([
-    'gulpfile.js',
-    'package.json',
-    'webpack.config.js'
-  ], function(event) {
-    var filename = path.basename(event.path);
-    gutil.log(gutil.colors.red.bold(filename + ' was ' + event.type + '.'));
-    gutil.log(gutil.colors.red.bold('Please restart the watch process ' +
-                                    'with "npm start".'));
-    process.exit(0);
+
+  staticServer.create().listen(config.DEV_SERVER_PORT, function() {
+    gutil.log('Development server listening at ' +
+              gutil.colors.green.bold(config.ORIGIN) + '.');
+  });
+});
+
+gulp.task('app', _.without(MINIMAL_BUILD_TASKS, 'webpack').concat([
+  'watch-webpack',
+  'watch-static-files',
+  'watch-non-reloadable-files'
+]), function() {
+  require('./lib/developer-help')();
+
+  indexStaticWatcher.watch(WATCH_DELAY, function(newIndexStatic) {
+    lightweightDynamicServer.updateIndexStatic(newIndexStatic);
+    console.log('Rebuilt server-side bundle.');
   });
 
-  server.create().listen(config.DEV_SERVER_PORT, function() {
-    gutil.log('Development server listening at ' +
+  gulp.watch(LESS_FILES, ['less']);
+
+  lightweightDynamicServer.listen(config.DEV_SERVER_PORT, function() {
+    gutil.log('Lightweight dynamic server listening at ' +
               gutil.colors.green.bold(config.ORIGIN) + '.');
   });
 });
@@ -291,3 +355,11 @@ gulp.task('s3', BUILD_TASKS, function() {
       }
     }));
 });
+
+if (process.env.NODE_ENV === 'production') {
+  gulp.task('postinstall', MINIMAL_BUILD_TASKS);
+} else {
+  gulp.task('postinstall');
+}
+
+module.exports.LESS_FILES = LESS_FILES;

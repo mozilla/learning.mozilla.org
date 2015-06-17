@@ -1,8 +1,8 @@
 .page .hero-unit {
-  background-image: url(/img/pages/home/hero-unit.png);
+  background-image: url(/img/pages/home/hero-unit.jpg);
 
   .retina2x({
-    background-image: url(/img/pages/home/hero-unit@2x.png);
+    background-image: url(/img/pages/home/hero-unit@2x.jpg);
   });
 }
 
@@ -11,6 +11,25 @@
     h1 {
       margin-top: 15rem;
       margin-bottom: 10rem;
+    }
+  }
+}
+
+.makerparty-banner {
+  background: #CAE8EF;
+  background-image: url(/img/pages/home/maker-party_pattern-tile.png);
+  background-size: 17.1rem 12.15rem;
+  .retina2x({
+    background-image: url(/img/pages/home/maker-party_pattern-tile@2x.png);
+  });
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  .btn.btn-awsm {
+    width: 100%;
+    @media screen and (min-width: @screen-sm-min) {
+      width: auto;
     }
   }
 }
