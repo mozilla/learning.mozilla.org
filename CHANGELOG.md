@@ -14,9 +14,9 @@ to [Semantic Versioning](http://semver.org/).
   permalink for the section. Visiting a section directly through its
   permalink will also automatically expand that section to attract
   users' attention.
-- Tools page has been added(https://teach.mozilla.org/tools). Currently
+- Tools page has been added (https://teach.mozilla.org/tools). Currently
   there's no UI element on the site that leads to that page. However,
-  a menu item "Tools" will be added to the sidebar in the next release.
+  a menu item "Tools" will be added to the sidebar in a follow-up release.
 - The release process has been documented in `RELEASE.md`.
 - An experimental lightweight dynamic server has been added, which
   dynamically generates requested HTML content. Documentation
@@ -44,7 +44,8 @@ to [Semantic Versioning](http://semver.org/).
   (when running `npm start`) and copied to the `/dist` directory.
 - Ionicons icon font has been dropped for FontAwesome.
 - Hero unit background images are positioned at center top. This improves
-  focus on the main visual interests on the photographs.
+  focus on the main visual interests on the photographs, especially on
+  mobile viewports.
 
 
 ## [0.0.9][] - 2015-06-03
