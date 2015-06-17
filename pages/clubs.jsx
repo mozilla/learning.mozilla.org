@@ -15,6 +15,7 @@ var Modal = require('../components/modal.jsx');
 var ModalManagerMixin = require('../mixins/modal-manager');
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
 var LoginLink = require('../components/login.jsx').LoginLink;
+var StepView = require('../components/step-view.jsx');
 var ga = require('react-ga');
 
 var Illustration = require('../components/illustration.jsx');
@@ -220,8 +221,10 @@ var ModalRemoveYourClub = React.createClass({
     }
 
     return (
-      <Modal modalTitle="Remove Your Club" isLiveRegion>
-        {content}
+      <Modal modalTitle="Remove Your Club">
+        <StepView stepId={this.state.step}>
+          {content}
+        </StepView>
       </Modal>
     );
   }
@@ -397,7 +400,7 @@ var ModalAddOrChangeYourClub = React.createClass({
       content = (
         <div>
           <p>Before you can {action} your club, you need to log in.</p>
-          <LoginLink callbackSearch="?modal=add" className="btn btn-primary btn-block">Log In</LoginLink>
+          <LoginLink data-autofocus callbackSearch="?modal=add" className="btn btn-primary btn-block">Log In</LoginLink>
           <LoginLink callbackSearch="?modal=add" action="signup" className="btn btn-default btn-block">Create an account</LoginLink>
         </div>
       );
@@ -417,6 +420,7 @@ var ModalAddOrChangeYourClub = React.createClass({
             <fieldset>
               <label htmlFor={idPrefix + "name"}>Who is your Mozilla Club affiliated with?</label>
               <input type="text" id={idPrefix + "name"} placeholder="Name of organization, school, group"
+               data-autofocus
                disabled={isFormDisabled}
                required
                valueLink={this.linkState('name')} />
@@ -497,6 +501,7 @@ var ModalAddOrChangeYourClub = React.createClass({
              </div>
            : <h2>Your club has been changed.</h2>}
           <button className="btn btn-block"
+           data-autofocus
            onClick={this.handleSuccessClick}>
             Take Me To My Club
           </button>
@@ -505,8 +510,10 @@ var ModalAddOrChangeYourClub = React.createClass({
     }
 
     return(
-      <Modal modalTitle={modalTitle} isLiveRegion>
-        {content}
+      <Modal modalTitle={modalTitle}>
+        <StepView stepId={this.state.step}>
+          {content}
+        </StepView>
       </Modal>
     );
   }

@@ -5,17 +5,15 @@ var ModalManagerMixin = require('../mixins/modal-manager');
 var Modal = React.createClass({
   mixins: [React.addons.PureRenderMixin, ModalManagerMixin],
   propTypes: {
-    modalTitle: React.PropTypes.string,
-    isLiveRegion: React.PropTypes.bool
-  },
-  getDefaultProps: function() {
-    return {
-      isLiveRegion: false
-    };
+    modalTitle: React.PropTypes.string
   },
   componentDidMount: function() {
+    var thisEl = this.getDOMNode();
+
     document.addEventListener('keydown', this.handleKeyDown);
-    this.getDOMNode().focus();
+    if (!containsActiveElement(thisEl)) {
+      thisEl.focus();
+    }
   },
   componentWillUnmount: function() {
     document.removeEventListener('keydown', this.handleKeyDown);
@@ -36,7 +34,6 @@ var Modal = React.createClass({
        tabIndex="-1"
        role="dialog"
        aria-labelledby="modal-label"
-       aria-live={this.props.isLiveRegion ? "polite" : "off"}
        onClick={this.handleOutsideOfModalClick}>
         <div className="modal-dialog">
           <div className="modal-header">
@@ -57,5 +54,19 @@ var Modal = React.createClass({
     );
   }
 });
+
+function containsActiveElement(el) {
+  if (!document.activeElement) {
+    return false;
+  }
+  return contains(el, document.activeElement);
+}
+
+// http://ejohn.org/blog/comparing-document-position/
+function contains(a, b){
+  return a.contains ?
+    a != b && a.contains(b) :
+    !!(a.compareDocumentPosition(b) & 16);
+}
 
 module.exports = Modal;
