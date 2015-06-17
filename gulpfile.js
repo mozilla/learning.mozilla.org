@@ -108,7 +108,7 @@ gulp.task('copy-static-files', [
   'copy-test-dirs',
   'copy-images',
   'copy-bootstrap',
-  'copy-webmaker-app-icons'
+  'copy-fontawesome'
 ]);
 
 gulp.task('copy-test-dirs', function() {
@@ -136,16 +136,16 @@ gulp.task('copy-images', function () {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('copy-webmaker-app-icons', function () {
-  return gulp.src(['node_modules/webmaker-app-icons/css/**', 'node_modules/webmaker-app-icons/fonts/**'], {
-    base: 'node_modules/webmaker-app-icons'
-  }).pipe(gulp.dest('./dist/vendor/webmaker-app-icons'));
-});
-
 gulp.task('copy-bootstrap', function () {
   return gulp.src(['node_modules/bootstrap/dist/css/**', 'node_modules/bootstrap/dist/fonts/**'], {
     base: 'node_modules/bootstrap/dist'
   }).pipe(gulp.dest('./dist/vendor/bootstrap'));
+});
+
+gulp.task('copy-fontawesome', function () {
+  return gulp.src(['node_modules/font-awesome/css/**', 'node_modules/font-awesome/fonts/**'], {
+    base: 'node_modules/font-awesome'
+  }).pipe(gulp.dest('./dist/vendor/font-awesome'));
 });
 
 gulp.task('less', function() {
