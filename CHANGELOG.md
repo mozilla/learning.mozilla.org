@@ -6,11 +6,6 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 ### Added
-
-### Changed
-
-## [0.0.10][] - 2015-06-17
-### Added
 - A banner has been added to the homepage to promote Maker Party,
   a Mozilla global campaign.
 - Each section in the Web Literacy Map can now be visited via a
