@@ -132,7 +132,28 @@
       }
     }
   }
-  form {
-
+  .social-share {
+    text-align: center;
+    a {
+      color: @white;
+      border-radius: @form-field-border-radius;
+      display: inline-block;
+      width: 15rem;
+      margin: 0 1rem;
+      padding: 2rem;
+      &.facebook {
+        background-color: #507BBE;
+      }
+      &.twitter {
+        background-color: #64CCEF;
+      }
+      &:hover {
+        text-decoration: none;
+      }
+      .fa {
+        display: block;
+        font-size: 5rem;
+      }
+    }
   }
 }

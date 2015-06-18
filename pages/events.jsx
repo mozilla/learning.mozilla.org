@@ -98,9 +98,6 @@ var EventsPage = React.createClass({
   contextTypes: {
     router: React.PropTypes.func.isRequired
   },
-  contextTypes: {
-    router: React.PropTypes.func.isRequired
-  },
   componentDidMount: function() {
     if (this.context.router.getCurrentQuery().mailinglist === "thanks") {
       this.showModal(ThankYouModal);
