@@ -4,6 +4,7 @@ var Router = require('react-router');
 var Link = Router.Link;
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
+var config = require('../lib/config');
 
 var ToolsIntro = React.createClass({
   render: function() {
@@ -66,7 +67,7 @@ var ToolsSection = React.createClass({
     {
       name: "X-Ray Goggles",
       description: "This code inspector lets you view and remix the code of your favorite web pages.",
-      link: "https://webmaker.org/goggles",
+      link: config.XRAY_GOGGLES_LINK,
       src1x: "/img/pages/tools/xray-goggles.png",
       src2x: "/img/pages/tools/xray-goggles@2x.png",
       activityTitle: "Hack the News",
