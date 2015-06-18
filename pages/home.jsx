@@ -177,7 +177,10 @@ var ModalPledge = React.createClass({
         <form onSubmit={this.handleSubmit}>
           <fieldset>
             <label htmlFor="pledge-email" className="sr-only">email</label>
-            <input id="pledge-email" name="email" type="email" size="30" placeholder="Your email address" valueLink={this.linkState("email")} required />
+            <div className="icon-field-container">
+              <i className="fa fa-envelope"></i>
+              <input id="pledge-email" name="email" type="email" size="30" placeholder="email@example.com" valueLink={this.linkState("email")} required />
+            </div>
             <label htmlFor="pledge-pp-note" className="sr-only">I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a></label>
             <input id="pledge-pp-note" name={process.env.MAILINGLIST_PRIVACY_NAME} type="checkbox" checked readOnly required hidden />
             <p className="pp-note">&#10003; I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.</p>
