@@ -5,6 +5,9 @@ which uses the format described in
 to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
+### Added
+- Added environment variables `PLEDGE_MAILINGLIST_URL`
+  and `PLEDGE_MAILINGLIST_PRIVACY_NAME`.
 
 ## [0.0.10][] - 2015-06-17
 ### Added
