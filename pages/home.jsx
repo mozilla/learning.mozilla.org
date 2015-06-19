@@ -226,6 +226,8 @@ var ModalPledge = React.createClass({
 
 var ThankYouModal = React.createClass({
   render: function() {
+  var twitterShare = "https://twitter.com/home?status=" +
+                     encodeURIComponent("I just pledged to #TeachTheWeb! https://teach.mozilla.org");
     return (
       <Modal modalTitle="Thanks for your pledge!" className="modal-pledge">
         <p>We appreciate your commitment to keeping the web open, accessible and ours.</p>
@@ -235,7 +237,7 @@ var ThankYouModal = React.createClass({
             <i className="fa fa-facebook"></i>
             Facebook
           </a>
-          <a href="https://twitter.com/home?status=I%20just%20pledged%20to%20%23TeachTheWeb!%20https%3A%2F%2Fteach.mozilla.org" className="twitter">
+          <a href={twitterShare} className="twitter">
             <i className="fa fa-twitter"></i>
             Twitter
           </a>
