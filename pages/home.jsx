@@ -10,8 +10,12 @@ var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
 var IconButtons = require('../components/icon-buttons.jsx');
 var IconButton = require('../components/icon-button.jsx');
+var Modal = require('../components/modal.jsx');
+var ModalManagerMixin = require('../mixins/modal-manager');
+var ImageTag = require('../components/imagetag.jsx');
 
 var config = require('../lib/config');
+var util = require('../lib/util');
 var loadBlogPosts = require('../lib/blog-feed-loader');
 
 var CaseStudies = React.createClass({
@@ -146,10 +150,123 @@ var BlogSection = React.createClass({
   }
 });
 
+var validateSignupForm = function(signUpFormState) {
+  var errors = [];
+  if ( !util.isValidEmail(signUpFormState.email) ) {
+    errors.push("Please enter an email address.");
+  }
+  return errors;
+};
+
+var ModalPledge = React.createClass({
+  mixins: [React.addons.LinkedStateMixin],
+  getInitialState: function() {
+    return {
+      email: "",
+      validationErrors: []
+    };
+  },
+  handleSubmit: function(e) {
+    var validationErrors = validateSignupForm(_.pick(this.state,"email"));
+
+    if (validationErrors.length) {
+      e.preventDefault();
+      this.setState({validationErrors: validationErrors});
+      return;
+    }
+
+    if (process.env.NODE_ENV !== 'production' &&
+        !process.env.PLEDGE_MAILINGLIST_URL) {
+      e.preventDefault();
+      alert("PLEDGE_MAILINGLIST_URL is not defined. Simulating " +
+            "a successful pledge signup now.");
+      window.location = "?pledge=thanks";
+    }
+  },
+  renderValidationErrors: function() {
+    if (this.state.validationErrors.length) {
+      return (
+        <div className="alert alert-danger" role="alert">
+          <p className="error-msg">Please enter an email address.</p>
+        </div>
+      );
+    }
+  },
+  render: function() {
+    return (
+      <Modal modalTitle="" className="modal-pledge folded">
+        <ImageTag className="image center-block"
+                  src1x="/img/pages/home/svg/icon-teach-man-chalkboard-pledge.svg"
+                  alt="" width={150} height={150} />
+        <h3>Pledge to teach</h3>
+        <p>Because the Web is a global public resource that's integral to modern life, <strong>I pledge to:</strong></p>
+        <ul>
+          <li>teach others digital literacy skills through hands-on making</li>
+          <li>help people move beyond simply consuming the web to creating it</li>
+          <li>be a passionate advocate of an open and accessible web</li>
+        </ul>
+        <p><strong>Pledge now, and we'll follow up with with details about how you can teach the web!</strong></p>
+        <form className="mailinglist-signup" action={process.env.PLEDGE_MAILINGLIST_URL} method="POST" onSubmit={this.handleSubmit}>
+          <fieldset>
+            <label htmlFor="pledge-email" className="sr-only">email</label>
+            <div className="icon-field-container">
+              <i className="fa fa-envelope"></i>
+              <input id="pledge-email" name="email" type="email" size="30" placeholder="email@example.com" valueLink={this.linkState("email")} required />
+            </div>
+            <label htmlFor="pledge-pp-note" className="sr-only">I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a></label>
+            <input id="pledge-pp-note" name={process.env.PLEDGE_MAILINGLIST_PRIVACY_NAME} type="checkbox" className="sr-only" checked readOnly required />
+            <p className="pp-note">&#10003; I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.</p>
+            {this.renderValidationErrors()}
+          </fieldset>
+          <input type="submit" value="Pledge Now" className="btn btn-awsm center-block" />
+        </form>
+      </Modal>
+    )
+  }
+});
+
+var ThankYouModal = React.createClass({
+  render: function() {
+  // we can't preset the message sharing on Facebook
+  var facebookShare = "https://www.facebook.com/sharer/sharer.php?u=" +
+                      encodeURIComponent("https://teach.mozilla.org");
+  var twitterShare = "https://twitter.com/home?status=" +
+                     encodeURIComponent("I just pledged to #TeachTheWeb! https://teach.mozilla.org");
+    return (
+      <Modal modalTitle="Thanks for your pledge!" className="modal-pledge">
+        <p>We appreciate your commitment to keeping the web open, accessible and ours.</p>
+        <p><strong>Share and tell your friends</strong></p>
+        <div className="social-share">
+          <a href={facebookShare} className="facebook">
+            <i className="fa fa-facebook"></i>
+            Facebook
+          </a>
+          <a href={twitterShare} className="twitter">
+            <i className="fa fa-twitter"></i>
+            Twitter
+          </a>
+        </div>
+      </Modal>
+    );
+  }
+});
+
 var HomePage = React.createClass({
   statics: {
     pageClassName: 'home-page',
     BlogSection: BlogSection
+  },
+  mixins: [ModalManagerMixin],
+  contextTypes: {
+    router: React.PropTypes.func.isRequired
+  },
+  componentDidMount: function() {
+    if (this.context.router.getCurrentQuery().pledge === "thanks") {
+      this.showModal(ThankYouModal);
+    }
+  },
+  handlePledgeBtnClick: function() {
+    this.showModal(ModalPledge);
   },
   render: function() {
     return (
@@ -160,6 +277,7 @@ var HomePage = React.createClass({
             <IconButton
               imgSrc="/img/pages/home/svg/icon-teach-man-chalkboard-pledge.svg"
               head="Pledge to Teach"
+              onClick={this.handlePledgeBtnClick}
             />
             <IconButton
               linkTo="activities"

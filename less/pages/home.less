@@ -118,3 +118,59 @@
   background: @paleBlue;
 }
 
+.modal-pledge {
+  h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    color: @blueSidebarColor;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+  }
+  img {
+    margin-top: -4rem;
+  }
+  strong {
+    font-weight: 600;
+  }
+  ul {
+    list-style-type: none;
+    padding-left: 3rem;
+    margin-bottom: 3rem;
+    li {
+      &:before {
+        content: "\f0a4";
+        font-family: "FontAwesome";
+        color: @blueSidebarColor;
+        margin:0 1rem 0 -2.6rem;
+      }
+    }
+  }
+  .social-share {
+    text-align: center;
+    a {
+      color: @white;
+      border-radius: @form-field-border-radius;
+      display: inline-block;
+      width: 15rem;
+      margin: 0 1rem;
+      padding: 2rem;
+      &.facebook {
+        background-color: #507BBE;
+      }
+      &.twitter {
+        background-color: #64CCEF;
+      }
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        outline: none;
+      }
+      .fa {
+        display: block;
+        font-size: 5rem;
+      }
+    }
+  }
+}
