@@ -15,6 +15,7 @@ var ModalManagerMixin = require('../mixins/modal-manager');
 var ImageTag = require('../components/imagetag.jsx');
 
 var config = require('../lib/config');
+var util = require('../lib/util');
 var loadBlogPosts = require('../lib/blog-feed-loader');
 
 var CaseStudies = React.createClass({
@@ -151,12 +152,9 @@ var BlogSection = React.createClass({
 
 var validateSignupForm = function(signUpFormState) {
   var errors = [];
-  // regex copied from http://stackoverflow.com/a/46181
-  var regexEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-  if (!regexEmail.test(signUpFormState.email)) {
+  if (!util.REGEX.email.test(signUpFormState.email)) {
     errors.push("Please enter an email address.");
   }
-
   return errors;
 };
 
@@ -188,7 +186,7 @@ var ModalPledge = React.createClass({
   renderValidationErrors: function() {
     if (this.state.validationErrors.length) {
       return (
-        <div className="alert alert-danger">
+        <div className="alert alert-danger" role="alert">
           <p className="error-msg">Please enter an email address.</p>
         </div>
       );
@@ -196,7 +194,7 @@ var ModalPledge = React.createClass({
   },
   render: function() {
     return (
-      <Modal modalTitle="" foldedStyle className="modal-pledge">
+      <Modal modalTitle="" className="modal-pledge folded">
         <ImageTag className="image center-block"
                   src1x="/img/pages/home/svg/icon-teach-man-chalkboard-pledge.svg"
                   alt="" width={150} height={150} />
