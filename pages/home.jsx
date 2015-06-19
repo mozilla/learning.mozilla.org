@@ -152,7 +152,7 @@ var BlogSection = React.createClass({
 
 var validateSignupForm = function(signUpFormState) {
   var errors = [];
-  if (!util.REGEX.email.test(signUpFormState.email)) {
+  if ( !util.isValidEmail(signUpFormState.email) ) {
     errors.push("Please enter an email address.");
   }
   return errors;
