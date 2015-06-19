@@ -198,6 +198,7 @@ var ModalPledge = React.createClass({
         <ImageTag className="image center-block"
                   src1x="/img/pages/home/svg/icon-teach-man-chalkboard-pledge.svg"
                   alt="" width={150} height={150} />
+        <h3>Pledge to teach</h3>
         <p>Because the Web is a global public resource that's integral to modern life, <strong>I pledge to:</strong></p>
         <ul>
           <li>teach others digital literacy skills through hands-on making</li>
@@ -217,7 +218,7 @@ var ModalPledge = React.createClass({
             <p className="pp-note">&#10003; I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.</p>
             {this.renderValidationErrors()}
           </fieldset>
-          <input type="submit" value="Submit Email" className="btn btn-awsm center-block" />
+          <input type="submit" value="Pledge Now" className="btn btn-awsm center-block" />
         </form>
       </Modal>
     )
