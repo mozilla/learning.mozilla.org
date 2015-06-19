@@ -226,6 +226,9 @@ var ModalPledge = React.createClass({
 
 var ThankYouModal = React.createClass({
   render: function() {
+  // we can't preset the message sharing on Facebook
+  var facebookShare = "https://www.facebook.com/sharer/sharer.php?u=" +
+                      encodeURIComponent("https://teach.mozilla.org");
   var twitterShare = "https://twitter.com/home?status=" +
                      encodeURIComponent("I just pledged to #TeachTheWeb! https://teach.mozilla.org");
     return (
@@ -233,7 +236,7 @@ var ThankYouModal = React.createClass({
         <p>We appreciate your commitment to keeping the web open, accessible and ours.</p>
         <p><strong>Share and tell your friends</strong></p>
         <div className="social-share">
-          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fteach.mozilla.org" className="facebook">
+          <a href={facebookShare} className="facebook">
             <i className="fa fa-facebook"></i>
             Facebook
           </a>
