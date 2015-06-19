@@ -64,7 +64,7 @@ var FormMailingListSignup = React.createClass({
           </fieldset>
           <fieldset>
             <label htmlFor="mailinglist-pp-note" className="sr-only">I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a></label>
-            <input id="mailinglist-pp-note" name={process.env.MAILINGLIST_PRIVACY_NAME} type="checkbox" checked readOnly required hidden />
+            <input id="mailinglist-pp-note" name={process.env.MAILINGLIST_PRIVACY_NAME} type="checkbox" className="sr-only" checked readOnly required />
             <p className="pp-note">&#10003; I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.</p>
           </fieldset>
           {this.renderValidationErrors()}
@@ -94,9 +94,6 @@ var EventsPage = React.createClass({
     pageClassName: 'events',
     FormMailingListSignup: FormMailingListSignup,
     validateSignupForm: validateSignupForm
-  },
-  contextTypes: {
-    router: React.PropTypes.func.isRequired
   },
   contextTypes: {
     router: React.PropTypes.func.isRequired
