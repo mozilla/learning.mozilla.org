@@ -11,12 +11,30 @@ var URL_FINDERS = [
   findOpenGraphURLs
 ];
 
+// Return an array of all the first submatches (the parts of a
+// regular expression in parentheses) of a given regular expression
+// in a body of text. The regular expression is assumed to have the
+// global match flag.
+function getFirstSubmatches(regexp, text) {
+  var results = [];
+  // We're not actually replacing anything, but this seems to
+  // be the only easy way to iterate through all the submatches
+  // in a body of text.
+  text.replace(regexp, function(match, firstSubmatch) {
+    results.push(firstSubmatch);
+  });
+  return results;
+}
+
 function findSrcSetURLs(resourceText, baseURL) {
   var urls = [];
 
-  resourceText.replace(/\ssrcset\s?=\s?['"]([^"']+)/ig, function() {
-    arguments[1].split(',').forEach(function(resource) {
-      var url = resource.trim().split(' ')[0];
+  getFirstSubmatches(
+    /\ssrcset\s?=\s?['"]([^"']+)/ig,
+    resourceText
+  ).forEach(function(candidates) {
+    candidates.split(',').forEach(function(candidate) {
+      var url = candidate.trim().split(' ')[0];
 
       urls.push(urlResolve(baseURL || '', url));
     });
@@ -26,17 +44,12 @@ function findSrcSetURLs(resourceText, baseURL) {
 }
 
 function findOpenGraphURLs(resourceText, baseURL) {
-  var urls = [];
-
-  resourceText.replace(/\sproperty="og:image"\s?content\s?=\s?['"]([^"']+)/ig, function() {
-    arguments[1].split(',').forEach(function(resource) {
-      var url = resource.trim().split(' ')[0];
-
-      urls.push(urlResolve(baseURL || '', url));
-    });
+  return getFirstSubmatches(
+    /\sproperty="og:image"\s?content\s?=\s?['"]([^"']+)/ig,
+    resourceText
+  ).map(function(url) {
+    return urlResolve(baseURL || '', url.trim());
   });
-
-  return urls;
 }
 
 function crawl() {
