@@ -16,7 +16,7 @@ var CurriculumIntro = React.createClass({
           src1x="/img/pages/web-lit-basics/photo-clubs-curriculum.jpg"
           src2x="/img/pages/web-lit-basics/photo-clubs-curriculum@2x.jpg"
           alt="Woman training a young man on a computer"
-          className="img-circle">
+          className="circular-image">
             <h2>Learners get familiar with reading, writing and participating on the web in this six-part module. Discover the foundations of the web through production and collaboration.</h2>
           </Illustration>
         </section>

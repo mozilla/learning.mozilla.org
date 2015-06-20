@@ -1,15 +1,28 @@
 .illustration {
+  overflow: auto;
+  padding: 0 0 2rem 0;
   &.vertical-layout {
     flex-direction: column;
     .image-container {
       padding-right: 0;
     }
   }
-  .img-circle {
-    max-width: 22.6rem;
+  &.circular-image {
+    img {
+      border-radius: 50%;
+      max-width: 22.6rem;
+    }
   }
-  overflow: auto;
-  padding: 0 0 2rem 0;
+  &.content-first {
+    display: flex;
+    flex-direction: row-reverse;
+    .image-container {
+      @media screen and (min-width: @screen-sm-min) {
+        padding-right: 0;
+        padding-left: 3rem;
+      }
+    }
+  }
   .image-container {
     padding-bottom: 3rem;
     padding-right: 0;

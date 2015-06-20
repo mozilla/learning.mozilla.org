@@ -116,6 +116,7 @@ var EventsPage = React.createClass({
             height={183} width={156}
             src1x="/img/pages/events/svg/maker-party-logo.svg"
             alt="Maker Party logo"
+            className="content-first"
             >
               <h2>Join the Global Movement</h2>
             <p>Since its inauguration in 2012, Maker Party has become Mozilla's largest celebration of making and learning on the web. From getting the hang of HTML to building robots to learning about remixing using paper and scissors, people of all ages and from all backgrounds have come together to joyfully explore the culture, mechanics and citizenship of the web.</p>
