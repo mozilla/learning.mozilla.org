@@ -4,6 +4,13 @@
   .retina2x({
     background-image: url(/img/pages/events/hero-events@2x.jpg);
   });
+
+  .mailinglist-signup {
+    margin-top: 3rem;
+    input[name="email"] {
+      color: @grey;
+    }
+  }
 }
 
 .events {
@@ -13,6 +20,40 @@
 }
 
 .mailinglist-signup {
+  max-width: 50rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  @media screen and (min-width: @screen-sm-min) {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .fieldset-container {
+    width: 100%;
+    @media screen and (min-width: @screen-sm-min) {
+      width: 35rem;
+      margin-right: 1rem;
+    }
+  }
+  .btn-container,
+  input[type="submit"] {
+    width: 100%;
+    @media screen and (min-width: @screen-sm-min) {
+      width: auto;
+    }
+  }
+  input {
+    padding: 1rem 1.5rem;
+    border: .1rem solid @grey;
+  }
+  input[type="email"] {
+    width: 100%;
+  }
+  input[type="submit"] {
+    margin-top: 0;
+  }
   p.pp-note {
     font-size: 1.2rem;
     margin-top: .5rem;

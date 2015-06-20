@@ -2,7 +2,6 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 var Illustration = require('../components/illustration.jsx');
-var PageEndCTA = require('../components/page-end-cta.jsx');
 var Expander = require('../components/expander.jsx');
 
 var config = require('../lib/config');

@@ -8,12 +8,11 @@ var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
 var Illustration = require('../components/illustration.jsx');
 var PageEndCTA = require('../components/page-end-cta.jsx');
+var util = require('../lib/util');
 
 var validateSignupForm = function(signUpFormState) {
   var errors = [];
-  // regex copied from http://stackoverflow.com/a/46181
-  var regexEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-  if (!regexEmail.test(signUpFormState.email)) {
+  if (!util.isValidEmail(signUpFormState.email)) {
     errors.push("Please enter an email address.");
   }
 
@@ -56,8 +55,8 @@ var FormMailingListSignup = React.createClass({
   },
   render: function() {
     return (
-      <form className="mailinglist-signup" action={process.env.MAILINGLIST_URL} method="POST" onSubmit={this.handleSubmit}>
-        <div className="col-sm-offset-1 col-sm-8 col-md-offset-1 col-md-8 col-lg-offset-1 col-lg-8">
+      <form className="mailinglist-signup center-block" action={process.env.MAILINGLIST_URL} method="POST" onSubmit={this.handleSubmit}>
+        <div className="fieldset-container">
           <fieldset>
             <label htmlFor="mailinglist-email" className="sr-only">email</label>
             <input id="mailinglist-email" name="email" type="email" size="30" placeholder="Your email address" valueLink={this.linkState("email")} required />
@@ -69,8 +68,8 @@ var FormMailingListSignup = React.createClass({
           </fieldset>
           {this.renderValidationErrors()}
         </div>
-        <div className="col-sm-2 col-md-2 col-lg-2 text-center">
-          <input type="submit" value="Submit Email" className="btn btn-awsm" />
+        <div className="btn-container">
+          <input type="submit" value="Sign up" className="btn btn-awsm" />
         </div>
       </form>
     );
@@ -108,20 +107,18 @@ var EventsPage = React.createClass({
       <div>
         <HeroUnit>
           <h1>Host a Maker Party</h1>
-          <h2>Celebrate teaching and learning with others</h2>
+          <h2>Join the global celebration from July 15-31</h2>
+          <FormMailingListSignup/>
         </HeroUnit>
         <div className="inner-container">
           <section>
-            <h2>Join the Global Movement</h2>
-            <p>Since its inauguration in 2012, Maker Party has become Mozilla's largest celebration of making and learning on the web. From getting the hang of HTML to building robots to learning about remixing using paper and scissors, people of all ages and from all backgrounds have come together to joyfully explore the culture, mechanics and citizenship of the web.</p>
             <Illustration
             height={183} width={156}
             src1x="/img/pages/events/svg/maker-party-logo.svg"
             alt="Maker Party logo"
             >
-              <h2>
-                Join us for the worldwide Maker Party on July 15-31, 2015.
-              </h2>
+              <h2>Join the Global Movement</h2>
+            <p>Since its inauguration in 2012, Maker Party has become Mozilla's largest celebration of making and learning on the web. From getting the hang of HTML to building robots to learning about remixing using paper and scissors, people of all ages and from all backgrounds have come together to joyfully explore the culture, mechanics and citizenship of the web.</p>
             </Illustration>
             <div className="row">
               <div className="col-sm-12 col-md-12 col-lg-12">

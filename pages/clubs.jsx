@@ -10,7 +10,6 @@ var Map = require('../components/map.jsx');
 var Blockquote = require('../components/blockquote.jsx');
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
-var PageEndCTA = require('../components/page-end-cta.jsx');
 var Modal = require('../components/modal.jsx');
 var ModalManagerMixin = require('../mixins/modal-manager');
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
