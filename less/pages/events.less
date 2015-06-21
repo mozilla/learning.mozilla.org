@@ -69,7 +69,34 @@
   }
 }
 
-.carousel-holder {
-  max-width: 800px;
-  margin: 0 auto;
+.mp-activities-banner {
+  text-align: center;
+  overflow: hidden;
+  .btn-container {
+    display: inline-block;
+    position: relative;
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      background-image: url(/img/pages/events/MP-blue-pattern.png);
+      background-repeat: repeat-x;
+      background-size: auto 8rem;
+      height: 8rem;
+      width: 1000%;
+      .retina2x({
+        background-image: url(/img/pages/events/MP-blue-pattern@2x.png);
+      });
+    }
+    &:before {
+      right: 100%;
+      background-position: right center;
+    }
+    &:after {
+      background-position: 109rem center;
+    }
+  }
+  .btn {
+    margin: 1.6rem 0 2rem 0;
+  }
 }

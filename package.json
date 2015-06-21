@@ -45,6 +45,7 @@
     "superagent": "^1.1.0",
     "through2": "^2.0.0",
     "underscore": "^1.8.2",
+    "unique-id-mixin": "^1.0.0",
     "val-loader": "^0.5.0",
     "vinyl": "^0.4.6",
     "webpack": "^1.6.0"
