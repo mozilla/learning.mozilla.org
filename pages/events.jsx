@@ -248,22 +248,25 @@ var EventsPage = React.createClass({
                     src1x="/img/pages/events/MP-photo-strip.png"
                     src2x="/img/pages/events/MP-photo-strip@2x.png"
                     alt=""
+                    className="contained"
                   />
                 </a>
                 <p className="callout-heading">See more event photos in our <a href={config.FLICKR_MAKER_PARTY}>Flickr gallery</a></p>
               </div>
             </div>
           </section>
-          <PageEndCTA
-          header=""
-          dividerImgSrc="/img/pages/events/svg/line-divider.svg">
-            <div className="row" id="mailinglist">
-              <div>
-                <p>Ready to host a Maker Party?</p>
-                <FormMailingListSignup/>
+          <section>
+            <PageEndCTA
+            header=""
+            dividerImgSrc="/img/pages/events/svg/line-divider.svg">
+              <div className="row" id="mailinglist">
+                <div>
+                  <p>Ready to host a Maker Party?</p>
+                  <FormMailingListSignup/>
+                </div>
               </div>
-            </div>
-          </PageEndCTA>
+            </PageEndCTA>
+          </section>
           <section>
             <IconLinks>
               <IconLink
