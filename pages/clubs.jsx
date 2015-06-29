@@ -16,7 +16,6 @@ var ModalManagerMixin = require('../mixins/modal-manager');
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
 var LoginLink = require('../components/login.jsx').LoginLink;
 var StepView = require('../components/step-view.jsx');
-var AccessibleAlert = require('../components/a11y-alert.jsx');
 var ga = require('react-ga');
 
 var Illustration = require('../components/illustration.jsx');
@@ -197,10 +196,10 @@ var ModalRemoveYourClub = React.createClass({
       content = (
         <div>
           {this.state.networkError
-           ? <AccessibleAlert className="alert alert-danger">
+           ? <div className="alert alert-danger" role="alert">
                <p>Unfortunately, an error occurred when trying to remove your club.</p>
                <p>Please try again later.</p>
-             </AccessibleAlert>
+             </div>
            : null}
           <p>Are you sure you want to remove your club <strong>{this.props.name}</strong>?</p>
           <button className="btn btn-primary btn-block"
@@ -374,17 +373,18 @@ var ModalAddOrChangeYourClub = React.createClass({
   },
   renderValidationErrors: function() {
     if (this.state.validationErrors.length) {
+      // Note that we originally had this be a list of errors,
+      // but NVDA doesn't speak lists within role="alert", so
+      // we had to make them paragraphs. Bizarre.
       return (
-        <AccessibleAlert className="alert alert-danger">
+        <div className="alert alert-danger" role="alert">
           <p><strong>
             Unfortunately, your submission has some problems.
           </strong></p>
-          <ul>
           {this.state.validationErrors.map(function(text,i) {
-            return <li key={i}>{text}</li>;
+            return <p key={i}>{text}</p>;
           })}
-          </ul>
-        </AccessibleAlert>
+        </div>
       );
     }
   },
@@ -410,10 +410,10 @@ var ModalAddOrChangeYourClub = React.createClass({
       content = (
         <div>
           {this.state.networkError
-           ? <AccessibleAlert className="alert alert-danger">
+           ? <div className="alert alert-danger" role="alert">
                <p>Unfortunately, an error occurred when trying to {action} your club.</p>
                <p>Please try again later.</p>
-             </AccessibleAlert>
+             </div>
            : null}
           {this.renderValidationErrors()}
           <form onSubmit={this.handleSubmit}>
