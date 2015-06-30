@@ -6,8 +6,19 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 ### Added
+- Added "Pledge to Teach" CTA button on the Home page to encourage
+  site visitors to sign up the mentor mailing list.
+- Introduced a new modal dialog design - folded corner. This style has
+  been applied to the "Pledge to Teach" modal dialog.
+- E-mail Regex validator has been move to a newly created file `lib/util.js`.
 - Added environment variables `PLEDGE_MAILINGLIST_URL`
   and `PLEDGE_MAILINGLIST_PRIVACY_NAME`.
+
+### Changed
+- The "Naming" subsection in the "Name and Brand Your Club" section on
+  the Clubs Toolkit page has been updated.
+- Fixed download links for assets on the Events Resources page. They now
+  point to https://stuff.webmaker.org.
 
 ## [0.0.10][] - 2015-06-17
 ### Added
