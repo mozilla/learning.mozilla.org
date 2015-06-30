@@ -11,6 +11,10 @@
     width: 50rem;
     margin: 10rem auto;
   }
+  p {
+    font-size: inherit;
+    line-height: inherit;
+  }
   .modal-header {
     background-color: #EDEDED;
     border-bottom: .1rem solid @modal-inner-border-color;
@@ -49,8 +53,7 @@
     input, textarea {
       width: 100%;
       padding: 1rem;
-      border: 1px solid #D2D2D2;
-      box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
+      border: .1rem solid @lightGrey;
     }
     .Select.is-disabled .Select-control {
       background: rgb(235, 235, 228);
@@ -88,6 +91,80 @@
         background: saturate(@orangeSidebarColor, 10%);
       }
     }
+    .btn.btn-awsm {
+      // FIXME / TODO
+      // some (redundant) rules to override .modal-body .btn stylings
+      border-radius: @form-field-border-radius;
+      width: auto;
+      margin: 1rem auto;
+      background-color: @blueSidebarColor;
+      box-shadow: 0px 0.4rem 0px @darkBlueSidebarColor,
+                  0px 0.1rem 0px rgba(255, 255, 255, 0.5) inset;
+      color: @white;
+      // the following rules are copied directly from the .btn-awsm ruleset in btn.less,
+      // once we have come to a conclusion on the button stylings for modal (Issue #1045)
+      // we should clean this file up by separating rules into different rulesets
+      position: relative;
+      padding: 1rem 3.5rem;
+      vertical-align: baseline;
+      line-height: 1.42857;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.01rem;
+      border: medium none transparent;
+      &:hover {
+        top: 0.2rem;
+        box-shadow: 0px 0.2rem 0px @darkBlueSidebarColor,
+                    0px 0.1rem 0px rgba(255, 255, 255, 0.5) inset;
+      }
+      &:active {
+        top: 0.4rem;
+        box-shadow: 0px 0.1rem 0.1rem rgba(0, 0, 0, 0.2) inset;
+      }
+    }
+  }
+}
+
+.modal-dialog.folded {
+  // folded corner effect on non-solid background
+  // based on http://stackoverflow.com/a/26241310
+  border: none;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  .modal-header {
+    background-color: transparent;
+    border-bottom: none;
+    &:before {
+      position: absolute;
+      content: "";
+      top: 0;
+      right: 0;
+      border-top: 2rem solid transparent;
+      border-left: 2rem solid @lightGrey;
+      border-bottom: 2rem solid @lightGrey;
+      border-right: 2rem solid transparent;
+    }
+    button {
+      position: relative;
+      top: .5rem;
+    }
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    width: 1000%;
+    height: 1000%;
+    top: 4rem;
+    background-color: @white;
+    transform-origin: 50% 0 0;
+    transform: rotate(45deg);
+    z-index: -1;
+    right: -500%;
+  }
+  .modal-body {
+    padding-bottom: 3.5rem;
   }
 }
 

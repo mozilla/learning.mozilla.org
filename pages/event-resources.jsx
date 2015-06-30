@@ -193,32 +193,32 @@ var EventsResources = React.createClass({
           alt="Maker Party Logo Image"
           src1x="/img/pages/event-resources/resource-thumbnails-01.png"
           src2x="/img/pages/event-resources/resource-thumbnails-01@2x.png">
-            <LogoAssetLink href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/MakerPartyLogo.eps">Download EPS</LogoAssetLink>
-            <LogoAssetLink href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/MakerPartyLogo.png">Download PNG</LogoAssetLink>
+            <LogoAssetLink href="https://stuff.webmaker.org/teach.mozilla.org/MakerPartyLogo.eps">Download EPS</LogoAssetLink>
+            <LogoAssetLink href="https://stuff.webmaker.org/teach.mozilla.org/MakerPartyLogo.png">Download PNG</LogoAssetLink>
           </LogoAsset>
           <LogoAsset head="Brand Palette"
           alt="Brand Palette Image"
           src1x="/img/pages/event-resources/resource-thumbnails-03.png"
           src2x="/img/pages/event-resources/resource-thumbnails-03@2x.png">
-            <LogoAssetLink href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/MakerPartyBrandPalette.eps">Download EPS</LogoAssetLink>
-            <LogoAssetLink href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/MakerPartyBrandPalette.png">Download PNG</LogoAssetLink>
+            <LogoAssetLink href="https://stuff.webmaker.org/teach.mozilla.org/MakerPartyBrandPalette.eps">Download EPS</LogoAssetLink>
+            <LogoAssetLink href="https://stuff.webmaker.org/teach.mozilla.org/MakerPartyBrandPalette.png">Download PNG</LogoAssetLink>
           </LogoAsset>
           <LogoAsset head="Poster"
           alt="Poster Image"
           src1x="/img/pages/event-resources/resource-thumbnails-07.png"
           src2x="/img/pages/event-resources/resource-thumbnails-07@2x.png">
-            <LogoAssetLink href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/MakerPartyBanner.eps">Download EPS</LogoAssetLink>
-            <LogoAssetLink href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/MakerPartyBanner.png">Download PNG</LogoAssetLink>
+            <LogoAssetLink href="https://stuff.webmaker.org/teach.mozilla.org/MakerPartyBanner.eps">Download EPS</LogoAssetLink>
+            <LogoAssetLink href="https://stuff.webmaker.org/teach.mozilla.org/MakerPartyBanner.png">Download PNG</LogoAssetLink>
           </LogoAsset>
           <LogoAsset head="Desktop Wallpaper"
           alt="Desktop Wallpaper Image"
           src1x="/img/pages/event-resources/resource-thumbnails-10.png"
           src2x="/img/pages/event-resources/resource-thumbnails-10@2x.png">
-            <LogoAssetLink href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/MakerPartyWallpaper-1-320x480.jpg">320px x 480px</LogoAssetLink>
-            <LogoAssetLink href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/MakerPartyWallpaper-1-640x1136.jpg">640px x 1136px</LogoAssetLink>
-            <LogoAssetLink href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/MakerPartyWallpaper-1-768x1280.jpg">768px x 1280px</LogoAssetLink>
-            <LogoAssetLink href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/MakerPartyWallpaper-1-1920x1200.jpg">1920px x 1200px</LogoAssetLink>
-            <LogoAssetLink href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/MakerPartyWallpaper-1-2560x1440.jpg">2560px x 1440px</LogoAssetLink>
+            <LogoAssetLink href="https://stuff.webmaker.org/teach.mozilla.org/MakerPartyWallpaper-1-320x480.jpg">320px x 480px</LogoAssetLink>
+            <LogoAssetLink href="https://stuff.webmaker.org/teach.mozilla.org/MakerPartyWallpaper-1-640x1136.jpg">640px x 1136px</LogoAssetLink>
+            <LogoAssetLink href="https://stuff.webmaker.org/teach.mozilla.org/MakerPartyWallpaper-1-768x1280.jpg">768px x 1280px</LogoAssetLink>
+            <LogoAssetLink href="https://stuff.webmaker.org/teach.mozilla.org/MakerPartyWallpaper-1-1920x1200.jpg">1920px x 1200px</LogoAssetLink>
+            <LogoAssetLink href="https://stuff.webmaker.org/teach.mozilla.org/MakerPartyWallpaper-1-2560x1440.jpg">2560px x 1440px</LogoAssetLink>
           </LogoAsset>
           <LogoAsset head="Certificate"
           alt="Certificate Image"
@@ -230,23 +230,23 @@ var EventsResources = React.createClass({
           alt="Table Cloth Design Image"
           src1x="/img/pages/event-resources/resource-thumbnails-04.png"
           src2x="/img/pages/event-resources/resource-thumbnails-04@2x.png">
-            <LogoAssetLink href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/MakerPartyTableClothDesign.eps">Download EPS</LogoAssetLink>
-            <LogoAssetLink href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/MakerPartyTableClothDesign.png">Download PNG</LogoAssetLink>
+            <LogoAssetLink href="https://stuff.webmaker.org/teach.mozilla.org/MakerPartyTableClothDesign.eps">Download EPS</LogoAssetLink>
+            <LogoAssetLink href="https://stuff.webmaker.org/teach.mozilla.org/MakerPartyTableClothDesign.png">Download PNG</LogoAssetLink>
           </LogoAsset>
           <LogoAsset head="Buttons"
           alt="Buttons Image"
           src1x="/img/pages/event-resources/resource-thumbnails-06.png"
           src2x="/img/pages/event-resources/resource-thumbnails-06@2x.png">
-            <LogoAssetLink href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/MakerPartyButtons.eps">Download EPS</LogoAssetLink>
-            <LogoAssetLink href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/MakerPartyButtons.png">Download PNG</LogoAssetLink>
+            <LogoAssetLink href="https://stuff.webmaker.org/teach.mozilla.org/MakerPartyButtons.eps">Download EPS</LogoAssetLink>
+            <LogoAssetLink href="https://stuff.webmaker.org/teach.mozilla.org/MakerPartyButtons.png">Download PNG</LogoAssetLink>
           </LogoAsset>
           <LogoAsset head="KUMI Papertoy"
           alt="KUMI Papertoy Image"
           src1x="/img/pages/event-resources/resource-thumbnails-09.png"
           src2x="/img/pages/event-resources/resource-thumbnails-09@2x.png">
-            <LogoAssetLink href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/KUMI-Papertoy-yellow.pdf">Yellow T-sirt</LogoAssetLink>
-            <LogoAssetLink href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/KUMI-Papertoy-blue.pdf">Teal T-shirt</LogoAssetLink>
-            <LogoAssetLink href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/KUMI-Papertoy-blank-tees.pdf">Design Your Own T-shirt</LogoAssetLink>
+            <LogoAssetLink href="https://stuff.webmaker.org/teach.mozilla.org/KUMI-Papertoy-yellow.pdf">Yellow T-sirt</LogoAssetLink>
+            <LogoAssetLink href="https://stuff.webmaker.org/teach.mozilla.org/KUMI-Papertoy-blue.pdf">Teal T-shirt</LogoAssetLink>
+            <LogoAssetLink href="https://stuff.webmaker.org/teach.mozilla.org/KUMI-Papertoy-blank-tees.pdf">Design Your Own T-shirt</LogoAssetLink>
           </LogoAsset>
         </div>
 
@@ -275,7 +275,7 @@ var EventsResources = React.createClass({
                 </EventDetail>
                 <EventDetail head="Make Some Gear">
                   <div>
-                    Use this <a href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/MakerPartyLogo.eps">logo</a> to create Maker Party t-shirts at your local print shop. Here's an example of what your <a href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/makerparty_tshirtpreview.jpg">shirts</a> could look like. Don't have all the budget for printing? Ask participants to bring their own shirts and create Maker Party t-shirts with <a href="https://tbx.makes.org/thimble/stencil-a-tshirt">this activity</a>. You can also print these <a href="https://makerparty2014.makes.org/thimble/LTEzNDM3NTAxNDQ=/maker-party-love-bomb">certificates</a> to give to the participants at the event that successfully complete the activities.
+                    Use this <a href="https://stuff.webmaker.org/teach.mozilla.org/MakerPartyLogo.eps">logo</a> to create Maker Party t-shirts at your local print shop. Here's an example of what your <a href="https://stuff.webmaker.org/teach.mozilla.org/makerparty_tshirtpreview.jpg">shirts</a> could look like. Don't have all the budget for printing? Ask participants to bring their own shirts and create Maker Party t-shirts with <a href="https://tbx.makes.org/thimble/stencil-a-tshirt">this activity</a>. You can also print these <a href="https://makerparty2014.makes.org/thimble/LTEzNDM3NTAxNDQ=/maker-party-love-bomb">certificates</a> to give to the participants at the event that successfully complete the activities.
                   </div>
                 </EventDetail>
                 <EventDetail head="All About The Wi-Fi">
@@ -292,7 +292,7 @@ var EventsResources = React.createClass({
               <div>
                 <EventDetail head="Recruit Mentors">
                   <div>
-                    Whether they’re colleagues, students or a group of talented friends, you can find volunteer mentors by tapping into your own networks. Provide them a <a href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/Sample_Volunteer_Package.pdf">Sample Volunteer Package</a> with information on the event, activities, social media and any other necessary information in advance. Depending on how many volunteers you have, you might consider holding a meet-up in person or online prior to the event to answer any questions. Don't forget to gather and distribute contact information so that you can stay in touch with them in the days and weeks leading up to the event.
+                    Whether they’re colleagues, students or a group of talented friends, you can find volunteer mentors by tapping into your own networks. Provide them a <a href="https://stuff.webmaker.org/teach.mozilla.org/Sample_Volunteer_Package.pdf">Sample Volunteer Package</a> with information on the event, activities, social media and any other necessary information in advance. Depending on how many volunteers you have, you might consider holding a meet-up in person or online prior to the event to answer any questions. Don't forget to gather and distribute contact information so that you can stay in touch with them in the days and weeks leading up to the event.
                   </div>
                 </EventDetail>
                 <EventDetail head="Promote Your Event">
@@ -329,7 +329,7 @@ var EventsResources = React.createClass({
                 </EventDetail>
                 <EventDetail head="Set-up">
                   <div>
-                    When preparing for event, be sure to arrive early to set-up the space using this sample <a href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/Event_Set_Up_Checklist.pdf">event checklist</a>. This will allow you plenty of time in case unexpected issues arise. Use posters or other clear signage to indicate different activity stations. Make sure washrooms and exits are clearly marked. Remind facilitators to welcome newcomers, and make sure the volunteers know what their responsibilities are and who to ask if they have questions.
+                    When preparing for event, be sure to arrive early to set-up the space using this sample <a href="https://stuff.webmaker.org/teach.mozilla.org/Event_Set_Up_Checklist.pdf">event checklist</a>. This will allow you plenty of time in case unexpected issues arise. Use posters or other clear signage to indicate different activity stations. Make sure washrooms and exits are clearly marked. Remind facilitators to welcome newcomers, and make sure the volunteers know what their responsibilities are and who to ask if they have questions.
                   </div>
                 </EventDetail>
                 <EventDetail head="Activities">
@@ -349,7 +349,7 @@ var EventsResources = React.createClass({
                 </EventDetail>
                 <EventDetail head="Wrap-up">
                   <div>
-                    You’re done! Make sure to check the <a href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/Event_Take_Down_Checklist.pdf">event take down checklist</a> to make sure you’ve covered your bases. Do your best to make sure the space is in the same condition (if not better) than when you arrived.
+                    You’re done! Make sure to check the <a href="https://stuff.webmaker.org/teach.mozilla.org/Event_Take_Down_Checklist.pdf">event take down checklist</a> to make sure you’ve covered your bases. Do your best to make sure the space is in the same condition (if not better) than when you arrived.
                   </div>
                 </EventDetail>
               </div>
@@ -366,12 +366,12 @@ var EventsResources = React.createClass({
                 </EventDetail>
                 <EventDetail head="Share what you learned">
                   <div>
-                    Post pictures of your event on Twitter and Flickr using the hashtag <a href="https://twitter.com/search?f=realtime&q=%23makerparty">#MakerParty</a> or write a blog post using our <a href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/Sample_Blog_Post_Guidelines.pdf">sample guidelines</a> to share a deeper reflection.
+                    Post pictures of your event on Twitter and Flickr using the hashtag <a href="https://twitter.com/search?f=realtime&q=%23makerparty">#MakerParty</a> or write a blog post using our <a href="https://stuff.webmaker.org/teach.mozilla.org/Sample_Blog_Post_Guidelines.pdf">sample guidelines</a> to share a deeper reflection.
                   </div>
                 </EventDetail>
                 <EventDetail head="Thank you’s">
                   <div>
-                    <a href="https://stuff.webmaker.org.s3.amazonaws.com/teach.mozilla.org/Sample_Thank_You_Letters.pdf">Send a heartfelt</a> "Thank you!" to participating organizations, volunteers, facilitators, participants, partners, the venue and anyone else who helped make your event a success. Include photos, videos and links to the work that was created. Ask for feedback on the event and discuss next steps to getting involved, learning more or hosting a future event.
+                    <a href="https://stuff.webmaker.org/teach.mozilla.org/Sample_Thank_You_Letters.pdf">Send a heartfelt</a> "Thank you!" to participating organizations, volunteers, facilitators, participants, partners, the venue and anyone else who helped make your event a success. Include photos, videos and links to the work that was created. Ask for feedback on the event and discuss next steps to getting involved, learning more or hosting a future event.
                   </div>
                 </EventDetail>
               </div>

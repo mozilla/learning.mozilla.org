@@ -6,6 +6,22 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.11][] - 2015-06-30
+### Added
+- Added "Pledge to Teach" CTA button on the Home page to encourage
+  site visitors to sign up the mentor mailing list.
+- Introduced a new modal dialog design - folded corner. This style has
+  been applied to the "Pledge to Teach" modal dialog.
+- E-mail Regex validator has been moved to a newly created file `lib/util.js`.
+- Added environment variables `PLEDGE_MAILINGLIST_URL`
+  and `PLEDGE_MAILINGLIST_PRIVACY_NAME`.
+
+### Changed
+- The "Naming" subsection in the "Name and Brand Your Club" section on
+  the Clubs Toolkit page has been updated.
+- Fixed download links for assets on the Events Resources page. They now
+  point to https://stuff.webmaker.org.
+
 ## [0.0.10][] - 2015-06-17
 ### Added
 - A banner has been added to the homepage to promote Maker Party,
@@ -249,7 +265,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.10...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.11...HEAD
+[0.0.11]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.10...v0.0.11
 [0.0.10]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.9...v0.0.10
 [0.0.9]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.8...v0.0.9
 [0.0.8]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.7...v0.0.8

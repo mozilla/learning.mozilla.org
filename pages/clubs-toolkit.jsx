@@ -167,16 +167,16 @@ var ClubsToolkit = React.createClass({
           </Expander>
           <Expander head="name and brand your club">
             <Toolkit>
-              <p>Your club is yours to design. However if you like, here are some tips if you choose to use our branding, change the name or hack the materials.</p>
+              <p>Your club is yours to design but to help you, here are some tips on how to brand your club or hack the materials.</p>
               <ToolkitList>
                 <ToolkitListItem header="Naming.">
-                  We love seeing Mozilla Clubs pop up, yet we also welcome adaptations of the name to better represent your community or language. Example club names include: Toronto Mozilla Club, Xavier School Web All-Stars, St. Patrick's Church Tech Squad or London Library Web Brigade. You can also embed your club in an existing program or brand.
+                  Customize your Mozilla Club name by adding your location, school, library, community or anything else in the name that identifies your group.
                 </ToolkitListItem>
                 <ToolkitListItem header="Mozilla branding.">
-                  The Mozilla brand helps identify your clubs as part of our global network and mission. Have a look at the <a href="https://www.mozilla.org/en-US/styleguide/identity/mozilla/branding/">Mozilla branding guidelines</a> if you’d like to use it.
+                  The Mozilla brand helps identify your clubs as part of our global network and mission. Have a look at the <a href="https://www.mozilla.org/en-US/styleguide/identity/mozilla/branding/">Mozilla branding guidelines</a>.
                 </ToolkitListItem>
                 <ToolkitListItem header="Github.">
-                  Our curriculum is <a href="http://mozilla.github.io/webmaker-curriculum/">available via Github</a>. You can <a href="https://guides.github.com/activities/forking/">fork</a> any of those pages and make them your own. Share your new pages with <a href="http://discourse.webmaker.org/">the community</a>, you never know who might find them helpful.
+                  Our curriculum is <a href="http://mozilla.github.io/webmaker-curriculum/">available via Github</a>. You can <a href="https://guides.github.com/activities/forking/">fork</a> any of those pages and make them your own by editing activities or changing the language. Share your new pages with <a href="http://discourse.webmaker.org/">the community</a>, you never know who might find them helpful.
                 </ToolkitListItem>
               </ToolkitList>
             </Toolkit>
