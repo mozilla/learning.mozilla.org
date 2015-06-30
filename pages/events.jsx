@@ -9,6 +9,7 @@ var IconLink = require('../components/icon-link.jsx');
 var Illustration = require('../components/illustration.jsx');
 var ImageTag = require('../components/imagetag.jsx');
 var PageEndCTA = require('../components/page-end-cta.jsx');
+var config = require('../lib/config');
 var util = require('../lib/util');
 
 var UniqeIdMixin = require('unique-id-mixin');
@@ -95,6 +96,81 @@ var ThankYouModal = React.createClass({
   }
 });
 
+var MakerPartyExample = React.createClass({
+  render: function() {
+    return (
+      <div className="activity-kit">
+        <Illustration
+        height={244} width={244}
+        src1x={this.props.src1x}
+        src2x={this.props.src2x}
+        alt=""
+        link={this.props.link}>
+          <div className="activity-kit-content">
+            <h3>{this.props.title}</h3>
+            <div>
+              <span className="span-content label-tag">Hosted by</span><span className="span-content">{this.props.host}</span>
+            </div>
+            <div>
+              <span className="span-content label-tag">Location</span><span className="span-content">{this.props.location}</span>
+            </div>
+            { this.props.participants ?
+              <div>
+                <span className="span-content label-tag">Participants</span><span className="span-content">{this.props.participants}</span>
+              </div> : null
+            }
+            <div className="description">{this.props.description}</div>
+          </div>
+        </Illustration>
+      </div>
+    );
+  }
+});
+
+var MakerPartyExamples = React.createClass({
+  parties: [
+    {
+      title: "Net Neutrality Maker Party",
+      host: "David, a community member",
+      location: "A private home in Barcelona, Spain",
+      participants: "David and his family",
+      description: "Participants learned about the importance of Net Neutrality, and considered how to take action. They used Thimble to create Net Neutrality-themed memes.",
+      src1x: "/img/pages/events/nn-maker-party.png",
+      src2x: "/img/pages/events/nn-maker-party@2x.png",
+    },
+    {
+      title: "Make and Remake Hackathon",
+      host: "Digital Harbor, local community organization",
+      location: "Makerspace in Baltimore, MD",
+      participants: "Twenty teens",
+      description: "At the Make and Remake Hackathon Day attendees spent the first half of the day using Webmaker tools to MAKE something awesome. In the second half of the Hackathon individuals then turned their completed makes over to a friend so they could then REMAKE their make to create something new.",
+      src1x: "/img/pages/events/make-remake-hackathon.png",
+      src2x: "/img/pages/events/make-remake-hackathon@2x.png"
+    },
+    {
+      title: "Lo-Fi Maker Party",
+      host: "Mozilla Indonesia",
+      location: "Park in Jakarta, Indonesia",
+      description: " At this Lo-Fi Maker Party, participants used paper, Post-it's and tennis balls to learn basic HTML and website structure, simple programming commands and app design.",
+      src1x: "/img/pages/events/lofi-maker-party.png",
+      src2x: "/img/pages/events/lofi-maker-party@2x.png"
+    }
+  ],
+  render: function() {
+    return (
+      <div>
+        {
+          this.parties.map(function(party, i) {
+            return(
+              <MakerPartyExample {...party} key={i} />
+            )
+          })
+        }
+      </div>
+    );
+  }
+});
+
 var EventsPage = React.createClass({
   mixins: [ModalManagerMixin],
   statics: {
@@ -120,7 +196,7 @@ var EventsPage = React.createClass({
           <FormMailingListSignup/>
         </HeroUnit>
         <div className="inner-container">
-          <section>
+          <section className="join-global-movement">
             <Illustration
             height={183} width={156}
             src1x="/img/pages/events/svg/maker-party-logo.svg"
@@ -152,7 +228,7 @@ var EventsPage = React.createClass({
         <div className="inner-container">
           <section>
             <Illustration
-              height={225} width={225}
+              height={244} width={244}
               src1x="/img/pages/events/MP-yellow-globe.png"
               src1x="/img/pages/events/MP-yellow-globe@2x.png"
               alt="Maker Party logo"
@@ -161,22 +237,29 @@ var EventsPage = React.createClass({
               <p>Maker Parties are held in schools, cafes, community spaces, or even around kitchen tables. They range from the very large (hundreds of participants) to the very small (two people). They are great for kids and adults, and for beginners or experienced pros. Check out these examples of fantastic Maker Parties.</p>
             </Illustration>
           </section>
-          <div className="row text-center">
-            <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8 center">
-              <ImageTag className="image-tag"
-                src1x="/img/pages/events/MP-photo-strip.png"
-                src2x="/img/pages/events/MP-photo-strip@2x.png"
-                alt=""
-              />
-              <p className="callout-heading">See more event photos in our <a href="https://www.flickr.com/photos/mozilladrumbeat/galleries/72157643962655534/">Flickr gallery</a></p>
+          <section>
+            <MakerPartyExamples/>
+          </section>
+          <section>
+            <div className="row text-center">
+              <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8 center">
+                <a href={config.FLICKR_MAKER_PARTY}>
+                  <ImageTag className="image-tag"
+                    src1x="/img/pages/events/MP-photo-strip.png"
+                    src2x="/img/pages/events/MP-photo-strip@2x.png"
+                    alt=""
+                  />
+                </a>
+                <p className="callout-heading">See more event photos in our <a href={config.FLICKR_MAKER_PARTY}>Flickr gallery</a></p>
+              </div>
             </div>
-          </div>
+          </section>
           <PageEndCTA
           header=""
           dividerImgSrc="/img/pages/events/svg/line-divider.svg">
             <div className="row" id="mailinglist">
               <div>
-                <p>Sign up to get Maker Party updates:</p>
+                <p>Ready to host a Maker Party?</p>
                 <FormMailingListSignup/>
               </div>
             </div>
@@ -194,6 +277,12 @@ var EventsPage = React.createClass({
                 imgSrc="/img/pages/events/svg/icon-connect.svg"
                 head="Join the Conversation"
                 subhead="Talk to others about your event"
+              />
+              <IconLink
+                linkTo="teach-like-mozilla"
+                imgSrc="/img/pages/events/svg/icon-connect.svg"
+                head="Teach Like Mozilla"
+                subhead=""
               />
             </IconLinks>
           </section>

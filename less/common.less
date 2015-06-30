@@ -205,3 +205,33 @@ input {
   }
 }
 
+.activity-kit {
+  .span-content {
+    padding: 0 .5rem;
+    font-size: 1.4rem;
+  }
+  .illustration{
+    .image-container{
+      text-align: left;
+    }
+  }
+  .activity-kit-content {
+    div {
+      margin: .4rem 0;
+      &.description {
+        margin: .8rem 0;
+      }
+    }
+    h3 {
+      text-transform: uppercase;
+      font-size: 1.8rem;
+      font-weight: 700;
+      a {
+        color: @grey;
+      }
+    }
+  }
+  .label-tag {
+    .activityKitLabelColorizer(@pinkSidebarColor);
+  }
+}
