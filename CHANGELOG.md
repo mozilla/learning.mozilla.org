@@ -5,6 +5,8 @@ which uses the format described in
 to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
+
+## [0.0.11][] - 2015-06-30
 ### Added
 - Added "Pledge to Teach" CTA button on the Home page to encourage
   site visitors to sign up the mentor mailing list.
@@ -263,7 +265,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.10...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.11...HEAD
+[0.0.11]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.10...v0.0.11
 [0.0.10]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.9...v0.0.10
 [0.0.9]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.8...v0.0.9
 [0.0.8]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.7...v0.0.8
