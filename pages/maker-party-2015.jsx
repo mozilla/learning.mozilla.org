@@ -74,7 +74,7 @@ var MakerParty2015Page = React.createClass({
       title: "2: Writing the Web",
       activities: [
         {
-          title: "Webmaker App activities coming soon!"
+          placeholderText: "Webmaker App activities coming soon!"
         }
       ]
     },

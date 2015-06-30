@@ -13,10 +13,10 @@ var ActivitySection = React.createClass({
           Section {this.props.title}
         </h2>
         {this.props.activities.map(function (activity, i) {
-          if (Object.keys(activity).length === 1 && activity.title) {
+          if (activity.placeholderText) {
             return (
               <div key={i}>
-                <p>{activity.title}</p>
+                <p>{activity.placeholderText}</p>
               </div>
             )
           } else {
