@@ -10,7 +10,7 @@ to [Semantic Versioning](http://semver.org/).
   site visitors to sign up the mentor mailing list.
 - Introduced a new modal dialog design - folded corner. This style has
   been applied to the "Pledge to Teach" modal dialog.
-- E-mail Regex validator has been move to a newly created file `lib/util.js`.
+- E-mail Regex validator has been moved to a newly created file `lib/util.js`.
 - Added environment variables `PLEDGE_MAILINGLIST_URL`
   and `PLEDGE_MAILINGLIST_PRIVACY_NAME`.
 
