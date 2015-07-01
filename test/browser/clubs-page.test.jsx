@@ -9,6 +9,7 @@ var StubTeachAPI = require('./stub-teach-api');
 var StubRouter = require('./stub-router');
 var stubContext = require('./stub-context.jsx');
 var ClubsPage = require('../../pages/clubs.jsx');
+var Util = require('../util.js');
 
 var MODAL_ERROR_REGEX = /an error occurred/i;
 
@@ -28,25 +29,6 @@ function ensureFormFieldsDisabledValue(component, isDisabled) {
   if (!found) {
     throw new Error("no form fields were found");
   }
-}
-
-function ensureLabelLinkage(component, id) {
-  var el = component.getDOMNode();
-  var field = el.querySelector('#' + id);
-  var label = el.querySelector('label[for="' + id + '"]');
-
-  if (!field)
-    throw new Error('no form field found with id ' + id);
-
-  if (['input', 'textarea'].indexOf(field.nodeName.toLowerCase()) == -1)
-    throw new Error(field.nodeName.toLowerCase() +
-                    '#' + id + ' is not a form field');
-
-  if (!label)
-    throw new Error('no label found for id ' + id);
-
-  if (label.textContent.trim() == 0)
-    throw new Error('empty label found for id ' + id);
 }
 
 describe("ClubsPage", function() {
@@ -379,9 +361,9 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
     it("has valid labels for form elements", function() {
       teachAPI.emit('username:change', 'foo');
 
-      ensureLabelLinkage(modal, 'ModalAddOrChangeYourClub_name');
-      ensureLabelLinkage(modal, 'ModalAddOrChangeYourClub_website');
-      ensureLabelLinkage(modal, 'ModalAddOrChangeYourClub_description');
+      Util.ensureLabelLinkage(modal, 'ModalAddOrChangeYourClub_name');
+      Util.ensureLabelLinkage(modal, 'ModalAddOrChangeYourClub_website');
+      Util.ensureLabelLinkage(modal, 'ModalAddOrChangeYourClub_description');
     });
 
     it("handles location changes containing JSON", function() {

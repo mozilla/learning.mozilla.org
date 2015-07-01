@@ -16,7 +16,7 @@ var Intro = React.createClass({
           src1x="/img/pages/protect-your-data/photo-protect-your-data.png"
           src2x="/img/pages/protect-your-data/photo-protect-your-data@2x.png"
           alt=""
-          className="circular-image">
+          className="illustration-img-circle">
             <h2>Engage learners around the topic of privacy in this six-part module, developed in conjunction with Hive Toronto and the Mozilla Privacy Team.</h2>
           </Illustration>
         </section>

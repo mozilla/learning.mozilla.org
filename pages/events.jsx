@@ -1,5 +1,6 @@
 var React = require('react');
 var Router = require('react-router');
+var Link = require('react-router').Link;
 var request = require('superagent');
 var HeroUnit = require('../components/hero-unit.jsx');
 var Modal = require('../components/modal.jsx');
@@ -12,8 +13,6 @@ var PageEndCTA = require('../components/page-end-cta.jsx');
 var config = require('../lib/config');
 var util = require('../lib/util');
 
-var UniqeIdMixin = require('unique-id-mixin');
-
 var validateSignupForm = function(signUpFormState) {
   var errors = [];
   if (!util.isValidEmail(signUpFormState.email)) {
@@ -24,10 +23,10 @@ var validateSignupForm = function(signUpFormState) {
 };
 
 var FormMailingListSignup = React.createClass({
-  mixins: [
-    React.addons.LinkedStateMixin,
-    UniqeIdMixin
-  ],
+  mixins: [React.addons.LinkedStateMixin],
+  propTypes: {
+    idPrefix: React.PropTypes.string
+  },
   getInitialState: function() {
     return {
       email: "",
@@ -62,18 +61,17 @@ var FormMailingListSignup = React.createClass({
   },
   render: function() {
     var identifierPrefix = "mailinglist-signup-";
-    var emailFieldID = this.getNextUid(identifierPrefix+"email");
-    var privacyFieldID = this.getNextUid(identifierPrefix+"privacy");
+    var idPrefix = this.props.idPrefix;
     return (
       <form className="mailinglist-signup center-block" action={process.env.MAILINGLIST_URL} method="POST" onSubmit={this.handleSubmit}>
         <div className="fieldset-container">
           <fieldset>
-            <label htmlFor={emailFieldID} className="sr-only">email</label>
-            <input id={emailFieldID} name="email" type="email" size="30" placeholder="Your email address" valueLink={this.linkState("email")} required />
+            <label htmlFor={idPrefix+"email"} className="sr-only">email</label>
+            <input id={idPrefix+"email"} name="email" type="email" size="30" placeholder="Your email address" valueLink={this.linkState("email")} required />
           </fieldset>
           <fieldset>
-            <label htmlFor={privacyFieldID} className="sr-only">I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a></label>
-            <input id={privacyFieldID} name={process.env.MAILINGLIST_PRIVACY_NAME} type="checkbox" className="sr-only" checked readOnly required />
+            <label htmlFor={idPrefix+"privacy"} className="sr-only">I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a></label>
+            <input id={idPrefix+"privacy"} name={process.env.MAILINGLIST_PRIVACY_NAME} type="checkbox" className="sr-only" checked readOnly required />
             <p className="pp-note">&#10003; I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.</p>
           </fieldset>
           {this.renderValidationErrors()}
@@ -205,7 +203,7 @@ var EventsPage = React.createClass({
         <HeroUnit>
           <h1>Host a Maker Party</h1>
           <h2>Join the global celebration from July 15-31</h2>
-          <FormMailingListSignup/>
+          <FormMailingListSignup idPrefix="hero_unit_" />
         </HeroUnit>
         <div className="inner-container">
           <section className="join-global-movement">
@@ -233,7 +231,7 @@ var EventsPage = React.createClass({
         <div className="row mp-activities-banner">
           <section>
             <div className="btn-container">
-              <a className="btn btn-awsm" href="">Get the 2015 Maker Party Activities</a>
+              <Link to="maker-party-2015" className="btn btn-awsm">Get the 2015 Maker Party Activities</Link>
             </div>
           </section>
         </div>
@@ -274,7 +272,7 @@ var EventsPage = React.createClass({
               <div className="row" id="mailinglist">
                 <div>
                   <p>Ready to host a Maker Party?</p>
-                  <FormMailingListSignup/>
+                  <FormMailingListSignup idPrefix="page_end_cta_"/>
                 </div>
               </div>
             </PageEndCTA>
