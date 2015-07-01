@@ -10,12 +10,30 @@
     input[name="email"] {
       color: @grey;
     }
+    a {
+      color: @white;
+      text-decoration: underline;
+    }
   }
 }
 
 .events {
   .join-global-movement {
     padding-bottom: 0;
+    .illustration.content-first {
+      flex-direction: column-reverse;
+      .image-container,
+      .content-container {
+        width: 100%;
+      }
+      @media screen and (min-width: @screen-sm-min) {
+        flex-direction: row-reverse;
+        .image-container,
+        .content-container {
+          width: auto;
+        }
+      }
+    }
   }
   .activity-kit {
     .activity-kit-content h3 {

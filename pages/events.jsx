@@ -101,11 +101,12 @@ var MakerPartyExample = React.createClass({
     return (
       <div className="activity-kit">
         <Illustration
-        height={244} width={244}
+        height={200} width={200}
         src1x={this.props.src1x}
         src2x={this.props.src2x}
         alt=""
-        link={this.props.link}>
+        link={this.props.link}
+        className="illustration-img-circle">
           <div className="activity-kit-content">
             <h3>{this.props.title}</h3>
             <div>
