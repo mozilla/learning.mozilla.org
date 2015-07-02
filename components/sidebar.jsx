@@ -1,6 +1,7 @@
 var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
+var LinkAnchorSwap = require('./link-anchor-swap.jsx');
 
 var Login = require('./login.jsx');
 
@@ -12,6 +13,19 @@ var Sidebar = React.createClass({
       help: "Activities and lesson plans to get you started",
       icon: "/img/components/sidebar/svg/icon-nav-white-materials.svg",
       className: "activities"
+    },
+    {
+      name: "Mozilla Clubs",
+      link: 'mozilla-clubs',
+      help: "Join our global community of local chapters",
+      icon: "/img/components/sidebar/svg/icon-nav-white-globe.svg",
+      className: "clubs",
+      subItems: [
+        {
+          name: "Clubs Toolkit",
+          link: "clubs-toolkit"
+        }
+      ]
     },
     {
       name: "Maker Party",
@@ -27,6 +41,19 @@ var Sidebar = React.createClass({
       ]
     },
     {
+      name: "Tools",
+      link: 'tools',
+      help: "Open source software to teach and learn the Web",
+      icon: "/img/components/sidebar/svg/icon-nav-white-tools.svg",
+      className: "tools-page"
+    },
+    {
+      name: "Community",
+      href: 'http://discourse.webmaker.org/',
+      help: "Connect with others on topics you care about",
+      icon: "/img/components/sidebar/svg/icon-nav-white-community.svg",
+    },
+    {
       name: "Teach Like Mozilla",
       link: 'teach-like-mozilla',
       help: "Learn about our approach to teaching the Web",
@@ -36,19 +63,6 @@ var Sidebar = React.createClass({
         {
           name: "Web Literacy",
           link: "web-literacy"
-        }
-      ]
-    },
-    {
-      name: "Mozilla Clubs",
-      link: 'mozilla-clubs',
-      help: "Join our global community of local chapters",
-      icon: "/img/components/sidebar/svg/icon-nav-white-globe.svg",
-      className: "clubs",
-      subItems: [
-        {
-          name: "Clubs Toolkit",
-          link: "clubs-toolkit"
         }
       ]
     }
@@ -89,7 +103,7 @@ var Sidebar = React.createClass({
             {this.MENU_ENTRIES.map(function(entry, i) {
               return (
                 <li key={i} className={entry.className}>
-                  <Link to={entry.link}>
+                  <LinkAnchorSwap to={entry.link} href={entry.href}>
                     <img src={entry.icon}
                      /* The sidebar icon is purely decorative, so leave
                       * the alt attribute empty. */
@@ -97,7 +111,7 @@ var Sidebar = React.createClass({
                     <strong>{entry.name}</strong>
                     <div className="help-text hidden-xs hidden-sm">{entry.help}</div>
                     <span className="glyphicon glyphicon-menu-right"></span>
-                  </Link>
+                  </LinkAnchorSwap>
                   <ul className="sidebar-subitems">
                     {entry.subItems ?
                       entry.subItems.map(function (item, key) {
