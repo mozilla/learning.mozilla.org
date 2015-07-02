@@ -15,7 +15,7 @@ var ToolsIntro = React.createClass({
             height={204} width={204}
             src1x="/img/pages/tools/svg/icon-teach-like-mozilla-tools.svg"
             alt="icon toolkit"
-            className="img-circle">
+            className="illustration-img-circle">
             <h1>Tools to Teach and Learn the Web</h1>
             <h2>These tools are free and open source, and can be used in a variety of ways to teach learners how to read, write, and participate on the Web.</h2>
           </Illustration>
@@ -52,7 +52,7 @@ var ToolsColumn = React.createClass({
           src1x={this.props.src1x}
           src2x={this.props.src2x}
           alt=""
-          verticalLayout>
+          className="vertical-layout">
           <h2><a href={this.props.link}>{this.props.name}</a></h2>
           <p>{this.props.description}</p>
         </Illustration>

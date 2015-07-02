@@ -17,7 +17,7 @@ var Intro = React.createClass({
           src1x="/img/pages/maker-party-2015/intro-photo.png"
           src2x="/img/pages/maker-party-2015/intro-photo@2x.png"
           alt=""
-          className="img-circle">
+          className="illustration-img-circle">
             <h2>Fun activities that are perfect for your Maker Party, to help your attendees learn how to read, write and participate on the Web.</h2>
           </Illustration>
         </section>
