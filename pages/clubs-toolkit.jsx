@@ -2,7 +2,6 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 var Illustration = require('../components/illustration.jsx');
-var PageEndCTA = require('../components/page-end-cta.jsx');
 var Expander = require('../components/expander.jsx');
 
 var config = require('../lib/config');
@@ -17,7 +16,7 @@ var ToolkitIntro = React.createClass({
           height={204} width={204}
           src1x="/img/pages/clubs-toolkit/svg/icon-toolkit.svg"
           alt="icon toolkit"
-          className="img-circle">
+          className="illustration-img-circle">
             <h2>Get ready to start your club! Here are some best practices and resources to help you grow your local group.</h2>
           </Illustration>
         </section>

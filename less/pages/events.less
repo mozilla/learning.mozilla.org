@@ -4,15 +4,84 @@
   .retina2x({
     background-image: url(/img/pages/events/hero-events@2x.jpg);
   });
+
+  .mailinglist-signup {
+    margin-top: 3rem;
+    input[name="email"] {
+      color: @grey;
+    }
+    a {
+      color: @white;
+      text-decoration: underline;
+    }
+  }
 }
 
 .events {
-  .flickr-thumbnail {
-    max-width: 100%;
+  .join-global-movement {
+    padding-bottom: 0;
+    .illustration.content-first {
+      flex-direction: column-reverse;
+      .image-container,
+      .content-container {
+        width: 100%;
+      }
+      @media screen and (min-width: @screen-sm-min) {
+        flex-direction: row-reverse;
+        .image-container,
+        .content-container {
+          width: auto;
+        }
+      }
+    }
+  }
+  .activity-kit {
+    .activity-kit-content h3 {
+      text-transform: none;
+      font-size: 2.4rem;
+      font-weight: 500;
+    }
+    .label-tag {
+      .activityKitLabelColorizer(@darkBlueSidebarColor);
+    }
   }
 }
 
 .mailinglist-signup {
+  max-width: 50rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  @media screen and (min-width: @screen-sm-min) {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .fieldset-container {
+    width: 100%;
+    @media screen and (min-width: @screen-sm-min) {
+      width: 35rem;
+      margin-right: 1rem;
+    }
+  }
+  .btn-container,
+  input[type="submit"] {
+    width: 100%;
+    @media screen and (min-width: @screen-sm-min) {
+      width: auto;
+    }
+  }
+  input {
+    padding: 1rem 1.5rem;
+    border: .1rem solid @grey;
+  }
+  input[type="email"] {
+    width: 100%;
+  }
+  input[type="submit"] {
+    margin-top: 0;
+  }
   p.pp-note {
     font-size: 1.2rem;
     margin-top: .5rem;
@@ -28,7 +97,34 @@
   }
 }
 
-.carousel-holder {
-  max-width: 800px;
-  margin: 0 auto;
+.mp-activities-banner {
+  text-align: center;
+  overflow: hidden;
+  .btn-container {
+    display: inline-block;
+    position: relative;
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      background-image: url(/img/pages/events/MP-blue-pattern.png);
+      background-repeat: repeat-x;
+      background-size: auto 8rem;
+      height: 8rem;
+      width: 1000%;
+      .retina2x({
+        background-image: url(/img/pages/events/MP-blue-pattern@2x.png);
+      });
+    }
+    &:before {
+      right: 100%;
+      background-position: right center;
+    }
+    &:after {
+      background-position: 109rem center;
+    }
+  }
+  .btn {
+    margin: 1.6rem 0 2rem 0;
+  }
 }

@@ -5,18 +5,21 @@ var TestUtils = React.addons.TestUtils;
 var stubContext = require('./stub-context.jsx');
 var StubRouter = require('./stub-router');
 var EventsPage = require('../../pages/events.jsx');
+var Util = require('../util.js');
 
 describe("EventsPage", function() {
-  var eventsPage, signupFormComponent;
+  var eventsPage, signupFormTop, signupFormBottom;
 
   beforeEach(function() {
     eventsPage = stubContext.render(EventsPage, {});
-    signupFormComponent = stubContext.render(EventsPage.FormMailingListSignup, {});
+    signupFormTop = stubContext.render(EventsPage.FormMailingListSignup, {idPrefix: "hero_unit_"});
+    signupFormBottom = stubContext.render(EventsPage.FormMailingListSignup, {idPrefix: "page_end_cta_"});
   });
 
   afterEach(function() {
     stubContext.unmount(eventsPage);
-    stubContext.unmount(signupFormComponent);
+    stubContext.unmount(signupFormTop);
+    stubContext.unmount(signupFormBottom);
   });
 
   it("shows mailinglist form if ?mailinglist=thanks isn't in query", function() {
@@ -33,11 +36,22 @@ describe("EventsPage", function() {
     stubContext.unmount(eventsPage2);
   });
 
-  describe("mailnglistForm", function() {
+  describe("EventsPage.FormMailingListSignup", function() {
     var validateSignupForm = EventsPage.validateSignupForm;
 
+    it("has valid labels for the signup form on hero unit section", function() {
+      Util.ensureLabelLinkage(signupFormTop, 'hero_unit_email');
+      Util.ensureLabelLinkage(signupFormTop, 'hero_unit_privacy');
+    });
+
+    it("has valid labels for the signup form on page bottom", function() {
+      Util.ensureLabelLinkage(signupFormBottom, 'page_end_cta_email');
+      Util.ensureLabelLinkage(signupFormBottom, 'page_end_cta_privacy');
+    });
+
     it("does not show any errors by default", function() {
-      signupFormComponent.state.validationErrors.length.should.equal(0);
+      signupFormTop.state.validationErrors.length.should.equal(0);
+      signupFormBottom.state.validationErrors.length.should.equal(0);
     });
 
     it("shows form validation errors when 'email' is left blank", function() {

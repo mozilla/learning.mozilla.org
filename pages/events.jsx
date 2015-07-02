@@ -1,5 +1,6 @@
 var React = require('react');
 var Router = require('react-router');
+var Link = require('react-router').Link;
 var request = require('superagent');
 var HeroUnit = require('../components/hero-unit.jsx');
 var Modal = require('../components/modal.jsx');
@@ -7,13 +8,14 @@ var ModalManagerMixin = require('../mixins/modal-manager');
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
 var Illustration = require('../components/illustration.jsx');
+var ImageTag = require('../components/imagetag.jsx');
 var PageEndCTA = require('../components/page-end-cta.jsx');
+var config = require('../lib/config');
+var util = require('../lib/util');
 
 var validateSignupForm = function(signUpFormState) {
   var errors = [];
-  // regex copied from http://stackoverflow.com/a/46181
-  var regexEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-  if (!regexEmail.test(signUpFormState.email)) {
+  if (!util.isValidEmail(signUpFormState.email)) {
     errors.push("Please enter an email address.");
   }
 
@@ -22,6 +24,9 @@ var validateSignupForm = function(signUpFormState) {
 
 var FormMailingListSignup = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
+  propTypes: {
+    idPrefix: React.PropTypes.string
+  },
   getInitialState: function() {
     return {
       email: "",
@@ -55,22 +60,24 @@ var FormMailingListSignup = React.createClass({
     }
   },
   render: function() {
+    var identifierPrefix = "mailinglist-signup-";
+    var idPrefix = this.props.idPrefix;
     return (
-      <form className="mailinglist-signup" action={process.env.MAILINGLIST_URL} method="POST" onSubmit={this.handleSubmit}>
-        <div className="col-sm-offset-1 col-sm-8 col-md-offset-1 col-md-8 col-lg-offset-1 col-lg-8">
+      <form className="mailinglist-signup center-block" action={process.env.MAILINGLIST_URL} method="POST" onSubmit={this.handleSubmit}>
+        <div className="fieldset-container">
           <fieldset>
-            <label htmlFor="mailinglist-email" className="sr-only">email</label>
-            <input id="mailinglist-email" name="email" type="email" size="30" placeholder="Your email address" valueLink={this.linkState("email")} required />
+            <label htmlFor={idPrefix+"email"} className="sr-only">email</label>
+            <input id={idPrefix+"email"} name="email" type="email" size="30" placeholder="Your email address" valueLink={this.linkState("email")} required />
           </fieldset>
           <fieldset>
-            <label htmlFor="mailinglist-pp-note" className="sr-only">I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a></label>
-            <input id="mailinglist-pp-note" name={process.env.MAILINGLIST_PRIVACY_NAME} type="checkbox" className="sr-only" checked readOnly required />
+            <label htmlFor={idPrefix+"privacy"} className="sr-only">I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a></label>
+            <input id={idPrefix+"privacy"} name={process.env.MAILINGLIST_PRIVACY_NAME} type="checkbox" className="sr-only" checked readOnly required />
             <p className="pp-note">&#10003; I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.</p>
           </fieldset>
           {this.renderValidationErrors()}
         </div>
-        <div className="col-sm-2 col-md-2 col-lg-2 text-center">
-          <input type="submit" value="Submit Email" className="btn btn-awsm" />
+        <div className="btn-container">
+          <input type="submit" value="Sign up" className="btn btn-awsm" />
         </div>
       </form>
     );
@@ -83,6 +90,94 @@ var ThankYouModal = React.createClass({
       <Modal>
         <p>Thanks for signing up!</p>
       </Modal>
+    );
+  }
+});
+
+var MakerPartyExample = React.createClass({
+  render: function() {
+    var host = this.props.host.link ? <a href={this.props.host.link}>{this.props.host.name}</a> : this.props.host.name;
+    host = this.props.host.description ? <span>{host}, {this.props.host.description}</span> : host;
+    return (
+      <div className="activity-kit">
+        <Illustration
+        height={200} width={200}
+        src1x={this.props.src1x}
+        src2x={this.props.src2x}
+        alt=""
+        link={this.props.link}
+        className="illustration-img-circle">
+          <div className="activity-kit-content">
+            <h3>{this.props.title}</h3>
+            <div>
+              <span className="span-content label-tag">Hosted by</span><span className="span-content">{host}</span>
+            </div>
+            <div>
+              <span className="span-content label-tag">Location</span><span className="span-content">{this.props.location}</span>
+            </div>
+            { this.props.participants ?
+              <div>
+                <span className="span-content label-tag">Participants</span><span className="span-content">{this.props.participants}</span>
+              </div> : null
+            }
+            <div className="description">{this.props.description}</div>
+          </div>
+        </Illustration>
+      </div>
+    );
+  }
+});
+
+var MakerPartyExamples = React.createClass({
+  parties: [
+    {
+      title: "Net Neutrality Maker Party",
+      host: {
+        name: "David",
+        description: "a community member"
+      },
+      location: "A private home in Barcelona, Spain",
+      participants: "David and his family",
+      description: "Participants learned about the importance of Net Neutrality, and considered how to take action. They used Thimble to create Net Neutrality-themed memes.",
+      src1x: "/img/pages/events/nn-maker-party.png",
+      src2x: "/img/pages/events/nn-maker-party@2x.png",
+    },
+    {
+      title: "Make and Remake Hackathon",
+      host: {
+        name: "Digital Harbor",
+        description: "local community organization",
+        link: "http://www.digitalharbor.org/"
+      },
+      location: "Makerspace in Baltimore, MD",
+      participants: "Twenty teens",
+      description: "At the Make and Remake Hackathon Day attendees spent the first half of the day using Webmaker tools to MAKE something awesome. In the second half of the Hackathon individuals then turned their completed makes over to a friend so they could then REMAKE their make to create something new.",
+      src1x: "/img/pages/events/make-remake-hackathon.png",
+      src2x: "/img/pages/events/make-remake-hackathon@2x.png"
+    },
+    {
+      title: "Lo-Fi Maker Party",
+      host: {
+        name: "Mozilla Indonesia",
+        link: "https://www.mozilla.org/contact/communities/indonesia/"
+      },
+      location: "Park in Jakarta, Indonesia",
+      description: " At this Lo-Fi Maker Party, participants used paper, Post-it's and tennis balls to learn basic HTML and website structure, simple programming commands and app design.",
+      src1x: "/img/pages/events/lofi-maker-party.png",
+      src2x: "/img/pages/events/lofi-maker-party@2x.png"
+    }
+  ],
+  render: function() {
+    return (
+      <div>
+        {
+          this.parties.map(function(party, i) {
+            return(
+              <MakerPartyExample {...party} key={i} />
+            )
+          })
+        }
+      </div>
     );
   }
 });
@@ -108,70 +203,102 @@ var EventsPage = React.createClass({
       <div>
         <HeroUnit>
           <h1>Host a Maker Party</h1>
-          <h2>Celebrate teaching and learning with others</h2>
+          <h2>Join the global celebration from July 15-31</h2>
+          <FormMailingListSignup idPrefix="hero_unit_" />
         </HeroUnit>
         <div className="inner-container">
-          <section>
-            <h2>Join the Global Movement</h2>
-            <p>Since its inauguration in 2012, Maker Party has become Mozilla's largest celebration of making and learning on the web. From getting the hang of HTML to building robots to learning about remixing using paper and scissors, people of all ages and from all backgrounds have come together to joyfully explore the culture, mechanics and citizenship of the web.</p>
+          <section className="join-global-movement">
             <Illustration
             height={183} width={156}
             src1x="/img/pages/events/svg/maker-party-logo.svg"
             alt="Maker Party logo"
+            className="content-first"
             >
-              <h2>
-                Join us for the worldwide Maker Party on July 15-31, 2015.
-              </h2>
+              <h2>Join the Global Movement</h2>
+              <p>Since its inauguration in 2012, Maker Party has become Mozilla's largest celebration of making and learning on the web. From getting the hang of HTML to building robots to learning about remixing using paper and scissors, people of all ages and from all backgrounds have come together to joyfully explore the culture, mechanics and citizenship of the web.</p>
             </Illustration>
+          </section>
+          <section>
             <div className="row">
               <div className="col-sm-12 col-md-12 col-lg-12">
+                <h2>What is a Maker Party?</h2>
                 <div className="video-container">
-                  <iframe src="https://www.youtube.com/embed/oko6TzPQE6Y" frameBorder="0" allowFullScreen className="video"></iframe>
+                  <iframe src="https://www.youtube.com/embed/oko6TzPQE6Y" frameBorder="0" allowFullScreen className="video" title="Maker Party Video"></iframe>
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                <a href="https://www.flickr.com/photos/mozilladrumbeat/14592256638/in/set-72157647305286970"><img alt="2014 Hive NYC Summer Quest Maker Party" src="//c3.staticflickr.com/3/2915/14592256638_55ec5cf36b_b.jpg" className="flickr-thumbnail" /></a>
-              </div>
-              <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                <a href="https://www.flickr.com/photos/mozilladrumbeat/15213220651/in/album-72157647305286970/"><img alt="Appmaking" src="//c2.staticflickr.com/6/5587/15213220651_9055dffbe6.jpg" className="flickr-thumbnail" /></a>
-              </div>
-              <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                <a href="https://www.flickr.com/photos/newyouthcity/14715964794/in/faves-mozilladrumbeat/"><img alt="2014 Hive NYC Summer Quest Maker Party" src="//c4.staticflickr.com/4/3905/14715964794_a9fa75002c_c.jpg" className="flickr-thumbnail" /></a>
+          </section>
+        </div>
+        <div className="row mp-activities-banner">
+          <section>
+            <div className="btn-container">
+              <Link to="maker-party-2015" className="btn btn-awsm">Get the 2015 Maker Party Activities</Link>
+            </div>
+          </section>
+        </div>
+        <div className="inner-container">
+          <section>
+            <Illustration
+              height={244} width={244}
+              src1x="/img/pages/events/MP-yellow-globe.png"
+              src1x="/img/pages/events/MP-yellow-globe@2x.png"
+              alt="Maker Party logo"
+            >
+              <h2>What does a Maker Party look like?</h2>
+              <p>Maker Parties are held in schools, cafes, community spaces, or even around kitchen tables. They range from the very large (hundreds of participants) to the very small (two people). They are great for kids and adults, and for beginners or experienced pros. Check out these examples of fantastic Maker Parties.</p>
+            </Illustration>
+          </section>
+          <section>
+            <MakerPartyExamples/>
+          </section>
+          <section>
+            <div className="row text-center">
+              <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8 center">
+                <a href={config.FLICKR_MAKER_PARTY}>
+                  <ImageTag className="image-tag"
+                    src1x="/img/pages/events/MP-photo-strip.png"
+                    src2x="/img/pages/events/MP-photo-strip@2x.png"
+                    alt=""
+                    className="contained"
+                  />
+                </a>
+                <p className="callout-heading">See more event photos in our <a href={config.FLICKR_MAKER_PARTY}>Flickr gallery</a></p>
               </div>
             </div>
-            <div className="row">
-              <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
-                <p className="callout-heading">Check out the highlights from Maker Party and see more photos in our <a href="https://www.flickr.com/photos/mozilladrumbeat/galleries/72157643962655534/">Flickr gallery</a>.</p>
-              </div>
-            </div>
+          </section>
+          <section>
             <PageEndCTA
             header=""
             dividerImgSrc="/img/pages/events/svg/line-divider.svg">
               <div className="row" id="mailinglist">
                 <div>
-                  <p>Sign up to get Maker Party updates:</p>
-                  <FormMailingListSignup/>
+                  <p>Ready to host a Maker Party?</p>
+                  <FormMailingListSignup idPrefix="page_end_cta_"/>
                 </div>
               </div>
             </PageEndCTA>
-            <section>
-              <IconLinks>
-                <IconLink
-                  linkTo="event-resources"
-                  imgSrc="/img/pages/events/svg/icon-curriculum.svg"
-                  head="Event Resources"
-                  subhead="Plan a unique event"
-                />
-                <IconLink
-                  href="http://discourse.webmaker.org/category/maker-party"
-                  imgSrc="/img/pages/events/svg/icon-connect.svg"
-                  head="Join the Conversation"
-                  subhead="Talk to others about your event"
-                />
-              </IconLinks>
-            </section>
+          </section>
+          <section>
+            <IconLinks>
+              <IconLink
+                linkTo="event-resources"
+                imgSrc="/img/pages/events/svg/icon-curriculum.svg"
+                head="Event Resources"
+                subhead="Plan a unique event"
+              />
+              <IconLink
+                href="http://discourse.webmaker.org/category/maker-party"
+                imgSrc="/img/pages/events/svg/icon-connect.svg"
+                head="Join the Conversation"
+                subhead="Talk to others about your event"
+              />
+              <IconLink
+                linkTo="teach-like-mozilla"
+                imgSrc="/img/pages/events/svg/icon-connect.svg"
+                head="Teach Like Mozilla"
+                subhead=""
+              />
+            </IconLinks>
           </section>
         </div>
       </div>
