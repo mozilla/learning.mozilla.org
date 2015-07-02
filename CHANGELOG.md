@@ -6,6 +6,18 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.12][] - 2015-07-02
+### Added
+- A "Maker Party 2015 Activities" page has been added. Check out some fun
+  sample activities we put together.
+- SVG images are now optimized by SVGO. SVGO will fail if it encounters a SVG
+  that was exported with the "Preserve Illustrator Editing Capabilities" option
+  checked.
+
+### Changed
+- Refreshed the Events page to include a link to sample Maker Party activities
+  as well as three Maker Party case studies.
+
 ## [0.0.11][] - 2015-06-30
 ### Added
 - Added "Pledge to Teach" CTA button on the Home page to encourage
@@ -265,7 +277,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.11...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.12...HEAD
+[0.0.12]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.11...v0.0.12
 [0.0.11]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.10...v0.0.11
 [0.0.10]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.9...v0.0.10
 [0.0.9]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.8...v0.0.9
