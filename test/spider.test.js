@@ -33,3 +33,11 @@ describe("findSrcSetURLs", function() {
       .should.eql([]);
   });
 });
+
+describe("findOpenGraphURLs", function() {
+  it("works", function() {
+    spider
+      .findOpenGraphURLs('<meta property="og:image" content="/blah.jpg">')
+      .should.eql(['/blah.jpg']);
+  });
+});
