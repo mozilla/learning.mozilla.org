@@ -1,5 +1,8 @@
 var React = require('react');
+var Router = require('react-router');
+var Link = Router.Link;
 var packageJSON = require('../package.json');
+var config = require('../lib/config');
 
 var HealthcheckPage = React.createClass({
   statics: {
@@ -34,6 +37,9 @@ var HealthcheckPage = React.createClass({
               {packageJSON.version}
             </a>
           </code>
+        </p>
+        <p>
+          <small>go back to <Link to="home">{config.ORIGIN}</Link></small>
         </p>
       </div>
     );
