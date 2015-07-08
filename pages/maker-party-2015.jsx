@@ -79,10 +79,10 @@ var MakerParty2015Page = React.createClass({
       ]
     },
     {
-      title: "3: Hacking My Media",
+      title: "3: Participating on the Web",
       activities: [
         {
-          title: "Hacking My Media",
+          title: "Participating on the Web",
           image1x: "/img/pages/maker-party-2015/xray-goggles.png",
           image2x: "/img/pages/maker-party-2015/xray-goggles@2x.png",
           subtitle: "Understanding remixing",
