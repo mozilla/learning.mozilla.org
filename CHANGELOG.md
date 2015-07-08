@@ -6,6 +6,19 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.13][] - 2015-07-08
+### Added
+- Link of David's Twitter page has been added to the "Net Neutrality Maker Party"
+  section on the Events page.
+- `og:image` meta tag has been added to all pages and it is currently
+  hardcoded to use the homepage's hero unit image. You can also spider
+  `og:image` by running `npm test`.
+
+### Changed
+- The header of the third section on Maker Party activities page has
+  been fixed. It is now "Participating on the Web".
+- We have updated Creative Commons license note to reference to v3.0.
+
 ## [0.0.12][] - 2015-07-02
 ### Added
 - A "Maker Party 2015 Activities" page has been added. Check out some fun
@@ -277,7 +290,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.12...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.13...HEAD
+[0.0.13]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.12...v0.0.13
 [0.0.12]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.11...v0.0.12
 [0.0.11]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.10...v0.0.11
 [0.0.10]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.9...v0.0.10

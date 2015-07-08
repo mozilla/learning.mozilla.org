@@ -79,7 +79,7 @@ var MakerParty2015Page = React.createClass({
       ]
     },
     {
-      title: "3: Hacking My Media",
+      title: "3: Participating on the Web",
       activities: [
         {
           title: "Hacking My Media",

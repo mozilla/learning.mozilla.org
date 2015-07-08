@@ -134,6 +134,7 @@ var MakerPartyExamples = React.createClass({
       title: "Net Neutrality Maker Party",
       host: {
         name: "David",
+        link: "https://twitter.com/DGuarch",
         description: "a community member"
       },
       location: "A private home in Barcelona, Spain",
