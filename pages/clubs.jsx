@@ -385,7 +385,7 @@ var ModalAddOrChangeYourClub = React.createClass({
     var content, isFormDisabled;
     var isAdd = !this.props.club;
     var action = isAdd ? "add" : "change";
-    var modalTitle = isAdd ? "Add Your Club To The Map"
+    var modalTitle = isAdd ? "Apply for the next round of Mozilla Clubs"
                            : "Change Your Club";
     var idPrefix = this.props.idPrefix;
 
@@ -409,6 +409,7 @@ var ModalAddOrChangeYourClub = React.createClass({
              </div>
            : null}
           {this.renderValidationErrors()}
+          <p>We're full! Let us know if you'd like to be considered for the next round.</p>
           <form onSubmit={this.handleSubmit}>
             <fieldset>
               <label htmlFor={idPrefix + "name"}>Who is your Mozilla Club affiliated with?</label>
@@ -475,9 +476,10 @@ var ModalAddOrChangeYourClub = React.createClass({
             <input type="submit" className="btn"
              disabled={isFormDisabled}
              value={isFormDisabled
-                    ? (isAdd ? "Adding Your Club..."
+                    ? (isAdd ? "Submitting Your Club Application..."
                              : "Changing Your Club...")
-                    : modalTitle} />
+                    : (isAdd ? "Apply"
+                             : modalTitle )} />
           </form>
         </div>
       );
@@ -628,7 +630,7 @@ var ClubsPage = React.createClass({
       <div>
         <HeroUnit>
           <h1>Mozilla Clubs</h1>
-          <div><a className="btn btn-awsm" onClick={this.showAddYourClubModal}>Add Your Club</a></div>
+          <div><a className="btn btn-awsm" onClick={this.showAddYourClubModal}>Apply</a></div>
         </HeroUnit>
         <div className="inner-container">
           <section>
