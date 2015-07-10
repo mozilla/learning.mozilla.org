@@ -94,8 +94,10 @@ for(var f=document.forms,i=f.length;i--;)f[i].setAttribute("novalidate",i)
 ##### Diagnostics
 
 For any pages you've added or changed, make sure you
-use [PageSpeed Insights][] to ensure the page is fast on all
-devices, and use [Tenon][] to ensure it's accessible.
+use [PageSpeed Insights][], [WebPagetest][], and/or
+[What Does My Site Cost][] to ensure the page performs
+acceptably across a range of devices and bandwidths. Use
+[Tenon][] to ensure it's accessible.
 
 You can conveniently run any of these tools on the current page
 by clicking the "Dev Version" ribbon at the top-right of any
@@ -126,6 +128,8 @@ changes haven't introduced any [Mixed Content][] warnings.
 [js]: https://github.com/MozillaFoundation/javascript-style-guide
 [synonym]: https://help.github.com/articles/closing-issues-via-commit-messages
 [PageSpeed Insights]: https://developers.google.com/speed/pagespeed/insights/
+[WebPagetest]: http://www.webpagetest.org/
+[What Does My Site Cost]: http://whatdoesmysitecost.com/
 [Tenon]: http://tenon.io/
 [ngrok]: https://ngrok.com/
 [Mixed Content]: https://developer.mozilla.org/en-US/docs/Security/MixedContent
