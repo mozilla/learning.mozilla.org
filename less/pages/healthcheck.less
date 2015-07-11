@@ -7,10 +7,22 @@
     width: 100%;
   }
   .site-meta {
+    font-size: 1.8rem;
     text-align: center;
     margin: 5rem auto;
     @media screen and (min-width: @screen-sm-min) {
       max-width: 50rem;
+    }
+  }
+  .go-back-home {
+    margin-top: 4rem;
+    a {
+      &:hover {
+        text-decoration: none;
+        i.fa {
+          transform: scale(1.2);
+        }
+      }
     }
   }
 }
