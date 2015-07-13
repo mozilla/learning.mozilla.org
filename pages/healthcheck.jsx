@@ -15,7 +15,7 @@ var HealthcheckMeta = React.createClass({
   },
   render: function() {
     var version = <span>
-                    based on version
+                    based on version&nbsp;
                     <code>
                       <a target="_blank"
                          href={"https://github.com/mozilla/teach.webmaker.org/releases/tag/v" + packageJSON.version}>
@@ -28,18 +28,18 @@ var HealthcheckMeta = React.createClass({
         <span>This is a {process.env.NODE_ENV || 'development'} version of the <a href="https://github.com/mozilla/teach.webmaker.org" target="_blank">Teach Site</a> </span>
         { this.state.rev ?
           <span>
-            based on commit
+            based on commit&nbsp;
             <code>
               <a target="_blank" href={"https://github.com/mozilla/teach.webmaker.org/commit/"+this.state.rev} className="commit">{this.state.rev.slice(0,10)}</a>
             </code>,
-            which is based {version} (potentially with <a
+            which is {version} (potentially with <a
               target="_blank"
               href={"https://github.com/mozilla/teach.webmaker.org/compare/v" +
                     packageJSON.version + "..." + this.state.rev}>
                 changes
-              </a>)
+              </a>).
           </span>
-          : <div>{version}</div>
+          : <div>{version}.</div>
         }
       </div>
     );
@@ -60,7 +60,7 @@ var HealthcheckPage = React.createClass({
         <div className="go-back-home">
           <Link to="home">
             <i className="fa fa-home fa-2x"></i>
-            <div><small>go back to {config.ORIGIN}</small></div>
+            <div><small>Go back to {config.ORIGIN}</small></div>
           </Link>
         </div>
       </div>
