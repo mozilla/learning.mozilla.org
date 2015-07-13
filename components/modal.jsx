@@ -8,7 +8,12 @@ var Modal = React.createClass({
     modalTitle: React.PropTypes.string
   },
   componentDidMount: function() {
+    var thisEl = this.getDOMNode();
+
     document.addEventListener('keydown', this.handleKeyDown);
+    if (!containsActiveElement(thisEl)) {
+      thisEl.focus();
+    }
   },
   componentWillUnmount: function() {
     document.removeEventListener('keydown', this.handleKeyDown);
@@ -26,13 +31,17 @@ var Modal = React.createClass({
   render: function() {
     return (
       <div className="modal show"
+       tabIndex="-1"
        role="dialog"
        aria-labelledby="modal-label"
        onClick={this.handleOutsideOfModalClick}>
         <div className={"modal-dialog " + this.props.className}>
           <div className="modal-header">
             <button type="button" className="close"
-             onClick={this.hideModal}>&times;</button>
+             aria-label="Close"
+             onClick={this.hideModal}>
+              <span aria-hidden="true">&times;</span>
+            </button>
             <div className="modal-title" id="modal-label">
               {this.props.modalTitle}
             </div>
@@ -45,5 +54,19 @@ var Modal = React.createClass({
     );
   }
 });
+
+function containsActiveElement(el) {
+  if (!document.activeElement) {
+    return false;
+  }
+  return contains(el, document.activeElement);
+}
+
+// http://ejohn.org/blog/comparing-document-position/
+function contains(a, b){
+  return a.contains ?
+    a != b && a.contains(b) :
+    !!(a.compareDocumentPosition(b) & 16);
+}
 
 module.exports = Modal;

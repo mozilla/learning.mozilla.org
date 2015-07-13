@@ -14,6 +14,7 @@ var Modal = require('../components/modal.jsx');
 var ModalManagerMixin = require('../mixins/modal-manager');
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
 var LoginLink = require('../components/login.jsx').LoginLink;
+var StepView = require('../components/step-view.jsx');
 var ga = require('react-ga');
 
 var Illustration = require('../components/illustration.jsx');
@@ -194,7 +195,7 @@ var ModalRemoveYourClub = React.createClass({
       content = (
         <div>
           {this.state.networkError
-           ? <div className="alert alert-danger">
+           ? <div className="alert alert-danger" role="alert">
                <p>Unfortunately, an error occurred when trying to remove your club.</p>
                <p>Please try again later.</p>
              </div>
@@ -220,7 +221,9 @@ var ModalRemoveYourClub = React.createClass({
 
     return (
       <Modal modalTitle="Remove Your Club">
-        {content}
+        <StepView stepId={this.state.step}>
+          {content}
+        </StepView>
       </Modal>
     );
   }
@@ -369,14 +372,17 @@ var ModalAddOrChangeYourClub = React.createClass({
   },
   renderValidationErrors: function() {
     if (this.state.validationErrors.length) {
+      // Note that we originally had this be a list of errors,
+      // but NVDA doesn't speak lists within role="alert", so
+      // we had to make them paragraphs. Bizarre.
       return (
-        <div className="alert alert-danger">
-          <p>Unfortunately, your submission has some problems:</p>
-          <ul>
+        <div className="alert alert-danger" role="alert">
+          <p><strong>
+            Unfortunately, your submission has some problems.
+          </strong></p>
           {this.state.validationErrors.map(function(text,i) {
-            return <li key={i}>{text}</li>;
+            return <p key={i}>{text}</p>;
           })}
-          </ul>
         </div>
       );
     }
@@ -393,7 +399,7 @@ var ModalAddOrChangeYourClub = React.createClass({
       content = (
         <div>
           <p>Before you can {action} your club, you need to log in.</p>
-          <LoginLink callbackSearch="?modal=add" className="btn btn-primary btn-block">Log In</LoginLink>
+          <LoginLink data-autofocus callbackSearch="?modal=add" className="btn btn-primary btn-block">Log In</LoginLink>
           <LoginLink callbackSearch="?modal=add" action="signup" className="btn btn-default btn-block">Create an account</LoginLink>
         </div>
       );
@@ -403,7 +409,7 @@ var ModalAddOrChangeYourClub = React.createClass({
       content = (
         <div>
           {this.state.networkError
-           ? <div className="alert alert-danger">
+           ? <div className="alert alert-danger" role="alert">
                <p>Unfortunately, an error occurred when trying to {action} your club.</p>
                <p>Please try again later.</p>
              </div>
@@ -413,13 +419,15 @@ var ModalAddOrChangeYourClub = React.createClass({
             <fieldset>
               <label htmlFor={idPrefix + "name"}>Who is your Mozilla Club affiliated with?</label>
               <input type="text" id={idPrefix + "name"} placeholder="Name of organization, school, group"
+               data-autofocus
                disabled={isFormDisabled}
                required
                valueLink={this.linkState('name')} />
             </fieldset>
             <fieldset>
-              <label>Where are you located?</label>
+              <label htmlFor={idPrefix + "location"}>Where are you located?</label>
               <Select
+               inputProps={{id: idPrefix + "location"}}
                disabled={isFormDisabled}
                placeholder="Type in a city or a country"
 
@@ -492,6 +500,7 @@ var ModalAddOrChangeYourClub = React.createClass({
              </div>
            : <h2>Your club has been changed.</h2>}
           <button className="btn btn-block"
+           data-autofocus
            onClick={this.handleSuccessClick}>
             Take Me To My Club
           </button>
@@ -501,7 +510,9 @@ var ModalAddOrChangeYourClub = React.createClass({
 
     return(
       <Modal modalTitle={modalTitle}>
-        {content}
+        <StepView stepId={this.state.step}>
+          {content}
+        </StepView>
       </Modal>
     );
   }
@@ -628,7 +639,7 @@ var ClubsPage = React.createClass({
       <div>
         <HeroUnit>
           <h1>Mozilla Clubs</h1>
-          <div><a className="btn btn-awsm" onClick={this.showAddYourClubModal}>Add Your Club</a></div>
+          <div><button className="btn btn-awsm" onClick={this.showAddYourClubModal}>Add Your Club</button></div>
         </HeroUnit>
         <div className="inner-container">
           <section>
