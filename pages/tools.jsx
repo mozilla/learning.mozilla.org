@@ -31,7 +31,7 @@ var ToolsColumn = React.createClass({
     description: React.PropTypes.string.isRequired,
     link: React.PropTypes.string.isRequired,
     src1x: React.PropTypes.string.isRequired,
-    src2x: React.PropTypes.string.isRequired,
+    src2x: React.PropTypes.string,
     activityTitle: React.PropTypes.string,
     activityLink: React.PropTypes.string
   },
@@ -86,8 +86,7 @@ var ToolsSection = React.createClass({
       name: "Webmaker",
       description: "Webmaker lets you create, discover and share content in your language on your mobile device.",
       link: "https://webmaker.org",
-      src1x: "/img/pages/tools/svg/webmaker.svg",
-      src2x: "/img/pages/tools/svg/webmaker.svg"
+      src1x: "/img/pages/tools/svg/webmaker.svg"
     }
   ],
   render: function() {
