@@ -158,7 +158,7 @@ var validateSignupForm = function(signUpFormState) {
   return errors;
 };
 
-var ModalPledge = React.createClass({
+var PledgeSignupForm = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
   getInitialState: function() {
     return {
@@ -193,6 +193,28 @@ var ModalPledge = React.createClass({
     }
   },
   render: function() {
+    var idPrefix = this.props.idPrefix;
+    return (
+      <form className="mailinglist-signup" action={process.env.PLEDGE_MAILINGLIST_URL} method="POST" onSubmit={this.handleSubmit}>
+        <fieldset>
+          <label htmlFor={idPrefix+"email"} className="sr-only">email</label>
+          <div className="icon-field-container">
+            <i className="fa fa-envelope"></i>
+            <input id={idPrefix+"email"} name="email" type="email" size="30" placeholder="email@example.com" valueLink={this.linkState("email")} required />
+          </div>
+          <label htmlFor={idPrefix+"privacy"} className="sr-only">I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a></label>
+          <input id={idPrefix+"privacy"} name={process.env.PLEDGE_MAILINGLIST_PRIVACY_NAME} type="checkbox" className="sr-only" checked readOnly required />
+          <p className="pp-note">&#10003; I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.</p>
+          {this.renderValidationErrors()}
+        </fieldset>
+        <input type="submit" value="Pledge Now" className="btn btn-awsm center-block" />
+      </form>
+    )
+  }
+});
+
+var ModalPledge = React.createClass({
+  render: function() {
     return (
       <Modal modalTitle="" className="modal-pledge folded">
         <ImageTag className="image center-block"
@@ -206,20 +228,7 @@ var ModalPledge = React.createClass({
           <li>be a passionate advocate of an open and accessible web</li>
         </ul>
         <p><strong>Pledge now, and we'll follow up with with details about how you can teach the web!</strong></p>
-        <form className="mailinglist-signup" action={process.env.PLEDGE_MAILINGLIST_URL} method="POST" onSubmit={this.handleSubmit}>
-          <fieldset>
-            <label htmlFor="pledge-email" className="sr-only">email</label>
-            <div className="icon-field-container">
-              <i className="fa fa-envelope"></i>
-              <input id="pledge-email" name="email" type="email" size="30" placeholder="email@example.com" valueLink={this.linkState("email")} required />
-            </div>
-            <label htmlFor="pledge-pp-note" className="sr-only">I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a></label>
-            <input id="pledge-pp-note" name={process.env.PLEDGE_MAILINGLIST_PRIVACY_NAME} type="checkbox" className="sr-only" checked readOnly required />
-            <p className="pp-note">&#10003; I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.</p>
-            {this.renderValidationErrors()}
-          </fieldset>
-          <input type="submit" value="Pledge Now" className="btn btn-awsm center-block" />
-        </form>
+        <PledgeSignupForm idPrefix="pledge-form-" />
       </Modal>
     )
   }
@@ -254,6 +263,9 @@ var ThankYouModal = React.createClass({
 var HomePage = React.createClass({
   statics: {
     pageClassName: 'home-page',
+    ModalPledge: ModalPledge,
+    PledgeSignupForm: PledgeSignupForm,
+    validateSignupForm: validateSignupForm,
     BlogSection: BlogSection
   },
   mixins: [ModalManagerMixin],
