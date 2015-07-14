@@ -11,27 +11,27 @@ var stubBlogFeedLoader = require('./stub-blog-feed-loader');
 var Util = require('../util.js');
 
 describe("HomePage", function() {
- var homePage, pledgeBtn;
+  var homePage, pledgeBtn;
 
- beforeEach(function() {
-  homePage =  stubContext.render(HomePage);
-  pledgeBtn = TestUtils.scryRenderedDOMComponentsWithClass(homePage, "icon-button")[0];
- });
+  beforeEach(function() {
+    homePage =  stubContext.render(HomePage);
+    pledgeBtn = TestUtils.scryRenderedDOMComponentsWithClass(homePage, "icon-button")[0];
+  });
 
- afterEach(function() {
-  stubContext.unmount(homePage);
- });
+  afterEach(function() {
+    stubContext.unmount(homePage);
+  });
 
- it("does not show pledge modal by default", function() {
-  TestUtils.scryRenderedDOMComponentsWithClass(homePage, "modal-pledge").length.should.equal(0);
- });
+  it("does not show pledge modal by default", function() {
+    TestUtils.scryRenderedDOMComponentsWithClass(homePage, "modal-pledge").length.should.equal(0);
+  });
 
- it("shows pledge modal when 'Pledge to Teach' button is clicked", function() {
-  TestUtils.Simulate.click(TestUtils.findRenderedDOMComponentWithTag(pledgeBtn, "a"));
-  homePage.context.showModal.callCount.should.equal(1);
- });
+  it("shows pledge modal when 'Pledge to Teach' button is clicked", function() {
+    TestUtils.Simulate.click(TestUtils.findRenderedDOMComponentWithTag(pledgeBtn, "a"));
+    homePage.context.showModal.callCount.should.equal(1);
+  });
 
- it("shows thank you modal if ?pledge=thanks is in query", function() {
+  it("shows thank you modal if ?pledge=thanks is in query", function() {
     var homePage2 = stubContext.render(HomePage, {}, {
       router: new StubRouter({
         currentQuery: {'pledge': 'thanks'}
