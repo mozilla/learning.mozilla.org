@@ -452,7 +452,7 @@ describe("ClubsPage.ModalAddOrChangeYourClub", function() {
         modal.state.networkError.should.be.false;
         modal.state.result.should.eql({url: 'http://foo'});
         modal.getDOMNode().textContent
-          .should.match(/thanks for your submission/i);
+          .should.match(/thanks for your interest/i);
       });
 
       it("calls onSuccess when user clicks final button", function() {
