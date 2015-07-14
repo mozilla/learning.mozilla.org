@@ -86,8 +86,8 @@ var ToolsSection = React.createClass({
       name: "Webmaker",
       description: "Webmaker lets you create, discover and share content in your language on your mobile device.",
       link: "https://webmaker.org",
-      src1x: "/img/pages/tools/webmaker.jpg",
-      src2x: "/img/pages/tools/webmaker@2x.jpg"
+      src1x: "/img/pages/tools/svg/webmaker.svg",
+      src2x: "/img/pages/tools/svg/webmaker.svg"
     }
   ],
   render: function() {
