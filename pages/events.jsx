@@ -121,7 +121,7 @@ var MakerPartyExample = React.createClass({
               </div> : null
             }
             <div>
-              <p className="description" dangerouslySetInnerHTML={{__html: this.props.description}}></p>
+              <p className="description" dangerouslySetInnerHTML={{__html: this.props.descriptionHTML}}></p>
             </div>
           </div>
         </Illustration>
@@ -141,7 +141,7 @@ var MakerPartyExamples = React.createClass({
       },
       location: "A private home in Barcelona, Spain",
       participants: "David and his family",
-      description: "Participants learned about the importance of Net Neutrality, and considered how to take action. They used Thimble to create Net Neutrality-themed memes.",
+      descriptionHTML: "Participants learned about the importance of Net Neutrality, and considered how to take action. They used Thimble to create Net Neutrality-themed memes.",
       src1x: "/img/pages/events/nn-maker-party.png",
       src2x: "/img/pages/events/nn-maker-party@2x.png",
     },
@@ -154,7 +154,7 @@ var MakerPartyExamples = React.createClass({
       },
       location: "Makerspace in Baltimore, MD",
       participants: "Twenty teens",
-      description: "At the Make and Remake Hackathon Day attendees spent the first half of the day using Webmaker tools to <em>make</em> something awesome. In the second half of the Hackathon individuals then turned their completed makes over to a friend so they could then <em>remake</em> their make to create something new.",
+      descriptionHTML: "At the Make and Remake Hackathon Day attendees spent the first half of the day using Webmaker tools to <em>make</em> something awesome. In the second half of the Hackathon individuals then turned their completed makes over to a friend so they could then <em>remake</em> their make to create something new.",
       src1x: "/img/pages/events/make-remake-hackathon.png",
       src2x: "/img/pages/events/make-remake-hackathon@2x.png"
     },
@@ -165,7 +165,7 @@ var MakerPartyExamples = React.createClass({
         link: "https://www.mozilla.org/contact/communities/indonesia/"
       },
       location: "Park in Jakarta, Indonesia",
-      description: "At this Lo-Fi Maker Party, participants used paper, Post-it's and tennis balls to learn basic HTML and website structure, simple programming commands and app design.",
+      descriptionHTML: "At this Lo-Fi Maker Party, participants used paper, Post-it's and tennis balls to learn basic HTML and website structure, simple programming commands and app design.",
       src1x: "/img/pages/events/lofi-maker-party.png",
       src2x: "/img/pages/events/lofi-maker-party@2x.png"
     }
