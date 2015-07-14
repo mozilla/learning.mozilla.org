@@ -489,8 +489,8 @@ var ModalAddOrChangeYourClub = React.createClass({
           <p><img className="globe" src="/img/pages/clubs/svg/globe-with-pin.svg"/></p>
           {isAdd
            ? <div>
-               <h2>Thanks for your submission!</h2>
-               <p>We&lsquo;ll review it and be in touch shortly. In the meantime, your club will only be visible to you.</p>
+               <h2>Thanks for your interest!</h2>
+               <p>We&lsquo;ll be in touch when we start the next round. In the meantime, your Club will only be visible to you.</p>
              </div>
            : <h2>Your club has been changed.</h2>}
           <button className="btn btn-block"
