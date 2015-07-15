@@ -6,6 +6,18 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.14][] - 2015-07-14
+### Added
+- Two Webmaker App activities have been added to the Maker Party 2015 page.
+- We now have a health check page (https://teach.mozilla.org/healthcheck/) that lists
+  out site meta details such as version number and the git revision it is based on.
+- Unit tests for pledge modals have been added.
+
+### Changed
+- Some copy edits have been made to the Add Your Club workflow to inform users
+  we have reached capacity for accepting new Clubs for now.
+- Replaced the out-of-date Webmaker logo with the brand new one!
+
 ## [0.0.13][] - 2015-07-08
 ### Added
 - Link of David's Twitter page has been added to the "Net Neutrality Maker Party"
@@ -290,7 +302,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.13...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.14...HEAD
+[0.0.14]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.13...v0.0.14
 [0.0.13]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.12...v0.0.13
 [0.0.12]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.11...v0.0.12
 [0.0.11]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.10...v0.0.11

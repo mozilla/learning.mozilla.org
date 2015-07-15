@@ -74,8 +74,22 @@ var MakerParty2015Page = React.createClass({
       title: "2: Writing the Web",
       activities: [
         {
-          placeholderText: "Webmaker App activities coming soon!"
+          title: "Create a Webmaker Project",
+          image1x: "/img/pages/maker-party-2015/webmaker-project.png",
+          image2x: "/img/pages/maker-party-2015/webmaker-project@2x.png",
+          subtitle: "Understanding remixing, designing, and composing",
+          description: "Create original Web content using Webmaker for Android. Create a scavenger hunt, a scrapbook, a birthday card, or anything else you can imagine!",
+          link: "http://mozilla.github.io/webmaker-curriculum/MobileWeb/create-webmaker-project.html"
+        },
+        {
+          title: "No Wifi at Your Event? Design a Story for the Web",
+          image1x: "/img/pages/maker-party-2015/no-wifi-webmaker-project.png",
+          image2x: "/img/pages/maker-party-2015/no-wifi-webmaker-project@2x.png",
+          subtitle: "Understanding remixing, designing, and composing",
+          description: "Brainstorm, sketch and structure a story to create with Webmaker. By brainstorming offline, learners will start thinking about the different ways to create for the Web and get more comfortable with the idea of creating their own content.",
+          link: "http://mozilla.github.io/webmaker-curriculum/MobileWeb/design-webmaker-project.html"
         }
+
       ]
     },
     {

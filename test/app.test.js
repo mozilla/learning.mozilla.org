@@ -23,6 +23,8 @@ describe('app', function() {
   });
 
   it('returns 200 at all public HTML pages', function(done) {
+    this.timeout(10000);
+
     var urls = indexStatic.get().URLS.filter(function(url) {
       return !(url in indexStatic.get().REDIRECTS);
     });

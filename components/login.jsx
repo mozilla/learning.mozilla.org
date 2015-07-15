@@ -2,6 +2,7 @@ var _ = require('underscore');
 var React = require('react/addons');
 var Router = require('react-router');
 var Link = Router.Link;
+var ImageTag = require('../components/imagetag.jsx');
 
 var config = require('../lib/config');
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
@@ -171,7 +172,11 @@ var Login = React.createClass({
       content = (
         <div>
           <span className="login-text">
-            <img src="/img/components/login/svg/logo-webmaker-flat.svg" alt="Webmaker logo"/><LoginLink>Log in</LoginLink>
+            <ImageTag src1x="/img/components/login/Webmaker-Alpha-White.png"
+                      src2x="/img/components/login/Webmaker-Alpha-White@2x.png"
+                      alt=""
+                      width={22} />
+            <LoginLink>Log in</LoginLink>
           </span>
           <LoginLink action="signup">Create an account</LoginLink>
         </div>
