@@ -50,7 +50,7 @@ var ClubsCurriculum = React.createClass({
   },
   curriculum: [
     {
-      title: "1: Reading the Web",
+      title: "Reading the Web",
       activities: [
         {
           title: "Kraken the Code",
@@ -71,7 +71,7 @@ var ClubsCurriculum = React.createClass({
       ]
     },
     {
-      title: "2: Writing the Web",
+      title: "Writing the Web",
       activities: [
         {
           title: "Hack the News",
@@ -92,7 +92,7 @@ var ClubsCurriculum = React.createClass({
       ]
     },
     {
-      title: "3: Participating on the Web",
+      title: "Participating on the Web",
       activities: [
         {
           title: "Web Chef",

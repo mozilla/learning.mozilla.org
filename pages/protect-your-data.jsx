@@ -49,7 +49,7 @@ var ProtectYourData = React.createClass({
   },
   sections: [
     {
-      title: "1: Reading the Web",
+      title: "Reading the Web",
       activities: [
         {
           title: "IP Tracer",
@@ -70,7 +70,7 @@ var ProtectYourData = React.createClass({
       ]
     },
     {
-      title: "2: Writing the Web",
+      title: "Writing the Web",
       activities: [
         {
           title: "Cookies and Third-Party Tracking",
@@ -91,7 +91,7 @@ var ProtectYourData = React.createClass({
       ]
     },
     {
-      title: "3: Participating on the Web",
+      title: "Participating on the Web",
       activities: [
         {
           title: "Data Trail Timeline",

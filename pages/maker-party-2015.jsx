@@ -50,7 +50,7 @@ var MakerParty2015Page = React.createClass({
   },
   sections: [
     {
-      title: "1: Reading the Web",
+      title: "Reading the Web",
       activities: [
         {
           title: "IP Address Tracer",
@@ -71,7 +71,7 @@ var MakerParty2015Page = React.createClass({
       ]
     },
     {
-      title: "2: Writing the Web",
+      title: "Writing the Web",
       activities: [
         {
           title: "Create a Webmaker Project",
@@ -93,7 +93,7 @@ var MakerParty2015Page = React.createClass({
       ]
     },
     {
-      title: "3: Participating on the Web",
+      title: "Participating on the Web",
       activities: [
         {
           title: "Hacking My Media",
@@ -101,7 +101,7 @@ var MakerParty2015Page = React.createClass({
           image2x: "/img/pages/maker-party-2015/xray-goggles@2x.png",
           subtitle: "Understanding remixing",
           description: "Learn about openly-licensed resources, different forms of media, and how to remix a news website with the <a href=" + config.XRAY_GOGGLES_LINK + ">X-Ray Goggles</a> tool.",
-          link: "http://mozilla.github.io/webmaker-curriculum/WebLiteracyBasics-I/session02-hackthenews.html"
+          link: "https://stephguthrie.makes.org/thimble/ODU3ODAxMjE2/hacking-my-media-with-x-ray-goggles"
         },
         {
           title: "No Wi-Fi at your event? Print out the media page and make edits on paper",
