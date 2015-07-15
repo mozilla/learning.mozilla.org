@@ -50,7 +50,7 @@ var MakerParty2015Page = React.createClass({
   },
   sections: [
     {
-      title: "1: Reading the Web",
+      title: "Reading the Web",
       activities: [
         {
           title: "IP Address Tracer",
@@ -71,7 +71,7 @@ var MakerParty2015Page = React.createClass({
       ]
     },
     {
-      title: "2: Writing the Web",
+      title: "Writing the Web",
       activities: [
         {
           title: "Create a Webmaker Project",
@@ -93,7 +93,7 @@ var MakerParty2015Page = React.createClass({
       ]
     },
     {
-      title: "3: Participating on the Web",
+      title: "Participating on the Web",
       activities: [
         {
           title: "Hacking My Media",
