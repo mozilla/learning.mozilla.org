@@ -5,6 +5,12 @@ which uses the format described in
 to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
+### Changed
+- Removed "Section X:" from the beginning of heading titles on the Web
+  Literacy Basics, Protecting Your Data, and Maker Party 2015 Activities
+  pages.
+- Fixed the link to the "Hacking My Media" activity on the Maker Party
+  2015 Activities page.
 
 ## [0.0.14][] - 2015-07-14
 ### Added
