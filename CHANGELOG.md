@@ -5,6 +5,8 @@ which uses the format described in
 to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
+
+## [0.0.15][] - 2015-07-15
 ### Changed
 - Removed "Section X:" from the beginning of heading titles on the Web
   Literacy Basics, Protecting Your Data, and Maker Party 2015 Activities
@@ -308,7 +310,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.14...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.15...HEAD
+[0.0.15]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.14...v0.0.15
 [0.0.14]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.13...v0.0.14
 [0.0.13]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.12...v0.0.13
 [0.0.12]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.11...v0.0.12
