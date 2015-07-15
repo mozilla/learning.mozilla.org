@@ -78,7 +78,7 @@ var MakerParty2015Page = React.createClass({
           image1x: "/img/pages/maker-party-2015/webmaker-project.png",
           image2x: "/img/pages/maker-party-2015/webmaker-project@2x.png",
           subtitle: "Understanding remixing, designing, and composing",
-          description: "Create original Web content using the Webmaker for Android. Create a scavenger hunt, a scrapbook, a birthday card, or anything else you can imagine!",
+          description: "Create original Web content using Webmaker for Android. Create a scavenger hunt, a scrapbook, a birthday card, or anything else you can imagine!",
           link: "http://mozilla.github.io/webmaker-curriculum/MobileWeb/create-webmaker-project.html"
         },
         {
