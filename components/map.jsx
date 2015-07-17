@@ -126,7 +126,7 @@ var MarkerPopupClub = React.createClass({
       );
     }
 
-    if (true) {
+     if (this.props.isOwned) {
       actions = (
         <div className="action-panel">
           <button className="btn btn-default btn-xs"
