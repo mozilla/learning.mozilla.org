@@ -137,7 +137,7 @@ gulp.task('copy-images', function () {
 });
 
 gulp.task('copy-bootstrap', function () {
-  return gulp.src(['node_modules/bootstrap/dist/css/**'], {
+  return gulp.src(['node_modules/bootstrap/dist/css/**', 'node_modules/bootstrap/dist/fonts/**'], {
     base: 'node_modules/bootstrap/dist'
   }).pipe(gulp.dest('./dist/vendor/bootstrap'));
 });
