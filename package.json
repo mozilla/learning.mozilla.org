@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "mocha-phantomjs": "^3.5.3",
-    "phantomjs": "^1.9.16",
+    "phantomjs": "1.9.1 - 1.9.7-15",
     "simplecrawler": "^0.5.2",
     "supertest": "^1.0.1",
     "marked": "^0.3.3",
