@@ -66,7 +66,6 @@ var MadeWithCodePoster = React.createClass({
           <section>
             <MadeWithCodeIntro  title="Make a movie poster"
                                 introText={introText}
-                                learnCSS={true}
             />
           </section>
           <section>
