@@ -17,7 +17,6 @@ var MadeWithCodeIntro = React.createClass({
         <div className="col-sm-3 col-md-3 col-lg-3">
           <a href={config.MADE_WITH_CODE}>
             <ImageTag src1x="/img/pages/madewithcode/logo_mwc.png"
-                    src2x="/img/pages/madewithcode/logo_mwc.png"
                     alt=""
                     width={200} />
           </a>

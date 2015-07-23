@@ -34,3 +34,41 @@
   }
 }
 
+
+
+
+// Makerstrap-style buttons
+// These are used in pages migrated from the old webmaker.org
+// TODO: we should clean this up when we get to visit the inconsistency in button styling issue across our site
+
+.makerstrap-btn {
+  display: inline-block;
+  padding: .8rem 1.2rem;
+  margin: 0.3rem;
+  color: @white;
+  &:hover {
+    color: @white;
+    text-decoration: none;
+  }
+}
+
+.makerstrap-btn-primary {
+  background-color: @makerstrapBrandPrimary;
+  border: .1rem solid #38A27F;
+  i {
+    margin-right: .5rem;
+  }
+  &:hover {
+    background-color: @makerstrapDarkGreen;
+    border-color: #29755C;
+  }
+}
+
+.makerstrap-btn-info {
+  background-color: #27AAE1;
+  border: .1rem solid #1D9CD1;
+  &:hover {
+    background-color: #1b92c4;
+    border-color: #16749c;
+  }
+}
