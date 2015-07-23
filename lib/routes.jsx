@@ -19,6 +19,12 @@ var routes = (
      handler={require('../pages/activities.jsx')}/>
     <Route name="protect-your-data" path="/activities/protect-your-data/"
      handler={require('../pages/protect-your-data.jsx')}/>
+    <Route name="madewithcode-firstwebpage" path="/activities/madewithcode-firstwebpage/"
+     handler={require('../pages/madewithcode-firstwebpage.jsx')}/>
+    <Route name="madewithcode-meme" path="/activities/madewithcode-meme/"
+     handler={require('../pages/madewithcode-meme.jsx')}/>
+    <Route name="madewithcode-poster" path="/activities/madewithcode-poster/"
+     handler={require('../pages/madewithcode-poster.jsx')}/>
     <Route name="maker-party-2015" path="/activities/maker-party-2015/"
      handler={require('../pages/maker-party-2015.jsx')}/>
     <Route name="web-literacy" path="/teach-like-mozilla/web-literacy/"
