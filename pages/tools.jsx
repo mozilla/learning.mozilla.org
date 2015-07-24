@@ -76,7 +76,7 @@ var ToolsSection = React.createClass({
     {
       name: "Thimble",
       description: "This code editor helps you learn HTML and CSS by creating and remixing Web projects.",
-      link: "https://thimble.webmaker.org",
+      link: config.THIMBLE,
       src1x: "/img/pages/tools/thimble.png",
       src2x: "/img/pages/tools/thimble@2x.png",
       activityTitle: "Image Seeking for Fantastic Visual Metaphors",
@@ -86,7 +86,9 @@ var ToolsSection = React.createClass({
       name: "Webmaker",
       description: "Webmaker lets you create, discover and share content in your language on your mobile device.",
       link: "https://webmaker.org",
-      src1x: "/img/pages/tools/svg/webmaker.svg"
+      src1x: "/img/pages/tools/svg/webmaker.svg",
+      activityTitle: "Create a Webmaker Project",
+      activityLink: "http://mozilla.github.io/webmaker-curriculum/MobileWeb/create-webmaker-project.html"
     }
   ],
   render: function() {
