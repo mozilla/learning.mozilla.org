@@ -2,6 +2,7 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 var moment = require('moment');
+var ga = require('react-ga');
 
 var HeroUnit = require('../components/hero-unit.jsx');
 var Blockquote = require('../components/blockquote.jsx');
@@ -278,7 +279,14 @@ var HomePage = React.createClass({
     }
   },
   handlePledgeBtnClick: function() {
+    ga.event({ category: 'Clicked Home CTA', action: 'Pledge to Teach' });
     this.showModal(ModalPledge);
+  },
+  handleTeachBtnClick: function() {
+    ga.event({ category: 'Clicked Home CTA', action: 'Teach an Activity' });
+  },
+  handleClubBtnClick: function() {
+    ga.event({ category: 'Clicked Home CTA', action: 'Start A Mozilla Club' });
   },
   render: function() {
     return (
@@ -295,11 +303,13 @@ var HomePage = React.createClass({
               linkTo="activities"
               imgSrc="/img/pages/home/svg/icon-teachanactivity.svg"
               head="Teach an Activity"
+              onClick={this.handleTeachBtnClick}
             />
             <IconButton
               linkTo="mozilla-clubs"
               imgSrc="/img/pages/home/svg/icon-startamozillaclub.svg"
               head="Start A Mozilla Club"
+              onClick={this.handleClubBtnClick}
             />
           </IconButtons>
         </HeroUnit>
