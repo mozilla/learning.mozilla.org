@@ -25,6 +25,8 @@ var routes = (
      handler={require('../pages/madewithcode-meme.jsx')}/>
     <Route name="madewithcode-poster" path="/activities/madewithcode-poster/"
      handler={require('../pages/madewithcode-poster.jsx')}/>
+    <Route name="private-eye" path="/activities/private-eye/"
+     handler={require('../pages/private-eye.jsx')}/>
     <Route name="maker-party-2015" path="/activities/maker-party-2015/"
      handler={require('../pages/maker-party-2015.jsx')}/>
     <Route name="web-literacy" path="/teach-like-mozilla/web-literacy/"

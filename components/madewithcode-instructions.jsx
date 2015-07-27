@@ -18,7 +18,6 @@ var Instructions = React.createClass({
             {this.props.step1}
              <a href={this.props.remixUrl}>
               <ImageTag src1x="/img/pages/madewithcode/graphic_remix.png"
-                      src2x="/img/pages/madewithcode/graphic_remix.png"
                       alt=""
                       width={245} />
             </a>
@@ -26,7 +25,6 @@ var Instructions = React.createClass({
           <li>
             {this.props.step2}
              <ImageTag src1x="/img/pages/madewithcode/graphic_thimble.png"
-                      src2x="/img/pages/madewithcode/graphic_thimble.png"
                       alt=""
                       width={245} />
           </li>
