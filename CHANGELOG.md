@@ -6,6 +6,20 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.16][] - 2015-07-27
+### Added
+- Link to a sample Webmaker activity has been added to the Tools page.
+- We record a GA event when any of the three Homepage CTA buttons is clicked.
+- The three Made with Code activities pages that are currently on webmaker.org
+  have been migrated here.
+- The Private Eye activity page has been migrated from webmaker.org.
+
+### Changed
+- Our semvar string for phantomjs now matches mocha-phantomjs's(1.9.1 - 1.9.7-15).
+  This is to fix the NPM error rasied from peerDependencies conflicts since the phantomjs
+  we required before was at 1.9.17 but it was not a version mocha-phantomjs would take.
+- Configs in .travis.yml have been updated.
+
 ## [0.0.15][] - 2015-07-15
 ### Changed
 - Removed "Section X:" from the beginning of heading titles on the Web
@@ -310,7 +324,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.15...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.16...HEAD
+[0.0.16]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.15...v0.0.16
 [0.0.15]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.14...v0.0.15
 [0.0.14]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.13...v0.0.14
 [0.0.13]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.12...v0.0.13
