@@ -8,17 +8,15 @@ var EventsPage = require('../../pages/events.jsx');
 var Util = require('../util.js');
 
 describe("EventsPage", function() {
-  var eventsPage, signupFormTop, signupFormBottom;
+  var eventsPage, signupFormBottom;
 
   beforeEach(function() {
     eventsPage = stubContext.render(EventsPage, {});
-    signupFormTop = stubContext.render(EventsPage.FormMailingListSignup, {idPrefix: "hero_unit_"});
     signupFormBottom = stubContext.render(EventsPage.FormMailingListSignup, {idPrefix: "page_end_cta_"});
   });
 
   afterEach(function() {
     stubContext.unmount(eventsPage);
-    stubContext.unmount(signupFormTop);
     stubContext.unmount(signupFormBottom);
   });
 
@@ -39,18 +37,12 @@ describe("EventsPage", function() {
   describe("EventsPage.FormMailingListSignup", function() {
     var validateSignupForm = EventsPage.validateSignupForm;
 
-    it("has valid labels for the signup form on hero unit section", function() {
-      Util.ensureLabelLinkage(signupFormTop, 'hero_unit_email');
-      Util.ensureLabelLinkage(signupFormTop, 'hero_unit_privacy');
-    });
-
     it("has valid labels for the signup form on page bottom", function() {
       Util.ensureLabelLinkage(signupFormBottom, 'page_end_cta_email');
       Util.ensureLabelLinkage(signupFormBottom, 'page_end_cta_privacy');
     });
 
     it("does not show any errors by default", function() {
-      signupFormTop.state.validationErrors.length.should.equal(0);
       signupFormBottom.state.validationErrors.length.should.equal(0);
     });
 

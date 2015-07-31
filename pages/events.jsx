@@ -206,8 +206,6 @@ var EventsPage = React.createClass({
       <div>
         <HeroUnit>
           <h1>Host a Maker Party</h1>
-          <h2>Join the global celebration from July 15-31</h2>
-          <FormMailingListSignup idPrefix="hero_unit_" />
         </HeroUnit>
         <div className="inner-container">
           <section className="join-global-movement">
@@ -221,23 +219,13 @@ var EventsPage = React.createClass({
               <p>Since its inauguration in 2012, Maker Party has become Mozilla's largest celebration of making and learning on the web. From getting the hang of HTML to building robots to learning about remixing using paper and scissors, people of all ages and from all backgrounds have come together to joyfully explore the culture, mechanics and citizenship of the web.</p>
             </Illustration>
           </section>
-          <section>
-            <div className="row">
-              <div className="col-sm-12 col-md-12 col-lg-12">
-                <h2>What is a Maker Party?</h2>
-                <div className="video-container">
-                  <iframe src="https://www.youtube.com/embed/oko6TzPQE6Y" frameBorder="0" allowFullScreen className="video" title="Maker Party Video"></iframe>
-                </div>
+          <div className="row mp-activities-banner">
+            <section>
+              <div className="btn-container">
+                <Link to="maker-party-2015" className="btn btn-awsm">Get the 2015 Maker Party Activities</Link>
               </div>
-            </div>
-          </section>
-        </div>
-        <div className="row mp-activities-banner">
-          <section>
-            <div className="btn-container">
-              <Link to="maker-party-2015" className="btn btn-awsm">Get the 2015 Maker Party Activities</Link>
-            </div>
-          </section>
+            </section>
+          </div>
         </div>
         <div className="inner-container">
           <section>
@@ -252,9 +240,6 @@ var EventsPage = React.createClass({
             </Illustration>
           </section>
           <section>
-            <MakerPartyExamples/>
-          </section>
-          <section>
             <div className="row text-center">
               <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8 center">
                 <a href={config.FLICKR_MAKER_PARTY}>
@@ -266,6 +251,19 @@ var EventsPage = React.createClass({
                   />
                 </a>
                 <p className="callout-heading">See more event photos in our <a href={config.FLICKR_MAKER_PARTY}>Flickr gallery</a></p>
+              </div>
+            </div>
+          </section>
+          <section>
+            <MakerPartyExamples/>
+          </section>
+          <section>
+            <div className="row">
+              <div className="col-sm-12 col-md-12 col-lg-12">
+                <h2>What is a Maker Party?</h2>
+                <div className="video-container">
+                  <iframe src="https://www.youtube.com/embed/oko6TzPQE6Y" frameBorder="0" allowFullScreen className="video" title="Maker Party Video"></iframe>
+                </div>
               </div>
             </div>
           </section>
