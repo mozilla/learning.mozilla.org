@@ -9,90 +9,7 @@ var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
 var Illustration = require('../components/illustration.jsx');
 var ImageTag = require('../components/imagetag.jsx');
-var PageEndCTA = require('../components/page-end-cta.jsx');
 var config = require('../lib/config');
-var util = require('../lib/util');
-
-var validateSignupForm = function(signUpFormState) {
-  var errors = [];
-  if (!util.isValidEmail(signUpFormState.email)) {
-    errors.push("Please enter an email address.");
-  }
-
-  return errors;
-};
-
-var FormMailingListSignup = React.createClass({
-  mixins: [React.addons.LinkedStateMixin],
-  propTypes: {
-    idPrefix: React.PropTypes.string
-  },
-  getInitialState: function() {
-    return {
-      email: "",
-      validationErrors: []
-    };
-  },
-  handleSubmit: function(e) {
-    var validationErrors = validateSignupForm(_.pick(this.state,"email"));
-
-    if (validationErrors.length) {
-      e.preventDefault();
-      this.setState({validationErrors: validationErrors});
-      return;
-    }
-
-    if (process.env.NODE_ENV !== 'production' &&
-        !process.env.MAILINGLIST_URL) {
-      e.preventDefault();
-      alert("MAILINGLIST_URL is not defined. Simulating " +
-            "a successful mailing list signup now.");
-      window.location = "?mailinglist=thanks";
-    }
-  },
-  renderValidationErrors: function() {
-    if (this.state.validationErrors.length) {
-      return (
-        <div className="alert alert-danger">
-          <p className="error-msg">Please enter an email address.</p>
-        </div>
-      );
-    }
-  },
-  render: function() {
-    var identifierPrefix = "mailinglist-signup-";
-    var idPrefix = this.props.idPrefix;
-    return (
-      <form className="mailinglist-signup center-block" action={process.env.MAILINGLIST_URL} method="POST" onSubmit={this.handleSubmit}>
-        <div className="fieldset-container">
-          <fieldset>
-            <label htmlFor={idPrefix+"email"} className="sr-only">email</label>
-            <input id={idPrefix+"email"} name="email" type="email" size="30" placeholder="Your email address" valueLink={this.linkState("email")} required />
-          </fieldset>
-          <fieldset>
-            <label htmlFor={idPrefix+"privacy"} className="sr-only">I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a></label>
-            <input id={idPrefix+"privacy"} name={process.env.MAILINGLIST_PRIVACY_NAME} type="checkbox" className="sr-only" checked readOnly required />
-            <p className="pp-note">&#10003; I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.</p>
-          </fieldset>
-          {this.renderValidationErrors()}
-        </div>
-        <div className="btn-container">
-          <input type="submit" value="Sign up" className="btn btn-awsm" />
-        </div>
-      </form>
-    );
-  }
-});
-
-var ThankYouModal = React.createClass({
-  render: function() {
-    return (
-      <Modal>
-        <p>Thanks for signing up!</p>
-      </Modal>
-    );
-  }
-});
 
 var MakerPartyExample = React.createClass({
   render: function() {
@@ -189,17 +106,10 @@ var EventsPage = React.createClass({
   mixins: [ModalManagerMixin],
   statics: {
     pageTitle: 'Events',
-    pageClassName: 'events',
-    FormMailingListSignup: FormMailingListSignup,
-    validateSignupForm: validateSignupForm
+    pageClassName: 'events'
   },
   contextTypes: {
     router: React.PropTypes.func.isRequired
-  },
-  componentDidMount: function() {
-    if (this.context.router.getCurrentQuery().mailinglist === "thanks") {
-      this.showModal(ThankYouModal);
-    }
   },
   render: function() {
     return (
@@ -266,18 +176,6 @@ var EventsPage = React.createClass({
                 </div>
               </div>
             </div>
-          </section>
-          <section>
-            <PageEndCTA
-            header=""
-            dividerImgSrc="/img/pages/events/svg/line-divider.svg">
-              <div className="row" id="mailinglist">
-                <div>
-                  <p>Ready to host a Maker Party?</p>
-                  <FormMailingListSignup idPrefix="page_end_cta_"/>
-                </div>
-              </div>
-            </PageEndCTA>
           </section>
           <section>
             <IconLinks>

@@ -47,8 +47,6 @@ module.exports = {
       'GA_ACCOUNT',
       'MAPBOX_ACCESS_TOKEN',
       'MAPBOX_MAP_ID',
-      'MAILINGLIST_URL',
-      'MAILINGLIST_PRIVACY_NAME',
       'PLEDGE_MAILINGLIST_URL',
       'PLEDGE_MAILINGLIST_PRIVACY_NAME'
     ])),
