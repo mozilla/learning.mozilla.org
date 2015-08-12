@@ -9,7 +9,90 @@ var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
 var Illustration = require('../components/illustration.jsx');
 var ImageTag = require('../components/imagetag.jsx');
+var PageEndCTA = require('../components/page-end-cta.jsx');
 var config = require('../lib/config');
+var util = require('../lib/util');
+
+var validateSignupForm = function(signUpFormState) {
+  var errors = [];
+  if (!util.isValidEmail(signUpFormState.email)) {
+    errors.push("Please enter an email address.");
+  }
+
+  return errors;
+};
+
+var FormMailingListSignup = React.createClass({
+  mixins: [React.addons.LinkedStateMixin],
+  propTypes: {
+    idPrefix: React.PropTypes.string
+  },
+  getInitialState: function() {
+    return {
+      email: "",
+      validationErrors: []
+    };
+  },
+  handleSubmit: function(e) {
+    var validationErrors = validateSignupForm(_.pick(this.state,"email"));
+
+    if (validationErrors.length) {
+      e.preventDefault();
+      this.setState({validationErrors: validationErrors});
+      return;
+    }
+
+    if (process.env.NODE_ENV !== 'production' &&
+        !process.env.MAILINGLIST_URL) {
+      e.preventDefault();
+      alert("MAILINGLIST_URL is not defined. Simulating " +
+            "a successful mailing list signup now.");
+      window.location = "?mailinglist=thanks";
+    }
+  },
+  renderValidationErrors: function() {
+    if (this.state.validationErrors.length) {
+      return (
+        <div className="alert alert-danger">
+          <p className="error-msg">Please enter an email address.</p>
+        </div>
+      );
+    }
+  },
+  render: function() {
+    var identifierPrefix = "mailinglist-signup-";
+    var idPrefix = this.props.idPrefix;
+    return (
+      <form className="mailinglist-signup center-block" action={process.env.MAILINGLIST_URL} method="POST" onSubmit={this.handleSubmit}>
+        <div className="fieldset-container">
+          <fieldset>
+            <label htmlFor={idPrefix+"email"} className="sr-only">email</label>
+            <input id={idPrefix+"email"} name="email" type="email" size="30" placeholder="Your email address" valueLink={this.linkState("email")} required />
+          </fieldset>
+          <fieldset>
+            <label htmlFor={idPrefix+"privacy"} className="sr-only">I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a></label>
+            <input id={idPrefix+"privacy"} name={process.env.MAILINGLIST_PRIVACY_NAME} type="checkbox" className="sr-only" checked readOnly required />
+            <p className="pp-note">&#10003; I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.</p>
+          </fieldset>
+          {this.renderValidationErrors()}
+        </div>
+        <div className="btn-container">
+          <input type="submit" value="Sign up" className="btn btn-awsm" />
+        </div>
+      </form>
+    );
+  }
+});
+
+var ThankYouModal = React.createClass({
+  render: function() {
+    return (
+      <Modal>
+        <p>Thanks for signing up!</p>
+      </Modal>
+    );
+  }
+});
 
 var MakerPartyExample = React.createClass({
   render: function() {
@@ -106,16 +189,25 @@ var EventsPage = React.createClass({
   mixins: [ModalManagerMixin],
   statics: {
     pageTitle: 'Events',
-    pageClassName: 'events'
+    pageClassName: 'events',
+    FormMailingListSignup: FormMailingListSignup,
+    validateSignupForm: validateSignupForm
   },
   contextTypes: {
     router: React.PropTypes.func.isRequired
+  },
+  componentDidMount: function() {
+    if (this.context.router.getCurrentQuery().mailinglist === "thanks") {
+      this.showModal(ThankYouModal);
+    }
   },
   render: function() {
     return (
       <div>
         <HeroUnit>
           <h1>Host a Maker Party</h1>
+          <h2>Join the global celebration from July 15-31</h2>
+          <FormMailingListSignup idPrefix="hero_unit_" />
         </HeroUnit>
         <div className="inner-container">
           <section className="join-global-movement">
@@ -129,13 +221,23 @@ var EventsPage = React.createClass({
               <p>Since its inauguration in 2012, Maker Party has become Mozilla's largest celebration of making and learning on the web. From getting the hang of HTML to building robots to learning about remixing using paper and scissors, people of all ages and from all backgrounds have come together to joyfully explore the culture, mechanics and citizenship of the web.</p>
             </Illustration>
           </section>
-          <div className="row mp-activities-banner">
-            <section>
-              <div className="btn-container">
-                <Link to="maker-party-2015" className="btn btn-awsm">Get the 2015 Maker Party Activities</Link>
+          <section>
+            <div className="row">
+              <div className="col-sm-12 col-md-12 col-lg-12">
+                <h2>What is a Maker Party?</h2>
+                <div className="video-container">
+                  <iframe src="https://www.youtube.com/embed/oko6TzPQE6Y" frameBorder="0" allowFullScreen className="video" title="Maker Party Video"></iframe>
+                </div>
               </div>
-            </section>
-          </div>
+            </div>
+          </section>
+        </div>
+        <div className="row mp-activities-banner">
+          <section>
+            <div className="btn-container">
+              <Link to="maker-party-2015" className="btn btn-awsm">Get the 2015 Maker Party Activities</Link>
+            </div>
+          </section>
         </div>
         <div className="inner-container">
           <section>
@@ -148,6 +250,9 @@ var EventsPage = React.createClass({
               <h2>What does a Maker Party look like?</h2>
               <p>Maker Parties are held in schools, cafes, community spaces, or even around kitchen tables. They range from the very large (hundreds of participants) to the very small (two people). They are great for kids and adults, and for beginners or experienced pros. Check out these examples of fantastic Maker Parties.</p>
             </Illustration>
+          </section>
+          <section>
+            <MakerPartyExamples/>
           </section>
           <section>
             <div className="row text-center">
@@ -165,17 +270,16 @@ var EventsPage = React.createClass({
             </div>
           </section>
           <section>
-            <MakerPartyExamples/>
-          </section>
-          <section>
-            <div className="row">
-              <div className="col-sm-12 col-md-12 col-lg-12">
-                <h2>What is a Maker Party?</h2>
-                <div className="video-container">
-                  <iframe src="https://www.youtube.com/embed/oko6TzPQE6Y" frameBorder="0" allowFullScreen className="video" title="Maker Party Video"></iframe>
+            <PageEndCTA
+            header=""
+            dividerImgSrc="/img/pages/events/svg/line-divider.svg">
+              <div className="row" id="mailinglist">
+                <div>
+                  <p>Ready to host a Maker Party?</p>
+                  <FormMailingListSignup idPrefix="page_end_cta_"/>
                 </div>
               </div>
-            </div>
+            </PageEndCTA>
           </section>
           <section>
             <IconLinks>

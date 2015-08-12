@@ -52,8 +52,7 @@ var LINT_DIRS = [
 var IMG_FILE_TYPES = [
   'img/**/*.jpg',
   'img/**/*.png',
-  'img/**/*.svg',
-  'img/favicon.ico'
+  'img/**/*.svg'
 ];
 
 var LESS_FILES = './less/**/*.less';

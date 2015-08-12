@@ -76,7 +76,7 @@ var ToolsSection = React.createClass({
     {
       name: "Thimble",
       description: "This code editor helps you learn HTML and CSS by creating and remixing Web projects.",
-      link: config.THIMBLE,
+      link: "https://thimble.webmaker.org",
       src1x: "/img/pages/tools/thimble.png",
       src2x: "/img/pages/tools/thimble@2x.png",
       activityTitle: "Image Seeking for Fantastic Visual Metaphors",

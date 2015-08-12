@@ -1,8 +1,8 @@
 language: node_js
 node_js:
 - '0.12'
-after_success: npm run travis-after-success
 env:
   global:
-  - AWS_ACCESS_KEY: AKIAJRDKELRKFFVV5CPA
-  - secure: fTFD+q9V+GLtGryFuI0PjeXMex7tVOEhslC9WEIseL/IlSYgupL/qc+pZJ5PEdpEGDAc4HigizkOxjVDS8BGYbvC3E0Q5mSQ02fMGPJmZdr18XcHpdTs9PabHJiI8elVKV5Z0Co0UzVGl9w/Qv32wDpBJOQaWPH8VD6zHzqufDY=
+    secure: G3YBwV29SBIqtWfP1EIyaABZ65jvzFT15vUMRSf8IZgINRkRl8p7Js38ioaYahlCIVVom02iulY5N/n/Q5qdsgckZUGYe0FYy4+Qz1Qr69rATpFCpREPh02lfkm5TojjefGdDqlm9CUJvJGhtDXIOUlAK66yd85O2gyZb9DK0CQ=
+after_success:
+  "npm run travis-after-success"
