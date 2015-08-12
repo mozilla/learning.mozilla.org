@@ -1,0 +1,50 @@
+.madewithcode-instructions {
+  // This is to be applied to pages migrated from webmaker.org
+  // e.g., https://webmaker.org/private-eye and https://webmaker.org/madewithcode-firstwebpage etc
+  // List style carried over and adapted from https://github.com/mozilla/webmaker.org/blob/a8a31cf905badf8bf42a5cfa44f0b35788133614/less/explore/madewithcode.less#L152-L175
+  h2 {
+    margin: 0 0 3rem 0;
+  }
+  strong {
+    font-weight: 600;
+  }
+  ol {
+    list-style: outside none none;
+    counter-reset: remix-steps;
+    padding-left: 0;
+    li {
+      padding-left: 5rem;
+      position: relative;
+      margin-bottom: 3rem;
+      &:before {
+        background: #E3EAEE none repeat scroll 0% 0%;
+        border-radius: 50%;
+        content: counter(remix-steps, decimal);
+        counter-increment: remix-steps;
+        display: block;
+        font-size: 0.75em;
+        left: 0;
+        line-height: 2.3;
+        height: 2.5em;
+        text-align: center;
+        position: absolute;
+        top: 0px;
+        width: 2.5em;
+      }
+      img {
+        margin: 1.5rem 0;
+      }
+    }
+  }
+  ul {
+    li {
+      padding-left: 1rem;
+    }
+  }
+  img {
+    max-width: 100%;
+  }
+  .bonus-point {
+    color: @makerstrapBrandPrimary;
+  }
+}
