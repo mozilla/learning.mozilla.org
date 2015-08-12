@@ -3,6 +3,7 @@ var Router = require('react-router');
 var Link = Router.Link;
 var moment = require('moment');
 var ga = require('react-ga');
+var OutboundLink = ga.OutboundLink;
 
 var HeroUnit = require('../components/hero-unit.jsx');
 var Blockquote = require('../components/blockquote.jsx');
@@ -313,15 +314,15 @@ var HomePage = React.createClass({
             />
           </IconButtons>
         </HeroUnit>
-        <div className="row full-row makerparty-banner">
+        <div className="row full-row mozfest-banner">
           <div className="inner-container">
             <section>
               <Illustration
                 height={200} width={384}
-                src1x="/img/pages/home/maker-party-banner.png" src2x="/img/pages/home/maker-party-banner@2x.png"
+                src1x="/img/pages/home/Mozilla-Festival_Logo-Lockup_White.png" src2x="/img/pages/home/Mozilla-Festival_Logo-Lockup_White@2x.png"
                 alt="">
-                  <p>Maker Party is Mozilla's global campaign to teach the web. Participate in our year-round party by hosting or attending events to teach, build and share amazing things online.</p>
-                  <Link className="btn btn-awsm" to="events">Host a Maker Party</Link>
+                  <p>MozFest is Mozilla's annual, hands-on festival dedicated to forging the future of the open Web. We are now accepting session proposals.</p>
+                  <OutboundLink className="btn btn-awsm" to="https://2015.mozillafestival.org/proposals" eventLabel="https://2015.mozillafestival.org/proposals">Submit Your Proposal</OutboundLink>
               </Illustration>
             </section>
           </div>
