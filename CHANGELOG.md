@@ -6,6 +6,23 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.17][] - 2015-08-12
+### Added
+- We have added GA tracking for external links on Activities page as well as
+  Discourse link on the sidebar.
+- A general Mozilla favicon "m" has been added.
+- The Maker Party promo banner on Home page has been replaced by MozFest
+  call for proposals callout.
+
+### Changed
+- The Events page has been refreshed with post Maker Party updates. This
+  includes copy changes and the removal of Maker Party mailinglist signup forms.
+  The `MAILINGLIST_URL` and `MAILINGLIST_PRIVACY_NAME` env vars have also
+  been removed since they are not in use anymore.
+- Keys in `travis.yml` have been updated to fix deployment problem.
+- Routes in `lib/routes.jsx` have been rearranged alphabetically by their path
+  for readability purposes.
+
 ## [0.0.16][] - 2015-07-27
 ### Added
 - Link to a sample Webmaker activity has been added to the Tools page.
@@ -324,7 +341,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.16...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.17...HEAD
+[0.0.17]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.16...v0.0.17
 [0.0.16]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.15...v0.0.16
 [0.0.15]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.14...v0.0.15
 [0.0.14]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.13...v0.0.14
