@@ -1,6 +1,8 @@
 var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
+var ga = require('react-ga');
+var OutboundLink = ga.OutboundLink;
 
 var LinkAnchorSwap = React.createClass({
   render: function() {
@@ -18,9 +20,9 @@ var LinkAnchorSwap = React.createClass({
       )
     }
     return (
-      <a href={this.props.href}>
+      <OutboundLink to={this.props.href} eventLabel={this.props.href}>
         {this.props.children}
-      </a>
+      </OutboundLink>
     )
   }
 });
