@@ -19,7 +19,7 @@ var Footer = React.createClass({
             </div>
             <div className="col-xs-6">
               <ul className="list-unstyled">
-                <li><a href="https://webmaker.org/terms">Legal</a></li>
+                <li><a href="https://beta.webmaker.org/#/legal">Legal</a></li>
                 <li><a href="https://www.mozilla.org/privacy/websites">Privacy</a></li>
                 <li><Link to="about">About</Link></li>
               </ul>
