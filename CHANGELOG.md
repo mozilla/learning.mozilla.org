@@ -14,6 +14,10 @@ to [Semantic Versioning](http://semver.org/).
   phantomjs we required before was at 1.9.17 but it was not a version mocha-phantomjs
   would take.
 
+## [0.0.18][] - 2015-08-18
+### Changed
+- The link to the legal page has been updated.
+
 ## [0.0.17][] - 2015-08-12
 ### Added
 - We have added GA tracking for external links on Activities page as well as
@@ -349,7 +353,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.17...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.18...HEAD
+[0.0.18]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.17...v0.0.18
 [0.0.17]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.16...v0.0.17
 [0.0.16]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.15...v0.0.16
 [0.0.15]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.14...v0.0.15
