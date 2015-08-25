@@ -322,7 +322,7 @@ var HomePage = React.createClass({
                 src1x="/img/pages/home/Mozilla-Festival_Logo-Lockup_White.png" src2x="/img/pages/home/Mozilla-Festival_Logo-Lockup_White@2x.png"
                 alt="">
                   <p>MozFest is Mozilla's annual, hands-on festival dedicated to forging the future of the open Web. We are now accepting session proposals.</p>
-                  <OutboundLink className="btn btn-awsm" to="https://2015.mozillafestival.org/proposals" eventLabel="https://2015.mozillafestival.org/proposals">Submit Your Proposal</OutboundLink>
+                  <OutboundLink className="btn" to="https://2015.mozillafestival.org/proposals" eventLabel="https://2015.mozillafestival.org/proposals">Submit Your Proposal</OutboundLink>
               </Illustration>
             </section>
           </div>
