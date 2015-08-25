@@ -16,7 +16,7 @@
 }
 
 .mozfest-banner {
-  background: #E12526;
+  background: @mozFestPromoRed;
   background-image: url(/img/pages/home/Mozilla-Learning-Network_Promo-Banner_Mozfest_Pattern.png);
   background-size: 16.3rem 16.6rem;
   color: @white;
@@ -27,8 +27,18 @@
     max-width: 100%;
     height: auto;
   }
-  .btn.btn-awsm {
+  .btn {
     width: 100%;
+    border: .2rem solid @awsmBtnColor;
+    background: @mozFestPromoRed;
+    color: @white;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 1rem 3.5rem;
+    &:hover {
+      background: @awsmBtnColor;
+      color: @mozFestPromoRed;
+    }
     @media screen and (min-width: @screen-sm-min) {
       width: auto;
     }
