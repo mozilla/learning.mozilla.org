@@ -1,11 +1,16 @@
-.page.clubs-list .hero-unit {
-  background-image: url(/img/pages/clubs/hero-clubs.jpg);
+.page.clubs-list-page {
+  .hero-unit {
+    background-image: url(/img/pages/clubs/hero-clubs.jpg);
 
-  .retina2x({
-    background-image: url(/img/pages/clubs/hero-clubs@2x.jpg);
-  });
+    .retina2x({
+      background-image: url(/img/pages/clubs/hero-clubs@2x.jpg);
+    });
 
-  .btn {
-    margin-top: 7rem;
+    .btn {
+      margin-top: 7rem;
+    }
+  }
+  .clubs-list {
+    .listItemBorderColorizer(@orangeSidebarColor);
   }
 }
