@@ -277,6 +277,9 @@ var HomePage = React.createClass({
   componentDidMount: function() {
     if (this.context.router.getCurrentQuery().pledge === "thanks") {
       this.showModal(ThankYouModal);
+      // Optimizely conversion tracking
+      window.optimizely = window.optimizely || [];
+      window.optimizely.push(['trackEvent', 'pledgeFormSubmitted']);
     }
   },
   handlePledgeBtnClick: function() {

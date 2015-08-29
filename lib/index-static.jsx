@@ -3,6 +3,7 @@ var React = require('react');
 
 var config = require('./config');
 var routes = require('./routes.jsx');
+var Optimizely = require('../components/optimizely.jsx');
 
 // This isn't actually called in node, it's stringified and plopped in
 // a script tag in the page header. It's basically an extremely simple
@@ -46,6 +47,7 @@ function generateWithPageHTML(url, options, pageHTML) {
         <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css"/>
         <link rel="stylesheet" href="https://mozorg.cdn.mozilla.net/media/css/tabzilla-min.css" />
         <link rel="stylesheet" href={'/' + exports.CSS_FILENAME}/>
+        <Optimizely />
         <script dangerouslySetInnerHTML={{
           __html: "(" + featureDetect.toString() + ")();"
         }}></script>
