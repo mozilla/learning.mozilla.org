@@ -314,15 +314,15 @@ var HomePage = React.createClass({
             />
           </IconButtons>
         </HeroUnit>
-        <div className="row full-row mozfest-banner">
+        <div className="row full-row promo-banner">
           <div className="inner-container">
             <section>
               <Illustration
-                height={200} width={384}
-                src1x="/img/pages/home/Mozilla-Festival_Logo-Lockup_White.png" src2x="/img/pages/home/Mozilla-Festival_Logo-Lockup_White@2x.png"
+                height={190} width={190}
+                src1x="/img/pages/home/thimble-vertical-lockup.png" src2x="/img/pages/home/thimble-vertical-lockup@2x.png"
                 alt="">
-                  <p>MozFest is Mozilla's annual, hands-on festival dedicated to forging the future of the open Web. We are now accepting session proposals.</p>
-                  <OutboundLink className="btn" to="https://2015.mozillafestival.org/proposals" eventLabel="https://2015.mozillafestival.org/proposals">Submit Your Proposal</OutboundLink>
+                  <p>Try Mozilla Thimble, a more powerful way to teach web literacy. It's designed for educators and classrooms everywhere. Start teaching the Web.</p>
+                  <OutboundLink className="btn" to={config.THIMBLE} eventLabel={config.THIMBLE}>Start teaching</OutboundLink>
               </Illustration>
             </section>
           </div>
