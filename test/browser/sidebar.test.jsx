@@ -12,7 +12,7 @@ describe("sidebar", function() {
     sidebar = stubContext.render(Sidebar, {});
     hamburger = TestUtils.findRenderedDOMComponentWithClass(
       sidebar,
-      'glyphicon-menu-hamburger'
+      'fa-bars'
     );
     collapsibleContent = TestUtils.findRenderedDOMComponentWithClass(
       sidebar,

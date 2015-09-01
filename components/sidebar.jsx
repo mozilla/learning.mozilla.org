@@ -89,7 +89,7 @@ var Sidebar = React.createClass({
           <Link to="home">
             <img src="/img/components/sidebar/svg/mozilla-wordmark-white.svg" alt="Mozilla Learning Home" className="moz-logo"/>
           </Link>
-          <button aria-label="toggle" className="glyphicon glyphicon-menu-hamburger hidden-lg hidden-md"
+          <button aria-label="toggle" className="fa fa-bars hidden-lg hidden-md"
                   onClick={this.handleHamburgerClick} />
         </div>
         <div onFocus={this.handleFocus}
@@ -110,7 +110,7 @@ var Sidebar = React.createClass({
                      alt=""/>
                     <strong>{entry.name}</strong>
                     <div className="help-text hidden-xs hidden-sm">{entry.help}</div>
-                    <span className="glyphicon glyphicon-menu-right"></span>
+                    <span className="fa fa-angle-right"></span>
                   </LinkAnchorSwap>
                   <ul className="sidebar-subitems">
                     {entry.subItems ?

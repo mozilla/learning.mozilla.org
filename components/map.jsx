@@ -131,13 +131,13 @@ var MarkerPopupClub = React.createClass({
         <div className="action-panel">
           <button className="btn btn-default btn-xs"
            data-club-action="edit" data-club-url={this.props.url}>
-            <span className="glyphicon glyphicon-pencil"></span> Edit
+            <i className="club-button fa fa-pencil"></i> Edit
           </button>
           &nbsp;
           <button className="btn btn-default btn-xs"
            data-club-action="delete" data-club-url={this.props.url}
            data-club-name={this.props.title}>
-            <span className="glyphicon glyphicon-trash"></span> Remove
+            <i className="club-button fa fa-trash-o"></i> Remove
           </button>
         </div>
       );
