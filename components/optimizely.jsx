@@ -6,11 +6,7 @@ var optimizelyURL = 'https://cdn.optimizely.com/js/' + optimizelyID + '.js';
 
 var Optimizely = React.createClass({
   render: function() {
-    if (optimizelyActive === 'yes') {
-      return (
-        <script src={optimizelyURL}></script>
-      )
-    }
+    return optimizelyActive ? <script src={optimizelyURL} /> : false;
   }
 });
 
