@@ -15,20 +15,30 @@
   }
 }
 
-.mozfest-banner {
-  background: #E12526;
-  background-image: url(/img/pages/home/Mozilla-Learning-Network_Promo-Banner_Mozfest_Pattern.png);
+.promo-banner {
+  background: @promoBannerBackground;
+  background-image: url(/img/pages/home/teach-promo-bg-grey.png);
   background-size: 16.3rem 16.6rem;
   color: @white;
   .retina2x({
-    background-image: url(/img/pages/home/Mozilla-Learning-Network_Promo-Banner_Mozfest_Pattern@2x.png);
+    background-image: url(/img/pages/home/teach-promo-bg-grey@2x.png);
   });
   img {
     max-width: 100%;
     height: auto;
   }
-  .btn.btn-awsm {
+  .btn {
     width: 100%;
+    border: .2rem solid @awsmBtnColor;
+    background: @promoBannerBackground;
+    color: @white;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 1rem 3.5rem;
+    &:hover {
+      background: @awsmBtnColor;
+      color: @promoBannerBackground;
+    }
     @media screen and (min-width: @screen-sm-min) {
       width: auto;
     }
@@ -172,6 +182,25 @@
         display: block;
         font-size: 5rem;
       }
+    }
+  }
+}
+
+.mailinglist-signup {
+  fieldset {
+    width: 100%;
+  }
+  p.pp-note {
+    font-size: 1.2rem;
+    margin-top: .5rem;
+    line-height: 1.2;
+  }
+  .alert.alert-danger {
+    padding: 0 .5rem;
+    margin: .5rem 0;
+    p.error-msg {
+      margin-top: 0;
+      font-size: 1.2rem;
     }
   }
 }

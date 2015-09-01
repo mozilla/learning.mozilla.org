@@ -14,6 +14,18 @@ to [Semantic Versioning](http://semver.org/).
   phantomjs we required before was at 1.9.17 but it was not a version mocha-phantomjs
   would take.
 
+## [0.0.19][] - 2015-09-01
+### Added
+- Promo banner on the homepage has been replaced with Thimble call out.
+- Link to Thimble has been updated to https://thimble.mozilla.org.
+- A resource link to "Color Oracle" has been added to CONTRIBUTING.md.
+- Optimizely tags have been added to enable us to start A/B testings.
+
+### Changed
+- "Pledge" button has been adjusted as it previously looked misaligned.
+- Button on homepage promo banner has been given a more subtle style.
+- The license string has been fixed to match SPDX format.
+
 ## [0.0.18][] - 2015-08-18
 ### Changed
 - The link to the legal page has been updated.
@@ -353,7 +365,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.18...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.19...HEAD
+[0.0.19]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.18...v0.0.19
 [0.0.18]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.17...v0.0.18
 [0.0.17]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.16...v0.0.17
 [0.0.16]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.15...v0.0.16

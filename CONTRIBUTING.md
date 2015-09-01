@@ -97,7 +97,7 @@ For any pages you've added or changed, make sure you
 use [PageSpeed Insights][], [WebPagetest][], and/or
 [What Does My Site Cost][] to ensure the page performs
 acceptably across a range of devices and bandwidths. Use
-[Tenon][] to ensure it's accessible.
+[Tenon][] and [Color Oracle][] to ensure it's accessible.
 
 You can conveniently run any of these tools on the current page
 by clicking the "Dev Version" ribbon at the top-right of any
@@ -131,6 +131,7 @@ changes haven't introduced any [Mixed Content][] warnings.
 [WebPagetest]: http://www.webpagetest.org/
 [What Does My Site Cost]: http://whatdoesmysitecost.com/
 [Tenon]: http://tenon.io/
+[Color Oracle]: http://colororacle.org/
 [ngrok]: https://ngrok.com/
 [Mixed Content]: https://developer.mozilla.org/en-US/docs/Security/MixedContent
 [VoiceOver]: http://webaim.org/articles/voiceover/

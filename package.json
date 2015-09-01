@@ -1,6 +1,6 @@
 {
   "name": "teach.webmaker.org",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": " Initial attempt at implementing Webmaker Learning front-page.",
   "dependencies": {
     "bootstrap": "^3.3.4",
@@ -82,7 +82,7 @@
     "url": "https://github.com/mozilla/teach.webmaker.org.git"
   },
   "author": "",
-  "license": "MPL",
+  "license": "MPL-2.0",
   "bugs": {
     "url": "https://github.com/mozilla/teach.webmaker.org/issues"
   },
