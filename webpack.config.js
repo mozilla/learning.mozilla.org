@@ -48,7 +48,10 @@ module.exports = {
       'MAPBOX_ACCESS_TOKEN',
       'MAPBOX_MAP_ID',
       'PLEDGE_MAILINGLIST_URL',
-      'PLEDGE_MAILINGLIST_PRIVACY_NAME'
+      'PLEDGE_MAILINGLIST_PRIVACY_NAME',
+      'OPTIMIZELY_ID',
+      'OPTIMIZELY_ACTIVE'
+
     ])),
     new webpack.optimize.CommonsChunkPlugin('commons',
                                             'commons.bundle.js')
