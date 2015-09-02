@@ -6,6 +6,8 @@ var HeroUnit = require('../components/hero-unit.jsx');
 var Map = require('../components/map.jsx');
 var ModalAddOrChangeYourClub = require('../components/modal-clubs.jsx');
 var ModalRemoveYourClub = require('../components/modal-clubs-remove.jsx');
+var IconLinks = require('../components/icon-links.jsx');
+var IconLink = require('../components/icon-link.jsx');
 
 var ClubListItem = React.createClass({
   propTypes: {
@@ -227,6 +229,28 @@ var ClubsListPage = React.createClass({
              onDelete={this.handleClubDelete}
              onEdit={this.handleClubEdit}
              onZoomToLocation={this.handleZoomToClub} />
+          </section>
+          <section>
+            <IconLinks>
+              <IconLink
+                linkTo="web-lit-basics"
+                imgSrc="/img/pages/clubs/svg/icon-curriculum.svg"
+                head="Curriculum"
+                subhead="Modular Web Literacy curriculum"
+              />
+              <IconLink
+                href="http://discourse.webmaker.org/category/meet"
+                imgSrc="/img/pages/clubs/svg/icon-connect.svg"
+                head="Connect"
+                subhead="Connect with other Club Leaders"
+              />
+              <IconLink
+                linkTo="clubs-toolkit"
+                imgSrc="/img/pages/clubs/svg/icon-tips.svg"
+                head="Helpful Tips"
+                subhead="Tips for running your Club"
+              />
+            </IconLinks>
           </section>
         </div>    
       </div>
