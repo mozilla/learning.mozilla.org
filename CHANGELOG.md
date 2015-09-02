@@ -6,6 +6,17 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.20][] - 2015-09-02
+### Added
+- We introduced two new env vars `OPTIMIZELY_ID` and `OPTIMIZELY_ACTIVE` 
+  in the last release. This patch exports these env vars to the client-side 
+  browser code as well as sets appropriate values for them.
+
+### Changed
+- Two modals that are used on the /clubs page have been factored out as 
+  `<ModalAddOrChangeYourClub>` and `<ModalRemoveYourClub>` components.
+
+
 ## [0.0.19][] - 2015-09-01
 ### Added
 - Promo banner on the homepage has been replaced with Thimble call out.
@@ -357,7 +368,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.19...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.20...HEAD
+[0.0.20]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.19...v0.0.20
 [0.0.19]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.18...v0.0.19
 [0.0.18]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.17...v0.0.18
 [0.0.17]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.16...v0.0.17
