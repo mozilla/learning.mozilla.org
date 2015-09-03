@@ -3,10 +3,8 @@ var React = require('react/addons');
 var Router = require('react-router');
 var Link = Router.Link;
 
-var Page = require('../components/page.jsx');
 var HeroUnit = require('../components/hero-unit.jsx');
 var Map = require('../components/map.jsx');
-var Blockquote = require('../components/blockquote.jsx');
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
 var ModalManagerMixin = require('../mixins/modal-manager');
@@ -16,21 +14,6 @@ var ModalAddOrChangeYourClub = require('../components/modal-clubs.jsx');
 var ModalRemoveYourClub = require('../components/modal-clubs-remove.jsx');
 var Illustration = require('../components/illustration.jsx');
 var ImageTag = require('../components/imagetag.jsx');
-
-var ga = require('react-ga');
-
-var ClubsMap = React.createClass({
-  render: function() {
-    return(
-      <div className="row">
-        <div className="col-sm-12 col-md-12 col-lg-12">
-          <h2>Where in the World are Mozilla Clubs?</h2>
-        </div>
-      </div>
-
-    );
-  }
-});
 
 var WhatIsAMozillaClub = React.createClass({
   render: function() {
@@ -126,9 +109,9 @@ var ClubCaptainPledge = React.createClass({
     return(
       <div className="club-captain-pledge">
         <Illustration
-        width={182} height={237}
-        src1x="/img/pages/clubs/svg/icon-club-caption-pledge.svg"
-        alt="">
+          width={182} height={237}
+          src1x="/img/pages/clubs/svg/icon-club-caption-pledge.svg"
+          alt="">
           <h3>A Mozilla Club Captain pledges to:</h3>
           <ul>
             <li><p>Teach how to read, write and participate on the Web using inclusive and participatory methods.</p></li>
@@ -236,7 +219,7 @@ var ClubsPage = React.createClass({
             <ApplyCallout showAddYourClubModal={this.showAddYourClubModal} />
           </section>
           <section>
-            <ClubsMap/>
+            <h2>Where in the World are Mozilla Clubs?</h2>
             <div className="mapDiv" id="mapDivID">
               <Map ref="map" className="mapDivChild"
                clubs={clubs}
