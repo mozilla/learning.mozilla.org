@@ -14,6 +14,18 @@ to [Semantic Versioning](http://semver.org/).
   phantomjs we required before was at 1.9.17 but it was not a version mocha-phantomjs
   would take.
 
+## [0.0.21][] - 2015-09-03
+### Added
+- Check out the full list of Mozilla Clubs on a newly added page
+  https://teach.mozilla.org/clubs/list/
+
+### Changed
+- /clubs page has been redesigned. We have added lots resources to 
+  help users better understand what a Mozilla Club is and the value of 
+  starting a Mozilla Club. The full list of Mozilla Clubs has been
+  moved to a new page https://teach.mozilla.org/clubs/list/.
+
+
 ## [0.0.20][] - 2015-09-02
 ### Added
 - We introduced two new env vars `OPTIMIZELY_ID` and `OPTIMIZELY_ACTIVE` 
@@ -376,7 +388,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.20...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.21...HEAD
+[0.0.21]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.20...v0.0.21
 [0.0.20]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.19...v0.0.20
 [0.0.19]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.18...v0.0.19
 [0.0.18]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.17...v0.0.18

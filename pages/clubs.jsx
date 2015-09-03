@@ -3,10 +3,8 @@ var React = require('react/addons');
 var Router = require('react-router');
 var Link = Router.Link;
 
-var Page = require('../components/page.jsx');
 var HeroUnit = require('../components/hero-unit.jsx');
 var Map = require('../components/map.jsx');
-var Blockquote = require('../components/blockquote.jsx');
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
 var ModalManagerMixin = require('../mixins/modal-manager');
@@ -14,234 +12,136 @@ var TeachAPIClientMixin = require('../mixins/teach-api-client');
 var LoginLink = require('../components/login.jsx').LoginLink;
 var ModalAddOrChangeYourClub = require('../components/modal-clubs.jsx');
 var ModalRemoveYourClub = require('../components/modal-clubs-remove.jsx');
-
-var ga = require('react-ga');
-
 var Illustration = require('../components/illustration.jsx');
+var ImageTag = require('../components/imagetag.jsx');
 
-var ClubListItem = React.createClass({
-  propTypes: {
-    club: React.PropTypes.object.isRequired,
-    username: React.PropTypes.string,
-    onDelete: React.PropTypes.func,
-    onEdit: React.PropTypes.func,
-    onZoomToLocation: React.PropTypes.func.isRequired
-  },
-  handleLocationClick: function() {
-    this.props.onZoomToLocation(this.props.club);
-  },
-  render: function() {
-    var club = this.props.club;
-    var clubName = club.website ? <a href={club.website}>{club.name}</a> : club.name;
-    var isOwned = (club.owner === this.props.username);
-    var ownerControls = null;
-
-    if (isOwned) {
-      ownerControls = (
-        <p>
-          <button className="btn btn-default btn-xs" onClick={this.props.onEdit.bind(null, club.url)}>
-            <span className="glyphicon glyphicon-pencil"></span> Edit
-          </button>
-          &nbsp;
-          <button className="btn btn-default btn-xs" onClick={this.props.onDelete.bind(null, club.url, club.name)}>
-            <span className="glyphicon glyphicon-trash"></span> Remove
-          </button>
-        </p>
-      );
-    }
-
-    return (
-      <li>
-        <h4>{clubName} <Map.ClubStatusLabel showApproved={isOwned} status={club.status}/></h4>
-        <p><span className="club-location" onClick={this.handleLocationClick}><span className="glyphicon glyphicon-map-marker"/> {club.location.split(',')[0]}</span></p>
-        <p>{club.description}</p>
-        <p><small>Led by <a href={"https://webmaker.org/en-US/search?type=user&q=" + club.owner}>{club.owner}</a></small></p>
-        {ownerControls}
-      </li>
-    );
-  }
-});
-
-var ClubList = React.createClass({
-  COLUMNS: 2,
-  GRID_COLUMNS_PER_ROW: 12,
-  propTypes: {
-    clubs: React.PropTypes.array.isRequired,
-    username: React.PropTypes.string,
-    onDelete: React.PropTypes.func,
-    onEdit: React.PropTypes.func,
-    onZoomToLocation: React.PropTypes.func.isRequired
-  },
-  statics: {
-    Item: ClubListItem
-  },
-  renderColumn: function(key, clubs) {
-    var colClass = 'col-xs-' + (this.GRID_COLUMNS_PER_ROW / this.COLUMNS);
-    return (
-      <div className={colClass} key={key}>
-        <ul className="list-unstyled">
-          {clubs.map(function(club, i) {
-            return  <ClubListItem key={i} club={club}
-                                  username={this.props.username}
-                                  onEdit={this.props.onEdit}
-                                  onDelete={this.props.onDelete}
-                                  onZoomToLocation={this.props.onZoomToLocation} />;
-          }, this)}
-        </ul>
-      </div>
-    );
-  },
-  render: function() {
-    var clubs = _.sortBy(this.props.clubs, 'name');
-    var itemsPerColumn = Math.ceil(this.props.clubs.length / this.COLUMNS);
-    var columns = _.range(this.COLUMNS).map(function(i) {
-      return this.renderColumn(i, clubs.slice(
-        i * itemsPerColumn,
-        (i + 1) * itemsPerColumn
-      ));
-    }, this);
-
-    return <div className="row">{columns}</div>;
-  }
-});
-
-var WebLitMap = React.createClass({
+var WhatIsAMozillaClub = React.createClass({
   render: function() {
     return(
-      <div className="row">
-        <div className="col-sm-12 col-md-12 col-lg-12">
-          <h2>The Global Web Literacy Movement</h2>
-        </div>
-      </div>
-
-    );
-  }
-});
-
-var HowClubWorks = React.createClass({
-  render: function() {
-    return(
-      <div className="list-with-illust">
+      <div className="what-is-a-mozilla-club">
+        <h2>What is a Mozilla Club?</h2>
         <Illustration
-        width={182} height={237}
-        src1x="/img/pages/clubs/svg/icon-how-do-clubs-work.svg"
-        alt="icon how do Mozilla clubs work">
-          <h2>How do Mozilla Clubs work?</h2>
-          <ul>
-            <li>Grow the web literacy of learners</li>
-            <li>Meet regularly in classrooms, libraries, coffee shops &mdash; anywhere!</li>
-            <li>Teach with open practices</li>
-            <li>Guide people to learn by making</li>
-            <li>Connect with local and global networks</li>
-          </ul>
+        width={200} height={200}
+        src1x="/img/pages/clubs/intro-photo.png"
+        src2x="/img/pages/clubs/intro-photo@2x.png"
+        alt="icon how do Mozilla clubs work"
+        className="illustration-img-circle">
+          <p>A Mozilla Club meets regularly in-person to learn how to read, write and participate on the Web in an inclusive, engaging way.</p>
         </Illustration>
       </div>
     );
   }
 });
 
-var Quote = React.createClass({
+var WhyOrganize = React.createClass({
   render: function() {
     return(
-      <div className="row">
-        <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
-          <Blockquote className="primary-quote" author="Mikko K, Helsinki, Finland"
-              imgSrc="/img/pages/clubs/mikko-finland.png" imgSrc2x="/img/pages/clubs/mikko-finland@2x.png">
-
-            <p>The idea of teachers and students learning at the same time is what makes me excited about this work.</p>
-          </Blockquote>
+      <div className="why-organize-a-mozilla-club">
+        <h2>Why organize a Mozilla Club?</h2>
+        <div className="row">
+          <div className="col-sm-6 col-md-6 col-lg-6">
+            <p><strong>Your learners will make things that interest them.</strong> We learn best by making projects we care about, with peers who support and encourage us. </p>
+          </div>
+          <div className="col-sm-6 col-md-6 col-lg-6">
+            <p><strong>Your learners will benefit from regular engagement.</strong> Literacy doesn’t happen overnight. Mozilla Clubs honors the fact that learning takes time.</p>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-sm-6 col-md-6 col-lg-6">
+            <p><strong>You’ll develop your leadership skills.</strong> Improve your own leadership and organizing experience by becoming a Mozilla Club Captain.</p>
+          </div>
+          <div className="col-sm-6 col-md-6 col-lg-6">
+            <p><strong>You can use Mozilla’s free and educator-tested curriculum.</strong> Our <Link to="activities">curriculum</Link> is free to use and remix.</p>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-sm-12 col-md-12 col-lg-12">
+            <p><strong>You can embed it in your existing program.</strong> You may already be serving a group of learners or running an educational offering. Mozilla Clubs can be a way to embed <Link to="web-literacy">Web Literacy</Link> into your existing program. </p>
+          </div>
         </div>
       </div>
     );
   }
 });
 
-var normalizeClub = function(clubState) {
-  var state = _.extend({}, clubState);
-
-  if (state.website && !/^https?:\/\//.test(state.website)) {
-    state.website = 'http://' + state.website;
+var MozillaClubLookLike = React.createClass({
+  render: function() {
+    return(
+      <div className="mozilla-club-looks-like">
+        <h2>What does a Mozilla Club look like in your...?</h2>
+        <ul>
+          <li>
+            <div className="fa fa-building"></div>
+            <div className="place-label"><a href="https://docs.google.com/document/d/1rUivWQybJymNlfZZHWkSJqFN5TNDVuPRSH_YCObALeM">Afterschool program</a></div>
+          </li>
+          <li>
+            <div className="fa fa-users"></div>
+            <div className="place-label"><a href="https://docs.google.com/document/d/1gzbC5Q_XeHeii66v_Z4py6QrqYin5j1ozNhdeKJ-Ssg">Community meet-up</a></div>
+          </li>
+          <li>
+            <div className="fa fa-home"></div>
+            <div className="place-label"><a href="https://docs.google.com/a/mozilla.com/document/d/18DwRtmttN_EUlp1PUsQJWrDgUwMpCf5ipKG-TGfN1Rc/">Neighborhood with low connectivity</a></div>
+          </li>
+          <li>
+            <div className="fa fa-institution"></div>
+            <div className="place-label"><a href="https://docs.google.com/document/d/1WbEEuomaH3eHd--vn_mBBBdAMuS8s9_WxJ4zm-N-UQI">Existing program</a></div>
+          </li>
+          <li>
+            <div className="fa fa-graduation-cap"></div>
+            <div className="place-label">University campus<div className="coming-soon">(coming soon)</div></div>
+          </li>
+          <li>
+            <div className="fa fa-book"></div>
+            <div className="place-label">Library<div className="coming-soon">(coming soon)</div></div>
+          </li>
+          <li>
+            <div className="fa fa-users"></div>
+            <div className="place-label">Classroom<div className="coming-soon">(coming soon)</div></div>
+          </li>
+        </ul>
+      </div>
+    );
   }
+});
 
-  return state;
-};
-
-var validateClub = function(clubState) {
-  var errors = [];
-
-  if (!clubState.name) {
-    errors.push("You must provide a name for your club.");
+var ClubCaptainPledge = React.createClass({
+  render: function() {
+    return(
+      <div className="club-captain-pledge">
+        <Illustration
+          width={182} height={237}
+          src1x="/img/pages/clubs/svg/icon-club-caption-pledge.svg"
+          alt="">
+          <h3>A Mozilla Club Captain pledges to:</h3>
+          <ul>
+            <li><p>Teach how to read, write and participate on the Web using inclusive and participatory methods.</p></li>
+            <li><p>Empower learners through authentic making, reflective learning, and meaningful action with and on the Web.</p></li>
+            <li><p>Commit to the mission of universal web literacy and sharing their club’s experience with Mozilla’s community networks.</p></li>
+          </ul>
+        </Illustration>
+        <p>We believe in the power of peer learning. That’s why we match each Mozilla Club Captain with a volunteer Regional Coordinator who can guide you in getting started and making the most of this program.</p>
+      </div>
+    );
   }
-  if (!clubState.description) {
-    errors.push("You must provide a description for your club.");
-  }
-  if (!clubState.location) {
-    errors.push("You must provide a location for your club.");
-  }
-  if (clubState.website && !/\./.test(clubState.website)) {
-    errors.push("Your club's website must be a valid URL.");
-  }
+});
 
-  return errors;
-};
-
-var ClubLists = React.createClass({
+var ApplyCallout = React.createClass({
   propTypes: {
-    clubs: React.PropTypes.array.isRequired,
-    username: React.PropTypes.string,
-    onDelete: React.PropTypes.func.isRequired,
-    onEdit: React.PropTypes.func.isRequired,
-    onZoomToLocation: React.PropTypes.func.isRequired
-  },
-  componentWillMount: function() {
-    this.componentWillReceiveProps(this.props);
-  },
-  componentWillReceiveProps: function(props) {
-    var username = props.username;
-    var userClubs = [];
-    var otherClubs = [];
-    var userHasUnapprovedClubs = false;
-
-    props.clubs.forEach(function(club) {
-      if (club.owner === username) {
-        if (club.status !== 'approved') {
-          userHasUnapprovedClubs = true;
-        }
-        userClubs.push(club);
-      } else {
-        otherClubs.push(club);
-      }
-    });
-
-    this.setState({
-      userClubs: userClubs,
-      otherClubs: otherClubs,
-      userHasUnapprovedClubs: userHasUnapprovedClubs
-    });
+    showAddYourClubModal: React.PropTypes.func.isRequired
   },
   render: function() {
-    return (
-      <div>
-        {this.state.userClubs.length ? (
-          <div>
-            <h3>My Clubs</h3>
-            <ClubList
-             clubs={this.state.userClubs}
-             username={this.props.username}
-             onDelete={this.props.onDelete}
-             onEdit={this.props.onEdit}
-             onZoomToLocation={this.props.onZoomToLocation}/>
-             {this.state.userHasUnapprovedClubs ? (
-               <div className="alert alert-warning">
-                 <strong>Note:</strong> All clubs pending approval or denied are not visible to other users.
-               </div>
-             ) : null}
-          </div>
-        ) : null}
-        <h3>Club List</h3>
-        <ClubList
-         clubs={this.state.otherClubs}
-         onZoomToLocation={this.props.onZoomToLocation}/>
+    return(
+      <div className="apply-callout text-center">
+        <ImageTag 
+          className="center-block" 
+          src1x="/img/pages/clubs/svg/icon-line.svg"
+          alt=""/>
+        <h3 className="text-center">To get matched with a Regional Coordinator, please apply to be a Mozilla Club Captain.</h3>
+        <a className="btn btn-awsm" onClick={this.props.showAddYourClubModal}>Apply to be a Club Captain</a>
+        <p className="check-out-resources">If you’d like to get started on your own, check out these <a href="http://mozilla.github.io/learning-networks/clubs/">resources</a>.</p>
+        <div className="alert alert-warning text-left center-block">
+          <strong>Please note: </strong><span>Our first cohort of Regional Coordinators is in full swing right now, so you’ll be added to our waiting list. We’ll match you with a Regional Coordinator as soon as we can.</span>
+        </div>
       </div>
     );
   }
@@ -253,8 +153,6 @@ var ClubsPage = React.createClass({
     router: React.PropTypes.func
   },
   statics: {
-    ClubList: ClubList,
-    ClubLists: ClubLists,
     teachAPIEvents: {
       'clubs:change': 'forceUpdate',
       'username:change': 'forceUpdate'
@@ -297,19 +195,31 @@ var ClubsPage = React.createClass({
     var teachAPI = this.getTeachAPI();
     var clubs = teachAPI.getClubs();
     var username = teachAPI.getUsername();
-
     return (
       <div>
         <HeroUnit>
           <h1>Mozilla Clubs</h1>
-          <div><a className="btn btn-awsm" onClick={this.showAddYourClubModal}>Apply</a></div>
+          <h2>Local groups teaching the Web around the world</h2>
+          <div><a className="btn btn-awsm" onClick={this.showAddYourClubModal}>Apply to be a Club Captain</a></div>
         </HeroUnit>
         <div className="inner-container">
           <section>
-            <HowClubWorks/>
+            <WhatIsAMozillaClub />
           </section>
           <section>
-            <WebLitMap/>
+            <WhyOrganize />
+          </section>
+          <section>
+            <MozillaClubLookLike />
+          </section>
+          <section>
+            <ClubCaptainPledge/>
+          </section>
+          <section>
+            <ApplyCallout showAddYourClubModal={this.showAddYourClubModal} />
+          </section>
+          <section>
+            <h2>Where in the World are Mozilla Clubs?</h2>
             <div className="mapDiv" id="mapDivID">
               <Map ref="map" className="mapDivChild"
                clubs={clubs}
@@ -317,14 +227,7 @@ var ClubsPage = React.createClass({
                onDelete={this.handleClubDelete}
                onEdit={this.handleClubEdit}/>
             </div>
-            <ClubLists clubs={clubs}
-             username={username}
-             onDelete={this.handleClubDelete}
-             onEdit={this.handleClubEdit}
-             onZoomToLocation={this.handleZoomToClub} />
-          </section>
-          <section>
-            <Quote/>
+            <Link to="clubs-list" className="see-full-clubs-list">See the full list</Link>
           </section>
           <section>
             <IconLinks>
