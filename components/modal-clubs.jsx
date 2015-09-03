@@ -192,7 +192,7 @@ var ModalAddOrChangeYourClub = React.createClass({
              </div>
            : null}
           {this.renderValidationErrors()}
-          <p>We have a waiting list for Regional Coordinators. Fill out the information below, and we'll match you as soon as we can.</p>
+          <p>We have a waiting list for Regional Coordinators. Fill out the information below, and we’ll match you as soon as we can.</p>
           <form onSubmit={this.handleSubmit}>
             <fieldset>
               <label htmlFor={idPrefix + "name"}>Who is your Mozilla Club affiliated with?</label>
