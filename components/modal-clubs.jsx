@@ -168,7 +168,7 @@ var ModalAddOrChangeYourClub = React.createClass({
     var content, isFormDisabled;
     var isAdd = !this.props.club;
     var action = isAdd ? "add" : "change";
-    var modalTitle = isAdd ? "Apply for the next round of Mozilla Clubs"
+    var modalTitle = isAdd ? "Get matched with a Regional Coordinator"
                            : "Change Your Club";
     var idPrefix = this.props.idPrefix;
 
@@ -192,7 +192,7 @@ var ModalAddOrChangeYourClub = React.createClass({
              </div>
            : null}
           {this.renderValidationErrors()}
-          <p>We're full! Let us know if you'd like to be considered for the next round.</p>
+          <p>We have a waiting list for Regional Coordinators. Fill out the information below, and we'll match you as soon as we can.</p>
           <form onSubmit={this.handleSubmit}>
             <fieldset>
               <label htmlFor={idPrefix + "name"}>Who is your Mozilla Club affiliated with?</label>
