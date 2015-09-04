@@ -39,11 +39,11 @@ var ClubListItem = React.createClass({
       ownerControls = (
         <p>
           <button className="btn btn-default btn-xs" onClick={this.props.onEdit.bind(null, club.url)}>
-            <i className="club-button fa fa-pencil"></i> Edit
+            <span className="club-button fa fa-pencil" /> Edit
           </button>
           &nbsp;
           <button className="btn btn-default btn-xs" onClick={this.props.onDelete.bind(null, club.url, club.name)}>
-            <i className="club-button fa fa-trash-o"></i> Remove
+            <span className="club-button fa fa-trash-o" /> Remove
           </button>
         </p>
       );
@@ -52,7 +52,7 @@ var ClubListItem = React.createClass({
     return (
       <li>
         <h4>{clubName} <Map.ClubStatusLabel showApproved={isOwned} status={club.status}/></h4>
-        <p><span className="club-location" onClick={this.handleLocationClick}><i className="fa fa-map-marker"/> {club.location.split(',')[0]}</span></p>
+        <p><span className="club-location" onClick={this.handleLocationClick}><span className="fa fa-map-marker"/> {club.location.split(',')[0]}</span></p>
         <p>{club.description}</p>
         <p><small>Led by <a href={"https://webmaker.org/en-US/search?type=user&q=" + club.owner}>{club.owner}</a></small></p>
         {ownerControls}

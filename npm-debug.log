@@ -1,0 +1,37 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'start' ]
+2 info using npm@2.7.5
+3 info using node@v0.12.2
+4 verbose node symlink /usr/local/bin/node
+5 verbose run-script [ 'prestart', 'start', 'poststart' ]
+6 info prestart teach.webmaker.org@0.0.21
+7 verbose unsafe-perm in lifecycle true
+8 info start teach.webmaker.org@0.0.21
+9 verbose unsafe-perm in lifecycle true
+10 info teach.webmaker.org@0.0.21 Failed to exec start script
+11 verbose stack Error: teach.webmaker.org@0.0.21 start: `gulp watch`
+11 verbose stack Exit status 1
+11 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:213:16)
+11 verbose stack     at EventEmitter.emit (events.js:110:17)
+11 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:14:12)
+11 verbose stack     at ChildProcess.emit (events.js:110:17)
+11 verbose stack     at maybeClose (child_process.js:1015:16)
+11 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:1087:5)
+12 verbose pkgid teach.webmaker.org@0.0.21
+13 verbose cwd /Users/Azalea/Sites/Websites/teach.webmaker.org
+14 error Darwin 14.0.0
+15 error argv "node" "/usr/local/bin/npm" "start"
+16 error node v0.12.2
+17 error npm  v2.7.5
+18 error code ELIFECYCLE
+19 error teach.webmaker.org@0.0.21 start: `gulp watch`
+19 error Exit status 1
+20 error Failed at the teach.webmaker.org@0.0.21 start script 'gulp watch'.
+20 error This is most likely a problem with the teach.webmaker.org package,
+20 error not with npm itself.
+20 error Tell the author that this fails on your system:
+20 error     gulp watch
+20 error You can get their info via:
+20 error     npm owner ls teach.webmaker.org
+20 error There is likely additional logging output above.
+21 verbose exit [ 1, true ]

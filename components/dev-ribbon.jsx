@@ -90,16 +90,16 @@ var DevModal = React.createClass({
       <Modal modalTitle="Development Version">
         <Healthcheck.HealthcheckMeta/>
         <a href="http://invis.io/9G2DK7SR2" target="_blank" className="btn btn-block btn-default">
-          <i className="fa fa-plane"/> Site Map
+          <span className="fa fa-plane"/> Site Map
         </a>
         <a href="https://github.com/mozilla/teach.webmaker.org/issues" target="_blank" className="btn btn-block btn-default">
-          <i className="fa fa-exclamation-circle"/> File An Issue on GitHub
+          <span className="fa fa-exclamation-circle"/> File An Issue on GitHub
         </a>
         <a href={TeachAPI.getDefaultURL()} target="_blank" className="btn btn-block btn-default">
-          <i className="fa fa-cloud"/> REST API Documentation
+          <span className="fa fa-cloud"/> REST API Documentation
         </a>
         <a href={testURL} target="_blank" className="btn btn-block btn-default">
-          <i className="fa fa-heart"/> {testName}
+          <span className="fa fa-heart"/> {testName}
         </a>
         <h3>Diagnostic Tools</h3>
         <TenonLink className="btn btn-block btn-default"/>

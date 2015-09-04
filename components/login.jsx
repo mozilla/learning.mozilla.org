@@ -131,7 +131,7 @@ var Login = React.createClass({
     return (
       <div>
         <br/>
-        <i className="fa fa-wrench"></i>
+        <span className="fa fa-wrench" />
         &nbsp;&nbsp;
         <a href={adminURL}>
           Site Administration
@@ -145,10 +145,10 @@ var Login = React.createClass({
     if (this.state.loginError) {
       content = (
         <span><small>
-          <i className="fa fa-bolt"/>&nbsp;
+          <span className="fa fa-bolt"/>&nbsp;
           Unable to contact login server.
           <br/>
-          <i className="fa fa-flash" style={{
+          <span className="fa fa-flash" style={{
             opacity: '0'
           }}/>&nbsp;
           Refresh the page to try again.

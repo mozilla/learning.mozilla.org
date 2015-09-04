@@ -110,7 +110,7 @@ var Sidebar = React.createClass({
                      alt=""/>
                     <strong>{entry.name}</strong>
                     <div className="help-text hidden-xs hidden-sm">{entry.help}</div>
-                    <span className="fa fa-angle-right"></span>
+                    <span className="fa fa-angle-right" />
                   </LinkAnchorSwap>
                   <ul className="sidebar-subitems">
                     {entry.subItems ?
