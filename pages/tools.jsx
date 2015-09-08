@@ -79,8 +79,8 @@ var ToolsSection = React.createClass({
       link: config.THIMBLE,
       src1x: "/img/pages/tools/thimble.png",
       src2x: "/img/pages/tools/thimble@2x.png",
-      activityTitle: "Image Seeking for Fantastic Visual Metaphors",
-      activityLink: "https://cogdog.makes.org/thimble/LTEyMjQ4NjUyOA==/imageseeking-for-fantastic-visual-metaphors"
+      activityTitle: "Keep Calm and Carry On",
+      activityLink: "https://thimble.mozilla.org/projects/72/remix"
     },
     {
       name: "Webmaker",
