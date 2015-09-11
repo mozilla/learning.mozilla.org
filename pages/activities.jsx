@@ -277,7 +277,7 @@ var ActivitiesPage = React.createClass({
               <HiveLink
                 src1x="/img/pages/activities/svg/logo-hive-community.svg"
                 name="hive chattanooga"
-                link=" http://hivecha.org/portfolio"
+                link="http://hivecha.org/portfolio"
               />
               <HiveLink
                 src1x="/img/pages/activities/svg/logo-hive.svg"
