@@ -1,7 +1,6 @@
 var React = require('react');
 var Illustration = require('../components/illustration.jsx');
 var ActivitySection = require('../components/activity-section.jsx');
-var CCLicenseNote = require('../components/cc-license-note.jsx');
 var Router = require('react-router');
 var Link = Router.Link;
 
@@ -123,7 +122,6 @@ var ClubsCurriculum = React.createClass({
             <ActivitySection title={section.title} key={key} activities={section.activities} />
           );
         })}
-        <CCLicenseNote/>
       </div>
     );
   }
