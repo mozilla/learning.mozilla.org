@@ -19,13 +19,7 @@ var Sidebar = React.createClass({
       link: 'mozilla-clubs',
       help: "Join our global community of local chapters",
       icon: "/img/components/sidebar/svg/icon-nav-white-globe.svg",
-      className: "clubs",
-      subItems: [
-        {
-          name: "Clubs Toolkit",
-          link: "clubs-toolkit"
-        }
-      ]
+      className: "clubs"
     },
     {
       name: "Maker Party",
