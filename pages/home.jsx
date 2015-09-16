@@ -229,7 +229,7 @@ var ModalPledge = React.createClass({
           <li>help people move beyond simply consuming the web to creating it</li>
           <li>be a passionate advocate of an open and accessible web</li>
         </ul>
-        <p><strong>Pledge now, and we'll follow up with with details about how you can teach the web!</strong></p>
+        <p><strong>Pledge now, and we'll follow up with details about how you can teach the web!</strong></p>
         <PledgeSignupForm idPrefix="pledge-form-" />
       </Modal>
     )
