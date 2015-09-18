@@ -37,8 +37,6 @@ var routes = (
      handler={require('../pages/clubs.jsx')}/>
     <Route name="clubs-list" path="/clubs/list/"
      handler={require('../pages/clubs-list.jsx')}/>
-    <Route name="clubs-toolkit" path="/clubs/toolkit/"
-     handler={require('../pages/clubs-toolkit.jsx')}/>
     <Route name="events" path="/events/"
      handler={require('../pages/events.jsx')}/>
     <Route name="event-resources" path="/events/resources/"
