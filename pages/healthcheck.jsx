@@ -18,7 +18,7 @@ var HealthcheckMeta = React.createClass({
                     based on version{' '}
                     <code>
                       <a target="_blank"
-                         href={"https://github.com/mozilla/teach.webmaker.org/releases/tag/v" + packageJSON.version}>
+                         href={"https://github.com/mozilla/teach.mozilla.org/releases/tag/v" + packageJSON.version}>
                         {packageJSON.version}
                       </a>
                     </code>
@@ -30,11 +30,11 @@ var HealthcheckMeta = React.createClass({
           <span>
             based on commit{' '}
             <code>
-              <a target="_blank" href={"https://github.com/mozilla/teach.webmaker.org/commit/"+this.state.rev} className="commit">{this.state.rev.slice(0,10)}</a>
+              <a target="_blank" href={"https://github.com/mozilla/teach.mozilla.org/commit/"+this.state.rev} className="commit">{this.state.rev.slice(0,10)}</a>
             </code>,
             which is {version} (potentially with <a
               target="_blank"
-              href={"https://github.com/mozilla/teach.webmaker.org/compare/v" +
+              href={"https://github.com/mozilla/teach.mozilla.org/compare/v" +
                     packageJSON.version + "..." + this.state.rev}>
                 changes
               </a>).
