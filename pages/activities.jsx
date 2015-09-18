@@ -42,8 +42,8 @@ var ActivityKit = React.createClass({
     "2013 MozGirls": "",
     "Our seasoned educator community": "",
     "the Office of the Privacy Commissioner of Canada": "https://www.priv.gc.ca/index_e.asp",
-    "Mozilla Privacy": "https://www.mozilla.org/privacy/"
-
+    "Mozilla Privacy": "https://www.mozilla.org/privacy/",
+    "Hive Manchester": "http://hivemanchester.net/"
   },
   render: function() {
     // Generates a nice list of autors with links to their sites.
@@ -228,6 +228,15 @@ var ActivitiesPage = React.createClass({
               link="https://mousemeredith.makes.org/thimble/MTQwOTAyNDAwMA==/css-story-card-game-activity"
               developedBy="MOUSE (Hive NYC member)"
               description="In this card game, learners work collaboratively to create a complete story using HTML and CSS."
+            />
+            <ActivityKit
+              src1x="/img/pages/activities/img-activity-QuackingJavascript.jpg"
+              src2x="/img/pages/activities/img-activity-QuackingJavascript@2x.jpg"
+              title="Quacking JavaScript"
+              level="JavaScript beginners"
+              link="http://mozilla.github.io/webmaker-curriculum/QuackingJavascript/"
+              developedBy="Hive Manchester"
+              description="Learners get familiar with writing Javascript in this fun, five-part module. Together we discover the foundations of the text coding by being creative and making our own web pages."
             />
             <ActivityKit
               src1x="/img/pages/activities/img-activity-09.jpg"
