@@ -25,7 +25,7 @@ var HealthcheckMeta = React.createClass({
                   </span>;
     return (
       <div>
-        <span>This is a {process.env.NODE_ENV || 'development'} version of the <a href="https://github.com/mozilla/teach.webmaker.org" target="_blank">Teach Site</a> </span>
+        <span>This is a {process.env.NODE_ENV || 'development'} version of the <a href="https://github.com/mozilla/teach.mozilla.org" target="_blank">Teach Site</a> </span>
         { this.state.rev ?
           <span>
             based on commit{' '}
