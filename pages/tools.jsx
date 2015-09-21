@@ -1,8 +1,6 @@
 var React = require('react');
-var Router = require('react-router');
-var Link = Router.Link;
-var ga = require('react-ga');
-var OutboundLink = ga.OutboundLink;
+var Link = require('react-router').Link;
+var OutboundLink = require('react-ga').OutboundLink;
 var Illustration = require('../components/illustration.jsx');
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
@@ -55,7 +53,7 @@ var ToolsColumn = React.createClass({
           src2x={this.props.src2x}
           alt=""
           className="vertical-layout"
-          externalLink>
+          externalLink={true}>
           <h2><OutboundLink to={this.props.link} eventLabel={this.props.link}>{this.props.name}</OutboundLink></h2>
           <p>{this.props.description}</p>
         </Illustration>
