@@ -3,13 +3,9 @@ var ImageTag = require('../components/imagetag.jsx');
 var Illustration = require('../components/illustration.jsx');
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
-var Router = require('react-router');
-var Link = Router.Link;
-
 var HeroUnit = require('../components/hero-unit.jsx');
-
-var ga = require('react-ga');
-var OutboundLink = ga.OutboundLink;
+var Link = require('react-router').Link;
+var OutboundLink = require('react-ga').OutboundLink;
 
 /* Displays an activity kit, with:
    image, title, difficulty, list of authors, and description
@@ -87,7 +83,7 @@ var ActivityKit = React.createClass({
         src2x={this.props.src2x}
         alt={this.props.title}
         link={this.props.link}
-        externalLink>
+        externalLink={true}>
           <div className="activity-kit-content">
             <h3><OutboundLink to={this.props.link} eventLabel={this.props.link}>{this.props.title}</OutboundLink></h3>
             <div>
