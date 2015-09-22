@@ -275,6 +275,12 @@ var HomePage = React.createClass({
     router: React.PropTypes.func.isRequired
   },
   componentDidMount: function() {
+    // auto pops up the Pledge modal if the user is visiting 
+    // the homepage for the first time
+    if (localStorage.getItem("autoOpenPledgeModal") !== "false") {
+      this.handlePledgeBtnClick();
+      localStorage.setItem("autoOpenPledgeModal", "false");
+    }
     if (this.context.router.getCurrentQuery().pledge === "thanks") {
       this.showModal(ThankYouModal);
       // Optimizely conversion tracking
