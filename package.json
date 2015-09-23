@@ -1,6 +1,6 @@
 {
   "name": "teach.mozilla.org",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "description": " Initial attempt at implementing Webmaker Learning front-page.",
   "dependencies": {
     "bootstrap": "^3.3.4",

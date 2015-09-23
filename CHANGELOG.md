@@ -6,6 +6,24 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.22][] - 2015-09-23
+### Added
+- The pledge modal on the homepage pops up automatically for users who 
+  visit the site for the first time.
+- Check out the "Quacking JavaScript" module that we added to the 
+  Teaching Activities page.
+
+### Changed
+- The Clubs Toolkit page has been removed. New guides are coming soon so
+  stay tuned.
+- Updated Thimble's sample activity listed on the Tools page.
+- The About page has been refreshed.
+- We can now track outbound links from the Tools page to each tool listed there.
+- Removed Creative Commons license note from Teaching Activites pages due to 
+  change in policy by Legal to no longer require that particular license.
+- The GitHub repo name has been renamed from teach.webmaker.org
+  to teach.mozilla.org. This shouldn't affect anything to end users.
+
 ## [0.0.21][] - 2015-09-03
 ### Added
 - Check out the full list of Mozilla Clubs on a newly added page
@@ -380,7 +398,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.21...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.22...HEAD
+[0.0.22]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.21...v0.0.22
 [0.0.21]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.20...v0.0.21
 [0.0.20]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.19...v0.0.20
 [0.0.19]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.18...v0.0.19
