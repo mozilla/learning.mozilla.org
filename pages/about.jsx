@@ -17,7 +17,7 @@ var Intro = React.createClass({
             className="illustration-img-circle"
             src1x="/img/pages/about/hive-nyc-summer-quest.jpg"
             alt="HiveLearningNYC 2014 Hive NYC Summer Quest Maker Party">
-              <p>We want more people to see themselves as citizens of the web. The Mozilla Learning Network offers programs and a global community dedicated to helping people learn the most important skills of our age: <em>the ability to read, write and participate in the digital world.</em></p>
+              <p>We are cultivating a global network of web literacy leaders who are teaching and learning the most important skills of our age: the ability to read, write and participate in the digital world. Our programs and resources can help you make an impact in your community, and participate in an openly networked world.</p>
             </Illustration>
           </section>
         </div>
@@ -32,24 +32,11 @@ var OurFocus = React.createClass({
           <Illustration width={199} height={199}
           src1x="/img/pages/about/about-illustration.svg"
           alt="A graphic showing an illustration of a person, a book, some gears, a map pin, and a square acedemic cap">
-            <h2>Our Focus</h2>
             <ul>
-              <li>
-                We focus on peer learning that is production-centered, rooted in open practices, facilitated online and
-                in person, and localized culturally but connected globally.
-              </li>
-              <li>
-                We offer training and event models to help you develop and teach web literacy skills and connect with
-                peers.
-              </li>
-              <li>
-                Our curriculum and web literacy programs are modular, adaptable, and have been developed and tested in
-                various learning settings.
-              </li>
-              <li>
-                We support Hive Learning Networks, city-based communities where educators, organizations and learners
-                network for greater impact.
-              </li>
+              <li>Learn and deepen your 21st Century digital skills, and get better at teaching them to others.</li>
+              <li>Contribute to real-world products and projects that are open, participatory and networked.</li>
+              <li>Access free resources like event planning guides and step-by-step teaching activities, or share your own resources to receive feedback from peers.</li>
+              <li>Develop your skills in facilitative leadership, participatory practices and collaboration.</li>
             </ul>
           </Illustration>
         </section>

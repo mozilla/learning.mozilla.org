@@ -1,16 +1,11 @@
 var React = require('react');
 var ImageTag = require('../components/imagetag.jsx');
 var Illustration = require('../components/illustration.jsx');
-var CCLicenseNote = require('../components/cc-license-note.jsx');
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
-var Router = require('react-router');
-var Link = Router.Link;
-
 var HeroUnit = require('../components/hero-unit.jsx');
-
-var ga = require('react-ga');
-var OutboundLink = ga.OutboundLink;
+var Link = require('react-router').Link;
+var OutboundLink = require('react-ga').OutboundLink;
 
 /* Displays an activity kit, with:
    image, title, difficulty, list of authors, and description
@@ -43,8 +38,8 @@ var ActivityKit = React.createClass({
     "2013 MozGirls": "",
     "Our seasoned educator community": "",
     "the Office of the Privacy Commissioner of Canada": "https://www.priv.gc.ca/index_e.asp",
-    "Mozilla Privacy": "https://www.mozilla.org/privacy/"
-
+    "Mozilla Privacy": "https://www.mozilla.org/privacy/",
+    "Hive Manchester": "http://hivemanchester.net/"
   },
   render: function() {
     // Generates a nice list of autors with links to their sites.
@@ -88,7 +83,7 @@ var ActivityKit = React.createClass({
         src2x={this.props.src2x}
         alt={this.props.title}
         link={this.props.link}
-        externalLink>
+        externalLink={true}>
           <div className="activity-kit-content">
             <h3><OutboundLink to={this.props.link} eventLabel={this.props.link}>{this.props.title}</OutboundLink></h3>
             <div>
@@ -231,6 +226,15 @@ var ActivitiesPage = React.createClass({
               description="In this card game, learners work collaboratively to create a complete story using HTML and CSS."
             />
             <ActivityKit
+              src1x="/img/pages/activities/img-activity-QuackingJavascript.jpg"
+              src2x="/img/pages/activities/img-activity-QuackingJavascript@2x.jpg"
+              title="Quacking JavaScript"
+              level="JavaScript beginners"
+              link="http://mozilla.github.io/webmaker-curriculum/QuackingJavascript/"
+              developedBy="Hive Manchester"
+              description="Learners get familiar with writing Javascript in this fun, five-part module. Together we discover the foundations of the text coding by being creative and making our own web pages."
+            />
+            <ActivityKit
               src1x="/img/pages/activities/img-activity-09.jpg"
               src2x="/img/pages/activities/img-activity-09@2x.jpg"
               title="Minecraft a Flavor of Java (Teaching Kit)"
@@ -248,7 +252,6 @@ var ActivitiesPage = React.createClass({
               developedBy="Steph Guthrie, Kim Wilkens, 2013 MozGirls"
               description="In this activity, learners create a remix of a Wikimedia page as they think critically about the intersection of gender, culture, technology and identity."
             />
-            <CCLicenseNote/>
             <h2>More resources</h2>
             <p>
               Hive Learning Networks are city-based communities of educators who champion digital skills and web literacy through connected learning. Visit each city's portfolio to find more inspiration, resources and projects for teaching and learning.
@@ -277,7 +280,7 @@ var ActivitiesPage = React.createClass({
               <HiveLink
                 src1x="/img/pages/activities/svg/logo-hive-community.svg"
                 name="hive chattanooga"
-                link=" http://hivecha.org/portfolio"
+                link="http://hivecha.org/portfolio"
               />
               <HiveLink
                 src1x="/img/pages/activities/svg/logo-hive.svg"

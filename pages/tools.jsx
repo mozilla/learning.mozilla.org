@@ -1,7 +1,7 @@
 var React = require('react');
+var Link = require('react-router').Link;
+var OutboundLink = require('react-ga').OutboundLink;
 var Illustration = require('../components/illustration.jsx');
-var Router = require('react-router');
-var Link = Router.Link;
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
 var config = require('../lib/config');
@@ -52,8 +52,9 @@ var ToolsColumn = React.createClass({
           src1x={this.props.src1x}
           src2x={this.props.src2x}
           alt=""
-          className="vertical-layout">
-          <h2><a href={this.props.link}>{this.props.name}</a></h2>
+          className="vertical-layout"
+          externalLink={true}>
+          <h2><OutboundLink to={this.props.link} eventLabel={this.props.link}>{this.props.name}</OutboundLink></h2>
           <p>{this.props.description}</p>
         </Illustration>
         {sampleActivity}
@@ -79,8 +80,8 @@ var ToolsSection = React.createClass({
       link: config.THIMBLE,
       src1x: "/img/pages/tools/thimble.png",
       src2x: "/img/pages/tools/thimble@2x.png",
-      activityTitle: "Image Seeking for Fantastic Visual Metaphors",
-      activityLink: "https://cogdog.makes.org/thimble/LTEyMjQ4NjUyOA==/imageseeking-for-fantastic-visual-metaphors"
+      activityTitle: "Keep Calm and Carry On",
+      activityLink: "https://thimble.mozilla.org/projects/72/remix"
     },
     {
       name: "Webmaker",

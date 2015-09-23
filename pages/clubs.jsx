@@ -244,7 +244,7 @@ var ClubsPage = React.createClass({
                 subhead="Connect with other Club Leaders"
               />
               <IconLink
-                linkTo="clubs-toolkit"
+                href="http://mozilla.github.io/learning-networks/clubs/"
                 imgSrc="/img/pages/clubs/svg/icon-tips.svg"
                 head="Helpful Tips"
                 subhead="Tips for running your Club"

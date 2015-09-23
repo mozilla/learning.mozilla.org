@@ -123,8 +123,8 @@ changes haven't introduced any [Mixed Content][] warnings.
 
 [attaching]: https://github.com/blog/1347-issue-attachments
 [screenshot]: https://www.google.com/search?q=how+to+take+a+screenshot
-[README]: https://github.com/mozilla/teach.webmaker.org#readme
-[CHANGELOG]: https://github.com/mozilla/teach.webmaker.org/blob/develop/CHANGELOG.md
+[README]: https://github.com/mozilla/teach.mozilla.org#readme
+[CHANGELOG]: https://github.com/mozilla/teach.mozilla.org/blob/develop/CHANGELOG.md
 [js]: https://github.com/MozillaFoundation/javascript-style-guide
 [synonym]: https://help.github.com/articles/closing-issues-via-commit-messages
 [PageSpeed Insights]: https://developers.google.com/speed/pagespeed/insights/
