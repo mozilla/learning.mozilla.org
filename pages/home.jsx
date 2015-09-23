@@ -277,9 +277,10 @@ var HomePage = React.createClass({
   componentDidMount: function() {
     // auto pops up the Pledge modal if the user is visiting 
     // the homepage for the first time
-    if (localStorage.getItem("autoOpenPledgeModal") !== "false") {
+    var disableModal = "disableAutoPledgeModal";
+    if (!localStorage[disableModal]) {
       this.handlePledgeBtnClick();
-      localStorage.setItem("autoOpenPledgeModal", "false");
+      localStorage.setItem(disableModal, "disabled");
     }
     if (this.context.router.getCurrentQuery().pledge === "thanks") {
       this.showModal(ThankYouModal);
