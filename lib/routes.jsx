@@ -15,44 +15,44 @@ var redirects = {};
 var routes = (
   <Route handler={Page}>
     <Route name="about" path="/about/"
-     handler={require('../pages/about.jsx')}/>
+           handler={require('../pages/about.jsx')}/>
     <Route name="activities" path="/activities/"
-     handler={require('../pages/activities.jsx')}/>
+           handler={require('../pages/activities.jsx')}/>
     <Route name="madewithcode-firstwebpage" path="/activities/madewithcode-firstwebpage/"
-     handler={require('../pages/madewithcode-firstwebpage.jsx')}/>
+           handler={require('../pages/madewithcode-firstwebpage.jsx')}/>
     <Route name="madewithcode-meme" path="/activities/madewithcode-meme/"
-     handler={require('../pages/madewithcode-meme.jsx')}/>
+           handler={require('../pages/madewithcode-meme.jsx')}/>
     <Route name="madewithcode-poster" path="/activities/madewithcode-poster/"
-     handler={require('../pages/madewithcode-poster.jsx')}/>
+           handler={require('../pages/madewithcode-poster.jsx')}/>
     <Route name="maker-party-2015" path="/activities/maker-party-2015/"
-     handler={require('../pages/maker-party-2015.jsx')}/>
+           handler={require('../pages/maker-party-2015.jsx')}/>
     <Route name="private-eye" path="/activities/private-eye/"
-     handler={require('../pages/private-eye.jsx')}/>
+           handler={require('../pages/private-eye.jsx')}/>
     <Route name="protect-your-data" path="/activities/protect-your-data/"
-     handler={require('../pages/protect-your-data.jsx')}/>
+           handler={require('../pages/protect-your-data.jsx')}/>
     <Route name="web-lit-basics" path="/activities/web-lit-basics/"
-     handler={require('../pages/web-lit-basics.jsx')}/>
+           handler={require('../pages/web-lit-basics.jsx')}/>
     <Redirect from="/clubs/curriculum/" to="/activities/web-lit-basics/" />
     <Route name="mozilla-clubs" path="/clubs/"
-     handler={require('../pages/clubs.jsx')}/>
+           handler={require('../pages/clubs.jsx')}/>
     <Route name="clubs-list" path="/clubs/list/"
-     handler={require('../pages/clubs-list.jsx')}/>
+           handler={require('../pages/clubs-list.jsx')}/>
     <Route name="events" path="/events/"
-     handler={require('../pages/events.jsx')}/>
+           handler={require('../pages/events.jsx')}/>
     <Route name="event-resources" path="/events/resources/"
-     handler={require('../pages/event-resources.jsx')}/>
+           handler={require('../pages/event-resources.jsx')}/>
     <Route name="fixme" path="/fixme/"
-     handler={require('../pages/fixme.jsx')}/>
+           handler={require('../pages/fixme.jsx')}/>
     <Route name="healthcheck" path="/healthcheck/"
-     handler={require('../pages/healthcheck.jsx')}/>
+           handler={require('../pages/healthcheck.jsx')}/>
     <Route name="teach-like-mozilla" path="/teach-like-mozilla/"
-     handler={require('../pages/teach-like-mozilla.jsx')}/>
+           handler={require('../pages/teach-like-mozilla.jsx')}/>
     <Route name="tools" path="/tools/"
-     handler={require('../pages/tools.jsx')}/>
+           handler={require('../pages/tools.jsx')}/>
     <Route name="web-literacy" path="/teach-like-mozilla/web-literacy/"
-     handler={require('../pages/web-literacy.jsx')}/>
+           handler={require('../pages/web-literacy.jsx')}/>
     <DefaultRoute name="home"
-     handler={require('../pages/home.jsx')}/>
+           handler={require('../pages/home.jsx')}/>
   </Route>
 );
 
