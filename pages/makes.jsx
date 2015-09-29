@@ -55,15 +55,15 @@ var MakePage = React.createClass({
       username: this.getTeachAPI().getUsername(),
       makesLoaded: false
     });
-    this.loadMakes();
+    this.loadMakes(this.state.page);
   },
   handleApiLogout: function() {
     this.setState({
       username: null
     });
   },
-  loadMakes: function() {
-    var url = makeapiURL + this.state.username + '&page=' + this.state.page;
+  loadMakes: function(page) {
+    var url = makeapiURL + this.state.username + '&page=' + page;
     this.setState({
       loadingMakes: true
     });
@@ -94,9 +94,8 @@ var MakePage = React.createClass({
       }.bind(this));
   },
   handlePageClick: function(data) {
-    this.setState({
-      page: data.selected
-    });
+    console.log(data.selected);
+    this.loadMakes(data.selected);
   },
   render: function() {
     if (!this.state.username) {
