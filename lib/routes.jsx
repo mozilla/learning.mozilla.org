@@ -45,6 +45,10 @@ var routes = (
            handler={require('../pages/fixme.jsx')}/>
     <Route name="healthcheck" path="/healthcheck/"
            handler={require('../pages/healthcheck.jsx')}/>
+    <Route name="home3" path="/home3/"
+           handler={require('../pages/home3.jsx')}/>
+    <Route name="home4" path="/home4/"
+           handler={require('../pages/home4.jsx')}/>
     <Route name="teach-like-mozilla" path="/teach-like-mozilla/"
            handler={require('../pages/teach-like-mozilla.jsx')}/>
     <Route name="tools" path="/tools/"

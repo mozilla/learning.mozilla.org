@@ -51,3 +51,15 @@
   font-size: 1.2rem;
   padding: .2rem .4rem;
 }
+
+.input-placeholder(@rules) {
+  &::-webkit-input-placeholder {
+    @rules();
+  }
+  &::-moz-placeholder {
+    @rules();
+  }
+  &:-ms-input-placeholder {
+    @rules();
+  }
+}
