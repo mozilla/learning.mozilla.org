@@ -1,6 +1,5 @@
 var React = require("react");
 var request = require("superagent");
-var ReactPaginate = require('react-paginate');
 
 var TeachAPIClientMixin = require("../mixins/teach-api-client");
 var config = require("../lib/config");
