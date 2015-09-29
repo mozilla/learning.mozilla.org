@@ -37,6 +37,7 @@
     "moment": "^2.10.3",
     "react": "^0.13.1",
     "react-ga": "^1.0.12",
+    "react-paginate": "^0.2.0",
     "react-router": "^0.13.2",
     "react-select": "0.4.6",
     "replace-ext": "0.0.1",
