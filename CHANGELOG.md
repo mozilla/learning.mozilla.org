@@ -6,6 +6,10 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.23][] - 2015-09-30
+### Added
+- Added two homepage variations for A/B testing
+
 ## [0.0.22][] - 2015-09-23
 ### Added
 - The pledge modal on the homepage pops up automatically for users who 
@@ -398,7 +402,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.22...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.23...HEAD
+[0.0.23]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.22...v0.0.23
 [0.0.22]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.21...v0.0.22
 [0.0.21]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.20...v0.0.21
 [0.0.20]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.19...v0.0.20
