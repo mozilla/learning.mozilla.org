@@ -50,8 +50,8 @@ module.exports = {
       'PLEDGE_MAILINGLIST_URL',
       'PLEDGE_MAILINGLIST_PRIVACY_NAME',
       'OPTIMIZELY_ID',
-      'OPTIMIZELY_ACTIVE'
-
+      'OPTIMIZELY_ACTIVE',
+      'MAKEAPI_ORIGIN'
     ])),
     new webpack.optimize.CommonsChunkPlugin('commons',
                                             'commons.bundle.js')
