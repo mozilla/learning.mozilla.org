@@ -167,6 +167,7 @@ software works.
 `PORT` | is the port to serve the experimental lightweight dynamic server on. Defaults to 8008.
 `OPTIMIZELY_ID` | Optimizely Project ID (not a secret) e.g. '206878104'
 `OPTIMIZELY_ACTIVE` | If set to 'yes' (String) the project will include Optimizely snippet in the page load
+`MAKEAPI_ORIGIN` | Make API endpoint
 
 ### Using Environment Variables in Local Development
 
