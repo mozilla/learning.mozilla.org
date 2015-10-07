@@ -1,0 +1,65 @@
+.me-page {
+  h1 {
+    font-weight: 500;
+  }
+}
+
+.makes-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 3rem 0;
+  padding-left: 0;
+  font-size: 1.4rem;
+  li {
+    width: 30rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid @lightGrey;
+  }
+  a {
+    display: block;
+    height: 100%;
+    transition: background-color 0.5s ease 0s;
+    &:hover {
+      text-decoration: none;
+      background: @lightGrey;
+    }
+  }
+  .meta {
+    padding: 1rem;
+    p {
+      color: @bodyTextColor;
+      font-size: 1.4rem;
+      line-height: 1.3;
+      margin-bottom: .5rem;
+    }
+  }
+  .title {
+    font-weight: 700;
+  }
+  .thumbnail {
+    position: relative;
+    padding: 0;
+    margin-bottom: 0;
+    border-radius: 0;
+    border: none;
+    transition: none;
+    height: 150px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-color: #EAEAEA;
+  }
+  .type {
+    position: absolute;
+    bottom: .7rem;
+    right: .7rem;
+    padding: 0 .5rem;
+    border-radius: @form-field-border-radius;
+    background: #EE884F;
+    color: @white;
+    text-transform: capitalize;
+  }
+}
+

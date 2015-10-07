@@ -1,68 +1,77 @@
 var React = require("react");
 var request = require("superagent");
+var moment = require('moment');
+var urlTemplate = require('url-template');
 
 var TeachAPIClientMixin = require("../mixins/teach-api-client");
 var config = require("../lib/config");
 
-var makeapiURL = config.MAKEAPI_ORIGIN + "/api/20130724/make/search?limit=20&user="
+var makesMetadataURL = urlTemplate.parse(config.MAKE_METADATA_URL);
 
 var Make = React.createClass({
   render: function() {
-    var thumbnailStyle = {
-      "background-image": "url(" + this.props.thumbnail + ")"
-    };
-    var makeTypeClass = "make make-type-" + this.props.type;
+    var makeTypeClass = "make " + this.props.type;
+    var lastUpdatedFromNow = moment(new Date(this.props.updatedAt)).fromNow();
+    var thumbnailStyle = (this.props.thumbnail) ? {"backgroundImage": "url(" + this.props.thumbnail + ")"} 
+                                                 : {"backgroundImage": "url(/img/pages/me/svg/icon-placeholder.svg)",
+                                                    "backgroundSize": "11rem auto"};
     return (
-      <div className={makeTypeClass}>
-        <a className="make-link" target="_blank" href={this.props.url}>
-          <div className="make-thumbnail thumbnail" style={thumbnailStyle}>
-          </div>
-          <div className="type-label">
-            <span className="make-type">
-              {this.props.type}
-            </span>
-          </div>
-          <div className="make-info">
+      <li className={makeTypeClass}>
+        <a target="_blank" href={this.props.url}>
+          <div className="meta">
+            <p className="details">Updated {lastUpdatedFromNow}</p>
             <p className="title">{this.props.title}</p>
           </div>
+          <div className="thumbnail" style={thumbnailStyle}>
+            <div className="type">{this.props.type}</div>
+          </div>
         </a>
-        <div className="btn-container">
-          <a className="make-link" target="_blank" href={this.props.url}>
-          </a>
-        </div>
-      </div>
+      </li>
     );
   }
 });
 
-var MakePage = React.createClass({
+var MePage = React.createClass({
   mixins: [TeachAPIClientMixin],
   statics: {
+    pageTitle: 'Me',
+    pageClassName: 'me-page',
     teachAPIEvents: {
+      'username:change': 'forceUpdate',
       "login:success": "handleApiLoginSuccess",
       "logout": "handleApiLogout"
     }
   },
   getInitialState: function() {
     return {
-      page: 0,
-      makes: []
+      username: null,
+      makes: [],
+      loadingMakes: false,
+      makesLoaded: false
     };
   },
-  handleApiLoginSuccess: function(info) {
-    this.setState({
-      username: this.getTeachAPI().getUsername(),
-      makesLoaded: false
-    });
-    this.loadMakes(this.state.page);
+  componentDidMount: function() {
+    if (!this.state.username) {
+      this.getUsernameAndLoadMakes();
+    } 
+  },
+  handleApiLoginSuccess: function() {
+    this.getUsernameAndLoadMakes();
   },
   handleApiLogout: function() {
     this.setState({
       username: null
     });
   },
-  loadMakes: function(page) {
-    var url = makeapiURL + this.state.username + '&page=' + page;
+  getUsernameAndLoadMakes: function() {
+    this.setState({
+      username: this.getTeachAPI().getUsername()
+    }, function() {
+      this.loadMakes();
+    });
+  },
+  loadMakes: function() {
+    var url = makesMetadataURL.expand({username: this.state.username});
     this.setState({
       loadingMakes: true
     });
@@ -78,7 +87,7 @@ var MakePage = React.createClass({
         }
 
         try {
-          var data = JSON.parse(res.text);
+          var makes = JSON.parse(res.text);
         } catch(e) {
           return this.setState({
             loadError: true,
@@ -86,44 +95,46 @@ var MakePage = React.createClass({
           });
         }
         this.setState({
-          makes: data.makes,
-          total: data.total,
-          loadingMakes: false
+          makes: makes,
+          loadingMakes: false,
+          loadError: false
         });
       }.bind(this));
   },
-  handlePageClick: function(data) {
-    console.log(data.selected);
-    this.loadMakes(data.selected);
-  },
   render: function() {
+    var pageContent;
     if (!this.state.username) {
-      return (
-        <div>Please log in</div>
+      pageContent = <span>Please sign in.</span>;
+    } else if (this.state.loadingMakes) {
+      pageContent = <span>Loading Makes...</span>;
+    } else {
+      var makes = this.state.makes.reverse().map(function(make,i) {
+        return (
+          <Make thumbnail={make.thumbnail}
+                type={make.contentType.replace(/application\/x\-/g, '')}
+                url={make.url}
+                title={make.title}
+                updatedAt={make.updatedAt}
+                key={i} />
+        );
+      });
+      pageContent = (
+        <div>
+          <h1>{this.state.username}, these are your makes:</h1>
+          <ul className="makes-list">
+            { makes }
+          </ul>
+        </div>
       );
     }
-
-    var makes = this.state.makes.map(function(make) {
-      // need a fallback thumbnail url
-      var thumbnail = make.thumbnail || '';
-      var type = make.contentType.replace(/application\/x\-/g, '');
-      return (
-        <Make thumbnail={thumbnail}
-          type={type}
-          url={make.url}
-          title={make.title} />
-      );
-    });
-
     return (
-      <div>
-        <div>
-          {this.state.username}, these are your makes:
-        </div>
-        { makes }
+      <div className="inner-container">
+        <section>
+          {pageContent}
+        </section>
       </div>
     );
   }
 });
 
-module.exports = MakePage;
+module.exports = MePage;

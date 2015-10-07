@@ -51,7 +51,7 @@ var routes = (
            handler={require('../pages/tools.jsx')}/>
     <Route name="web-literacy" path="/teach-like-mozilla/web-literacy/"
            handler={require('../pages/web-literacy.jsx')}/>
-    <Route name="make-page" path="/me/"
+    <Route name="me" path="/me/"
            handler={require('../pages/makes.jsx')}/>
     <DefaultRoute name="home"
            handler={require('../pages/home.jsx')}/>
