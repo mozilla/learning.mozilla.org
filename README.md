@@ -167,7 +167,7 @@ software works.
 `PORT` | is the port to serve the experimental lightweight dynamic server on. Defaults to 8008.
 `OPTIMIZELY_ID` | Optimizely Project ID (not a secret) e.g. '206878104'
 `OPTIMIZELY_ACTIVE` | If set to 'yes' (String) the project will include Optimizely snippet in the page load
-`MAKEAPI_ORIGIN` | Make API endpoint
+`MAKE_METADATA_URL` | The template source url to load users' Makes metadata. Username should be included in the URL as a variable. e.g., `https://{username}.makes.org/makes.json`
 
 ### Using Environment Variables in Local Development
 
