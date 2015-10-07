@@ -1,0 +1,55 @@
+.sidebar-login {
+  margin-bottom: 3rem;
+  .fa {
+    margin-right: 1rem;
+  }
+  .or {
+    color: fade(@white, 50%)
+  }
+  .login-status-text {
+    padding: 1rem @grid-gutter-width;
+  }
+}
+
+.user-panel {
+  &.expanded {
+    .login-status-text {
+      background: fade(#000,20%);
+      &:after {
+        opacity: 1;
+      }
+    }
+    .options {
+      transition: max-height .5s ease;
+      max-height: 200px;
+    }
+  }
+  &.collapsed {
+    .options {
+      transition: max-height .5s ease;
+      max-height: 0;
+    }
+  }
+  .login-status-text {
+    cursor: pointer;
+    &:after {
+      content: "\f0d7";
+      font-family: "FontAwesome";
+      margin: 0 1rem;
+      opacity: .5;
+    }
+  }
+  .options {
+    overflow-y: hidden;
+  }
+  ul {
+    padding: 0 @grid-gutter-width;
+    list-style-type: none;
+    background: @white;
+    color: @bodyTextColor;
+    margin-bottom: 0;
+    li {
+      padding: 1rem 0;
+    }
+  }
+}
