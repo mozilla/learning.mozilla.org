@@ -5,7 +5,7 @@ var moment = require('moment');
 var TeachAPIClientMixin = require("../mixins/teach-api-client");
 var config = require("../lib/config");
 
-var makeapiURL = config.MAKEAPI_ORIGIN + "/api/20130724/make/search?limit=20&user="
+var makeapiURL = config.MAKEAPI_ORIGIN + "/api/20130724/make/search?sortByField=updatedAt&limit=20&user=";
 
 var Make = React.createClass({
   render: function() {
@@ -33,26 +33,38 @@ var MePage = React.createClass({
     pageTitle: 'Me',
     pageClassName: 'me-page',
     teachAPIEvents: {
+      'username:change': 'forceUpdate',
       "login:success": "handleApiLoginSuccess",
       "logout": "handleApiLogout"
     }
   },
   getInitialState: function() {
     return {
+      username: null,
       page: 0,
-      makes: []
+      makes: [],
+      loadingMakes: false,
+      makesLoaded: false
     };
   },
-  handleApiLoginSuccess: function(info) {
-    this.setState({
-      username: this.getTeachAPI().getUsername(),
-      makesLoaded: false
-    });
-    this.loadMakes(this.state.page);
+  componentDidMount: function() {
+    if (!this.state.username) {
+      this.getUsernameAndLoadMakes();
+    } 
+  },
+  handleApiLoginSuccess: function() {
+    this.getUsernameAndLoadMakes();
   },
   handleApiLogout: function() {
     this.setState({
       username: null
+    });
+  },
+  getUsernameAndLoadMakes: function() {
+    this.setState({
+      username: this.getTeachAPI().getUsername()
+    }, function() {
+      this.loadMakes(this.state.page);
     });
   },
   loadMakes: function(page) {
@@ -82,7 +94,8 @@ var MePage = React.createClass({
         this.setState({
           makes: data.makes,
           total: data.total,
-          loadingMakes: false
+          loadingMakes: false,
+          loadError: false
         });
       }.bind(this));
   },
@@ -90,33 +103,41 @@ var MePage = React.createClass({
     this.loadMakes(data.selected);
   },
   render: function() {
+    var pageContent;
+
     if (!this.state.username) {
-      return (
-        <div className="inner-container">Please log in</div>
+      pageContent = <span className="hello">Please sign in.</span>;
+    } else if (this.state.loadingMakes) {
+      pageContent = <span className="world">Loading Makes...</span>;
+    } else {
+      var makes = this.state.makes.map(function(make,i) {
+        // need a fallback thumbnail url
+        var thumbnail = make.thumbnail || '';
+        var type = make.contentType.replace(/application\/x\-/g, '');
+        return (
+          <Make thumbnail={thumbnail}
+                type={type}
+                url={make.url}
+                title={make.title}
+                updatedAt={make.updatedAt}
+                numLikes={make.likes.length}
+                key={i} />
+        );
+      });
+      pageContent = (
+        <div>
+          <h1>{this.state.username}, these are your makes:</h1>
+          <ul className="makes-list">
+            { makes }
+          </ul>
+        </div>
       );
     }
-
-    var makes = this.state.makes.map(function(make,i) {
-      // need a fallback thumbnail url
-      var thumbnail = make.thumbnail || '';
-      var type = make.contentType.replace(/application\/x\-/g, '');
-      return (
-        <Make thumbnail={thumbnail}
-              type={type}
-              url={make.url}
-              title={make.title}
-              updatedAt={make.updatedAt}
-              numLikes={make.likes.length}
-              key={i} />
-      );
-    });
-
     return (
       <div className="inner-container">
-        <h1>{this.state.username}, these are your makes:</h1>
-        <ul className="makes-list">
-          { makes }
-        </ul>
+        <section>
+          {pageContent}
+        </section>
       </div>
     );
   }
