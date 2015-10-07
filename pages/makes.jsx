@@ -12,6 +12,9 @@ var Make = React.createClass({
   render: function() {
     var makeTypeClass = "make " + this.props.type;
     var lastUpdatedFromNow = moment(new Date(this.props.updatedAt)).fromNow();
+    var thumbnailStyle = (this.props.thumbnail) ? {"backgroundImage": "url(" + this.props.thumbnail + ")"} 
+                                                 : {"backgroundImage": "url(/img/pages/me/svg/icon-placeholder.svg)",
+                                                    "backgroundSize": "11rem auto"};
     return (
       <li className={makeTypeClass}>
         <a target="_blank" href={this.props.url}>
@@ -19,7 +22,7 @@ var Make = React.createClass({
             <p className="details">Updated {lastUpdatedFromNow}</p>
             <p className="title">{this.props.title}</p>
           </div>
-          <div className="thumbnail" style={{backgroundImage: "url(" + this.props.thumbnail + ")"}}>
+          <div className="thumbnail" style={thumbnailStyle}>
             <div className="type">{this.props.type}</div>
           </div>
         </a>
@@ -106,12 +109,9 @@ var MePage = React.createClass({
       pageContent = <span>Loading Makes...</span>;
     } else {
       var makes = this.state.makes.reverse().map(function(make,i) {
-        // need a fallback thumbnail url
-        var thumbnail = make.thumbnail || '';
-        var type = make.contentType.replace(/application\/x\-/g, '');
         return (
-          <Make thumbnail={thumbnail}
-                type={type}
+          <Make thumbnail={make.thumbnail}
+                type={make.contentType.replace(/application\/x\-/g, '')}
                 url={make.url}
                 title={make.title}
                 updatedAt={make.updatedAt}
