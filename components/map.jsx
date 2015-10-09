@@ -131,13 +131,12 @@ var MarkerPopupClub = React.createClass({
         <div className="action-panel">
           <button className="btn btn-default btn-xs"
            data-club-action="edit" data-club-url={this.props.url}>
-            <span className="glyphicon glyphicon-pencil"></span> Edit
+            <span className="glyphicon glyphicon-pencil"></span>Edit
           </button>
-          &nbsp;
           <button className="btn btn-default btn-xs"
            data-club-action="delete" data-club-url={this.props.url}
            data-club-name={this.props.title}>
-            <span className="glyphicon glyphicon-trash"></span> Remove
+            <span className="glyphicon glyphicon-trash"></span>Remove
           </button>
         </div>
       );
@@ -148,7 +147,7 @@ var MarkerPopupClub = React.createClass({
         {title}
         <p><i>{this.props.location}</i></p>
         <p>{this.props.description}</p>
-        <p>Led by <a href={"https://webmaker.org/en-US/search?type=user&q=" + this.props.owner}>{this.props.owner}</a></p>
+        <p>Led by {this.props.owner}</p>
         {website}
         {actions}
       </li>
