@@ -59,7 +59,7 @@ var MarkerPopup = React.createClass({
   },
   render: function() {
     return (
-      <ul className="popup-clubs-list">
+      <ul className="popup-clubs-list colored-list">
         {this.props.clubs.map(function(club, i) {
           return React.createElement(MarkerPopupClub, _.extend({
             key: i,

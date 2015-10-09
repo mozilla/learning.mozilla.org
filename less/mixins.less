@@ -1,28 +1,26 @@
-.listItemBorderColorizer(@borderColor:@bodyTextColor) {
-  li {
-    border-bottom: .1rem solid lighten(@borderColor, 30%);
-    padding: 1.2rem 0;
-    &:first-child {
-      border-top: .1rem solid lighten(@borderColor, 30%);
-    }
-  }
-}
-
-.sidebarColorizer(@sidebarColor) {
+.pageColorizer(@pageColor:@blueSidebarColor) {
+  // apply color to sidebar
   a.skip-to-content:focus {
-    background-color: @sidebarColor;
+    background-color: @pageColor;
   }
-
   .sidebar {
-    background-color: @sidebarColor;
+    background-color: @pageColor;
     .sidebar-menu a {
       &:hover, &:focus, &.active {
-        background-color: darken(@sidebarColor, 5%);
+        background-color: darken(@pageColor, 5%);
       }
     }
-
     .sidebar-menu a .glyphicon {
-      color: lighten(@sidebarColor, 15%);
+      color: lighten(@pageColor, 15%);
+    }
+  }
+  // apply border color to list
+  .colored-list {
+    li {
+      padding: 1.2rem 0;
+      &:not(:first-child) {
+        border-top: .1rem solid lighten(@pageColor, 30%);
+      }
     }
   }
 }
