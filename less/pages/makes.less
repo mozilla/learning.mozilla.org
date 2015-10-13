@@ -63,3 +63,31 @@
   }
 }
 
+@keyframes loading {
+  0% {
+    width: 0;
+  }
+  33% {
+    width: .6rem;
+  }
+  66% {
+    width: 1.2rem;
+  }
+  100% {
+    width: 1.8rem;
+  }
+}
+
+.loading-message {
+  &:after {
+    content: "...";
+    display: inline-block;
+    overflow: hidden;
+    width: 0;
+    margin-left: .5rem;
+    font-size: 2.5rem;
+    vertical-align: bottom;
+    animation: loading 1.2s infinite;
+  }
+}
+

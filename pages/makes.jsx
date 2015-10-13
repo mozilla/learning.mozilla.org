@@ -106,8 +106,9 @@ var MePage = React.createClass({
     if (!this.state.username) {
       pageContent = <span>Please sign in.</span>;
     } else if (this.state.loadingMakes) {
-      pageContent = <span>Loading Makes...</span>;
-    } else {
+      pageContent = <div className="loading-message">Loading makes</div>;
+    } 
+    else {
       var makes = this.state.makes.reverse().map(function(make,i) {
         return (
           <Make thumbnail={make.thumbnail}
@@ -121,6 +122,7 @@ var MePage = React.createClass({
       pageContent = (
         <div>
           <h1>{this.state.username}, these are your makes:</h1>
+          <p>In the fall of 2015, we retired Popcorn Maker and Appmaker, as well as older versions of Thimble and X-Ray Goggles. Any makes you created with these tools are still accessible below. Projects created with the new X-Ray Goggles, Thimble, or Webmaker are accessible through those respective platforms.</p>
           <ul className="makes-list">
             { makes }
           </ul>
