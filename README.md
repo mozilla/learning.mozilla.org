@@ -23,7 +23,8 @@ may eventually evolve into becoming a dynamic server.
 
 ### Dependencies
 
-To get a local version of the site running, you'll need to have [git](http://git-scm.com/) and [node](http://nodejs.org/) installed on your local machine.
+To get a local version of the site running, you'll need to have [git](http://git-scm.com/) and [node 0.12.7](https://nodejs.org/en/blog/release/v0.12.7/) installed on your local machine. 
+**Note: version 4.2.1 of Node.js does NOT work with this project.**
 
 ### Clone
 
@@ -46,6 +47,24 @@ npm start
 ```
 
 This will start a webserver for you at `http://localhost:8008`, and run a `watch` process so that your front-end assets will be regenerated as you make changes.
+
+### Potential Issues with Windows Platforms
+If you have installed the version 0.12.7 of Node.js and when running the command:
+
+```bash
+npm install
+```
+
+You get:
+
+```bash
+gyp ERR! configure error
+gyp ERR! stack Error: Can't find Python executable "python", you can set the PYTHON env variable.
+gyp ERR! stack    at failNoPython (C:\Program Files\nodejs\node_modules\npm\node_modules\node-gyp\lib\configure.js:114:14)
+...
+```
+
+That means that Windows is being complicated and you are best running a Virtual Machine. We recommend to use [Koding](https://koding.com/). Look at the **Alternatives** section below for more information.
 
 ### A note about source maps
 
