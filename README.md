@@ -23,7 +23,7 @@ may eventually evolve into becoming a dynamic server.
 
 ### Dependencies
 
-To get a local version of the site running, you'll need to have [git](http://git-scm.com/) and [node 0.12.7](https://nodejs.org/en/blog/release/v0.12.7/) installed on your local machine. 
+To get a local version of the site running, you'll need to have [git](http://git-scm.com/) and [Node.js 0.12.7](https://nodejs.org/en/blog/release/v0.12.7/) installed on your local machine. 
 **Note: version 4.2.1 of Node.js does NOT work with this project.**
 
 ### Clone
@@ -65,6 +65,40 @@ gyp ERR! stack    at failNoPython (C:\Program Files\nodejs\node_modules\npm\node
 ```
 
 That means that Windows is being complicated and you are best running a Virtual Machine. We recommend to use [Koding](https://koding.com/). Look at the **Alternatives** section below for more information.
+
+###Alternatives
+In the Virtual Machine, once again clone the git repo:
+
+```bash
+git clone https://github.com/mozilla/teach.mozilla.org.git
+```
+
+Go into the **teach.mozilla.org** directory:
+
+```bash
+cd teach.mozilla.org
+```
+
+Proceed to run: (this process may take a while)
+```bash 
+npm install
+```
+
+And in order to run the project properly, you need build-essential:
+```bash
+sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe"
+sudo apt-get update
+sudo apt-get install build-essential
+```
+Once that's completed, proceed to:
+```bash 
+npm install
+npm start
+npm start
+```
+
+Open a new tab in Browser with your username.koding.io:8008
+
 
 ### A note about source maps
 
