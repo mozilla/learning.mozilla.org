@@ -186,7 +186,7 @@ var Login = React.createClass({
           <div className="options">
             <ul>
               { this.renderAdminLink() ? <li>{this.renderAdminLink()}</li> : null }
-              <li><span className="fa fa-list"></span><Link to="me">Your Makes</Link></li>
+              <li><span className="fa fa-list"></span><Link to="me">Your Projects</Link></li>
               <li><span className="fa fa-sign-out"></span><LogoutLink>Log Out</LogoutLink></li>
             </ul>
           </div>

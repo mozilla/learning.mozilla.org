@@ -106,7 +106,7 @@ var MePage = React.createClass({
     if (!this.state.username) {
       pageContent = <span>Please sign in.</span>;
     } else if (this.state.loadingMakes) {
-      pageContent = <div className="loading-message">Loading makes</div>;
+      pageContent = <div className="loading-message">Loading projects</div>;
     } 
     else {
       var makes = this.state.makes.reverse().map(function(make,i) {
@@ -121,8 +121,8 @@ var MePage = React.createClass({
       });
       pageContent = (
         <div>
-          <p className="context">In the fall of 2015, we retired Popcorn Maker and Appmaker, as well as older versions of Thimble and X-Ray Goggles. Any makes you created with these tools are still accessible below. Projects created with the new X-Ray Goggles, Thimble, or Webmaker are accessible through those respective platforms.</p>
-          <h1>{this.state.username}, these are your makes:</h1>
+          <p className="context">In the fall of 2015, we retired Popcorn Maker and Appmaker, as well as older versions of Thimble and X-Ray Goggles. Any projects you created with these tools are still accessible below. Projects created with the new X-Ray Goggles, Thimble, or Webmaker are accessible through those respective platforms.</p>
+          <h1>{this.state.username}, these are your projects:</h1>
           <ul className="makes-list">
             { makes }
           </ul>
