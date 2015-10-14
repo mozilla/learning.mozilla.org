@@ -153,7 +153,7 @@ describe("Map.MarkerPopup", function() {
       <Map.MarkerPopup clubs={[club]} username="bar" />
     );
     var links = TestUtils.scryRenderedDOMComponentsWithTag(popup, 'a');
-    links.length.should.eql(1);
+    links.length.should.eql(0);
   });
 
   it("should show website when it is present", function() {
@@ -161,7 +161,7 @@ describe("Map.MarkerPopup", function() {
       <Map.MarkerPopup clubs={[SAMPLE_FOO_CLUB]} username="bar" />
     );
     var links = TestUtils.scryRenderedDOMComponentsWithTag(popup, 'a');
-    links.length.should.eql(2);
+    links.length.should.eql(1);
   });
 });
 

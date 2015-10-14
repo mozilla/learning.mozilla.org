@@ -2,7 +2,6 @@ var _ = require('underscore');
 var React = require('react/addons');
 var Router = require('react-router');
 var Link = Router.Link;
-var ImageTag = require('../components/imagetag.jsx');
 
 var config = require('../lib/config');
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
@@ -95,8 +94,26 @@ var Login = React.createClass({
     return {
       username: null,
       loggingIn: false,
-      loginError: false
+      loginError: false,
+      userPanelExpanded: false
     };
+  },
+  collapse: function() {
+    this.setState({
+      userPanelExpanded: false
+    });
+  },
+  expand: function() {
+    this.setState({
+      userPanelExpanded: true
+    });
+  },
+  handleMouseDown: function(e) {
+    if (this.state.userPanelExpanded) {
+      this.collapse();
+    } else {
+      this.expand();
+    }
   },
   handleApiLoginError: function(err) {
     if (!config.IN_TEST_SUITE) {
@@ -130,9 +147,7 @@ var Login = React.createClass({
     if (!adminURL) return null;
     return (
       <div>
-        <br/>
-        <span className="glyphicon glyphicon-wrench"></span>
-        &nbsp;&nbsp;
+        <span className="fa fa-wrench"></span>
         <a href={adminURL}>
           Site Administration
         </a>
@@ -141,44 +156,48 @@ var Login = React.createClass({
   },
   render: function() {
     var content;
+    var userPanelState = this.state.userPanelExpanded ? "expanded" : "collapsed";
 
     if (this.state.loginError) {
       content = (
-        <span><small>
-          <span className="glyphicon glyphicon-flash"/>&nbsp;
-          Unable to contact login server.
-          <br/>
-          <span className="glyphicon glyphicon-flash" style={{
-            opacity: '0'
-          }}/>&nbsp;
-          Refresh the page to try again.
-        </small></span>
+        <div className="login-status-text">
+          <p>
+            <small>
+              <span className="fa fa-wrench"/>
+              Unable to contact login server.
+              <br/>
+              Refresh the page to try again.
+            </small>
+          </p>
+        </div>
       );
     } else if (this.state.loggingIn) {
       content = (
-        <span>
+        <div className="login-status-text">
           Loading&hellip;
-        </span>
+        </div>
       );
     } else if (this.state.username) {
       content = (
-        <div>
-          <span className="login-text">Logged in as {this.state.username}</span>
-          <LogoutLink>Logout</LogoutLink>
-          {this.renderAdminLink()}
+        <div className={"user-panel "+userPanelState}>
+          <div className="login-status-text" onMouseDown={this.handleMouseDown}>
+            Hi, {this.state.username}
+          </div>
+          <div className="options">
+            <ul>
+              { this.renderAdminLink() ? <li>{this.renderAdminLink()}</li> : null }
+              <li><span className="fa fa-list"></span><Link to="me">Your Projects</Link></li>
+              <li><span className="fa fa-sign-out"></span><LogoutLink>Log Out</LogoutLink></li>
+            </ul>
+          </div>
         </div>
       );
     } else {
       content = (
-        <div>
-          <span className="login-text">
-            <ImageTag src1x="/img/components/login/Webmaker-Alpha-White.png"
-                      src2x="/img/components/login/Webmaker-Alpha-White@2x.png"
-                      alt=""
-                      width={22} />
-            <LoginLink>Log in</LoginLink>
-          </span>
-          <LoginLink action="signup">Create an account</LoginLink>
+        <div className="login-status-text">
+          <LoginLink>Sign in</LoginLink>
+          <span className="or"> or </span>
+          <LoginLink action="signup">Sign Up</LoginLink>
         </div>
       );
     }
