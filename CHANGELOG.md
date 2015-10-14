@@ -6,6 +6,16 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.24][] - 2015-10-14
+### Added
+- Added 'Your Projects' page. This is a page for users to see the projects
+  they created using tools that we retired, such as Popcorn Maker and Appmaker, 
+  as well as older versions of Thimble and X-Ray Goggles.
+
+### Changed
+- Removed links to the old Webmaker search.
+
+
 ## [0.0.23][] - 2015-09-30
 ### Added
 - Added two homepage variations for A/B testing
@@ -402,7 +412,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.23...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.24...HEAD
+[0.0.24]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.23...v0.0.24
 [0.0.23]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.22...v0.0.23
 [0.0.22]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.21...v0.0.22
 [0.0.21]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.20...v0.0.21
