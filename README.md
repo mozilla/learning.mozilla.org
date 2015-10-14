@@ -97,7 +97,9 @@ npm start
 npm start
 ```
 
-Open a new tab in Browser with your username.koding.io:8008
+Open a new tab in Browser with your 
+
+`username`.koding.io:8008
 
 
 ### A note about source maps
