@@ -1,7 +1,5 @@
 var React = require('react');
 var ImageTag = require('./imagetag.jsx');
-var ga = require('react-ga');
-var OutboundLink = ga.OutboundLink;
 
 var Illustration = React.createClass({
   propTypes: {
@@ -11,7 +9,8 @@ var Illustration = React.createClass({
     src2x: React.PropTypes.string,
     alt: React.PropTypes.string.isRequired,
     link: React.PropTypes.string,
-    externalLink: React.PropTypes.bool
+    externalLink: React.PropTypes.bool,
+    caption: React.PropTypes.object
   },
   render: function() {
     var classes = this.props.className ? ("illustration " + this.props.className) : "illustration";
@@ -19,17 +18,14 @@ var Illustration = React.createClass({
                           height={this.props.height}
                           src1x={this.props.src1x}
                           src2x={this.props.src2x}
-                          alt={this.props.alt}/>;
-    var imageContainer =  <div className="image-container">
-                            { this.props.link ? ( this.props.externalLink ? <OutboundLink to={this.props.link} eventLabel={this.props.link}>{image}</OutboundLink>
-                                                                          : <a href={this.props.link}>{image} </a>)
-                                              : image }
-                          </div>;
-    var contentContainer = <div className="content-container">{this.props.children}</div>;
+                          alt={this.props.alt}
+                          caption={this.props.caption}
+                          link={this.props.link}
+                          externalLink={this.props.externalLink}/>;
     return (
       <div className={classes}>
-        {imageContainer}
-        {contentContainer}
+        <div className="image-container">{image}</div>
+        <div className="content-container">{this.props.children}</div>
       </div>
     );
   }
