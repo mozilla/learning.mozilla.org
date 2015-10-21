@@ -14,18 +14,21 @@ html.no-js .sidebar {
 }
 
 .page {
+  &.about-page {
+    .pageColorizer(@blueSidebarColor);
+  }
   &.events,
   &.event-resources {
-    .sidebarColorizer(@darkBlueSidebarColor);
+    .pageColorizer(@darkBlueSidebarColor);
   }
   &.teach-like-mozilla,
   &.tools-page,
   &.web-literacy {
-    .sidebarColorizer(@greenSidebarColor);
+    .pageColorizer(@greenSidebarColor);
   }
   &.clubs,
   &.clubs-list-page {
-    .sidebarColorizer(@orangeSidebarColor);
+    .pageColorizer(@orangeSidebarColor);
   }
   &.teaching-materials,
   &.web-lit-basics,
@@ -35,7 +38,7 @@ html.no-js .sidebar {
   &.madewithcode-poster,
   &.maker-party-2015,
   &.private-eye {
-    .sidebarColorizer(@pinkSidebarColor);
+    .pageColorizer(@pinkSidebarColor);
   }
 
   &.teach-like-mozilla .teach,
