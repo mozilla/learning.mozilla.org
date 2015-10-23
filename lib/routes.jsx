@@ -30,6 +30,8 @@ var routes = (
            handler={require('../pages/private-eye.jsx')}/>
     <Route name="protect-your-data" path="/activities/protect-your-data/"
            handler={require('../pages/protect-your-data.jsx')}/>
+    <Route name="privacy-basics" path="/activities/privacy-basics/"
+           handler={require('../pages/privacy-basics.jsx')}/>
     <Route name="web-lit-basics" path="/activities/web-lit-basics/"
            handler={require('../pages/web-lit-basics.jsx')}/>
     <Redirect from="/clubs/curriculum/" to="/activities/web-lit-basics/" />

@@ -7,14 +7,20 @@ var ImageTag = React.createClass({
     src2x: React.PropTypes.string,
     width: React.PropTypes.number,
     height: React.PropTypes.number,
-    className: React.PropTypes.string
+    className: React.PropTypes.string,
+    caption: React.PropTypes.object
   },
 
   render: function () {
     return (
-        <img src={this.props.src1x} alt={this.props.alt}
-            width={this.props.width} height={this.props.height} className={this.props.className}
-            srcSet={this.props.src2x ? this.props.src2x + ' 2x' : null} />
+        <figure className={this.props.className}>
+          <img alt={this.props.alt}
+               width={this.props.width}
+               height={this.props.height}
+               src={this.props.src1x}
+               srcSet={this.props.src2x ? this.props.src2x + ' 2x' : null} />
+          { !!this.props.caption ? <figcaption>{ this.props.caption }</figcaption> : null }
+        </figure>
     );
   }
 });

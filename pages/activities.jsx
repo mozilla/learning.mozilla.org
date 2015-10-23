@@ -25,7 +25,7 @@ var ActivityKit = React.createClass({
     "Dee Salgal": "",
     "Leonie Van Der Linde": "",
     "Alan Levine": "http://cogdog.info",
-    "Stacy Martin": "https://www.linkedin.com/in/stacycmartin",
+    "Stacy Martin": "https://mozillians.org/en-US/u/stacy",
     "Mozilla": "https://webmaker.org",
     "Educator Inovator": "http://educatorinnovator.org/",
     "Jen Dick": "https://twitter.com/jennifer_dick",
@@ -78,12 +78,14 @@ var ActivityKit = React.createClass({
     return (
       <div className="activity-kit">
         <Illustration
-        height={165} width={225}
-        src1x={this.props.src1x}
-        src2x={this.props.src2x}
-        alt={this.props.title}
-        link={this.props.link}
-        externalLink={true}>
+          height={165} width={225}
+          src1x={this.props.src1x}
+          src2x={this.props.src2x}
+          caption={this.props.caption}
+          alt={this.props.title}
+          link={this.props.link}
+          externalLink={true}>
+
           <div className="activity-kit-content">
             <h3><OutboundLink to={this.props.link} eventLabel={this.props.link}>{this.props.title}</OutboundLink></h3>
             <div>
@@ -96,6 +98,7 @@ var ActivityKit = React.createClass({
             </div>
             <div className="description">{this.props.description}</div>
           </div>
+
         </Illustration>
       </div>
     );
@@ -142,8 +145,7 @@ var ActivitiesPage = React.createClass({
               level="Beginner"
               link="/activities/web-lit-basics/"
               developedBy="Our seasoned educator community"
-              description="This six-part series helps learners become familiar with reading, writing and participating on the web. They'll discover the foundations of the web through production and collaboration. This is an ideal kit for Mozilla Clubs."
-            />
+              description="This six-part series helps learners become familiar with reading, writing and participating on the web. They'll discover the foundations of the web through production and collaboration. This is an ideal kit for Mozilla Clubs."/>
             <ActivityKit
               src1x="/img/pages/protect-your-data/protect-your-data.png"
               src2x="/img/pages/protect-your-data/protect-your-data@2x.png"
@@ -151,8 +153,15 @@ var ActivitiesPage = React.createClass({
               level="Beginner"
               link="/activities/protect-your-data/"
               developedBy="Hive Toronto in partnership with the Office of the Privacy Commissioner of Canada, Mozilla Privacy"
-              description="These six hands-on activities engage learners in thinking critically about online privacy by creating secure passwords, understanding how and where their data is being collected, and more. This is an ideal kit for Mozilla Clubs."
-            />
+              description="These six hands-on activities engage learners in thinking critically about online privacy by creating secure passwords, understanding how and where their data is being collected, and more. This is an ideal kit for Mozilla Clubs."/>
+            <ActivityKit
+              src1x="https://upload.wikimedia.org/wikipedia/commons/7/73/Monitor_padlock.svg"
+              caption={ <a href="https://commons.wikimedia.org/wiki/File:Monitor_padlock.svg">EFF-Graphics, CC3.0-SA-AT, view original</a> }
+              title="Privacy Basics: Passwords, Tracking, and Data Retention"
+              level="Intermediate"
+              link="/activities/privacy-basics/"
+              developedBy="Stacy Martin - Senior Data Privacy Manager at Mozilla and the Mozilla Learning Network team"
+              description="Learn how to safeguard your privacy online and develop an awareness of how companies and governments track and collect your data online."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-01.png"
               src2x="/img/pages/activities/img-activity-01@2x.png"
@@ -160,8 +169,7 @@ var ActivitiesPage = React.createClass({
               level="Beginner"
               link="https://laura.makes.org/thimble/MTUyODMwNDY0/lofi-nofi-teaching-kit"
               developedBy="Kat Braybrooke, Laura Hilliger, Karen Smith, Julia Vallera, Jess Klein, Chad Sansing"
-              description="This series of activities help teach web literacy concepts offline, or where access to technology is limited. Includes printable templates and games to teach coding, game design and app development."
-            />
+              description="This series of activities help teach web literacy concepts offline, or where access to technology is limited. Includes printable templates and games to teach coding, game design and app development."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-02.jpg"
               src2x="/img/pages/activities/img-activity-02@2x.jpg"
@@ -169,8 +177,7 @@ var ActivitiesPage = React.createClass({
               level="Beginner"
               link="https://karenlouisesmith.makes.org/thimble/para-para-animation-teaching-kit"
               developedBy="Karen Smith, Hive Toronto"
-              description="This activity helps young learners create simple animations and learn about online collaboration using Parapara."
-            />
+              description="This activity helps young learners create simple animations and learn about online collaboration using Parapara."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-03.png"
               src2x="/img/pages/activities/img-activity-03@2x.png"
@@ -178,8 +185,7 @@ var ActivitiesPage = React.createClass({
               level="Beginner"
               link="https://katermouse.makes.org/thimble/LTIwNjQwNTYzMjA=/creative-commons-gif-exchange-activity"
               developedBy="MOUSE (Hive NYC member)"
-              description="This activity teachers students about Creative Commons licensing while creating their own animated GIFs or memes."
-            />
+              description="This activity teachers students about Creative Commons licensing while creating their own animated GIFs or memes."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-04.jpg"
               src2x="/img/pages/activities/img-activity-04@2x.jpg"
@@ -187,8 +193,7 @@ var ActivitiesPage = React.createClass({
               level="Beginner"
               link="https://laura.makes.org/thimble/LTEzNDYxMDY4OA==/eak-activity-guide"
               developedBy="Drum Roll - Joe Dytrych, Dee Salgal, Leonie Van Der Linde"
-              description="This activity features Erase All Kittens (E.A.K.), a fun game where learners code and create on the web by changing the source code on each level."
-            />
+              description="This activity features Erase All Kittens (E.A.K.), a fun game where learners code and create on the web by changing the source code on each level."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-05.jpg"
               src2x="/img/pages/activities/img-activity-05@2x.jpg"
@@ -196,8 +201,7 @@ var ActivitiesPage = React.createClass({
               level="Beginner"
               link="https://cogdog.makes.org/thimble/LTEyMjQ4NjUyOA==/imageseeking-for-fantastic-visual-metaphors"
               developedBy="Alan Levine"
-              description="In this activity, learners search for photos that communicate ideas and concepts, while also exploring best practices around attribution and openly-licensed content on the web."
-            />
+              description="In this activity, learners search for photos that communicate ideas and concepts, while also exploring best practices around attribution and openly-licensed content on the web."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-06.jpg"
               src2x="/img/pages/activities/img-activity-06@2x.jpg"
@@ -205,8 +209,7 @@ var ActivitiesPage = React.createClass({
               level="Beginner-Intermediate"
               link="https://stacy.makes.org/thimble/MjAxMjIxNzYwMA==/whats-wrong-with-your-password"
               developedBy="Stacy Martin, Mozilla"
-              description="This teaching kit includes a series of activities to help leaners understand passwords &mdash; including why they're important, best practices, and tools to help you manage multiple passwords."
-            />
+              description="This teaching kit includes a series of activities to help leaners understand passwords &mdash; including why they're important, best practices, and tools to help you manage multiple passwords."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-07.jpg"
               src2x="/img/pages/activities/img-activity-07@2x.jpg"
@@ -214,8 +217,7 @@ var ActivitiesPage = React.createClass({
               level="Beginner-Intermediate"
               link="https://laura.makes.org/thimble/LTU1NDA0MTA4OA==/hack-your-notebook-teaching-kit"
               developedBy="Educator Inovator - Jen Dick, Jie Qi, David Cole, Chad Sansing"
-              description="In this series of activities, learners will explore the connections between art, circuitry and systems thinking by hacking their notbooks/journals with power and LEDs."
-            />
+              description="In this series of activities, learners will explore the connections between art, circuitry and systems thinking by hacking their notbooks/journals with power and LEDs."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-08.jpg"
               src2x="/img/pages/activities/img-activity-08@2x.jpg"
@@ -223,8 +225,7 @@ var ActivitiesPage = React.createClass({
               level="Intermediate"
               link="https://mousemeredith.makes.org/thimble/MTQwOTAyNDAwMA==/css-story-card-game-activity"
               developedBy="MOUSE (Hive NYC member)"
-              description="In this card game, learners work collaboratively to create a complete story using HTML and CSS."
-            />
+              description="In this card game, learners work collaboratively to create a complete story using HTML and CSS."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-QuackingJavascript.jpg"
               src2x="/img/pages/activities/img-activity-QuackingJavascript@2x.jpg"
@@ -232,8 +233,7 @@ var ActivitiesPage = React.createClass({
               level="JavaScript beginners"
               link="http://mozilla.github.io/webmaker-curriculum/QuackingJavascript/"
               developedBy="Hive Manchester"
-              description="Learners get familiar with writing Javascript in this fun, five-part module. Together we discover the foundations of the text coding by being creative and making our own web pages."
-            />
+              description="Learners get familiar with writing Javascript in this fun, five-part module. Together we discover the foundations of the text coding by being creative and making our own web pages."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-09.jpg"
               src2x="/img/pages/activities/img-activity-09@2x.jpg"
@@ -241,8 +241,7 @@ var ActivitiesPage = React.createClass({
               level="Intermediate"
               link="https://epik.makes.org/thimble/NjU2MTQ2OTQ0/minecraft-a-flavor-of-java-epik"
               developedBy="EPIK"
-              description="In this series of activities, learners develop computational thinking skills by using Java to create their own Minecraft mod."
-            />
+              description="In this series of activities, learners develop computational thinking skills by using Java to create their own Minecraft mod."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-10.jpg"
               src2x="/img/pages/activities/img-activity-10@2x.jpg"
@@ -250,8 +249,8 @@ var ActivitiesPage = React.createClass({
               level="Intermediate"
               link="https://stephguthrie.makes.org/thimble/ODU3ODAxMjE2/hacking-my-media-with-x-ray-goggles"
               developedBy="Steph Guthrie, Kim Wilkens, 2013 MozGirls"
-              description="In this activity, learners create a remix of a Wikimedia page as they think critically about the intersection of gender, culture, technology and identity."
-            />
+              description="In this activity, learners create a remix of a Wikimedia page as they think critically about the intersection of gender, culture, technology and identity."/>
+
             <h2>More resources</h2>
             <p>
               Hive Learning Networks are city-based communities of educators who champion digital skills and web literacy through connected learning. Visit each city's portfolio to find more inspiration, resources and projects for teaching and learning.
