@@ -27,7 +27,7 @@
     "json-loader": "^0.5.1",
     "jsx-loader": "^0.12.2",
     "leaflet.markercluster": "^0.4.0",
-    "lwip": "0.0.5",
+    "lwip": "0.0.8",
     "mapbox.js": "^2.1.5",
     "merge-stream": "^0.1.7",
     "minimatch": "^2.0.8",
