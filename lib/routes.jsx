@@ -30,6 +30,8 @@ var routes = (
            handler={require('../pages/private-eye.jsx')}/>
     <Route name="protect-your-data" path="/activities/protect-your-data/"
            handler={require('../pages/protect-your-data.jsx')}/>
+    <Route name="privacy-basics" path="/activities/privacy-basics/"
+           handler={require('../pages/privacy-basics.jsx')}/>
     <Route name="web-lit-basics" path="/activities/web-lit-basics/"
            handler={require('../pages/web-lit-basics.jsx')}/>
     <Redirect from="/clubs/curriculum/" to="/activities/web-lit-basics/" />
@@ -45,10 +47,6 @@ var routes = (
            handler={require('../pages/fixme.jsx')}/>
     <Route name="healthcheck" path="/healthcheck/"
            handler={require('../pages/healthcheck.jsx')}/>
-    <Route name="home3" path="/home3/"
-           handler={require('../pages/home3.jsx')}/>
-    <Route name="home4" path="/home4/"
-           handler={require('../pages/home4.jsx')}/>
     <Route name="teach-like-mozilla" path="/teach-like-mozilla/"
            handler={require('../pages/teach-like-mozilla.jsx')}/>
     <Route name="tools" path="/tools/"
