@@ -5,6 +5,14 @@ which uses the format described in
 to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
+### Added
+- Added "Privacy Basics" activity.
+
+### Changed
+- Cleaned up some LESS code by introducing a pageColorizer mixin.
+- Removed code used for an old A/B testing.
+- We are now using mocha-phantomjs v4.* 
+- Bumped npm module lwip version from 0.0.5 to 0.0.8.
 
 ## [0.0.24][] - 2015-10-14
 ### Added
