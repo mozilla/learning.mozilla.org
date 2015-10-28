@@ -4,8 +4,7 @@ var stubContext = require('./stub-context.jsx');
 var ImageTag = require('../../components/imagetag.jsx');
 
 describe('ImageTag', function () {
-  var
-      imagetag;
+  var imagetag;
 
   beforeEach(function() {
     imagetag = stubContext.render(ImageTag, {
@@ -20,10 +19,10 @@ describe('ImageTag', function () {
   });
 
   it('should set srcset attribute', function () {
-    imagetag.getDOMNode().getAttribute('srcset').should.equal('foo2x.jpg 2x');
+    imagetag.getDOMNode().querySelector("img").getAttribute('srcset').should.equal('foo2x.jpg 2x');
   });
 
   it('should set primary src to 1x resolution', function () {
-    imagetag.getDOMNode().getAttribute('src').should.equal('foo1x.jpg');
+    imagetag.getDOMNode().querySelector("img").getAttribute('src').should.equal('foo1x.jpg');
   });
 });

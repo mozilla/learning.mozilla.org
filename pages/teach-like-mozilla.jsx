@@ -28,7 +28,7 @@ var TeachLikeMozillaPage = React.createClass({
               width={242} height={175}
               src1x="/img/pages/teach-like-mozilla/svg/icon-teach-like-mozilla.svg"
               alt="icon teach like mozilla">
-                <ul>
+                <ul className="colored-list">
                   <li>
                     We teach web literacy, which encompasses the mechanics,
                     culture and citizenship of the web.

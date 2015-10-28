@@ -32,7 +32,7 @@ var OurFocus = React.createClass({
           <Illustration width={199} height={199}
           src1x="/img/pages/about/about-illustration.svg"
           alt="A graphic showing an illustration of a person, a book, some gears, a map pin, and a square acedemic cap">
-            <ul>
+            <ul className="colored-list">
               <li>Learn and deepen your 21st Century digital skills, and get better at teaching them to others.</li>
               <li>Contribute to real-world products and projects that are open, participatory and networked.</li>
               <li>Access free resources like event planning guides and step-by-step teaching activities, or share your own resources to receive feedback from peers.</li>
