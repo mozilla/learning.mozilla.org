@@ -6,13 +6,13 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 ### Added
-- Link to a sample Webmaker activity has been added to the Tools page.
+- Added "Privacy Basics" activity.
 
 ### Changed
-- Our semvar string for phantomjs now matches mocha-phantomjs's(`1.9.1 - 1.9.7-15`).
-  This is to fix the NPM error rasied from peerDependencies conflicts since the
-  phantomjs we required before was at 1.9.17 but it was not a version mocha-phantomjs
-  would take.
+- Cleaned up some LESS code by introducing a pageColorizer mixin.
+- Removed code used for an old A/B testing.
+- We are now using mocha-phantomjs v4.* 
+- Bumped npm module lwip version from 0.0.5 to 0.0.8.
 
 ## [0.0.24][] - 2015-10-14
 ### Added
