@@ -79,7 +79,7 @@ var PrivacyBasics = React.createClass({
           caption: <a href="https://commons.wikimedia.org/wiki/File:Monitor_padlock.svg">Lunarbunny, CC3.0-AT-SA, view original</a>,
           subtitle: "Understanding Security",
           description: "Learners will see why re-using passwords is a bad idea and pick up strategies for avoiding that habit, learning about security.",
-          link: "https://d157rqmxrxj6ey.cloudfront.net/mozillalearning/11704/"
+          link: "https://chadsansing.github.io/curriculum-testing/expanded-privacy-curriculum/avoiding-password-reuse.html"
         },
         {
           title: "Using Two-Factor Authentication",
