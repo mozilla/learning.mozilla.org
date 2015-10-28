@@ -6,6 +6,16 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.25][] - 2015-10-28
+### Added
+- Added "Privacy Basics" activity.
+
+### Changed
+- Cleaned up some LESS code by introducing a pageColorizer mixin.
+- Removed code used for an old A/B testing.
+- We are now using mocha-phantomjs v4.* 
+- Bumped npm module lwip version from 0.0.5 to 0.0.8.
+
 ## [0.0.24][] - 2015-10-14
 ### Added
 - Added 'Your Projects' page. This is a page for users to see the projects
@@ -412,7 +422,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.24...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.25...HEAD
+[0.0.25]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.24...v0.0.25
 [0.0.24]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.23...v0.0.24
 [0.0.23]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.22...v0.0.23
 [0.0.22]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.21...v0.0.22
