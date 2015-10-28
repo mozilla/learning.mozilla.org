@@ -68,7 +68,7 @@ var ClubList = React.createClass({
     var colClass = 'col-xs-' + (this.GRID_COLUMNS_PER_ROW / this.COLUMNS);
     return (
       <div className={colClass} key={key}>
-        <ul className="clubs-list list-unstyled">
+        <ul className="list-unstyled colored-list">
           {clubs.map(function(club, i) {
             return  <ClubListItem key={i} club={club}
                                   username={this.props.username}

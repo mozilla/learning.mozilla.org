@@ -26,6 +26,7 @@ var ActivitySection = React.createClass({
                 src1x={activity.image1x}
                 src2x={activity.image2x}
                 alt=""
+                caption={activity.caption}
                 link={activity.link}>
                   <div className="curriculum-description">
                     <a href={activity.link}>
