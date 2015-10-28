@@ -5,14 +5,6 @@ which uses the format described in
 to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
-### Added
-- Link to a sample Webmaker activity has been added to the Tools page.
-
-### Changed
-- Our semvar string for phantomjs now matches mocha-phantomjs's(`1.9.1 - 1.9.7-15`).
-  This is to fix the NPM error rasied from peerDependencies conflicts since the
-  phantomjs we required before was at 1.9.17 but it was not a version mocha-phantomjs
-  would take.
 
 ## [0.0.25][] - 2015-10-28
 ### Added
