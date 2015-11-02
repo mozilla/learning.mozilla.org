@@ -163,6 +163,14 @@ var ActivitiesPage = React.createClass({
               developedBy="Stacy Martin - Senior Data Privacy Manager at Mozilla and the Mozilla Learning Network team"
               description="Learn how to safeguard your privacy online and develop an awareness of how companies and governments track and collect your data online."/>
             <ActivityKit
+	          src1x="/img/pages/activities/img-activity-11.jpg"
+	          src2x="/img/pages/activities/img-activity-11@2x.jpg"
+	          title="Back to School Write the Web Kit"
+	          level="13+"
+	          link="/activities/back-to-school-write-the-web/"
+	          developedBy="Mozilla"
+	          description="Learn how to remix and write basic HTML, CSS, and JavaScript with these Back-to-School Thimble activities and lesson plans."/>
+            <ActivityKit
               src1x="/img/pages/activities/img-activity-01.png"
               src2x="/img/pages/activities/img-activity-01@2x.png"
               title="Lo-Fi, No-Fi (Teaching Kit)"
