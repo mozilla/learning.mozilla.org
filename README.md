@@ -25,6 +25,32 @@ may eventually evolve into becoming a dynamic server.
 
 To get a local version of the site running, you'll need to have [git](http://git-scm.com/) and [node](http://nodejs.org/) installed on your local machine.
 
+For best results, use node version 0.12.7 (as of November 2015).  Verify your node version using:
+
+```
+node --version
+```
+
+If you need to install a different version of node, Node Version Manager (nvm) is a helpful tool.
+To use nvm for managing different versions of node, first install prerequisite libraries using:
+
+```
+sudo apt-get update
+sudo apt-get install build-essential libssl-dev
+```
+
+Then follow the installation instructions for installing [nvm](https://github.com/creationx/nvm), and install node 0.12.7 using:
+
+```
+nvm install v0.12.7
+```
+
+This project is normally deployed on linux based servers or containers.  If you are trying to build on Windows or older Mac OS versions, you
+may save time and headaches if you use a virtual development environment running a stable linux distribution.  If you are not able to create a
+local linux based development environment, here are some free or very low cost options:
+* [Raspberry Pi](https://adafruit.com/category/105): low cost linux development environment (this project runs quite well on a Pi 2 Model B)
+* [Koding.com](https://koding.com): free linux based virtual machine and development environment 'in the cloud'.  All you need is a browser. 
+
 ### Clone
 
 In order to contribute to this project, you'll need to **create your own fork** of it and make pull-requests against our master branch.
