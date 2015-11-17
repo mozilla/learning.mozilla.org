@@ -16,6 +16,8 @@ var routes = (
   <Route handler={Page}>
     <Route name="about" path="/about/"
            handler={require('../pages/about.jsx')}/>
+    <Route name="badges" path="/badges/"
+           handler={require('../pages/badges.jsx')}/>
     <Route name="activities" path="/activities/"
            handler={require('../pages/activities.jsx')}/>
     <Route name="madewithcode-firstwebpage" path="/activities/madewithcode-firstwebpage/"
