@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6770611-cfb8-406c-8d96-1378cbfedeed" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/badges.jsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/pages/badges.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/credly.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/routes.jsx" afterPath="$PROJECT_DIR$/lib/routes.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/badge-icon.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/components/badge-icon.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/badges.jsx" afterPath="$PROJECT_DIR$/pages/badges.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/less/pages/badges.less" afterPath="$PROJECT_DIR$/less/pages/badges.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/less/components/index.less" afterPath="$PROJECT_DIR$/less/components/index.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/less/components/sidebar.less" afterPath="$PROJECT_DIR$/less/components/sidebar.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/less/variables.less" afterPath="$PROJECT_DIR$/less/variables.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="teach.mozilla.org.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,47 +30,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="badges.jsx" pinned="false" current-in-tab="false">
+      <file leaf-file-name="badges.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/badges.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.7278226">
+              <caret line="104" column="13" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="teach-api.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/teach-api.js">
+      <file leaf-file-name="badge-icon.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/badge-icon.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
+              <caret line="20" column="72" selection-start-line="20" selection-start-column="72" selection-end-line="20" selection-end-column="72" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="about.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/about.jsx">
+      <file leaf-file-name="hero-unit.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/less/components/hero-unit.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1446363231000" expanded="true" signature="377:1108" placeholder="&lt;xml/&gt;" />
-                <marker date="1446363231000" expanded="true" signature="447:1093" placeholder="&lt;xml/&gt;" />
-                <marker date="1446363231000" expanded="true" signature="487:1072" placeholder="&lt;xml/&gt;" />
-                <marker date="1446363231000" expanded="true" signature="1205:2095" placeholder="&lt;xml/&gt;" />
-                <marker date="1446363231000" expanded="true" signature="1258:2076" placeholder="&lt;xml/&gt;" />
-                <marker date="1446363231000" expanded="true" signature="1488:2050" placeholder="&lt;xml/&gt;" />
-                <marker date="1446363231000" expanded="true" signature="2191:2834" placeholder="&lt;xml/&gt;" />
-                <marker date="1446363231000" expanded="true" signature="2245:2448" placeholder="&lt;xml/&gt;" />
-                <marker date="1446363231000" expanded="true" signature="2461:2697" placeholder="&lt;xml/&gt;" />
-                <marker date="1446363231000" expanded="true" signature="3006:3892" placeholder="&lt;xml/&gt;" />
-                <marker date="1446363231000" expanded="true" signature="3112:3877" placeholder="&lt;xml/&gt;" />
-                <marker date="1446363231000" expanded="true" signature="3136:3354" placeholder="&lt;xml/&gt;" />
-                <marker date="1446363231000" expanded="true" signature="3367:3587" placeholder="&lt;xml/&gt;" />
-                <marker date="1446363231000" expanded="true" signature="3600:3854" placeholder="&lt;xml/&gt;" />
-              </folding>
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/less/common.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.0408163">
+              <caret line="198" column="15" selection-start-line="198" selection-start-column="2" selection-end-line="198" selection-end-column="15" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -74,48 +73,28 @@
       <file leaf-file-name="badges.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/less/pages/badges.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.25">
-              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+            <state vertical-scroll-proportion="-8.571428">
+              <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="credly.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/credly.js">
+      <file leaf-file-name="mixins.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/less/mixins.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32692307">
-              <caret line="17" column="46" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
+            <state vertical-scroll-proportion="-3.1578948">
+              <caret line="45" column="15" selection-start-line="45" selection-start-column="2" selection-end-line="45" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="clubs.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/less/pages/clubs.less">
+      <file leaf-file-name="badge-icon.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/less/components/badge-icon.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="private-eye.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/less/pages/private-eye.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/routes.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+            <state vertical-scroll-proportion="-7.897959">
+              <caret line="63" column="7" selection-start-line="63" selection-start-column="7" selection-end-line="63" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -124,18 +103,8 @@
       <file leaf-file-name="variables.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/less/variables.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activities.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/less/pages/activities.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+            <state vertical-scroll-proportion="-7.285714">
+              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -154,10 +123,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/less/pages/badges.less" />
         <option value="$PROJECT_DIR$/lib/routes.jsx" />
-        <option value="$PROJECT_DIR$/pages/badges.jsx" />
         <option value="$PROJECT_DIR$/lib/credly.js" />
+        <option value="$PROJECT_DIR$/less/pages/badges.less" />
+        <option value="$PROJECT_DIR$/less/components/sidebar.less" />
+        <option value="$PROJECT_DIR$/components/badge-item.jsx" />
+        <option value="$PROJECT_DIR$/less/components/index.less" />
+        <option value="$PROJECT_DIR$/less/variables.less" />
+        <option value="$PROJECT_DIR$/components/badge-icon.jsx" />
+        <option value="$PROJECT_DIR$/less/components/badge-icon.less" />
+        <option value="$PROJECT_DIR$/pages/badges.jsx" />
       </list>
     </option>
   </component>
@@ -167,6 +142,124 @@
     <gulpfiles>
       <GulpfileState>
         <gulpfile-path>$PROJECT_DIR$/gulpfile.js</gulpfile-path>
+        <tasks>
+          <GulpTaskState>
+            <dependencies>
+              <dependency value="generate-index-files" />
+            </dependencies>
+            <task-name>sitemap</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <dependencies>
+              <dependency value="copy-test-dirs" />
+              <dependency value="copy-images" />
+              <dependency value="copy-bootstrap" />
+              <dependency value="copy-fontawesome" />
+            </dependencies>
+            <task-name>copy-static-files</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>copy-test-dirs</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>copy-images</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>copy-bootstrap</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>copy-fontawesome</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>less</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>webpack</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <dependencies>
+              <dependency value="copy-static-files" />
+              <dependency value="less" />
+              <dependency value="webpack" />
+              <dependency value="sitemap" />
+              <dependency value="test-react-warnings" />
+            </dependencies>
+            <task-name>smoketest</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>test-react-warnings</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>generate-index-files</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>jshint</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>jscs</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <dependencies>
+              <dependency value="jscs" />
+              <dependency value="jshint" />
+            </dependencies>
+            <task-name>lint-test</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <dependencies>
+              <dependency value="copy-static-files" />
+              <dependency value="less" />
+              <dependency value="webpack" />
+              <dependency value="sitemap" />
+            </dependencies>
+            <task-name>default</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>watch-webpack</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>watch-static-files</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>watch-non-reloadable-files</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <dependencies>
+              <dependency value="copy-static-files" />
+              <dependency value="less" />
+              <dependency value="sitemap" />
+              <dependency value="watch-webpack" />
+              <dependency value="watch-static-files" />
+              <dependency value="watch-non-reloadable-files" />
+            </dependencies>
+            <task-name>watch</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <dependencies>
+              <dependency value="copy-static-files" />
+              <dependency value="less" />
+              <dependency value="watch-webpack" />
+              <dependency value="watch-static-files" />
+              <dependency value="watch-non-reloadable-files" />
+            </dependencies>
+            <task-name>app</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>travis-after-success</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <dependencies>
+              <dependency value="copy-static-files" />
+              <dependency value="less" />
+              <dependency value="webpack" />
+              <dependency value="sitemap" />
+            </dependencies>
+            <task-name>s3</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>postinstall</task-name>
+          </GulpTaskState>
+        </tasks>
       </GulpfileState>
     </gulpfiles>
   </component>
@@ -231,20 +324,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="teach.mozilla.org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="teach.mozilla.org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -263,6 +342,78 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="teach.mozilla.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="teach.mozilla.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="teach.mozilla.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="teach.mozilla.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="teach.mozilla.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="teach.mozilla.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="teach.mozilla.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="teach.mozilla.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="badge-icon" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -274,6 +425,13 @@
     <property name="FullScreen" value="false" />
     <property name="JavaScriptLanguageLevel" value="JSX" />
     <property name="recentsLimit" value="5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/img/components/badge-icon" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/img/components/badge-icon" />
+      <recent name="$PROJECT_DIR$/img/pages/badges" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -332,24 +490,25 @@
     <frame x="1440" y="23" width="1600" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.225" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32920793" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32920793" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.225" sideWeight="0.50763357" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.225" sideWeight="0.4923664" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35148516" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35185185" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -362,126 +521,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/less/pages/clubs.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/less/pages/private-eye.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/routes.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/less/variables.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/less/pages/activities.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="37" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/about.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1446363231000" expanded="true" signature="377:1108" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="447:1093" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="487:1072" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="1205:2095" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="1258:2076" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="1488:2050" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="2191:2834" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="2245:2448" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="2461:2697" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="3006:3892" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="3112:3877" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="3136:3354" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="3367:3587" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="3600:3854" placeholder="&lt;xml/&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/activities.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/illustration.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/main.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/routes.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mixins/teach-api-client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gulpfile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -508,20 +547,20 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1446363231000" expanded="true" signature="377:1108" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="447:1093" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="487:1072" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="1205:2095" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="1258:2076" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="1488:2050" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="2191:2834" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="2245:2448" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="2461:2697" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="3006:3892" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="3112:3877" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="3136:3354" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="3367:3587" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="3600:3854" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
           </folding>
         </state>
       </provider>
@@ -587,20 +626,20 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1446363231000" expanded="true" signature="377:1108" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="447:1093" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="487:1072" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="1205:2095" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="1258:2076" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="1488:2050" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="2191:2834" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="2245:2448" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="2461:2697" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="3006:3892" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="3112:3877" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="3136:3354" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="3367:3587" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="3600:3854" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
           </folding>
         </state>
       </provider>
@@ -633,20 +672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/illustration.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -654,24 +679,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/activities.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/main.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -699,29 +710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/less/common.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/less/variables.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/less/pages/clubs.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/less/pages/private-eye.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -730,19 +718,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/less/pages/activities.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/routes.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
-          <folding />
+          <folding>
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1447749292000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -751,20 +757,20 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1446363231000" expanded="true" signature="377:1108" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="447:1093" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="487:1072" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="1205:2095" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="1258:2076" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="1488:2050" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="2191:2834" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="2245:2448" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="2461:2697" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="3006:3892" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="3112:3877" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="3136:3354" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="3367:3587" placeholder="&lt;xml/&gt;" />
-            <marker date="1446363231000" expanded="true" signature="3600:3854" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1446363231000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
           </folding>
         </state>
       </provider>
@@ -777,26 +783,196 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/badges.jsx">
+    <entry file="file://$PROJECT_DIR$/lib/travis.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/less/pages/badges.less">
+    <entry file="file://$PROJECT_DIR$/less/pages/activities.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.25">
-          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        <state vertical-scroll-proportion="-2.7551022">
+          <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/less/components/sidebar.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.9183673">
+          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/credly.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32692307">
-          <caret line="17" column="46" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/less/pages/clubs.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.5102043">
+          <caret line="53" column="30" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/icon-button.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="29" selection-start-line="0" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/illustration.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="67" selection-start-line="16" selection-start-column="16" selection-end-line="23" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/activities.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/components/badge-icon/ProblemSolving.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/components/badge-icon/Audience.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/less/components/activity-section.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/less/components/footer.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/hero-unit.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/less/index.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/less/components/index.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.75">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="8.346774">
+          <caret line="276" column="27" selection-start-line="276" selection-start-column="27" selection-end-line="276" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/less/common.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.0408163">
+          <caret line="198" column="15" selection-start-line="198" selection-start-column="2" selection-end-line="198" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/less/components/hero-unit.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/less/variables.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.285714">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/less/mixins.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.1578948">
+          <caret line="45" column="15" selection-start-line="45" selection-start-column="2" selection-end-line="45" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/less/pages/badges.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.571428">
+          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/badge-icon.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="72" selection-start-line="20" selection-start-column="72" selection-end-line="20" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/less/components/badge-icon.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.897959">
+          <caret line="63" column="7" selection-start-line="63" selection-start-column="7" selection-end-line="63" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/badges.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7278226">
+          <caret line="104" column="13" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="13" />
           <folding />
         </state>
       </provider>
