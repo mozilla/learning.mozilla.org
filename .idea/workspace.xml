@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6770611-cfb8-406c-8d96-1378cbfedeed" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/badge-icon.jsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/less/components/badge-icon.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/badges.jsx" afterPath="$PROJECT_DIR$/pages/badges.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/less/pages/badges.less" afterPath="$PROJECT_DIR$/less/pages/badges.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/less/components/index.less" afterPath="$PROJECT_DIR$/less/components/index.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/less/components/sidebar.less" afterPath="$PROJECT_DIR$/less/components/sidebar.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/less/variables.less" afterPath="$PROJECT_DIR$/less/variables.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="teach.mozilla.org.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,8 +26,8 @@
       <file leaf-file-name="badges.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/badges.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7278226">
-              <caret line="104" column="13" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.06048387">
+              <caret line="2" column="54" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -971,8 +964,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/badges.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7278226">
-          <caret line="104" column="13" selection-start-line="104" selection-start-column="13" selection-end-line="104" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.06048387">
+          <caret line="2" column="54" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
           <folding />
         </state>
       </provider>

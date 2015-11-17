@@ -1,12 +1,6 @@
 var React = require('react');
 var ImageTag = require('../components/imagetag.jsx');
-//var Illustration = require('../components/illustration.jsx');
-var IconLinks = require('../components/icon-links.jsx');
-var IconLink = require('../components/icon-link.jsx');
 var HeroUnit = require('../components/hero-unit.jsx');
-var Link = require('react-router').Link;
-var OutboundLink = require('react-ga').OutboundLink;
-var _ = require('underscore');
 var BadgeIcon = require('../components/badge-icon.jsx');
 var CredlyInterface = require('../lib/credly');
 
