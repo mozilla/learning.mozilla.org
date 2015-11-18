@@ -3,9 +3,10 @@ var ImageTag = require('../components/imagetag.jsx');
 var HeroUnit = require('../components/hero-unit.jsx');
 var BadgeIcon = require('../components/badge-icon.jsx');
 var CredlyInterface = require('../lib/credly');
+var _ = require('underscore');
 
 
-var accesstoken = "d56b47dc5f3b23abf1a8fc30b7d546464c1e73dc7b2a2683b4e385a719b28958d25f6f954f352a3eb615c953b4f66ca1aef32520f506b032b10996e97be18451";
+var accesstoken = "85616b6a1c21bd3605529711470c3945f2b743d6b1163524b799a842bfeb1cf3e6aaa360e10202c5fe50f9a0bda3a0656831f890fe62d733e582341e5b56d13c";
 
 var BadgePage = React.createClass({
     statics: {
@@ -29,6 +30,7 @@ var BadgePage = React.createClass({
     },
     setBadgesData: function(error, data) {
         var parsed = this.parseBadges(data);
+        console.log( parsed , '@parsed');
         this.setState({
             badges: parsed
         });
@@ -36,11 +38,26 @@ var BadgePage = React.createClass({
     parseBadges: function(credlyResponse) {
         // do parsing here
         var data = credlyResponse;
+
+        if( data.status == '200' && data.body && data.body.data && data.body.data.length ){
+            data = _.map(data.body.data , function(badgeData){
+                return {
+                    'title' : badgeData.title || '',
+                    'status' : 'Achieved',
+                    'description': badgeData.criteria || '',
+                    'icon': badgeData.image || '',
+                    icon2x: badgeData.image || ''
+                }
+            });
+            console.log(data);
+        }else{
+            data = [];
+        }
         return data;
     },
     render: function() {
 
-        var data = [
+        var dummyBadges = [
             {
                 title: 'Problem Solving',
                 status: 'achieved',
@@ -98,6 +115,10 @@ var BadgePage = React.createClass({
                 icon2x: '/img/components/badge-icon/ProblemSolving@2x.png'
             }
         ];
+
+        //display dummy data
+        //var data = _.union(this.state.badges,dummyBadges);
+        var data = this.state.badges || [];
 
         return (
             <div>
