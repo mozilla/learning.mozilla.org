@@ -31,8 +31,8 @@ For best results, use node version 0.12.7 (as of November 2015).  Verify your no
 node --version
 ```
 
-If you need to install a different version of node, Node Version Manager (nvm) is a helpful tool.
-To use nvm for managing different versions of node, first install prerequisite libraries using:
+If you need to install node, or switch to a different version of node, Node Version Manager (nvm) is a helpful tool.
+To use nvm for installing and managing different versions of node, first install prerequisite libraries using:
 
 ```
 sudo apt-get update
