@@ -8,6 +8,8 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [0.0.25][] - 2015-10-28
 ### Added
+- Added verbage on node dependencies and node version management to README.md
+- Added options for free & low cost linux dev environments to README.md
 - Added "Privacy Basics" activity.
 
 ### Changed
