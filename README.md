@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/mozilla/teach.mozilla.org.svg)](https://travis-ci.org/mozilla/teach.mozilla.org)
-
+ 
 This is the source code for [teach.mozilla.org][].
 
 **For a summary of the most recent changes to the project, please
