@@ -1,12 +1,37 @@
-.page.teaching-materials .hero-unit {
-  background-image: url(/img/pages/activities/hero-teaching-activities.jpg);
+@indigoSidebarTextColor: #AEB1CE;
+.page.badges {
+  .hero-unit {
+    background-image: url(/img/pages/badges/pattern.png);
+    background-repeat: repeat;
+    background-color: #474E79;
+    background-size: auto;
+    -moz-background-size: auto;
+    -webkit-background-size: auto;
 
-  .retina2x({
-    background-image: url(/img/pages/activities/hero-teaching-activities@2x.jpg);
-  });
+    h1{
+      margin-top: 40px;
+    }
+
+    .retina2x({ background-image: url(/img/pages/badges/pattern@2x.png); });
+
+    .sub-title{
+      color:@indigoSidebarTextColor;
+      padding: 0px 10rem;
+      font-size: 2rem;
+    }
+  }
+
+  .icon-link {
+    padding-bottom: 0px;
+    .subhead {
+      font-style: normal;
+      color: @indigoSidebarTextColor;
+      padding:0px 4rem;
+    }
+  }
 }
 
-.activities {
+.badges {
   .hive-links {
     margin: 2.5rem 0;
     .hive-link {
@@ -31,6 +56,34 @@
       padding-bottom: 0;
       img {
         border-radius: 4px;
+      }
+    }
+  }
+}
+
+
+.top-back-navigation{
+  margin-top: @padding-base-horizontal;
+  margin-bottom: @padding-base-horizontal * 2;
+
+  .btn-link{
+    text-transform: uppercase;
+    color: @indigoSidebarColor;
+  }
+}
+
+
+.single-badge{
+  .badge-horizontal-icon{
+    .badge-description{
+      margin-top: 3rem;
+
+      h2{
+        margin-top: 10px;
+      }
+
+      .description{
+        font-size: 1.8rem;
       }
     }
   }
