@@ -18,6 +18,8 @@ var routes = (
            handler={require('../pages/about.jsx')}/>
     <Route name="activities" path="/activities/"
            handler={require('../pages/activities.jsx')}/>
+    <Route name="madewithcode" path="/activities/madewithcode/"
+           handler={require('../pages/madewithcode.jsx')}/>
     <Route name="madewithcode-firstwebpage" path="/activities/madewithcode-firstwebpage/"
            handler={require('../pages/madewithcode-firstwebpage.jsx')}/>
     <Route name="madewithcode-meme" path="/activities/madewithcode-meme/"

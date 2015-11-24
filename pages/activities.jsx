@@ -258,6 +258,13 @@ var ActivitiesPage = React.createClass({
               link="https://stephguthrie.makes.org/thimble/ODU3ODAxMjE2/hacking-my-media-with-x-ray-goggles"
               developedBy="Steph Guthrie, Kim Wilkens, 2013 MozGirls"
               description="In this activity, learners create a remix of a Wikimedia page as they think critically about the intersection of gender, culture, technology and identity."/>
+            <ActivityKit
+              src1x="/img/pages/activities/img-activity-madewithcode.png"
+              title="Made with Code"
+              level="Beginner"
+              link="/activities/madewithcode"
+              developedBy="Mozilla for Google's Made with Code initiative"
+              description="Mozilla is happy to partner with Google's Made with Code initiative to inspire girls to get creative with code. There are three fun activities to help you create your own webpages by writing and remixing HTML."/>
 
             <h2>More resources</h2>
             <p>
