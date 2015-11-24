@@ -3,6 +3,7 @@ var Illustration = require('../components/illustration.jsx');
 var ActivitySection = require('../components/activity-section.jsx');
 var Router = require('react-router');
 var Link = Router.Link;
+var OutboundLink = require('react-ga').OutboundLink;
 
 var CurriculumIntro = React.createClass({
   render: function () {
@@ -113,10 +114,17 @@ var ClubsCurriculum = React.createClass({
     }
   ],
   render: function () {
+    var blogPostLink = "https://blog.webmaker.org/help-us-get-local-with-web-literacy";
     return (
       <div className="inner-container">
         <CurriculumIntro/>
         <WebLitBasics/>
+        <section>
+          <div className="alert alert-warning">
+            <strong>Help us translate: </strong>
+            We're making an effort to localize our Web Literacy Basics I curriculum and we need your help! There's increasing interest in starting Mozilla Clubs and teaching web literacy skills in communities around the globe, but our current curricular modules are only available in English. <OutboundLink to={blogPostLink} eventLabel={blogPostLink}>Learn how you can help</OutboundLink>.
+          </div>
+        </section>
         {this.curriculum.map(function (section, key) {
           return (
             <ActivitySection title={section.title} key={key} activities={section.activities} />
