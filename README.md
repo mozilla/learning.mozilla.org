@@ -34,7 +34,7 @@ node --version
 If you need to install node, or switch to a different version of node, Node Version Manager (nvm) is a helpful tool.  Instructions for
 installing nvm vary by environment.  See notes below for Mac, Linux (Ubuntu, Debian, Raspbian) and Windows variations:
 
-#### Mac OS (tested on Yosemite)
+##### Mac OS (tested on Yosemite)
 
 First, make sure your system has a c++ compiler, such as XCode.
 
@@ -45,7 +45,7 @@ nvm install v0.12.7
 ```
 Now you are ready to clone and build this repo locally using the Clone, Build and Develop steps below.
 
-#### Linux (tested on Ubuntu 14.04, Debian Jessie and Raspberry Pi/Raspbian Jessie)
+###### Linux (tested on Ubuntu 14.04, Debian Jessie and Raspberry Pi/Raspbian Jessie)
 
 To use nvm for installing and managing different versions of node, first install prerequisite libraries using:
 
@@ -64,8 +64,8 @@ Now you are ready to clone and build this repo locally using the Clone, Build an
 #### Windows / other
 
 This project is normally deployed on linux based servers or containers.  If you are trying to build on Windows or older Mac OS versions, you
-may save time and headaches if you use a virtual development environment running a stable linux distribution.  If you are not able to create a
-local linux based development environment, here are some free or very low cost options:
+may save time and headaches if you use a virtual development environment running a stable current linux distribution.  If you are not able to
+create a local linux based development environment, here are some free or very low cost options:
 * [Raspberry Pi](https://adafruit.com/category/105): low cost linux development environment (this project runs quite well on a Pi2 Model B)
 * [Koding.com](https://koding.com): free linux based virtual machine and development environment 'in the cloud'.  All you need is a browser. 
 
