@@ -1,0 +1,40 @@
+.requirements-list{
+  li{
+    padding: @padding-large-horizontal @padding-large-horizontal * 2;
+    margin-bottom: @padding-base-vertical;
+    overflow: hidden;
+    position: relative;
+    display: table;
+    width: 100%;
+    min-height: 76px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+
+    &:nth-child(even){
+      background-color: @liBgEvenColor;
+    }
+    &:nth-child(odd){
+      background-color: @liBgOddColor;
+    }
+
+    &:last-child{
+      margin-bottom: 0px;
+    }
+
+    .icon-wrapper{
+      position: absolute;
+      width: (@padding-large-horizontal * 2) + @listItemPaddingLeft;
+      text-align: center;
+      top: 50%;
+      left: 0px;
+      margin-top: -12px; //height of .icon-wrapper 22px;
+      color: @indigoSidebarColor;
+    }
+    .text{
+      display: table-cell;
+      vertical-align: middle;
+      padding-left: @listItemPaddingLeft;
+    }
+  }
+}

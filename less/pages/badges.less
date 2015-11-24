@@ -75,9 +75,9 @@
 
 .single-badge{
   .badge-horizontal-icon{
+    margin-bottom: 3rem;
     .badge-description{
       margin-top: 3rem;
-
       h2{
         margin-top: 10px;
       }
@@ -86,5 +86,88 @@
         font-size: 1.8rem;
       }
     }
+  }
+
+  .content{
+    padding: 0px 4rem;
+  }
+}
+
+
+.apply-send-qualifications{
+  h3{
+    margin-top: @padding-large-horizontal * 3.5;
+  }
+
+  form{
+    .form-group{
+      .control-label{
+        font-weight: 300;
+        margin-bottom: @padding-base-horizontal;
+      }
+
+      .form-control{
+        background-color: @liBgEvenColor;
+        padding: @padding-base-horizontal;
+        font-size: 1.8rem;
+        border: 0px;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+
+        &::-webkit-input-placeholder { font-style: italic; }
+        &:-moz-placeholder { font-style: italic; }
+      }
+    }
+  }
+}
+
+.single-badge-page-navigation{
+  padding:  0 0 @padding-large-horizontal * 2 0;
+
+  .next,
+  .prev{
+    .icon{
+      display: inline-block;
+      max-width: 100px;
+      max-height: 114px;
+
+      img{
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+    .text{
+      display: inline-block;
+      text-transform: uppercase;
+    }
+  }
+
+  .next{
+    text-align: right;
+    .text{
+      margin-right: @padding-base-horizontal;
+    }
+  }
+
+  .prev{
+    .text{
+      margin-left: @padding-base-horizontal;
+    }
+  }
+}
+
+.optional-file-input{
+  .btn-link{
+    padding-left:0px;
+    padding-right:0px;
+  }
+}
+
+.login-cta{
+  .login-text{
+    font-size: 1em;
+    font-weight: bold;
+    margin-right: 15px;
   }
 }

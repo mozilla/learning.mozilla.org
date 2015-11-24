@@ -4,6 +4,7 @@ var React = require('react'),
     IconLinks = require('../components/icon-links.jsx'),
     IconLink = require('../components/icon-link.jsx'),
     BadgeVerticalIcon = require('../components/badge-vertical-icon.jsx'),
+    Link = require('react-router').Link,
     _ = require('underscore');
 
 var BadgesPage = React.createClass({
@@ -111,16 +112,19 @@ var BadgesPage = React.createClass({
     },
     render: function () {
         var badges = this.state.badges.map(function (badge) {
+            var link = '/badge/' + badge.key;
             return (
                 <div key={badge.key} className="col-md-4">
-                    <BadgeVerticalIcon
-                        key={badge.key}
-                        icon={badge.icon}
-                        icon2x={badge.icon2x}
-                        title={badge.title}
-                        status={badge.status}
-                        alt={badge.title}
-                        description={badge.description} />
+                    <Link to={link}>
+                        <BadgeVerticalIcon
+                            key={badge.key}
+                            icon={badge.icon}
+                            icon2x={badge.icon2x}
+                            title={badge.title}
+                            status={badge.status}
+                            alt={badge.title}
+                            description={badge.description} />
+                    </Link>
                 </div>
             );
         });
@@ -153,8 +157,23 @@ var BadgesPage = React.createClass({
                                 />
                         </IconLinks>
                     </section>
-
                 </HeroUnit>
+
+                <div className="login-section">
+                    <div>
+                        <img src="/img/pages/badges/svg/divider.svg" width={'90%'} className="center-block horizontal-divider"/>
+                    </div>
+                    <div className={'text-center login-cta'}>
+                        <span className={'login-text'}>Sign in to start earning credentials.</span>
+                        <a href="/login" className="btn btn-awsm">Sign In</a>
+                    </div>
+                    <div>
+                        <img src="/img/pages/badges/svg/divider.svg" width={'90%'} alt="" className="center-block horizontal-divider"/>
+                    </div>
+                </div>
+
+
+
                 <div className="inner-container badges-content">
                     <section>
                         <h2 className="text-center">Earn 21st Century Skill Credentials</h2>
