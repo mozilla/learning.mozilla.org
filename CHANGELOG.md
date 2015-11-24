@@ -6,10 +6,18 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
-## [0.0.25][] - 2015-10-28
+## [0.0.26][] - 2015-11-23
 ### Added
+- Added "Back to School" activity kit.
 - Added verbage on node dependencies and node version management to README.md
 - Added options for free & low cost linux dev environments to README.md
+
+### Changed
+- Updated Made with Code pages with the new Google logo.
+- Fixed Hive logo sizing issue on Activities page.
+
+## [0.0.25][] - 2015-10-28
+### Added
 - Added "Privacy Basics" activity.
 
 ### Changed
@@ -424,7 +432,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.25...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.26...HEAD
+[0.0.26]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.25...v0.0.26
 [0.0.25]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.24...v0.0.25
 [0.0.24]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.23...v0.0.24
 [0.0.23]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.22...v0.0.23
