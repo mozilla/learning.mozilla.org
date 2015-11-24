@@ -45,7 +45,7 @@ nvm install v0.12.7
 ```
 Now you are ready to clone and build this repo locally using the Clone, Build and Develop steps below.
 
-###### Linux (tested on Ubuntu 14.04, Debian Jessie and Raspberry Pi/Raspbian Jessie)
+##### Linux (tested on Ubuntu 14.04, Debian Jessie and Raspberry Pi/Raspbian Jessie)
 
 To use nvm for installing and managing different versions of node, first install prerequisite libraries using:
 
@@ -61,7 +61,7 @@ nvm install v0.12.7
 ```
 Now you are ready to clone and build this repo locally using the Clone, Build and Develop steps below.
 
-#### Windows / other
+##### Windows / other
 
 This project is normally deployed on linux based servers or containers.  If you are trying to build on Windows or older Mac OS versions, you
 may save time and headaches if you use a virtual development environment running a stable current linux distribution.  If you are not able to
