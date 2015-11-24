@@ -14,7 +14,7 @@ var Intro = React.createClass({
         <h1>Made with Code</h1>
         <section className="intro">
           <Illustration
-          width={200}
+          width={200} height={355}
           src1x="/img/pages/madewithcode/logo_mwc.png"
           alt="Woman training a young man on a computer"
           className="content-first">
@@ -33,6 +33,7 @@ var MadeWithCode = React.createClass({
   },
   curriculum: [
     {
+      title: "",
       activities: [
         {
           title: "Let's Make a Meme",
