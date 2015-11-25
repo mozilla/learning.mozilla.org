@@ -171,3 +171,28 @@
     margin-right: 15px;
   }
 }
+
+.badge-reward-text{
+  background-color: @liBgOddColor;
+  padding: @padding-large-horizontal * 2;
+  border-radius: 4px;
+
+  .date{
+    margin-bottom: @padding-base-horizontal;
+    text-transform: uppercase;
+  }
+  .qualifications{
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    font-style: italic;
+    margin-bottom: @padding-base-horizontal;
+
+    &:before{
+      content: '"';
+    }
+    &:after{
+      content: '"';
+    }
+  }
+
+}

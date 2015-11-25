@@ -4,6 +4,7 @@ var React = require('react'),
     RequirementsList = require('../components/requirement-list.jsx'),
     Badge = require('../components/badge.jsx'),
     Link = require('react-router').Link,
+    $ = require('jquery'),
     _ = require('underscore');
 
 /**
@@ -67,11 +68,12 @@ var BadgePage = React.createClass({
         pageTitle: 'Badges',
         pageClassName: 'badges single-badge'
     },
-    onQualificationsSubmit : function (){
-      console.log ('Qualifications');
+    onQualificationsSubmit : function ( event ){
+        event.preventDefault();
+        console.log( $( event.target ).serializeArray() );
     },
-    handleFileSelect : function () {
-        console.log ('File Select');
+    handleFileSelect : function (event) {
+        $( this.refs.optionalFile.getDOMNode() ).click();
     },
     getInitialState: function () {
         return {
@@ -128,8 +130,30 @@ var BadgePage = React.createClass({
                 </BadgeHorizontalIcon>
 
 
+
+                <div className="apply-congratulations">
+                    <img src="/img/pages/badges/svg/divider.svg" alt="" className="center-block horizontal-divider"/>
+
+                    <h3 className={'text-light'}>Congrats, you were awarded this credential.</h3>
+
+                    <div className="badge-reward-text">
+                        <div className="date">Sep 3,2015</div>
+                        <div className="qualifications">I’ve earned this badge by working on this project: www.websitepage.com. My project demonstrates an understanding of cultural awarness, which is reflected in this part of the project: my journal entries of personal self-reflections during group project.</div>
+                        <div className="attachment"><Link to='/myblog'>MyBlog.jpg</Link></div>
+                    </div>
+
+
+
+
+                    <img src="/img/pages/badges/svg/divider.svg" alt="" className="center-block horizontal-divider"/>
+                </div>
+
+
+
+
+
                 <div className="badge-requirement">
-                    <h3>Badge Requirements</h3>
+                    <h3 className={'text-light'}>Badge Requirements</h3>
                     <p>Make or write something that demonstrates your understanding of any two or more of the following:</p>
 
                     <RequirementsList
@@ -137,11 +161,12 @@ var BadgePage = React.createClass({
                         icon="fa fa-check"/>
                 </div>
 
+
                 <div className="apply-send-qualifications">
-                    <p><strong>Ideas?</strong> You could submit a blog post, a project you made using Mozilla's tools, or another web creation you made. Demonstrate your understanding in your own unique way!</p>
+                    <p><strong className={'text-bold'}>Ideas?</strong> You could submit a blog post, a project you made using Mozilla's tools, or another web creation you made. Demonstrate your understanding in your own unique way!</p>
 
 
-                    <h3>Apply for this badge</h3>
+                    <h3 className={'text-light'}>Apply for this badge</h3>
 
                     <form className="horizontal-form" role="form" onSubmit={this.onQualificationsSubmit}>
                         <div className="form-group">
@@ -158,7 +183,7 @@ var BadgePage = React.createClass({
 
                         <div className="optional-file-input">
                             <input type="file" className="hidden" name="optional_file" id="optional_file" ref="optionalFile" />
-                            <button type="button" ref="optional_file" className="btn btn-link" onClick={this.handleFileSelect}>Add Optional Attachment(s)</button>
+                            <button type="button" ref="optionalFileBtn" className="btn btn-link" onClick={this.handleFileSelect}>Add Optional Attachment(s)</button>
                         </div>
 
                         <div>
