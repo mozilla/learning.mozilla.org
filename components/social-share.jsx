@@ -32,7 +32,7 @@ var SocialShare = React.createClass({
     render : function () {
 
         var networksBtn = this.SOCIAL_NETWORKS.map(function( network ){
-            return <SocialShareButton networkType={network.name} iconClassName={network.iconClassName} />
+            return <SocialShareButton key={network.name} networkType={network.name} iconClassName={network.iconClassName} />
         });
 
         return (
