@@ -20,13 +20,14 @@ var ActivitySection = React.createClass({
               </div>
             )
           } else {
+            var caption = activity.originalImgSrc ? <a href={activity.originalImgSrc}>view original</a> : null;
             return (
               <div className="activity" key={i}>
                 <Illustration height={122} width={122}
                 src1x={activity.image1x}
                 src2x={activity.image2x}
                 alt=""
-                caption={activity.caption}
+                caption={caption}
                 link={activity.link}>
                   <div className="curriculum-description">
                     <a href={activity.link}>
