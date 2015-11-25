@@ -115,7 +115,7 @@ var BadgesPage = React.createClass({
             var link = '/badge/' + badge.key;
             return (
                 <div key={badge.key} className="col-md-4">
-                    <Link to={link}>
+                    <Link to={link} className={'badge-icon-link'}>
                         <BadgeVerticalIcon
                             key={badge.key}
                             icon={badge.icon}

@@ -1,5 +1,6 @@
 var React = require('react'),
     HeroUnit = require('../components/hero-unit.jsx'),
+    SocialShare = require('../components/social-share.jsx'),
     BadgeHorizontalIcon = require('../components/badge-horizontal-icon.jsx'),
     RequirementsList = require('../components/requirement-list.jsx'),
     Badge = require('../components/badge.jsx'),
@@ -134,7 +135,14 @@ var BadgePage = React.createClass({
                 <div className="apply-congratulations">
                     <img src="/img/pages/badges/svg/divider.svg" alt="" className="center-block horizontal-divider"/>
 
-                    <h3 className={'text-light'}>Congrats, you were awarded this credential.</h3>
+                    <div className="row">
+                        <div className="col-md-8">
+                            <h3 className={'text-light'}>Congrats, you were awarded this credential.</h3>
+                        </div>
+                        <div className="col-md-4 text-right">
+                            <SocialShare />
+                        </div>
+                    </div>
 
                     <div className="badge-reward-text">
                         <div className="date">Sep 3,2015</div>
