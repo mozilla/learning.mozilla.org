@@ -111,16 +111,9 @@ html.no-js .sidebar {
 }
 
 .sidebar-menu {
+  font-size: 13px;
   padding-bottom: 0;
   margin-bottom: 0;
-  .teach img {
-    width: 5rem;
-    margin: 0.4rem 1.3rem 0 0.6rem;
-  }
-  .clubs img {
-    width: 5rem;
-    margin: 0 1.5rem 0 0.5rem;
-  }
 
   a {
     position: relative;
@@ -139,14 +132,16 @@ html.no-js .sidebar {
     display: inline;
     font-weight: 700;
     text-transform: uppercase;
-    @media (min-width: @screen-md-min) {
-      display: block;
-    }
+    vertical-align: middle;
+    margin-left: 1rem;
   }
-  .help-text {
-    font-size: 1.2rem;
-    font-weight: 400;
-    width: 22rem;
+  .external-link {
+    a strong:after {
+      content: "\f08e";
+      font-family: "FontAwesome";
+      color: fade(@white, 50%);
+      margin-left: 1rem;
+    }
   }
   .glyphicon {
     position: absolute;
@@ -163,49 +158,54 @@ html.no-js .sidebar {
       visibility: visible;
     }
   }
+  .img-container {
+    display: inline-block;
+    overflow: hidden;
+    width: 3.5rem;
+    text-align: center;
+    vertical-align: middle;
+    margin-left: 2rem;
+    @media (min-width: @screen-md-min) {
+      margin-left: 0;
+    }
+  }
   img {
     float: none;
-    width: 5.4rem;
+    width: 2rem;
     opacity: 0.6;
-    margin: 0 1.5rem 0 0;
-    @media (min-width: @screen-md-min) {
-      float: left;
-    }
+  }
+  .activities img,
+  .events img {
+    width: 1.6rem;
+  }
+  .tools-page img {
+    width: 2.3rem;
+  }
+  .community img {
+    width: 2.8rem;
   }
 }
 
 .sidebar-subitems {
-  border-left: 0.1rem solid rgba(255, 255, 255, 0.4);
+  overflow: hidden;
   display: none;
   list-style: none;
-  margin-bottom: 1rem;
-  margin-left: 3rem;
-  padding: 0;
-  position: relative;
-  top: 0;
+  padding: 0 0 0 6.5rem;
 
   @media screen and (min-width: @screen-lg-min) {
-    margin-left: 4.5rem;
+    padding-left: 6rem;
   }
   li {
     margin-bottom: 1.5rem;
-    position: relative;
     &::before {
-      border-bottom: 0.1rem solid rgba(255, 255, 255, 0.4);
-      bottom: 0;
-      content: '';
-      display: block;
-      height: 0.1rem;
-      position: absolute;
-      width: 4rem;
+      content: "\f105";
+      font-family: "FontAwesome";
+      display: inline-block;
     }
   }
   a {
-    display: block;
-    margin: 0 0 0 4rem;
-    padding: 0.5rem 1rem;
-    position: relative;
-    top: 1.4rem;
+    display: inline-block;
     font-weight: 600;
+    padding: 0 0 0 1rem;
   }
 }

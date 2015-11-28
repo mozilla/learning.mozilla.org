@@ -10,8 +10,12 @@
         background-color: darken(@pageColor, 5%);
       }
     }
-    .sidebar-menu a .glyphicon {
-      color: lighten(@pageColor, 15%);
+    .sidebar-menu a.active + .sidebar-subitems {
+      background-color: darken(@pageColor, 5%);
+      li::before,
+      a {
+        color: fade(@white, 50%);
+      }
     }
   }
   // apply border color to list

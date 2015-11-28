@@ -5,27 +5,43 @@ var LinkAnchorSwap = require('./link-anchor-swap.jsx');
 
 var Login = require('./login.jsx');
 
+var Subitems = React.createClass({
+  render: function() {
+    var items = this.props.subItems.map(function (item, key) {
+      return (
+        <li key={key}>
+          <Link to={item.link}>
+            {item.name}
+          </Link>
+        </li>
+      )}
+    );
+    return (
+      <ul className="sidebar-subitems">
+        {items}
+      </ul>
+    );
+  }
+});
+
 var Sidebar = React.createClass({
   MENU_ENTRIES: [
     {
       name: "Teaching Activities",
       link: 'activities',
-      help: "Activities and lesson plans to get you started",
-      icon: "/img/components/sidebar/svg/icon-nav-white-materials.svg",
+      icon: "/img/components/sidebar/svg/icon-nav-activities.svg",
       className: "activities"
     },
     {
       name: "Mozilla Clubs",
       link: 'mozilla-clubs',
-      help: "Join our global community of local chapters",
-      icon: "/img/components/sidebar/svg/icon-nav-white-globe.svg",
+      icon: "/img/components/sidebar/svg/icon-nav-clubs.svg",
       className: "clubs"
     },
     {
       name: "Maker Party",
       link: 'events',
-      help: "Host a one-time event or workshop",
-      icon: "/img/components/sidebar/svg/icon-nav-white-events.svg",
+      icon: "/img/components/sidebar/svg/icon-nav-maker.svg",
       className: "events",
       subItems: [
         {
@@ -37,21 +53,13 @@ var Sidebar = React.createClass({
     {
       name: "Tools",
       link: 'tools',
-      help: "Open source software to teach and learn the Web",
-      icon: "/img/components/sidebar/svg/icon-nav-white-tools.svg",
+      icon: "/img/components/sidebar/svg/icon-nav-tools.svg",
       className: "tools-page"
-    },
-    {
-      name: "Community",
-      href: 'http://discourse.webmaker.org/',
-      help: "Connect with others on topics you care about",
-      icon: "/img/components/sidebar/svg/icon-nav-white-community.svg",
     },
     {
       name: "Teach Like Mozilla",
       link: 'teach-like-mozilla',
-      help: "Learn about our approach to teaching the Web",
-      icon: "/img/components/sidebar/svg/icon-nav-white-gears.svg",
+      icon: "/img/components/sidebar/svg/icon-nav-tlm.svg",
       className: "teach",
       subItems: [
         {
@@ -59,6 +67,12 @@ var Sidebar = React.createClass({
           link: "web-literacy"
         }
       ]
+    },
+    {
+      name: "Community",
+      href: 'http://discourse.webmaker.org/',
+      icon: "/img/components/sidebar/svg/icon-nav-community.svg",
+      className: "community external-link",
     }
   ],
   getInitialState: function() {
@@ -98,26 +112,15 @@ var Sidebar = React.createClass({
               return (
                 <li key={i} className={entry.className}>
                   <LinkAnchorSwap to={entry.link} href={entry.href}>
-                    <img src={entry.icon}
-                     /* The sidebar icon is purely decorative, so leave
-                      * the alt attribute empty. */
-                     alt=""/>
+                    <div className="img-container">
+                      <img src={entry.icon}
+                       /* The sidebar icon is purely decorative, so leave
+                        * the alt attribute empty. */
+                       alt=""/>
+                    </div>
                     <strong>{entry.name}</strong>
-                    <div className="help-text hidden-xs hidden-sm">{entry.help}</div>
-                    <span className="glyphicon glyphicon-menu-right"></span>
                   </LinkAnchorSwap>
-                  <ul className="sidebar-subitems">
-                    {entry.subItems ?
-                      entry.subItems.map(function (item, key) {
-                        return (
-                          <li key={key}>
-                            <Link to={item.link}>
-                              {item.name}
-                            </Link>
-                          </li>
-                        )}
-                      ) : ''}
-                  </ul>
+                    {entry.subItems ? <Subitems subItems={entry.subItems} /> : null}
                 </li>
               );
             })}
