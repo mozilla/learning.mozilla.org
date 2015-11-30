@@ -1,6 +1,7 @@
 var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
+var OutboundLink = require('react-ga').OutboundLink;
 
 var config = require('../lib/config');
 
@@ -10,29 +11,19 @@ var Footer = React.createClass({
       <footer className="row" role="contentinfo">
         <div className="sidebar col-md-3">
           <div className="row">
-            <div className="col-xs-6">
-              <ul className="list-unstyled">
-                <li><a href="https://webmaker.org/">Webmaker</a></li>
-                <li><a href="https://sendto.mozilla.org/">Donate</a></li>
-                <li><a href={config.TWITTER_LINK}>Twitter</a></li>
+            <div className="col-xs-12">
+              <ul>
+                <div>
+                  <li><Link to="about">About</Link></li>
+                  <li><OutboundLink to={config.HIVE_LEARNING_NETWORKS_URL} eventLabel={config.HIVE_LEARNING_NETWORKS_URL}>Hive</OutboundLink></li>
+                  <li><a href={config.TWITTER_LINK}>Twitter</a></li>
+                </div>
+                <div>
+                  <li><a href="https://sendto.mozilla.org/">Donate</a></li>
+                  <li><a href="https://beta.webmaker.org/#/legal">Terms</a></li>
+                  <li><a href="https://www.mozilla.org/privacy/websites">Privacy</a></li>
+                </div>
               </ul>
-            </div>
-            <div className="col-xs-6">
-              <ul className="list-unstyled">
-                <li><a href="https://beta.webmaker.org/#/legal">Legal</a></li>
-                <li><a href="https://www.mozilla.org/privacy/websites">Privacy</a></li>
-                <li><Link to="about">About</Link></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="content col-md-9">
-          <div className="row">
-            <div className="col-sm-4 col-sm-offset-1">
-              <a href="http://hivelearningnetworks.org/"><img src="/img/components/footer/svg/hive-logo.svg" alt="hivelearningnetworks.org"/></a>
-            </div>
-            <div className="col-sm-7 col-lg-5">
-              <p>The Hive Learning Networks, stewarded by Mozilla, are a growing constellation of local communities around the globe that are championing digital skills and web literacy through connected learning. <a href="http://hivelearningnetworks.org/">Learn more<span className="sr-only"> about Hive Learning Networks</span></a></p>
             </div>
           </div>
         </div>

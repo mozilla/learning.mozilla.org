@@ -1,34 +1,36 @@
 footer {
   .sidebar {
-    line-height: 4rem;
     padding: 1.5rem;
     @media (min-width: @screen-md-min) {
       align-items: flex-end;
       display: flex;
     }
     a {
-      font-weight: 600;
-      text-transform: uppercase;
+      text-transform: capitalize;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+      text-align: center;
+      line-height: 1.5;
+      @media (min-width: @screen-md-min) {
+        text-align: left;
+      }
+    }
+    li {
+      display: inline-block;
+    }
+    li:not(:nth-child(3n+3)) {
+      &:after {
+        content: "|";
+        display: inline-block;
+        color: rgba(255, 255, 255, 0.4);
+        margin: 0 1rem;
+      }
     }
   }
 
   & > div {
     padding: @grid-gutter-width 0;
-  }
-
-  & > .content {
-    background: @footerBackgroundColor;
-    p {
-      padding-top: 2rem;
-      font-size: 1.4rem;
-      line-height: 2rem;
-    }
-    a {
-      color: gray;
-      text-decoration: underline;
-    }
-    img {
-      width: 20rem;
-    }
   }
 }

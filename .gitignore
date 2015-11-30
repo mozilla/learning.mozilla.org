@@ -7,3 +7,4 @@ node_modules
 *~
 tag-message-*.txt
 release-*.html
+npm-debug.log
