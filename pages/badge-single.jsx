@@ -4,9 +4,7 @@ var React = require('react'),
     BadgeHorizontalIcon = require('../components/badge-horizontal-icon.jsx'),
     RequirementsList = require('../components/requirement-list.jsx'),
     Badge = require('../components/badge.jsx'),
-    Link = require('react-router').Link,
-    $ = require('jquery'),
-    _ = require('underscore');
+    Link = require('react-router').Link;
 
 /**
  * Badges Navigation component
@@ -71,15 +69,14 @@ var BadgePage = React.createClass({
     },
     onQualificationsSubmit : function ( event ){
         event.preventDefault();
-        console.log( $( event.target ).serializeArray() );
+        console.log( event.nativeEvent.target );
     },
     handleFileSelect : function (event) {
-        $( this.refs.optionalFile.getDOMNode() ).click();
+        this.refs.optionalFile.getDOMNode().click();
     },
     getInitialState: function () {
         return {
             badge: {
-                key: 1,
                 title: 'Collaboration: Communication',
                 status: 'achieved',
                 description: 'This badge is issued to those who demonstrate an ability to interacts in a respectful manner; demonstrates active listening; contributes to group meetings and a constructive climate.',
@@ -118,7 +115,6 @@ var BadgePage = React.createClass({
                 </div>
 
                 <BadgeHorizontalIcon
-                    key={this.state.badge.key}
                     icon={this.state.badge.icon}
                     icon2x={this.state.badge.icon2x}
                     title={this.state.badge.title}
@@ -149,9 +145,6 @@ var BadgePage = React.createClass({
                         <div className="qualifications">I’ve earned this badge by working on this project: www.websitepage.com. My project demonstrates an understanding of cultural awarness, which is reflected in this part of the project: my journal entries of personal self-reflections during group project.</div>
                         <div className="attachment"><Link to='/myblog'>MyBlog.jpg</Link></div>
                     </div>
-
-
-
 
                     <img src="/img/pages/badges/svg/divider.svg" alt="" className="center-block horizontal-divider"/>
                 </div>

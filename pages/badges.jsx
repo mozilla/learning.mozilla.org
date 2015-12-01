@@ -4,8 +4,7 @@ var React = require('react'),
     IconLinks = require('../components/icon-links.jsx'),
     IconLink = require('../components/icon-link.jsx'),
     BadgeVerticalIcon = require('../components/badge-vertical-icon.jsx'),
-    Link = require('react-router').Link,
-    _ = require('underscore');
+    Link = require('react-router').Link;
 
 var BadgesPage = React.createClass({
     statics: {
@@ -96,7 +95,7 @@ var BadgesPage = React.createClass({
         var data = credlyResponse;
 
         if (data.status === '200' && data.body && data.body.data && data.body.data.length) {
-            data = _.map(data.body.data, function (badgeData) {
+            data = data.body.data.map(function (badgeData) {
                 return {
                     'title' : badgeData.title || '',
                     'status' : 'Achieved',
@@ -114,10 +113,10 @@ var BadgesPage = React.createClass({
         var badges = this.state.badges.map(function (badge) {
             var link = '/badge/' + badge.key;
             return (
-                <div key={badge.key} className="col-md-4">
+                <div key={badge.id} className="col-md-4">
                     <Link to={link} className={'badge-icon-link'}>
                         <BadgeVerticalIcon
-                            key={badge.key}
+                            id={badge.id}
                             icon={badge.icon}
                             icon2x={badge.icon2x}
                             title={badge.title}

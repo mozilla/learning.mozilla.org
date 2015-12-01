@@ -1,4 +1,5 @@
 var React       = require('react'),
+    classnames  = require('classnames'),
     ImageTag    = require('./imagetag.jsx');
 
 var Badge = React.createClass({
@@ -8,42 +9,45 @@ var Badge = React.createClass({
         icon: React.PropTypes.string.isRequired,
         icon2x: React.PropTypes.string.isRequired
     },
-    render: function (){
+    /**
+     * returning the Status HTML
+     * @param statusVal
+     * @returns ReactElement
+     */
+    status: function (statusVal) {
 
-        /**
-         * returning the Status HTML
-         * @param statusVal
-         * @returns ReactElement
-         */
-        function status (statusVal) {
-            var classNames = 'label label-default ' + statusVal;
-            var statusIcon = "";
-
-            if (statusVal === undefined) {
-                return "";
-            }
-
-            switch (statusVal) {
-                case 'pending':
-                    statusIcon = "<i class='fa fa-fw fa-clock-o'></i>";
-                    break;
-                case 'achieved':
-                    statusIcon = "<i class='fa fa-fw fa-check'></i>";
-                    break;
-                case 'eligible':
-                    statusIcon = "<i class='fa fa-fw fa-pencil'></i>";
-                    break;
-            }
-            return (
-                <div className="status">
-                    <div className={classNames}><span dangerouslySetInnerHTML={{__html: statusIcon}}></span>{statusVal}</div>
-                </div>
-            );
+        if (statusVal === undefined) {
+            return '';
         }
+        else{
+            statusVal = statusVal.toLowerCase();
+        }
+
+        var statusIcons = {
+            pending : 'fa-clock-o',
+            achieved: 'fa-check',
+            eligible: 'fa-pencil'
+        };
+
+        var statusClasses = classnames('fa', 'fa-fw', statusIcons[statusVal]);
+        var statusIcon = <i className={statusClasses} />;
+
+        var classNames = 'label label-default ' + statusVal;
+
+        return (
+            <div className="status">
+                <div className={classNames}>
+                    <span>{ statusIcon }</span>{statusVal}
+                </div>
+            </div>
+        );
+
+    },
+    render: function (){
 
         var statusElement = "";
         if( this.props.status ){
-            statusElement = status( this.props.status.toLowerCase() );
+            statusElement = this.status( this.props.status );
         }
 
         return(
