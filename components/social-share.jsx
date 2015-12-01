@@ -7,9 +7,9 @@ var SocialShareButton = React.createClass({
     },
     render : function () {
         return (
-            <a href="#" className={"btn icon-only btn-social " + this.props.networkType }>
+            <button type="button" className={"btn icon-only btn-social " + this.props.networkType }>
                 <i className={this.props.iconClassName}></i>
-            </a>
+            </button>
         )
     }
 });

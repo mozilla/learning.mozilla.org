@@ -4,31 +4,29 @@ var React = require('react'),
     BadgeHorizontalIcon = require('../components/badge-horizontal-icon.jsx'),
     RequirementsList = require('../components/requirement-list.jsx'),
     Badge = require('../components/badge.jsx'),
-    Link = require('react-router').Link,
-    $ = require('jquery'),
-    _ = require('underscore');
+    Link = require('react-router').Link;
 
 /**
  * Badges Navigation component
  */
 var SingleBadgePageNavigation = React.createClass({
-    propTypes : {
-        nextNavigationDetails : function () {
+    propTypes: {
+        nextNavigationDetails: function () {
             return React.PropTypes.object({
                 url: React.PropTypes.string.isRequired,
                 icon: React.PropTypes.string.isRequired,
                 icon2x: React.PropTypes.string
             });
         },
-        prevNavigationDetails : function () {
-           return React.PropTypes.object({
-               url : React.PropTypes.string.isRequired,
-               icon : React.PropTypes.string.isRequired,
-               icon2x : React.PropTypes.string
-           });
+        prevNavigationDetails: function () {
+            return React.PropTypes.object({
+                url: React.PropTypes.string.isRequired,
+                icon: React.PropTypes.string.isRequired,
+                icon2x: React.PropTypes.string
+            });
         }
     },
-    render : function () {
+    render: function () {
         return (
             <div className="single-badge-page-navigation">
                 <div className="row">
@@ -38,7 +36,7 @@ var SingleBadgePageNavigation = React.createClass({
                                 <Badge
                                     title="Previous"
                                     icon={this.props.prevNavigationDetails.icon}
-                                    icon2x={this.props.prevNavigationDetails.icon2x} />
+                                    icon2x={this.props.prevNavigationDetails.icon2x}/>
                             </div>
                             <div className="text"><span className="fa fa-long-arrow-left"></span> Previous</div>
                         </Link>
@@ -50,7 +48,7 @@ var SingleBadgePageNavigation = React.createClass({
                                 <Badge
                                     title="Next"
                                     icon={this.props.nextNavigationDetails.icon}
-                                    icon2x={this.props.nextNavigationDetails.icon2x} />
+                                    icon2x={this.props.nextNavigationDetails.icon2x}/>
                             </div>
                         </Link>
                     </div>
@@ -69,17 +67,16 @@ var BadgePage = React.createClass({
         pageTitle: 'Badges',
         pageClassName: 'badges single-badge'
     },
-    onQualificationsSubmit : function ( event ){
+    onQualificationsSubmit: function (event) {
         event.preventDefault();
-        console.log( $( event.target ).serializeArray() );
+        console.log(event.nativeEvent.target);
     },
-    handleFileSelect : function (event) {
-        $( this.refs.optionalFile.getDOMNode() ).click();
+    handleFileSelect: function (event) {
+        this.refs.optionalFile.getDOMNode().click();
     },
     getInitialState: function () {
         return {
             badge: {
-                key: 1,
                 title: 'Collaboration: Communication',
                 status: 'achieved',
                 description: 'This badge is issued to those who demonstrate an ability to interacts in a respectful manner; demonstrates active listening; contributes to group meetings and a constructive climate.',
@@ -95,12 +92,12 @@ var BadgePage = React.createClass({
             ],
             navigation: {
                 next: {
-                    url : '/badge/2',
+                    url: '/badge/2',
                     icon: '/img/components/badge-icon/ProblemSolving.png',
                     icon2x: '/img/components/badge-icon/ProblemSolving@2x.png'
                 },
                 prev: {
-                    url : '/badge/4',
+                    url: '/badge/4',
                     icon: '/img/components/badge-icon/Creativity.png',
                     icon2x: '/img/components/badge-icon/Creativity@2x.png'
                 }
@@ -113,12 +110,12 @@ var BadgePage = React.createClass({
 
                 <div className="row top-back-navigation">
                     <div className="col-md-12">
-                        <Link className="text-uppercase btn btn-link" to="/badges/"><span className="fa fa-long-arrow-left"></span> Back to credentials</Link>
+                        <Link className="text-uppercase btn btn-link" to="/badges/"><span
+                            className="fa fa-long-arrow-left"></span> Back to credentials</Link>
                     </div>
                 </div>
 
                 <BadgeHorizontalIcon
-                    key={this.state.badge.key}
                     icon={this.state.badge.icon}
                     icon2x={this.state.badge.icon2x}
                     title={this.state.badge.title}
@@ -127,14 +124,12 @@ var BadgePage = React.createClass({
                     description={this.state.badge.description}>
                     <div className="text-uppercase">21st century skills</div>
                     <h2 className="title">{this.state.badge.title}</h2>
+
                     <div className="description">{this.state.badge.description}</div>
                 </BadgeHorizontalIcon>
 
-
-
                 <div className="apply-congratulations">
                     <img src="/img/pages/badges/svg/divider.svg" alt="" className="center-block horizontal-divider"/>
-
                     <div className="row">
                         <div className="col-md-8">
                             <h3 className={'text-light'}>Congrats, you were awarded this credential.</h3>
@@ -143,42 +138,36 @@ var BadgePage = React.createClass({
                             <SocialShare />
                         </div>
                     </div>
-
                     <div className="badge-reward-text">
                         <div className="date">Sep 3,2015</div>
-                        <div className="qualifications">I’ve earned this badge by working on this project: www.websitepage.com. My project demonstrates an understanding of cultural awarness, which is reflected in this part of the project: my journal entries of personal self-reflections during group project.</div>
+                        <div className="qualifications">I’ve earned this badge by working on this project:
+                            www.websitepage.com. My project demonstrates an understanding of cultural awarness, which is
+                            reflected in this part of the project: my journal entries of personal self-reflections
+                            during group project.
+                        </div>
                         <div className="attachment"><Link to='/myblog'>MyBlog.jpg</Link></div>
                     </div>
-
-
-
-
                     <img src="/img/pages/badges/svg/divider.svg" alt="" className="center-block horizontal-divider"/>
                 </div>
 
-
-
-
-
                 <div className="badge-requirement">
                     <h3 className={'text-light'}>Badge Requirements</h3>
-                    <p>Make or write something that demonstrates your understanding of any two or more of the following:</p>
 
+                    <p>Make or write something that demonstrates your understanding of any two or more of the
+                        following:</p>
                     <RequirementsList
                         list={this.state.requirements}
                         icon="fa fa-check"/>
                 </div>
-
-
                 <div className="apply-send-qualifications">
-                    <p><strong className={'text-bold'}>Ideas?</strong> You could submit a blog post, a project you made using Mozilla's tools, or another web creation you made. Demonstrate your understanding in your own unique way!</p>
-
-
+                    <p><strong className={'text-bold'}>Ideas?</strong> You could submit a blog post, a project you made
+                        using Mozilla's tools, or another web creation you made. Demonstrate your understanding in your
+                        own unique way!</p>
                     <h3 className={'text-light'}>Apply for this badge</h3>
-
                     <form className="horizontal-form" role="form" onSubmit={this.onQualificationsSubmit}>
                         <div className="form-group">
-                            <label htmlFor="qualifications" className="control-label">What qualifies you to earn this badge?</label>
+                            <label htmlFor="qualifications" className="control-label">What qualifies you to earn this
+                                badge?</label>
                             <textarea
                                 name="qualifications"
                                 ref="qualifications"
@@ -190,8 +179,11 @@ var BadgePage = React.createClass({
                         </div>
 
                         <div className="optional-file-input">
-                            <input type="file" className="hidden" name="optional_file" id="optional_file" ref="optionalFile" />
-                            <button type="button" ref="optionalFileBtn" className="btn btn-link" onClick={this.handleFileSelect}>Add Optional Attachment(s)</button>
+                            <input type="file" className="hidden" name="optional_file" id="optional_file"
+                                   ref="optionalFile"/>
+                            <button type="button" ref="optionalFileBtn" className="btn btn-link"
+                                    onClick={this.handleFileSelect}>Add Optional Attachment(s)
+                            </button>
                         </div>
 
                         <div>
@@ -200,15 +192,12 @@ var BadgePage = React.createClass({
                     </form>
 
                 </div>
-
                 <img src="/img/pages/badges/svg/divider.svg" alt="" className="center-block horizontal-divider"/>
-
                 <div className="navigation">
                     <SingleBadgePageNavigation
                         nextNavigationDetails={this.state.navigation.next}
-                        prevNavigationDetails={this.state.navigation.prev} />
+                        prevNavigationDetails={this.state.navigation.prev}/>
                 </div>
-
             </div>
         );
     }
