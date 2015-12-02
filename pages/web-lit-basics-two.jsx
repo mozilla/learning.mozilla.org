@@ -63,12 +63,12 @@ var WebLitBasicsTwo = React.createClass({
           originalImgSrc: "https://c1.staticflickr.com/1/88/234010602_0b42343b8d.jpg",
           subtitle: "Understanding Navigating",
           description: "Learners will use Web-native instructions to make a meme or build a maker project in real life, learning <strong>navigating, remixing, and community participation</strong>.",
-          link: "https://chadsansing.github.io/curriculum-testing/web-lit-basics-two/session02-the-web-is-for-making.html"
+          link: "https://chadsansing.github.io/curriculum-testing/web-lit-basics-two/session02-web-is-a-tool-for-learning.html"
         },
         {
           title: "Project Playlist",
           image1x: "/img/pages/web-lit-basics-two/project-playlist.png",
-          originalImgSrc: "http://chadsansing.github.io/curriculum-testing/web-lit-basics-two/playlist-kawaii.png",
+          originalImgSrc: "https://chadsansing.github.io/curriculum-testing/web-lit-basics-two/playlist-kawaii.png",
           subtitle: "Understanding Composing",
           description: "Learners will build a playlist of songs from the Open Web, learning <strong>composing and remixing</strong>.",
           link: "https://chadsansing.github.io/curriculum-testing/web-lit-basics-two/bridge01-project-playlist.html"
@@ -79,15 +79,15 @@ var WebLitBasicsTwo = React.createClass({
           originalImgSrc: "https://c1.staticflickr.com/1/164/433463323_998d31b743_n.jpg",
           subtitle: "Understanding Composing",
           description: "Learners will use Web-native music-production tools and share music through an online community, learning <strong>composing, remix, sharing, and community participation</strong>.",
-          link: "http://chadsansing.github.io/curriculum-testing/web-lit-basics-two/session03-welcome-to-my-mixtape.html"
+          link: "https://chadsansing.github.io/curriculum-testing/web-lit-basics-two/session03-welcome-to-my-mixtape.html"
         },
         {
           title: "Pixel Portrait",
           image1x: "/img/pages/web-lit-basics-two/pixel-portrait.png",
-          originalImgSrc: "http://chadsansing.github.io/curriculum-testing/web-lit-basics-two/space-cat.png",
+          originalImgSrc: "https://chadsansing.github.io/curriculum-testing/web-lit-basics-two/space-cat.png",
           subtitle: "Understanding Composing",
           description: "Learners will create their own pixel art, import it into an online code editor, and then insert it into a webpage, learning <strong>composing</strong>.",
-          link: "http://chadsansing.github.io/curriculum-testing/web-lit-basics-two/bridge02-pixel-portrait.html"
+          link: "https://chadsansing.github.io/curriculum-testing/web-lit-basics-two/bridge02-pixel-portrait.html"
         },
         {
           title: "#allthestickerz",
@@ -95,15 +95,15 @@ var WebLitBasicsTwo = React.createClass({
           originalImgSrc: "https://d157rqmxrxj6ey.cloudfront.net/chadsansing/7048/stickerz-love.png ",
           subtitle: "Understanding Sharing",
           description: "Learners will create pixel art online/digital stickers, publish them for others, and use them to annotate and remix the Web, learning <strong>community participation, composing, open practices, remix, and sharing</strong>.",
-          link: "http://chadsansing.github.io/curriculum-testing/web-lit-basics-two/session04-all-the-stickerz.html"
+          link: "https://chadsansing.github.io/curriculum-testing/web-lit-basics-two/session04-all-the-stickerz.html"
         },
         {
           title: "Who Am I?",
           image1x: "/img/pages/web-lit-basics-two/who-am-i.png",
-          originalImgSrc: "http://chadsansing.github.io/curriculum-testing/web-lit-basics-two/question-mark.png",
+          originalImgSrc: "https://chadsansing.github.io/curriculum-testing/web-lit-basics-two/question-mark.png",
           subtitle: "Understanding Search",
           description: "Learners will conduct a reverse image search to find information about a subject online and then revise a webpage with their own text and images, learning <strong>composing and search</strong>.",
-          link: "http://chadsansing.github.io/curriculum-testing/web-lit-basics-two/bridge03-who-am-i.html"
+          link: "https://chadsansing.github.io/curriculum-testing/web-lit-basics-two/bridge03-who-am-i.html"
         },
         {
           title: "Fair Use Free-for-All",
@@ -111,7 +111,7 @@ var WebLitBasicsTwo = React.createClass({
           originalImgSrc: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Copyleft.svg/512px-Copyleft.svg.png",
           subtitle: "Understanding Sharing",
           description: "Learners will compete to identify examples and non-examples of fair use in peers' web remixes, learning <strong>credibility, search, and sharing</strong>.",
-          link: "http://chadsansing.github.io/curriculum-testing/web-lit-basics-two/session05-fair-use-free-for-all.html"
+          link: "https://chadsansing.github.io/curriculum-testing/web-lit-basics-two/session05-fair-use-free-for-all.html"
         },
         {
           title: "The Planets",
@@ -119,7 +119,7 @@ var WebLitBasicsTwo = React.createClass({
           originalImgSrc: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/NGC_3521-_the_Bubble_galaxy.jpg/320px-NGC_3521-_the_Bubble_galaxy.jpg",
           subtitle: "Understanding Designing for Accessibility",
           description: "Learners will improve the accessibility of a webpage by changing its color scheme, content, and embedded media, learning <strong>composing, designing for accessibility, and remixing</strong>.",
-          link: "http://chadsansing.github.io/curriculum-testing/web-lit-basics-two/session06-the-planets-and-accessibility.html"
+          link: "https://chadsansing.github.io/curriculum-testing/web-lit-basics-two/session06-the-planets-and-accessibility.html"
         }
       ]
     }
@@ -132,7 +132,7 @@ var WebLitBasicsTwo = React.createClass({
         <WebLitBasics/>
         {this.curriculum.map(function (section, key) {
           return (
-            <ActivitySection title={section.title} key={key} activities={section.activities} />
+            <ActivitySection title={section.title} key={section.title} activities={section.activities} />
           );
         })}
       </div>
