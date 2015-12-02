@@ -9,7 +9,7 @@ var Subitems = React.createClass({
   render: function() {
     var items = this.props.subItems.map(function (item, key) {
       return (
-        <li key={key}>
+        <li key={item.name}>
           <Link to={item.link}>
             {item.name}
           </Link>
@@ -20,6 +20,48 @@ var Subitems = React.createClass({
       <ul className="sidebar-subitems">
         {items}
       </ul>
+    );
+  }
+});
+
+var TopLevelNavItem = React.createClass({
+  getInitialState: function() {
+    return {
+      activeSubNav: false
+    };
+  },
+  componentDidMount: function() {
+    this.highlightActiveSubNav();
+  },
+  componentDidUpdate: function() {
+    this.highlightActiveSubNav();
+  },
+  highlightActiveSubNav: function() {
+    var activeState = !!this.getDOMNode().querySelector(".sidebar-subitems a.active");
+    if (activeState != this.state.activeSubNav) {
+      this.setState({
+        activeSubNav: activeState
+      });
+    }
+  },
+  render: function() {
+    var classes = this.props.className + " top-level-item";
+    if (this.state.activeSubNav) {
+      classes += " sub-nav-active";
+    }
+    return (
+      <li key={this.props.name} className={classes}>
+        <LinkAnchorSwap to={this.props.link} href={this.props.href}>
+          <div className="img-container">
+            <img src={this.props.icon}
+             /* The sidebar icon is purely decorative, so leave
+              * the alt attribute empty. */
+             alt=""/>
+          </div>
+          <strong>{this.props.name}</strong>
+        </LinkAnchorSwap>
+        {this.props.subItems ? <Subitems subItems={this.props.subItems} /> : null}
+      </li>
     );
   }
 });
@@ -110,18 +152,7 @@ var Sidebar = React.createClass({
           <ul className="sidebar-menu list-unstyled">
             {this.MENU_ENTRIES.map(function(entry, i) {
               return (
-                <li key={i} className={entry.className}>
-                  <LinkAnchorSwap to={entry.link} href={entry.href}>
-                    <div className="img-container">
-                      <img src={entry.icon}
-                       /* The sidebar icon is purely decorative, so leave
-                        * the alt attribute empty. */
-                       alt=""/>
-                    </div>
-                    <strong>{entry.name}</strong>
-                  </LinkAnchorSwap>
-                    {entry.subItems ? <Subitems subItems={entry.subItems} /> : null}
-                </li>
+                <TopLevelNavItem key={entry.name} {...entry} />
               );
             })}
           </ul>

@@ -41,16 +41,6 @@ html.no-js .sidebar {
   &.private-eye {
     .pageColorizer(@pinkSidebarColor);
   }
-
-  &.teach-like-mozilla .teach,
-  &.web-literacy .teach,
-  &.clubs .clubs,
-  &.event-resources .events,
-  &.events .events {
-    .sidebar-subitems {
-      display: block;
-    }
-  }
 }
 
 .sidebar {
@@ -114,7 +104,6 @@ html.no-js .sidebar {
   font-size: 13px;
   padding-bottom: 0;
   margin-bottom: 0;
-
   a {
     position: relative;
     display: block;
@@ -190,22 +179,23 @@ html.no-js .sidebar {
   overflow: hidden;
   display: none;
   list-style: none;
-  padding: 0 0 0 6.5rem;
+  padding: 0 0 0 6.6rem;
 
-  @media screen and (min-width: @screen-lg-min) {
-    padding-left: 6rem;
+  @media screen and (min-width: @screen-md-min) {
+    padding-left: 6.1rem;
   }
   li {
     margin-bottom: 1.5rem;
-    &::before {
+    a::before {
       content: "\f105";
       font-family: "FontAwesome";
       display: inline-block;
+      margin-right: 1rem;
     }
   }
   a {
     display: inline-block;
     font-weight: 600;
-    padding: 0 0 0 1rem;
+    padding: 0;
   }
 }

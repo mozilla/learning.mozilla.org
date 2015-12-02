@@ -5,15 +5,20 @@
   }
   .sidebar {
     background-color: @pageColor;
+    .top-level-item.sub-nav-active {
+      background-color: darken(@pageColor, 5%);
+    }
     .sidebar-menu a {
       &:hover, &:focus, &.active {
         background-color: darken(@pageColor, 5%);
       }
     }
-    .sidebar-menu a.active + .sidebar-subitems {
+    .sidebar-menu a.active + .sidebar-subitems,
+    .top-level-item.sub-nav-active .sidebar-subitems {
       background-color: darken(@pageColor, 5%);
+      display: block;
       li::before,
-      a {
+      a:not(.active) {
         color: fade(@white, 50%);
       }
     }
