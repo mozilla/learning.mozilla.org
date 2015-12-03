@@ -127,7 +127,7 @@ var ClubsCurriculum = React.createClass({
         </section>
         {this.curriculum.map(function (section, key) {
           return (
-            <ActivitySection title={section.title} key={key} activities={section.activities} />
+            <ActivitySection title={section.title} key={section.title} activities={section.activities} />
           );
         })}
       </div>

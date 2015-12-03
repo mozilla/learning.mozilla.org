@@ -1,3 +1,20 @@
+.madewithcode-landing {
+  .intro {
+    .illustration.content-first {
+      flex-direction: column-reverse;
+      @media screen and (min-width: @screen-sm-min) {
+        flex-direction: row-reverse;
+      }
+    }
+    .image-container {
+      margin-top: 3rem;
+      @media screen and (min-width: @screen-sm-min) {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
 .madewithcode-firstwebpage,
 .madewithcode-meme,
 .madewithcode-poster {
