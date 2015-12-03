@@ -101,9 +101,9 @@ var ClubsCurriculum = React.createClass({
       <div className="inner-container">
         <CurriculumIntro/>
         <BackToSchoolWrite/>
-        {this.curriculum.map(function (section, key) {
+        {this.curriculum.map(function (section) {
           return (
-            <ActivitySection title={section.title} key={key} activities={section.activities} />
+            <ActivitySection title={section.title} key={section.title} activities={section.activities} />
           );
         })}
       </div>

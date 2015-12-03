@@ -10,7 +10,7 @@ var config = require('../lib/config');
 
 var InstructionSection = React.createClass({
   render: function() {
-    var remixUrl = "https://thimble.webmaker.org/project/60766/remix";
+    var remixUrl = "https://thimble.mozilla.org/projects/17083/remix";
     var step1 = (
       <div>
         <p><strong>Click the “remix” button.</strong> This will open Thimble. You’ll see a simple meme we created to get you started.</p>
