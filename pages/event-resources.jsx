@@ -224,7 +224,7 @@ var EventsResources = React.createClass({
           alt="Certificate Image"
           src1x="/img/pages/event-resources/resource-thumbnails-08.png"
           src2x="/img/pages/event-resources/resource-thumbnails-08@2x.png">
-            <RemixLink href="https://makerparty2014.makes.org/thimble/LTEzNDM3NTAxNDQ=/maker-party-love-bomb">Download EPS</RemixLink>
+            <RemixLink href="https://d157rqmxrxj6ey.cloudfront.net/mhasan/13029/ ">Download EPS</RemixLink>
           </LogoAsset>
           <LogoAsset head="Table Cloth Design"
           alt="Table Cloth Design Image"
