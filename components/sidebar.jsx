@@ -1,18 +1,38 @@
 var React = require('react');
 var Router = require('react-router');
+var classNames = require('classnames');
 var Link = Router.Link;
 var LinkAnchorSwap = require('./link-anchor-swap.jsx');
 
 var Login = require('./login.jsx');
 
+var Subitem = React.createClass({
+  componentDidMount: function() {
+    this.toggleHighlight();
+  },
+  componentDidUpdate: function() {
+    this.toggleHighlight();
+  },
+  toggleHighlight: function() {
+    var isActive = this.getDOMNode().classList.contains("active");
+    this.props.toggleHighlight(isActive);
+  },
+  render: function() {
+    return (
+      <Link to={this.props.link} ref={this.props.key}>
+        {this.props.name}
+      </Link>
+    );
+  }
+});
+
 var Subitems = React.createClass({
   render: function() {
+    var toggleHighlight = this.props.toggleHighlight;
     var items = this.props.subItems.map(function (item, key) {
       return (
         <li key={item.name}>
-          <Link to={item.link}>
-            {item.name}
-          </Link>
+          <Subitem {...item} toggleHighlight={toggleHighlight} />
         </li>
       )}
     );
@@ -30,25 +50,21 @@ var TopLevelNavItem = React.createClass({
       activeSubNav: false
     };
   },
-  componentDidMount: function() {
-    this.highlightActiveSubNav();
-  },
-  componentDidUpdate: function() {
-    this.highlightActiveSubNav();
-  },
-  highlightActiveSubNav: function() {
-    var activeState = !!this.getDOMNode().querySelector(".sidebar-subitems a.active");
-    if (activeState != this.state.activeSubNav) {
+  highlightSubNav: function(subNavActive) {
+    if (subNavActive != this.state.activeSubNav) {
       this.setState({
-        activeSubNav: activeState
+        activeSubNav: subNavActive
       });
     }
   },
   render: function() {
-    var classes = this.props.className + " top-level-item";
-    if (this.state.activeSubNav) {
-      classes += " sub-nav-active";
-    }
+    var classes = classNames(
+      this.props.className,
+      "top-level-item",
+      {
+        "sub-nav-active": this.state.activeSubNav
+      }
+    );
     return (
       <li key={this.props.name} className={classes}>
         <LinkAnchorSwap to={this.props.link} href={this.props.href}>
@@ -60,7 +76,7 @@ var TopLevelNavItem = React.createClass({
           </div>
           <strong>{this.props.name}</strong>
         </LinkAnchorSwap>
-        {this.props.subItems ? <Subitems subItems={this.props.subItems} /> : null}
+        {this.props.subItems ? <Subitems subItems={this.props.subItems} toggleHighlight={this.highlightSubNav} /> : null}
       </li>
     );
   }
@@ -112,7 +128,7 @@ var Sidebar = React.createClass({
     },
     {
       name: "Community",
-      href: 'http://discourse.webmaker.org/',
+      href: 'https://discourse.webmaker.org/',
       icon: "/img/components/sidebar/svg/icon-nav-community.svg",
       className: "community external-link",
     }

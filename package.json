@@ -5,6 +5,7 @@
   "dependencies": {
     "bootstrap": "^3.3.4",
     "chalk": "^1.0.0",
+    "classnames": "^2.2.1",
     "es5-shim": "^4.1.0",
     "express": "^4.12.3",
     "font-awesome": "^4.3.0",
