@@ -6,6 +6,17 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.27][] - 2015-12-03
+### Added
+- Added a Made with Code activity kit.
+- Added Web Lit Basics II activity kit.
+- Updated README.md to include platform specific setup instructions.
+- "Help us translate" CTA has been added to the Web Literacy Basics page.
+
+### Changed
+- Simplified footer section.
+
+
 ## [0.0.26][] - 2015-11-23
 ### Added
 - Added "Back to School" activity kit.
@@ -432,7 +443,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.26...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.27...HEAD
+[0.0.27]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.26...v0.0.27
 [0.0.26]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.25...v0.0.26
 [0.0.25]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.24...v0.0.25
 [0.0.24]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.23...v0.0.24
