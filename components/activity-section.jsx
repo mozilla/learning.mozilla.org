@@ -20,7 +20,7 @@ var ActivitySection = React.createClass({
               </div>
             )
           } else {
-            var caption = activity.originalImgSrc ? <a href={activity.originalImgSrc}>view original</a> : null;
+            var caption = activity.originalImgSrc ? <a href={activity.originalImgSrc}>{activity.caption || "view original"}</a> : null;
             return (
               <div className="activity" key={i}>
                 <Illustration height={122} width={122}
