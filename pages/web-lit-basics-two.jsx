@@ -130,7 +130,7 @@ var WebLitBasicsTwo = React.createClass({
       <div className="inner-container">
         <CurriculumIntro/>
         <WebLitBasics/>
-        {this.curriculum.map(function (section, key) {
+        {this.curriculum.map(function (section) {
           return (
             <ActivitySection title={section.title} key={section.title} activities={section.activities} />
           );
