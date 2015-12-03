@@ -125,7 +125,7 @@ var ClubsCurriculum = React.createClass({
             We're making an effort to localize our Web Literacy Basics I curriculum and we need your help! There's increasing interest in starting Mozilla Clubs and teaching web literacy skills in communities around the globe, but our current curricular modules are only available in English. <OutboundLink to={blogPostLink} eventLabel={blogPostLink}>Learn how you can help</OutboundLink>.
           </div>
         </section>
-        {this.curriculum.map(function (section, key) {
+        {this.curriculum.map(function (section) {
           return (
             <ActivitySection title={section.title} key={section.title} activities={section.activities} />
           );

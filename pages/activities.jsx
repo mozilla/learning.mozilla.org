@@ -141,11 +141,19 @@ var ActivitiesPage = React.createClass({
             <ActivityKit
               src1x="/img/pages/activities/img-activity-curriculum.png"
               src2x="/img/pages/activities/img-activity-curriculum@2x.png"
-              title="Web Literacy Basics (Teaching Kit) "
+              title="Web Literacy Basics (Teaching Kit)"
               level="Beginner"
               link="/activities/web-lit-basics/"
               developedBy="Our seasoned educator community"
               description="This six-part series helps learners become familiar with reading, writing and participating on the web. They'll discover the foundations of the web through production and collaboration. This is an ideal kit for Mozilla Clubs."/>
+            <ActivityKit
+              src1x="/img/pages/activities/web-lit-basics-two.jpg"
+              caption={<a href="https://c2.staticflickr.com/6/5760/22431506387_43e85e71bd.jpg">cc-by-2.0 Mozilla Festival</a>}
+              title="Web Literacy Basics II (Teaching Kit)"
+              level="Beginner"
+              link="/activities/web-lit-basics-two/"
+              developedBy="Mozilla Learning Networks"
+              description="Explore making, media production, reverse-image search, and design on the web."/>
             <ActivityKit
               src1x="/img/pages/protect-your-data/protect-your-data.png"
               src2x="/img/pages/protect-your-data/protect-your-data@2x.png"

@@ -37,6 +37,8 @@ var routes = (
     <Route name="web-lit-basics" path="/activities/web-lit-basics/"
            handler={require('../pages/web-lit-basics.jsx')}/>
     <Redirect from="/clubs/curriculum/" to="/activities/web-lit-basics/" />
+    <Route name="web-lit-basics-two" path="/activities/web-lit-basics-two/"
+           handler={require('../pages/web-lit-basics-two.jsx')}/>
     <Route name="back-to-school-write-the-web" path="/activities/back-to-school-write-the-web/"
            handler={require('../pages/back-to-school-write-the-web.jsx')}/>
     <Route name="mozilla-clubs" path="/clubs/"
