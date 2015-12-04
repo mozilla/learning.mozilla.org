@@ -238,7 +238,7 @@ var ClubsListPage = React.createClass({
                 subhead="Modular Web Literacy curriculum"
               />
               <IconLink
-                href="http://discourse.webmaker.org/category/meet"
+                href="https://discourse.webmaker.org/c/mozilla-clubs"
                 imgSrc="/img/pages/clubs/svg/icon-connect.svg"
                 head="Connect"
                 subhead="Connect with other Club Leaders"

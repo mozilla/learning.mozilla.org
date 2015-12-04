@@ -85,7 +85,7 @@ var AboutPage = React.createClass({
               subhead="Email us anytime"
             />
             <IconLink
-              href="http://discourse.webmaker.org/category/meet"
+              href="https://discourse.webmaker.org/t/if-youre-new-to-the-community-please-introduce-yourself/15"
               imgSrc="/img/pages/about/svg/icon-connect-blue.svg"
               head="Say Hello"
               subhead="Connect on the #teachtheweb Discourse forum"
