@@ -34,7 +34,7 @@ var WebLitBasics = React.createClass({
           <p>
             The learning objectives underpinning each activity are informed by Mozilla&apos;s <Link to="web-literacy">Web Literacy Map</Link>. Complete the activities in
             sequence, or mix and match for your learners. Need help{'? '}
-            <a href="http://discourse.webmaker.org/category/clubs">Visit our discussion forum</a> to get help and share
+            <a href="https://discourse.webmaker.org/c/curriculum">Visit our discussion forum</a> to get help and share
             your experience.
           </p>
         </div>
