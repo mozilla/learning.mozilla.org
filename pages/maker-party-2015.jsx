@@ -33,7 +33,7 @@ var LearningObjectives = React.createClass({
         <div className="col-sm-12">
           <h2>Learning Objectives</h2>
           <p>
-            Learn about the culture, mechanics, and citizenship of the Web by making something! Each of the featured activities have offline options as well. Visit our <a href="http://discourse.webmaker.org/category/maker-party">discussion forum</a> for help and to share your experience.
+            Learn about the culture, mechanics, and citizenship of the Web by making something! Each of the featured activities have offline options as well. Visit our <a href="https://discourse.webmaker.org/c/events">discussion forum</a> for help and to share your experience.
           </p>
         </div>
       </section>

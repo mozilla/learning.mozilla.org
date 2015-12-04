@@ -186,7 +186,7 @@ var EventsPage = React.createClass({
                 subhead="Plan a unique event"
               />
               <IconLink
-                href="http://discourse.webmaker.org/category/maker-party"
+                href="https://discourse.webmaker.org/c/events"
                 imgSrc="/img/pages/events/svg/icon-connect.svg"
                 head="Join the Conversation"
                 subhead="Talk to others about your event"
