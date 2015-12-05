@@ -1,5 +1,6 @@
 var _ = require('underscore');
 var React = require('react');
+var ReactDOM = require('react-dom');
 var ModalManagerMixin = require('../mixins/modal-manager');
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
 var HeroUnit = require('../components/hero-unit.jsx');
@@ -184,7 +185,7 @@ var ClubsListPage = React.createClass({
     });
   },
   handleZoomToClub: function(club) {
-    this.refs.map.getDOMNode().scrollIntoView();
+    ReactDOM.findDOMNode(this.refs.map).scrollIntoView();
     this.refs.map.focusOnClub(club);
   },
   handleClubDelete: function(url, clubName) {

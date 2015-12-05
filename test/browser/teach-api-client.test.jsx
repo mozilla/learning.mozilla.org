@@ -1,6 +1,6 @@
 var EventEmitter = require('events').EventEmitter;
 var React = require('react');
-
+var ReactDOM = require('react-dom');
 var StubTeachAPI = require('./stub-teach-api.js');
 var stubContext = require('./stub-context.jsx');
 var TeachApiClientMixin = require('../../mixins/teach-api-client');
@@ -41,7 +41,7 @@ describe('TeachApiClientMixin', function() {
     component = stubContext.render(MyComponent, {}, {
       teachAPI: teachAPI
     });
-    component.getDOMNode().textContent.should.eql("foo");
+    ReactDOM.findDOMNode(component).textContent.should.eql("foo");
   });
 
   it('should bind to events that call forceUpdate', function() {
@@ -49,9 +49,9 @@ describe('TeachApiClientMixin', function() {
       teachAPI: teachAPI
     });
     teachAPI.getUsername.returns("bar");
-    component.getDOMNode().textContent.should.not.eql("bar");
+    ReactDOM.findDOMNode(component).textContent.should.not.eql("bar");
     teachAPI.emit('username:change');
-    component.getDOMNode().textContent.should.eql("bar");
+    ReactDOM.findDOMNode(component).textContent.should.eql("bar");
   });
 
   it('should bind to events that call methods', function() {

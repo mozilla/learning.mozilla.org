@@ -1,6 +1,7 @@
 var should = require('should');
-var React = require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React = require('react');
+var ReactDOM = require('react-dom');
+var TestUtils = require('react-addons-test-utils');
 var stubContext = require('./stub-context.jsx');
 
 var ModalRemoveYourClub = require('../../components/modal-clubs-remove.jsx');
@@ -25,11 +26,11 @@ describe("ModalRemoveYourClub", function() {
   });
 
   it("renders", function() {
-    modal.getDOMNode().textContent.should.match(/remove your club/i);
+    ReactDOM.findDOMNode(modal).textContent.should.match(/remove your club/i);
   });
 
   it("does not show any errors by default", function() {
-    modal.getDOMNode().textContent.should.not.match(MODAL_ERROR_REGEX);
+    ReactDOM.findDOMNode(modal).textContent.should.not.match(MODAL_ERROR_REGEX);
   });
 
   describe("when confirm button is clicked", function() {
@@ -60,14 +61,14 @@ describe("ModalRemoveYourClub", function() {
       deleteClubCall.args[1](null, {url: 'http://foo'});
       modal.state.step.should.equal(modal.STEP_SHOW_RESULT);
       modal.state.networkError.should.be.false;
-      modal.getDOMNode().textContent
+      ReactDOM.findDOMNode(modal).textContent
         .should.match(/your club has been removed/i);
     });
 
     it("returns to form, shows err when network err occurs", function() {
       deleteClubCall.args[1](new Error());
       modal.state.step.should.equal(modal.STEP_CONFIRM);
-      modal.getDOMNode().textContent.should.match(MODAL_ERROR_REGEX);
+      ReactDOM.findDOMNode(modal).textContent.should.match(MODAL_ERROR_REGEX);
       btn.props.disabled.should.be.false;
     });
 
@@ -76,7 +77,7 @@ describe("ModalRemoveYourClub", function() {
       modal.state.networkError.should.be.true;
       TestUtils.Simulate.click(btn);
       modal.state.networkError.should.be.false;
-      modal.getDOMNode().textContent.should.not.match(MODAL_ERROR_REGEX);
+      ReactDOM.findDOMNode(modal).textContent.should.not.match(MODAL_ERROR_REGEX);
     });
   });
 });

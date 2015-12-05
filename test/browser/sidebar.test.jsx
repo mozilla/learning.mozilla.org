@@ -1,6 +1,6 @@
 var should = require('should');
-var React =require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React =require('react');
+var TestUtils = require('react-addons-test-utils');
 
 var stubContext = require('./stub-context.jsx');
 var Sidebar = require('../../components/sidebar.jsx');

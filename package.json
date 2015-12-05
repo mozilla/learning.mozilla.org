@@ -23,7 +23,6 @@
     "gulp-sitemap": "^2.0.1",
     "gulp-sourcemaps": "^1.5.0",
     "gulp-util": "^3.0.4",
-    "gulp-webpack": "^1.2.0",
     "imports-loader": "^0.6.3",
     "json-loader": "^0.5.1",
     "jsx-loader": "^0.12.2",
@@ -36,7 +35,12 @@
     "mocha": "^2.1.0",
     "mofo-style": "^1.0.1",
     "moment": "^2.10.3",
-    "react": "^0.13.1",
+    "react": "^0.14.0",
+    "react-addons-linked-state-mixin": "^0.14.3",
+    "react-addons-pure-render-mixin": "^0.14.3",
+    "react-addons-test-utils": "^0.14.3",
+    "react-addons-transition-group": "^0.14.3",
+    "react-dom": "^0.14.3",
     "react-ga": "^1.0.12",
     "react-router": "^0.13.2",
     "react-select": "0.4.6",
@@ -50,7 +54,8 @@
     "url-template": "^2.0.6",
     "val-loader": "^0.5.0",
     "vinyl": "^0.4.6",
-    "webpack": "^1.6.0"
+    "webpack": "^1.6.0",
+    "webpack-stream": "^2.3.0"
   },
   "devDependencies": {
     "mocha-phantomjs": "^4.0.1",

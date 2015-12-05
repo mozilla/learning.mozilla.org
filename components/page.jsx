@@ -1,4 +1,5 @@
-var React = require('react/addons');
+var React = require('react');
+var ReactDOM = require('react-dom');
 var TimeoutTransitionGroup = require('../components/timeout-transition-group.jsx');
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
@@ -84,7 +85,7 @@ var Page = React.createClass({
   // modal be focusable while it's being displayed, so we'll enforce
   // that here.
   handleNonModalFocus: function(e) {
-    var firstFocusableEl = this.refs.modalHolder.getDOMNode()
+    var firstFocusableEl = ReactDOM.findDOMNode(this.refs.modalHolder)
       .querySelector('a, button, input, textarea');
     if (firstFocusableEl) {
       firstFocusableEl.focus();

@@ -1,8 +1,8 @@
 var EventEmitter = require('events').EventEmitter;
 var should = require('should');
 var sinon = window.sinon;
-var React =require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React = require('react');
+var TestUtils = require('react-addons-test-utils');
 
 var StubTeachAPI = require('./stub-teach-api');
 var StubRouter = require('./stub-router');

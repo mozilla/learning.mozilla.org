@@ -1,6 +1,7 @@
 var should = require('should');
-var React =require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React = require('react');
+var ReactDOM = require('react-dom');
+var TestUtils = require('react-addons-test-utils');
 
 var stubContext = require('./stub-context.jsx');
 var EventResourcesPage = require('../../pages/event-resources.jsx');
@@ -21,20 +22,20 @@ describe("EventResourcesPage.LogoAsset", function() {
   });
 
   it('does not have .has-keyboard-focus by default', function() {
-    hover.getDOMNode().className.trim()
+    ReactDOM.findDOMNode(hover).className.trim()
       .should.equal("logo-asset-hover");
   });
 
   it('adds .has-keyboard-focus when focused', function() {
     TestUtils.Simulate.focus(hover);
-    hover.getDOMNode().className.trim()
+    ReactDOM.findDOMNode(hover).className.trim()
       .should.equal("logo-asset-hover has-keyboard-focus");
   });
 
   it('removes .has-keyboard-focus when blurred', function() {
     TestUtils.Simulate.focus(hover);
     TestUtils.Simulate.blur(hover);
-    hover.getDOMNode().className.trim()
+    ReactDOM.findDOMNode(hover).className.trim()
       .should.equal("logo-asset-hover");
   });
 });

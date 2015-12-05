@@ -1,8 +1,9 @@
 var EventEmitter = require('events').EventEmitter;
 
 var should = require('should');
-var React = require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React = require('react');
+var ReactDOM = require('react-dom');
+var TestUtils = require('react-addons-test-utils');
 var stubContext = require('./stub-context.jsx');
 
 var ModalAddOrChangeYourClub = require('../../components/modal-clubs.jsx');
@@ -19,7 +20,7 @@ function ensureFormFieldsDisabledValue(component, isDisabled) {
       tag
     ).forEach(function(component) {
       found++;
-      component.getDOMNode().disabled.should.equal(isDisabled);
+      ReactDOM.findDOMNode(component).disabled.should.equal(isDisabled);
     });
   });
 
@@ -51,7 +52,7 @@ describe("ModalAddOrChangeYourClub", function() {
     });
 
     it("renders", function() {
-      modal.getDOMNode().textContent.should.match(/add your club/i);
+      ReactDOM.findDOMNode(modal).textContent.should.match(/add your club/i);
     });
 
     it("binds to username:change event", function() {
@@ -71,12 +72,12 @@ describe("ModalAddOrChangeYourClub", function() {
     it("shows form validation errors", function() {
       teachAPI.emit('username:change', 'foo');
       modal.setState({validationErrors: ["U SUK"]});
-      modal.getDOMNode().textContent.should.match(/U SUK/);
+      ReactDOM.findDOMNode(modal).textContent.should.match(/U SUK/);
     });
 
     it("does not show any errors by default", function() {
       teachAPI.emit('username:change', 'foo');
-      modal.getDOMNode().textContent.should.not.match(MODAL_ERROR_REGEX);
+      ReactDOM.findDOMNode(modal).textContent.should.not.match(MODAL_ERROR_REGEX);
     });
 
     it("enables form inputs by default", function() {
@@ -177,7 +178,7 @@ describe("ModalAddOrChangeYourClub", function() {
         modal.state.step.should.equal(modal.STEP_SHOW_RESULT);
         modal.state.networkError.should.be.false;
         modal.state.result.should.eql({url: 'http://foo'});
-        modal.getDOMNode().textContent
+        ReactDOM.findDOMNode(modal).textContent
           .should.match(/thanks for your interest/i);
       });
 
@@ -199,7 +200,7 @@ describe("ModalAddOrChangeYourClub", function() {
         addClubCall.args[1](new Error());
         modal.state.step.should.equal(modal.STEP_FORM);
         should(modal.state.result).equal(null);
-        modal.getDOMNode().textContent.should.match(MODAL_ERROR_REGEX);
+        ReactDOM.findDOMNode(modal).textContent.should.match(MODAL_ERROR_REGEX);
         ensureFormFieldsDisabledValue(modal, false);
       });
 
@@ -208,7 +209,7 @@ describe("ModalAddOrChangeYourClub", function() {
         modal.state.networkError.should.be.true;
         TestUtils.Simulate.submit(form);
         modal.state.networkError.should.be.false;
-        modal.getDOMNode().textContent.should.not.match(MODAL_ERROR_REGEX);
+        ReactDOM.findDOMNode(modal).textContent.should.not.match(MODAL_ERROR_REGEX);
       });
     });
   });
@@ -234,7 +235,7 @@ describe("ModalAddOrChangeYourClub", function() {
     });
 
     it("renders", function() {
-      modal.getDOMNode().textContent.should.match(/change your club/i);
+      ReactDOM.findDOMNode(modal).textContent.should.match(/change your club/i);
     });
 
     it("populates state with club values", function() {
@@ -275,7 +276,7 @@ describe("ModalAddOrChangeYourClub", function() {
 
       it("shows success result", function() {
         changeClubCall.args[1](null, club);
-        modal.getDOMNode().textContent
+        ReactDOM.findDOMNode(modal).textContent
           .should.match(/your club has been changed/i);
       });
     });

@@ -1,5 +1,6 @@
 var _ = require('underscore');
-var React = require('react/addons');
+var React = require('react');
+var ReactDOM = require('react-dom');
 var Router = require('react-router');
 var Link = Router.Link;
 
@@ -173,7 +174,7 @@ var ClubsPage = React.createClass({
     });
   },
   handleZoomToClub: function(club) {
-    this.refs.map.getDOMNode().scrollIntoView();
+    ReactDOM.findDOMNode(this.refs.map).scrollIntoView();
     this.refs.map.focusOnClub(club);
   },
   handleClubDelete: function(url, clubName) {
