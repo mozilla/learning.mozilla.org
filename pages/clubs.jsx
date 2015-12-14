@@ -25,8 +25,7 @@ var WhatIsAMozillaClub = React.createClass({
         width={200} height={200}
         src1x="/img/pages/clubs/intro-photo.png"
         src2x="/img/pages/clubs/intro-photo@2x.png"
-        alt="icon how do Mozilla clubs work"
-        className="illustration-img-circle">
+        alt="icon how do Mozilla clubs work">
           <p>A Mozilla Club meets regularly in-person to learn how to read, write and participate on the Web in an inclusive, engaging way.</p>
         </Illustration>
       </div>
