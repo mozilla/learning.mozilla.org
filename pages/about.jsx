@@ -48,13 +48,11 @@ var OurGoal = React.createClass({
   render: function () {
     return (
         <section className="row page-end our-goal">
-          <ImageTag alt="A stylised icon of a city"
-              className="center-block" src1x="/img/pages/about/icon-city.png"
-              src2x="/img/pages/about/icon-city@2x.png" width={292} height={102} />
-            <p className="learn-more">
-              In 2015, our goal is to foster and sustain web literacy activities in 500 cities around the globe. Join us by teaching, learning, sharing and imagining the full power of the web.
-            </p>
-            <img src="/img/pages/about/svg/icon-horizontal-divider.svg" width={292} alt="" className="center-block"/>
+          <div className="horizontal-divider"></div>
+          <p className="learn-more">
+            In 2015, our goal is to foster and sustain web literacy activities in 500 cities around the globe. Join us by teaching, learning, sharing and imagining the full power of the web.
+          </p>
+          <div className="horizontal-divider"></div>
         </section>
     );
   }

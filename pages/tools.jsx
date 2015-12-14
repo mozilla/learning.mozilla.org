@@ -123,7 +123,7 @@ var ToolsPage = React.createClass({
             </div>
           </div>
         </section>
-        <img src="/img/pages/tools/svg/icon-horizontal-divider.svg" width={292} alt="" className="center-block horizontal-divider"/>
+        <div className="horizontal-divider"></div>
         <section>
           <IconLinks>
             <IconLink

@@ -253,3 +253,40 @@ input {
     }
   }
 }
+
+.vertical-divider {
+  position: relative;
+  width: .1rem;
+  height: 8.5rem;
+  border-right: @stroke;
+  margin: 2rem auto;
+  &:after {
+    content: "";
+    display: block;
+    width: .6rem;
+    height: .6rem;
+    position: absolute;
+    bottom: 0;
+    right: -.35rem;
+    border-radius: 50%;
+    background: @strokeColor;
+  }
+}
+
+.horizontal-divider {
+  width: 27rem;
+  margin: 2rem auto;
+  border-bottom: @stroke;
+  &:after {
+    content: "";
+    display: block;
+    position: relative;
+    top: .5rem;
+    transform: rotate(45deg);
+    width: 1rem;
+    height: 1rem;
+    border: @stroke;
+    background: @white;
+    margin: 0 auto;
+  }
+}
