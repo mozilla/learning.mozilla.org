@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 var ReactDOMServer = require('react-dom/server');
 var Router = require('react-router');
 var Route = Router.Route;
@@ -130,6 +131,6 @@ exports.generateStatic = function(url, cb) {
 exports.run = function(location, el) {
   Router.run(routes, location, function(Handler, state) {
     ga.pageview(state.pathname);
-    React.render(<Handler/>, el);
+    ReactDOM.render(<Handler/>, el);
   });
 };
