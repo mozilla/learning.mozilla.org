@@ -1,4 +1,6 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
+var ReactDOMServer = require('react-dom/server');
 var Router = require('react-router');
 var Route = Router.Route;
 var Redirect = Router.Redirect;
@@ -93,7 +95,7 @@ exports.generateStaticRedirect = function(fromURL, toURL, cb) {
     if (!router.match(toURL)) {
       return cb(new Error("Redirect 'to' route does not exist: " + toURL));
     }
-    html = React.renderToStaticMarkup(
+    html = ReactDOMServer.renderToStaticMarkup(
       <p>
         The URL of this page has changed to <a href={toURL}>{toURL}</a>.
       </p>
@@ -116,7 +118,7 @@ exports.generateStatic = function(url, cb) {
     var pageHandler, html, title;
     var err = null;
     try {
-      html = React.renderToString(<Handler/>);
+      html = ReactDOMServer.renderToString(<Handler/>);
       pageHandler = Page.handlerForPage(router, url);
       title = Page.titleForHandler(pageHandler);
     } catch (e) {
@@ -129,6 +131,6 @@ exports.generateStatic = function(url, cb) {
 exports.run = function(location, el) {
   Router.run(routes, location, function(Handler, state) {
     ga.pageview(state.pathname);
-    React.render(<Handler/>, el);
+    ReactDOM.render(<Handler/>, el);
   });
 };

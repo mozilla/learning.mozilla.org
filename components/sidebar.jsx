@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 var Router = require('react-router');
 var classNames = require('classnames');
 var Link = Router.Link;
@@ -14,7 +15,7 @@ var Subitem = React.createClass({
     this.toggleHighlight();
   },
   toggleHighlight: function() {
-    var isActive = this.getDOMNode().classList.contains("active");
+    var isActive = ReactDOM.findDOMNode(this).classList.contains("active");
     this.props.toggleHighlight(isActive);
   },
   render: function() {

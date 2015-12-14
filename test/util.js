@@ -1,5 +1,7 @@
+var ReactDOM = require('react-dom');
+
 exports.ensureLabelLinkage = function (component, id) {
-  var el = component.getDOMNode();
+  var el = ReactDOM.findDOMNode(component);
   var field = el.querySelector('#' + id);
   var label = el.querySelector('label[for="' + id + '"]');
 

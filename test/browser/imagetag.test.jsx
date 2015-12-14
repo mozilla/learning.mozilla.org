@@ -1,5 +1,6 @@
 var should = require('should');
 var stubContext = require('./stub-context.jsx');
+var ReactDOM = require('react-dom');
 
 var ImageTag = require('../../components/imagetag.jsx');
 
@@ -19,10 +20,10 @@ describe('ImageTag', function () {
   });
 
   it('should set srcset attribute', function () {
-    imagetag.getDOMNode().querySelector("img").getAttribute('srcset').should.equal('foo2x.jpg 2x');
+    ReactDOM.findDOMNode(imagetag).querySelector("img").getAttribute('srcset').should.equal('foo2x.jpg 2x');
   });
 
   it('should set primary src to 1x resolution', function () {
-    imagetag.getDOMNode().querySelector("img").getAttribute('src').should.equal('foo1x.jpg');
+    ReactDOM.findDOMNode(imagetag).querySelector("img").getAttribute('src').should.equal('foo1x.jpg');
   });
 });

@@ -1,7 +1,9 @@
-var React = require('react/addons');
+var React = require('react');
+
 var Select = require('react-select');
 var _ = require('underscore');
 var Modal = require('../components/modal.jsx');
+var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var ModalManagerMixin = require('../mixins/modal-manager');
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
 var LoginLink = require('../components/login.jsx').LoginLink;
@@ -37,8 +39,7 @@ var validateClub = function(clubState) {
 };
 
 var ModalAddOrChangeYourClub = React.createClass({
-  mixins: [React.addons.LinkedStateMixin, ModalManagerMixin,
-           TeachAPIClientMixin],
+  mixins: [LinkedStateMixin, ModalManagerMixin, TeachAPIClientMixin],
   contextTypes: {
     router: React.PropTypes.func
   },

@@ -1,5 +1,5 @@
 var _ = require('underscore');
-var React = require('react/addons');
+var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 
@@ -7,8 +7,10 @@ var config = require('../lib/config');
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
 var ga = require('react-ga');
 
+var PureRenderMixin = require('react-addons-pure-render-mixin');
+
 var LogoutLink = React.createClass({
-  mixins: [TeachAPIClientMixin, React.addons.PureRenderMixin],
+  mixins: [TeachAPIClientMixin, PureRenderMixin],
   contextTypes: {
     router: React.PropTypes.func
   },
@@ -35,7 +37,7 @@ var LogoutLink = React.createClass({
 });
 
 var LoginLink = React.createClass({
-  mixins: [TeachAPIClientMixin, React.addons.PureRenderMixin],
+  mixins: [TeachAPIClientMixin, PureRenderMixin],
   contextTypes: {
     router: React.PropTypes.func
   },

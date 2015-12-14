@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDOM = require('react-dom')
 
 var AnchorManagerMixin = require('../mixins/anchor-manager');
 
@@ -24,7 +25,7 @@ var Expander = React.createClass({
   },
   handleAttractAttentionToAnchor: function() {
     this.expand();
-    this.refs.header.getDOMNode().focus();
+    ReactDOM.findDOMNode(this.refs.header).focus();
   },
   handleMouseDown: function(e) {
     if (this.state.expanded) {

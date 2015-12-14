@@ -1,7 +1,7 @@
 var _ = require('underscore');
 var should = require('should');
-var React =require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React = require('react');
+var TestUtils = require('react-addons-test-utils');
 var sinon = window.sinon;
 
 var stubContext = require('./stub-context.jsx');

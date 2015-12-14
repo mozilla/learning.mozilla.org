@@ -4,6 +4,7 @@ var Link = Router.Link;
 var moment = require('moment');
 var ga = require('react-ga');
 var OutboundLink = ga.OutboundLink;
+var LinkedStateMixin = require('react-addons-linked-state-mixin');
 
 var HeroUnit = require('../components/hero-unit.jsx');
 var Blockquote = require('../components/blockquote.jsx');
@@ -161,7 +162,7 @@ var validateSignupForm = function(signUpFormState) {
 };
 
 var PledgeSignupForm = React.createClass({
-  mixins: [React.addons.LinkedStateMixin],
+  mixins: [LinkedStateMixin],
   getInitialState: function() {
     return {
       email: "",
