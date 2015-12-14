@@ -14,7 +14,6 @@ var Intro = React.createClass({
           <h1>About the Mozilla Learning Network</h1>
           <section className="intro">
             <Illustration width={226} height={226}
-            className="illustration-img-circle"
             src1x="/img/pages/about/hive-nyc-summer-quest.jpg"
             alt="HiveLearningNYC 2014 Hive NYC Summer Quest Maker Party">
               <p>We are cultivating a global network of web literacy leaders who are teaching and learning the most important skills of our age: the ability to read, write and participate in the digital world. Our programs and resources can help you make an impact in your community, and participate in an openly networked world.</p>

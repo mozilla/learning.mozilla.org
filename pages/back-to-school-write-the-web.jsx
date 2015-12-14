@@ -14,8 +14,7 @@ var CurriculumIntro = React.createClass({
             height={204} width={204}
             src1x="/img/pages/back-to-school-write-the-web/img-main.jpg"
             src2x="/img/pages/back-to-school-write-the-web/img-main@2x.jpg"
-            alt="Graph paper wad"
-            className="illustration-img-circle">
+            alt="Graph paper wad">
             <h2>Learn how to remix and write basic HTML, CSS, and JavaScript with these Back-to-School Thimble activities and lesson plans.</h2>
           </Illustration>
         </section>

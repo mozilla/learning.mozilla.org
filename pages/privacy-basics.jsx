@@ -13,8 +13,7 @@ var Intro = React.createClass({
           <Illustration
           height={204} width={204}
           src1x=" https://upload.wikimedia.org/wikipedia/commons/7/73/Monitor_padlock.svg"
-          alt=""
-          className="illustration-img-circle">
+          alt="">
             <h2>Learn how to safeguard your privacy online and develop an awareness of how companies and governments track and collect your data online.</h2>
           </Illustration>
         </section>

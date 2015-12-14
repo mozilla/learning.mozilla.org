@@ -7,16 +7,6 @@
       padding-right: 0;
     }
   }
-  &.illustration-img-circle {
-    // defining this declaration block so that
-    // we don't collide with .img-circle in Bootstrap's namespace
-    // since .illustration-img-circle is meant to be applied to the <Illustration> component,
-    // not the <img> within <Illustration>
-    img {
-      border-radius: 50%;
-      max-width: 22.6rem;
-    }
-  }
   &.content-first {
     display: flex;
     flex-direction: row-reverse;
@@ -39,6 +29,9 @@
   figcaption {
     font-size: 1rem;
     text-align: center;
+  }
+  img {
+    border-radius: @image-border-radius;
   }
   @media screen and (min-width: @screen-sm-min) {
     display: flex;

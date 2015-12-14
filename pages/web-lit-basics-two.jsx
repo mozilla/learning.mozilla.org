@@ -14,7 +14,6 @@ var CurriculumIntro = React.createClass({
           <Illustration
           height={204} width={204}
           src1x="/img/pages/web-lit-basics-two/intro.jpg"
-          className="illustration-img-circle"
           alt=""
           caption={<a href="https://c2.staticflickr.com/6/5760/22431506387_43e85e71bd.jpg">cc-by-2.0 Mozilla Festival</a>}>
             <h2>Dive deeper into the basics of composing webpages, designing for accessibility, sharing resources, using online media, and working open.</h2>
