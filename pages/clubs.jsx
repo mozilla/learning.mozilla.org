@@ -132,10 +132,7 @@ var ApplyCallout = React.createClass({
   render: function() {
     return(
       <div className="apply-callout text-center">
-        <ImageTag 
-          className="center-block" 
-          src1x="/img/pages/clubs/svg/icon-line.svg"
-          alt=""/>
+        <div className="vertical-divider"></div>
         <h3 className="text-center">To get matched with a Regional Coordinator, please apply to be a Mozilla Club Captain.</h3>
         <a className="btn btn-awsm" onClick={this.props.showAddYourClubModal}>Apply to be a Club Captain</a>
         <p className="check-out-resources">If you’d like to get started on your own, check out these <a href="http://mozilla.github.io/learning-networks/clubs/">resources</a>.</p>
