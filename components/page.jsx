@@ -110,7 +110,7 @@ var Page = React.createClass({
               <RouteHandler/>
             </main>
           </div>
-          <Footer/>
+          <Footer className="page-bottom"/>
         </div>
 
         <TimeoutTransitionGroup transitionName="modal"

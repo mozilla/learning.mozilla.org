@@ -14,9 +14,8 @@ html.no-js .sidebar {
 }
 
 .page {
-  &.about-page {
-    .pageColorizer(@blueSidebarColor);
-  }
+  .pageColorizer();
+
   &.events,
   &.event-resources {
     .pageColorizer(@darkBlueSidebarColor);
@@ -46,11 +45,11 @@ html.no-js .sidebar {
 }
 
 .sidebar {
-  background-color: @sidebarColor;
-  transition: background-color @sidebarTransitionTime;
-  color: white;
+  position: relative;
+  height: auto;
+  color: @white;
   font-size: 1.4rem;
-  padding: 0 0 1.5rem 0;
+  padding: 0;
   a {
     color: inherit;
   }
@@ -59,12 +58,23 @@ html.no-js .sidebar {
     transition: all 0.5s ease;
     opacity: 1;
     max-height: 1400px;
-  }
-
-  @media screen and (max-width: @screen-md) {
-    .collapsible-content.collapsed {
+    padding-bottom: 1rem;
+    &.collapsed {
       opacity: 0;
       max-height: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  @media screen and (min-width: @screen-md-min) {
+    position: fixed;
+    height: 100%;
+    transition: background-color @sidebarTransitionTime;
+    .collapsible-content {
+      &.collapsed {
+        opacity: 1;
+        max-height: auto;
+      }
     }
   }
 }
@@ -109,11 +119,8 @@ html.no-js .sidebar {
   a {
     position: relative;
     display: block;
-    padding: (@grid-gutter-width / 2) 0;
+    padding: (@grid-gutter-width / 2);
     outline: none;
-    @media screen and (min-width: @screen-lg-min) {
-      padding: (@grid-gutter-width / 2);
-    }
     &:hover, &:focus {
       text-decoration: none;
       background-color: darken(@sidebarColor, 5%);
@@ -156,10 +163,6 @@ html.no-js .sidebar {
     width: 3.5rem;
     text-align: center;
     vertical-align: middle;
-    margin-left: 2rem;
-    @media (min-width: @screen-md-min) {
-      margin-left: 0;
-    }
   }
   img {
     float: none;

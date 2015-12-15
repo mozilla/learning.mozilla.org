@@ -6,6 +6,7 @@ var Link = Router.Link;
 var LinkAnchorSwap = require('./link-anchor-swap.jsx');
 
 var Login = require('./login.jsx');
+var Footer = require('./footer.jsx');
 
 var Subitem = React.createClass({
   componentDidMount: function() {
@@ -173,6 +174,7 @@ var Sidebar = React.createClass({
               );
             })}
           </ul>
+          <Footer/>
         </div>
       </div>
     );
