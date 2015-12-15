@@ -115,6 +115,7 @@ var EventsPage = React.createClass({
       <div>
         <HeroUnit>
           <h1>Host a Maker Party</h1>
+          <h2>Host a one-time event or workshop</h2>
         </HeroUnit>
         <div className="inner-container">
           <section className="join-global-movement">
