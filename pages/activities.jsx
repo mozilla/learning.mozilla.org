@@ -128,6 +128,7 @@ var ActivitiesPage = React.createClass({
     pageClassName: 'teaching-materials'
   },
   render: function() {
+    var linkCurriculumQueue = "http://mozilla.github.io/webmaker-curriculum/index.html";
     return (
       <div>
         <HeroUnit>
@@ -274,7 +275,12 @@ var ActivitiesPage = React.createClass({
               link="/activities/madewithcode"
               developedBy="Mozilla for Google's Made with Code initiative"
               description="Mozilla is happy to partner with Google's Made with Code initiative to inspire girls to get creative with code. There are three fun activities to help you create your own webpages by writing and remixing HTML."/>
-
+          </section>
+          <section>
+            <h2>Coming soon</h2>
+            <p>Want to see what new activities and teaching kits we have in the works? Check out our <OutboundLink to={linkCurriculumQueue} eventLabel={linkCurriculumQueue}>Curriculum Queue</OutboundLink>.</p>
+          </section>
+          <section>
             <h2>More resources</h2>
             <p>
               Hive Learning Networks are city-based communities of educators who champion digital skills and web literacy through connected learning. Visit each city's portfolio to find more inspiration, resources and projects for teaching and learning.
