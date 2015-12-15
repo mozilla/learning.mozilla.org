@@ -32,7 +32,7 @@ var FakePage = React.createClass({
   }
 });
 
-describe("modal", function() {
+describe("Modal", function() {
   var page, modal, onClose;
 
   beforeEach(function() {
@@ -42,7 +42,7 @@ describe("modal", function() {
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(ReactDOM.findDOMNode(page).parentNode);
+    ReactDOM.unmountComponentAtNode(ReactDOM.findDOMNode(page).parentNode);
   });
 
   it('closes modal if and only if ESC is pressed', function() {

@@ -164,7 +164,7 @@ describe('AnchorManagerMixin', function() {
   };
 
   var unmountAnchor = function(anchor) {
-    React.unmountComponentAtNode(ReactDOM.findDOMNode(anchor).parentNode);
+    ReactDOM.unmountComponentAtNode(ReactDOM.findDOMNode(anchor).parentNode);
     anchors.splice(anchors.indexOf(anchor), 1);
   };
 

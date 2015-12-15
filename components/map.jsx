@@ -3,6 +3,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var ReactDOMServer = require('react-dom/server');
 var request = require('superagent');
+var _ = require('underscore');
 
 var config = require('../lib/config');
 
