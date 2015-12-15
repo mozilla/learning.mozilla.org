@@ -132,6 +132,7 @@ var ActivitiesPage = React.createClass({
       <div>
         <HeroUnit>
           <h1>Teaching Activities</h1>
+          <h2>Activities and lesson plans to get you started</h2>
         </HeroUnit>
         <div className="inner-container activities">
           <section>

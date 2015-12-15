@@ -1,6 +1,7 @@
 var React = require('react');
 var Link = require('react-router').Link;
 var OutboundLink = require('react-ga').OutboundLink;
+var HeroUnit = require('../components/hero-unit.jsx');
 var Illustration = require('../components/illustration.jsx');
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
@@ -9,7 +10,7 @@ var config = require('../lib/config');
 var ToolsIntro = React.createClass({
   render: function() {
     return (
-      <div>
+      <div className="inner-container">
         <section className="intro">
           <Illustration
             height={204} width={204}
@@ -112,7 +113,11 @@ var ToolsPage = React.createClass({
   },
   render: function(){
     return (
-      <div className="inner-container">
+      <div>
+        <HeroUnit>
+          <h1>Tools</h1>
+          <h2>Open source software to teach and learn the Web</h2>
+        </HeroUnit>
         <ToolsIntro/>
         <ToolsSection/>
         <section>
