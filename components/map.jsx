@@ -1,5 +1,7 @@
 var urlParse = require('url').parse;
 var React = require('react');
+var ReactDOM = require('react-dom');
+var ReactDOMServer = require('react-dom/server');
 var request = require('superagent');
 
 var config = require('../lib/config');
@@ -254,7 +256,7 @@ var Map = React.createClass({
   },
   handleDependenciesLoaded: function() {
     L.mapbox.accessToken = accessToken;
-    this.map = L.mapbox.map(this.refs.map.getDOMNode())
+    this.map = L.mapbox.map(ReactDOM.findDOMNode(this.refs.map))
       .setView([0, 0], 2)
       .addLayer(L.mapbox.tileLayer(mapboxId));
     this.markers = new L.MarkerClusterGroup({
@@ -273,7 +275,7 @@ var Map = React.createClass({
 
       // we have to check if this is a feature or marker-cluster.
       if (feature) {
-        html = React.renderToStaticMarkup(
+        html = ReactDOMServer.renderToStaticMarkup(
           <MarkerPopup clubs={feature.properties.clubs}
                        username={this.props.username} />
         );
@@ -305,7 +307,7 @@ var Map = React.createClass({
     // we're only catching events that bubble up from the static
     // marker popup button clicks to make *those* buttons usable,
     // rather than offering any new kind of interactivity.
-    this.getDOMNode().addEventListener('click', this.handleClick);
+    ReactDOM.findDOMNode(this).addEventListener('click', this.handleClick);
     if (this.props.onReady) {
       this.props.onReady();
     }
@@ -332,7 +334,7 @@ var Map = React.createClass({
     }
   },
   componentWillUnmount: function() {
-    this.getDOMNode().removeEventListener('click', this.handleClick);
+    ReactDOM.findDOMNode(this).removeEventListener('click', this.handleClick);
     if (this.map) {
       this.map.remove();
     }

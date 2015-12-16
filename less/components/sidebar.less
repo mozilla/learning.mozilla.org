@@ -14,9 +14,8 @@ html.no-js .sidebar {
 }
 
 .page {
-  &.about-page {
-    .pageColorizer(@blueSidebarColor);
-  }
+  .pageColorizer();
+
   &.events,
   &.event-resources {
     .pageColorizer(@darkBlueSidebarColor);
@@ -45,24 +44,14 @@ html.no-js .sidebar {
   &.badges{
     .pageColorizer( @indigoSidebarColor );
   }
-
-  &.teach-like-mozilla .teach,
-  &.web-literacy .teach,
-  &.clubs .clubs,
-  &.event-resources .events,
-  &.events .events {
-    .sidebar-subitems {
-      display: block;
-    }
-  }
 }
 
 .sidebar {
-  background-color: @sidebarColor;
-  transition: background-color @sidebarTransitionTime;
-  color: white;
+  position: relative;
+  height: auto;
+  color: @white;
   font-size: 1.4rem;
-  padding: 0 0 1.5rem 0;
+  padding: 0;
   a {
     color: inherit;
   }
@@ -71,12 +60,23 @@ html.no-js .sidebar {
     transition: all 0.5s ease;
     opacity: 1;
     max-height: 1400px;
-  }
-
-  @media screen and (max-width: @screen-md) {
-    .collapsible-content.collapsed {
+    padding-bottom: 1rem;
+    &.collapsed {
       opacity: 0;
       max-height: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  @media screen and (min-width: @screen-md-min) {
+    position: fixed;
+    height: 100%;
+    transition: background-color @sidebarTransitionTime;
+    .collapsible-content {
+      &.collapsed {
+        opacity: 1;
+        max-height: auto;
+      }
     }
   }
 }
@@ -115,24 +115,14 @@ html.no-js .sidebar {
 }
 
 .sidebar-menu {
+  font-size: 13px;
   padding-bottom: 0;
   margin-bottom: 0;
-  .teach img {
-    width: 5rem;
-    margin: 0.4rem 1.3rem 0 0.6rem;
-  }
-  .clubs img {
-    width: 5rem;
-    margin: 0 1.5rem 0 0.5rem;
-  }
-
   a {
     position: relative;
     display: block;
-    padding: (@grid-gutter-width / 2) 0;
-    @media screen and (min-width: @screen-lg-min) {
-      padding: (@grid-gutter-width / 2);
-    }
+    padding: (@grid-gutter-width / 2);
+    outline: none;
     &:hover, &:focus {
       text-decoration: none;
       background-color: darken(@sidebarColor, 5%);
@@ -143,14 +133,16 @@ html.no-js .sidebar {
     display: inline;
     font-weight: 700;
     text-transform: uppercase;
-    @media (min-width: @screen-md-min) {
-      display: block;
-    }
+    vertical-align: middle;
+    margin-left: 1rem;
   }
-  .help-text {
-    font-size: 1.2rem;
-    font-weight: 400;
-    width: 22rem;
+  .external-link {
+    a strong:after {
+      content: "\f08e";
+      font-family: "FontAwesome";
+      color: fade(@white, 50%);
+      margin-left: 1rem;
+    }
   }
   .glyphicon {
     position: absolute;
@@ -167,49 +159,51 @@ html.no-js .sidebar {
       visibility: visible;
     }
   }
+  .img-container {
+    display: inline-block;
+    overflow: hidden;
+    width: 3.5rem;
+    text-align: center;
+    vertical-align: middle;
+  }
   img {
     float: none;
-    width: 5.4rem;
+    width: 2rem;
     opacity: 0.6;
-    margin: 0 1.5rem 0 0;
-    @media (min-width: @screen-md-min) {
-      float: left;
-    }
+  }
+  .activities img,
+  .events img {
+    width: 1.6rem;
+  }
+  .tools-page img {
+    width: 2.3rem;
+  }
+  .community img {
+    width: 2.8rem;
   }
 }
 
 .sidebar-subitems {
-  border-left: 0.1rem solid rgba(255, 255, 255, 0.4);
+  overflow: hidden;
   display: none;
   list-style: none;
-  margin-bottom: 1rem;
-  margin-left: 3rem;
-  padding: 0;
-  position: relative;
-  top: 0;
+  padding: 0 0 0 6.6rem;
 
-  @media screen and (min-width: @screen-lg-min) {
-    margin-left: 4.5rem;
+  @media screen and (min-width: @screen-md-min) {
+    padding-left: 6.1rem;
   }
   li {
     margin-bottom: 1.5rem;
-    position: relative;
-    &::before {
-      border-bottom: 0.1rem solid rgba(255, 255, 255, 0.4);
-      bottom: 0;
-      content: '';
-      display: block;
-      height: 0.1rem;
-      position: absolute;
-      width: 4rem;
+    a::before {
+      content: "\f105";
+      font-family: "FontAwesome";
+      display: inline-block;
+      margin-right: 1rem;
     }
   }
   a {
-    display: block;
-    margin: 0 0 0 4rem;
-    padding: 0.5rem 1rem;
-    position: relative;
-    top: 1.4rem;
+    display: inline-block;
     font-weight: 600;
+    padding: 0;
   }
 }

@@ -15,8 +15,7 @@ var CurriculumIntro = React.createClass({
           height={204} width={204}
           src1x="/img/pages/web-lit-basics/photo-clubs-curriculum.jpg"
           src2x="/img/pages/web-lit-basics/photo-clubs-curriculum@2x.jpg"
-          alt="Woman training a young man on a computer"
-          className="illustration-img-circle">
+          alt="Woman training a young man on a computer">
             <h2>Learners get familiar with reading, writing and participating on the web in this six-part module. Discover the foundations of the web through production and collaboration.</h2>
           </Illustration>
         </section>
@@ -34,7 +33,7 @@ var WebLitBasics = React.createClass({
           <p>
             The learning objectives underpinning each activity are informed by Mozilla&apos;s <Link to="web-literacy">Web Literacy Map</Link>. Complete the activities in
             sequence, or mix and match for your learners. Need help{'? '}
-            <a href="http://discourse.webmaker.org/category/clubs">Visit our discussion forum</a> to get help and share
+            <a href="https://discourse.webmaker.org/c/curriculum">Visit our discussion forum</a> to get help and share
             your experience.
           </p>
         </div>
@@ -125,9 +124,9 @@ var ClubsCurriculum = React.createClass({
             We're making an effort to localize our Web Literacy Basics I curriculum and we need your help! There's increasing interest in starting Mozilla Clubs and teaching web literacy skills in communities around the globe, but our current curricular modules are only available in English. <OutboundLink to={blogPostLink} eventLabel={blogPostLink}>Learn how you can help</OutboundLink>.
           </div>
         </section>
-        {this.curriculum.map(function (section, key) {
+        {this.curriculum.map(function (section) {
           return (
-            <ActivitySection title={section.title} key={key} activities={section.activities} />
+            <ActivitySection title={section.title} key={section.title} activities={section.activities} />
           );
         })}
       </div>

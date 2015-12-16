@@ -1,7 +1,8 @@
 var should = require('should');
 var sinon = window.sinon;
-var React =require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React = require('react');
+var ReactDOM = require('react-dom');
+var TestUtils = require('react-addons-test-utils');
 
 var Map = require('../../components/map.jsx');
 var stubContext = require('./stub-context.jsx');
@@ -92,7 +93,7 @@ describe("Map", function() {
   });
 
   it("should render", function() {
-    map.getDOMNode().className.should.match(/foo/);
+    ReactDOM.findDOMNode(map).className.should.match(/foo/);
   });
 
   it("should load leaflet + markercluster", function() {
@@ -136,7 +137,7 @@ describe("Map.MarkerPopup", function() {
     var popup = TestUtils.renderIntoDocument(
       <Map.MarkerPopup clubs={[club]} username="bar" />
     );
-    popup.getDOMNode().textContent.should.match(/pending/);
+    ReactDOM.findDOMNode(popup).textContent.should.match(/pending/);
   });
 
   it("should show when club is denied", function() {
@@ -144,7 +145,7 @@ describe("Map.MarkerPopup", function() {
     var popup = TestUtils.renderIntoDocument(
       <Map.MarkerPopup clubs={[club]} username="bar" />
     );
-    popup.getDOMNode().textContent.should.match(/denied/);
+    ReactDOM.findDOMNode(popup).textContent.should.match(/denied/);
   });
 
   it("should not show website when it is blank", function() {
@@ -230,28 +231,28 @@ describe("Map.ClubStatusLabel", function() {
     var label = TestUtils.renderIntoDocument(
       <Map.ClubStatusLabel status="approved" />
     );
-    label.getDOMNode().textContent.should.equal('');
+    ReactDOM.findDOMNode(label).textContent.should.equal('');
   });
 
   it("is 'approved' when status is approved and showApproved is true", function() {
     var label = TestUtils.renderIntoDocument(
       <Map.ClubStatusLabel status="approved" showApproved />
     );
-    label.getDOMNode().textContent.should.equal('approved');
+    ReactDOM.findDOMNode(label).textContent.should.equal('approved');
   });
 
   it("is 'denied' when status is denied", function() {
     var label = TestUtils.renderIntoDocument(
       <Map.ClubStatusLabel status="denied" />
     );
-    label.getDOMNode().textContent.should.equal('denied');
+    ReactDOM.findDOMNode(label).textContent.should.equal('denied');
   });
 
   it("is 'pending' when status is pending", function() {
     var label = TestUtils.renderIntoDocument(
       <Map.ClubStatusLabel status="pending" />
     );
-    label.getDOMNode().textContent.should.equal('pending');
+    ReactDOM.findDOMNode(label).textContent.should.equal('pending');
   });
 });
 

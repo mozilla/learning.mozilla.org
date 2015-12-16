@@ -2,8 +2,9 @@
 // https://github.com/rackt/react-router/blob/master/docs/guides/testing.md
 
 var _ = require('underscore');
-var React =require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React =require('react');
+var ReactDOM = require('react-dom');
+var TestUtils = require('react-addons-test-utils');
 var sinon = window.sinon;
 
 var StubRouter = require('./stub-router');
@@ -45,7 +46,7 @@ stubContext.render = function(Component, props, stubs) {
 };
 
 stubContext.unmount = function(unstubbed) {
-  React.unmountComponentAtNode(unstubbed.getDOMNode().parentNode);
+  React.unmountComponentAtNode(ReactDOM.findDOMNode(unstubbed).parentNode);
 };
 
 module.exports = stubContext;

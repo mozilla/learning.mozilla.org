@@ -1,5 +1,6 @@
 var _  = require('underscore');
 var React = require('react');
+var ReactDOMServer = require('react-dom/server');
 
 var config = require('./config');
 var routes = require('./routes.jsx');
@@ -71,7 +72,7 @@ function generateWithPageHTML(url, options, pageHTML) {
     </html>
   );
 
-  return '<!DOCTYPE html>' + React.renderToStaticMarkup(content);
+  return '<!DOCTYPE html>' + ReactDOMServer.renderToStaticMarkup(content);
 }
 
 function generate(url, options, cb) {

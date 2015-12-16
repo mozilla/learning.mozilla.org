@@ -14,7 +14,6 @@ var Intro = React.createClass({
           <h1>About the Mozilla Learning Network</h1>
           <section className="intro">
             <Illustration width={226} height={226}
-            className="illustration-img-circle"
             src1x="/img/pages/about/hive-nyc-summer-quest.jpg"
             alt="HiveLearningNYC 2014 Hive NYC Summer Quest Maker Party">
               <p>We are cultivating a global network of web literacy leaders who are teaching and learning the most important skills of our age: the ability to read, write and participate in the digital world. Our programs and resources can help you make an impact in your community, and participate in an openly networked world.</p>
@@ -48,13 +47,11 @@ var OurGoal = React.createClass({
   render: function () {
     return (
         <section className="row page-end our-goal">
-          <ImageTag alt="A stylised icon of a city"
-              className="center-block" src1x="/img/pages/about/icon-city.png"
-              src2x="/img/pages/about/icon-city@2x.png" width={292} height={102} />
-            <p className="learn-more">
-              In 2015, our goal is to foster and sustain web literacy activities in 500 cities around the globe. Join us by teaching, learning, sharing and imagining the full power of the web.
-            </p>
-            <img src="/img/pages/about/svg/icon-horizontal-divider.svg" width={292} alt="" className="center-block"/>
+          <div className="horizontal-divider"></div>
+          <p className="learn-more">
+            In 2015, our goal is to foster and sustain web literacy activities in 500 cities around the globe. Join us by teaching, learning, sharing and imagining the full power of the web.
+          </p>
+          <div className="horizontal-divider"></div>
         </section>
     );
   }
@@ -85,7 +82,7 @@ var AboutPage = React.createClass({
               subhead="Email us anytime"
             />
             <IconLink
-              href="http://discourse.webmaker.org/category/meet"
+              href="https://discourse.webmaker.org/t/if-youre-new-to-the-community-please-introduce-yourself/15"
               imgSrc="/img/pages/about/svg/icon-connect-blue.svg"
               head="Say Hello"
               subhead="Connect on the #teachtheweb Discourse forum"

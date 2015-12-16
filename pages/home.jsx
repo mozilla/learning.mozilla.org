@@ -4,6 +4,7 @@ var Link = Router.Link;
 var moment = require('moment');
 var ga = require('react-ga');
 var OutboundLink = ga.OutboundLink;
+var LinkedStateMixin = require('react-addons-linked-state-mixin');
 
 var HeroUnit = require('../components/hero-unit.jsx');
 var Blockquote = require('../components/blockquote.jsx');
@@ -161,7 +162,7 @@ var validateSignupForm = function(signUpFormState) {
 };
 
 var PledgeSignupForm = React.createClass({
-  mixins: [React.addons.LinkedStateMixin],
+  mixins: [LinkedStateMixin],
   getInitialState: function() {
     return {
       email: "",
@@ -373,7 +374,7 @@ var HomePage = React.createClass({
               subhead="Email us anytime"
             />
             <IconLink
-              href="http://discourse.webmaker.org/category/meet"
+              href="https://discourse.webmaker.org/t/if-youre-new-to-the-community-please-introduce-yourself"
               imgSrc="/img/pages/about/svg/icon-connect-blue.svg"
               head="Say Hello"
               subhead="Connect on the Discourse forum"

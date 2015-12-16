@@ -128,10 +128,12 @@ var ActivitiesPage = React.createClass({
     pageClassName: 'teaching-materials'
   },
   render: function() {
+    var linkCurriculumQueue = "http://mozilla.github.io/webmaker-curriculum/index.html";
     return (
       <div>
         <HeroUnit>
           <h1>Teaching Activities</h1>
+          <h2>Activities and lesson plans to get you started</h2>
         </HeroUnit>
         <div className="inner-container activities">
           <section>
@@ -141,11 +143,19 @@ var ActivitiesPage = React.createClass({
             <ActivityKit
               src1x="/img/pages/activities/img-activity-curriculum.png"
               src2x="/img/pages/activities/img-activity-curriculum@2x.png"
-              title="Web Literacy Basics (Teaching Kit) "
+              title="Web Literacy Basics (Teaching Kit)"
               level="Beginner"
               link="/activities/web-lit-basics/"
               developedBy="Our seasoned educator community"
               description="This six-part series helps learners become familiar with reading, writing and participating on the web. They'll discover the foundations of the web through production and collaboration. This is an ideal kit for Mozilla Clubs."/>
+            <ActivityKit
+              src1x="/img/pages/activities/web-lit-basics-two.jpg"
+              caption={<a href="https://c2.staticflickr.com/6/5760/22431506387_43e85e71bd.jpg">cc-by-2.0 Mozilla Festival</a>}
+              title="Web Literacy Basics II (Teaching Kit)"
+              level="Beginner"
+              link="/activities/web-lit-basics-two/"
+              developedBy="Mozilla Learning Networks"
+              description="Explore making, media production, reverse-image search, and design on the web."/>
             <ActivityKit
               src1x="/img/pages/protect-your-data/protect-your-data.png"
               src2x="/img/pages/protect-your-data/protect-your-data@2x.png"
@@ -258,7 +268,19 @@ var ActivitiesPage = React.createClass({
               link="https://stephguthrie.makes.org/thimble/ODU3ODAxMjE2/hacking-my-media-with-x-ray-goggles"
               developedBy="Steph Guthrie, Kim Wilkens, 2013 MozGirls"
               description="In this activity, learners create a remix of a Wikimedia page as they think critically about the intersection of gender, culture, technology and identity."/>
-
+            <ActivityKit
+              src1x="/img/pages/activities/img-activity-madewithcode.png"
+              title="Made with Code"
+              level="Beginner"
+              link="/activities/madewithcode"
+              developedBy="Mozilla for Google's Made with Code initiative"
+              description="Mozilla is happy to partner with Google's Made with Code initiative to inspire girls to get creative with code. There are three fun activities to help you create your own webpages by writing and remixing HTML."/>
+          </section>
+          <section>
+            <h2>Coming soon</h2>
+            <p>Want to see what new activities and teaching kits we have in the works? Check out our <OutboundLink to={linkCurriculumQueue} eventLabel={linkCurriculumQueue}>Curriculum Queue</OutboundLink>.</p>
+          </section>
+          <section>
             <h2>More resources</h2>
             <p>
               Hive Learning Networks are city-based communities of educators who champion digital skills and web literacy through connected learning. Visit each city's portfolio to find more inspiration, resources and projects for teaching and learning.

@@ -61,7 +61,7 @@ var TeachLikeMozillaPage = React.createClass({
                 subhead="Learn more about the Web Literacy Map"
               />
               <IconLink
-                href="http://discourse.webmaker.org/category/meet"
+                href="https://discourse.webmaker.org/t/if-youre-new-to-the-community-please-introduce-yourself"
                 imgSrc="/img/pages/teach-like-mozilla/svg/icon-connect.svg"
                 head="Say Hello"
                 subhead="Meet the teach community"

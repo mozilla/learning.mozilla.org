@@ -224,7 +224,7 @@ var EventsResources = React.createClass({
           alt="Certificate Image"
           src1x="/img/pages/event-resources/resource-thumbnails-08.png"
           src2x="/img/pages/event-resources/resource-thumbnails-08@2x.png">
-            <RemixLink href="https://makerparty2014.makes.org/thimble/LTEzNDM3NTAxNDQ=/maker-party-love-bomb">Download EPS</RemixLink>
+            <RemixLink href="https://d157rqmxrxj6ey.cloudfront.net/mhasan/13029/ ">Download EPS</RemixLink>
           </LogoAsset>
           <LogoAsset head="Table Cloth Design"
           alt="Table Cloth Design Image"
@@ -391,7 +391,7 @@ var EventsResources = React.createClass({
             alt="ask the community image"/>
             <h3 className="event-support-header">Ask The Community</h3>
             <p>
-              We have a large, global community of people like you who have hosted events and have lots of advice to share. Visit our <a href="http://discourse.webmaker.org/category/maker-party">discussion forum</a> to ask questions or share your own advice and experience with others.
+              We have a large, global community of people like you who have hosted events and have lots of advice to share. Visit our <a href="https://discourse.webmaker.org/c/events">discussion forum</a> to ask questions or share your own advice and experience with others.
             </p>
           </div>
           <div className="event-support-panel">

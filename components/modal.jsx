@@ -1,9 +1,10 @@
-var React = require('react/addons');
-
+var React = require('react');
+var ReactDOM = require('react-dom');
+var PureRenderMixin = require('react-addons-pure-render-mixin');
 var ModalManagerMixin = require('../mixins/modal-manager');
 
 var Modal = React.createClass({
-  mixins: [React.addons.PureRenderMixin, ModalManagerMixin],
+  mixins: [PureRenderMixin, ModalManagerMixin],
   propTypes: {
     modalTitle: React.PropTypes.string
   },
@@ -14,7 +15,7 @@ var Modal = React.createClass({
     document.removeEventListener('keydown', this.handleKeyDown);
   },
   handleOutsideOfModalClick: function(e) {
-    if (e.target === this.getDOMNode()) {
+    if (e.target === ReactDOM.findDOMNode(this)) {
       this.hideModal();
     }
   },

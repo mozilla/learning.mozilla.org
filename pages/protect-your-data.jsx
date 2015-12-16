@@ -14,8 +14,7 @@ var Intro = React.createClass({
           height={204} width={204}
           src1x="/img/pages/protect-your-data/photo-protect-your-data.png"
           src2x="/img/pages/protect-your-data/photo-protect-your-data@2x.png"
-          alt=""
-          className="illustration-img-circle">
+          alt="">
             <h2>Engage learners around the topic of privacy in this six-part module, developed in conjunction with Hive Toronto and the Mozilla Privacy Team.</h2>
           </Illustration>
         </section>
@@ -32,7 +31,7 @@ var LearningObjectives = React.createClass({
         <div className="col-sm-12">
           <h2>Learning Objectives</h2>
           <p>
-            These activities will help your learners understand how to take control of their privacy in a networked world. Complete the activities in sequence, or mix and match. Visit <a href="http://discourse.webmaker.org/category/clubs">our discussion forum</a> to get help and share your experience.
+            These activities will help your learners understand how to take control of their privacy in a networked world. Complete the activities in sequence, or mix and match. Visit <a href="https://discourse.webmaker.org/c/curriculum">our discussion forum</a> to get help and share your experience.
           </p>
         </div>
       </section>
@@ -118,7 +117,7 @@ var ProtectYourData = React.createClass({
         <LearningObjectives/>
         {this.sections.map(function (section, key) {
           return (
-            <ActivitySection title={section.title} key={key} activities={section.activities} />
+            <ActivitySection title={section.title} key={section.title} activities={section.activities} />
           );
         })}
       </div>

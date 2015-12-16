@@ -15,8 +15,7 @@ var Intro = React.createClass({
           height={204} width={204}
           src1x="/img/pages/maker-party-2015/intro-photo.png"
           src2x="/img/pages/maker-party-2015/intro-photo@2x.png"
-          alt=""
-          className="illustration-img-circle">
+          alt="">
             <h2>Fun activities that are perfect for your Maker Party, to help your attendees learn how to read, write and participate on the Web.</h2>
           </Illustration>
         </section>
@@ -33,7 +32,7 @@ var LearningObjectives = React.createClass({
         <div className="col-sm-12">
           <h2>Learning Objectives</h2>
           <p>
-            Learn about the culture, mechanics, and citizenship of the Web by making something! Each of the featured activities have offline options as well. Visit our <a href="http://discourse.webmaker.org/category/maker-party">discussion forum</a> for help and to share your experience.
+            Learn about the culture, mechanics, and citizenship of the Web by making something! Each of the featured activities have offline options as well. Visit our <a href="https://discourse.webmaker.org/c/events">discussion forum</a> for help and to share your experience.
           </p>
         </div>
       </section>
@@ -120,7 +119,7 @@ var MakerParty2015Page = React.createClass({
         <LearningObjectives/>
         {this.sections.map(function (section, key) {
           return (
-            <ActivitySection title={section.title} key={key} activities={section.activities} />
+            <ActivitySection title={section.title} key={section.title} activities={section.activities} />
           );
         })}
       </div>
