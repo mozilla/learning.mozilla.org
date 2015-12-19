@@ -200,7 +200,11 @@ form {
   }
 }
 
-input {
+input, 
+textarea {
+  width: 100%;
+  padding: 1rem;
+  border: @stroke;
   border-radius: @form-field-border-radius;
 }
 
@@ -282,6 +286,9 @@ input {
   width: 27rem;
   margin: 2rem auto;
   border-bottom: @stroke;
+  &.full-width {
+    width: 100%;
+  }
   &:after {
     content: "";
     display: block;

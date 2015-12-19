@@ -243,9 +243,9 @@ var ThankYouModal = React.createClass({
   var facebookShare = "https://www.facebook.com/sharer/sharer.php?u=" +
                       encodeURIComponent("https://teach.mozilla.org");
   var twitterShare = "https://twitter.com/home?status=" +
-                     encodeURIComponent("I just pledged to #TeachTheWeb! https://teach.mozilla.org");
+                     encodeURIComponent("I love to #TeachTheWeb! https://teach.mozilla.org");
     return (
-      <Modal modalTitle="Thanks for your pledge!" className="modal-pledge">
+      <Modal modalTitle="Thanks for your interest!" className="modal-pledge">
         <p>We appreciate your commitment to keeping the web open, accessible and ours.</p>
         <p><strong>Share and tell your friends</strong></p>
         <div className="social-share">
