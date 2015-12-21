@@ -1,0 +1,48 @@
+.community-page {
+  .hero-unit {
+    background-image: url(/img/pages/community/hero-unit.jpg);
+
+    .retina2x({
+      background-image: url(/img/pages/community/hero-unit@2x.jpg);
+    });
+  }
+  .intro {
+    margin-top: 2rem;
+  }
+  .mailinglist-signup {
+    margin: 3rem auto 0;
+    max-width: 60rem;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    @media screen and (min-width: @screen-sm-min) {
+      flex-direction: row;
+    }
+    fieldset {
+      max-width: 40rem;
+    }
+    input[type="submit"] {
+      @media screen and (min-width: @screen-sm-min) {
+        margin: 0 2rem;
+      }
+    }
+    .icon-field-container .fa {
+      top: 34%;
+    }
+  }
+}
+
+.communities-info {
+  display: flex;
+  flex-direction: column;
+  @media screen and (min-width: @screen-sm-min) {
+    flex-direction: row;
+  }
+  .illustration {
+    padding: 0 @grid-gutter-width/2;
+    margin-bottom: @grid-gutter-width;
+    @media screen and (min-width: @screen-sm-min) {
+      margin-bottom: 0;
+    }
+  }
+}

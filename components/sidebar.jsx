@@ -130,9 +130,9 @@ var Sidebar = React.createClass({
     },
     {
       name: "Community",
-      href: 'https://discourse.webmaker.org/',
+      link: "community",
       icon: "/img/components/sidebar/svg/icon-nav-community.svg",
-      className: "community external-link",
+      className: "community",
     }
   ],
   getInitialState: function() {
