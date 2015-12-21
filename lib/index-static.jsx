@@ -47,7 +47,7 @@ function generateWithPageHTML(url, options, pageHTML) {
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,700,600italic,700italic,800,800italic"/>
         <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css"/>
-        <link rel="stylesheet" href="https://mozorg.cdn.mozilla.net/media/css/tabzilla-min.css" />
+        <link rel="stylesheet" href="/vendor/mozilla-tabzilla/css/tabzilla.css" />
         <link rel="stylesheet" href={'/' + exports.CSS_FILENAME}/>
         <OptimizelySubdomain />
         <Optimizely />
@@ -61,13 +61,12 @@ function generateWithPageHTML(url, options, pageHTML) {
           Please <a href="https://browser-update.org/update.html">update your browser</a> or
           enable JavaScript to access this website's full functionality.
         </div>
-        <a href="https://www.mozilla.org/" id="tabzilla" className="teach-tabzilla">mozilla</a>
+        <div id="tabzilla"><a href="https://www.mozilla.org/">Mozilla</a></div>
         <div id="page-holder" dangerouslySetInnerHTML={{
           __html: pageHTML
         }}></div>
         <script src="/commons.bundle.js"></script>
         <script src="/app.bundle.js"></script>
-        <script src="https://mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>
       </body>
     </html>
   );
