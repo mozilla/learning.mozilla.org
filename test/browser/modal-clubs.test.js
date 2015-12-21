@@ -131,6 +131,7 @@ describe("ModalClubsGeneral", function() {
       teachAPI.addClub.callCount.should.equal(0);
     });
 
+/*
     describe("when form is submitted", function() {
       return;
 
@@ -218,6 +219,7 @@ describe("ModalClubsGeneral", function() {
         ReactDOM.findDOMNode(modal).textContent.should.not.match(MODAL_ERROR_REGEX);
       });
     });
+*/
   });
 
   describe("changing a club", function() {
