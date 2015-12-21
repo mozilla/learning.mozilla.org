@@ -41,7 +41,7 @@ describe("ModalRemoveYourClub", function() {
         modal,
         'btn'
       );
-      btn.props.disabled.should.be.false;
+      btn.disabled.should.be.false;
       teachAPI.deleteClub.callCount.should.equal(0);
       TestUtils.Simulate.click(btn);
       teachAPI.deleteClub.callCount.should.equal(1);
@@ -54,7 +54,7 @@ describe("ModalRemoveYourClub", function() {
 
     it("disables confirm button while server is contacted", function() {
       modal.state.step.should.equal(modal.STEP_WAIT_FOR_NETWORK);
-      btn.props.disabled.should.be.true;
+      btn.disabled.should.be.true;
     });
 
     it("shows success result", function() {
@@ -69,7 +69,7 @@ describe("ModalRemoveYourClub", function() {
       deleteClubCall.args[1](new Error());
       modal.state.step.should.equal(modal.STEP_CONFIRM);
       ReactDOM.findDOMNode(modal).textContent.should.match(MODAL_ERROR_REGEX);
-      btn.props.disabled.should.be.false;
+      btn.disabled.should.be.false;
     });
 
     it("removes error message when retrying deletion", function() {

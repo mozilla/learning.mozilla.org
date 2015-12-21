@@ -54,15 +54,15 @@ describe("Expander", function() {
 
   it('should hide collapsible content', function() {
     createExpander();
-    itemContainer.props.className.should.not.match(/expanded/);
+    itemContainer.getAttribute("class").should.not.match(/expanded/);
   });
 
   it('should toggle collapsible content on mouse down', function() {
     createExpander();
     TestUtils.Simulate.mouseDown(itemHeader);
-    itemContainer.props.className.should.match(/expanded/);
+    itemContainer.getAttribute("class").should.match(/expanded/);
     TestUtils.Simulate.mouseDown(itemHeader);
-    itemContainer.props.className.should.not.match(/expanded/);
+    itemContainer.getAttribute("class").should.not.match(/expanded/);
   });
 
   it('should not show permalink if anchorId does not exist', function() {
@@ -78,7 +78,7 @@ describe("Expander", function() {
     TestUtils.findRenderedDOMComponentWithClass(
       expander,
       'expander-permalink'
-    ).props.href.should.equal('#sup');
+    ).getAttribute("href").should.equal('#sup');
   });
 
   it('should not attract attention to content by default', function() {
