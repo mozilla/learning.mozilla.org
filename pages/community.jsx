@@ -7,6 +7,7 @@ var Illustration = require('../components/illustration.jsx');
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
 var config = require('../lib/config');
+var util = require('../lib/util');
 
 var Intro = React.createClass({
   render: function() {
@@ -41,6 +42,14 @@ var VerticalCard = React.createClass({
     );
   }
 });
+
+var validateSignupForm = function(signUpFormState) {
+  var errors = [];
+  if ( !util.isValidEmail(signUpFormState.email) ) {
+    errors.push("Please enter an email address.");
+  }
+  return errors;
+};
 
 var SignupForm = React.createClass({
   mixins: [LinkedStateMixin],
@@ -100,7 +109,9 @@ var SignupForm = React.createClass({
 var CommunityPage = React.createClass({
   statics: {
     pageTitle: 'Community',
-    pageClassName: 'community-page'
+    pageClassName: 'community-page',
+    SignupForm: SignupForm,
+    validateSignupForm: validateSignupForm
   },
   communities: [
     {
