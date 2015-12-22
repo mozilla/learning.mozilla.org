@@ -30,6 +30,14 @@
   }
   .image-container {
     padding-bottom: 0;
+    overflow: visible;
+    .image-link {
+      transform-origin: center center;
+      transition: all 0.18s ease-in;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
   }
   .sample-activity {
     text-align: center;
