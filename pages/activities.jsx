@@ -39,7 +39,9 @@ var ActivityKit = React.createClass({
     "Our seasoned educator community": "",
     "the Office of the Privacy Commissioner of Canada": "https://www.priv.gc.ca/index_e.asp",
     "Mozilla Privacy": "https://www.mozilla.org/privacy/",
-    "Hive Manchester": "http://hivemanchester.net/"
+    "Hive Manchester": "http://hivemanchester.net/",
+    "Bobby Richter": "https://twitter.com/secretrobotron",
+    "Laura de Reynal": "https://twitter.com/lau_nk"
   },
   render: function() {
     // Generates a nice list of autors with links to their sites.
@@ -164,6 +166,14 @@ var ActivitiesPage = React.createClass({
               link="/activities/protect-your-data/"
               developedBy="Hive Toronto in partnership with the Office of the Privacy Commissioner of Canada, Mozilla Privacy"
               description="These six hands-on activities engage learners in thinking critically about online privacy by creating secure passwords, understanding how and where their data is being collected, and more. This is an ideal kit for Mozilla Clubs."/>
+            <ActivityKit
+              src1x="/img/pages/webmaker/designing-webmaker.jpg"
+              src2x="/img/pages/webmaker/designing-webmaker@2x.jpg"
+              title="Read, Write, and Participate with Webmaker"
+              level="Beginner mobile users"
+              link="/activities/webmaker/"
+              developedBy="Bobby Richter and Laura de Reynal for Mozilla Learning Networks"
+              description="Learn how to set up your mobile device to write, publish, and share stories with the Webmaker App from Mozilla Learning Networks."/>
             <ActivityKit
               src1x="https://upload.wikimedia.org/wikipedia/commons/7/73/Monitor_padlock.svg"
               caption={ <a href="https://commons.wikimedia.org/wiki/File:Monitor_padlock.svg">EFF-Graphics, CC3.0-SA-AT, view original</a> }
