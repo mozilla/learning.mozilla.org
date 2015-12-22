@@ -12,16 +12,16 @@
     flex-direction: row-reverse;
     .image-container {
       @media screen and (min-width: @screen-sm-min) {
-        padding-right: 0;
-        padding-left: 3rem;
+        margin-right: 0;
+        margin-left: 3rem;
       }
     }
   }
   .image-container {
-    padding-bottom: 3rem;
-    padding-right: 0;
+    margin-bottom: 3rem;
     flex-shrink: 0;
     text-align: center;
+    overflow: hidden;
   }
   .content-container {
     width: 100%;
@@ -37,8 +37,8 @@
     display: flex;
     align-items: center;
     .image-container {
-      padding-right: 3rem;
-      padding-bottom: 0;
+      margin-right: 3rem;
+      margin-bottom: 0;
     }
   }
 }

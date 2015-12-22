@@ -36,7 +36,7 @@ describe("page", function() {
 
   afterEach(function() {
     if (handler) {
-      React.unmountComponentAtNode(ReactDOM.findDOMNode(handler).parentNode);
+      ReactDOM.unmountComponentAtNode(ReactDOM.findDOMNode(handler).parentNode);
     }
     xhr.restore();
     document.title = originalTitle;

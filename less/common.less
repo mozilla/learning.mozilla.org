@@ -23,7 +23,7 @@ h2 {
   font-weight: 200;
   font-size: 3rem;
   line-height: 1.34;
-  color: #4D4E53;
+  color: @grey;
   @media screen and (min-width: @screen-sm-min) {
     font-size: 3.5rem;
   }
@@ -69,6 +69,13 @@ img {
     max-width: 100%;
     height: auto;
   }
+  &.image-link {
+    transition: all 1s ease 0s;
+    transform-origin: top left;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
 }
 
 a.bold-link {
@@ -85,16 +92,6 @@ a.more {
     content: "\f061";
     font-family: "FontAwesome";
     margin: 0 .5rem;
-  }
-}
-
-.teach-tabzilla#tabzilla {
-  display: none;
-  @media screen and (min-width: @screen-md-min) {
-    display: block;
-    position: absolute;
-    right: 0;
-    z-index: 100;
   }
 }
 
@@ -115,20 +112,15 @@ html.no-js .no-js-warning {
   display: block;
 }
 
-#tabzilla-panel {
-  font-size: 1.1rem;
-  #tabzilla-nav {
-    ul li {
-      h2 {
-        font-size: 1.3rem;
-      }
-      &#tabzilla-search input[type="search"] {
-        font-size: 1.2rem;
-      }
-    }
+#tabzilla {
+  display: none;
+  @media screen and (min-width: @screen-md-min) {
+    display: block;
+    position: absolute;
+    right: 0;
   }
-  #tabzilla-promo #tabzilla-promo-gear.snippet a h4 {
-    font-size: 3.2rem;
+  &:before {
+    background-color: @bodyTextColor;
   }
 }
 
@@ -200,7 +192,11 @@ form {
   }
 }
 
-input {
+input, 
+textarea {
+  width: 100%;
+  padding: 1rem;
+  border: @stroke;
   border-radius: @form-field-border-radius;
 }
 
@@ -282,6 +278,9 @@ input {
   width: 27rem;
   margin: 2rem auto;
   border-bottom: @stroke;
+  &.full-width {
+    width: 100%;
+  }
   &:after {
     content: "";
     display: block;

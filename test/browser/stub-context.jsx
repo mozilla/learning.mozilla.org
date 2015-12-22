@@ -46,7 +46,7 @@ stubContext.render = function(Component, props, stubs) {
 };
 
 stubContext.unmount = function(unstubbed) {
-  React.unmountComponentAtNode(ReactDOM.findDOMNode(unstubbed).parentNode);
+  ReactDOM.unmountComponentAtNode(ReactDOM.findDOMNode(unstubbed).parentNode);
 };
 
 module.exports = stubContext;

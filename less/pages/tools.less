@@ -14,13 +14,6 @@
   }
   .intro {
     margin-top: 2rem;
-    @media screen and (min-width: @screen-md-min) {
-      margin-top: 0;
-      h1 {
-        // add top margin when Tabzilla is present
-        margin-top: 3.5rem;
-      }
-    }
   }
   .callout-heading {
     text-align: center;
@@ -37,6 +30,14 @@
   }
   .image-container {
     padding-bottom: 0;
+    overflow: visible;
+    .image-link {
+      transform-origin: center center;
+      transition: all 0.18s ease-in;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
   }
   .sample-activity {
     text-align: center;

@@ -70,9 +70,10 @@ describe("HomePage.ModalPledge", function() {
 
 describe("HomePage.PledgeSignupForm", function() {
   var pledgeSignupForm, validateSignupForm;
+  var pledgeSignupFormIdPrefix = "signup-form-";
 
   beforeEach(function() {
-    pledgeSignupForm = stubContext.render(HomePage.PledgeSignupForm, {idPrefix: "pledge-form-"});
+    pledgeSignupForm = stubContext.render(HomePage.PledgeSignupForm, {idPrefix: pledgeSignupFormIdPrefix});
     validateSignupForm = HomePage.validateSignupForm;
   });
 
@@ -81,8 +82,8 @@ describe("HomePage.PledgeSignupForm", function() {
   })
 
   it("has valid labels", function() {
-    Util.ensureLabelLinkage(pledgeSignupForm, 'pledge-form-email');
-    Util.ensureLabelLinkage(pledgeSignupForm, 'pledge-form-privacy');
+    Util.ensureLabelLinkage(pledgeSignupForm, pledgeSignupFormIdPrefix + 'email');
+    Util.ensureLabelLinkage(pledgeSignupForm, pledgeSignupFormIdPrefix + 'privacy');
   });
 
   it("does not show any errors by default", function() {
