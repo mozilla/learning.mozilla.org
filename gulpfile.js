@@ -109,7 +109,8 @@ gulp.task('copy-static-files', [
   'copy-test-dirs',
   'copy-images',
   'copy-bootstrap',
-  'copy-fontawesome'
+  'copy-fontawesome',
+  'copy-tabzilla'
 ]);
 
 gulp.task('copy-test-dirs', function() {
@@ -145,6 +146,12 @@ gulp.task('copy-bootstrap', function () {
 
 gulp.task('copy-fontawesome', function () {
   return gulp.src(['node_modules/font-awesome/css/**', 'node_modules/font-awesome/fonts/**'], {
+    base: 'node_modules/font-awesome'
+  }).pipe(gulp.dest('./dist/vendor/font-awesome'));
+});
+
+gulp.task('copy-tabzilla', function () {
+  return gulp.src(['node_modules/mozilla-tabzilla/css/tabzilla.css', 'node_modules/mozilla-tabzilla/media/img/**'], {
     base: 'node_modules/font-awesome'
   }).pipe(gulp.dest('./dist/vendor/font-awesome'));
 });

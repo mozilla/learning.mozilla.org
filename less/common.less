@@ -95,16 +95,6 @@ a.more {
   }
 }
 
-.teach-tabzilla#tabzilla {
-  display: none;
-  @media screen and (min-width: @screen-md-min) {
-    display: block;
-    position: absolute;
-    right: 0;
-    z-index: 100;
-  }
-}
-
 .no-js-warning {
   display: none;
   background: darkgray;
@@ -122,20 +112,15 @@ html.no-js .no-js-warning {
   display: block;
 }
 
-#tabzilla-panel {
-  font-size: 1.1rem;
-  #tabzilla-nav {
-    ul li {
-      h2 {
-        font-size: 1.3rem;
-      }
-      &#tabzilla-search input[type="search"] {
-        font-size: 1.2rem;
-      }
-    }
+#tabzilla {
+  display: none;
+  @media screen and (min-width: @screen-md-min) {
+    display: block;
+    position: absolute;
+    right: 0;
   }
-  #tabzilla-promo #tabzilla-promo-gear.snippet a h4 {
-    font-size: 3.2rem;
+  &:before {
+    background-color: @bodyTextColor;
   }
 }
 
