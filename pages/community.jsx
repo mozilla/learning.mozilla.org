@@ -30,7 +30,6 @@ var VerticalCard = React.createClass({
   render: function() {
     return (
       <Illustration
-        height={195} width={360}
         src1x={this.props.imgSrc1x}
         src2x={this.props.imgSrc2x}
         className="vertical-layout"
