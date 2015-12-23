@@ -6,6 +6,17 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.29][] - 2015-12-22
+### Changed
+- Updated dependencies including uplifting React to v0.14 and other packages.
+- Started UI unification work.
+- Updated page banners across the site.
+
+### Added
+- Added Webmaker activity kit.
+- Added Community page.
+
+
 ## [0.0.28][] - 2015-12-04
 ### Changed
 - Replaced the sidebar with a cleaner design.
@@ -448,7 +459,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.28...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.29...HEAD
+[0.0.29]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.28...v0.0.29
 [0.0.28]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.27...v0.0.28
 [0.0.27]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.26...v0.0.27
 [0.0.26]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.25...v0.0.26

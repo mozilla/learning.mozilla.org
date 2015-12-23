@@ -1,6 +1,6 @@
 {
   "name": "teach.mozilla.org",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "description": " Initial attempt at implementing Webmaker Learning front-page.",
   "dependencies": {
     "babel-core": "^6.3.21",
