@@ -11,70 +11,7 @@ var OutboundLink = require('react-ga').OutboundLink;
    image, title, difficulty, list of authors, and description
 */
 var ActivityKit = React.createClass({
-  authorLinks: {
-    "Kat Braybrooke": "http://twitter.com/codekat",
-    "Laura Hilliger": "https://twitter.com/epilepticrabbit",
-    "Karen Smith": "http://twitter.com/smithisgeneric",
-    "Julia Vallera": "http://twitter.com/colorwheelz",
-    "Jess Klein": "http://twitter.com/iamjessklein",
-    "Chan Sansing": "http://twitter.com/chadsansing",
-    "Hive Toronto": "http://hivetoronto.org",
-    "MOUSE (Hive NYC member)": "http://mouse.org",
-    "Drum Roll": "http://drumrollhq.com/",
-    "Joe Dytrych": "",
-    "Dee Salgal": "",
-    "Leonie Van Der Linde": "",
-    "Alan Levine": "http://cogdog.info",
-    "Stacy Martin": "https://mozillians.org/en-US/u/stacy",
-    "Mozilla": "https://webmaker.org",
-    "Educator Inovator": "http://educatorinnovator.org/",
-    "Jen Dick": "https://twitter.com/jennifer_dick",
-    "Jie Qi": "http://technolojie.com/sample-page/",
-    "David Cole": "https://www.linkedin.com/in/dcole1",
-    "Chad Sansing": "http://twitter.com/chadsansing",
-    "EPIK": "http://epik.org.uk/about/",
-    "Steph Guthrie": "http://twitter.com/amirightfolks",
-    "Kim Wilkens": "http://twitter.com/kimxtom",
-    "2013 MozGirls": "",
-    "Our seasoned educator community": "",
-    "the Office of the Privacy Commissioner of Canada": "https://www.priv.gc.ca/index_e.asp",
-    "Mozilla Privacy": "https://www.mozilla.org/privacy/",
-    "Hive Manchester": "http://hivemanchester.net/"
-  },
   render: function() {
-    // Generates a nice list of autors with links to their sites.
-    // The list is comma or dash seperated (dash can only be the first seperator).
-    // Displays the last author with an "and" and an oxford comma.
-    var _this = this;
-    var hasDash = this.props.developedBy.indexOf("-") > -1;
-    var hasInPartnershipWith = this.props.developedBy.indexOf("in partnership with") > -1;
-    var developedByArray = this.props.developedBy.replace("-", ",").replace("in partnership with", ",").split(",");
-    var developedByElements = developedByArray.map(function (author, key) {
-      author = author.trim();
-      var separator = ", ";
-      if (key === 0 && hasDash) {
-        separator = " - ";
-      } else if (key === 0 && hasInPartnershipWith) {
-        separator = " in partnership with ";
-      }
-      else if (key === developedByArray.length-1) {
-        separator = "";
-      } else if (key === developedByArray.length-2) {
-        separator = ", and ";
-      }
-
-      // Ensure authors with no links are displayed as not anchors.
-      var authorLink = _this.authorLinks[author];
-      var authorElement = (<a href={_this.authorLinks[author] || ""}>{author}</a>);
-      if (!authorLink) {
-        authorElement = author;
-      }
-      return (
-        <span key={key}>
-          {authorElement}{separator}
-        </span>
-      );
-    });
     return (
       <div className="activity-kit">
         <Illustration
@@ -92,9 +29,9 @@ var ActivityKit = React.createClass({
               <span className="span-content label-tag">level</span><span className="span-content">{this.props.level}</span>
             </div>
             <div>
-              <span className="span-content label-tag">developed by</span><span className="span-content">
-                {developedByElements}
-              </span>
+              <span className="span-content label-tag">developed by</span><div className="span-content developed-by">
+                {this.props.developedBy}
+              </div>
             </div>
             <div className="description">{this.props.description}</div>
           </div>
@@ -162,15 +99,23 @@ var ActivitiesPage = React.createClass({
               title="Protect Your Data"
               level="Beginner"
               link="/activities/protect-your-data/"
-              developedBy="Hive Toronto in partnership with the Office of the Privacy Commissioner of Canada, Mozilla Privacy"
+              developedBy={<div><a href="http://hivetoronto.org">Hive Toronto</a> in partnership with <a href="https://www.priv.gc.ca/index_e.asp">the Office of the Privacy Commissioner of Canada</a>, and <a href="https://www.mozilla.org/privacy/">Mozilla Privacy</a></div>}
               description="These six hands-on activities engage learners in thinking critically about online privacy by creating secure passwords, understanding how and where their data is being collected, and more. This is an ideal kit for Mozilla Clubs."/>
+            <ActivityKit
+              src1x="/img/pages/webmaker/designing-webmaker.jpg"
+              src2x="/img/pages/webmaker/designing-webmaker@2x.jpg"
+              title="Read, Write, and Participate with Webmaker"
+              level="Beginner mobile users"
+              link="/activities/webmaker/"
+              developedBy={<div><a href="https://twitter.com/secretrobotron">Bobby Richter</a> and <a href="https://twitter.com/lau_nk">Laura de Reynal</a> for Mozilla Learning Networks</div>}
+              description="Learn how to set up your mobile device to write, publish, and share stories with the Webmaker App from Mozilla Learning Networks."/>
             <ActivityKit
               src1x="https://upload.wikimedia.org/wikipedia/commons/7/73/Monitor_padlock.svg"
               caption={ <a href="https://commons.wikimedia.org/wiki/File:Monitor_padlock.svg">EFF-Graphics, CC3.0-SA-AT, view original</a> }
               title="Privacy Basics: Passwords, Tracking, and Data Retention"
               level="Intermediate"
               link="/activities/privacy-basics/"
-              developedBy="Stacy Martin - Senior Data Privacy Manager at Mozilla and the Mozilla Learning Network team"
+              developedBy={<div><a href="https://mozillians.org/en-US/u/stacy">Stacy Martin</a> - Senior Data Privacy Manager at Mozilla and the Mozilla Learning Network team</div>}
               description="Learn how to safeguard your privacy online and develop an awareness of how companies and governments track and collect your data online."/>
             <ActivityKit
 	          src1x="/img/pages/activities/img-activity-11.jpg"
@@ -178,7 +123,7 @@ var ActivitiesPage = React.createClass({
 	          title="Back to School Write the Web Kit"
 	          level="13+"
 	          link="/activities/back-to-school-write-the-web/"
-	          developedBy="Mozilla"
+	          developedBy={<div><a href="https://webmaker.org">Mozilla</a></div>}
 	          description="Learn how to remix and write basic HTML, CSS, and JavaScript with these Back-to-School Thimble activities and lesson plans."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-01.png"
@@ -186,7 +131,7 @@ var ActivitiesPage = React.createClass({
               title="Lo-Fi, No-Fi (Teaching Kit)"
               level="Beginner"
               link="https://laura.makes.org/thimble/MTUyODMwNDY0/lofi-nofi-teaching-kit"
-              developedBy="Kat Braybrooke, Laura Hilliger, Karen Smith, Julia Vallera, Jess Klein, Chad Sansing"
+              developedBy={<div><a href="http://twitter.com/codekat">Kat Braybrooke</a>, <a href="https://twitter.com/epilepticrabbit">Laura Hilliger</a>, <a href="http://twitter.com/smithisgeneric">Karen Smith</a>, <a href="http://twitter.com/colorwheelz">Julia Vallera</a>, <a href="http://twitter.com/iamjessklein">Jess Klein</a>, and <a href="http://twitter.com/chadsansing">Chad Sansing</a></div>}
               description="This series of activities help teach web literacy concepts offline, or where access to technology is limited. Includes printable templates and games to teach coding, game design and app development."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-02.jpg"
@@ -194,7 +139,7 @@ var ActivitiesPage = React.createClass({
               title="Parapara Animation"
               level="Beginner"
               link="https://karenlouisesmith.makes.org/thimble/para-para-animation-teaching-kit"
-              developedBy="Karen Smith, Hive Toronto"
+              developedBy={<div><a href="http://twitter.com/smithisgeneric">Karen Smith</a> and <a href="http://hivetoronto.org">Hive Toronto</a></div>}
               description="This activity helps young learners create simple animations and learn about online collaboration using Parapara."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-03.png"
@@ -202,7 +147,7 @@ var ActivitiesPage = React.createClass({
               title="Creative Commons GIF Exchange"
               level="Beginner"
               link="https://katermouse.makes.org/thimble/LTIwNjQwNTYzMjA=/creative-commons-gif-exchange-activity"
-              developedBy="MOUSE (Hive NYC member)"
+              developedBy={<div><a href="http://mouse.org">MOUSE (Hive NYC member)</a></div>}
               description="This activity teachers students about Creative Commons licensing while creating their own animated GIFs or memes."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-04.jpg"
@@ -210,7 +155,7 @@ var ActivitiesPage = React.createClass({
               title="Erase All Kittens"
               level="Beginner"
               link="https://laura.makes.org/thimble/LTEzNDYxMDY4OA==/eak-activity-guide"
-              developedBy="Drum Roll - Joe Dytrych, Dee Salgal, Leonie Van Der Linde"
+              developedBy={<div><a href="http://drumrollhq.com/">Drum Roll</a> - Joe Dytrych, Dee Salgal, Leonie Van Der Linde</div>}
               description="This activity features Erase All Kittens (E.A.K.), a fun game where learners code and create on the web by changing the source code on each level."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-05.jpg"
@@ -218,7 +163,7 @@ var ActivitiesPage = React.createClass({
               title="Image Seeking for Fantastic Visual Metaphors"
               level="Beginner"
               link="https://cogdog.makes.org/thimble/LTEyMjQ4NjUyOA==/imageseeking-for-fantastic-visual-metaphors"
-              developedBy="Alan Levine"
+              developedBy={<div><a href="http://cogdog.info">Alan Levine</a></div>}
               description="In this activity, learners search for photos that communicate ideas and concepts, while also exploring best practices around attribution and openly-licensed content on the web."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-06.jpg"
@@ -226,7 +171,7 @@ var ActivitiesPage = React.createClass({
               title="Become a Password Pro (Teaching Kit)"
               level="Beginner-Intermediate"
               link="https://stacy.makes.org/thimble/MjAxMjIxNzYwMA==/whats-wrong-with-your-password"
-              developedBy="Stacy Martin, Mozilla"
+              developedBy={<div><a href="https://mozillians.org/en-US/u/stacy">Stacy Martin</a> and <a href="https://webmaker.org">Mozilla</a></div>}
               description="This teaching kit includes a series of activities to help leaners understand passwords &mdash; including why they're important, best practices, and tools to help you manage multiple passwords."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-07.jpg"
@@ -234,7 +179,7 @@ var ActivitiesPage = React.createClass({
               title="Hack Your Notebook (Teaching Kit)"
               level="Beginner-Intermediate"
               link="https://laura.makes.org/thimble/LTU1NDA0MTA4OA==/hack-your-notebook-teaching-kit"
-              developedBy="Educator Inovator - Jen Dick, Jie Qi, David Cole, Chad Sansing"
+              developedBy={<div><a href="http://educatorinnovator.org/">Educator Inovator</a> - <a href="https://twitter.com/jennifer_dick">Jen Dick</a>, <a href="http://technolojie.com/sample-page/">Jie Qi</a>, <a href="https://www.linkedin.com/in/dcole1">David Cole</a>, and <a href="http://twitter.com/chadsansing">Chad Sansing</a></div>}
               description="In this series of activities, learners will explore the connections between art, circuitry and systems thinking by hacking their notbooks/journals with power and LEDs."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-08.jpg"
@@ -242,7 +187,7 @@ var ActivitiesPage = React.createClass({
               title="CSS Story Cards"
               level="Intermediate"
               link="https://mousemeredith.makes.org/thimble/MTQwOTAyNDAwMA==/css-story-card-game-activity"
-              developedBy="MOUSE (Hive NYC member)"
+              developedBy={<div><a href="http://mouse.org">MOUSE (Hive NYC member)</a></div>}
               description="In this card game, learners work collaboratively to create a complete story using HTML and CSS."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-QuackingJavascript.jpg"
@@ -250,7 +195,7 @@ var ActivitiesPage = React.createClass({
               title="Quacking JavaScript"
               level="JavaScript beginners"
               link="http://mozilla.github.io/webmaker-curriculum/QuackingJavascript/"
-              developedBy="Hive Manchester"
+              developedBy={<div><a href="http://hivemanchester.net/">Hive Manchester</a></div>}
               description="Learners get familiar with writing Javascript in this fun, five-part module. Together we discover the foundations of the text coding by being creative and making our own web pages."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-09.jpg"
@@ -258,7 +203,7 @@ var ActivitiesPage = React.createClass({
               title="Minecraft a Flavor of Java (Teaching Kit)"
               level="Intermediate"
               link="https://epik.makes.org/thimble/NjU2MTQ2OTQ0/minecraft-a-flavor-of-java-epik"
-              developedBy="EPIK"
+              developedBy={<div><a href="http://epik.org.uk/about/">EPIK</a></div>}
               description="In this series of activities, learners develop computational thinking skills by using Java to create their own Minecraft mod."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-10.jpg"
@@ -266,14 +211,14 @@ var ActivitiesPage = React.createClass({
               title="Girls in Tech: Hacking My Media"
               level="Intermediate"
               link="https://stephguthrie.makes.org/thimble/ODU3ODAxMjE2/hacking-my-media-with-x-ray-goggles"
-              developedBy="Steph Guthrie, Kim Wilkens, 2013 MozGirls"
+              developedBy={<div><a href="http://twitter.com/amirightfolks">Steph Guthrie</a>, <a href="http://twitter.com/kimxtom">Kim Wilkens</a>, and 2013 MozGirls</div>}
               description="In this activity, learners create a remix of a Wikimedia page as they think critically about the intersection of gender, culture, technology and identity."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-madewithcode.png"
               title="Made with Code"
               level="Beginner"
               link="/activities/madewithcode"
-              developedBy="Mozilla for Google's Made with Code initiative"
+              developedBy={<div>Mozilla for Google's Made with Code initiative</div>}
               description="Mozilla is happy to partner with Google's Made with Code initiative to inspire girls to get creative with code. There are three fun activities to help you create your own webpages by writing and remixing HTML."/>
           </section>
           <section>
