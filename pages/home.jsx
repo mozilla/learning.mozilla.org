@@ -4,6 +4,7 @@ var Link = Router.Link;
 var moment = require('moment');
 var ga = require('react-ga');
 var OutboundLink = ga.OutboundLink;
+var LinkedStateMixin = require('react-addons-linked-state-mixin');
 
 var HeroUnit = require('../components/hero-unit.jsx');
 var Blockquote = require('../components/blockquote.jsx');
@@ -161,7 +162,7 @@ var validateSignupForm = function(signUpFormState) {
 };
 
 var PledgeSignupForm = React.createClass({
-  mixins: [React.addons.LinkedStateMixin],
+  mixins: [LinkedStateMixin],
   getInitialState: function() {
     return {
       email: "",
@@ -242,9 +243,9 @@ var ThankYouModal = React.createClass({
   var facebookShare = "https://www.facebook.com/sharer/sharer.php?u=" +
                       encodeURIComponent("https://teach.mozilla.org");
   var twitterShare = "https://twitter.com/home?status=" +
-                     encodeURIComponent("I just pledged to #TeachTheWeb! https://teach.mozilla.org");
+                     encodeURIComponent("I love to #TeachTheWeb! https://teach.mozilla.org");
     return (
-      <Modal modalTitle="Thanks for your pledge!" className="modal-pledge">
+      <Modal modalTitle="Thanks for your interest!" className="modal-pledge">
         <p>We appreciate your commitment to keeping the web open, accessible and ours.</p>
         <p><strong>Share and tell your friends</strong></p>
         <div className="social-share">

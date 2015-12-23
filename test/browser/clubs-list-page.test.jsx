@@ -1,8 +1,9 @@
 var _ = require('underscore');
 var should = require('should');
 var sinon = window.sinon;
-var React =require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React = require('react');
+var ReactDOM = require('react-dom');
+var TestUtils = require('react-addons-test-utils');
 
 var StubTeachAPI = require('./stub-teach-api');
 var stubContext = require('./stub-context.jsx');
@@ -58,12 +59,12 @@ describe("ClubsListPage.ClubLists", function() {
 
   it("doesn't show 'My Clubs' when logged out", function() {
     var lists = renderLists();
-    lists.getDOMNode().textContent.should.not.match(/My Clubs/);
+    ReactDOM.findDOMNode(lists).textContent.should.not.match(/My Clubs/);
   });
 
   it("shows 'My Clubs' when logged-in user has clubs", function() {
     var lists = renderLists({username: 'foo'});
-    lists.getDOMNode().textContent.should.match(/My Clubs/);
+    ReactDOM.findDOMNode(lists).textContent.should.match(/My Clubs/);
   });
 
   it("properly separates user's clubs from other clubs", function() {
@@ -74,13 +75,13 @@ describe("ClubsListPage.ClubLists", function() {
 
   it("doesn't show note about unapproved clubs if there aren't any", function() {
     var lists = renderLists({username: 'foo'});
-    lists.getDOMNode().textContent.should.not.match(/Note:/);
+    ReactDOM.findDOMNode(lists).textContent.should.not.match(/Note:/);
     lists.state.userHasUnapprovedClubs.should.be.false;
   });
 
   it("shows note about unapproved clubs if there are any", function() {
     var lists = renderLists({username: 'bar'});
-    lists.getDOMNode().textContent.should.match(/Note:/);
+    ReactDOM.findDOMNode(lists).textContent.should.match(/Note:/);
     lists.state.userHasUnapprovedClubs.should.be.true;
   });
 
@@ -146,14 +147,14 @@ describe("ClubsListPage.ClubList", function() {
       var item = renderItem({
         club: _.extend({}, clubs[0], { status: 'pending' })
       });
-      item.getDOMNode().textContent.should.match(/pending/);
+      ReactDOM.findDOMNode(item).textContent.should.match(/pending/);
     });
 
     it("shows denied info when status is denied", function() {
       var item = renderItem({
         club: _.extend({}, clubs[0], { status: 'denied' })
       });
-      item.getDOMNode().textContent.should.match(/denied/);
+      ReactDOM.findDOMNode(item).textContent.should.match(/denied/);
     });
 
     describe("buttons", function() {

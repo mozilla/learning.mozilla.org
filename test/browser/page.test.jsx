@@ -1,8 +1,9 @@
 var should = require('should');
 var sinon = window.sinon;
-var React =require('react/addons');
+var React =require('react');
+var ReactDOM = require('react-dom');
 var Router = require('react-router');
-var TestUtils = React.addons.TestUtils;
+var TestUtils = require('react-addons-test-utils');
 
 var routes = require('../../lib/routes.jsx');
 var Page = require('../../components/page.jsx');
@@ -35,7 +36,7 @@ describe("page", function() {
 
   afterEach(function() {
     if (handler) {
-      React.unmountComponentAtNode(handler.getDOMNode().parentNode);
+      ReactDOM.unmountComponentAtNode(ReactDOM.findDOMNode(handler).parentNode);
     }
     xhr.restore();
     document.title = originalTitle;

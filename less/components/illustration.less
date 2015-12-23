@@ -7,31 +7,33 @@
       padding-right: 0;
     }
   }
-  &.illustration-img-circle {
-    // defining this declaration block so that
-    // we don't collide with .img-circle in Bootstrap's namespace
-    // since .illustration-img-circle is meant to be applied to the <Illustration> component,
-    // not the <img> within <Illustration>
-    img {
-      border-radius: 50%;
-      max-width: 22.6rem;
-    }
-  }
   &.content-first {
     display: flex;
     flex-direction: row-reverse;
     .image-container {
       @media screen and (min-width: @screen-sm-min) {
-        padding-right: 0;
-        padding-left: 3rem;
+        margin-right: 0;
+        margin-left: 3rem;
       }
     }
   }
+  &.landscape {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  &.portrait {
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
   .image-container {
-    padding-bottom: 3rem;
-    padding-right: 0;
+    margin-bottom: 3rem;
     flex-shrink: 0;
     text-align: center;
+    overflow: hidden;
   }
   .content-container {
     width: 100%;
@@ -40,12 +42,15 @@
     font-size: 1rem;
     text-align: center;
   }
+  img {
+    border-radius: @image-border-radius;
+  }
   @media screen and (min-width: @screen-sm-min) {
     display: flex;
     align-items: center;
     .image-container {
-      padding-right: 3rem;
-      padding-bottom: 0;
+      margin-right: 3rem;
+      margin-bottom: 0;
     }
   }
 }

@@ -8,7 +8,7 @@ var s3 = require('gulp-s3');
 var gzip = require('gulp-gzip');
 var less = require('gulp-less');
 var cssmin = require('gulp-minify-css');
-var webpack = require('gulp-webpack');
+var webpack = require('webpack-stream');
 var plumber = require('gulp-plumber');
 var merge = require('merge-stream');
 var sourcemaps = require('gulp-sourcemaps');
@@ -109,7 +109,8 @@ gulp.task('copy-static-files', [
   'copy-test-dirs',
   'copy-images',
   'copy-bootstrap',
-  'copy-fontawesome'
+  'copy-fontawesome',
+  'copy-tabzilla'
 ]);
 
 gulp.task('copy-test-dirs', function() {
@@ -145,6 +146,12 @@ gulp.task('copy-bootstrap', function () {
 
 gulp.task('copy-fontawesome', function () {
   return gulp.src(['node_modules/font-awesome/css/**', 'node_modules/font-awesome/fonts/**'], {
+    base: 'node_modules/font-awesome'
+  }).pipe(gulp.dest('./dist/vendor/font-awesome'));
+});
+
+gulp.task('copy-tabzilla', function () {
+  return gulp.src(['node_modules/mozilla-tabzilla/css/tabzilla.css', 'node_modules/mozilla-tabzilla/media/img/**'], {
     base: 'node_modules/font-awesome'
   }).pipe(gulp.dest('./dist/vendor/font-awesome'));
 });

@@ -1,7 +1,8 @@
 var should = require('should');
 var sinon = window.sinon;
-var React =require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React = require('react');
+var ReactDOM = require('react-dom');
+var TestUtils = require('react-addons-test-utils');
 
 var Modal = require('../../components/modal.jsx');
 
@@ -31,7 +32,7 @@ var FakePage = React.createClass({
   }
 });
 
-describe("modal", function() {
+describe("Modal", function() {
   var page, modal, onClose;
 
   beforeEach(function() {
@@ -41,7 +42,7 @@ describe("modal", function() {
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(page.getDOMNode().parentNode);
+    ReactDOM.unmountComponentAtNode(ReactDOM.findDOMNode(page).parentNode);
   });
 
   it('closes modal if and only if ESC is pressed', function() {
@@ -56,7 +57,7 @@ describe("modal", function() {
   });
 
   it('closes modal when area outside modal is clicked', function() {
-    TestUtils.Simulate.click(modal.getDOMNode());
+    TestUtils.Simulate.click(ReactDOM.findDOMNode(modal));
     onClose.callCount.should.equal(1);
   });
 

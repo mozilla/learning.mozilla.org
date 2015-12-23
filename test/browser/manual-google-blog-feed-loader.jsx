@@ -1,4 +1,4 @@
-var React = require('react/addons');
+var React = require('react');
 var GoogleBlogFeedLoader = require('../../lib/google-blog-feed-loader');
 
 var jsonToDataURL = function(obj) {

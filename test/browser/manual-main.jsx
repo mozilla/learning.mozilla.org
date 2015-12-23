@@ -1,6 +1,6 @@
 var querystring = require('querystring');
-var React = require('react/addons');
-
+var React = require('react');
+var ReactDOM = require('react-dom');
 var GoogleBlogFeedLoader = require('./manual-google-blog-feed-loader.jsx');
 var DevRibbon = require('../../components/dev-ribbon.jsx');
 var routes = require('../../lib/routes.jsx');
@@ -38,7 +38,7 @@ var RouteThumbnail = React.createClass({
     return { isVisible: false, hasBeenVisible: false };
   },
   handleScroll: function() {
-    var rect = this.refs.holder.getDOMNode().getBoundingClientRect();
+    var rect = ReactDOM.findDOMNode(this.refs.holder).getBoundingClientRect();
     var width = window.innerWidth || document.documentElement.clientWidth;
     var height = window.innerHeight || document.documentElement.clientHeight;
 

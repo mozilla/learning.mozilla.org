@@ -20,7 +20,8 @@ var ImageTag = React.createClass({
                      width={this.props.width}
                      height={this.props.height}
                      src={this.props.src1x}
-                     srcSet={this.props.src2x ? this.props.src2x + ' 2x' : null} />;
+                     srcSet={this.props.src2x ? this.props.src2x + ' 2x' : null}
+                     className={this.props.link ? "image-link" : null} />;
 
     var content = image;
     if (this.props.link) {

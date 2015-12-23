@@ -5,7 +5,7 @@
 
 .modal-dialog {
   background-color: @white;
-  border: .1rem solid @modal-outer-border-color;
+  border: @stroke;
   width: auto;
   @media (min-width: 768px) {
     width: 50rem;
@@ -17,7 +17,7 @@
   }
   .modal-header {
     background-color: #EDEDED;
-    border-bottom: .1rem solid @modal-inner-border-color;
+    border-bottom: @stroke;
     font-weight: 600;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -49,11 +49,6 @@
       margin-top: 1rem;
       font-weight: 400;
       font-style: 1.4rem;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 1rem;
-      border: .1rem solid @lightGrey;
     }
     .Select.is-disabled .Select-control {
       background: rgb(235, 235, 228);

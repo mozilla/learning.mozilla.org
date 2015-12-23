@@ -1,4 +1,6 @@
-var React = require('react/addons');
+var React = require('react');
+var ReactDOM = require('react-dom');
+var ReactTestUtils = require('react-addons-test-utils');
 var should = require('should');
 var sinon = window.sinon;
 
@@ -154,7 +156,7 @@ describe('AnchorManagerMixin', function() {
   });
 
   var renderAnchor = function(props) {
-    var anchor = React.addons.TestUtils.renderIntoDocument(
+    var anchor = ReactTestUtils.renderIntoDocument(
       <SampleAnchorClass anchorManager={manager} {...props}/>
     );
     anchors.push(anchor);
@@ -162,7 +164,7 @@ describe('AnchorManagerMixin', function() {
   };
 
   var unmountAnchor = function(anchor) {
-    React.unmountComponentAtNode(anchor.getDOMNode().parentNode);
+    ReactDOM.unmountComponentAtNode(ReactDOM.findDOMNode(anchor).parentNode);
     anchors.splice(anchors.indexOf(anchor), 1);
   };
 

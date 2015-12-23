@@ -27,8 +27,13 @@ var IconLink = React.createClass({
       <div className="icon-link">
         <LinkSwap linkTo={this.props.linkTo} href={this.props.href}>
           <figure>
-            <ImageTag className="image" src1x={this.props.imgSrc} src2x={this.props.imgSrc2x}
-            alt=""/>
+            <ImageTag 
+              className="image" 
+              src1x={this.props.imgSrc} 
+              src2x={this.props.imgSrc2x}
+              width={this.props.width}
+              height={this.props.height}
+              alt="" />
             <figcaption>
               <h3 className="head">{this.props.head}</h3>
               <p className="subhead">{this.props.subhead}</p>

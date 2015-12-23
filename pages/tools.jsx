@@ -1,6 +1,7 @@
 var React = require('react');
 var Link = require('react-router').Link;
 var OutboundLink = require('react-ga').OutboundLink;
+var HeroUnit = require('../components/hero-unit.jsx');
 var Illustration = require('../components/illustration.jsx');
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
@@ -9,13 +10,12 @@ var config = require('../lib/config');
 var ToolsIntro = React.createClass({
   render: function() {
     return (
-      <div>
+      <div className="inner-container">
         <section className="intro">
           <Illustration
             height={204} width={204}
             src1x="/img/pages/tools/svg/icon-teach-like-mozilla-tools.svg"
-            alt="icon toolkit"
-            className="illustration-img-circle">
+            alt="icon toolkit">
             <h1>Tools to Teach and Learn the Web</h1>
             <h2>These tools are free and open source, and can be used in a variety of ways to teach learners how to read, write, and participate on the Web.</h2>
           </Illustration>
@@ -113,7 +113,11 @@ var ToolsPage = React.createClass({
   },
   render: function(){
     return (
-      <div className="inner-container">
+      <div>
+        <HeroUnit>
+          <h1>Tools</h1>
+          <h2>Open source software to teach and learn the Web</h2>
+        </HeroUnit>
         <ToolsIntro/>
         <ToolsSection/>
         <section>
@@ -123,7 +127,7 @@ var ToolsPage = React.createClass({
             </div>
           </div>
         </section>
-        <img src="/img/pages/tools/svg/icon-horizontal-divider.svg" width={292} alt="" className="center-block horizontal-divider"/>
+        <div className="horizontal-divider"></div>
         <section>
           <IconLinks>
             <IconLink

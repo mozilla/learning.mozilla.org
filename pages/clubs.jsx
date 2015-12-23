@@ -1,5 +1,6 @@
 var _ = require('underscore');
-var React = require('react/addons');
+var React = require('react');
+var ReactDOM = require('react-dom');
 var Router = require('react-router');
 var Link = Router.Link;
 
@@ -24,8 +25,7 @@ var WhatIsAMozillaClub = React.createClass({
         width={200} height={200}
         src1x="/img/pages/clubs/intro-photo.png"
         src2x="/img/pages/clubs/intro-photo@2x.png"
-        alt="icon how do Mozilla clubs work"
-        className="illustration-img-circle">
+        alt="icon how do Mozilla clubs work">
           <p>A Mozilla Club meets regularly in-person to learn how to read, write and participate on the Web in an inclusive, engaging way.</p>
         </Illustration>
       </div>
@@ -132,10 +132,7 @@ var ApplyCallout = React.createClass({
   render: function() {
     return(
       <div className="apply-callout text-center">
-        <ImageTag 
-          className="center-block" 
-          src1x="/img/pages/clubs/svg/icon-line.svg"
-          alt=""/>
+        <div className="vertical-divider"></div>
         <h3 className="text-center">To get matched with a Regional Coordinator, please apply to be a Mozilla Club Captain.</h3>
         <a className="btn btn-awsm" onClick={this.props.showAddYourClubModal}>Apply to be a Club Captain</a>
         <p className="check-out-resources">If you’d like to get started on your own, check out these <a href="http://mozilla.github.io/learning-networks/clubs/">resources</a>.</p>
@@ -173,7 +170,7 @@ var ClubsPage = React.createClass({
     });
   },
   handleZoomToClub: function(club) {
-    this.refs.map.getDOMNode().scrollIntoView();
+    ReactDOM.findDOMNode(this.refs.map).scrollIntoView();
     this.refs.map.focusOnClub(club);
   },
   handleClubDelete: function(url, clubName) {

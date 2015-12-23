@@ -22,8 +22,7 @@ var MakerPartyExample = React.createClass({
         src1x={this.props.src1x}
         src2x={this.props.src2x}
         alt=""
-        link={this.props.link}
-        className="illustration-img-circle">
+        link={this.props.link}>
           <div className="activity-kit-content">
             <h3>{this.props.title}</h3>
             <div>
@@ -116,6 +115,7 @@ var EventsPage = React.createClass({
       <div>
         <HeroUnit>
           <h1>Host a Maker Party</h1>
+          <h2>Host a one-time event or workshop</h2>
         </HeroUnit>
         <div className="inner-container">
           <section className="join-global-movement">

@@ -1,6 +1,6 @@
 var should = require('should');
-var React =require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React =require('react');
+var TestUtils = require('react-addons-test-utils');
 
 var stubContext = require('./stub-context.jsx');
 var Sidebar = require('../../components/sidebar.jsx');
@@ -29,17 +29,17 @@ describe("sidebar", function() {
   });
 
   it('should hide collapsible content', function() {
-    collapsibleContent.props.className.should.match(/collapsed/);
+    collapsibleContent.getAttribute("class").should.match(/collapsed/);
   });
 
   it('should show collapsible content', function() {
     sidebar.handleHamburgerClick();
-    collapsibleContent.props.className.should.eql('collapsible-content');
+    collapsibleContent.getAttribute("class").should.eql('collapsible-content');
   });
 
   it('should show collapsible content when focused', function() {
     TestUtils.Simulate.focus(collapsibleContent);
-    collapsibleContent.props.className.should.eql('collapsible-content');
+    collapsibleContent.getAttribute("class").should.eql('collapsible-content');
   });
 
   describe('hamburger', function() {

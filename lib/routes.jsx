@@ -1,4 +1,6 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
+var ReactDOMServer = require('react-dom/server');
 var Router = require('react-router');
 var Route = Router.Route;
 var Redirect = Router.Redirect;
@@ -39,12 +41,16 @@ var routes = (
     <Redirect from="/clubs/curriculum/" to="/activities/web-lit-basics/" />
     <Route name="web-lit-basics-two" path="/activities/web-lit-basics-two/"
            handler={require('../pages/web-lit-basics-two.jsx')}/>
+    <Route name="webmaker" path="/activities/webmaker/"
+           handler={require('../pages/webmaker.jsx')}/>
     <Route name="back-to-school-write-the-web" path="/activities/back-to-school-write-the-web/"
            handler={require('../pages/back-to-school-write-the-web.jsx')}/>
     <Route name="mozilla-clubs" path="/clubs/"
            handler={require('../pages/clubs.jsx')}/>
     <Route name="clubs-list" path="/clubs/list/"
            handler={require('../pages/clubs-list.jsx')}/>
+    <Route name="community" path="/community/"
+           handler={require('../pages/community.jsx')}/>
     <Route name="events" path="/events/"
            handler={require('../pages/events.jsx')}/>
     <Route name="event-resources" path="/events/resources/"
@@ -93,7 +99,7 @@ exports.generateStaticRedirect = function(fromURL, toURL, cb) {
     if (!router.match(toURL)) {
       return cb(new Error("Redirect 'to' route does not exist: " + toURL));
     }
-    html = React.renderToStaticMarkup(
+    html = ReactDOMServer.renderToStaticMarkup(
       <p>
         The URL of this page has changed to <a href={toURL}>{toURL}</a>.
       </p>
@@ -116,7 +122,7 @@ exports.generateStatic = function(url, cb) {
     var pageHandler, html, title;
     var err = null;
     try {
-      html = React.renderToString(<Handler/>);
+      html = ReactDOMServer.renderToString(<Handler/>);
       pageHandler = Page.handlerForPage(router, url);
       title = Page.titleForHandler(pageHandler);
     } catch (e) {
@@ -129,6 +135,6 @@ exports.generateStatic = function(url, cb) {
 exports.run = function(location, el) {
   Router.run(routes, location, function(Handler, state) {
     ga.pageview(state.pathname);
-    React.render(<Handler/>, el);
+    ReactDOM.render(<Handler/>, el);
   });
 };

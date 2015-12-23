@@ -1,8 +1,9 @@
 var EventEmitter = require('events').EventEmitter;
 var urlParse = require('url').parse;
 var should = require('should');
-var React =require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React = require('react');
+var ReactDOM = require('react-dom');
+var TestUtils = require('react-addons-test-utils');
 
 var stubContext = require('./stub-context.jsx');
 var Login = require('../../components/login.jsx');
@@ -52,28 +53,28 @@ describe("Login", function() {
 
   it("shows username when logged in", function() {
     login.setState({username: "blop"});
-    login.getDOMNode().textContent.should.match(/blop/);
+    ReactDOM.findDOMNode(login).textContent.should.match(/blop/);
   });
 
   it("doesn't show admin link for non-staff users", function() {
     login.setState({username: "blop"});
-    login.getDOMNode().textContent.should.not.match(ADMIN_RE);
+    ReactDOM.findDOMNode(login).textContent.should.not.match(ADMIN_RE);
   });
 
   it("shows admin link for staff users", function() {
     teachAPI.getAdminURL.returns("http://admin");
     login.setState({username: "blop"});
-    login.getDOMNode().textContent.should.match(ADMIN_RE);
+    ReactDOM.findDOMNode(login).textContent.should.match(ADMIN_RE);
   });
 
   it("shows 'loading...' when initializing", function() {
     login.setState({loggingIn: true});
-    login.getDOMNode().textContent.should.match(/loading/i);
+    ReactDOM.findDOMNode(login).textContent.should.match(/loading/i);
   });
 
   it("shows a message when a network error occurs", function() {
     teachAPI.emit('login:error', {});
-    login.getDOMNode().textContent
+    ReactDOM.findDOMNode(login).textContent
       .should.match(/unable to contact login server/i);
   });
 
@@ -107,7 +108,7 @@ function renderLink(linkClass, props) {
 describe("Login.LoginLink", function() {
   it("should create a link w/ expected callback", function() {
     var link = renderLink(LoginLink, {origin: 'http://teach'});
-    var info = urlParse(link.getDOMNode().href, true);
+    var info = urlParse(ReactDOM.findDOMNode(link).href, true);
 
     info.protocol.should.eql('http:');
     info.host.should.eql('teach-api');
@@ -118,7 +119,7 @@ describe("Login.LoginLink", function() {
 
   it("should accept action='signup'", function() {
     var link = renderLink(LoginLink, {action: 'signup'});
-    var info = urlParse(link.getDOMNode().href, true);
+    var info = urlParse(ReactDOM.findDOMNode(link).href, true);
 
     info.query.action.should.eql('signup');
   });
@@ -128,7 +129,7 @@ describe("Login.LoginLink", function() {
       origin: 'http://teach',
       callbackSearch: '?foo=on'
     });
-    var info = urlParse(link.getDOMNode().href, true);
+    var info = urlParse(ReactDOM.findDOMNode(link).href, true);
 
     info.query.callback.should.eql('http://teach/path?foo=on');
   });
@@ -137,7 +138,7 @@ describe("Login.LoginLink", function() {
 describe("Login.LogoutLink", function() {
   it("should create a link w/ expected callback", function() {
     var link = renderLink(LogoutLink, {origin: 'http://teach'});
-    var info = urlParse(link.getDOMNode().href, true);
+    var info = urlParse(ReactDOM.findDOMNode(link).href, true);
 
     info.protocol.should.eql('http:');
     info.host.should.eql('teach-api');
