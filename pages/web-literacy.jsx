@@ -39,7 +39,7 @@ var ActivitiesPage = React.createClass({
         <section className="intro">
           <Illustration
           width={210} height={210}
-          src1x="/img/pages/web-literacy/svg/icon-circle-mln.svg"
+          src1x="/img/pages/web-literacy/svg/icon-weblit.svg"
           alt="web literacy illustration">
             <h2>
               Web Literacy is the skills and competencies needed for reading, writing, and participating on the Web.
