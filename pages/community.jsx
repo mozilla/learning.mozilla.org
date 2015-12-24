@@ -12,7 +12,7 @@ var util = require('../lib/util');
 var Intro = React.createClass({
   render: function() {
     return (
-      <section className="intro">
+      <section className="intro intro-after-banner">
         <Illustration
           height={204} width={204}
           src1x="/img/pages/community/svg/icon-circle-community.svg"

@@ -16,19 +16,18 @@ var ModalRemoveYourClub = require('../components/modal-clubs-remove.jsx');
 var Illustration = require('../components/illustration.jsx');
 var ImageTag = require('../components/imagetag.jsx');
 
-var WhatIsAMozillaClub = React.createClass({
+var ClubsIntro = React.createClass({
   render: function() {
     return(
-      <div className="what-is-a-mozilla-club">
-        <h2>What is a Mozilla Club?</h2>
+      <section className="intro intro-after-banner">
         <Illustration
-        width={200} height={200}
-        src1x="/img/pages/clubs/intro-photo.png"
-        src2x="/img/pages/clubs/intro-photo@2x.png"
-        alt="icon how do Mozilla clubs work">
-          <p>A Mozilla Club meets regularly in-person to learn how to read, write and participate on the Web in an inclusive, engaging way.</p>
+          height={""} width={204}
+          src1x="/img/pages/clubs/svg/icon-circle-clubs.svg"
+          alt="">
+          <h1>What is a Mozilla Club?</h1>
+          <h2>A Mozilla Club meets regularly in-person to learn how to read, write and participate on the Web in an inclusive, engaging way.</h2>
         </Illustration>
-      </div>
+      </section>
     );
   }
 });
@@ -109,8 +108,9 @@ var ClubCaptainPledge = React.createClass({
     return(
       <div className="club-captain-pledge">
         <Illustration
-          width={182} height={237}
-          src1x="/img/pages/clubs/svg/icon-club-caption-pledge.svg"
+          width={200} height={200}
+          src1x="/img/pages/clubs/intro-photo.png"
+          src2x="/img/pages/clubs/intro-photo@2x.png"
           alt="">
           <h3>A Mozilla Club Captain pledges to:</h3>
           <ul>
@@ -200,9 +200,7 @@ var ClubsPage = React.createClass({
           <div><a className="btn btn-awsm" onClick={this.showAddYourClubModal}>Apply to be a Club Captain</a></div>
         </HeroUnit>
         <div className="inner-container">
-          <section>
-            <WhatIsAMozillaClub />
-          </section>
+          <ClubsIntro />
           <section>
             <WhyOrganize />
           </section>

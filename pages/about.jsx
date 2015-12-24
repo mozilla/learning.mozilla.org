@@ -29,7 +29,7 @@ var OurFocus = React.createClass({
     return (
         <section className="row list-with-illust">
           <Illustration width={199} height={199}
-          src1x="/img/pages/about/about-illustration.svg"
+          src1x="/img/pages/home/svg/icon-circle-home.svg"
           alt="A graphic showing an illustration of a person, a book, some gears, a map pin, and a square acedemic cap">
             <ul className="colored-list">
               <li>Learn and deepen your 21st Century digital skills, and get better at teaching them to others.</li>
