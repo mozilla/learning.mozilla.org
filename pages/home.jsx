@@ -343,7 +343,7 @@ var HomePage = React.createClass({
             <div className="about-us">
               <Illustration
                 height={200} width={200}
-                src1x="/img/pages/about/about-illustration.svg" src2x="/img/pages/about/about-illustration.svg"
+                src1x="/img/pages/home/svg/icon-circle-home.svg"
                 alt="">
                   <h2>About Us</h2>
                   <p>We want more people to see themselves as citizens of the web. The Mozilla Learning Network offers programs and a global community dedicated to helping people learn the most important skills of our age: <em>the ability to read, write and participate in the digital world.</em> <Link to="about" className="more">Learn more</Link></p>

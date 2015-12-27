@@ -12,7 +12,7 @@ var util = require('../lib/util');
 var Intro = React.createClass({
   render: function() {
     return (
-      <section className="intro">
+      <section className="intro intro-after-banner">
         <Illustration
           height={204} width={204}
           src1x="/img/pages/community/svg/icon-circle-community.svg"
@@ -30,7 +30,6 @@ var VerticalCard = React.createClass({
   render: function() {
     return (
       <Illustration
-        height={195} width={360}
         src1x={this.props.imgSrc1x}
         src2x={this.props.imgSrc2x}
         className="vertical-layout"
