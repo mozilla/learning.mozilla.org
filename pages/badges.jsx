@@ -5,7 +5,8 @@ var React = require('react'),
     IconLink = require('../components/icon-link.jsx'),
     BadgeVerticalIcon = require('../components/badge-vertical-icon.jsx'),
     urlize = require('urlize').urlize,
-    Link = require('react-router').Link;
+    Link = require('react-router').Link,
+    BadgesAPI = require('../lib/badges-api');
 
 
 var TESTING_DATA = [
@@ -103,6 +104,11 @@ var BadgesPage = React.createClass({
         }
 
         return data;
+    },
+    componentDidMount: function (){
+        var BadgesInterface = new BadgesAPI();
+
+        BadgesInterface.listBadges();
     },
     render: function () {
         var linkUrl = "";
