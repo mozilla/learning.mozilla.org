@@ -90,7 +90,13 @@ var Sidebar = React.createClass({
       name: "Teaching Activities",
       link: 'activities',
       icon: "/img/components/sidebar/svg/icon-nav-activities.svg",
-      className: "activities"
+      className: "activities",
+      subItems: [
+        {
+          name: "Web Literacy",
+          link: "web-literacy"
+        }
+      ]
     },
     {
       name: "Mozilla Clubs",
@@ -115,18 +121,6 @@ var Sidebar = React.createClass({
       link: 'tools',
       icon: "/img/components/sidebar/svg/icon-nav-tools.svg",
       className: "tools-page"
-    },
-    {
-      name: "Teach Like Mozilla",
-      link: 'teach-like-mozilla',
-      icon: "/img/components/sidebar/svg/icon-nav-tlm.svg",
-      className: "teach",
-      subItems: [
-        {
-          name: "Web Literacy",
-          link: "web-literacy"
-        }
-      ]
     },
     {
       name: "Community",

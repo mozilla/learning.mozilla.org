@@ -191,12 +191,6 @@ var EventsPage = React.createClass({
                 head="Join the Conversation"
                 subhead="Talk to others about your event"
               />
-              <IconLink
-                linkTo="teach-like-mozilla"
-                imgSrc="/img/pages/events/svg/icon-connect.svg"
-                head="Teach Like Mozilla"
-                subhead=""
-              />
             </IconLinks>
           </section>
         </div>
