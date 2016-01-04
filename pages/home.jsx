@@ -220,9 +220,9 @@ var ModalPledge = React.createClass({
   render: function() {
     return (
       <Modal modalTitle="" className="modal-pledge folded">
-        <ImageTag className="image center-block"
-                  src1x="/img/pages/home/svg/icon-teach-man-chalkboard-pledge.svg"
-                  alt="" width={150} height={150} />
+        <ImageTag className="image text-center"
+                  src1x="/img/pages/home/svg/icon-pledge.svg"
+                  alt="" width={80} height={""} />
         <h3>Pledge to teach</h3>
         <p>Because the Web is a global public resource that's integral to modern life, <strong>I pledge to:</strong></p>
         <ul>
@@ -307,9 +307,10 @@ var HomePage = React.createClass({
           <h1>The Mozilla Learning Network</h1>
           <IconButtons>
             <IconButton
-              imgSrc="/img/pages/home/svg/icon-teach-man-chalkboard-pledge.svg"
+              imgSrc="/img/pages/home/svg/icon-pledge.svg"
               head="Pledge to Teach"
               onClick={this.handlePledgeBtnClick}
+              className={"pledge"}
             />
             <IconButton
               linkTo="activities"
