@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 43 50"
+	 style="enable-background:new 0 0 43 50;" xml:space="preserve">
+<style type="text/css">
+	.st0{filter:url(#Adobe_OpacityMaskFilter);}
+	.st1{fill:#FFFFFF;}
+	.st2{mask:url(#mask-2);fill:#E78832;}
+	.st3{filter:url(#Adobe_OpacityMaskFilter_1_);}
+	.st4{mask:url(#mask-4);fill:#E78832;}
+</style>
+<title>icon-library</title>
+<desc>Created with Sketch.</desc>
+<g id="Page-1" sketch:type="MSPage">
+	<g id="icon-library" sketch:type="MSLayerGroup">
+		<g id="Group-3">
+			<g id="Clip-2">
+			</g>
+			<defs>
+				<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="0" y="0" width="42" height="50">
+					<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+				</filter>
+			</defs>
+			<mask maskUnits="userSpaceOnUse" x="0" y="0" width="42" height="50" id="mask-2">
+				<g class="st0">
+					<path id="path-1" class="st1" d="M0,0h42v50H0V0z"/>
+				</g>
+			</mask>
+			<path id="Fill-1" sketch:type="MSShapeGroup" class="st2" d="M41,47.5c0,0.8-0.7,1.5-1.5,1.5H7.9V1h31.7C40.4,1,41,1.7,41,2.5
+				V47.5z M1,47.5V2.5C1,1.7,1.7,1,2.5,1h4.4v48H2.5C1.7,49,1,48.3,1,47.5L1,47.5z M39.6,0H2.5C1.1,0,0,1.1,0,2.5v45.1
+				C0,48.9,1.1,50,2.5,50h37.1c1.4,0,2.5-1.1,2.5-2.5V2.5C42,1.1,40.9,0,39.6,0L39.6,0z"/>
+		</g>
+		<g id="Clip-5">
+		</g>
+		<defs>
+			<filter id="Adobe_OpacityMaskFilter_1_" filterUnits="userSpaceOnUse" x="14.4" y="9.3" width="20.2" height="10.9">
+				<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+			</filter>
+		</defs>
+		<mask maskUnits="userSpaceOnUse" x="14.4" y="9.3" width="20.2" height="10.9" id="mask-4">
+			<g class="st3">
+				<path id="path-3" class="st1" d="M0,0h42v50H0V0z"/>
+			</g>
+		</mask>
+		<path id="Fill-4" sketch:type="MSShapeGroup" class="st4" d="M33.6,19.2H15.3v-8.9h18.2V19.2z M34.1,9.3H14.9
+			c-0.3,0-0.5,0.2-0.5,0.5v9.9c0,0.3,0.2,0.5,0.5,0.5h19.2c0.3,0,0.5-0.2,0.5-0.5V9.8C34.6,9.5,34.4,9.3,34.1,9.3L34.1,9.3z"/>
+	</g>
+</g>
+</svg>

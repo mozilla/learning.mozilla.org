@@ -42,7 +42,7 @@ var IconButton = React.createClass({
       <div className="icon-button">
         <LinkSwap linkTo={this.props.linkTo} href={this.props.href} onClick={this.props.onClick}>
           <figure>
-            <ImageTag className="image" src1x={this.props.imgSrc} src2x={this.props.imgSrc2x}
+            <ImageTag className={"image " + this.props.className} src1x={this.props.imgSrc} src2x={this.props.imgSrc2x}
             alt="" height={50} />
             <figcaption>
               <p className="link-text">{this.props.head}</p>

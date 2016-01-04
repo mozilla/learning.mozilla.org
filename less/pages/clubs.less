@@ -39,29 +39,25 @@
         display: inline-block;
         width: 50%;
       }
-      div {
+      figure,
+      .place-label,
+      .coming-soon {
         display: inline-block;
       }
+
       .fa,
       .place-label {
         vertical-align: middle;
       }
-      .fa {
-        color: @orangeSidebarColor;
-        font-size: 3.5rem;
-        width: 4.5rem;
-        margin-right: 1rem;
+      figure {
         text-align: center;
-        @media screen and (min-width: @screen-sm-min) {
-          font-size: 6.4rem;
-          width: 8rem;
-        }
+        width: 6rem;
+        margin-right: 1rem;
       }
       .place-label {
-        width: calc(~"100% - 4.5rem - 1rem");
+        width: calc(~"100% - 6rem - 2rem");
         font-size: 2rem;
         @media screen and (min-width: @screen-sm-min) {
-          width: calc(~"100% - 8rem - 1rem");
           font-size: 2.6rem;
         }
       }
