@@ -110,6 +110,14 @@ var ActivitiesPage = React.createClass({
               developedBy={<div><a href="https://twitter.com/secretrobotron">Bobby Richter</a> and <a href="https://twitter.com/lau_nk">Laura de Reynal</a> for Mozilla Learning Networks</div>}
               description="Learn how to set up your mobile device to write, publish, and share stories with the Webmaker App from Mozilla Learning Networks."/>
             <ActivityKit
+              src1x="/img/pages/activities/online-tracking.png"
+              caption={ <a href="https://mozorg.cdn.mozilla.net/media/img/teach/smarton/tracking/topic-think-deeper.2d1fbc329611.png">view original</a> }
+              title="Privacy Basics: Online Tracking"
+              level="Beginner"
+              link="https://d157rqmxrxj6ey.cloudfront.net/mozstacy/21938/"
+              developedBy={<div><a href="https://mozillians.org/en-US/u/stacy">Stacy Martin</a> - Senior Data Privacy Manager at Mozilla and the Mozilla Learning Network team</div>}
+              description="Learners will complete a set of hands-on activities to better understand types of online tracking through the use of cookies and other technologies."/>
+            <ActivityKit
               src1x="https://upload.wikimedia.org/wikipedia/commons/7/73/Monitor_padlock.svg"
               caption={ <a href="https://commons.wikimedia.org/wiki/File:Monitor_padlock.svg">EFF-Graphics, CC3.0-SA-AT, view original</a> }
               title="Privacy Basics: Passwords, Tracking, and Data Retention"
