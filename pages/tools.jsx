@@ -37,11 +37,15 @@ var ToolsColumn = React.createClass({
   },
   render: function() {
     var sampleActivity = null;
+    var activityTitle = null;
+    var ifExternalLink = !!this.props.activityLink ? (this.props.activityLink.substr(0,4) === "http" || this.props.activityLink.substr(0,2) === "//") : false;
     if (this.props.activityTitle && this.props.activityLink) {
+      activityTitle = ifExternalLink ? <OutboundLink to={this.props.activityLink} eventLabel={this.props.activityLink}>{this.props.activityTitle}</OutboundLink>
+                                     : <a href={this.props.activityLink}>{this.props.activityTitle}</a>;
       sampleActivity =
         <div className="sample-activity">
           <div className="label-container"><div className="label label-success">Sample Activity</div></div>
-          <a href={this.props.activityLink}>{this.props.activityTitle}</a>
+          {activityTitle}
         </div>;
     }
     return (
