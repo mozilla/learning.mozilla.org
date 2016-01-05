@@ -12,6 +12,9 @@ var OutboundLink = require('react-ga').OutboundLink;
 */
 var ActivityKit = React.createClass({
   render: function() {
+    var ifExternalLink = !!this.props.link ? (this.props.link.substr(0,4) === "http" || this.props.link.substr(0,2) === "//") : false;
+    var title = ifExternalLink ? <OutboundLink to={this.props.link} eventLabel={this.props.link}>{this.props.title}</OutboundLink>
+                               : <a href={this.props.link}>{this.props.title}</a>;
     return (
       <div className="activity-kit">
         <Illustration
@@ -21,10 +24,10 @@ var ActivityKit = React.createClass({
           caption={this.props.caption}
           alt={this.props.title}
           link={this.props.link}
-          externalLink={true}>
+          externalLink={ifExternalLink}>
 
           <div className="activity-kit-content">
-            <h3><OutboundLink to={this.props.link} eventLabel={this.props.link}>{this.props.title}</OutboundLink></h3>
+            <h3>{title}</h3>
             <div>
               <span className="span-content label-tag">level</span><span className="span-content">{this.props.level}</span>
             </div>
