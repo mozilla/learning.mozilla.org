@@ -132,19 +132,19 @@ var ToolsPage = React.createClass({
           <IconLinks>
             <IconLink
               href="http://mzl.la/TTWpodcasts"
-              imgSrc="/img/pages/teach-like-mozilla/svg/icon-listen.svg"
+              imgSrc="/img/pages/tools/svg/icon-listen.svg"
               head="Listen"
               subhead="Subscribe to our podcast"
             />
             <IconLink
               linkTo="web-literacy"
-              imgSrc="/img/pages/teach-like-mozilla/svg/icon-learn.svg"
+              imgSrc="/img/pages/tools/svg/icon-learn.svg"
               head="Understand"
               subhead="Learn more about the Web Literacy Map"
             />
             <IconLink
               href="https://discourse.webmaker.org/t/if-youre-new-to-the-community-please-introduce-yourself"
-              imgSrc="/img/pages/teach-like-mozilla/svg/icon-connect.svg"
+              imgSrc="/img/pages/tools/svg/icon-connect.svg"
               head="Say Hello"
               subhead="Meet the teach community"
             />
