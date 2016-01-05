@@ -1,8 +1,6 @@
 var React = require('react');
 
 var Illustration = require('../components/illustration.jsx');
-var IconLinks = require('../components/icon-links.jsx');
-var IconLink = require('../components/icon-link.jsx');
 var Expander = require('../components/expander.jsx');
 
 var WebMaps = React.createClass({
@@ -185,26 +183,6 @@ var ActivitiesPage = React.createClass({
               </Expander>
             </WebMap>
           </WebMaps>
-          <IconLinks>
-            <IconLink
-              href="https://wiki.mozilla.org/Webmaker/WebLiteracyMap"
-              imgSrc="/img/pages/web-literacy/svg/icon-contribute.svg"
-              head="Contribute"
-              subhead="Join the community on defining Web Literacy at Mozilla"
-            />
-            <IconLink
-              href="https://mozilla.github.io/webmaker-whitepaper/"
-              imgSrc="/img/pages/web-literacy/svg/icon-learn-more.svg"
-              head="Learn More"
-              subhead="This whitepaper explores why Mozilla cares about Web Literacy"
-            />
-            <IconLink
-              href="https://www.mozilla.org/en-US/about/manifesto/"
-              imgSrc="/img/pages/web-literacy/svg/icon-reading.svg"
-              head="Get Reading"
-              subhead="Web Literacy is core to the Mozilla mission and values"
-            />
-          </IconLinks>
         </section>
       </div>
     );
