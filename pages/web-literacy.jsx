@@ -2,6 +2,7 @@ var React = require('react');
 
 var Illustration = require('../components/illustration.jsx');
 var Expander = require('../components/expander.jsx');
+var OutboundLink = require('react-ga').OutboundLink;
 
 var WebMaps = React.createClass({
   render: function() {
@@ -31,6 +32,7 @@ var ActivitiesPage = React.createClass({
     pageClassName: "web-literacy"
   },
   render: function() {
+    var whitepaperLink = "https://mozilla.github.io/webmaker-whitepaper";
     return (
       <div className="inner-container">
         <h1>Web Literacy</h1>
@@ -183,6 +185,11 @@ var ActivitiesPage = React.createClass({
               </Expander>
             </WebMap>
           </WebMaps>
+        </section>
+        <section className="text-center">
+          <div className="vertical-divider"></div>
+          <h3 className="text-center">Read our whitepaper on why Mozilla cares about Web Literacy.</h3>
+          <OutboundLink to={whitepaperLink} eventLabel={whitepaperLink} className="btn btn-awsm">Read whitepaper <i className="fa fa-external-link"></i></OutboundLink>
         </section>
       </div>
     );
