@@ -16,16 +16,15 @@ html.no-js .sidebar {
 .page {
   .pageColorizer();
 
+  &.opportunities-page,
+  &.clubs,
+  &.clubs-list-page,
   &.events,
   &.event-resources {
     .pageColorizer(@darkBlueSidebarColor);
   }
   &.tools-page {
     .pageColorizer(@greenSidebarColor);
-  }
-  &.clubs,
-  &.clubs-list-page {
-    .pageColorizer(@orangeSidebarColor);
   }
   &.teaching-materials,
   &.web-literacy,
@@ -137,11 +136,8 @@ html.no-js .sidebar {
     margin-left: 1rem;
   }
   .external-link {
-    a strong:after {
-      content: "\f08e";
-      font-family: "FontAwesome";
+    &:after {
       color: fade(@white, 50%);
-      margin-left: 1rem;
     }
   }
   .glyphicon {
@@ -172,7 +168,7 @@ html.no-js .sidebar {
     opacity: 0.6;
   }
   .activities img,
-  .events img {
+  .opportunities img {
     width: 1.6rem;
   }
   .tools-page img {

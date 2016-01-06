@@ -4,9 +4,11 @@ var Router = require('react-router');
 var classNames = require('classnames');
 var Link = Router.Link;
 var LinkAnchorSwap = require('./link-anchor-swap.jsx');
-
 var Login = require('./login.jsx');
 var Footer = require('./footer.jsx');
+var OutboundLink = require('react-ga').OutboundLink;
+
+var config = require('../lib/config');
 
 var Subitem = React.createClass({
   componentDidMount: function() {
@@ -20,10 +22,10 @@ var Subitem = React.createClass({
     this.props.toggleHighlight(isActive);
   },
   render: function() {
+    var ifExternalLink = this.props.link.substr(0,4).toLowerCase() === "http";
     return (
-      <Link to={this.props.link} ref={this.props.key}>
-        {this.props.name}
-      </Link>
+      ifExternalLink ?  <OutboundLink to={this.props.link} eventLabel={this.props.link} className="external-link">{this.props.name}</OutboundLink> :
+                        <Link to={this.props.link} ref={this.props.key}>{this.props.name}</Link>
     );
   }
 });
@@ -99,20 +101,30 @@ var Sidebar = React.createClass({
       ]
     },
     {
-      name: "Mozilla Clubs",
-      link: 'mozilla-clubs',
-      icon: "/img/components/sidebar/svg/icon-nav-clubs.svg",
-      className: "clubs"
-    },
-    {
-      name: "Maker Party",
-      link: 'events',
+      name: "Leadership Opportunities",
+      link: 'opportunities',
       icon: "/img/components/sidebar/svg/icon-nav-maker.svg",
-      className: "events",
+      className: 'opportunities',
       subItems: [
+        // {
+        //   name: "Mozilla Clubs",
+        //   link: 'mozilla-clubs'
+        // },
+        // {
+        //   name: "Maker Party",
+        //   link: 'events'
+        // },
         {
-          name: "Event Resources",
-          link: "event-resources"
+          name: "Hive Learning Networks",
+          link: config.HIVE_LEARNING_NETWORKS_URL
+        },
+        {
+          name: "MozFest",
+          link: config.MOZFEST_SITE_LINK
+        },
+        {
+          name: "Gigabit Community Fund",
+          link: config.GIGABIT_SITE_LINK
         }
       ]
     },

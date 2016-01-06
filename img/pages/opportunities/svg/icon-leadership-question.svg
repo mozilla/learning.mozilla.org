@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 59 37"
+	 style="enable-background:new 0 0 59 37;" xml:space="preserve">
+<style type="text/css">
+	.st0{filter:url(#Adobe_OpacityMaskFilter);}
+	.st1{fill:#FFFFFF;}
+	.st2{mask:url(#mask-2);fill:#3379AC;}
+</style>
+<title>icon-community-question</title>
+<desc>Created with Sketch.</desc>
+<g id="Page-1" sketch:type="MSPage">
+	<g id="icon-community-question" sketch:type="MSLayerGroup">
+		<g id="Clip-2">
+		</g>
+		<defs>
+			<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="0" y="0" width="59" height="37">
+				<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+			</filter>
+		</defs>
+		<mask maskUnits="userSpaceOnUse" x="0" y="0" width="59" height="37" id="mask-2">
+			<g class="st0">
+				<path id="path-1" class="st1" d="M0,0h59v37H0V0z"/>
+			</g>
+		</mask>
+		<path id="Fill-1" sketch:type="MSShapeGroup" class="st2" d="M39.8,16.5L58,1.4v33.8L39.8,16.5z M19.9,17.1l9.2,7.6
+			c0.1,0.1,0.2,0.1,0.3,0.1c0.1,0,0.2,0,0.3-0.1l9.2-7.6L57.3,36H1.7L19.9,17.1z M29.5,23.7L2,1H57L29.5,23.7z M1,1.4l18.2,15
+			L1,35.3V1.4z M59,0.5C59,0.2,58.8,0,58.5,0h-58C0.2,0,0,0.2,0,0.5v36v0c0,0.1,0,0.1,0,0.2c0,0,0,0,0,0c0,0,0,0,0,0
+			c0,0.1,0.1,0.1,0.1,0.1c0,0,0,0,0,0c0,0,0,0,0.1,0c0,0,0.1,0,0.1,0.1c0.1,0,0.1,0,0.2,0h58c0.1,0,0.1,0,0.2,0c0,0,0.1,0,0.1-0.1
+			c0,0,0,0,0.1,0c0,0,0,0,0,0c0,0,0.1-0.1,0.1-0.1c0,0,0,0,0,0c0,0,0,0,0,0c0-0.1,0-0.1,0-0.2c0,0,0,0,0,0V0.5z"/>
+	</g>
+</g>
+</svg>
