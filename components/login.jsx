@@ -6,6 +6,7 @@ var Link = Router.Link;
 var config = require('../lib/config');
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
 var ga = require('react-ga');
+var OutboundLink = require('react-ga').OutboundLink;
 
 var PureRenderMixin = require('react-addons-pure-render-mixin');
 
@@ -62,7 +63,8 @@ var LoginLink = React.createClass({
     var href = loginBaseURL + '/auth/oauth2/authorize?callback=' +
                encodeURIComponent(callbackURL) + '&action=' + action;
     var props = _.extend({}, this.props, {
-      href: href
+      to: href,
+      eventLabel: href
     });
 
     if (process.env.NODE_ENV !== 'production' &&
@@ -70,7 +72,7 @@ var LoginLink = React.createClass({
       console.warn("unrecognized action: " + action);
     }
 
-    return React.DOM.a(props, this.props.children);
+    return React.createElement(OutboundLink, props, this.props.children);
   }
 });
 

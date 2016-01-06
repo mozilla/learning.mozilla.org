@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36 50"
+	 style="enable-background:new 0 0 36 50;" xml:space="preserve">
+<style type="text/css">
+	.st0{filter:url(#Adobe_OpacityMaskFilter);}
+	.st1{fill:#FFFFFF;}
+	.st2{mask:url(#mask-2);fill:#E78832;}
+	.st3{fill:#E78832;}
+</style>
+<title>icon-neighborhood</title>
+<desc>Created with Sketch.</desc>
+<g id="Page-1" sketch:type="MSPage">
+	<g id="icon-neighborhood" sketch:type="MSLayerGroup">
+		<g id="Group-3">
+			<g id="Clip-2">
+			</g>
+			<defs>
+				<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="0" y="0" width="35.9" height="50">
+					<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+				</filter>
+			</defs>
+			<mask maskUnits="userSpaceOnUse" x="0" y="0" width="35.9" height="50" id="mask-2">
+				<g class="st0">
+					<path id="path-1" class="st1" d="M0,0h35.9v50H0"/>
+				</g>
+			</mask>
+			<path id="Fill-1" sketch:type="MSShapeGroup" class="st2" d="M26.9,37.1c-3.8,5-7.7,10-9,11.5c-1.2-1.6-5.2-6.6-9-11.5
+				c-4.6-6-8-14.1-8-18.8C1.1,8.8,8.7,1,18,1c9.3,0,16.9,7.8,17,17.4C34.9,23,31.5,31.1,26.9,37.1 M18,0C8.2,0,0.1,8.2,0,18.4
+				c0,4.9,3.4,13.1,8.2,19.4c4.6,6,9.3,12,9.4,12c0.1,0.1,0.2,0.2,0.4,0.2c0.2,0,0.3-0.1,0.4-0.2c0-0.1,4.8-6.1,9.4-12.1
+				c4.7-6.3,8.2-14.4,8.2-19.4C35.8,8.2,27.8,0,18,0"/>
+		</g>
+		<path id="Fill-4" sketch:type="MSShapeGroup" class="st3" d="M18,26.8c-4.6,0-8.3-3.8-8.3-8.5c0-4.7,3.7-8.5,8.3-8.5
+			s8.3,3.8,8.3,8.5C26.3,23,22.6,26.8,18,26.8 M18,8.8c-5.1,0-9.3,4.3-9.3,9.5s4.2,9.5,9.3,9.5s9.3-4.3,9.3-9.5S23.1,8.8,18,8.8"/>
+	</g>
+</g>
+</svg>

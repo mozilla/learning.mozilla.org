@@ -12,6 +12,9 @@ var OutboundLink = require('react-ga').OutboundLink;
 */
 var ActivityKit = React.createClass({
   render: function() {
+    var ifExternalLink = !!this.props.link ? (this.props.link.substr(0,4) === "http" || this.props.link.substr(0,2) === "//") : false;
+    var title = ifExternalLink ? <OutboundLink to={this.props.link} eventLabel={this.props.link}>{this.props.title}</OutboundLink>
+                               : <a href={this.props.link}>{this.props.title}</a>;
     return (
       <div className="activity-kit">
         <Illustration
@@ -21,10 +24,10 @@ var ActivityKit = React.createClass({
           caption={this.props.caption}
           alt={this.props.title}
           link={this.props.link}
-          externalLink={true}>
+          externalLink={ifExternalLink}>
 
           <div className="activity-kit-content">
-            <h3><OutboundLink to={this.props.link} eventLabel={this.props.link}>{this.props.title}</OutboundLink></h3>
+            <h3>{title}</h3>
             <div>
               <span className="span-content label-tag">level</span><span className="span-content">{this.props.level}</span>
             </div>
@@ -109,6 +112,14 @@ var ActivitiesPage = React.createClass({
               link="/activities/webmaker/"
               developedBy={<div><a href="https://twitter.com/secretrobotron">Bobby Richter</a> and <a href="https://twitter.com/lau_nk">Laura de Reynal</a> for Mozilla Learning Networks</div>}
               description="Learn how to set up your mobile device to write, publish, and share stories with the Webmaker App from Mozilla Learning Networks."/>
+            <ActivityKit
+              src1x="/img/pages/activities/online-tracking.png"
+              caption={ <a href="https://mozorg.cdn.mozilla.net/media/img/teach/smarton/tracking/topic-think-deeper.2d1fbc329611.png">view original</a> }
+              title="Privacy Basics: Online Tracking"
+              level="Beginner"
+              link="https://d157rqmxrxj6ey.cloudfront.net/mozstacy/21938/"
+              developedBy={<div><a href="https://mozillians.org/en-US/u/stacy">Stacy Martin</a> - Senior Data Privacy Manager at Mozilla and the Mozilla Learning Network team</div>}
+              description="Learners will complete a set of hands-on activities to better understand types of online tracking through the use of cookies and other technologies."/>
             <ActivityKit
               src1x="https://upload.wikimedia.org/wikipedia/commons/7/73/Monitor_padlock.svg"
               caption={ <a href="https://commons.wikimedia.org/wiki/File:Monitor_padlock.svg">EFF-Graphics, CC3.0-SA-AT, view original</a> }
@@ -270,12 +281,6 @@ var ActivitiesPage = React.createClass({
                 imgSrc="/img/pages/activities/svg/icon-connect.svg"
                 head="Build"
                 subhead="Start a Club in your community"
-              />
-              <IconLink
-                linkTo="teach-like-mozilla"
-                imgSrc="/img/pages/activities/svg/icon-curriculum.svg"
-                head="Grow"
-                subhead="Learn about our approach to teaching"
               />
               <IconLink
                 linkTo="web-literacy"
