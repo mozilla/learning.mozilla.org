@@ -11,16 +11,6 @@ var OutboundLink = require('react-ga').OutboundLink;
 var config = require('../lib/config');
 
 var Subitem = React.createClass({
-  componentDidMount: function() {
-    this.toggleHighlight();
-  },
-  componentDidUpdate: function() {
-    this.toggleHighlight();
-  },
-  toggleHighlight: function() {
-    var isActive = ReactDOM.findDOMNode(this).classList.contains("active");
-    this.props.toggleHighlight(isActive);
-  },
   render: function() {
     var ifExternalLink = this.props.link.substr(0,4).toLowerCase() === "http";
     return (
@@ -32,11 +22,10 @@ var Subitem = React.createClass({
 
 var Subitems = React.createClass({
   render: function() {
-    var toggleHighlight = this.props.toggleHighlight;
     var items = this.props.subItems.map(function (item, key) {
       return (
         <li key={item.name}>
-          <Subitem {...item} toggleHighlight={toggleHighlight} />
+          <Subitem {...item} />
         </li>
       )}
     );
@@ -54,12 +43,23 @@ var TopLevelNavItem = React.createClass({
       activeSubNav: false
     };
   },
-  highlightSubNav: function(subNavActive) {
-    if (subNavActive != this.state.activeSubNav) {
+  toggleSubNav: function() {
+    // TODO: there seems to be no way to do this without interacting with DOM. 
+    // Please feel free to polish this function if you find a better solution :)
+    var subNavActive = ReactDOM.findDOMNode(this).querySelectorAll('a.active').length > 0;
+    if ( this.state.activeSubNav != subNavActive) {
       this.setState({
         activeSubNav: subNavActive
       });
     }
+  },
+  componentDidMount: function() {
+    // this handles the initial site load, e.g., when you visit the site directly via url or force refresh
+    this.toggleSubNav();
+  },
+  componentDidUpdate: function() {
+    // this handles the rest of the cases, i.e., switching between different views/pages after the first site load
+    this.toggleSubNav();
   },
   render: function() {
     var classes = classNames(
@@ -80,7 +80,7 @@ var TopLevelNavItem = React.createClass({
           </div>
           <strong>{this.props.name}</strong>
         </LinkAnchorSwap>
-        {this.props.subItems ? <Subitems subItems={this.props.subItems} toggleHighlight={this.highlightSubNav} /> : null}
+        {this.props.subItems ? <Subitems subItems={this.props.subItems} /> : null}
       </li>
     );
   }
@@ -106,14 +106,14 @@ var Sidebar = React.createClass({
       icon: "/img/components/sidebar/svg/icon-nav-maker.svg",
       className: 'opportunities',
       subItems: [
-        // {
-        //   name: "Mozilla Clubs",
-        //   link: 'mozilla-clubs'
-        // },
-        // {
-        //   name: "Maker Party",
-        //   link: 'events'
-        // },
+        {
+          name: "Mozilla Clubs",
+          link: 'mozilla-clubs'
+        },
+        {
+          name: "Maker Party",
+          link: 'events'
+        },
         {
           name: "Hive Learning Networks",
           link: config.HIVE_LEARNING_NETWORKS_URL
