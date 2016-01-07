@@ -24,7 +24,7 @@ var LinkSwap = React.createClass({
 var IconLink = React.createClass({
   render: function() {
     return (
-      <div className="icon-link">
+      <div className={"icon-link " + this.props.className}>
         <LinkSwap linkTo={this.props.linkTo} href={this.props.href}>
           <figure>
             <ImageTag 
