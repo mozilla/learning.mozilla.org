@@ -14,7 +14,7 @@ var Subitem = React.createClass({
   render: function() {
     var ifExternalLink = this.props.link.substr(0,4).toLowerCase() === "http";
     return (
-      ifExternalLink ?  <OutboundLink to={this.props.link} eventLabel={this.props.link} className="external-link">{this.props.name}</OutboundLink> :
+      ifExternalLink ?  <OutboundLink to={this.props.link} eventLabel={this.props.link} ref={this.props.key} className="external-link">{this.props.name}</OutboundLink> :
                         <Link to={this.props.link} ref={this.props.key}>{this.props.name}</Link>
     );
   }

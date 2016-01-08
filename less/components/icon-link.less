@@ -1,31 +1,43 @@
 .icon-link {
   padding-bottom: 2rem;
   text-align: center;
-  &.mailto {
-    img {
-      width: 8rem;
-    }
-  }
   a {
     color: inherit;
+    &:focus,
     &:hover {
       text-decoration: none;
+    }
+    &:hover {
       img {
         transform: scale(1.1);
+      }
+    }
+    &.external-link {
+      &:after {
+        display: none;
       }
     }
     img {
       display: block;
       margin: 0 auto;
       transition: all 0.18s ease-in;
-      height: 7.5rem;
+      height: 6rem;
     }
   }
   h3 {
+    font-size: 2.4rem;
+    font-weight: 300;
     margin-bottom: 0.5rem;
   }
-  .subhead {
-    font-style: italic;
-    font-size: 1.6rem;
+  .subhead p {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    strong {
+      color: #337AB7;
+      font-weight: 300;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }

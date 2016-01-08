@@ -145,23 +145,28 @@ var OpportunitiesPage = React.createClass({
           <section>
             <IconLinks>
               <IconLink
-                href={config.TWITTER_LINK}
+                link={config.TWITTER_LINK}
                 imgSrc="/img/pages/opportunities/svg/icon-leadership-twitter.svg"
+                width={60}
                 head="Follow Us"
                 subhead="We're @mozteach on Twitter and our community uses #teachtheweb"
+                highlightedText="@mozteach"
               />
               <IconLink
-                href="https://discourse.webmaker.org/"
+                link="https://discourse.webmaker.org/"
                 imgSrc="/img/pages/opportunities/svg/icon-leadership-hello.svg"
                 head="Say Hello"
                 subhead="Connect on the Discourse forum."
+                highlightedText="Discourse forum"
               />
               <IconLink
-                href={"mailto:"+config.TEACH_THE_WEB_EMAIL}
+                link={"mailto:"+config.TEACH_THE_WEB_EMAIL}
                 imgSrc="/img/pages/opportunities/svg/icon-leadership-question.svg"
+                width={60}
                 head="Have a Question?"
                 subhead="Want to be connected with one of our staff or volunteers? Email us."
                 className="mailto"
+                highlightedText="Email us"
               />
             </IconLinks>
           </section>

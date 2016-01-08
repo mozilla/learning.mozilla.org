@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="60px" height="77px" viewBox="0 0 60 77" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
-    <title>icon-curriculum</title>
+<svg width="51px" height="66px" viewBox="0 0 51 66" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-clubs-teaching</title>
     <desc>Created with Sketch.</desc>
-    <defs></defs>
+    <defs>
+        <path id="path-1" d="M0,0.255 L51,0.255 L51,66 L0,66 L0,0.255 Z"></path>
+        <path id="path-3" d="M0,0.255 L43.2910156,0.255 L51,0.255 L51,66 L0,66 L0,0.255 Z"></path>
+    </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Clubs-Page" sketch:type="MSArtboardGroup" transform="translate(-410.000000, -1757.000000)">
-            <g id="icon-curriculum" sketch:type="MSLayerGroup" transform="translate(412.000000, 1758.000000)">
-                <path d="M56.3347595,68.7590588 C56.3347595,71.6443333 54.0085823,73.9825882 51.1398228,73.9825882 L5.25193671,73.9825882 C2.3824557,73.9825882 0.057,71.6436078 0.057,68.7590588 L0.057,5.93160784 C0.057,3.04633333 2.38317722,0.708078431 5.25193671,0.708078431 L51.1398228,0.708078431 C54.0093038,0.708078431 56.3347595,3.04705882 56.3347595,5.93160784 L56.3347595,68.7590588 L56.3347595,68.7590588 Z" id="Shape" stroke="#FFDEBB" stroke-width="3" sketch:type="MSShapeGroup"></path>
-                <path d="M11.1597342,48.509902 L45.9650886,48.509902" id="Shape" stroke="#FFDEBB" stroke-width="3" sketch:type="MSShapeGroup"></path>
-                <path d="M11.1597342,54.6765686 L45.9650886,54.6765686" id="Shape" stroke="#FFDEBB" stroke-width="3" sketch:type="MSShapeGroup"></path>
-                <path d="M11.1597342,60.8432353 L45.9650886,60.8432353" id="Shape" stroke="#FFDEBB" stroke-width="3" sketch:type="MSShapeGroup"></path>
-                <path d="M11.1597342,14.6679608 L45.9650886,14.6679608" id="Shape" stroke="#FFDEBB" stroke-width="3" sketch:type="MSShapeGroup"></path>
-                <path d="M11.1597342,20.8346275 L34.180519,20.8346275" id="Shape" stroke="#FFDEBB" stroke-width="3" sketch:type="MSShapeGroup"></path>
-                <rect id="Rectangle-path" stroke="#FFDEBB" stroke-width="3" sketch:type="MSShapeGroup" x="12.1207975" y="28.4711373" width="32.6386329" height="12.3333333"></rect>
-                <g id="Group" transform="translate(38.962025, 0.725490)" fill="#FFDEBB" sketch:type="MSShapeGroup">
-                    <path d="M7.72458228,15.4819608 L0.509392405,21.6486275 L0.509392405,0.246666667 L7.72458228,0.246666667 L7.72458228,15.4819608 Z" id="Shape"></path>
-                    <path d="M3.39546835,15.4819608 L10.6106582,21.6486275 L10.6106582,0.246666667 L3.39546835,0.246666667 L3.39546835,15.4819608 Z" id="Shape"></path>
-                </g>
+        <g id="icon-clubs-teaching" sketch:type="MSLayerGroup">
+            <g id="Group-3">
+                <mask id="mask-2" sketch:name="Clip 2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-2"></g>
+                <path d="M50,60.8843 C50,63.1543 48.153,65.0003 45.884,65.0003 L5.115,65.0003 C2.846,65.0003 1,63.1543 1,60.8843 L1,5.3713 C1,3.1013 2.846,1.2553 5.115,1.2553 L45.884,1.2553 C48.153,1.2553 50,3.1013 50,5.3713 L50,60.8843 Z M45.884,0.2553 L5.115,0.2553 C2.295,0.2553 0,2.5503 0,5.3713 L0,60.8843 C0,63.7053 2.295,66.0003 5.115,66.0003 L45.884,66.0003 C48.705,66.0003 51,63.7053 51,60.8843 L51,5.3713 C51,2.5503 48.705,0.2553 45.884,0.2553 L45.884,0.2553 Z" id="Fill-1" fill="#3379AC" sketch:type="MSShapeGroup" mask="url(#mask-2)"></path>
             </g>
+            <path d="M40.9609,43.3545 L10.0379,43.3545 C9.7619,43.3545 9.5379,43.5785 9.5379,43.8545 C9.5379,44.1305 9.7619,44.3545 10.0379,44.3545 L40.9609,44.3545 C41.2369,44.3545 41.4609,44.1305 41.4609,43.8545 C41.4609,43.5785 41.2369,43.3545 40.9609,43.3545" id="Fill-4" fill="#3379AC" sketch:type="MSShapeGroup"></path>
+            <path d="M40.9609,48.7612 L10.0379,48.7612 C9.7619,48.7612 9.5379,48.9852 9.5379,49.2612 C9.5379,49.5372 9.7619,49.7612 10.0379,49.7612 L40.9609,49.7612 C41.2369,49.7612 41.4609,49.5372 41.4609,49.2612 C41.4609,48.9852 41.2369,48.7612 40.9609,48.7612" id="Fill-6" fill="#3379AC" sketch:type="MSShapeGroup"></path>
+            <path d="M40.9609,54.168 L10.0379,54.168 C9.7619,54.168 9.5379,54.392 9.5379,54.668 C9.5379,54.944 9.7619,55.168 10.0379,55.168 L40.9609,55.168 C41.2369,55.168 41.4609,54.944 41.4609,54.668 C41.4609,54.392 41.2369,54.168 40.9609,54.168" id="Fill-8" fill="#3379AC" sketch:type="MSShapeGroup"></path>
+            <path d="M40.9609,11.0879 L10.0379,11.0879 C9.7619,11.0879 9.5379,11.3119 9.5379,11.5879 C9.5379,11.8639 9.7619,12.0879 10.0379,12.0879 L40.9609,12.0879 C41.2369,12.0879 41.4609,11.8639 41.4609,11.5879 C41.4609,11.3119 41.2369,11.0879 40.9609,11.0879" id="Fill-10" fill="#3379AC" sketch:type="MSShapeGroup"></path>
+            <mask id="mask-4" sketch:name="Clip 15" fill="white">
+                <use xlink:href="#path-3"></use>
+            </mask>
+            <g id="Clip-15"></g>
+            <path d="M39.961,32.214 L11.038,32.214 L11.038,17.994 L39.961,17.994 L39.961,32.214 Z M40.961,16.995 L10.038,16.995 L10.038,33.215 L40.961,33.215 L40.961,16.995 Z" id="Fill-14" fill="#3379AC" sketch:type="MSShapeGroup" mask="url(#mask-4)"></path>
         </g>
     </g>
 </svg>
