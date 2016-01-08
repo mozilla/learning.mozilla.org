@@ -277,16 +277,18 @@ var ActivitiesPage = React.createClass({
           <section>
             <IconLinks>
               <IconLink
-                linkTo="mozilla-clubs"
+                link="mozilla-clubs"
                 imgSrc="/img/pages/activities/svg/icon-connect.svg"
                 head="Build"
-                subhead="Start a Club in your community"
+                subhead="Start a Club in your community."
+                highlightedText="Start a Club"
               />
               <IconLink
-                linkTo="web-literacy"
+                link="web-literacy"
                 imgSrc="/img/pages/activities/svg/icon-learn.svg"
                 head="Explore"
-                subhead="See our Web Literacy Map"
+                subhead="See our Web Literacy Map."
+                highlightedText="Web Literacy Map"
               />
             </IconLinks>
           </section>

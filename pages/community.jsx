@@ -160,24 +160,27 @@ var CommunityPage = React.createClass({
           <section>
           <IconLinks>
             <IconLink
-              href="https://twitter.com/mozteach"
+              link="https://twitter.com/mozteach"
               imgSrc="/img/pages/community/svg/icon-community-twitter.svg"
-              head="Connect on Twitter"
+              width={60}
+              head="Follow Us"
               subhead="We're @mozteach on Twitter and our community uses #teachtheweb"
-              width={70}
+              highlightedText="@mozteach"
             />
             <IconLink
-              href="https://docs.google.com/a/mozillafoundation.org/forms/d/1bOXV1OiF2EKS5KprlnzfFpwaoVNwxLAwN_UEq6hGKqU/viewform"
+              link="https://docs.google.com/a/mozillafoundation.org/forms/d/1bOXV1OiF2EKS5KprlnzfFpwaoVNwxLAwN_UEq6hGKqU/viewform"
               imgSrc="/img/pages/community/svg/icon-community-story.svg"
               head="Share Your Story"
               subhead="If you teach the Web we'd love to hear about it! Share your story using this form."
+              highlightedText="this form"
             />
             <IconLink
-              href="mailto:teachtheweb@mozillafoundation.org"
+              link="mailto:teachtheweb@mozillafoundation.org"
               imgSrc="/img/pages/community/svg/icon-community-question.svg"
+              width={60}
               head="Have a Question?"
               subhead="Want to be connected with one of our staff or volunteers? Email us."
-              width={80}
+              highlightedText="Email us"
             />
           </IconLinks>
         </section>

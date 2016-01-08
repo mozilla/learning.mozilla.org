@@ -233,22 +233,25 @@ var ClubsListPage = React.createClass({
           <section>
             <IconLinks>
               <IconLink
-                linkTo="web-lit-basics"
+                link="web-lit-basics"
                 imgSrc="/img/pages/clubs/svg/icon-curriculum.svg"
-                head="Curriculum"
-                subhead="Modular Web Literacy curriculum"
+                head="Start Teaching"
+                subhead="Use our remixable Web Literacy curriculum."
+                highlightedText="Web Literacy curriculum"
               />
               <IconLink
-                href="https://discourse.webmaker.org/c/mozilla-clubs"
+                link="https://discourse.webmaker.org/c/mozilla-clubs"
                 imgSrc="/img/pages/clubs/svg/icon-connect.svg"
                 head="Connect"
-                subhead="Connect with other Club Leaders"
+                subhead="Connect with other Club Leaders."
+                highlightedText="Connect"
               />
               <IconLink
-                href="http://mozilla.github.io/learning-networks/clubs/"
+                link="http://mozilla.github.io/learning-networks/clubs/"
                 imgSrc="/img/pages/clubs/svg/icon-tips.svg"
-                head="Helpful Tips"
-                subhead="Tips for running your Club"
+                head="Get Help"
+                subhead="Resources for running your Club."
+                highlightedText="Resources"
               />
             </IconLinks>
           </section>
