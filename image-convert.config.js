@@ -21,7 +21,7 @@
 
 module.exports = {
   patterns: {
-    'img/pages/**/hero-unit.jpg': {
+    'img/pages/**/hero-unit*.jpg': {
       format: 'jpg',
       formatParams: {
         quality: 70

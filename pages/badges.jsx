@@ -140,19 +140,19 @@ var BadgesPage = React.createClass({
                     <section>
                         <IconLinks>
                             <IconLink
-                                linkTo=""
+                                link="https://discourse.webmaker.org/t/if-youre-new-to-the-community-please-introduce-yourself"
                                 imgSrc="/img/pages/badges/svg/icon-explore.svg"
                                 head="Explore"
                                 subhead="See all badges we offer and which ones you qualify for."
                                 />
                             <IconLink
-                                linkTo=""
+                                link="https://discourse.webmaker.org/t/if-youre-new-to-the-community-please-introduce-yourself"
                                 imgSrc="/img/pages/badges/svg/icon-earn.svg"
                                 head="Earn"
                                 subhead="Apply for badges by sharing your experiences."
                                 />
                             <IconLink
-                                linkTo=""
+                                link="https://discourse.webmaker.org/t/if-youre-new-to-the-community-please-introduce-yourself"
                                 imgSrc="/img/pages/badges/svg/icon-share.svg"
                                 head="Share"
                                 subhead="Show your employers and friends you have the skills."

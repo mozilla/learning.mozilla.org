@@ -145,13 +145,13 @@ var ActivitiesPage = React.createClass({
               developedBy={<div><a href="http://twitter.com/codekat">Kat Braybrooke</a>, <a href="https://twitter.com/epilepticrabbit">Laura Hilliger</a>, <a href="http://twitter.com/smithisgeneric">Karen Smith</a>, <a href="http://twitter.com/colorwheelz">Julia Vallera</a>, <a href="http://twitter.com/iamjessklein">Jess Klein</a>, and <a href="http://twitter.com/chadsansing">Chad Sansing</a></div>}
               description="This series of activities help teach web literacy concepts offline, or where access to technology is limited. Includes printable templates and games to teach coding, game design and app development."/>
             <ActivityKit
-              src1x="/img/pages/activities/img-activity-02.jpg"
-              src2x="/img/pages/activities/img-activity-02@2x.jpg"
-              title="Parapara Animation"
+              src1x="/img/pages/activities/parapara.jpg"
+              caption={ <a href="http://fabble.cc/uploads/figure/content/5625b974676974668fc60d00/small_DSC_4310_.jpg">view original</a> }
+              title="Animation on the Open Web with Fabble, Para Para, and 3D Projection Mapping"
               level="Beginner"
-              link="https://karenlouisesmith.makes.org/thimble/para-para-animation-teaching-kit"
-              developedBy={<div><a href="http://twitter.com/smithisgeneric">Karen Smith</a> and <a href="http://hivetoronto.org">Hive Toronto</a></div>}
-              description="This activity helps young learners create simple animations and learn about online collaboration using Parapara."/>
+              link="/activities/parapara/"
+              developedBy={<div><a href="http://en.mozillafactory.org/tagged/COMOZILLA">Mozilla Factory</a> and <a href="http://twitter.com/smithisgeneric">Karen Smith</a> and remixed by <Link to="home">Mozilla Learning Networks</Link>.</div>}
+              description="Learn to use Mozilla Factory’s Parapara and Fabble, open web tools for animation and sharing work online. Create 2D animations, 3D projection-mapped animations, and ‘recipes’ that others can fork for remix on Fabble."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-03.png"
               src2x="/img/pages/activities/img-activity-03@2x.png"
@@ -277,16 +277,18 @@ var ActivitiesPage = React.createClass({
           <section>
             <IconLinks>
               <IconLink
-                linkTo="mozilla-clubs"
+                link="mozilla-clubs"
                 imgSrc="/img/pages/activities/svg/icon-connect.svg"
                 head="Build"
-                subhead="Start a Club in your community"
+                subhead="Start a Club in your community."
+                highlightedText="Start a Club"
               />
               <IconLink
-                linkTo="web-literacy"
+                link="web-literacy"
                 imgSrc="/img/pages/activities/svg/icon-learn.svg"
                 head="Explore"
-                subhead="See our Web Literacy Map"
+                subhead="See our Web Literacy Map."
+                highlightedText="Web Literacy Map"
               />
             </IconLinks>
           </section>

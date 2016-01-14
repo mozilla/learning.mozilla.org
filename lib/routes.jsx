@@ -34,6 +34,8 @@ var routes = (
            handler={require('../pages/madewithcode-poster.jsx')}/>
     <Route name="maker-party-2015" path="/activities/maker-party-2015/"
            handler={require('../pages/maker-party-2015.jsx')}/>
+    <Route name="parapara" path="/activities/parapara/"
+           handler={require('../pages/parapara.jsx')}/>
     <Route name="private-eye" path="/activities/private-eye/"
            handler={require('../pages/private-eye.jsx')}/>
     <Route name="protect-your-data" path="/activities/protect-your-data/"
@@ -66,6 +68,8 @@ var routes = (
            handler={require('../pages/fixme.jsx')}/>
     <Route name="healthcheck" path="/healthcheck/"
            handler={require('../pages/healthcheck.jsx')}/>
+    <Route name="opportunities" path="/opportunities/"
+           handler={require('../pages/opportunities.jsx')}/>
     <Route name="tools" path="/tools/"
            handler={require('../pages/tools.jsx')}/>
     <Route name="me" path="/me/"
