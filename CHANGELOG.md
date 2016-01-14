@@ -6,6 +6,20 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.30][] - 2016-01-14
+### Changed
+- The Teach Like Mozilla page has been removed.
+- Nav links on the sidebar have been reorganized.
+- More UI tweaks! We've updated many icons on the site to make sure they 
+  share the same styling.
+
+### Added
+- Added Leadership Opportunities page.
+- Added Parapara teaching kit.
+- Added link to the Online Tracking module.
+
+
+
 ## [0.0.29][] - 2015-12-22
 ### Changed
 - Updated dependencies including uplifting React to v0.14 and other packages.
@@ -459,7 +473,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.29...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.30...HEAD
+[0.0.30]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.29...v0.0.30
 [0.0.29]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.28...v0.0.29
 [0.0.28]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.27...v0.0.28
 [0.0.27]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.26...v0.0.27
