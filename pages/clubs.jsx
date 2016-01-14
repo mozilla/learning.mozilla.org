@@ -70,31 +70,59 @@ var MozillaClubLookLike = React.createClass({
         <h2>What does a Mozilla Club look like in your...?</h2>
         <ul>
           <li>
-            <div className="fa fa-building"></div>
+            <ImageTag 
+              src1x="/img/pages/clubs/svg/icon-afterschool.svg"
+              width={"40"}
+              height={""}
+              alt="" />
             <div className="place-label"><a href="https://docs.google.com/document/d/1rUivWQybJymNlfZZHWkSJqFN5TNDVuPRSH_YCObALeM">Afterschool program</a></div>
           </li>
           <li>
-            <div className="fa fa-users"></div>
+            <ImageTag 
+              src1x="/img/pages/clubs/svg/icon-community.svg"
+              width={"55"}
+              height={""}
+              alt="" />
             <div className="place-label"><a href="https://docs.google.com/document/d/1gzbC5Q_XeHeii66v_Z4py6QrqYin5j1ozNhdeKJ-Ssg">Community meet-up</a></div>
           </li>
           <li>
-            <div className="fa fa-home"></div>
+            <ImageTag 
+              src1x="/img/pages/clubs/svg/icon-neighborhood.svg"
+              width={"35"}
+              height={""}
+              alt="" />
             <div className="place-label"><a href="https://docs.google.com/a/mozilla.com/document/d/18DwRtmttN_EUlp1PUsQJWrDgUwMpCf5ipKG-TGfN1Rc/">Neighborhood with low connectivity</a></div>
           </li>
           <li>
-            <div className="fa fa-institution"></div>
+            <ImageTag 
+              src1x="/img/pages/clubs/svg/icon-programs.svg"
+              width={"45"}
+              height={""}
+              alt="" />
             <div className="place-label"><a href="https://docs.google.com/document/d/1WbEEuomaH3eHd--vn_mBBBdAMuS8s9_WxJ4zm-N-UQI">Existing program</a></div>
           </li>
           <li>
-            <div className="fa fa-graduation-cap"></div>
+            <ImageTag 
+              src1x="/img/pages/clubs/svg/icon-university.svg"
+              width={"55"}
+              height={""}
+              alt="" />
             <div className="place-label">University campus<div className="coming-soon">(coming soon)</div></div>
           </li>
           <li>
-            <div className="fa fa-book"></div>
+            <ImageTag 
+              src1x="/img/pages/clubs/svg/icon-library.svg"
+              width={"40"}
+              height={""}
+              alt="" />
             <div className="place-label">Library<div className="coming-soon">(coming soon)</div></div>
           </li>
           <li>
-            <div className="fa fa-users"></div>
+            <ImageTag 
+              src1x="/img/pages/clubs/svg/icon-classroom.svg"
+              width={"45"}
+              height={""}
+              alt="" />
             <div className="place-label">Classroom<div className="coming-soon">(coming soon)</div></div>
           </li>
         </ul>
@@ -227,22 +255,25 @@ var ClubsPage = React.createClass({
           <section>
             <IconLinks>
               <IconLink
-                linkTo="web-lit-basics"
+                link="web-lit-basics"
                 imgSrc="/img/pages/clubs/svg/icon-curriculum.svg"
-                head="Curriculum"
-                subhead="Modular Web Literacy curriculum"
+                head="Start Teaching"
+                subhead="Use our remixable Web Literacy curriculum."
+                highlightedText="Web Literacy curriculum"
               />
               <IconLink
-                href="https://discourse.webmaker.org/c/mozilla-clubs"
+                link="https://discourse.webmaker.org/c/mozilla-clubs"
                 imgSrc="/img/pages/clubs/svg/icon-connect.svg"
                 head="Connect"
-                subhead="Connect with other Club Leaders"
+                subhead="Connect with other Club Leaders."
+                highlightedText="Connect"
               />
               <IconLink
-                href="http://mozilla.github.io/learning-networks/clubs/"
+                link="http://mozilla.github.io/learning-networks/clubs/"
                 imgSrc="/img/pages/clubs/svg/icon-tips.svg"
-                head="Helpful Tips"
-                subhead="Tips for running your Club"
+                head="Get Help"
+                subhead="Resources for running your Club."
+                highlightedText="Resources"
               />
             </IconLinks>
           </section>

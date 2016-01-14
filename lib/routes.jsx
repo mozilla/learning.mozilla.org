@@ -34,6 +34,8 @@ var routes = (
            handler={require('../pages/madewithcode-poster.jsx')}/>
     <Route name="maker-party-2015" path="/activities/maker-party-2015/"
            handler={require('../pages/maker-party-2015.jsx')}/>
+    <Route name="parapara" path="/activities/parapara/"
+           handler={require('../pages/parapara.jsx')}/>
     <Route name="private-eye" path="/activities/private-eye/"
            handler={require('../pages/private-eye.jsx')}/>
     <Route name="protect-your-data" path="/activities/protect-your-data/"
@@ -45,6 +47,9 @@ var routes = (
     <Redirect from="/clubs/curriculum/" to="/activities/web-lit-basics/" />
     <Route name="web-lit-basics-two" path="/activities/web-lit-basics-two/"
            handler={require('../pages/web-lit-basics-two.jsx')}/>
+    <Route name="web-literacy" path="/activities/web-literacy/"
+           handler={require('../pages/web-literacy.jsx')}/>
+    <Redirect from="/teach-like-mozilla/web-literacy/" to="/activities/web-literacy/" />
     <Route name="webmaker" path="/activities/webmaker/"
            handler={require('../pages/webmaker.jsx')}/>
     <Route name="back-to-school-write-the-web" path="/activities/back-to-school-write-the-web/"
@@ -63,12 +68,10 @@ var routes = (
            handler={require('../pages/fixme.jsx')}/>
     <Route name="healthcheck" path="/healthcheck/"
            handler={require('../pages/healthcheck.jsx')}/>
-    <Route name="teach-like-mozilla" path="/teach-like-mozilla/"
-           handler={require('../pages/teach-like-mozilla.jsx')}/>
+    <Route name="opportunities" path="/opportunities/"
+           handler={require('../pages/opportunities.jsx')}/>
     <Route name="tools" path="/tools/"
            handler={require('../pages/tools.jsx')}/>
-    <Route name="web-literacy" path="/teach-like-mozilla/web-literacy/"
-           handler={require('../pages/web-literacy.jsx')}/>
     <Route name="me" path="/me/"
            handler={require('../pages/makes.jsx')}/>
     <DefaultRoute name="home"

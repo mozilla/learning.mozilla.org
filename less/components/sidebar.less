@@ -16,20 +16,18 @@ html.no-js .sidebar {
 .page {
   .pageColorizer();
 
+  &.opportunities-page,
+  &.clubs,
+  &.clubs-list-page,
   &.events,
   &.event-resources {
     .pageColorizer(@darkBlueSidebarColor);
   }
-  &.teach-like-mozilla,
-  &.tools-page,
-  &.web-literacy {
+  &.tools-page {
     .pageColorizer(@greenSidebarColor);
   }
-  &.clubs,
-  &.clubs-list-page {
-    .pageColorizer(@orangeSidebarColor);
-  }
   &.teaching-materials,
+  &.web-literacy,
   &.web-lit-basics,
   &.web-lit-basics-two,
   &.protect-your-data,
@@ -39,6 +37,7 @@ html.no-js .sidebar {
   &.madewithcode-meme,
   &.madewithcode-poster,
   &.maker-party-2015,
+  &.parapara-page,
   &.private-eye {
     .pageColorizer(@pinkSidebarColor);
   }
@@ -142,11 +141,8 @@ html.no-js .sidebar {
     margin-left: 1rem;
   }
   .external-link {
-    a strong:after {
-      content: "\f08e";
-      font-family: "FontAwesome";
+    &:after {
       color: fade(@white, 50%);
-      margin-left: 1rem;
     }
   }
   .glyphicon {
@@ -177,7 +173,7 @@ html.no-js .sidebar {
     opacity: 0.6;
   }
   .activities img,
-  .events img {
+  .opportunities img {
     width: 1.6rem;
   }
   .tools-page img {

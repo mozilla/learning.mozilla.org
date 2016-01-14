@@ -180,22 +180,18 @@ var EventsPage = React.createClass({
           <section>
             <IconLinks>
               <IconLink
-                linkTo="event-resources"
-                imgSrc="/img/pages/events/svg/icon-curriculum.svg"
-                head="Event Resources"
-                subhead="Plan a unique event"
+                link="event-resources"
+                imgSrc="/img/pages/events/svg/icon-help.svg"
+                head="Get Help"
+                subhead="Find resources to help you plan a unique event."
+                highlightedText="resources"
               />
               <IconLink
-                href="https://discourse.webmaker.org/c/events"
-                imgSrc="/img/pages/events/svg/icon-connect.svg"
+                link="https://discourse.webmaker.org/c/events"
+                imgSrc="/img/pages/events/svg/icon-join.svg"
                 head="Join the Conversation"
-                subhead="Talk to others about your event"
-              />
-              <IconLink
-                linkTo="teach-like-mozilla"
-                imgSrc="/img/pages/events/svg/icon-connect.svg"
-                head="Teach Like Mozilla"
-                subhead=""
+                subhead="Talk to others about your event."
+                highlightedText="Talk"
               />
             </IconLinks>
           </section>

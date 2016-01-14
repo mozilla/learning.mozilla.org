@@ -220,9 +220,9 @@ var ModalPledge = React.createClass({
   render: function() {
     return (
       <Modal modalTitle="" className="modal-pledge folded">
-        <ImageTag className="image center-block"
-                  src1x="/img/pages/home/svg/icon-teach-man-chalkboard-pledge.svg"
-                  alt="" width={150} height={150} />
+        <ImageTag className="image text-center"
+                  src1x="/img/pages/home/svg/icon-pledge.svg"
+                  alt="" width={80} height={""} />
         <h3>Pledge to teach</h3>
         <p>Because the Web is a global public resource that's integral to modern life, <strong>I pledge to:</strong></p>
         <ul>
@@ -307,9 +307,10 @@ var HomePage = React.createClass({
           <h1>The Mozilla Learning Network</h1>
           <IconButtons>
             <IconButton
-              imgSrc="/img/pages/home/svg/icon-teach-man-chalkboard-pledge.svg"
+              imgSrc="/img/pages/home/svg/icon-pledge.svg"
               head="Pledge to Teach"
               onClick={this.handlePledgeBtnClick}
+              className={"pledge"}
             />
             <IconButton
               linkTo="activities"
@@ -362,22 +363,26 @@ var HomePage = React.createClass({
         <div className="inner-container">
           <IconLinks>
             <IconLink
-              href={config.TWITTER_LINK}
+              link={config.TWITTER_LINK}
               imgSrc="/img/pages/about/svg/icon-twitter-blue.svg"
+              width={60}
               head="Follow Us"
-              subhead="Start a conversation on Twitter"
+              subhead="Start a conversation on Twitter."
+              highlightedText="Twitter"
             />
             <IconLink
-              href={"mailto:"+config.TEACH_THE_WEB_EMAIL}
+              link={"mailto:"+config.TEACH_THE_WEB_EMAIL}
               imgSrc="/img/pages/about/svg/icon-get-help-blue.svg"
               head="Get Help"
-              subhead="Email us anytime"
+              subhead="Email us anytime."
+              highlightedText="Email us"
             />
             <IconLink
-              href="https://discourse.webmaker.org/t/if-youre-new-to-the-community-please-introduce-yourself"
+              link="https://discourse.webmaker.org/t/if-youre-new-to-the-community-please-introduce-yourself"
               imgSrc="/img/pages/about/svg/icon-connect-blue.svg"
               head="Say Hello"
-              subhead="Connect on the Discourse forum"
+              subhead="Connect on the Discourse forum."
+              highlightedText="Discourse forum"
             />
           </IconLinks>
         </div>
