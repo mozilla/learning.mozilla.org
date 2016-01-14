@@ -2,30 +2,48 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 var ImageTag = require('./imagetag.jsx');
+var OutboundLink = require('react-ga').OutboundLink;
 
 var LinkSwap = React.createClass({
+  propTypes: {
+    link: React.PropTypes.string.isRequired
+  },
   render: function() {
-    // Swap out Link or a simple anchor depending on the props we have.
-    if (this.props.linkTo) {
-      return (
-        <Link to={this.props.linkTo}>
-          {this.props.children}
-        </Link>
-      )
-    }
+    var link = this.props.link;
+    var ifExternalLink = (link.substr(0,4).toLowerCase() === "http") || (link.substr(0,7).toLowerCase() === "mailto:");
     return (
-      <a href={this.props.href}>
-        {this.props.children}
-      </a>
-    )
+      ifExternalLink ?  <OutboundLink to={this.props.link} eventLabel={this.props.link} className="external-link">{this.props.children}</OutboundLink> :
+                        <Link to={this.props.link} ref={this.props.key}>{this.props.children}</Link>
+    );
   }
 });
 
+var Subhead = React.createClass({
+  render: function() {
+    var highlightedText = this.props.highlightedText || null;
+    var textArray = this.props.bodyText.split(highlightedText);
+    var content = <p>
+                    {textArray[0]}
+                    <strong>{highlightedText}</strong>
+                    {textArray[1]}
+                  </p>;
+    return(
+      <div className="subhead">{content}</div>
+    );
+  }
+})
+
+
 var IconLink = React.createClass({
+  propTypes: {
+    link: React.PropTypes.string.isRequired,
+    subhead: React.PropTypes.string.isRequired,
+    highlightText: React.PropTypes.string
+  },
   render: function() {
     return (
-      <div className="icon-link">
-        <LinkSwap linkTo={this.props.linkTo} href={this.props.href}>
+      <div className={"icon-link " + this.props.className}>
+        <LinkSwap link={this.props.link}>
           <figure>
             <ImageTag 
               className="image" 
@@ -36,7 +54,7 @@ var IconLink = React.createClass({
               alt="" />
             <figcaption>
               <h3 className="head">{this.props.head}</h3>
-              <p className="subhead">{this.props.subhead}</p>
+              <Subhead bodyText={this.props.subhead} highlightedText={this.props.highlightedText} />
             </figcaption>
           </figure>
         </LinkSwap>

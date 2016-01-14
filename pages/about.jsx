@@ -29,7 +29,7 @@ var OurFocus = React.createClass({
     return (
         <section className="row list-with-illust">
           <Illustration width={199} height={199}
-          src1x="/img/pages/about/about-illustration.svg"
+          src1x="/img/pages/home/svg/icon-circle-home.svg"
           alt="A graphic showing an illustration of a person, a book, some gears, a map pin, and a square acedemic cap">
             <ul className="colored-list">
               <li>Learn and deepen your 21st Century digital skills, and get better at teaching them to others.</li>
@@ -70,22 +70,26 @@ var AboutPage = React.createClass({
           <OurGoal/>
           <IconLinks>
             <IconLink
-              href={config.TWITTER_LINK}
+              link={config.TWITTER_LINK}
               imgSrc="/img/pages/about/svg/icon-twitter-blue.svg"
+              width={60}
               head="Follow Us"
-              subhead="Start a conversation on Twitter"
+              subhead="Start a conversation on Twitter."
+              highlightedText="Twitter"
             />
             <IconLink
-              href={"mailto:"+config.TEACH_THE_WEB_EMAIL}
+              link={"mailto:"+config.TEACH_THE_WEB_EMAIL}
               imgSrc="/img/pages/about/svg/icon-get-help-blue.svg"
               head="Get Help"
-              subhead="Email us anytime"
+              subhead="Email us anytime."
+              highlightedText="Email us"
             />
             <IconLink
-              href="https://discourse.webmaker.org/t/if-youre-new-to-the-community-please-introduce-yourself/15"
+              link="https://discourse.webmaker.org/t/if-youre-new-to-the-community-please-introduce-yourself"
               imgSrc="/img/pages/about/svg/icon-connect-blue.svg"
               head="Say Hello"
-              subhead="Connect on the #teachtheweb Discourse forum"
+              subhead="Connect on the Discourse forum."
+              highlightedText="Discourse forum"
             />
           </IconLinks>
         </div>

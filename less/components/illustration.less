@@ -4,7 +4,7 @@
   &.vertical-layout {
     flex-direction: column;
     .image-container {
-      padding-right: 0;
+      margin-right: 0;
     }
   }
   &.content-first {
@@ -44,6 +44,7 @@
   }
   img {
     border-radius: @image-border-radius;
+    max-width: 100%;
   }
   @media screen and (min-width: @screen-sm-min) {
     display: flex;

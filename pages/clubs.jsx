@@ -16,19 +16,18 @@ var ModalRemoveYourClub = require('../components/modal-clubs-remove.jsx');
 var Illustration = require('../components/illustration.jsx');
 var ImageTag = require('../components/imagetag.jsx');
 
-var WhatIsAMozillaClub = React.createClass({
+var ClubsIntro = React.createClass({
   render: function() {
     return(
-      <div className="what-is-a-mozilla-club">
-        <h2>What is a Mozilla Club?</h2>
+      <section className="intro intro-after-banner">
         <Illustration
-        width={200} height={200}
-        src1x="/img/pages/clubs/intro-photo.png"
-        src2x="/img/pages/clubs/intro-photo@2x.png"
-        alt="icon how do Mozilla clubs work">
-          <p>A Mozilla Club meets regularly in-person to learn how to read, write and participate on the Web in an inclusive, engaging way.</p>
+          height={""} width={204}
+          src1x="/img/pages/clubs/svg/icon-circle-clubs.svg"
+          alt="">
+          <h1>What is a Mozilla Club?</h1>
+          <h2>A Mozilla Club meets regularly in-person to learn how to read, write and participate on the Web in an inclusive, engaging way.</h2>
         </Illustration>
-      </div>
+      </section>
     );
   }
 });
@@ -71,31 +70,59 @@ var MozillaClubLookLike = React.createClass({
         <h2>What does a Mozilla Club look like in your...?</h2>
         <ul>
           <li>
-            <div className="fa fa-building"></div>
+            <ImageTag 
+              src1x="/img/pages/clubs/svg/icon-afterschool.svg"
+              width={"40"}
+              height={""}
+              alt="" />
             <div className="place-label"><a href="https://docs.google.com/document/d/1rUivWQybJymNlfZZHWkSJqFN5TNDVuPRSH_YCObALeM">Afterschool program</a></div>
           </li>
           <li>
-            <div className="fa fa-users"></div>
+            <ImageTag 
+              src1x="/img/pages/clubs/svg/icon-community.svg"
+              width={"55"}
+              height={""}
+              alt="" />
             <div className="place-label"><a href="https://docs.google.com/document/d/1gzbC5Q_XeHeii66v_Z4py6QrqYin5j1ozNhdeKJ-Ssg">Community meet-up</a></div>
           </li>
           <li>
-            <div className="fa fa-home"></div>
+            <ImageTag 
+              src1x="/img/pages/clubs/svg/icon-neighborhood.svg"
+              width={"35"}
+              height={""}
+              alt="" />
             <div className="place-label"><a href="https://docs.google.com/a/mozilla.com/document/d/18DwRtmttN_EUlp1PUsQJWrDgUwMpCf5ipKG-TGfN1Rc/">Neighborhood with low connectivity</a></div>
           </li>
           <li>
-            <div className="fa fa-institution"></div>
+            <ImageTag 
+              src1x="/img/pages/clubs/svg/icon-programs.svg"
+              width={"45"}
+              height={""}
+              alt="" />
             <div className="place-label"><a href="https://docs.google.com/document/d/1WbEEuomaH3eHd--vn_mBBBdAMuS8s9_WxJ4zm-N-UQI">Existing program</a></div>
           </li>
           <li>
-            <div className="fa fa-graduation-cap"></div>
+            <ImageTag 
+              src1x="/img/pages/clubs/svg/icon-university.svg"
+              width={"55"}
+              height={""}
+              alt="" />
             <div className="place-label">University campus<div className="coming-soon">(coming soon)</div></div>
           </li>
           <li>
-            <div className="fa fa-book"></div>
+            <ImageTag 
+              src1x="/img/pages/clubs/svg/icon-library.svg"
+              width={"40"}
+              height={""}
+              alt="" />
             <div className="place-label">Library<div className="coming-soon">(coming soon)</div></div>
           </li>
           <li>
-            <div className="fa fa-users"></div>
+            <ImageTag 
+              src1x="/img/pages/clubs/svg/icon-classroom.svg"
+              width={"45"}
+              height={""}
+              alt="" />
             <div className="place-label">Classroom<div className="coming-soon">(coming soon)</div></div>
           </li>
         </ul>
@@ -109,8 +136,9 @@ var ClubCaptainPledge = React.createClass({
     return(
       <div className="club-captain-pledge">
         <Illustration
-          width={182} height={237}
-          src1x="/img/pages/clubs/svg/icon-club-caption-pledge.svg"
+          width={200} height={200}
+          src1x="/img/pages/clubs/intro-photo.png"
+          src2x="/img/pages/clubs/intro-photo@2x.png"
           alt="">
           <h3>A Mozilla Club Captain pledges to:</h3>
           <ul>
@@ -200,9 +228,7 @@ var ClubsPage = React.createClass({
           <div><a className="btn btn-awsm" onClick={this.showAddYourClubModal}>Apply to be a Club Captain</a></div>
         </HeroUnit>
         <div className="inner-container">
-          <section>
-            <WhatIsAMozillaClub />
-          </section>
+          <ClubsIntro />
           <section>
             <WhyOrganize />
           </section>
@@ -229,22 +255,25 @@ var ClubsPage = React.createClass({
           <section>
             <IconLinks>
               <IconLink
-                linkTo="web-lit-basics"
+                link="web-lit-basics"
                 imgSrc="/img/pages/clubs/svg/icon-curriculum.svg"
-                head="Curriculum"
-                subhead="Modular Web Literacy curriculum"
+                head="Start Teaching"
+                subhead="Use our remixable Web Literacy curriculum."
+                highlightedText="Web Literacy curriculum"
               />
               <IconLink
-                href="https://discourse.webmaker.org/c/mozilla-clubs"
+                link="https://discourse.webmaker.org/c/mozilla-clubs"
                 imgSrc="/img/pages/clubs/svg/icon-connect.svg"
                 head="Connect"
-                subhead="Connect with other Club Leaders"
+                subhead="Connect with other Club Leaders."
+                highlightedText="Connect"
               />
               <IconLink
-                href="http://mozilla.github.io/learning-networks/clubs/"
+                link="http://mozilla.github.io/learning-networks/clubs/"
                 imgSrc="/img/pages/clubs/svg/icon-tips.svg"
-                head="Helpful Tips"
-                subhead="Tips for running your Club"
+                head="Get Help"
+                subhead="Resources for running your Club."
+                highlightedText="Resources"
               />
             </IconLinks>
           </section>

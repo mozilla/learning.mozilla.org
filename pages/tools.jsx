@@ -11,10 +11,10 @@ var ToolsIntro = React.createClass({
   render: function() {
     return (
       <div className="inner-container">
-        <section className="intro">
+        <section className="intro intro-after-banner">
           <Illustration
             height={204} width={204}
-            src1x="/img/pages/tools/svg/icon-teach-like-mozilla-tools.svg"
+            src1x="/img/pages/tools/svg/icon-circle-tools.svg"
             alt="icon toolkit">
             <h1>Tools to Teach and Learn the Web</h1>
             <h2>These tools are free and open source, and can be used in a variety of ways to teach learners how to read, write, and participate on the Web.</h2>
@@ -37,11 +37,15 @@ var ToolsColumn = React.createClass({
   },
   render: function() {
     var sampleActivity = null;
+    var activityTitle = null;
+    var ifExternalLink = !!this.props.activityLink ? (this.props.activityLink.substr(0,4) === "http" || this.props.activityLink.substr(0,2) === "//") : false;
     if (this.props.activityTitle && this.props.activityLink) {
+      activityTitle = ifExternalLink ? <OutboundLink to={this.props.activityLink} eventLabel={this.props.activityLink}>{this.props.activityTitle}</OutboundLink>
+                                     : <a href={this.props.activityLink}>{this.props.activityTitle}</a>;
       sampleActivity =
         <div className="sample-activity">
           <div className="label-container"><div className="label label-success">Sample Activity</div></div>
-          <a href={this.props.activityLink}>{this.props.activityTitle}</a>
+          {activityTitle}
         </div>;
     }
     return (
@@ -131,22 +135,25 @@ var ToolsPage = React.createClass({
         <section>
           <IconLinks>
             <IconLink
-              href="http://mzl.la/TTWpodcasts"
-              imgSrc="/img/pages/teach-like-mozilla/svg/icon-listen.svg"
+              link="http://mzl.la/TTWpodcasts"
+              imgSrc="/img/pages/tools/svg/icon-listen.svg"
               head="Listen"
-              subhead="Subscribe to our podcast"
+              subhead="Subscribe to our podcast."
+              highlightedText="podcast"
             />
             <IconLink
-              linkTo="web-literacy"
-              imgSrc="/img/pages/teach-like-mozilla/svg/icon-learn.svg"
-              head="Understand"
-              subhead="Learn more about the Web Literacy Map"
+              link="web-literacy"
+              imgSrc="/img/pages/tools/svg/icon-learn.svg"
+              head="Explore"
+              subhead="Learn more about the Web Literacy Map."
+              highlightedText="Web Literacy Map"
             />
             <IconLink
-              href="https://discourse.webmaker.org/t/if-youre-new-to-the-community-please-introduce-yourself"
-              imgSrc="/img/pages/teach-like-mozilla/svg/icon-connect.svg"
+              link="https://discourse.webmaker.org/t/if-youre-new-to-the-community-please-introduce-yourself"
+              imgSrc="/img/pages/tools/svg/icon-connect.svg"
               head="Say Hello"
-              subhead="Meet the teach community"
+              subhead="Meet the community on the Discourse forum."
+              highlightedText="Discourse forum"
             />
           </IconLinks>
         </section>

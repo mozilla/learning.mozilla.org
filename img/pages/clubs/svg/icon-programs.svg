@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50"
+	 style="enable-background:new 0 0 50 50;" xml:space="preserve">
+<style type="text/css">
+	.st0{filter:url(#Adobe_OpacityMaskFilter);}
+	.st1{fill:#FFFFFF;}
+	.st2{mask:url(#mask-2);fill:#3379AC;}
+</style>
+<title>icon-programs</title>
+<desc>Created with Sketch.</desc>
+<g id="Page-1" sketch:type="MSPage">
+	<g id="icon-programs" sketch:type="MSLayerGroup">
+		<g id="Clip-2">
+		</g>
+		<defs>
+			<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="0" y="0" width="49.1" height="50">
+				<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+			</filter>
+		</defs>
+		<mask maskUnits="userSpaceOnUse" x="0" y="0" width="49.1" height="50" id="mask-2">
+			<g class="st0">
+				<path id="path-1" class="st1" d="M0,0h49.1v50H0V0z"/>
+			</g>
+		</mask>
+		<path id="Fill-1" sketch:type="MSShapeGroup" class="st2" d="M48.1,49H29.6V37.4c0-0.3-0.2-0.5-0.5-0.5H20c-0.3,0-0.5,0.2-0.5,0.5
+			V49H1V28h13.3c0.3,0,0.5-0.2,0.5-0.5V17c0-0.3-0.2-0.5-0.5-0.5h-0.2L24.6,11l10.4,5.4h-0.2c-0.3,0-0.5,0.2-0.5,0.5v10.5
+			c0,0.3,0.2,0.5,0.5,0.5h13.3V49z M20.5,37.9h8.1V49h-8.1V37.9z M19.1,1.4h5V5h-5V1.4z M48.6,27H35.3v-9.5H37
+			c0.2,0,0.4-0.2,0.5-0.4c0.1-0.2,0-0.5-0.3-0.6l-12.1-6.4V0.5c0-0.3-0.2-0.5-0.5-0.5c-0.2,0-0.4,0.2-0.5,0.4h-5.5
+			c-0.3,0-0.5,0.2-0.5,0.5v4.6c0,0.3,0.2,0.5,0.5,0.5h5.5v4.2l-12.1,6.4c-0.2,0.1-0.3,0.3-0.3,0.6c0.1,0.2,0.3,0.4,0.5,0.4h1.7V27
+			H0.5C0.2,27,0,27.2,0,27.5v22C0,49.8,0.2,50,0.5,50H20h9.1h19.5c0.3,0,0.5-0.2,0.5-0.5v-22C49.1,27.2,48.9,27,48.6,27L48.6,27z"/>
+	</g>
+</g>
+</svg>
