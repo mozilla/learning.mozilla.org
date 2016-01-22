@@ -1,0 +1,1 @@
+module.exports = './less/**/*.less';

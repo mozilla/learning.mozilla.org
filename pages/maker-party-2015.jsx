@@ -3,7 +3,7 @@ var Illustration = require('../components/illustration.jsx');
 var ActivitySection = require('../components/activity-section.jsx');
 var Router = require('react-router');
 var Link = Router.Link;
-var config = require('../lib/config');
+var config = require('../lib/build/config');
 
 var Intro = React.createClass({
   render: function () {

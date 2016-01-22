@@ -2,7 +2,7 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 var packageJSON = require('../package.json');
-var config = require('../lib/config');
+var config = require('../lib/build/config');
 
 var HealthcheckMeta = React.createClass({
   getInitialState: function() {

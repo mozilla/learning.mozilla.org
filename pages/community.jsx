@@ -6,7 +6,7 @@ var HeroUnit = require('../components/hero-unit.jsx');
 var Illustration = require('../components/illustration.jsx');
 var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
-var config = require('../lib/config');
+var config = require('../lib/build/config');
 var util = require('../lib/util');
 
 var Intro = React.createClass({

@@ -2,6 +2,38 @@
   "name": "teach.mozilla.org",
   "version": "0.0.30",
   "description": " Initial attempt at implementing Webmaker Learning front-page.",
+  "author": "Mozilla",
+  "license": "MPL-2.0",
+  "homepage": "https://github.com/mozilla/teach.mozilla.org",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mozilla/teach.mozilla.org.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mozilla/teach.mozilla.org/issues"
+  },
+
+  "scripts": {
+    "app": "gulp app",
+    "build": "gulp",
+    "postinstall": "gulp postinstall",
+    "preapp": "rm -rf dist",
+    "prebuild": "rm -rf dist",
+    "pres3": "rm -rf dist",
+    "presmoketest": "rm -rf dist",
+    "prestart": "rm -rf dist",
+    "pretest": "rm -rf dist",
+    "pretravis-after-success": "rm -rf dist",
+    "s3": "gulp s3",
+    "smoketest": "gulp smoketest",
+    "spider": "node test/browser/spider.js",
+    "start": "gulp watch",
+    "test": "gulp smoketest && npm run test:mocha && npm run test:browser && gulp lint-test && npm run spider",
+    "test:browser": "node test/browser/run-in-phantom.js",
+    "test:mocha": "mocha test/*.test.js",
+    "travis-after-success": "gulp travis-after-success"
+  },
+
   "dependencies": {
     "babel-core": "^6.3.21",
     "bootstrap": "^3.3.4",
@@ -67,35 +99,5 @@
     "supertest": "^1.0.1",
     "marked": "^0.3.3",
     "open": "0.0.5"
-  },
-  "scripts": {
-    "app": "gulp app",
-    "build": "gulp",
-    "postinstall": "gulp postinstall",
-    "preapp": "rm -rf dist",
-    "prebuild": "rm -rf dist",
-    "pres3": "rm -rf dist",
-    "presmoketest": "rm -rf dist",
-    "prestart": "rm -rf dist",
-    "pretest": "rm -rf dist",
-    "pretravis-after-success": "rm -rf dist",
-    "s3": "gulp s3",
-    "smoketest": "gulp smoketest",
-    "spider": "node test/browser/spider.js",
-    "start": "gulp watch",
-    "test": "gulp smoketest && npm run test:mocha && npm run test:browser && gulp lint-test && npm run spider",
-    "test:browser": "node test/browser/run-in-phantom.js",
-    "test:mocha": "mocha test/*.test.js",
-    "travis-after-success": "gulp travis-after-success"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mozilla/teach.mozilla.org.git"
-  },
-  "author": "",
-  "license": "MPL-2.0",
-  "bugs": {
-    "url": "https://github.com/mozilla/teach.mozilla.org/issues"
-  },
-  "homepage": "https://github.com/mozilla/teach.mozilla.org"
+  }
 }

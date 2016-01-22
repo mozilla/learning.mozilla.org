@@ -11,7 +11,7 @@ var DevRibbon = (process.env.NODE_ENV === 'production' &&
                  process.env.SHOW_DEV_RIBBON !== 'on')
                 ? null
                 : require('./dev-ribbon.jsx');
-var config = require('../lib/config');
+var config = require('../lib/build/config');
 
 var Page = React.createClass({
   statics: {
