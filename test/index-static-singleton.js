@@ -1,4 +1,4 @@
-var indexStaticWatcher = require('../lib/index-static-watcher').create();
+var indexStaticWatcher = require('../lib/build/index-static-watcher').create();
 
 var indexStatic;
 

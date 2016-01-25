@@ -28,7 +28,7 @@
 // * Creating permalinks.
 
 var React = require('react');
-
+var config = require('../lib/build/config');
 var DEFAULT_ATTRACT_DURATION = 4000;
 
 // AnchorManager is a largely private singleton class that maintains a
@@ -160,7 +160,7 @@ if (process.env.NODE_ENV !== 'production') {
                    'but changed.');
     }
   };
-  if (require('../lib/config').IN_TEST_SUITE) {
+  if (config.IN_TEST_SUITE) {
     AnchorManagerMixin.AnchorManager = AnchorManager;
     AnchorManagerMixin.DEFAULT_ATTRACT_DURATION = DEFAULT_ATTRACT_DURATION;
   }

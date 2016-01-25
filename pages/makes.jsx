@@ -1,10 +1,10 @@
-var React = require("react");
-var request = require("superagent");
+var React = require('react');
+var request = require('superagent');
 var moment = require('moment');
 var urlTemplate = require('url-template');
 
-var TeachAPIClientMixin = require("../mixins/teach-api-client");
-var config = require("../lib/config");
+var TeachAPIClientMixin = require('../mixins/teach-api-client');
+var config = require('../lib/build/config');
 
 var makesMetadataURL = urlTemplate.parse(config.MAKE_METADATA_URL);
 
@@ -12,7 +12,7 @@ var Make = React.createClass({
   render: function() {
     var makeTypeClass = "make " + this.props.type;
     var lastUpdatedFromNow = moment(new Date(this.props.updatedAt)).fromNow();
-    var thumbnailStyle = (this.props.thumbnail) ? {"backgroundImage": "url(" + this.props.thumbnail + ")"} 
+    var thumbnailStyle = (this.props.thumbnail) ? {"backgroundImage": "url(" + this.props.thumbnail + ")"}
                                                  : {"backgroundImage": "url(/img/pages/me/svg/icon-placeholder.svg)",
                                                     "backgroundSize": "11rem auto"};
     return (
@@ -53,7 +53,7 @@ var MePage = React.createClass({
   componentDidMount: function() {
     if (!this.state.username) {
       this.getUsernameAndLoadMakes();
-    } 
+    }
   },
   handleApiLoginSuccess: function() {
     this.getUsernameAndLoadMakes();
@@ -107,7 +107,7 @@ var MePage = React.createClass({
       pageContent = <span>Please sign in.</span>;
     } else if (this.state.loadingMakes) {
       pageContent = <div className="loading-message">Loading projects</div>;
-    } 
+    }
     else {
       var makes = this.state.makes.reverse().map(function(make,i) {
         return (

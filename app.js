@@ -3,7 +3,7 @@ var fs = require('fs');
 var express = require('express');
 var Router = require('react-router');
 
-var indexStaticWatcher = require('./lib/index-static-watcher').create();
+var indexStaticWatcher = require('./lib/build/index-static-watcher').create();
 var PORT = process.env.PORT || 8008;
 var PRODUCTION = (process.env.NODE_ENV === 'production');
 var DIST_DIR = path.join(__dirname, 'dist');

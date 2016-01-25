@@ -3,9 +3,9 @@ var React = require('react');
 var ReactDOMServer = require('react-dom/server');
 
 var config = require('./config');
-var routes = require('./routes.jsx');
-var OptimizelySubdomain = require('../components/optimizely-subdomain.jsx');
-var Optimizely = require('../components/optimizely.jsx');
+var routes = require('../routes.jsx');
+var OptimizelySubdomain = require('../../components/optimizely-subdomain.jsx');
+var Optimizely = require('../../components/optimizely.jsx');
 
 // This isn't actually called in node, it's stringified and plopped in
 // a script tag in the page header. It's basically an extremely simple

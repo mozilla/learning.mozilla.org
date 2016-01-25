@@ -1,7 +1,7 @@
 var React = require('react');
 var ImageTag = require('../components/imagetag.jsx');
 
-var config = require('../lib/config');
+var config = require('../lib/build/config');
 
 var MadeWithCodeIntro = React.createClass({
   propTypes: {

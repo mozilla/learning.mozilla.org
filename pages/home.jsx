@@ -17,7 +17,7 @@ var Modal = require('../components/modal.jsx');
 var ModalManagerMixin = require('../mixins/modal-manager');
 var ImageTag = require('../components/imagetag.jsx');
 
-var config = require('../lib/config');
+var config = require('../lib/build/config');
 var util = require('../lib/util');
 var loadBlogPosts = require('../lib/blog-feed-loader');
 
@@ -276,7 +276,7 @@ var HomePage = React.createClass({
     router: React.PropTypes.func.isRequired
   },
   componentDidMount: function() {
-    // auto pops up the Pledge modal if the user is visiting 
+    // auto pops up the Pledge modal if the user is visiting
     // the homepage for the first time
     var disableModal = "disableAutoPledgeModal";
     if (!localStorage[disableModal]) {
