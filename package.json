@@ -12,11 +12,9 @@
   "bugs": {
     "url": "https://github.com/mozilla/teach.mozilla.org/issues"
   },
-
-  "engines" : {
-    "node" : ">=0.12.0"
+  "engines": {
+    "node": ">=0.12.0"
   },
-
   "scripts": {
     "app": "gulp app",
     "build": "gulp",
@@ -37,7 +35,6 @@
     "test:mocha": "mocha test/*.test.js",
     "travis-after-success": "gulp travis-after-success"
   },
-
   "dependencies": {
     "babel-core": "^6.3.21",
     "bootstrap": "^3.3.4",
@@ -67,7 +64,6 @@
     "json-loader": "^0.5.1",
     "jsx-loader": "^0.13.2",
     "leaflet.markercluster": "^0.4.0",
-    "lwip": "0.0.8",
     "mapbox.js": "^2.1.5",
     "merge-stream": "^1.0.0",
     "minimatch": "^3.0.0",
@@ -98,10 +94,10 @@
     "webpack-stream": "^3.1.0"
   },
   "devDependencies": {
-    "mocha-phantomjs": "^4.0.1",
-    "simplecrawler": "^0.5.2",
-    "supertest": "^1.0.1",
     "marked": "^0.3.3",
-    "open": "0.0.5"
+    "mocha-phantomjs": "^4.0.1",
+    "open": "0.0.5",
+    "simplecrawler": "^0.5.2",
+    "supertest": "^1.0.1"
   }
 }
