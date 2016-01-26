@@ -1,6 +1,6 @@
 var _ = require('underscore');
 var webpack = require('webpack-stream');
-var webpackConfig = require('../webpack.config');
+var webpackConfig = require('../config/webpack.config');
 
 module.exports = function(gulp) {
 

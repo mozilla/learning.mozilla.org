@@ -4,7 +4,7 @@ var moment = require('moment');
 var urlTemplate = require('url-template');
 
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
-var config = require('../lib/build/config');
+var config = require('../config/config');
 
 var makesMetadataURL = urlTemplate.parse(config.MAKE_METADATA_URL);
 

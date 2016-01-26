@@ -3,7 +3,7 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 
-var config = require('../lib/build/config');
+var config = require('../config/config');
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
 var ga = require('react-ga');
 var OutboundLink = require('react-ga').OutboundLink;

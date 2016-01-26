@@ -1,4 +1,4 @@
-var config = require('../lib/build/config');
+var config = require('../config/config');
 var PassThrough = require('stream').PassThrough;
 var sitemap = require('gulp-sitemap');
 

@@ -9,7 +9,7 @@ var IconLinks = require('../components/icon-links.jsx');
 var IconLink = require('../components/icon-link.jsx');
 var Illustration = require('../components/illustration.jsx');
 var ImageTag = require('../components/imagetag.jsx');
-var config = require('../lib/build/config');
+var config = require('../config/config');
 
 var MakerPartyExample = React.createClass({
   render: function() {

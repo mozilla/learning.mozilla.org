@@ -2,7 +2,7 @@ var _  = require('underscore');
 var React = require('react');
 var ReactDOMServer = require('react-dom/server');
 
-var config = require('./config');
+var config = require('../../config/config');
 var routes = require('../routes.jsx');
 var OptimizelySubdomain = require('../../components/optimizely-subdomain.jsx');
 var Optimizely = require('../../components/optimizely.jsx');
@@ -17,8 +17,7 @@ var Optimizely = require('../../components/optimizely.jsx');
 // * cors (needed to reach teach-api)
 function featureDetect() {
   var safeMode = /[?&]safemode=on/i.test(window.location.search);
-  var cors = 'XMLHttpRequest' in window &&
-             'withCredentials' in new XMLHttpRequest();
+  var cors = 'XMLHttpRequest' in window && 'withCredentials' in new XMLHttpRequest();
 
   if (!safeMode && cors) {
     document.documentElement.setAttribute('class', '');

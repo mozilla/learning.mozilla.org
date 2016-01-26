@@ -1,6 +1,6 @@
 var _ = require('underscore');
 var BUILD_TASKS = require('./shared/build.tasks.js');
-var config = require('../lib/build/config');
+var config = require('../config/config');
 var developerHelp = require('../lib/build/developer-help');
 var gutil = require('gulp-util');
 var IMG_FILE_TYPES = require('./shared/image.file.types.js');
@@ -16,7 +16,7 @@ module.exports = function(gulp) {
 
   gulp.task('watch-static-files', function() {
     gulp.watch(IMG_FILE_TYPES.concat([
-      'image-convert.config.js'
+      './config/image-convert.config.js'
     ]), ['copy-images']);
     gulp.watch('test/browser/static/**', ['copy-test-dirs']);
   });
@@ -25,7 +25,7 @@ module.exports = function(gulp) {
     gulp.watch([
       'gulpfile.js',
       'package.json',
-      'webpack.config.js',
+      './config/webpack.config.js',
       'app.js'
     ], function(event) {
       var filename = path.basename(event.path);

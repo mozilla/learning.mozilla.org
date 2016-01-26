@@ -5,7 +5,7 @@ var Router = require('react-router');
 var Link = Router.Link;
 var OutboundLink = require('react-ga').OutboundLink;
 
-var config = require('../lib/build/config');
+var config = require('../config/config');
 
 var CurriculumIntro = React.createClass({
   render: function () {

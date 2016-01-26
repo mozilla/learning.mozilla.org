@@ -1,6 +1,6 @@
 var merge = require('merge-stream');
 var imageConverter = require('../lib/build/gulp-image-converter');
-var imageConvertConfig = require('../image-convert.config');
+var imageConvertConfig = require('../config/image-convert.config');
 var IMG_FILE_TYPES = require('./shared/image.file.types.js');
 
 module.exports = function(gulp) {

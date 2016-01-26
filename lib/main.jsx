@@ -3,7 +3,7 @@ var Router = require('react-router');
 var ga = require('react-ga');
 var developerHelp = require('./build/developer-help');
 
-var config = require('./build/config');
+var config = require('../config/config');
 var routes = require('./routes.jsx');
 
 var GA_ACCOUNT = process.env.GA_ACCOUNT || 'UA-49796218-20';
