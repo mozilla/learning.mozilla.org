@@ -6,7 +6,7 @@ var Instructions = require('../components/madewithcode-instructions.jsx');
 var Router = require('react-router');
 var Link = Router.Link;
 
-var config = require('../lib/build/config');
+var config = require('../config/config');
 
 var InstructionSection = React.createClass({
   render: function() {

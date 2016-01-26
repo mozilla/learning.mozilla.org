@@ -3,7 +3,7 @@ var urlResolve = require('url').resolve;
 var chalk = require('chalk');
 var Crawler = require('simplecrawler');
 
-var config = require('../../lib/build/config');
+var config = require('../../config/config');
 var server = require('./server').create();
 
 var URL_FINDERS = [

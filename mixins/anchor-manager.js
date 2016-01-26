@@ -28,7 +28,7 @@
 // * Creating permalinks.
 
 var React = require('react');
-var config = require('../lib/build/config');
+var config = require('../config/config');
 var DEFAULT_ATTRACT_DURATION = 4000;
 
 // AnchorManager is a largely private singleton class that maintains a

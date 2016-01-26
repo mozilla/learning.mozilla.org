@@ -3,7 +3,7 @@ var ImageTag = require('../components/imagetag.jsx');
 var Router = require('react-router');
 var Link = Router.Link;
 
-var config = require('../lib/build/config');
+var config = require('../config/config');
 
 var PageLinker = React.createClass({
   render: function() {

@@ -1,5 +1,5 @@
 var _ = require('underscore');
-var config = require('../lib/build/config');
+var config = require('../config/config');
 var developerHelp = require('../lib/build/developer-help');
 var gutil = require('gulp-util');
 var IndexFileStream = require('../lib/build/gulp-index-file-stream');

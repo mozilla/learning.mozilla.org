@@ -17,7 +17,7 @@ var Modal = require('../components/modal.jsx');
 var ModalManagerMixin = require('../mixins/modal-manager');
 var ImageTag = require('../components/imagetag.jsx');
 
-var config = require('../lib/build/config');
+var config = require('../config/config');
 var util = require('../lib/util');
 var loadBlogPosts = require('../lib/blog-feed-loader');
 

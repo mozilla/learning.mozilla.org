@@ -8,7 +8,7 @@ var Login = require('./login.jsx');
 var Footer = require('./footer.jsx');
 var OutboundLink = require('react-ga').OutboundLink;
 
-var config = require('../lib/build/config');
+var config = require('../config/config');
 
 var Subitem = React.createClass({
   render: function() {
