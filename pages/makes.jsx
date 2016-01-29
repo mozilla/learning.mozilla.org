@@ -8,6 +8,7 @@ var config = require('../config/config');
 
 var makesMetadataURL = urlTemplate.parse(config.MAKE_METADATA_URL);
 
+
 var Make = React.createClass({
   render: function() {
     var makeTypeClass = "make " + this.props.type;
@@ -31,7 +32,8 @@ var Make = React.createClass({
   }
 });
 
-var MePage = React.createClass({
+
+var MakesPage = React.createClass({
   mixins: [TeachAPIClientMixin],
   statics: {
     pageTitle: 'Me',
@@ -101,6 +103,16 @@ var MePage = React.createClass({
         });
       }.bind(this));
   },
+  formMakeJSX: function(make) {
+    return (
+      <Make thumbnail={make.thumbnail}
+            type={make.contentType.replace(/application\/x\-/g, '')}
+            url={make.url}
+            title={make.title}
+            updatedAt={make.updatedAt}
+            key={make.title} />
+    );
+  },
   render: function() {
     var pageContent;
     if (!this.state.username) {
@@ -109,16 +121,7 @@ var MePage = React.createClass({
       pageContent = <div className="loading-message">Loading projects</div>;
     }
     else {
-      var makes = this.state.makes.reverse().map(function(make,i) {
-        return (
-          <Make thumbnail={make.thumbnail}
-                type={make.contentType.replace(/application\/x\-/g, '')}
-                url={make.url}
-                title={make.title}
-                updatedAt={make.updatedAt}
-                key={i} />
-        );
-      });
+      var makes = this.state.makes.reverse().map(this.formMakeJSX);
       pageContent = (
         <div>
           <p className="context">In the fall of 2015, we retired Popcorn Maker and Appmaker, as well as older versions of Thimble and X-Ray Goggles. Any projects you created with these tools are still accessible below. Projects created with the new X-Ray Goggles, Thimble, or Webmaker are accessible through those respective platforms.</p>
@@ -139,4 +142,5 @@ var MePage = React.createClass({
   }
 });
 
-module.exports = MePage;
+
+module.exports = MakesPage;
