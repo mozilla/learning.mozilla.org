@@ -48,7 +48,9 @@ var HomePage = React.createClass({
   },
   handlePledgeBtnClick: function() {
     ga.event({ category: 'Clicked Home CTA', action: 'Pledge to Teach' });
-    this.props.showModal(ModalPledge);
+    this.props.showModal(ModalPledge, {
+      hideModal: this.props.hideModal
+    });
   },
   handleTeachBtnClick: function() {
     ga.event({ category: 'Clicked Home CTA', action: 'Teach an Activity' });

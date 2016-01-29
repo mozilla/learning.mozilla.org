@@ -47,7 +47,8 @@ var ModalAddOrChangeYourClub = React.createClass({
     // we're an 'add' dialog.
     club: React.PropTypes.object,
     idPrefix: React.PropTypes.string,
-    onSuccess: React.PropTypes.func.isRequired
+    onSuccess: React.PropTypes.func.isRequired,
+    hideModal: React.PropTypes.func.isRequired
   },
   getDefaultProps: function() {
     return {
@@ -285,7 +286,7 @@ var ModalAddOrChangeYourClub = React.createClass({
     }
 
     return(
-      <Modal modalTitle={modalTitle}>
+      <Modal modalTitle={modalTitle} hideModal={this.props.hideModal}>
         {content}
       </Modal>
     );

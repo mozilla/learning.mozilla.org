@@ -29,6 +29,7 @@ var ClubsListPage = React.createClass({
     pageClassName: 'clubs-list-page'
   },
   componentDidMount: function() {
+    console.log(this.props);
     this.getTeachAPI().updateClubs();
 
     if (this.context.router.getCurrentQuery().modal === 'add') {
@@ -37,7 +38,8 @@ var ClubsListPage = React.createClass({
   },
   showAddYourClubModal: function() {
     this.props.showModal(ModalAddOrChangeYourClub, {
-      onSuccess: this.handleZoomToClub
+      onSuccess: this.handleZoomToClub,
+      hideModal: this.props.hideModal
     });
   },
   handleZoomToClub: function(club) {
@@ -56,7 +58,8 @@ var ClubsListPage = React.createClass({
     });
     this.props.showModal(ModalAddOrChangeYourClub, {
       club: club,
-      onSuccess: this.handleZoomToClub
+      onSuccess: this.handleZoomToClub,
+      hideModal: this.props.hideModal
     });
   },
   render: function() {
