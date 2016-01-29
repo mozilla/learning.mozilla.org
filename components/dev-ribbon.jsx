@@ -3,7 +3,6 @@ var urlParse = require('url').parse;
 var React = require('react');
 
 var Modal = require('../components/modal.jsx');
-var ModalManagerMixin = require('../mixins/modal-manager');
 var Healthcheck = require('../pages/healthcheck.jsx');
 var TeachAPI = require('../lib/teach-api');
 var packageJSON = require('../package.json');
@@ -87,7 +86,7 @@ var DevModal = React.createClass({
     }
 
     return (
-      <Modal modalTitle="Development Version">
+      <Modal modalTitle="Development Version" showModal={this.props.showModal} hideModal={this.props.hideModal}>
         <Healthcheck.HealthcheckMeta/>
         <a href="http://invis.io/9G2DK7SR2" target="_blank" className="btn btn-block btn-default">
           <span className="glyphicon glyphicon glyphicon-plane"/> Site Map
@@ -115,14 +114,13 @@ var DevModal = React.createClass({
 });
 
 module.exports = React.createClass({
-  mixins: [ModalManagerMixin],
   statics: {
     TenonLink: TenonLink,
     InsightsLink: InsightsLink
   },
   handleClick: function(e) {
     e.preventDefault();
-    this.showModal(DevModal);
+    this.props.showModal(DevModal, this.props);
   },
   render: function() {
     return (

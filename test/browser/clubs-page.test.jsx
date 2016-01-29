@@ -34,7 +34,7 @@ describe("ClubsPage", function() {
   });
 
   it('doesn\'t show add modal if ?modal=add isn\'t in query', function() {
-    clubsPage.context.showModal.callCount.should.equal(0);
+    clubsPage.props.showModal.callCount.should.equal(0);
   });
 
   it('shows add modal if ?modal=add is in query', function() {
@@ -43,7 +43,7 @@ describe("ClubsPage", function() {
         currentQuery: {'modal': 'add'}
       })
     });
-    clubsPage2.context.showModal.callCount.should.equal(1);
+    clubsPage2.props.showModal.callCount.should.equal(1);
     stubContext.unmount(clubsPage2);
   });
 });

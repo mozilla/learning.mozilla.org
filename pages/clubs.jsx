@@ -4,7 +4,6 @@ var ReactDOM = require('react-dom');
 var Router = require('react-router');
 var Link = Router.Link;
 
-var ModalManagerMixin = require('../mixins/modal-manager');
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
 
 var HeroUnit = require('../components/hero-unit.jsx');
@@ -182,7 +181,7 @@ var ApplyCallout = React.createClass({
 });
 
 var ClubsPage = React.createClass({
-  mixins: [ModalManagerMixin, TeachAPIClientMixin],
+  mixins: [TeachAPIClientMixin],
   contextTypes: {
     router: React.PropTypes.func
   },
@@ -202,7 +201,7 @@ var ClubsPage = React.createClass({
     }
   },
   showAddYourClubModal: function() {
-    this.showModal(ModalAddOrChangeYourClub, {
+    this.props.showModal(ModalAddOrChangeYourClub, {
       onSuccess: this.handleZoomToClub
     });
   },
@@ -211,7 +210,7 @@ var ClubsPage = React.createClass({
     this.refs.map.focusOnClub(club);
   },
   handleClubDelete: function(url, clubName) {
-    this.showModal(ModalRemoveYourClub, {
+    this.props.showModal(ModalRemoveYourClub, {
       url: url,
       name: clubName
     });
@@ -220,7 +219,7 @@ var ClubsPage = React.createClass({
     var club = _.findWhere(this.getTeachAPI().getClubs(), {
       url: url
     });
-    this.showModal(ModalAddOrChangeYourClub, {
+    this.props.showModal(ModalAddOrChangeYourClub, {
       club: club,
       onSuccess: this.handleZoomToClub
     });

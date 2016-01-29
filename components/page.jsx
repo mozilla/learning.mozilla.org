@@ -3,6 +3,7 @@ var ReactDOM = require('react-dom');
 var TimeoutTransitionGroup = require('../components/timeout-transition-group.jsx');
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
+var ga = require('react-ga');
 
 var Sidebar = require('./sidebar.jsx');
 var Footer = require('./footer.jsx');
@@ -28,59 +29,38 @@ var Page = React.createClass({
       return title;
     }
   },
+
   contextTypes: {
     router: React.PropTypes.func
   },
+
   childContextTypes: {
-    showModal: React.PropTypes.func.isRequired,
-    hideModal: React.PropTypes.func.isRequired,
     teachAPI: React.PropTypes.object.isRequired
   },
-  getCurrentPageHandler: function() {
-    return this.context.router.getCurrentRoutes()[1].handler;
-  },
-  getInitialState: function() {
-    return {
-      modalClass: null,
-      modalProps: null
-    }
-  },
-  showModal: function(modalClass, modalProps) {
-    this.setState({modalClass: modalClass, modalProps: modalProps});
-  },
-  hideModal: function() {
-    this.setState({modalClass: null, modalProps: null});
-  },
-  componentDidMount: function() {
-    if (process.env.NODE_ENV !== 'production' && !config.IN_TEST_SUITE) {
-      var title = Page.titleForHandler(this.getCurrentPageHandler());
-      if (document.title !== title) {
-        console.warn("Document title is '" + document.title + "' but " +
-                     "expected it to be '" + title + "'.");
-      }
-    }
-  },
-  componentDidUpdate: function(prevProps, prevState) {
-    if (this.state.modalClass && !prevState.modalClass) {
-      document.body.classList.add('modal-open');
-    } else if (!this.state.modalClass && prevState.modalClass) {
-      document.body.classList.remove('modal-open');
-    }
-    document.title = Page.titleForHandler(this.getCurrentPageHandler());
-  },
-  getTeachAPI: function() {
-    if (!this.teachAPI) {
-      this.teachAPI = new TeachAPI();
-    }
-    return this.teachAPI;
-  },
+
+
+  // Utility functions
+
+
   getChildContext: function() {
     return {
-      showModal: this.showModal,
-      hideModal: this.hideModal,
       teachAPI: this.getTeachAPI()
     };
   },
+
+  getCurrentPageHandler: function() {
+    return this.context.router.getCurrentRoutes()[1].handler;
+  },
+
+  showModal: function(modalClass, modalProps) {
+    ga.modalview(modalClass.displayName);
+    this.setState({modalClass: modalClass, modalProps: modalProps});
+  },
+
+  hideModal: function() {
+    this.setState({modalClass: null, modalProps: null});
+  },
+
   // Accessibility best practices demand that only the elements in a
   // modal be focusable while it's being displayed, so we'll enforce
   // that here.
@@ -91,6 +71,64 @@ var Page = React.createClass({
       firstFocusableEl.focus();
     }
   },
+
+  getTeachAPI: function() {
+    if (!this.teachAPI) {
+      this.teachAPI = new TeachAPI();
+    }
+    return this.teachAPI;
+  },
+
+
+  // Lifecycle functions
+
+  getInitialState: function() {
+    return {
+      modalClass: null,
+      modalProps: null
+    }
+  },
+
+  componentDidMount: function() {
+    if (process.env.NODE_ENV !== 'production' && !config.IN_TEST_SUITE) {
+      var title = Page.titleForHandler(this.getCurrentPageHandler());
+      if (document.title !== title) {
+        console.warn("Document title is '" + document.title + "' but " +
+                     "expected it to be '" + title + "'.");
+      }
+    }
+  },
+
+  componentDidUpdate: function(prevProps, prevState) {
+    if (this.state.modalClass && !prevState.modalClass) {
+      document.body.classList.add('modal-open');
+    } else if (!this.state.modalClass && prevState.modalClass) {
+      document.body.classList.remove('modal-open');
+    }
+    document.title = Page.titleForHandler(this.getCurrentPageHandler());
+  },
+
+  getTransition: function() {
+    return (
+      <TimeoutTransitionGroup
+        transitionName="modal"
+        enterTimeout={250}
+        leaveTimeout={250}
+        transitionEnter={true}
+        transitionLeave={true}
+      >
+      {
+        this.state.modalClass ?
+          <div ref="modalHolder" key={1}>
+            {React.createElement(this.state.modalClass, this.state.modalProps)}
+            <div className="modal-backdrop"/>
+          </div>
+        : null
+      }
+      </TimeoutTransitionGroup>
+    );
+  },
+
   render: function() {
     var pageClassName = this.getCurrentPageHandler().pageClassName || '';
     return (
@@ -102,30 +140,18 @@ var Page = React.createClass({
             Skip to main content
           </a>
 
-          {DevRibbon ? <DevRibbon/> : null}
+          {DevRibbon ? <DevRibbon showModal={this.showModal} hideModal={this.hideModal}/> : null}
 
           <div className="row">
             <Sidebar/>
             <main className="content col-md-9" role="main" id="content" tabIndex="-1">
-              <RouteHandler/>
+              <RouteHandler showModal={this.showModal} hideModal={this.hideModal}/>
             </main>
           </div>
           <Footer className="page-bottom"/>
         </div>
 
-        <TimeoutTransitionGroup transitionName="modal"
-                                enterTimeout={250}
-                                leaveTimeout={250}
-                                transitionEnter={true}
-                                transitionLeave={true}>
-        {this.state.modalClass
-         ? <div ref="modalHolder" key={1}>
-             {React.createElement(this.state.modalClass,
-                                  this.state.modalProps)}
-             <div className="modal-backdrop"/>
-           </div>
-         : null}
-        </TimeoutTransitionGroup>
+        {this.getTransition()}
       </div>
     );
   }

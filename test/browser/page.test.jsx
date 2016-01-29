@@ -68,4 +68,6 @@ describe("page", function() {
       done();
     });
   });
+
+  // FIXME: TODO: dev-ribbon modal test
 });
