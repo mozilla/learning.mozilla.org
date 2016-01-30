@@ -29,7 +29,6 @@ var ClubsListPage = React.createClass({
     pageClassName: 'clubs-list-page'
   },
   componentDidMount: function() {
-    console.log(this.props);
     this.getTeachAPI().updateClubs();
 
     if (this.context.router.getCurrentQuery().modal === 'add') {

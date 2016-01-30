@@ -40,7 +40,9 @@ var HomePage = React.createClass({
       localStorage.setItem(disableModal, "disabled");
     }
     if (this.context.router.getCurrentQuery().pledge === "thanks") {
-      this.props.showModal(ThankYouModal);
+      this.props.showModal(ThankYouModal, {
+        hideModal: this.props.hideModal
+      });
       // Optimizely conversion tracking
       window.optimizely = window.optimizely || [];
       window.optimizely.push(['trackEvent', 'pledgeFormSubmitted']);
