@@ -1,4 +1,4 @@
-var _ = require('lodash');
+var _ = require('underscore');
 var EventEmitter = require('events').EventEmitter;
 var urlParse = require('url').parse;
 var should = require('should');
