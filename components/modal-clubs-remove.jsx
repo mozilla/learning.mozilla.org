@@ -2,7 +2,7 @@ var React = require('react');
 var Router = require('react-router');
 var Modal = require('../components/modal.jsx');
 
-var withTeachAPI = require('../mixins/teach-api-client.jsx');
+var withTeachAPI = require('../hoc/with-teach-api.jsx');
 
 
 var ModalRemoveYourClub = React.createClass({

@@ -3,7 +3,7 @@ var request = require('superagent');
 var moment = require('moment');
 var urlTemplate = require('url-template');
 
-var withTeachAPI = require('../mixins/teach-api-client.jsx');
+var withTeachAPI = require('../hoc/with-teach-api.jsx');
 
 var config = require('../config/config');
 

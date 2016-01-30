@@ -1,18 +1,16 @@
-// FIXME: THE FOLLOWING IS THE DESCRIPTION OF WHEN THIS WAS STILL A MIXIN INSTEAD OF HOC
-
-// TeachAPIClientMixin is a React mixin that can be used by any component
-// that needs direct access to the Teach API.
+// This is a Higher Order Component that can wrap any Component such that
+// it receives a teachAPI property.
 //
-// The component can access the Teach API via the getTeachAPI() method.
+//   var withTeachAPI = require('./with-teach-api.jsx');
 //
-// If the component defines a static object called 'teachAPIEvents' like so:
-//
-// var Foo = React.createClass({
-//   statics: {
-//     teachAPIEvents: {
-//       'logout': 'handleLogout'
+//   var Foo = React.createClass({
+//     ...
+//     render: function() {
+//       return <div>I am {this.props.teachAPI.getUserName()}</div>;
 //     }
-//   }
+//   });
+//
+//   module.exports = withTeachAPI(Foo);
 //
 // The mixin will ensure that the handleLogout() method is called whenever
 // the 'logout' event occurs in the Teach API. The mixin takes care of
@@ -27,10 +25,20 @@ module.exports = function withTeachAPI(Component) {
   var eventNames = Object.keys(events);
 
   return React.createClass({
+    statics: {
+      getComponent: function() {
+        return Component;
+      }
+    },
+
     getInitialState: function() {
       return {
         teachAPI: this.props.teachAPI || new TeachAPI()
       };
+    },
+
+    getComponent: function() {
+      return this.refs.component;
     },
 
     // It seems the forceUpdate() method is not auto-bound to a component,
@@ -57,13 +65,13 @@ module.exports = function withTeachAPI(Component) {
     componentWillUnmount: function() {
       eventNames.forEach(function(eventName) {
         var methodName = events[eventName];
-        var method = this[methodName];
+        var method = this.refs.component[methodName];
 
         if (methodName === 'forceUpdate') {
           method = this._autoboundForceUpdate;
         }
         if (typeof method === 'function') {
-          this.context.teachAPI.removeListener(eventName, method);
+          this.state.teachAPI.removeListener(eventName, method);
         }
       }, this);
     },

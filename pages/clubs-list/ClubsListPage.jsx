@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var withTeachAPI = require('../../mixins/teach-api-client.jsx');
+var withTeachAPI = require('../../hoc/with-teach-api.jsx');
 
 var HeroUnit = require('../../components/hero-unit.jsx');
 var Map = require('../../components/map.jsx');
