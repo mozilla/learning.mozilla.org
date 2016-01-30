@@ -37,3 +37,5 @@ exports.WEBMAKER = 'https://webmaker.org';
 exports.MOZFEST_SITE_LINK = 'https://mozillafestival.org';
 exports.GIGABIT_SITE_LINK = 'https://mozilla.org/gigabit';
 exports.ORIGIN = ORIGIN;
+exports.LIGHT_BEAM_URL = "https://addons.mozilla.org/firefox/downloads/latest/363974/addon-363974-latest.xpi";
+
