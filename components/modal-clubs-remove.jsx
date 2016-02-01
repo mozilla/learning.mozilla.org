@@ -1,11 +1,12 @@
 var React = require('react');
 var Router = require('react-router');
 var Modal = require('../components/modal.jsx');
-var TeachAPIClientMixin = require('../mixins/teach-api-client');
+
+var withTeachAPI = require('../mixins/teach-api-client.jsx');
 
 
 var ModalRemoveYourClub = React.createClass({
-  mixins: [Router.Navigation, TeachAPIClientMixin],
+  mixins: [Router.Navigation],
   propTypes: {
     url: React.PropTypes.string.isRequired,
     name: React.PropTypes.string.isRequired
@@ -24,7 +25,7 @@ var ModalRemoveYourClub = React.createClass({
       step: this.STEP_WAIT_FOR_NETWORK,
       networkError: false
     });
-    this.getTeachAPI().deleteClub(this.props.url, this.handleNetworkResult);
+    this.props.teachAPI.deleteClub(this.props.url, this.handleNetworkResult);
   },
   handleNetworkResult: function(err) {
     if (!this.isMounted()) {
@@ -76,4 +77,4 @@ var ModalRemoveYourClub = React.createClass({
 });
 
 
-module.exports = ModalRemoveYourClub;
+module.exports = withTeachAPI(ModalRemoveYourClub);

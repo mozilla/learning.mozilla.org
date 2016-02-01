@@ -3,11 +3,11 @@ var request = require('superagent');
 var moment = require('moment');
 var urlTemplate = require('url-template');
 
-var TeachAPIClientMixin = require('../mixins/teach-api-client');
+var withTeachAPI = require('../mixins/teach-api-client.jsx');
+
 var config = require('../config/config');
 
 var makesMetadataURL = urlTemplate.parse(config.MAKE_METADATA_URL);
-
 
 var Make = React.createClass({
   render: function() {
@@ -34,7 +34,6 @@ var Make = React.createClass({
 
 
 var MakesPage = React.createClass({
-  mixins: [TeachAPIClientMixin],
   statics: {
     pageTitle: 'Me',
     pageClassName: 'me-page',
@@ -67,7 +66,7 @@ var MakesPage = React.createClass({
   },
   getUsernameAndLoadMakes: function() {
     this.setState({
-      username: this.getTeachAPI().getUsername()
+      username: this.props.teachAPI.getUsername()
     }, function() {
       this.loadMakes();
     });
@@ -143,4 +142,4 @@ var MakesPage = React.createClass({
 });
 
 
-module.exports = MakesPage;
+module.exports = withTeachAPI(MakesPage);

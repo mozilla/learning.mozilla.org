@@ -2,16 +2,17 @@ var _ = require('underscore');
 var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
-
-var config = require('../config/config');
-var TeachAPIClientMixin = require('../mixins/teach-api-client');
 var ga = require('react-ga');
 var OutboundLink = require('react-ga').OutboundLink;
-
 var PureRenderMixin = require('react-addons-pure-render-mixin');
 
+
+var withTeachAPI = require('../mixins/teach-api-client.jsx');
+
+var config = require('../config/config');
+
 var LogoutLink = React.createClass({
-  mixins: [TeachAPIClientMixin, PureRenderMixin],
+  mixins: [PureRenderMixin],
   contextTypes: {
     router: React.PropTypes.func
   },
@@ -24,21 +25,16 @@ var LogoutLink = React.createClass({
     };
   },
   render: function() {
-    var callbackURL = this.props.origin +
-                      this.context.router.getCurrentPathname();
-    var loginBaseURL = this.getTeachAPI().baseURL;
-    var href = loginBaseURL + '/auth/oauth2/logout?callback=' +
-               encodeURIComponent(callbackURL);
-    var props = _.extend({}, this.props, {
-      href: href
-    });
-
-    return React.DOM.a(props, this.props.children);
+    var callbackURL = this.props.origin + this.context.router.getCurrentPathname();
+    var loginBaseURL = this.props.loginBaseURL;
+    var href = loginBaseURL + '/auth/oauth2/logout?callback=' + encodeURIComponent(callbackURL);
+    var props = _.extend({}, this.props, { href: href });
+    return <a {...props}>{this.props.children}</a>;
   }
 });
 
 var LoginLink = React.createClass({
-  mixins: [TeachAPIClientMixin, PureRenderMixin],
+  mixins: [PureRenderMixin],
   contextTypes: {
     router: React.PropTypes.func
   },
@@ -55,29 +51,20 @@ var LoginLink = React.createClass({
     };
   },
   render: function() {
-    var callbackPath = this.context.router.getCurrentPathname() +
-                       this.props.callbackSearch;
+    var callbackPath = this.context.router.getCurrentPathname() + this.props.callbackSearch;
     var callbackURL = this.props.origin + callbackPath;
-    var loginBaseURL = this.getTeachAPI().baseURL;
+    var loginBaseURL = this.props.loginBaseURL;
     var action = this.props.action;
-    var href = loginBaseURL + '/auth/oauth2/authorize?callback=' +
-               encodeURIComponent(callbackURL) + '&action=' + action;
-    var props = _.extend({}, this.props, {
-      to: href,
-      eventLabel: href
-    });
-
-    if (process.env.NODE_ENV !== 'production' &&
-        !/^(signin|signup)$/.test(action)) {
+    var href = loginBaseURL + '/auth/oauth2/authorize?callback=' + encodeURIComponent(callbackURL) + '&action=' + action;
+    var props = _.extend({}, this.props, { to: href, eventLabel: href });
+    if (process.env.NODE_ENV !== 'production' && !/^(signin|signup)$/.test(action)) {
       console.warn("unrecognized action: " + action);
     }
-
-    return React.createElement(OutboundLink, props, this.props.children);
+    return <OutboundLink {...props}>{this.props.children}</OutboundLink>;
   }
 });
 
 var Login = React.createClass({
-  mixins: [TeachAPIClientMixin],
   statics: {
     LoginLink: LoginLink,
     LogoutLink: LogoutLink,
@@ -89,8 +76,7 @@ var Login = React.createClass({
     }
   },
   componentDidMount: function() {
-    var teachAPI = this.getTeachAPI();
-
+    var teachAPI = this.props.teachAPI;
     teachAPI.checkLoginStatus();
     this.setState({username: teachAPI.getUsername()});
   },
@@ -122,23 +108,20 @@ var Login = React.createClass({
   handleApiLoginError: function(err) {
     if (!config.IN_TEST_SUITE) {
       console.log("Teach API error", err);
-      ga.event({ category: 'Login', action: 'Teach API Error',
-                nonInteraction:true});
+      ga.event({ category: 'Login', action: 'Teach API Error', nonInteraction:true});
     }
 
     this.setState({
       loggingIn: false,
       loginError: true
     });
-    ga.event({ category: 'Login', action: 'Error Occurred',
-               nonInteraction:true});
+    ga.event({ category: 'Login', action: 'Error Occurred', nonInteraction:true});
   },
   handleApiLoginStart: function() {
     this.setState({loggingIn: true});
   },
   handleApiLoginSuccess: function(info) {
-    this.setState({username: this.getTeachAPI().getUsername(),
-                   loggingIn: false});
+    this.setState({username: this.props.teachAPI.getUsername(), loggingIn: false});
     ga.event({ category: 'Login', action: 'Logged In' });
   },
   handleApiLogout: function() {
@@ -146,7 +129,7 @@ var Login = React.createClass({
     ga.event({ category: 'Login', action: 'Logged Out' });
   },
   renderAdminLink: function() {
-    var adminURL = this.getTeachAPI().getAdminURL();
+    var adminURL = this.props.teachAPI.getAdminURL();
 
     if (!adminURL) return null;
     return (
@@ -191,7 +174,10 @@ var Login = React.createClass({
             <ul>
               { this.renderAdminLink() ? <li>{this.renderAdminLink()}</li> : null }
               <li><span className="fa fa-list"></span><Link to="me">Your Projects</Link></li>
-              <li><span className="fa fa-sign-out"></span><LogoutLink>Log Out</LogoutLink></li>
+              <li>
+                <span className="fa fa-sign-out"></span>
+                <LogoutLink loginBaseURL={this.props.teachAPI.baseURL}>Log Out</LogoutLink>
+              </li>
             </ul>
           </div>
         </div>
@@ -199,9 +185,9 @@ var Login = React.createClass({
     } else {
       content = (
         <div className="login-status-text">
-          <LoginLink>Sign in</LoginLink>
+          <LoginLink loginBaseURL={this.props.teachAPI.baseURL}>Sign in</LoginLink>
           <span className="or"> or </span>
-          <LoginLink action="signup">Sign Up</LoginLink>
+          <LoginLink loginBaseURL={this.props.teachAPI.baseURL} action="signup">Sign Up</LoginLink>
         </div>
       );
     }
@@ -214,4 +200,4 @@ var Login = React.createClass({
   }
 });
 
-module.exports = Login;
+module.exports = withTeachAPI(Login);

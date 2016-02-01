@@ -7,7 +7,6 @@ var ga = require('react-ga');
 
 var Sidebar = require('./sidebar.jsx');
 var Footer = require('./footer.jsx');
-var TeachAPI = require('../lib/teach-api');
 var DevRibbon = (process.env.NODE_ENV === 'production' &&
                  process.env.SHOW_DEV_RIBBON !== 'on')
                 ? null
@@ -34,19 +33,8 @@ var Page = React.createClass({
     router: React.PropTypes.func
   },
 
-  childContextTypes: {
-    teachAPI: React.PropTypes.object.isRequired
-  },
-
 
   // Utility functions
-
-
-  getChildContext: function() {
-    return {
-      teachAPI: this.getTeachAPI()
-    };
-  },
 
   getCurrentPageHandler: function() {
     return this.context.router.getCurrentRoutes()[1].handler;
@@ -70,13 +58,6 @@ var Page = React.createClass({
     if (firstFocusableEl) {
       firstFocusableEl.focus();
     }
-  },
-
-  getTeachAPI: function() {
-    if (!this.teachAPI) {
-      this.teachAPI = new TeachAPI();
-    }
-    return this.teachAPI;
   },
 
 

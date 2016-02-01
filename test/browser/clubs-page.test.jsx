@@ -19,7 +19,7 @@ describe("ClubsPage", function() {
     xhr = sinon.useFakeXMLHttpRequest();
 
     teachAPI = new StubTeachAPI();
-    clubsPage = stubContext.render(ClubsPage, {}, {
+    clubsPage = stubContext.render(ClubsPage, {
       teachAPI: teachAPI
     });
   });

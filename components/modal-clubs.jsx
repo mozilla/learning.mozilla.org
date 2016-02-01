@@ -1,12 +1,13 @@
 var React = require('react');
-
+var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var Select = require('react-select');
 var _ = require('underscore');
+
 var Modal = require('../components/modal.jsx');
-var LinkedStateMixin = require('react-addons-linked-state-mixin');
-var TeachAPIClientMixin = require('../mixins/teach-api-client');
 var LoginLink = require('../components/login.jsx').LoginLink;
 var Map = require('../components/map.jsx');
+
+var withTeachAPI = require('../mixins/teach-api-client.jsx');
 
 var normalizeClub = function(clubState) {
   var state = _.extend({}, clubState);
@@ -38,7 +39,7 @@ var validateClub = function(clubState) {
 };
 
 var ModalAddOrChangeYourClub = React.createClass({
-  mixins: [LinkedStateMixin, TeachAPIClientMixin],
+  mixins: [LinkedStateMixin],
   contextTypes: {
     router: React.PropTypes.func
   },
@@ -293,4 +294,4 @@ var ModalAddOrChangeYourClub = React.createClass({
   }
 });
 
-module.exports = ModalAddOrChangeYourClub;
+module.exports = withTeachAPI(ModalAddOrChangeYourClub);

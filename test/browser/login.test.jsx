@@ -5,10 +5,11 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var TestUtils = require('react-addons-test-utils');
 
-var stubContext = require('./stub-context.jsx');
 var Login = require('../../components/login.jsx');
 var LoginLink = Login.LoginLink;
 var LogoutLink = Login.LogoutLink;
+
+var stubContext = require('./stub-context.jsx');
 var StubTeachAPI = require('./stub-teach-api');
 var StubRouter = require('./stub-router');
 
@@ -19,7 +20,7 @@ describe("Login", function() {
 
   beforeEach(function() {
     teachAPI = new StubTeachAPI();
-    login = stubContext.render(Login, {}, {
+    login = stubContext.render(Login, {
       teachAPI: teachAPI
     });
   });
@@ -31,12 +32,7 @@ describe("Login", function() {
   });
 
   it("removes teach API event listeners when unmounted", function() {
-    var events = [
-      'login:start',
-      'login:error',
-      'login:success',
-      'logout'
-    ];
+    var events = Object.keys(Login.teachAPIEvents);
 
     events.forEach(function(event) {
       EventEmitter.listenerCount(teachAPI, event).should.equal(1);
@@ -97,8 +93,9 @@ describe("Login", function() {
 function renderLink(linkClass, props) {
   var teachAPI = new StubTeachAPI();
   teachAPI.baseURL = 'http://teach-api';
-  return stubContext.render(linkClass, props, {
-    teachAPI: teachAPI,
+  return stubContext.render(linkClass, _.extend({
+    teachAPI: teachAPI
+  }, props), {
     router: new StubRouter({
       currentPathname: '/path'
     })
