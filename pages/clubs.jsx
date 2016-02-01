@@ -5,6 +5,7 @@ var Router = require('react-router');
 var Link = Router.Link;
 
 var withTeachAPI = require('../hoc/with-teach-api.jsx');
+var exposeRouter = require('../hoc/expose-router.jsx');
 
 var HeroUnit = require('../components/hero-unit.jsx');
 var Map = require('../components/map.jsx');
@@ -181,9 +182,6 @@ var ApplyCallout = React.createClass({
 });
 
 var ClubsPage = React.createClass({
-  contextTypes: {
-    router: React.PropTypes.func
-  },
   statics: {
     teachAPIEvents: {
       'clubs:change': 'forceUpdate',
@@ -194,8 +192,7 @@ var ClubsPage = React.createClass({
   },
   componentDidMount: function() {
     this.props.teachAPI.updateClubs();
-
-    if (this.context.router.getCurrentQuery().modal === 'add') {
+    if (this.props.router.getCurrentQuery().modal === 'add') {
       this.showAddYourClubModal();
     }
   },
@@ -286,4 +283,4 @@ var ClubsPage = React.createClass({
   }
 });
 
-module.exports = withTeachAPI(ClubsPage);
+module.exports = exposeRouter(withTeachAPI(ClubsPage));

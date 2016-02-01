@@ -3,9 +3,12 @@ var React = require('react');
 var ReactDOMServer = require('react-dom/server');
 
 var config = require('../../config/config');
-var routes = require('../routes.jsx');
+var generator = require('../page-generate.jsx');
 var OptimizelySubdomain = require('../../components/optimizely-subdomain.jsx');
 var Optimizely = require('../../components/optimizely.jsx');
+
+// FIXME: this really needs to come from somewhere, not be a magic variable
+var CSS_FILENAME = "styles.css";
 
 // This isn't actually called in node, it's stringified and plopped in
 // a script tag in the page header. It's basically an extremely simple
@@ -47,7 +50,7 @@ function generateWithPageHTML(url, options, pageHTML) {
         <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css"/>
         <link rel="stylesheet" href="/vendor/mozilla-tabzilla/css/tabzilla.css" />
-        <link rel="stylesheet" href={'/' + exports.CSS_FILENAME}/>
+        <link rel="stylesheet" href={'/' + CSS_FILENAME}/>
         <OptimizelySubdomain />
         <Optimizely />
         <script dangerouslySetInnerHTML={{
@@ -74,7 +77,7 @@ function generateWithPageHTML(url, options, pageHTML) {
 }
 
 function generate(url, options, cb) {
-  routes.generateStatic(url, function(err, html, metadata) {
+  generator.generateStatic(url, function(err, html, metadata) {
     var pageHTML;
 
     if (err) return cb(err);
@@ -88,8 +91,10 @@ function generate(url, options, cb) {
   });
 };
 
-exports.generate = generate;
-exports.CSS_FILENAME = "styles.css";
-exports.URLS = routes.URLS;
-exports.REDIRECTS = routes.REDIRECTS;
-exports.routes = routes.routes;
+module.exports = {
+  generate: generate,
+  CSS_FILENAME: CSS_FILENAME,
+  URLS: generator.URLS,
+  REDIRECTS: generator.REDIRECTS,
+  routes: generator.routes
+};

@@ -35,7 +35,10 @@ module.exports = function withTeachAPI(Component) {
 
   return React.createClass({
     statics: {
-      getComponent: function() {
+      getClass: function() {
+        if (Component.getClass) {
+          return Component.getClass();
+        }
         return Component;
       }
     },
@@ -47,13 +50,17 @@ module.exports = function withTeachAPI(Component) {
     },
 
     getComponent: function() {
-      return this.refs.component;
+      var component = this.refs.component;
+      if (component.getComponent) {
+        return component.getComponent();
+      }
+      return component;
     },
 
     // It seems the forceUpdate() method is not auto-bound to a component,
     // so we'll make our own wrapper here.
     _autoboundForceUpdate: function() {
-      this.refs.component.forceUpdate();
+      this.getComponent().forceUpdate();
     },
 
     componentDidMount: function() {

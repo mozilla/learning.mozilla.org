@@ -11,6 +11,8 @@ var IconLink = require('../../components/icon-link.jsx');
 var IconButtons = require('../../components/icon-buttons.jsx');
 var IconButton = require('../../components/icon-button.jsx');
 
+var exposeRouter = require('../../hoc/expose-router.jsx');
+
 var config = require('../../config/config');
 
 var CaseStudies = require('./CaseStudies.jsx');
@@ -28,9 +30,6 @@ var HomePage = React.createClass({
     validateSignupForm: validateSignupForm,
     BlogSection: BlogSection
   },
-  contextTypes: {
-    router: React.PropTypes.func.isRequired
-  },
   componentDidMount: function() {
     // auto pops up the Pledge modal if the user is visiting
     // the homepage for the first time
@@ -39,7 +38,7 @@ var HomePage = React.createClass({
       this.handlePledgeBtnClick();
       localStorage.setItem(disableModal, "disabled");
     }
-    if (this.context.router.getCurrentQuery().pledge === "thanks") {
+    if (this.props.router.getCurrentQuery().pledge === "thanks") {
       this.props.showModal(ThankYouModal, {
         hideModal: this.props.hideModal
       });
@@ -155,4 +154,4 @@ var HomePage = React.createClass({
   }
 });
 
-module.exports = HomePage;
+module.exports = exposeRouter(HomePage);

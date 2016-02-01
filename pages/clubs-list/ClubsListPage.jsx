@@ -13,10 +13,9 @@ var IconLink = require('../../components/icon-link.jsx');
 var ClubList = require('./ClubList.jsx');
 var ClubLists = require('./ClubLists.jsx');
 
+var exposeRouter = require('../../hoc/expose-router.jsx');
+
 var ClubsListPage = React.createClass({
-  contextTypes: {
-    router: React.PropTypes.func
-  },
   statics: {
     ClubList: ClubList,
     ClubLists: ClubLists,
@@ -29,7 +28,7 @@ var ClubsListPage = React.createClass({
   },
   componentDidMount: function() {
     this.props.teachAPI.updateClubs();
-    if (this.context.router.getCurrentQuery().modal === 'add') {
+    if (this.props.router.getCurrentQuery().modal === 'add') {
       this.showAddYourClubModal();
     }
   },
@@ -117,4 +116,4 @@ var ClubsListPage = React.createClass({
   }
 });
 
-module.exports = withTeachAPI(ClubsListPage);
+module.exports = exposeRouter(withTeachAPI(ClubsListPage));

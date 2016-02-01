@@ -14,15 +14,16 @@ var stubBlogFeedLoader = require('./stub-blog-feed-loader');
 var Util = require('../util.js');
 
 describe("HomePage", function() {
-  var homePage, pledgeBtn;
+  var wrapped, homePage, pledgeBtn;
 
   if (localStorage) {
     localStorage.clear();
   }
 
   beforeEach(function() {
-    homePage =  stubContext.render(HomePage);
-    pledgeBtn = TestUtils.scryRenderedDOMComponentsWithClass(homePage, "icon-button")[0];
+    wrapped =  stubContext.render(HomePage);
+    homePage = wrapped.getComponent();
+    pledgeBtn = TestUtils.scryRenderedDOMComponentsWithClass(wrapped, "icon-button")[0];
   });
 
   afterEach(function() {
@@ -75,12 +76,14 @@ describe("HomePage.ModalPledge", function() {
 });
 
 describe("HomePage.PledgeSignupForm", function() {
-  var pledgeSignupForm, validateSignupForm;
+  var validateSignupForm = require('../../pages/home/validateSignupForm');
+  var PledgeSignupForm = require('../../pages/home/PledgeSignupForm.jsx');
   var pledgeSignupFormIdPrefix = "signup-form-";
+  var pledgeSignupForm;
 
   beforeEach(function() {
-    pledgeSignupForm = stubContext.render(HomePage.PledgeSignupForm, {idPrefix: pledgeSignupFormIdPrefix});
-    validateSignupForm = HomePage.validateSignupForm;
+    pledgeSignupForm = stubContext.render(PledgeSignupForm, {idPrefix: pledgeSignupFormIdPrefix});
+    validateSignupForm = validateSignupForm;
   });
 
   afterEach(function() {
@@ -121,6 +124,7 @@ describe("HomePage.PledgeSignupForm", function() {
 
 
 describe("HomePage.BlogSection", function() {
+  var BlogSection = require('../../pages/home/BlogSection.jsx');
   var blogSection;
   var respondWithBlogPosts;
   var fakeLoadBlogPosts = function(cb) {
@@ -129,7 +133,7 @@ describe("HomePage.BlogSection", function() {
   };
 
   beforeEach(function() {
-    blogSection = stubContext.render(HomePage.BlogSection, {loadBlogPosts: fakeLoadBlogPosts});
+    blogSection = stubContext.render(BlogSection, {loadBlogPosts: fakeLoadBlogPosts});
   });
 
   it("should not display featured post before data is loaded", function() {
