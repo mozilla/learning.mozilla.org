@@ -13,7 +13,7 @@ var MadeWithCodeMeme = createVariant({
       <p>
         <strong>A “meme” is something that’s shared on the internet, and it usually has
         three parts:</strong> A “meme” is something that’s shared on the internet, and it
-        usually has three parts: a picture, a caption, and a dash of humor. In This activity,
+        usually has three parts: a picture, a caption, and a dash of humor. In this activity,
         you’ll make your own meme using a bit of HTML and your own
         creativity. <a href={config.THIMBLE}>Thimble</a>, Mozilla’s code editor, makes it easy.
       </p>
