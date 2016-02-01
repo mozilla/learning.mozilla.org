@@ -11,20 +11,13 @@ var neverCalled = function() {
 };
 
 var FakePage = React.createClass({
-  childContextTypes: {
-    hideModal: React.PropTypes.func.isRequired,
-    showModal: React.PropTypes.func.isRequired
-  },
-  getChildContext: function() {
-    return {
-      hideModal: this.props.onHideModal,
-      showModal: neverCalled
-    };
+  hideModal: function() {
+    this.props.onHideModal();
   },
   render: function() {
     return (
       <div>
-        <Modal ref="modal">
+        <Modal ref="modal" hideModal={this.hideModal}>
           <p>i am modal content</p>
         </Modal>
       </div>

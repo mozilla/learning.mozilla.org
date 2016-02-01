@@ -10,7 +10,6 @@ var IconLinks = require('../../components/icon-links.jsx');
 var IconLink = require('../../components/icon-link.jsx');
 var IconButtons = require('../../components/icon-buttons.jsx');
 var IconButton = require('../../components/icon-button.jsx');
-var ModalManagerMixin = require('../../mixins/modal-manager');
 
 var config = require('../../config/config');
 
@@ -29,7 +28,6 @@ var HomePage = React.createClass({
     validateSignupForm: validateSignupForm,
     BlogSection: BlogSection
   },
-  mixins: [ModalManagerMixin],
   contextTypes: {
     router: React.PropTypes.func.isRequired
   },
@@ -42,7 +40,9 @@ var HomePage = React.createClass({
       localStorage.setItem(disableModal, "disabled");
     }
     if (this.context.router.getCurrentQuery().pledge === "thanks") {
-      this.showModal(ThankYouModal);
+      this.props.showModal(ThankYouModal, {
+        hideModal: this.props.hideModal
+      });
       // Optimizely conversion tracking
       window.optimizely = window.optimizely || [];
       window.optimizely.push(['trackEvent', 'pledgeFormSubmitted']);
@@ -50,7 +50,9 @@ var HomePage = React.createClass({
   },
   handlePledgeBtnClick: function() {
     ga.event({ category: 'Clicked Home CTA', action: 'Pledge to Teach' });
-    this.showModal(ModalPledge);
+    this.props.showModal(ModalPledge, {
+      hideModal: this.props.hideModal
+    });
   },
   handleTeachBtnClick: function() {
     ga.event({ category: 'Clicked Home CTA', action: 'Teach an Activity' });

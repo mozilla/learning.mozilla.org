@@ -2,8 +2,6 @@ var React = require('react');
 var Router = require('react-router');
 var Link = require('react-router').Link;
 
-var ModalManagerMixin = require('../../mixins/modal-manager');
-
 var HeroUnit = require('../../components/hero-unit.jsx');
 var IconLinks = require('../../components/icon-links.jsx');
 var IconLink = require('../../components/icon-link.jsx');
@@ -15,7 +13,6 @@ var config = require('../../config/config');
 var MakerPartyExamples = require('./MakerPartyExamples.jsx');
 
 var EventsPage = React.createClass({
-  mixins: [ModalManagerMixin],
   statics: {
     pageTitle: 'Events',
     pageClassName: 'events'

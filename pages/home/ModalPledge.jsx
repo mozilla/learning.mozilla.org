@@ -7,7 +7,7 @@ var PledgeSignupForm = require('./PledgeSignupForm.jsx');
 var ModalPledge = React.createClass({
   render: function() {
     return (
-      <Modal modalTitle="" className="modal-pledge folded">
+      <Modal modalTitle="" className="modal-pledge folded" hideModal={this.props.hideModal}>
         <ImageTag className="image text-center" src1x="/img/pages/home/svg/icon-pledge.svg" alt="" width={80} height={""} />
         <h3>Pledge to teach</h3>
         <p>Because the Web is a global public resource that's integral to modern life, <strong>I pledge to:</strong></p>

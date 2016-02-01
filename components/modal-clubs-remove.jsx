@@ -1,12 +1,11 @@
 var React = require('react');
 var Router = require('react-router');
 var Modal = require('../components/modal.jsx');
-var ModalManagerMixin = require('../mixins/modal-manager');
 var TeachAPIClientMixin = require('../mixins/teach-api-client');
 
 
 var ModalRemoveYourClub = React.createClass({
-  mixins: [ModalManagerMixin, Router.Navigation, TeachAPIClientMixin],
+  mixins: [Router.Navigation, TeachAPIClientMixin],
   propTypes: {
     url: React.PropTypes.string.isRequired,
     name: React.PropTypes.string.isRequired
