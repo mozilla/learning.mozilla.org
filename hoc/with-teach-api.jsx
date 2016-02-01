@@ -1,5 +1,8 @@
 // This is a Higher Order Component that can wrap any Component such that
-// it receives a teachAPI property.
+// it receives a teachAPI property for communicating with the teach-api
+// server that runs in conjunction with the teach.mozilla.org site.
+//
+// Its use is straight-forward:
 //
 //   var withTeachAPI = require('./with-teach-api.jsx');
 //
@@ -10,12 +13,18 @@
 //     }
 //   });
 //
-//   module.exports = withTeachAPI(Foo);
+//   var Wrapped = withTeachAPI(Foo);
+//   module.exports = Wrapped;
 //
-// The mixin will ensure that the handleLogout() method is called whenever
-// the 'logout' event occurs in the Teach API. The mixin takes care of
-// unbinding the event listener when the component unmounts.
-
+// Then simply use the component like any other JSX: <Wrapped/>
+//
+// As this is an H.O.C, the wrapped component's own API gets masked
+// by the wrapper. If direct access to the wrapped component's API
+// is necessary (e.g. for unit test) the instance.getComponent()
+// function will return the mounted component, whereas calling
+// the wrapped class definition Wrapped.getComponent() retrieves
+// the original component's class definition.
+//
 var React = require('react');
 var TeachAPI = require('../lib/teach-api');
 
