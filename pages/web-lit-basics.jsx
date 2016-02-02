@@ -46,7 +46,7 @@ var curriculumList = [
         image2x: "/img/pages/web-lit-basics/img-kraken-code@2x.jpg",
         subtitle: "Understanding credibility",
         description: "Learners use the Internet to solve the mystery of The Kraken, a legendary sea creature, while also learning about search terms, keywords, and how to assess the validity and relevance of web sources.",
-        link: "http://mozilla.github.io/webmaker-curriculum/WebLiteracyBasics-I/session01-kraken.html"
+        link: "https://mozilla.github.io/mozilla-club-activity-kraken-the-code/#en"
       },
       {
         title: "Ping Kong",
@@ -54,7 +54,7 @@ var curriculumList = [
         image2x: "/img/pages/web-lit-basics/img-ping-kong@2x.jpg",
         subtitle: "Understanding web mechanics",
         description: "For many, &ldquo;the Internet&rdquo; is an abstract and overwhelming concept. This activity challenges learners to think concretely about how the internet communicates with a computer.",
-        link: "http://mozilla.github.io/webmaker-curriculum/WebLiteracyBasics-I/session01-pingkong.html"
+        link: "https://mozilla.github.io/mozilla-club-activity-ping-kong/#en"
       }
     ]
   },
@@ -67,7 +67,7 @@ var curriculumList = [
         image2x: "/img/pages/web-lit-basics/img-hack-news@2x.jpg",
         subtitle: "Understanding remixing",
         description: "Learners use X-Ray Goggles to remix a news website, learning about openly-licensed resources, different forms of media, and how to create something new on the Web through remixing.",
-        link: "http://mozilla.github.io/webmaker-curriculum/WebLiteracyBasics-I/session02-hackthenews.html"
+        link: "https://mozilla.github.io/mozilla-club-activity-hack-the-news/#en"
       },
       {
         title: "HTML Puzzle Boxes",
@@ -75,7 +75,7 @@ var curriculumList = [
         image2x: "/img/pages/web-lit-basics/img-puzzle-boxes@2x.jpg",
         subtitle: "Understanding composing for the web",
         description: "Learners race to sequence the paper boxes labeled with HTML tags, becoming familiar with the most common HTML tags and how to structure a web page.",
-        link: "http://mozilla.github.io/webmaker-curriculum/WebLiteracyBasics-I/session02-puzzlebox.html"
+        link: "https://mozilla.github.io/mozilla-club-activity-html-puzzle-boxes/#en"
       }
     ]
   },
@@ -88,7 +88,7 @@ var curriculumList = [
         image2x: "/img/pages/web-lit-basics/img-web-chef@2x.jpg",
         subtitle: "Understanding open practices",
         description: "Learners teach their peers a skill and document the steps by making a web resource that includes properly-attributed open content.",
-        link: "http://mozilla.github.io/webmaker-curriculum/WebLiteracyBasics-I/session03-chef.html"
+        link: "https://mozilla.github.io/mozilla-club-activity-web-chef/#en"
       },
       {
         title: "Final Project: Story of Us",
@@ -96,7 +96,7 @@ var curriculumList = [
         image2x: "/img/pages/web-lit-basics/img-story-of-us@2x.jpg",
         subtitle: "Understanding community participation",
         description: "Learners tell their Story of Self, use it to reflect  on what they have learned, and how they want to participate on the web and with their community going forward.",
-        link: "http://mozilla.github.io/webmaker-curriculum/WebLiteracyBasics-I/session03-storyofus.html"
+        link: "https://mozilla.github.io/mozilla-club-activity-story-of-us/#en"
       }
     ]
   }
