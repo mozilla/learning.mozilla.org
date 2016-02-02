@@ -21,15 +21,13 @@ var stubContext = function(Component, props, stubs) {
 
   return React.createClass({
     childContextTypes: {
-      router: func,
-      teachAPI: React.PropTypes.object
+      router: func
     },
 
     getChildContext: function() {
       if (!childContext) {
         childContext = _.extend({
-          router: new StubRouter(),
-          teachAPI: new StubTeachAPI()
+          router: new StubRouter()
         }, stubs);
       }
       return childContext;

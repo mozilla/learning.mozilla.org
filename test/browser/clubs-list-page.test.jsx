@@ -8,6 +8,9 @@ var TestUtils = require('react-addons-test-utils');
 var StubTeachAPI = require('./stub-teach-api');
 var stubContext = require('./stub-context.jsx');
 var ClubsListPage = require('../../pages/clubs-list.jsx');
+var ClubLists = require('../../pages/clubs-list/ClubLists.jsx');
+var ClubList = require('../../pages/clubs-list/ClubList.jsx');
+var ClubListItem = require('../../pages/clubs-list/ClubListItem.jsx');
 
 
 describe("ClubsListPage", function() {
@@ -32,7 +35,6 @@ describe("ClubsListPage", function() {
 });
 
 describe("ClubsListPage.ClubLists", function() {
-  var ClubLists = ClubsListPage.ClubLists;
   var noop = function() {};
   var clubs = [{
     owner: 'foo',
@@ -94,8 +96,7 @@ describe("ClubsListPage.ClubLists", function() {
 });
 
 describe("ClubsListPage.ClubList", function() {
-  var ClubList = ClubsListPage.ClubList;
-  var Item = ClubList.Item;
+  var Item = ClubListItem;
   var noop = function() {};
   var clubs = [{
     url: 'http://api/clubs/1/',

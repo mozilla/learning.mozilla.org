@@ -1,12 +1,15 @@
 var React = require('react');
-
+var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var Select = require('react-select');
 var _ = require('underscore');
+
 var Modal = require('../components/modal.jsx');
-var LinkedStateMixin = require('react-addons-linked-state-mixin');
-var TeachAPIClientMixin = require('../mixins/teach-api-client');
-var LoginLink = require('../components/login.jsx').LoginLink;
+var Login = require('../components/login.jsx');
+var LoginLink = require('../components/login/LoginLink.jsx');
+
 var Map = require('../components/map.jsx');
+
+var withTeachAPI = require('../hoc/with-teach-api.jsx');
 
 var normalizeClub = function(clubState) {
   var state = _.extend({}, clubState);
@@ -37,8 +40,8 @@ var validateClub = function(clubState) {
   return errors;
 };
 
-var ModalAddOrChangeYourClub = React.createClass({
-  mixins: [LinkedStateMixin, TeachAPIClientMixin],
+var ModalClubs = React.createClass({
+  mixins: [LinkedStateMixin],
   contextTypes: {
     router: React.PropTypes.func
   },
@@ -52,7 +55,7 @@ var ModalAddOrChangeYourClub = React.createClass({
   },
   getDefaultProps: function() {
     return {
-      idPrefix: 'ModalAddOrChangeYourClub_'
+      idPrefix: 'ModalClubs_'
     };
   },
   statics: {
@@ -82,7 +85,7 @@ var ModalAddOrChangeYourClub = React.createClass({
       ));
     }
     return _.extend(clubState, {
-      step: this.getStepForAuthState(!!this.getTeachAPI().getUsername()),
+      step: this.getStepForAuthState(!!this.props.teachAPI.getUsername()),
       hasReadFactSheet: false,
       result: null,
       networkError: false,
@@ -108,7 +111,7 @@ var ModalAddOrChangeYourClub = React.createClass({
     this.setState(newValue);
   },
   handleSubmit: function(e) {
-    var teachAPI = this.getTeachAPI();
+    var teachAPI = this.props.teachAPI;
     var clubState = normalizeClub(_.pick(this.state,
       'name', 'website', 'description', 'location', 'latitude', 'longitude'
     ));
@@ -165,127 +168,147 @@ var ModalAddOrChangeYourClub = React.createClass({
       );
     }
   },
+
+  generateAuthHTML: function(action) {
+    var loginURL = this.props.teachAPI.baseURL;
+    return (
+      <div>
+        <p>Before you can {action} your club, you need to log in.</p>
+        <LoginLink loginBaseURL={loginURL} callbackSearch="?modal=add" className="btn btn-primary btn-block">Log In</LoginLink>
+        <LoginLink loginBaseURL={loginURL} callbackSearch="?modal=add" action="signup" className="btn btn-default btn-block">
+          Create an account
+        </LoginLink>
+      </div>
+    );
+  },
+
+  generateFormHTML: function(isAdd, action, isFormDisabled, modalTitle) {
+    var idPrefix = this.props.idPrefix;
+    var value = isAdd ? "Apply" : modalTitle;
+    if (isFormDisabled) {
+      value = isAdd ? "Submitting Your Club Application..." : "Changing Your Club...";
+    }
+    return (
+      <div>
+        {this.state.networkError
+         ? <div className="alert alert-danger">
+             <p>Unfortunately, an error occurred when trying to {action} your club.</p>
+             <p>Please try again later.</p>
+           </div>
+         : null}
+
+        {this.renderValidationErrors()}
+
+        <p>We have a waiting list for Regional Coordinators. Fill out the information below, and
+        we’ll match you as soon as we can.</p>
+
+        <form onSubmit={this.handleSubmit}>
+          <fieldset>
+            <label htmlFor={idPrefix + "name"}>Who is your Mozilla Club affiliated with?</label>
+            <input type="text" id={idPrefix + "name"} placeholder="Name of organization, school, group"
+             disabled={isFormDisabled}
+             required
+             valueLink={this.linkState('name')} />
+          </fieldset>
+          <fieldset>
+            <label>Where are you located?</label>
+            <Select
+             disabled={isFormDisabled}
+             placeholder="Type in a city or a country"
+
+             // We need to provide undefined instead of an empty
+             // string in order for the placeholder text to show.
+             value={this.state.location || undefined}
+
+             // Even though we are not using multi={true}, the Select
+             // component seems to split on the default multi delimiter,
+             // which is ",". Since that delimiter appears in every
+             // location string (e.g. "Brooklyn, NY US"), we want to
+             // set it to something that never appears.
+             delimiter="|"
+
+             // We do not want any suggestions auto-loaded until
+             // the user starts typing. Aside from that, though, tests
+             // fail w/ a React Invariant Violation if we do not
+             // disable this feature.
+             autoload={false}
+
+             // The Mapbox geocoding service is automatically filtering
+             // out irrelevant results for us, so show all autocomplete
+             // options. Otherwise the default filtering
+             // algorithm will actually cull out valid options!
+             filterOption={function() { return true; }}
+
+             asyncOptions={Map.getAutocompleteOptions}
+             onChange={this.handleLocationChange} />
+          </fieldset>
+          <fieldset>
+            <label htmlFor={idPrefix + "website"}>What is your Club&lsquo;s website?<span className="optional-text">optional</span></label>
+            <input type="text" placeholder="www.myclubwebsite.com"
+             id={idPrefix + "website"}
+             disabled={isFormDisabled}
+             valueLink={this.linkState('website')} />
+          </fieldset>
+          <fieldset>
+            <label htmlFor={idPrefix + "description"}>How do you teach the Web?</label>
+            <textarea rows="5" placeholder="Please provide a brief description of your Club activities."
+             id={idPrefix + "description"}
+             disabled={isFormDisabled}
+             required
+             valueLink={this.linkState('description')} />
+          </fieldset>
+
+          {isAdd ? <div className="checkbox">
+            <label>
+              <input type="checkbox"
+               disabled={isFormDisabled}
+               checkedLink={this.linkState('hasReadFactSheet')}
+               required /> I have read the <a href="http://mozilla.github.io/learning-networks/clubs/" target="_blank">Mozilla Clubs Fact Sheet</a>.
+            </label>
+          </div> : null}
+
+          <input type="submit" className="btn"
+           disabled={isFormDisabled}
+           value={value} />
+        </form>
+      </div>
+    );
+  },
+
+  generateResultHTML: function(isAdd) {
+    return (
+      <div className="text-center">
+        <p><img className="globe" src="/img/pages/clubs/svg/globe-with-pin.svg"/></p>
+        {isAdd
+         ? <div>
+             <h2>Thanks for your interest!</h2>
+             <p>We&lsquo;ll be in touch when we start the next round. In the meantime, your Club will only be visible to you.</p>
+           </div>
+         : <h2>Your club has been changed.</h2>}
+        <button className="btn btn-block"
+         onClick={this.handleSuccessClick}>
+          Take Me To My Club
+        </button>
+      </div>
+    );
+  },
+
   render: function() {
     var content, isFormDisabled;
     var isAdd = !this.props.club;
     var action = isAdd ? "add" : "change";
-    var modalTitle = isAdd ? "Get matched with a Regional Coordinator"
-                           : "Change Your Club";
-    var idPrefix = this.props.idPrefix;
+    var modalTitle = isAdd ? "Get matched with a Regional Coordinator" : "Change Your Club";
 
     if (this.state.step == this.STEP_AUTH) {
-      content = (
-        <div>
-          <p>Before you can {action} your club, you need to log in.</p>
-          <LoginLink callbackSearch="?modal=add" className="btn btn-primary btn-block">Log In</LoginLink>
-          <LoginLink callbackSearch="?modal=add" action="signup" className="btn btn-default btn-block">Create an account</LoginLink>
-        </div>
-      );
-    } else if (this.state.step == this.STEP_FORM ||
-               this.state.step == this.STEP_WAIT_FOR_NETWORK) {
+      content = this.generateAuthHTML(action);
+    } else if (this.state.step == this.STEP_FORM || this.state.step == this.STEP_WAIT_FOR_NETWORK) {
       isFormDisabled = (this.state.step == this.STEP_WAIT_FOR_NETWORK);
-      content = (
-        <div>
-          {this.state.networkError
-           ? <div className="alert alert-danger">
-               <p>Unfortunately, an error occurred when trying to {action} your club.</p>
-               <p>Please try again later.</p>
-             </div>
-           : null}
-          {this.renderValidationErrors()}
-          <p>We have a waiting list for Regional Coordinators. Fill out the information below, and we’ll match you as soon as we can.</p>
-          <form onSubmit={this.handleSubmit}>
-            <fieldset>
-              <label htmlFor={idPrefix + "name"}>Who is your Mozilla Club affiliated with?</label>
-              <input type="text" id={idPrefix + "name"} placeholder="Name of organization, school, group"
-               disabled={isFormDisabled}
-               required
-               valueLink={this.linkState('name')} />
-            </fieldset>
-            <fieldset>
-              <label>Where are you located?</label>
-              <Select
-               disabled={isFormDisabled}
-               placeholder="Type in a city or a country"
-
-               // We need to provide undefined instead of an empty
-               // string in order for the placeholder text to show.
-               value={this.state.location || undefined}
-
-               // Even though we are not using multi={true}, the Select
-               // component seems to split on the default multi delimiter,
-               // which is ",". Since that delimiter appears in every
-               // location string (e.g. "Brooklyn, NY US"), we want to
-               // set it to something that never appears.
-               delimiter="|"
-
-               // We do not want any suggestions auto-loaded until
-               // the user starts typing. Aside from that, though, tests
-               // fail w/ a React Invariant Violation if we do not
-               // disable this feature.
-               autoload={false}
-
-               // The Mapbox geocoding service is automatically filtering
-               // out irrelevant results for us, so show all autocomplete
-               // options. Otherwise the default filtering
-               // algorithm will actually cull out valid options!
-               filterOption={function() { return true; }}
-
-               asyncOptions={Map.getAutocompleteOptions}
-               onChange={this.handleLocationChange} />
-            </fieldset>
-            <fieldset>
-              <label htmlFor={idPrefix + "website"}>What is your Club&lsquo;s website?<span className="optional-text">optional</span></label>
-              <input type="text" placeholder="www.myclubwebsite.com"
-               id={idPrefix + "website"}
-               disabled={isFormDisabled}
-               valueLink={this.linkState('website')} />
-            </fieldset>
-            <fieldset>
-              <label htmlFor={idPrefix + "description"}>How do you teach the Web?</label>
-              <textarea rows="5" placeholder="Please provide a brief description of your Club activities."
-               id={idPrefix + "description"}
-               disabled={isFormDisabled}
-               required
-               valueLink={this.linkState('description')} />
-            </fieldset>
-            {isAdd ? <div className="checkbox">
-              <label>
-                <input type="checkbox"
-                 disabled={isFormDisabled}
-                 checkedLink={this.linkState('hasReadFactSheet')}
-                 required /> I have read the <a href="http://mozilla.github.io/learning-networks/clubs/" target="_blank">Mozilla Clubs Fact Sheet</a>.
-              </label>
-            </div> : null}
-            <input type="submit" className="btn"
-             disabled={isFormDisabled}
-             value={isFormDisabled
-                    ? (isAdd ? "Submitting Your Club Application..."
-                             : "Changing Your Club...")
-                    : (isAdd ? "Apply"
-                             : modalTitle )} />
-          </form>
-        </div>
-      );
+      content = this.generateFormHTML(isAdd, action, isFormDisabled, modalTitle);
     } else if (this.state.step == this.STEP_SHOW_RESULT) {
-      content = (
-        <div className="text-center">
-          <p><img className="globe" src="/img/pages/clubs/svg/globe-with-pin.svg"/></p>
-          {isAdd
-           ? <div>
-               <h2>Thanks for your interest!</h2>
-               <p>We&lsquo;ll be in touch when we start the next round. In the meantime, your Club will only be visible to you.</p>
-             </div>
-           : <h2>Your club has been changed.</h2>}
-          <button className="btn btn-block"
-           onClick={this.handleSuccessClick}>
-            Take Me To My Club
-          </button>
-        </div>
-      );
+      content = this.generateResultHTML(isAdd);
     }
 
-    return(
+    return (
       <Modal modalTitle={modalTitle} hideModal={this.props.hideModal}>
         {content}
       </Modal>
@@ -293,4 +316,4 @@ var ModalAddOrChangeYourClub = React.createClass({
   }
 });
 
-module.exports = ModalAddOrChangeYourClub;
+module.exports = withTeachAPI(ModalClubs);

@@ -1,14 +1,15 @@
 var EventEmitter = require('events').EventEmitter;
 var React = require('react');
 var ReactDOM = require('react-dom');
+
 var StubTeachAPI = require('./stub-teach-api.js');
 var stubContext = require('./stub-context.jsx');
-var TeachApiClientMixin = require('../../mixins/teach-api-client');
 
-describe('TeachApiClientMixin', function() {
+var withTeachAPI = require('../../hoc/with-teach-api.jsx');
+
+describe('withTeachApi', function() {
   var teachAPI, component;
   var MyComponent = React.createClass({
-    mixins: [TeachApiClientMixin],
     statics: {
       teachAPIEvents: {
         'blah': 'handleBlah',
@@ -22,7 +23,7 @@ describe('TeachApiClientMixin', function() {
       this.setState({blah: this.state.blah + 1});
     },
     render: function() {
-      return <div>{this.getTeachAPI().getUsername()}</div>;
+      return <div refs="content">{this.props.teachAPI.getUsername()}</div>;
     }
   });
 
@@ -38,14 +39,15 @@ describe('TeachApiClientMixin', function() {
 
   it('should provide access to Teach API', function() {
     teachAPI.getUsername.returns("foo");
-    component = stubContext.render(MyComponent, {}, {
+    var withTeach = stubContext.render(withTeachAPI(MyComponent), {
       teachAPI: teachAPI
     });
+    component = withTeach.getComponent();
     ReactDOM.findDOMNode(component).textContent.should.eql("foo");
   });
 
   it('should bind to events that call forceUpdate', function() {
-    component = stubContext.render(MyComponent, {}, {
+    component = stubContext.render(withTeachAPI(MyComponent), {
       teachAPI: teachAPI
     });
     teachAPI.getUsername.returns("bar");
@@ -55,16 +57,17 @@ describe('TeachApiClientMixin', function() {
   });
 
   it('should bind to events that call methods', function() {
-    component = stubContext.render(MyComponent, {}, {
+    var withTeach = stubContext.render(withTeachAPI(MyComponent), {
       teachAPI: teachAPI
     });
+    component = withTeach.getComponent();
     component.state.blah.should.equal(0);
     teachAPI.emit('blah');
     component.state.blah.should.equal(1);
   });
 
   it('should unbind event listeners when unmounting', function() {
-    component = stubContext.render(MyComponent, {}, {
+    component = stubContext.render(withTeachAPI(MyComponent), {
       teachAPI: teachAPI
     });
     EventEmitter.listenerCount(teachAPI, 'username:change').should.equal(1);

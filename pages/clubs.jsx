@@ -4,7 +4,7 @@ var ReactDOM = require('react-dom');
 var Router = require('react-router');
 var Link = Router.Link;
 
-var TeachAPIClientMixin = require('../mixins/teach-api-client');
+var withTeachAPI = require('../hoc/with-teach-api.jsx');
 
 var HeroUnit = require('../components/hero-unit.jsx');
 var Map = require('../components/map.jsx');
@@ -181,7 +181,6 @@ var ApplyCallout = React.createClass({
 });
 
 var ClubsPage = React.createClass({
-  mixins: [TeachAPIClientMixin],
   contextTypes: {
     router: React.PropTypes.func
   },
@@ -194,7 +193,7 @@ var ClubsPage = React.createClass({
     pageClassName: "clubs"
   },
   componentDidMount: function() {
-    this.getTeachAPI().updateClubs();
+    this.props.teachAPI.updateClubs();
 
     if (this.context.router.getCurrentQuery().modal === 'add') {
       this.showAddYourClubModal();
@@ -217,7 +216,7 @@ var ClubsPage = React.createClass({
     });
   },
   handleClubEdit: function(url) {
-    var club = _.findWhere(this.getTeachAPI().getClubs(), {
+    var club = _.findWhere(this.props.teachAPI.getClubs(), {
       url: url
     });
     this.props.showModal(ModalAddOrChangeYourClub, {
@@ -227,7 +226,7 @@ var ClubsPage = React.createClass({
     });
   },
   render: function() {
-    var teachAPI = this.getTeachAPI();
+    var teachAPI = this.props.teachAPI;
     var clubs = teachAPI.getClubs();
     var username = teachAPI.getUsername();
     return (
@@ -287,4 +286,4 @@ var ClubsPage = React.createClass({
   }
 });
 
-module.exports = ClubsPage;
+module.exports = withTeachAPI(ClubsPage);

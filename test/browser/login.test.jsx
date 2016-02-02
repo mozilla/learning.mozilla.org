@@ -1,3 +1,4 @@
+var _ = require('underscore');
 var EventEmitter = require('events').EventEmitter;
 var urlParse = require('url').parse;
 var should = require('should');
@@ -5,23 +6,25 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var TestUtils = require('react-addons-test-utils');
 
-var stubContext = require('./stub-context.jsx');
 var Login = require('../../components/login.jsx');
-var LoginLink = Login.LoginLink;
-var LogoutLink = Login.LogoutLink;
+var LoginLink = require('../../components/login/LoginLink.jsx');
+var LogoutLink = require('../../components/login/LogoutLink.jsx');
+
+var stubContext = require('./stub-context.jsx');
 var StubTeachAPI = require('./stub-teach-api');
 var StubRouter = require('./stub-router');
 
 var ADMIN_RE = /administration/i;
 
 describe("Login", function() {
-  var login, teachAPI;
+  var withTeach, login, teachAPI;
 
   beforeEach(function() {
     teachAPI = new StubTeachAPI();
-    login = stubContext.render(Login, {}, {
+    withTeach = stubContext.render(Login, {
       teachAPI: teachAPI
     });
+    login = withTeach.getComponent();
   });
 
   afterEach(function() {
@@ -97,8 +100,9 @@ describe("Login", function() {
 function renderLink(linkClass, props) {
   var teachAPI = new StubTeachAPI();
   teachAPI.baseURL = 'http://teach-api';
-  return stubContext.render(linkClass, props, {
-    teachAPI: teachAPI,
+  return stubContext.render(linkClass, _.extend({
+    teachAPI: teachAPI
+  }, props), {
     router: new StubRouter({
       currentPathname: '/path'
     })
@@ -107,7 +111,10 @@ function renderLink(linkClass, props) {
 
 describe("Login.LoginLink", function() {
   it("should create a link w/ expected callback", function() {
-    var link = renderLink(LoginLink, {origin: 'http://teach'});
+    var link = renderLink(LoginLink, {
+      origin: 'http://teach',
+      loginBaseURL: 'http://teach-api'
+    });
     var info = urlParse(ReactDOM.findDOMNode(link).href, true);
 
     info.protocol.should.eql('http:');
@@ -118,7 +125,10 @@ describe("Login.LoginLink", function() {
   });
 
   it("should accept action='signup'", function() {
-    var link = renderLink(LoginLink, {action: 'signup'});
+    var link = renderLink(LoginLink, {
+      action: 'signup',
+      loginBaseURL: 'http://teach-api'
+    });
     var info = urlParse(ReactDOM.findDOMNode(link).href, true);
 
     info.query.action.should.eql('signup');
@@ -127,7 +137,8 @@ describe("Login.LoginLink", function() {
   it("should accept callbackSearch prop", function() {
     var link = renderLink(LoginLink, {
       origin: 'http://teach',
-      callbackSearch: '?foo=on'
+      callbackSearch: '?foo=on',
+      loginBaseURL: 'http://teach-api'
     });
     var info = urlParse(ReactDOM.findDOMNode(link).href, true);
 
@@ -137,7 +148,10 @@ describe("Login.LoginLink", function() {
 
 describe("Login.LogoutLink", function() {
   it("should create a link w/ expected callback", function() {
-    var link = renderLink(LogoutLink, {origin: 'http://teach'});
+    var link = renderLink(LogoutLink, {
+      origin: 'http://teach',
+      loginBaseURL: 'http://teach-api'
+    });
     var info = urlParse(ReactDOM.findDOMNode(link).href, true);
 
     info.protocol.should.eql('http:');

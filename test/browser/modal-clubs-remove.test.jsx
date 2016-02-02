@@ -5,6 +5,7 @@ var TestUtils = require('react-addons-test-utils');
 var stubContext = require('./stub-context.jsx');
 
 var ModalRemoveYourClub = require('../../components/modal-clubs-remove.jsx');
+var TeachAPI = require('./stub-teach-api');
 
 var MODAL_ERROR_REGEX = /an error occurred/i;
 
@@ -12,11 +13,13 @@ describe("ModalRemoveYourClub", function() {
   var modal, teachAPI;
 
   beforeEach(function() {
-    modal = stubContext.render(ModalRemoveYourClub, {
+    teachAPI = new TeachAPI();
+    var withTeach = stubContext.render(ModalRemoveYourClub, {
       name: 'my club',
-      url: 'http://clubs/1/'
+      url: 'http://clubs/1/',
+      teachAPI: teachAPI
     });
-    teachAPI = modal.getTeachAPI();
+    modal = withTeach.getComponent();
   });
 
   afterEach(function() {
