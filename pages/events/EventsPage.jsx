@@ -17,9 +17,6 @@ var EventsPage = React.createClass({
     pageTitle: 'Events',
     pageClassName: 'events'
   },
-  contextTypes: {
-    router: React.PropTypes.func.isRequired
-  },
   render: function() {
     return (
       <div>

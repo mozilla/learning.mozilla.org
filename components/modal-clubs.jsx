@@ -13,11 +13,9 @@ var withTeachAPI = require('../hoc/with-teach-api.jsx');
 
 var normalizeClub = function(clubState) {
   var state = _.extend({}, clubState);
-
   if (state.website && !/^https?:\/\//.test(state.website)) {
     state.website = 'http://' + state.website;
   }
-
   return state;
 };
 
@@ -41,10 +39,16 @@ var validateClub = function(clubState) {
 };
 
 var ModalClubs = React.createClass({
-  mixins: [LinkedStateMixin],
-  contextTypes: {
-    router: React.PropTypes.func
+  statics: {
+    normalizeClub: normalizeClub,
+    validateClub: validateClub,
+    teachAPIEvents: {
+      'username:change': 'handleUsernameChange',
+    }
   },
+
+  mixins: [LinkedStateMixin],
+
   propTypes: {
     // If club is provided, then we're a 'change' dialog, otherwise
     // we're an 'add' dialog.
@@ -53,22 +57,18 @@ var ModalClubs = React.createClass({
     onSuccess: React.PropTypes.func.isRequired,
     hideModal: React.PropTypes.func.isRequired
   },
+
   getDefaultProps: function() {
     return {
       idPrefix: 'ModalClubs_'
     };
   },
-  statics: {
-    normalizeClub: normalizeClub,
-    validateClub: validateClub,
-    teachAPIEvents: {
-      'username:change': 'handleUsernameChange',
-    }
-  },
+
   STEP_AUTH: 1,
   STEP_FORM: 2,
   STEP_WAIT_FOR_NETWORK: 3,
   STEP_SHOW_RESULT: 4,
+
   getInitialState: function() {
     var clubState = {
       name: '',
@@ -92,12 +92,15 @@ var ModalClubs = React.createClass({
       validationErrors: []
     });
   },
+
   getStepForAuthState: function(isLoggedIn) {
     return isLoggedIn ? this.STEP_FORM : this.STEP_AUTH;
   },
+
   handleUsernameChange: function(username) {
     this.setState({step: this.getStepForAuthState(!!username)});
   },
+
   handleLocationChange: function(newValue) {
     try {
       newValue = JSON.parse(newValue);
@@ -110,6 +113,7 @@ var ModalClubs = React.createClass({
     }
     this.setState(newValue);
   },
+
   handleSubmit: function(e) {
     var teachAPI = this.props.teachAPI;
     var clubState = normalizeClub(_.pick(this.state,
@@ -140,6 +144,7 @@ var ModalClubs = React.createClass({
       teachAPI.addClub(clubState, this.handleNetworkResult);
     }
   },
+
   handleNetworkResult: function(err, data) {
     if (!this.isMounted()) {
       return;
@@ -150,10 +155,12 @@ var ModalClubs = React.createClass({
       result: err ? null : data
     });
   },
+
   handleSuccessClick: function() {
     this.props.hideModal();
     this.props.onSuccess(this.state.result);
   },
+
   renderValidationErrors: function() {
     if (this.state.validationErrors.length) {
       return (

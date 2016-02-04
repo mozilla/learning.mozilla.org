@@ -7,37 +7,38 @@ var ga = require('react-ga');
 
 var Sidebar = require('./sidebar.jsx');
 var Footer = require('./footer.jsx');
-var DevRibbon = (process.env.NODE_ENV === 'production' &&
-                 process.env.SHOW_DEV_RIBBON !== 'on')
-                ? null
-                : require('./dev-ribbon.jsx');
+var DevRibbon = (process.env.NODE_ENV === 'production' && process.env.SHOW_DEV_RIBBON !== 'on') ? null : require('./dev-ribbon.jsx');
 var config = require('../config/config');
+
+var exposeRouter = require('../hoc/expose-router.jsx');
 
 var Page = React.createClass({
   statics: {
-    handlerForPage: function(router, url) {
-      return router.match(url).routes[1].handler;
-    },
     titleForHandler: function(handler) {
       var title = 'Mozilla Learning';
-
       if (handler.pageTitle) {
         title = handler.pageTitle + ' - ' + title;
       }
-
       return title;
     }
   },
 
-  contextTypes: {
-    router: React.PropTypes.func
+  // Utility functions
+  getCurrentPageHandler: function() {
+    var currentRoute = this.props.router.getCurrentRoutes()[1];
+    return currentRoute.handler;
   },
 
+  getCurrentTitle: function() {
+    var handler = this.getCurrentPageHandler();
+    var title = Page.titleForHandler(handler);
+    return title;
+  },
 
-  // Utility functions
-
-  getCurrentPageHandler: function() {
-    return this.context.router.getCurrentRoutes()[1].handler;
+  getCurrentClassName: function() {
+    var handler = this.getCurrentPageHandler();
+    var className = handler.pageClassName || '';
+    return className;
   },
 
   showModal: function(modalClass, modalProps) {
@@ -60,7 +61,6 @@ var Page = React.createClass({
     }
   },
 
-
   // Lifecycle functions
 
   getInitialState: function() {
@@ -72,10 +72,9 @@ var Page = React.createClass({
 
   componentDidMount: function() {
     if (process.env.NODE_ENV !== 'production' && !config.IN_TEST_SUITE) {
-      var title = Page.titleForHandler(this.getCurrentPageHandler());
+      var title = this.getCurrentTitle();
       if (document.title !== title) {
-        console.warn("Document title is '" + document.title + "' but " +
-                     "expected it to be '" + title + "'.");
+        console.warn("Document title is '" + document.title + "' but " + "expected it to be '" + title + "'.");
       }
     }
   },
@@ -86,7 +85,7 @@ var Page = React.createClass({
     } else if (!this.state.modalClass && prevState.modalClass) {
       document.body.classList.remove('modal-open');
     }
-    document.title = Page.titleForHandler(this.getCurrentPageHandler());
+    document.title = this.getCurrentTitle();
   },
 
   getTransition: function() {
@@ -111,7 +110,7 @@ var Page = React.createClass({
   },
 
   render: function() {
-    var pageClassName = this.getCurrentPageHandler().pageClassName || '';
+    var pageClassName = this.getCurrentClassName();
     return (
       <div>
         <div className={"page container-fluid " + pageClassName}
@@ -138,4 +137,4 @@ var Page = React.createClass({
   }
 });
 
-module.exports = Page;
+module.exports = exposeRouter(Page);

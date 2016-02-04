@@ -5,7 +5,7 @@ var ReactDOM = require('react-dom');
 var Router = require('react-router');
 var TestUtils = require('react-addons-test-utils');
 
-var routes = require('../../lib/routes.jsx');
+var generator = require('../../lib/page-generate.jsx');
 var Page = require('../../components/page.jsx');
 
 var FakeModal = React.createClass({
@@ -18,7 +18,7 @@ describe("page", function() {
   var handler, page, xhr, originalTitle;
 
   function visitPage(url, cb) {
-    Router.run(routes.routes, url, function(Handler) {
+    Router.run(generator.routes, url, function(Handler) {
       handler = TestUtils.renderIntoDocument(<Handler/>);
       page = TestUtils.findAllInRenderedTree(handler, function(c) {
         return !!c.showModal;

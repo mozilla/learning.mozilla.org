@@ -9,8 +9,6 @@ var _ = require('underscore');
 
 var ModalClubs = require('../../components/modal-clubs.jsx');
 
-console.log(ModalClubs);
-
 var TeachAPI = require('./stub-teach-api');
 var stubContext = require('./stub-context.jsx');
 
@@ -37,16 +35,16 @@ function ensureFormFieldsDisabledValue(component, isDisabled) {
 }
 
 describe("ModalClubs", function() {
-  var modal, teachAPI, onSuccess;
+  var modal = null, teachAPI, onSuccess;
 
   beforeEach(function() {
     onSuccess = sinon.spy();
-    modal = null;
   });
 
   afterEach(function() {
     if (modal) {
       stubContext.unmount(modal);
+      modal = null;
     }
   });
 
@@ -79,10 +77,12 @@ describe("ModalClubs", function() {
       modal.state.step.should.equal(modal.STEP_FORM);
     });
 
-    it("shows form validation errors", function() {
+    it("shows form validation errors", function(done) {
       teachAPI.emit('username:change', 'foo');
-      modal.setState({validationErrors: ["U SUK"]});
-      ReactDOM.findDOMNode(modal).textContent.should.match(/U SUK/);
+      modal.setState({validationErrors: ["U SUK"]}, function() {
+        ReactDOM.findDOMNode(modal).textContent.should.match(/U SUK/);
+        done();
+      });
     });
 
     it("does not show any errors by default", function() {
@@ -97,7 +97,6 @@ describe("ModalClubs", function() {
 
     it("has valid labels for form elements", function() {
       teachAPI.emit('username:change', 'foo');
-
       Util.ensureLabelLinkage(modal, 'ModalClubs_name');
       Util.ensureLabelLinkage(modal, 'ModalClubs_website');
       Util.ensureLabelLinkage(modal, 'ModalClubs_description');
@@ -140,10 +139,8 @@ describe("ModalClubs", function() {
       teachAPI.addClub.callCount.should.equal(0);
     });
 
-/*
+    /*
     describe("when form is submitted", function() {
-      return;
-
       // FIXME: THESE TESTS CANNOT RUN PROPERLY, THERE IS ALL KINDS OF
       //        ASYNC MADNESS GOING ON.
       //        See Github Issue https://github.com/mozilla/teach.mozilla.org/issues/1497
@@ -228,8 +225,9 @@ describe("ModalClubs", function() {
         ReactDOM.findDOMNode(modal).textContent.should.not.match(MODAL_ERROR_REGEX);
       });
     });
-*/
+    */
   });
+
 
   describe("changing a club", function() {
     var club = {
@@ -299,11 +297,13 @@ describe("ModalClubs", function() {
           .should.match(/your club has been changed/i);
       });
     });
-  });
+  }); // changing a club
+
 });
 
+
 describe("ModalClubs.normalizeClub", function() {
-  var normalizeClub = ModalClubs.getComponent().normalizeClub;
+  var normalizeClub = ModalClubs.getClass().normalizeClub;
 
   it("prepends http:// to website if needed", function() {
     normalizeClub({website: 'foo'}).website.should.eql('http://foo');
@@ -323,7 +323,7 @@ describe("ModalClubs.normalizeClub", function() {
 });
 
 describe("ModalClubs.validateClub", function() {
-  var validateClub = ModalClubs.getComponent().validateClub;
+  var validateClub = ModalClubs.getClass().validateClub;
 
   function club(info) {
     return _.extend({
