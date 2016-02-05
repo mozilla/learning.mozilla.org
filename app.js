@@ -1,7 +1,9 @@
 var path = require('path');
 var fs = require('fs');
 var express = require('express');
-var Router = require('react-router');
+
+var React = require('react');
+var Router = require('react-router').Router;
 
 var indexStaticWatcher = require('./lib/build/index-static-watcher').create();
 var PORT = process.env.PORT || 8008;
@@ -33,9 +35,7 @@ var startProdApp = function() {
 
 var updateIndexStatic = function(newIndexStatic) {
   indexStatic = newIndexStatic;
-  router = indexStatic ? Router.create({
-    routes: indexStatic.routes
-  }) : null;
+  router = indexStatic ? React.createElement(Router, {routes: indexStatic.routes}) : null;
 };
 
 if (!fs.existsSync(DIST_DIR)) {

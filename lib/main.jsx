@@ -1,5 +1,7 @@
 var React = require('react');
-var Router = require('react-router');
+var ReactRouter = require('react-router');
+var Router = ReactRouter.Router;
+
 var ga = require('react-ga');
 var developerHelp = require('./build/developer-help');
 

@@ -1,7 +1,6 @@
 var _ = require('underscore');
 var React = require('react');
-var Router = require('react-router');
-var Link = Router.Link;
+var Link = require('react-router').Link;
 var ga = require('react-ga');
 var OutboundLink = require('react-ga').OutboundLink;
 var PureRenderMixin = require('react-addons-pure-render-mixin');
@@ -132,9 +131,9 @@ var Login = React.createClass({
     } else {
       content = (
         <div className="login-status-text">
-          <LoginLink loginBaseURL={this.props.teachAPI.baseURL}>Sign in</LoginLink>
+          <LoginLink loginBaseURL={this.props.teachAPI.baseURL} callbackURL={this.props.currentPath}>Sign in</LoginLink>
           <span className="or"> or </span>
-          <LoginLink loginBaseURL={this.props.teachAPI.baseURL} action="signup">Sign Up</LoginLink>
+          <LoginLink loginBaseURL={this.props.teachAPI.baseURL} callbackURL={this.props.currentPath} action="signup">Sign Up</LoginLink>
         </div>
       );
     }

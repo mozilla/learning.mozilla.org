@@ -2,7 +2,10 @@ var should = require('should');
 var sinon = window.sinon;
 var React =require('react');
 var ReactDOM = require('react-dom');
-var Router = require('react-router');
+
+var ReactRouter = require('react-router');
+var Router = ReactRouter.Router;
+
 var TestUtils = require('react-addons-test-utils');
 
 var generator = require('../../lib/page-generate.jsx');

@@ -1,7 +1,11 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var ReactDOMServer = require('react-dom/server');
-var Router = require('react-router');
+
+var ReactRouter = require('react-router');
+var Router = ReactRouter.Router;
+var RoutingContext = ReactRouter.RoutingContext;
+var match = ReactRouter.match;
 
 var ga = require('react-ga');
 
@@ -26,10 +30,9 @@ function generateRedirectContent(toURL) {
  * Static function for resolving redirects for site content
  */
 function generateStaticRedirect(fromURL, toURL, next) {
-  var router = Router.create({ routes: routes, location: fromURL });
-  process.nextTick(function() {
-    if (!router.match(toURL)) {
-      return next(new Error("Redirect 'to' route does not exist: " + toURL));
+  match({ routes:routes, location: fromURL }, function(error, redirectLocation, renderProps) {
+    if (error) {
+      return next(new Error("Error in redirect from '" + fromURL +  "' to '" + toURL +  "'"));
     }
     var redirectHTML = generateRedirectContent(toURL);
     var html = ReactDOMServer.renderToStaticMarkup(redirectHTML);
@@ -44,19 +47,22 @@ function generateStatic(url, next) {
   if (url in redirects) {
     return this.generateStaticRedirect(url, redirects[url], next);
   }
-  var router = Router.create({ routes: routes, location: url });
-  router.run(function(Handler, route) {
-    var routeHandler = route.routes[1].handler,
-        title = null,
-        html = null,
-        err = null;
-    try {
-      title = Page.titleForHandler(routeHandler);
-      html = ReactDOMServer.renderToString(<Handler/>);
-    } catch (e) {
-      err = e;
+
+  match({ routes:routes, location: url }, function(error, redirectLocation, renderProps) {
+    if (error) {
+      return next(new Error("Error on route '" + url +  "'"));
     }
-    next(err, html, { title: title });
+
+    if (!renderProps) {
+      return next(new Error("No render properties for '"+url+"'"));
+    }
+
+    var routes = renderProps.routes;
+    var Component = routes.slice(-1)[0].component;
+    var title = Page.titleForHandler(Component);
+    var html = ReactDOMServer.renderToString(<RoutingContext {...renderProps} />);
+
+    next(false, html, { title: title });
   });
 }
 
@@ -64,10 +70,15 @@ function generateStatic(url, next) {
  * Static wrapper function for GA events
  */
 function run(location, el) {
-  Router.run(routes, location, function(Handler, state) {
-    ga.pageview(state.pathname);
-    ReactDOM.render(<Handler/>, el);
+  var createBrowserHistory = require('history/lib/createBrowserHistory');
+  var history = createBrowserHistory();
+
+  // emit a GA page view event on location changes
+  history.listen(function(location) {
+    ga.pageview(location.pathname);
   });
+
+  ReactDOM.render(<Router history={history}>{routes}</Router>, el);
 }
 
 /**

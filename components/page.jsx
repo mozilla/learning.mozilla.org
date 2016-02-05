@@ -10,8 +10,6 @@ var Footer = require('./footer.jsx');
 var DevRibbon = (process.env.NODE_ENV === 'production' && process.env.SHOW_DEV_RIBBON !== 'on') ? null : require('./dev-ribbon.jsx');
 var config = require('../config/config');
 
-var exposeRouter = require('../hoc/expose-router.jsx');
-
 var Page = React.createClass({
   statics: {
     titleForHandler: function(handler) {
@@ -25,8 +23,7 @@ var Page = React.createClass({
 
   // Utility functions
   getCurrentPageHandler: function() {
-    var currentRoute = this.props.router.getCurrentRoutes()[1];
-    return currentRoute.handler;
+    return this.props.routes.slice(-1)[0].component;
   },
 
   getCurrentTitle: function() {
@@ -110,6 +107,9 @@ var Page = React.createClass({
   },
 
   render: function() {
+    var routes = this.props.routes;
+    var currentRoute = routes.slice(-1)[0];
+    var currentPath = config.ORIGIN + '/' + currentRoute.path;
     var pageClassName = this.getCurrentClassName();
     return (
       <div>
@@ -125,7 +125,13 @@ var Page = React.createClass({
           <div className="row">
             <Sidebar/>
             <main className="content col-md-9" role="main" id="content" tabIndex="-1">
-              <RouteHandler showModal={this.showModal} hideModal={this.hideModal}/>
+            {
+              React.cloneElement(this.props.children, {
+                showModal: this.showModal,
+                hideModal: this.hideModal,
+                currentPath: currentPath
+              })
+            }
             </main>
           </div>
           <Footer className="page-bottom"/>
@@ -137,4 +143,4 @@ var Page = React.createClass({
   }
 });
 
-module.exports = exposeRouter(Page);
+module.exports = Page;

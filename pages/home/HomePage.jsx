@@ -1,6 +1,5 @@
 var React = require('react');
-var Router = require('react-router');
-var Link = Router.Link;
+var Link = require('react-router').Link;
 var ga = require('react-ga');
 var OutboundLink = ga.OutboundLink;
 
@@ -10,8 +9,6 @@ var IconLinks = require('../../components/icon-links.jsx');
 var IconLink = require('../../components/icon-link.jsx');
 var IconButtons = require('../../components/icon-buttons.jsx');
 var IconButton = require('../../components/icon-button.jsx');
-
-var exposeRouter = require('../../hoc/expose-router.jsx');
 
 var config = require('../../config/config');
 
@@ -30,6 +27,10 @@ var HomePage = React.createClass({
     validateSignupForm: validateSignupForm,
     BlogSection: BlogSection
   },
+  contextTypes: {
+    history: React.PropTypes.object.required,
+    location: React.PropTypes.object.required
+  },
   componentDidMount: function() {
     // auto pops up the Pledge modal if the user is visiting
     // the homepage for the first time
@@ -38,7 +39,22 @@ var HomePage = React.createClass({
       this.handlePledgeBtnClick();
       localStorage.setItem(disableModal, "disabled");
     }
-    if (this.props.router.getCurrentQuery().pledge === "thanks") {
+
+    var query = this.context.location.search.replace('?','');
+    var currentQuery = {pledge: false};
+    if(query) {
+      query.split('&')
+           .map(function(v) { return v.split('='); })
+          .forEach(function(pair) {
+            console.log(pair);
+            if (pair[0]==="pledge") {
+              currentQuery.pledge = pair[1];
+            }
+          });
+    }
+    console.log(query, currentQuery);
+
+    if (currentQuery.pledge === "thanks") {
       this.props.showModal(ThankYouModal, {
         hideModal: this.props.hideModal
       });
@@ -154,4 +170,4 @@ var HomePage = React.createClass({
   }
 });
 
-module.exports = exposeRouter(HomePage);
+module.exports = HomePage;

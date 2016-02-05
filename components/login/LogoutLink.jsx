@@ -5,8 +5,6 @@ var PureRenderMixin = require('react-addons-pure-render-mixin');
 
 var config = require('../../config/config');
 
-var exposeRouter = require('../../hoc/expose-router.jsx');
-
 var LogoutLink = React.createClass({
   mixins: [PureRenderMixin],
   propTypes: {
@@ -26,4 +24,4 @@ var LogoutLink = React.createClass({
   }
 });
 
-module.exports = exposeRouter(LogoutLink);
+module.exports = LogoutLink;

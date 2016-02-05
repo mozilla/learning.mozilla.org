@@ -1,11 +1,9 @@
 var _ = require('underscore');
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Router = require('react-router');
-var Link = Router.Link;
+var Link = require('react-router').Link;
 
 var withTeachAPI = require('../hoc/with-teach-api.jsx');
-var exposeRouter = require('../hoc/expose-router.jsx');
 
 var HeroUnit = require('../components/hero-unit.jsx');
 var Map = require('../components/map.jsx');
@@ -283,4 +281,4 @@ var ClubsPage = React.createClass({
   }
 });
 
-module.exports = exposeRouter(withTeachAPI(ClubsPage));
+module.exports = withTeachAPI(ClubsPage);

@@ -1,7 +1,6 @@
 var React = require('react');
 var ImageTag = require('../components/imagetag.jsx');
-var Router = require('react-router');
-var Link = Router.Link;
+var Link = require('react-router').Link;
 
 var Instructions = React.createClass({
   propTypes: {
