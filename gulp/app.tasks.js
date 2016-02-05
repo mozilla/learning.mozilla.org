@@ -2,7 +2,6 @@ var _ = require('underscore');
 var config = require('../config/config');
 var developerHelp = require('../lib/build/developer-help');
 var gutil = require('gulp-util');
-var IndexFileStream = require('../lib/build/gulp-index-file-stream');
 var indexStaticWatcher = require('../lib/build/index-static-watcher').create();
 var lightweightDynamicServer = require('../app');
 var MINIMAL_BUILD_TASKS = require('./shared/minimal.build.tasks.js');

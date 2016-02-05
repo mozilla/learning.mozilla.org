@@ -10,8 +10,6 @@ var Footer = require('./footer.jsx');
 var DevRibbon = (process.env.NODE_ENV === 'production' && process.env.SHOW_DEV_RIBBON !== 'on') ? null : require('./dev-ribbon.jsx');
 var config = require('../config/config');
 
-var exposeRouter = require('../hoc/expose-router.jsx');
-
 var Page = React.createClass({
   statics: {
     titleForHandler: function(handler) {
@@ -25,8 +23,10 @@ var Page = React.createClass({
 
   // Utility functions
   getCurrentPageHandler: function() {
-    var currentRoute = this.props.router.getCurrentRoutes()[1];
-    return currentRoute.handler;
+    var routes = this.props.routes;
+    var route = routes.slice(-1)[0];
+    var Component = route.component;
+    return Component;
   },
 
   getCurrentTitle: function() {
@@ -70,6 +70,12 @@ var Page = React.createClass({
     }
   },
 
+  componentWillMount: function() {
+    if (typeof document !== "undefined") {
+      document.title = this.getCurrentTitle();
+    }
+  },
+
   componentDidMount: function() {
     if (process.env.NODE_ENV !== 'production' && !config.IN_TEST_SUITE) {
       var title = this.getCurrentTitle();
@@ -85,7 +91,6 @@ var Page = React.createClass({
     } else if (!this.state.modalClass && prevState.modalClass) {
       document.body.classList.remove('modal-open');
     }
-    document.title = this.getCurrentTitle();
   },
 
   getTransition: function() {
@@ -110,10 +115,15 @@ var Page = React.createClass({
   },
 
   render: function() {
+    var routes = this.props.routes;
+    var currentRoute = routes.slice(-1)[0];
+    var currentPath = config.ORIGIN + '/' + currentRoute.path;
     var pageClassName = this.getCurrentClassName();
+    var className = "page container-fluid " + pageClassName;
+
     return (
       <div>
-        <div className={"page container-fluid " + pageClassName}
+        <div className={className}
          aria-hidden={!!this.state.modalClass}
          onFocus={this.state.modalClass && this.handleNonModalFocus}>
           <a href="#content" className="sr-only sr-only-focusable skip-to-content">
@@ -125,7 +135,13 @@ var Page = React.createClass({
           <div className="row">
             <Sidebar/>
             <main className="content col-md-9" role="main" id="content" tabIndex="-1">
-              <RouteHandler showModal={this.showModal} hideModal={this.hideModal}/>
+            {
+              React.cloneElement(this.props.children, {
+                showModal: this.showModal,
+                hideModal: this.hideModal,
+                currentPath: currentPath
+              })
+            }
             </main>
           </div>
           <Footer className="page-bottom"/>
@@ -137,4 +153,4 @@ var Page = React.createClass({
   }
 });
 
-module.exports = exposeRouter(Page);
+module.exports = Page;

@@ -9,7 +9,7 @@ var StubRouter = require('./stub-router');
 var stubContext = require('./stub-context.jsx');
 var ClubsPage = require('../../pages/clubs.jsx');
 
-describe("ClubsPage", function() {
+describe("Clubs", function() {
   var clubsPage, teachAPI, xhr;
 
   beforeEach(function() {
@@ -21,7 +21,9 @@ describe("ClubsPage", function() {
     teachAPI = new StubTeachAPI();
     clubsPage = stubContext.render(ClubsPage, {
       teachAPI: teachAPI
-    });
+    }, {
+      location: { search: "" }
+    }).getComponent();
   });
 
   afterEach(function() {
@@ -39,10 +41,8 @@ describe("ClubsPage", function() {
 
   it('shows add modal if ?modal=add is in query', function() {
     var clubsPage2 = stubContext.render(ClubsPage, {}, {
-      router: new StubRouter({
-        currentQuery: {'modal': 'add'}
-      })
-    });
+      location: { search: "?modal=add" }
+    }).getComponent();
     clubsPage2.props.showModal.callCount.should.equal(1);
     stubContext.unmount(clubsPage2);
   });

@@ -1,5 +1,4 @@
 var React = require('react');
-var Router = require('react-router');
 var Link = require('react-router').Link;
 
 var HeroUnit = require('../../components/hero-unit.jsx');
@@ -41,7 +40,7 @@ var EventsPage = React.createClass({
           <div className="row mp-activities-banner">
             <section>
               <div className="btn-container">
-                <Link to="maker-party-2015" className="btn btn-awsm">Get the 2015 Maker Party Activities</Link>
+                <Link to={"/activities/maker-party-2015"} className="btn btn-awsm">Get the 2015 Maker Party Activities</Link>
               </div>
             </section>
           </div>
@@ -94,7 +93,7 @@ var EventsPage = React.createClass({
           <section>
             <IconLinks>
               <IconLink
-                link="event-resources"
+                link="/events/resources"
                 imgSrc="/img/pages/events/svg/icon-help.svg"
                 head="Get Help"
                 subhead="Find resources to help you plan a unique event."

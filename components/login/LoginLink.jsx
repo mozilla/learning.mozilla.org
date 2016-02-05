@@ -6,14 +6,17 @@ var PureRenderMixin = require('react-addons-pure-render-mixin');
 
 var config = require('../../config/config');
 
-var exposeRouter = require('../../hoc/expose-router.jsx');
-
 var LoginLink = React.createClass({
   mixins: [PureRenderMixin],
   propTypes: {
     origin: React.PropTypes.string,
     callbackSearch: React.PropTypes.string,
-    action: React.PropTypes.string
+    action: React.PropTypes.string,
+    loginBaseURL: React.PropTypes.string,
+    callbackURL: React.PropTypes.string
+  },
+  contextTypes: {
+    history: React.PropTypes.object
   },
   getDefaultProps: function() {
     return {
@@ -23,11 +26,9 @@ var LoginLink = React.createClass({
     };
   },
   render: function() {
-    var callbackPath = this.props.router.getCurrentPathname() + this.props.callbackSearch;
-    var callbackURL = this.props.origin + callbackPath;
-    var loginBaseURL = this.props.loginBaseURL;
     var action = this.props.action;
-    var href = loginBaseURL + '/auth/oauth2/authorize?callback=' + encodeURIComponent(callbackURL) + '&action=' + action;
+    var callbackURL = this.props.callbackURL + this.props.callbackSearch;
+    var href = this.props.loginBaseURL + '/auth/oauth2/authorize?callback=' + encodeURIComponent(callbackURL) + '&action=' + action;
     var props = _.extend({}, this.props, { to: href, eventLabel: href });
     if (process.env.NODE_ENV !== 'production' && !/^(signin|signup)$/.test(action)) {
       console.warn("unrecognized action: " + action);
@@ -36,4 +37,4 @@ var LoginLink = React.createClass({
   }
 });
 
-module.exports = exposeRouter(LoginLink);
+module.exports = LoginLink;

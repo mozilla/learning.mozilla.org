@@ -25,8 +25,12 @@ describe('app', function() {
   it('returns 200 at all public HTML pages', function(done) {
     this.timeout(10000);
 
-    var urls = indexStatic.get().URLS.filter(function(url) {
-      return !(url in indexStatic.get().REDIRECTS);
+    var redirects = Object.keys(indexStatic.get().REDIRECTS);
+    var urls = indexStatic.get().URLS.filter(function(route) {
+      return redirects.indexOf(route) === -1;
+    }).map(function(url) {
+      if (url === '/') return '/';
+      return '/' + url;
     });
 
     function nextRequest(lastErr) {
@@ -37,12 +41,13 @@ describe('app', function() {
         return done();
       }
 
+      var url = urls.pop();
       request(app)
-        .get(urls.pop())
-        .expect(200)
-        .expect('Content-Type', /html/)
-        .expect(/\<title\>/)
-        .end(nextRequest);
+      .get(url)
+      .expect(200)
+      .expect('Content-Type', /html/)
+      .expect(/\<title\>/)
+      .end(nextRequest);
     }
 
     urls.length.should.not.equal(0);
@@ -68,14 +73,6 @@ describe('app', function() {
     request(app)
       .get('/clubs/curriculum/')
       .expect('Location', '/activities/web-lit-basics/')
-      .expect(302)
-      .end(done);
-  });
-
-  it('adds trailing slash to public HTML pages', function(done) {
-    request(app)
-      .get('/clubs')
-      .expect('Location', '/clubs/')
       .expect(302)
       .end(done);
   });
