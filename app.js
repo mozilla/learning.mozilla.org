@@ -47,10 +47,12 @@ app.use(function(req, res, next) {
     return res.send('Please wait while the server-side bundle regenerates.');
   }
   if (req.path in indexStatic.REDIRECTS) {
+    //console.log("["+Date.now()+"] redirect");
     return res.redirect(indexStatic.REDIRECTS[req.path]);
   }
   if (!router.match(req.url)) {
     if (router.match(req.path + '/')) {
+      //console.log("["+Date.now()+"] redirecting to url with / suffix");
       return res.redirect(req.path + '/');
     }
     return next('route');
@@ -59,6 +61,7 @@ app.use(function(req, res, next) {
     if (err) {
       return next(err);
     }
+    //console.log("["+Date.now()+"] generated static index");
     return res.type('html').send(html);
   });
 });

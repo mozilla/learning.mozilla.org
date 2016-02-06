@@ -19,6 +19,18 @@ var PledgeSignupForm = require('./PledgeSignupForm.jsx');
 var validateSignupForm = require('./validateSignupForm');
 var BlogSection = require('./BlogSection.jsx');
 
+var fixLocation = function(location) {
+  var search = location.search.replace('?','');
+  location.search = {};
+  if(search) {
+    search.split('&')
+          .map(function(v) { return v.split('='); })
+          .forEach(function(pair) {
+            search[pair[0]] = pair[1];
+          });
+  }
+}
+
 var HomePage = React.createClass({
   statics: {
     pageClassName: 'home-page',
@@ -28,8 +40,11 @@ var HomePage = React.createClass({
     BlogSection: BlogSection
   },
   contextTypes: {
-    history: React.PropTypes.object.required,
-    location: React.PropTypes.object.required
+    history: React.PropTypes.object,
+    location: React.PropTypes.object
+  },
+  componentWillMount: function() {
+    fixLocation(this.context.location);
   },
   componentDidMount: function() {
     // auto pops up the Pledge modal if the user is visiting
@@ -40,21 +55,7 @@ var HomePage = React.createClass({
       localStorage.setItem(disableModal, "disabled");
     }
 
-    var query = this.context.location.search.replace('?','');
-    var currentQuery = {pledge: false};
-    if(query) {
-      query.split('&')
-           .map(function(v) { return v.split('='); })
-          .forEach(function(pair) {
-            console.log(pair);
-            if (pair[0]==="pledge") {
-              currentQuery.pledge = pair[1];
-            }
-          });
-    }
-    console.log(query, currentQuery);
-
-    if (currentQuery.pledge === "thanks") {
+    if (this.context.location.search.pledge === "thanks") {
       this.props.showModal(ThankYouModal, {
         hideModal: this.props.hideModal
       });

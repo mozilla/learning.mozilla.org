@@ -23,7 +23,10 @@ var Page = React.createClass({
 
   // Utility functions
   getCurrentPageHandler: function() {
-    return this.props.routes.slice(-1)[0].component;
+    var routes = this.props.routes;
+    var route = routes.slice(-1)[0];
+    var Component = route.component;
+    return Component;
   },
 
   getCurrentTitle: function() {
@@ -82,7 +85,6 @@ var Page = React.createClass({
     } else if (!this.state.modalClass && prevState.modalClass) {
       document.body.classList.remove('modal-open');
     }
-    document.title = this.getCurrentTitle();
   },
 
   getTransition: function() {
@@ -111,9 +113,13 @@ var Page = React.createClass({
     var currentRoute = routes.slice(-1)[0];
     var currentPath = config.ORIGIN + '/' + currentRoute.path;
     var pageClassName = this.getCurrentClassName();
+    var className = "page container-fluid " + pageClassName;
+
+    console.log("pcn:", className, this.getCurrentTitle());
+
     return (
       <div>
-        <div className={"page container-fluid " + pageClassName}
+        <div className={className}
          aria-hidden={!!this.state.modalClass}
          onFocus={this.state.modalClass && this.handleNonModalFocus}>
           <a href="#content" className="sr-only sr-only-focusable skip-to-content">
