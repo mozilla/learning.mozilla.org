@@ -115,8 +115,6 @@ var Page = React.createClass({
     var pageClassName = this.getCurrentClassName();
     var className = "page container-fluid " + pageClassName;
 
-    console.log("pcn:", className, this.getCurrentTitle());
-
     return (
       <div>
         <div className={className}

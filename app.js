@@ -50,6 +50,9 @@ app.use(function(req, res, next) {
     //console.log("["+Date.now()+"] redirect");
     return res.redirect(indexStatic.REDIRECTS[req.path]);
   }
+
+  // FIXME: TODO: REWRITE THIS TO CORRECT FORM
+  // FIXME: TODO: CONTINUE WORK HERE TOMORROW
   if (!router.match(req.url)) {
     if (router.match(req.path + '/')) {
       //console.log("["+Date.now()+"] redirecting to url with / suffix");
@@ -57,6 +60,7 @@ app.use(function(req, res, next) {
     }
     return next('route');
   }
+
   indexStatic.generate(req.url, {}, function(err, html) {
     if (err) {
       return next(err);
