@@ -16,7 +16,7 @@ var LogoutLink = React.createClass({
     };
   },
   render: function() {
-    var callbackURL = this.props.origin + this.props.router.getCurrentPathname();
+    var callbackURL = this.props.callbackURL;
     var loginBaseURL = this.props.loginBaseURL;
     var href = loginBaseURL + '/auth/oauth2/logout?callback=' + encodeURIComponent(callbackURL);
     var props = _.extend({}, this.props, { href: href });

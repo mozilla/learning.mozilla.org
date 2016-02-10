@@ -27,7 +27,8 @@ var LoginLink = React.createClass({
   },
   render: function() {
     var action = this.props.action;
-    var href = this.props.loginBaseURL + '/auth/oauth2/authorize?callback=' + encodeURIComponent(this.props.callbackURL) + '&action=' + action;
+    var callbackURL = this.props.callbackURL + this.props.callbackSearch;
+    var href = this.props.loginBaseURL + '/auth/oauth2/authorize?callback=' + encodeURIComponent(callbackURL) + '&action=' + action;
     var props = _.extend({}, this.props, { to: href, eventLabel: href });
     if (process.env.NODE_ENV !== 'production' && !/^(signin|signup)$/.test(action)) {
       console.warn("unrecognized action: " + action);
