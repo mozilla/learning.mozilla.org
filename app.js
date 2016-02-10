@@ -31,7 +31,7 @@ var urlToRoutePath = function(loc) {
     loc = loc.replace(/^\//, '').replace(/\/$/, '');
   }
   return loc;
-}
+};
 
 var startProdApp = function() {
   console.log([
