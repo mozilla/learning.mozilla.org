@@ -3,7 +3,7 @@ var Router = require('react-router');
 var Link = Router.Link;
 var OutboundLink = require('react-ga').OutboundLink;
 
-var config = require('../lib/config');
+var config = require('../config/config');
 
 var Footer = React.createClass({
   render: function() {

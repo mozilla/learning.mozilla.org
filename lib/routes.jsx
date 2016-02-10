@@ -79,69 +79,20 @@ var routes = (
   </Route>
 );
 
+
 // TODO: come up with a better solution for nested route if we will ever have that.
 React.Children.forEach(routes.props.children, function(item) {
   var path = item.props.path;
-
   if (!path && item.props.from) {
     path = item.props.from;
     redirects[path] = item.props.to;
   }
-
   urls.push(path || '/');
 });
 
-exports.URLS = urls;
-exports.REDIRECTS = redirects;
-
-exports.routes = routes;
-
-exports.generateStaticRedirect = function(fromURL, toURL, cb) {
-  var router = Router.create({
-    routes: routes,
-    location: fromURL
-  });
-
-  process.nextTick(function() {
-    if (!router.match(toURL)) {
-      return cb(new Error("Redirect 'to' route does not exist: " + toURL));
-    }
-    html = ReactDOMServer.renderToStaticMarkup(
-      <p>
-        The URL of this page has changed to <a href={toURL}>{toURL}</a>.
-      </p>
-    );
-    cb(null, html, {
-      title: "Redirect to " + toURL
-    });
-  });
-};
-
-exports.generateStatic = function(url, cb) {
-  if (url in redirects) {
-    return exports.generateStaticRedirect(url, redirects[url], cb);
-  }
-  var router = Router.create({
-    routes: routes,
-    location: url
-  });
-  router.run(function(Handler) {
-    var pageHandler, html, title;
-    var err = null;
-    try {
-      html = ReactDOMServer.renderToString(<Handler/>);
-      pageHandler = Page.handlerForPage(router, url);
-      title = Page.titleForHandler(pageHandler);
-    } catch (e) {
-      err = e;
-    }
-    cb(err, html, { title: title });
-  });
-};
-
-exports.run = function(location, el) {
-  Router.run(routes, location, function(Handler, state) {
-    ga.pageview(state.pathname);
-    ReactDOM.render(<Handler/>, el);
-  });
+// return all the route information
+module.exports = {
+  URLS: urls,
+  REDIRECTS: redirects,
+  routes: routes
 };

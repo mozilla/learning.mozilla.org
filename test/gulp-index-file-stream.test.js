@@ -1,7 +1,7 @@
 var path = require('path');
 var should = require('should');
 
-var IndexFileStream = require('../lib/gulp-index-file-stream');
+var IndexFileStream = require('../lib/build/gulp-index-file-stream');
 
 describe('gulp-index-file-stream', function() {
   var indexStatic = {

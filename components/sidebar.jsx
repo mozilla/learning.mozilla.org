@@ -8,7 +8,7 @@ var Login = require('./login.jsx');
 var Footer = require('./footer.jsx');
 var OutboundLink = require('react-ga').OutboundLink;
 
-var config = require('../lib/config');
+var config = require('../config/config');
 
 var Subitem = React.createClass({
   render: function() {
@@ -44,7 +44,7 @@ var TopLevelNavItem = React.createClass({
     };
   },
   toggleSubNav: function() {
-    // TODO: there seems to be no way to do this without interacting with DOM. 
+    // TODO: there seems to be no way to do this without interacting with DOM.
     // Please feel free to polish this function if you find a better solution :)
     var subNavActive = ReactDOM.findDOMNode(this).querySelectorAll('a.active').length > 0;
     if ( this.state.activeSubNav != subNavActive) {

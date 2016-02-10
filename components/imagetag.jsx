@@ -2,13 +2,18 @@ var React = require('react');
 var ga = require('react-ga');
 var OutboundLink = ga.OutboundLink;
 
+var ImageDimension = React.PropTypes.oneOfType([
+  React.PropTypes.string, // Vector images may contain units
+  React.PropTypes.number  // Bitmap images use numeral dimensions
+]);
+
 var ImageTag = React.createClass({
   propTypes: {
+    width: ImageDimension.isRequired,
+    height: ImageDimension.isRequired,
     alt: React.PropTypes.string.isRequired,
     src1x: React.PropTypes.string.isRequired,
     src2x: React.PropTypes.string,
-    width: React.PropTypes.number,
-    height: React.PropTypes.number,
     className: React.PropTypes.string,
     link: React.PropTypes.string,
     externalLink: React.PropTypes.bool,

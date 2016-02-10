@@ -7,16 +7,23 @@ var TestUtils = require('react-addons-test-utils');
 var stubContext = require('./stub-context.jsx');
 var StubRouter = require('./stub-router');
 var HomePage = require('../../pages/home.jsx');
+var ModalPledge = require('../../pages/home/ModalPledge.jsx');
+
 
 var stubBlogFeedLoader = require('./stub-blog-feed-loader');
 var Util = require('../util.js');
 
 describe("HomePage", function() {
-  var homePage, pledgeBtn;
+  var wrapped, homePage, pledgeBtn;
+
+  if (localStorage) {
+    localStorage.clear();
+  }
 
   beforeEach(function() {
-    homePage =  stubContext.render(HomePage);
-    pledgeBtn = TestUtils.scryRenderedDOMComponentsWithClass(homePage, "icon-button")[0];
+    wrapped =  stubContext.render(HomePage);
+    homePage = wrapped.getComponent();
+    pledgeBtn = TestUtils.scryRenderedDOMComponentsWithClass(wrapped, "icon-button")[0];
   });
 
   afterEach(function() {
@@ -24,18 +31,18 @@ describe("HomePage", function() {
   });
 
   it("shows pledge modal by default when users visit the homepage for the first time", function() {
-    homePage.context.showModal.callCount.should.equal(1);
+    homePage.props.showModal.callCount.should.equal(1);
   });
 
   it("does not show pledge modal by default if users have already visited the homepage", function() {
     homePage = stubContext.render(HomePage);
-    homePage.context.showModal.callCount.should.equal(0);
+    homePage.props.showModal.callCount.should.equal(0);
   });
 
   it("shows pledge modal when 'Pledge to Teach' button is clicked", function() {
     var a = pledgeBtn.querySelector("a");// TestUtils.findRenderedDOMComponentWithTag(pledgeBtn, "a");
     TestUtils.Simulate.click(a);
-    homePage.context.showModal.callCount.should.equal(1);
+    homePage.props.showModal.callCount.should.equal(1);
   });
 
   it("shows thank you modal if ?pledge=thanks is in query", function() {
@@ -44,7 +51,7 @@ describe("HomePage", function() {
         currentQuery: {'pledge': 'thanks'}
       })
     });
-    homePage2.context.showModal.callCount.should.equal(1);
+    homePage2.props.showModal.callCount.should.equal(1);
     stubContext.unmount(homePage2);
   });
 
@@ -54,7 +61,7 @@ describe("HomePage.ModalPledge", function() {
   var modal;
 
   beforeEach(function() {
-    modal = stubContext.render(HomePage.ModalPledge);
+    modal = stubContext.render(ModalPledge);
   });
 
   afterEach(function() {
@@ -69,12 +76,14 @@ describe("HomePage.ModalPledge", function() {
 });
 
 describe("HomePage.PledgeSignupForm", function() {
-  var pledgeSignupForm, validateSignupForm;
+  var validateSignupForm = require('../../pages/home/validateSignupForm');
+  var PledgeSignupForm = require('../../pages/home/PledgeSignupForm.jsx');
   var pledgeSignupFormIdPrefix = "signup-form-";
+  var pledgeSignupForm;
 
   beforeEach(function() {
-    pledgeSignupForm = stubContext.render(HomePage.PledgeSignupForm, {idPrefix: pledgeSignupFormIdPrefix});
-    validateSignupForm = HomePage.validateSignupForm;
+    pledgeSignupForm = stubContext.render(PledgeSignupForm, {idPrefix: pledgeSignupFormIdPrefix});
+    validateSignupForm = validateSignupForm;
   });
 
   afterEach(function() {
@@ -115,6 +124,7 @@ describe("HomePage.PledgeSignupForm", function() {
 
 
 describe("HomePage.BlogSection", function() {
+  var BlogSection = require('../../pages/home/BlogSection.jsx');
   var blogSection;
   var respondWithBlogPosts;
   var fakeLoadBlogPosts = function(cb) {
@@ -123,7 +133,7 @@ describe("HomePage.BlogSection", function() {
   };
 
   beforeEach(function() {
-    blogSection = stubContext.render(HomePage.BlogSection, {loadBlogPosts: fakeLoadBlogPosts});
+    blogSection = stubContext.render(BlogSection, {loadBlogPosts: fakeLoadBlogPosts});
   });
 
   it("should not display featured post before data is loaded", function() {

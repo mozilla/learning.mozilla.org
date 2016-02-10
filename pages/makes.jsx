@@ -1,10 +1,11 @@
-var React = require("react");
-var request = require("superagent");
+var React = require('react');
+var request = require('superagent');
 var moment = require('moment');
 var urlTemplate = require('url-template');
 
-var TeachAPIClientMixin = require("../mixins/teach-api-client");
-var config = require("../lib/config");
+var withTeachAPI = require('../hoc/with-teach-api.jsx');
+
+var config = require('../config/config');
 
 var makesMetadataURL = urlTemplate.parse(config.MAKE_METADATA_URL);
 
@@ -12,7 +13,7 @@ var Make = React.createClass({
   render: function() {
     var makeTypeClass = "make " + this.props.type;
     var lastUpdatedFromNow = moment(new Date(this.props.updatedAt)).fromNow();
-    var thumbnailStyle = (this.props.thumbnail) ? {"backgroundImage": "url(" + this.props.thumbnail + ")"} 
+    var thumbnailStyle = (this.props.thumbnail) ? {"backgroundImage": "url(" + this.props.thumbnail + ")"}
                                                  : {"backgroundImage": "url(/img/pages/me/svg/icon-placeholder.svg)",
                                                     "backgroundSize": "11rem auto"};
     return (
@@ -31,8 +32,8 @@ var Make = React.createClass({
   }
 });
 
-var MePage = React.createClass({
-  mixins: [TeachAPIClientMixin],
+
+var MakesPage = React.createClass({
   statics: {
     pageTitle: 'Me',
     pageClassName: 'me-page',
@@ -53,7 +54,7 @@ var MePage = React.createClass({
   componentDidMount: function() {
     if (!this.state.username) {
       this.getUsernameAndLoadMakes();
-    } 
+    }
   },
   handleApiLoginSuccess: function() {
     this.getUsernameAndLoadMakes();
@@ -65,7 +66,7 @@ var MePage = React.createClass({
   },
   getUsernameAndLoadMakes: function() {
     this.setState({
-      username: this.getTeachAPI().getUsername()
+      username: this.props.teachAPI.getUsername()
     }, function() {
       this.loadMakes();
     });
@@ -101,24 +102,25 @@ var MePage = React.createClass({
         });
       }.bind(this));
   },
+  formMakeJSX: function(make) {
+    return (
+      <Make thumbnail={make.thumbnail}
+            type={make.contentType.replace(/application\/x\-/g, '')}
+            url={make.url}
+            title={make.title}
+            updatedAt={make.updatedAt}
+            key={make.title} />
+    );
+  },
   render: function() {
     var pageContent;
     if (!this.state.username) {
       pageContent = <span>Please sign in.</span>;
     } else if (this.state.loadingMakes) {
       pageContent = <div className="loading-message">Loading projects</div>;
-    } 
+    }
     else {
-      var makes = this.state.makes.reverse().map(function(make,i) {
-        return (
-          <Make thumbnail={make.thumbnail}
-                type={make.contentType.replace(/application\/x\-/g, '')}
-                url={make.url}
-                title={make.title}
-                updatedAt={make.updatedAt}
-                key={i} />
-        );
-      });
+      var makes = this.state.makes.reverse().map(this.formMakeJSX);
       pageContent = (
         <div>
           <p className="context">In the fall of 2015, we retired Popcorn Maker and Appmaker, as well as older versions of Thimble and X-Ray Goggles. Any projects you created with these tools are still accessible below. Projects created with the new X-Ray Goggles, Thimble, or Webmaker are accessible through those respective platforms.</p>
@@ -139,4 +141,5 @@ var MePage = React.createClass({
   }
 });
 
-module.exports = MePage;
+
+module.exports = withTeachAPI(MakesPage);

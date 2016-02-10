@@ -1,6 +1,6 @@
 var React = require('react');
 
-var config = require('../lib/config');
+var config = require('../config/config');
 
 var HeroUnit = React.createClass({
   render: function() {
