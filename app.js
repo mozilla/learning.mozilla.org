@@ -3,7 +3,9 @@ var fs = require('fs');
 var express = require('express');
 
 var React = require('react');
-var Router = require('react-router').Router;
+var ReactRouter = require('react-router');
+var Router = ReactRouter.Router;
+var match = ReactRouter.match;
 
 var indexStaticWatcher = require('./lib/build/index-static-watcher').create();
 var PORT = process.env.PORT || 8008;
@@ -13,6 +15,23 @@ var DIST_DIR = path.join(__dirname, 'dist');
 var indexStatic;
 var router;
 var app = express();
+
+var notFoundHTML = [
+  '<!doctype html>',
+  '<html><head>',
+  '<meta charset="utf-8">',
+  '<title>404 - Page not found</title>',
+  '</head><body>',
+  '<p>404 - Page not found</p>',
+  '</body></html>'
+].join('');
+
+var urlToRoutePath = function(loc) {
+  if (loc !== '/') {
+    loc = loc.replace(/^\//, '').replace(/\/$/, '');
+  }
+  return loc;
+}
 
 var startProdApp = function() {
   console.log([
@@ -42,34 +61,55 @@ if (!fs.existsSync(DIST_DIR)) {
   fs.mkdirSync(DIST_DIR);
 }
 
+// pre-doing-anything-middleware
 app.use(function(req, res, next) {
-  if (!router) {
-    return res.send('Please wait while the server-side bundle regenerates.');
-  }
-  if (req.path in indexStatic.REDIRECTS) {
-    //console.log("["+Date.now()+"] redirect");
-    return res.redirect(indexStatic.REDIRECTS[req.path]);
-  }
+  next();
+});
 
-  // FIXME: TODO: REWRITE THIS TO CORRECT FORM
-  // FIXME: TODO: CONTINUE WORK HERE TOMORROW
-  if (!router.match(req.url)) {
-    if (router.match(req.path + '/')) {
-      //console.log("["+Date.now()+"] redirecting to url with / suffix");
-      return res.redirect(req.path + '/');
-    }
-    return next('route');
+// Wait for the router to come online.
+app.use(function(req, res, next) {
+  if (router) {
+    return next();
   }
+  res.send('Please wait while the server-side bundle regenerates.');
+});
 
-  indexStatic.generate(req.url, {}, function(err, html) {
-    if (err) {
-      return next(err);
+// If we have a router, check if we're dealing with a redirect.
+app.use(function(req, res, next) {
+  var url = urlToRoutePath(req.path);
+  if (!indexStatic.REDIRECTS[url]) {
+    return next();
+  }
+  res.redirect('/' + indexStatic.REDIRECTS[url] + '/');
+});
+
+// If it's not a redirect, is it a component page?
+app.use(function(req, res, next) {
+  var routes = indexStatic.routes;
+  var location = urlToRoutePath(req.url);
+
+  match({ routes: routes, location: location}, function resolveRoute(err, redirect, props) {
+    if (!redirect && !props) {
+      location = urlToRoutePath(req.path) + '/';
+      match({ routes: routes, location: location}, function resolvePath(err, redirect, props) {
+        if (redirect || props) {
+          return res.redirect(req.path + '/');
+        }
+        return next();
+      });
     }
-    //console.log("["+Date.now()+"] generated static index");
-    return res.type('html').send(html);
+    else {
+      indexStatic.generate(location, {}, function(err, location, title, html) {
+        if (err) {
+          return next(err);
+        }
+        return res.type('html').send(html);
+      });
+    }
   });
 });
 
+// Last chance: is this a static asset?
 app.use(express.static(DIST_DIR));
 
 app.DIST_DIR = DIST_DIR;

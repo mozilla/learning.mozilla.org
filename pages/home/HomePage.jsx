@@ -19,17 +19,7 @@ var PledgeSignupForm = require('./PledgeSignupForm.jsx');
 var validateSignupForm = require('./validateSignupForm');
 var BlogSection = require('./BlogSection.jsx');
 
-var fixLocation = function(location) {
-  var search = location.search.replace('?','');
-  location.search = {};
-  if(search) {
-    search.split('&')
-          .map(function(v) { return v.split('='); })
-          .forEach(function(pair) {
-            search[pair[0]] = pair[1];
-          });
-  }
-}
+var fixLocation = require('../../lib/fix-location.js');
 
 var HomePage = React.createClass({
   statics: {
@@ -40,7 +30,6 @@ var HomePage = React.createClass({
     BlogSection: BlogSection
   },
   contextTypes: {
-    history: React.PropTypes.object,
     location: React.PropTypes.object
   },
   componentWillMount: function() {

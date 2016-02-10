@@ -48,7 +48,7 @@ function generateStatic(url, next) {
     return this.generateStaticRedirect(url, redirects[url], next);
   }
 
-  match({ routes:routes, location: url }, function(error, redirectLocation, renderProps) {
+  match({ routes: routes, location: url }, function(error, redirectLocation, renderProps) {
     if (error) {
       return next(new Error("Error on route '" + url +  "'"));
     }
@@ -57,12 +57,11 @@ function generateStatic(url, next) {
       return next(new Error("No render properties for '"+url+"'"));
     }
 
-    var routes = renderProps.routes;
-    var Component = routes.slice(-1)[0].component;
+    var Component = renderProps.routes.slice(-1)[0].component;
     var title = Page.titleForHandler(Component);
     var html = ReactDOMServer.renderToString(<RoutingContext {...renderProps} />);
 
-    next(false, html, { title: title });
+    next(null, html, { title: title });
   });
 }
 

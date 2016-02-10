@@ -5,6 +5,8 @@ var Link = require('react-router').Link;
 
 var withTeachAPI = require('../hoc/with-teach-api.jsx');
 
+var fixLocation = require('../lib/fix-location.js');
+
 var HeroUnit = require('../components/hero-unit.jsx');
 var Map = require('../components/map.jsx');
 var IconLinks = require('../components/icon-links.jsx');
@@ -188,9 +190,15 @@ var ClubsPage = React.createClass({
     pageTitle: "Clubs",
     pageClassName: "clubs"
   },
+  contextTypes: {
+    location: React.PropTypes.object
+  },
+  componentWillMount: function() {
+    fixLocation(this.context.location);
+  },
   componentDidMount: function() {
     this.props.teachAPI.updateClubs();
-    if (this.props.router.getCurrentQuery().modal === 'add') {
+    if (this.context.location.search.modal === 'add') {
       this.showAddYourClubModal();
     }
   },
