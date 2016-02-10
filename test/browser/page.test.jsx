@@ -5,6 +5,8 @@ var ReactDOM = require('react-dom');
 
 var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
+var RoutingContext = ReactRouter.RoutingContext;
+var match = ReactRouter.match;
 
 var TestUtils = require('react-addons-test-utils');
 
@@ -21,8 +23,8 @@ describe("page", function() {
   var handler, page, xhr, originalTitle;
 
   function visitPage(url, cb) {
-    Router.run(generator.routes, url, function(Handler) {
-      handler = TestUtils.renderIntoDocument(<Handler/>);
+    match({routes: generator.routes, location: url}, function(error, redirect, props) {
+      handler = TestUtils.renderIntoDocument(<RoutingContext {...props}/>);
       page = TestUtils.findAllInRenderedTree(handler, function(c) {
         return !!c.showModal;
       })[0];
@@ -72,5 +74,5 @@ describe("page", function() {
     });
   });
 
-  // FIXME: TODO: dev-ribbon modal test
+  // FIXME: TODO: dev-ribbon modal test?
 });

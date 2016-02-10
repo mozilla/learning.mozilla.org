@@ -70,6 +70,12 @@ var Page = React.createClass({
     }
   },
 
+  componentWillMount: function() {
+    if (typeof document !== "undefined") {
+      document.title = this.getCurrentTitle();
+    }
+  },
+
   componentDidMount: function() {
     if (process.env.NODE_ENV !== 'production' && !config.IN_TEST_SUITE) {
       var title = this.getCurrentTitle();
