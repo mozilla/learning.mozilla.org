@@ -3,7 +3,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var GoogleBlogFeedLoader = require('./manual-google-blog-feed-loader.jsx');
 var DevRibbon = require('../../components/dev-ribbon.jsx');
-var routes = require('../../lib/routes.jsx');
+var generator = require('../../lib/page-generate.jsx');
 
 var DEVICES = [
   {
@@ -173,7 +173,7 @@ var qs = querystring.parse(location.search.slice(1));
 
 React.render(
   <ManualTests
-   urls={routes.URLS.slice().sort()}
+   urls={generator.URLS.slice().sort()}
    enableJS={qs.enableJS == 'on'}
    onToggleEnableJS={function() {
      if (qs.enableJS == 'on') {

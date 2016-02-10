@@ -1,10 +1,9 @@
 var React = require('react');
 var ReactDOM = require('react-dom')
 
-var AnchorManagerMixin = require('../mixins/anchor-manager');
+var withAnchorManager = require('../hoc/with-anchor-manager.jsx');
 
 var Expander = React.createClass({
-  mixins: [AnchorManagerMixin],
   propTypes: {
     head: React.PropTypes.node.isRequired
   },
@@ -39,7 +38,7 @@ var Expander = React.createClass({
       // We've just been focused via the keyboard. Toggling the content
       // is annoying to fiddle with via pure keyboard navigation, so just
       // expand our content and attract attention to it.
-      this.attractAttentionToAnchor();
+      this.props.attractAttention();
     }
   },
   render: function() {
@@ -47,7 +46,7 @@ var Expander = React.createClass({
     if (this.state.expanded) {
       className += " expanded";
     }
-    if (this.state.attractAttentionToAnchor) {
+    if (this.props.attractAttentionToAnchor) {
       className += " attract-attention";
     }
     return (
@@ -75,4 +74,4 @@ var Expander = React.createClass({
   }
 });
 
-module.exports = Expander;
+module.exports = withAnchorManager(Expander);
