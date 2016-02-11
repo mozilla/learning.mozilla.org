@@ -5,15 +5,15 @@ var _ = require('underscore');
 
 var LinkSwap = React.createClass({
   propTypes: {
-    linkTo: React.PropTypes.string,
+    link: React.PropTypes.string,
     href: React.PropTypes.string
   },
   render: function() {
-    var otherProps = _.extend(_.omit(this.props, "linkTo", "href"), { className: "btn btn-awsm" });
+    var otherProps = _.extend(_.omit(this.props, "link", "href"), { className: "btn btn-awsm" });
     // Swap out Link or a simple anchor depending on the props we have.
-    if (this.props.linkTo) {
+    if (this.props.link) {
       return (
-        <Link to={this.props.linkTo} {...otherProps}>
+        <Link to={this.props.link} {...otherProps}>
           {this.props.children}
         </Link>
       )
@@ -28,7 +28,7 @@ var LinkSwap = React.createClass({
 
 var IconButton = React.createClass({
   propTypes: {
-    linkTo: React.PropTypes.string,
+    link: React.PropTypes.string,
     href: React.PropTypes.string,
     imgSrc: React.PropTypes.string.isRequired,
     imgSrc2X: React.PropTypes.string,
@@ -39,7 +39,7 @@ var IconButton = React.createClass({
   render: function() {
     return (
       <div className="icon-button">
-        <LinkSwap linkTo={this.props.linkTo} href={this.props.href} onClick={this.props.onClick}>
+        <LinkSwap link={this.props.link} href={this.props.href} onClick={this.props.onClick}>
           <figure>
             <ImageTag className={"image " + this.props.className} src1x={this.props.imgSrc} src2x={this.props.imgSrc2x}
             alt="" height={50} />

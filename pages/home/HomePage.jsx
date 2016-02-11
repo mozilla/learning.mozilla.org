@@ -78,13 +78,13 @@ var HomePage = React.createClass({
               className={"pledge"}
             />
             <IconButton
-              linkTo="activities"
+              link="activities"
               imgSrc="/img/pages/home/svg/icon-teachanactivity.svg"
               head="Teach an Activity"
               onClick={this.handleTeachBtnClick}
             />
             <IconButton
-              linkTo="mozilla-clubs"
+              link="mozilla-clubs"
               imgSrc="/img/pages/home/svg/icon-startamozillaclub.svg"
               head="Start A Mozilla Club"
               onClick={this.handleClubBtnClick}

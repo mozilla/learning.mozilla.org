@@ -11,9 +11,9 @@ var LinkAnchorSwap = React.createClass({
     // (icon-link.jsx and icon-button.jsx need to be revisted too)
 
     // Swap out Link or a simple anchor depending on the props we have.
-    if (this.props.to) {
+    if (this.props.link) {
       return (
-        <Link to={this.props.to}>
+        <Link to={this.props.link}>
           {this.props.children}
         </Link>
       )
