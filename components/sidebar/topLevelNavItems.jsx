@@ -28,7 +28,7 @@ var MENU_ENTRIES = [
       },
       {
         name: "Maker Party",
-        link: './events'
+        link: '/events'
       },
       {
         name: "Hive Learning Networks",

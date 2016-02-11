@@ -83,7 +83,7 @@ module.exports = [
         </EventDetail>
         <EventDetail head="Activities">
           <div>
-            Find activity kits and tools online that encourage hands-on making, collaborating and participation from your attendees. Here are <Link to="activities">some of ours</Link> to get you started.
+            Find activity kits and tools online that encourage hands-on making, collaborating and participation from your attendees. Here are <Link to="/activities">some of ours</Link> to get you started.
           </div>
         </EventDetail>
         <EventDetail head="Documentation">

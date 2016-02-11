@@ -86,7 +86,7 @@ var ClubsListPage = React.createClass({
           <section>
             <IconLinks>
               <IconLink
-                link="web-lit-basics"
+                link="/activities/web-lit-basics"
                 imgSrc="/img/pages/clubs/svg/icon-curriculum.svg"
                 head="Start Teaching"
                 subhead="Use our remixable Web Literacy curriculum."
