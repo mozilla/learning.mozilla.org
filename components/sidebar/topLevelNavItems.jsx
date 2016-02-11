@@ -12,7 +12,7 @@ var MENU_ENTRIES = [
     subItems: [
       {
         name: "Web Literacy",
-        link: "web-literacy"
+        link: "./web-literacy"
       }
     ]
   },
