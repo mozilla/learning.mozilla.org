@@ -25,50 +25,6 @@ may eventually evolve into becoming a dynamic server.
 
 To get a local version of the site running, you'll need to have [git](http://git-scm.com/) and [node](http://nodejs.org/) installed on your local machine.  
 
-For best results, use node version 0.12.7 (as of November 2015).  Verify your node version using:
-
-```
-node --version
-```
-
-If you need to install node, or switch to a different version of node, Node Version Manager (nvm) is a helpful tool.  Instructions for
-installing nvm vary by environment.  See notes below for Mac, Linux (Ubuntu, Debian, Raspbian) and Windows variations:
-
-##### Mac OS (tested on Yosemite)
-
-First, make sure your system has a c++ compiler, such as XCode.
-
-Then use the [nvm install script](https://github.com/creationix/nvm) to install nvm.  Once this completes, install node 0.12.7 using:
-
-```
-nvm install v0.12.7
-```
-Now you are ready to clone and build this repo locally using the Clone, Build and Develop steps below.
-
-##### Linux (tested on Ubuntu 14.04, Debian Jessie and Raspberry Pi/Raspbian Jessie)
-
-To use nvm for installing and managing different versions of node, first install prerequisite libraries using:
-
-```
-sudo apt-get update
-sudo apt-get install build-essential libssl-dev
-```
-
-Then use the [nvm install script](https://github.com/creationix/nvm) to install nvm.  Once this completes, install node 0.12.7 using:
-
-```
-nvm install v0.12.7
-```
-Now you are ready to clone and build this repo locally using the Clone, Build and Develop steps below.
-
-##### Windows / other
-
-This project is normally deployed on linux based servers or containers.  If you are trying to build on Windows or older Mac OS versions, you
-may save time and headaches if you use a virtual development environment running a stable current linux distribution.  If you are not able to
-create a local linux based development environment, here are some free or very low cost options:
-* [Raspberry Pi](https://adafruit.com/category/105): low cost linux development environment (this project runs quite well on a Pi2 Model B)
-* [Koding.com](https://koding.com): free linux based virtual machine and development environment 'in the cloud'.  All you need is a browser. 
-
 ### Clone
 
 In order to contribute to this project, you'll need to **create your own fork** of it and make pull-requests against our master branch.
@@ -84,9 +40,9 @@ cd teach.mozilla.org
 
 To start developing, all you need to do is run the following in the `teach.mozilla.org` directory you just created:
 
-```bash
-npm install
-npm start
+```
+$> npm install
+$> npm start
 ```
 
 This will start a webserver for you at `http://localhost:8008`, and run a `watch` process so that your front-end assets will be regenerated as you make changes.
@@ -110,12 +66,14 @@ JS
 * `lib/`: Non-react modules, as well as entry-point modules like `main.jsx` and `routes.jsx`
 * `components/`: Re-usable react components that can be used throughout the site
 * `pages/`: React "page" components, i.e. top-level pages required by `lib/router`
-* `mixins/`: React mixins
+* `hoc/`: React higher-order components
 
 Less
 * `less/`: This is where you should add styles. `common.less` is the entry-point.
 
 Other
+* `gulp/`: build tasks used for running the site, as well as testing
+* `build/`: used as a staging area when the site gets built
 * `test/`: For js tests, manual tests
 * `img/`: For images
 * `dist/`: Generated site assets goes here. **This folder is gitignored, do not edit files here.**
