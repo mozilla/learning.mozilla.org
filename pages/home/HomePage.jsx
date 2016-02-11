@@ -84,7 +84,7 @@ var HomePage = React.createClass({
               onClick={this.handleTeachBtnClick}
             />
             <IconButton
-              link="mozilla-clubs"
+              link="/clubs"
               imgSrc="/img/pages/home/svg/icon-startamozillaclub.svg"
               head="Start A Mozilla Club"
               onClick={this.handleClubBtnClick}

@@ -26,7 +26,7 @@ var Sidebar = React.createClass({
     return (
       <div className="sidebar col-md-3" role="navigation">
         <div className="sidebar-header">
-          <Link to="home">
+          <Link to={"/"}>
             <img src="/img/components/sidebar/svg/mozilla-wordmark-white.svg" alt="Mozilla Learning Home" className="moz-logo"/>
           </Link>
           <button aria-label="toggle" className={toggleClass} onClick={this.handleHamburgerClick} />
