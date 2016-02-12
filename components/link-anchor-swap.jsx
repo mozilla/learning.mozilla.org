@@ -1,28 +1,23 @@
 var React = require('react');
 var Link = require('react-router').Link;
 var ga = require('react-ga');
+var classNames = require('classnames');
 var OutboundLink = ga.OutboundLink;
 
 var LinkAnchorSwap = React.createClass({
   render: function() {
-    // FIXME
-    // we should find a way to properly intercept external links
-    // and render <Link> or <a> accordingly as well as their relevant props
-    // (icon-link.jsx and icon-button.jsx need to be revisted too)
-
-    // Swap out Link or a simple anchor depending on the props we have.
-    if (this.props.link) {
-      return (
-        <Link to={this.props.link}>
-          {this.props.children}
-        </Link>
-      )
-    }
+    var link = this.props.to;
+    var ifExternalLink = (link.substr(0,4).toLowerCase() === "http") || (link.substr(0,7).toLowerCase() === "mailto:");
+    var classes = classNames(
+      this.props.className,
+      {
+        "external-link": ifExternalLink
+      }
+    );
     return (
-      <OutboundLink to={this.props.href} eventLabel={this.props.href}>
-        {this.props.children}
-      </OutboundLink>
-    )
+      ifExternalLink ?  <OutboundLink eventLabel={link} {...this.props}>{this.props.children}</OutboundLink> :
+                        <Link {...this.props}>{this.props.children}</Link>
+    );
   }
 });
 
