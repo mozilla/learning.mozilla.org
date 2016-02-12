@@ -15,7 +15,7 @@ var sectionList = [
         description:
         (<div>
           <p>Plan an event that celebrates making and learning on the Web. Our event guides walk you through every step of the process. This role is a great fit for those who want to activate their communities through individual events.</p>
-          <p><Link to="/events">Learn more about Maker Party</Link>.</p>
+          <p><Link to={"/events"}>Learn more about Maker Party</Link>.</p>
         </div>)
       },
       {
@@ -39,7 +39,7 @@ var sectionList = [
         description:
         (<div>
           <p>Organize a group that meets regularly to learn how to read, write and participate on the Web. Plan activities using the Mozilla Clubs curriculum. This role is perfect for educators, college students, and anyone who can meet with a group of learners regularly.</p>
-          <p><Link to="/clubs">Learn more about Mozilla Clubs</Link>.</p>
+          <p><Link to={"/clubs"}>Learn more about Mozilla Clubs</Link>.</p>
         </div>)
       },
       {

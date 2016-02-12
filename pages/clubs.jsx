@@ -56,7 +56,7 @@ var WhyOrganize = (
         </div>
         <div className="col-sm-6 col-md-6 col-lg-6">
           <p>
-            <strong>You can use Mozilla’s free and educator-tested curriculum.</strong> Our <Link to="/activities">curriculum</Link> is
+            <strong>You can use Mozilla’s free and educator-tested curriculum.</strong> Our <Link to={"/activities"}>curriculum</Link> is
             free to use and remix.
           </p>
         </div>
@@ -66,7 +66,7 @@ var WhyOrganize = (
           <p>
             <strong>You can embed it in your existing program.</strong> You may already be serving a
             group of learners or running an educational offering. Mozilla Clubs can be a way to
-            embed <Link to="/activities/web-literacy">Web Literacy</Link> into your existing program.
+            embed <Link to={"/activities/web-literacy"}>Web Literacy</Link> into your existing program.
           </p>
         </div>
       </div>
@@ -255,7 +255,7 @@ var ClubsPage = React.createClass({
                onDelete={this.handleClubDelete}
                onEdit={this.handleClubEdit}/>
             </div>
-            <Link to="/clubs/list/" className="see-full-clubs-list">See the full list</Link>
+            <Link to={"/clubs/list/"} className="see-full-clubs-list">See the full list</Link>
           </section>
 
           <section>
