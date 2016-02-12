@@ -38,7 +38,7 @@ var TopLevelNavItem = React.createClass({
     );
     return (
       <li key={this.props.name} className={classes}>
-        <LinkAnchorSwap link={this.props.link} href={this.props.href}>
+        <LinkAnchorSwap to={this.props.link} activeClassName="active">
           <div className="img-container">
             <img src={this.props.icon} alt=""/>
           </div>
