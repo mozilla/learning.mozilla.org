@@ -12,7 +12,7 @@ var MENU_ENTRIES = [
     subItems: [
       {
         name: "Web Literacy",
-        link: "web-literacy"
+        link: "/activities/web-literacy"
       }
     ]
   },
@@ -24,11 +24,11 @@ var MENU_ENTRIES = [
     subItems: [
       {
         name: "Mozilla Clubs",
-        link: './mozilla-clubs'
+        link: '/clubs'
       },
       {
         name: "Maker Party",
-        link: './events'
+        link: '/events'
       },
       {
         name: "Hive Learning Networks",
