@@ -13,7 +13,6 @@ exports.build = function(done) {
   this.timeout(10000);
   indexStaticWatcher.build(function(err, newIndexStatic) {
     if (err) return done(err);
-
     indexStatic = newIndexStatic;
     done();
   });

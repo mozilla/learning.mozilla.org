@@ -85,11 +85,7 @@ function crawl() {
   crawler.on('complete', function() {
 
     var notfound = crawler.queue.filter(function(item, listPosition) {
-      var notfound = (item.status === 'notfound');
-      if (notfound) {
-        console.log("queue["+listPosition+"]: ", item);
-      }
-      return notfound;
+      return (item.status === 'notfound');
     });
 
     notfound.forEach(function(item) {
