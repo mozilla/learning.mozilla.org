@@ -21,9 +21,8 @@ describe("HomePage", function() {
   }
 
   beforeEach(function() {
-    wrapped =  stubContext.render(HomePage);
-    homePage = wrapped.getComponent();
-    pledgeBtn = TestUtils.scryRenderedDOMComponentsWithClass(wrapped, "icon-button")[0];
+    homePage =  stubContext.render(HomePage);
+    pledgeBtn = TestUtils.scryRenderedDOMComponentsWithClass(homePage, "icon-button")[0];
   });
 
   afterEach(function() {
@@ -47,9 +46,9 @@ describe("HomePage", function() {
 
   it("shows thank you modal if ?pledge=thanks is in query", function() {
     var homePage2 = stubContext.render(HomePage, {}, {
-      router: new StubRouter({
-        currentQuery: {'pledge': 'thanks'}
-      })
+      location: {
+        search: '?pledge=thanks'
+      }
     });
     homePage2.props.showModal.callCount.should.equal(1);
     stubContext.unmount(homePage2);

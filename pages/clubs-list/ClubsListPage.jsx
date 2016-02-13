@@ -13,8 +13,6 @@ var IconLink = require('../../components/icon-link.jsx');
 var ClubList = require('./ClubList.jsx');
 var ClubLists = require('./ClubLists.jsx');
 
-var exposeRouter = require('../../hoc/expose-router.jsx');
-
 var ClubsListPage = React.createClass({
   statics: {
     ClubList: ClubList,
@@ -88,7 +86,7 @@ var ClubsListPage = React.createClass({
           <section>
             <IconLinks>
               <IconLink
-                link="web-lit-basics"
+                link="/activities/web-lit-basics"
                 imgSrc="/img/pages/clubs/svg/icon-curriculum.svg"
                 head="Start Teaching"
                 subhead="Use our remixable Web Literacy curriculum."
@@ -116,4 +114,4 @@ var ClubsListPage = React.createClass({
   }
 });
 
-module.exports = exposeRouter(withTeachAPI(ClubsListPage));
+module.exports = withTeachAPI(ClubsListPage);

@@ -27,7 +27,7 @@ module.exports = function(options) {
                     step1={options.steps[0]}
                     step2={options.steps[1]}
                     nextActivityTitle={options.nextTitle}
-                    nextActivityLinkName={options.linkName}
+                    nextActivityLinkPath={options.linkPath}
                   />
                 </div>
               </div>

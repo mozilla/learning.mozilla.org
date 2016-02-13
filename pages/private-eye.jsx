@@ -1,6 +1,5 @@
 var React = require('react');
-var Router = require('react-router');
-var Link = Router.Link;
+var Link = require('react-router').Link;
 
 var ImageTag = require('../components/imagetag.jsx');
 var Instructions = require('../components/madewithcode-instructions.jsx');

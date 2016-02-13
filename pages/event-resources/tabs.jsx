@@ -1,6 +1,5 @@
 var React = require('react');
-var Router = require('react-router');
-var Link = Router.Link;
+var Link = require('react-router').Link;
 var EventDetail = require('./EventDetail.jsx');
 
 module.exports = [
@@ -84,7 +83,7 @@ module.exports = [
         </EventDetail>
         <EventDetail head="Activities">
           <div>
-            Find activity kits and tools online that encourage hands-on making, collaborating and participation from your attendees. Here are <Link to="activities">some of ours</Link> to get you started.
+            Find activity kits and tools online that encourage hands-on making, collaborating and participation from your attendees. Here are <Link to="/activities">some of ours</Link> to get you started.
           </div>
         </EventDetail>
         <EventDetail head="Documentation">

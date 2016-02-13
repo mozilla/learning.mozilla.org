@@ -13,6 +13,7 @@ var StubTeachAPI = require('./stub-teach-api');
 var stubContext = function(Component, props, stubs) {
   var childContext;
   var func = React.PropTypes.func;
+  var obj = React.PropTypes.object;
 
   // Normally these are imparted by Page.jsx, but we're bypassing that here.
   props = props || {};
@@ -21,13 +22,15 @@ var stubContext = function(Component, props, stubs) {
 
   return React.createClass({
     childContextTypes: {
-      router: func
+      router: func,
+      location: obj
     },
 
     getChildContext: function() {
       if (!childContext) {
         childContext = _.extend({
-          router: new StubRouter()
+          router: new StubRouter(),
+          location: { search: '' }
         }, stubs);
       }
       return childContext;

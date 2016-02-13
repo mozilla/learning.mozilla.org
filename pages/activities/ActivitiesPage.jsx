@@ -97,7 +97,7 @@ var ActivitiesPage = React.createClass({
               title="Animation on the Open Web with Fabble, Para Para, and 3D Projection Mapping"
               level="Beginner"
               link="/activities/parapara/"
-              developedBy={<div><a href="http://en.mozillafactory.org/tagged/COMOZILLA">Mozilla Factory</a> and <a href="http://twitter.com/smithisgeneric">Karen Smith</a> and remixed by <Link to="home">Mozilla Learning Networks</Link>.</div>}
+              developedBy={<div><a href="http://en.mozillafactory.org/tagged/COMOZILLA">Mozilla Factory</a> and <a href="http://twitter.com/smithisgeneric">Karen Smith</a> and remixed by <Link to={"/"}>Mozilla Learning Networks</Link>.</div>}
               description="Learn to use Mozilla Factory’s Parapara and Fabble, open web tools for animation and sharing work online. Create 2D animations, 3D projection-mapped animations, and ‘recipes’ that others can fork for remix on Fabble."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-03.png"
@@ -224,14 +224,14 @@ var ActivitiesPage = React.createClass({
           <section>
             <IconLinks>
               <IconLink
-                link="mozilla-clubs"
+                link="/clubs"
                 imgSrc="/img/pages/activities/svg/icon-connect.svg"
                 head="Build"
                 subhead="Start a Club in your community."
                 highlightedText="Start a Club"
               />
               <IconLink
-                link="web-literacy"
+                link="/activities/web-literacy"
                 imgSrc="/img/pages/activities/svg/icon-learn.svg"
                 head="Explore"
                 subhead="See our Web Literacy Map."

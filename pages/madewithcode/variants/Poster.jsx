@@ -35,7 +35,7 @@ var MadeWithCodePoster = createVariant({
   // FIXME: these next two values should come from some master "activities" list, where
   //        this component can ask for what the "next" values are, without knowing anything else.
   nextTitle: "make your first web page",
-  linkName: "madewithcode-firstwebpage"
+  linkPath: "../madewithcode-firstwebpage"
 });
 
 module.exports = MadeWithCodePoster;
