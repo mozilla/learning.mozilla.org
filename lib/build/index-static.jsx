@@ -61,7 +61,7 @@ function generateWithPageHTML(url, options, pageHTML) {
       <body>
         <div className="no-js-warning">
           Please <a href="https://browser-update.org/update.html">update your browser</a> or
-          enable JavaScript to access this website's full functionality.
+          enable JavaScript to access this website{"'"}s full functionality.
         </div>
         <div id="tabzilla"><a href="https://www.mozilla.org/">Mozilla</a></div>
         <div id="page-holder" dangerouslySetInnerHTML={{
@@ -73,7 +73,8 @@ function generateWithPageHTML(url, options, pageHTML) {
     </html>
   );
 
-  return '<!DOCTYPE html>' + ReactDOMServer.renderToStaticMarkup(content);
+  var htmlString = ReactDOMServer.renderToStaticMarkup(content);
+  return '<!DOCTYPE html>' + htmlString;
 }
 
 function generate(url, options, cb) {
@@ -87,7 +88,7 @@ function generate(url, options, cb) {
     } catch(e) {
       err = e;
     }
-    cb(err, pageHTML);
+    cb(err, url, metadata.title, pageHTML);
   });
 };
 

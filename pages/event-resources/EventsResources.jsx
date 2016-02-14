@@ -1,5 +1,4 @@
 var React = require('react');
-var Router = require('react-router');
 
 var Tabs = require('./tabs.jsx');
 var LogoAssets = require('./logoassets.jsx');

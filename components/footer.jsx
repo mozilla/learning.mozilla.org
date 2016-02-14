@@ -1,6 +1,5 @@
 var React = require('react');
-var Router = require('react-router');
-var Link = Router.Link;
+var Link = require('react-router').Link;
 var OutboundLink = require('react-ga').OutboundLink;
 
 var config = require('../config/config');
@@ -11,7 +10,7 @@ var Footer = React.createClass({
       <footer role="contentinfo" className={this.props.className}>
         <ul>
           <div>
-            <li><Link to="about">About</Link></li>
+            <li><Link to={"/about"}>About</Link></li>
             <li><OutboundLink to={config.HIVE_LEARNING_NETWORKS_URL} eventLabel={config.HIVE_LEARNING_NETWORKS_URL}>Hive</OutboundLink></li>
             <li><a href={config.TWITTER_LINK}>Twitter</a></li>
           </div>

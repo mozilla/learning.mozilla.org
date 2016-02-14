@@ -9,7 +9,7 @@ describe('gulp-index-file-stream', function() {
     generate: function(url, options, cb) {
       options.should.eql({meta: {}});
       process.nextTick(function() {
-        cb(null, 'i am ' + url);
+        cb(null, url, '', 'i am ' + url);
       });
     }
   };

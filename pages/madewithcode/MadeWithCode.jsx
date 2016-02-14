@@ -1,6 +1,5 @@
 var React = require('react');
-var Router = require('react-router');
-var Link = Router.Link;
+var Link = require('react-router').Link;
 var OutboundLink = require('react-ga').OutboundLink;
 
 var Illustration = require('../../components/illustration.jsx');

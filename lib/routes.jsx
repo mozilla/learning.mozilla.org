@@ -1,94 +1,77 @@
 var React = require('react');
-var ReactDOM = require('react-dom');
-var ReactDOMServer = require('react-dom/server');
-var Router = require('react-router');
-var Route = Router.Route;
-var Redirect = Router.Redirect;
-var Link = Router.Link;
-var DefaultRoute = Router.DefaultRoute;
 
-var ga = require('react-ga');
-var Page = require('../components/page.jsx');
+var ReactRouter = require('react-router');
+var Router = ReactRouter.Router;
+var Route = ReactRouter.Route;
+var Redirect = ReactRouter.Redirect;
+var IndexRoute  = ReactRouter.IndexRoute;
 
-var urls = [];
-var redirects = {};
+/**
+ * Our base routes
+ */
+var pages = {
+  'about': require('../pages/about.jsx'),
+  'activities': require('../pages/activities.jsx'),
+  'activities/madewithcode': require('../pages/madewithcode.jsx'),
+  'activities/madewithcode-firstwebpage': require('../pages/madewithcode-firstwebpage.jsx'),
+  'activities/madewithcode-meme': require('../pages/madewithcode-meme.jsx'),
+  'activities/madewithcode-poster': require('../pages/madewithcode-poster.jsx'),
+  'activities/maker-party-2015': require('../pages/maker-party-2015.jsx'),
+  'activities/parapara': require('../pages/parapara.jsx'),
+  'activities/private-eye': require('../pages/private-eye.jsx'),
+  'activities/protect-your-data': require('../pages/protect-your-data.jsx'),
+  'activities/privacy-basics': require('../pages/privacy-basics.jsx'),
+  'activities/web-lit-basics': require('../pages/web-lit-basics.jsx'),
+  'activities/web-lit-basics-two': require('../pages/web-lit-basics-two.jsx'),
+  'activities/web-literacy': require('../pages/web-literacy.jsx'),
+  'activities/webmaker': require('../pages/webmaker.jsx'),
+  'activities/back-to-school-write-the-web': require('../pages/back-to-school-write-the-web.jsx'),
+  'clubs': require('../pages/clubs.jsx'),
+  'clubs/list': require('../pages/clubs-list.jsx'),
+  'community': require('../pages/community.jsx'),
+  'events': require('../pages/events.jsx'),
+  'events/resources': require('../pages/event-resources.jsx'),
+  'fixme': require('../pages/fixme.jsx'),
+  'healthcheck': require('../pages/healthcheck.jsx'),
+  'home': require('../pages/home.jsx'),
+  'opportunities': require('../pages/opportunities.jsx'),
+  'tools': require('../pages/tools.jsx'),
+  'me': require('../pages/makes.jsx')
+};
+
+/**
+ * Redirects from old URLs to new URLs
+ */
+var redirects = {
+  'clubs/curriculum': 'activities/web-lit-basics',
+  'teach-like-mozilla/web-literacy': 'activities/web-literacy'
+};
+
+// aggregate all paths used in the app
+var urls = ['/'];
+urls = urls.concat( Object.keys(pages)     );
+urls = urls.concat( Object.keys(redirects) );
+// remove duplicates. Just in case.
+urls = urls.filter(function(e,i) { return urls.indexOf(e)===i; });
+
+// <Route> elements
+var routeElements = Object.keys(pages).map(function(path) {
+  return <Route path={path} component={pages[path]} key={path}/>;
+});
+
+// <Redirect> elements
+var redirectElements = Object.keys(redirects).map(function(path) {
+  return <Redirect from={path} to={redirects[path]} key={path} />;
+});
 
 // routes below are listed alphabetically by their path
 var routes = (
-  <Route handler={Page}>
-    <Route name="about" path="/about/"
-           handler={require('../pages/about.jsx')}/>
-    <Route name="badges" path="/badges/"
-           handler={require('../pages/badges.jsx')}/>
-    <Route name="single-badge" path="/badge/:id-:slug"
-           handler={require('../pages/badge-single.jsx')}/>
-    <Route name="activities" path="/activities/"
-           handler={require('../pages/activities.jsx')}/>
-    <Route name="madewithcode" path="/activities/madewithcode/"
-           handler={require('../pages/madewithcode.jsx')}/>
-    <Route name="madewithcode-firstwebpage" path="/activities/madewithcode-firstwebpage/"
-           handler={require('../pages/madewithcode-firstwebpage.jsx')}/>
-    <Route name="madewithcode-meme" path="/activities/madewithcode-meme/"
-           handler={require('../pages/madewithcode-meme.jsx')}/>
-    <Route name="madewithcode-poster" path="/activities/madewithcode-poster/"
-           handler={require('../pages/madewithcode-poster.jsx')}/>
-    <Route name="maker-party-2015" path="/activities/maker-party-2015/"
-           handler={require('../pages/maker-party-2015.jsx')}/>
-    <Route name="parapara" path="/activities/parapara/"
-           handler={require('../pages/parapara.jsx')}/>
-    <Route name="private-eye" path="/activities/private-eye/"
-           handler={require('../pages/private-eye.jsx')}/>
-    <Route name="protect-your-data" path="/activities/protect-your-data/"
-           handler={require('../pages/protect-your-data.jsx')}/>
-    <Route name="privacy-basics" path="/activities/privacy-basics/"
-           handler={require('../pages/privacy-basics.jsx')}/>
-    <Route name="web-lit-basics" path="/activities/web-lit-basics/"
-           handler={require('../pages/web-lit-basics.jsx')}/>
-    <Redirect from="/clubs/curriculum/" to="/activities/web-lit-basics/" />
-    <Route name="web-lit-basics-two" path="/activities/web-lit-basics-two/"
-           handler={require('../pages/web-lit-basics-two.jsx')}/>
-    <Route name="web-literacy" path="/activities/web-literacy/"
-           handler={require('../pages/web-literacy.jsx')}/>
-    <Redirect from="/teach-like-mozilla/web-literacy/" to="/activities/web-literacy/" />
-    <Route name="webmaker" path="/activities/webmaker/"
-           handler={require('../pages/webmaker.jsx')}/>
-    <Route name="back-to-school-write-the-web" path="/activities/back-to-school-write-the-web/"
-           handler={require('../pages/back-to-school-write-the-web.jsx')}/>
-    <Route name="mozilla-clubs" path="/clubs/"
-           handler={require('../pages/clubs.jsx')}/>
-    <Route name="clubs-list" path="/clubs/list/"
-           handler={require('../pages/clubs-list.jsx')}/>
-    <Route name="community" path="/community/"
-           handler={require('../pages/community.jsx')}/>
-    <Route name="events" path="/events/"
-           handler={require('../pages/events.jsx')}/>
-    <Route name="event-resources" path="/events/resources/"
-           handler={require('../pages/event-resources.jsx')}/>
-    <Route name="fixme" path="/fixme/"
-           handler={require('../pages/fixme.jsx')}/>
-    <Route name="healthcheck" path="/healthcheck/"
-           handler={require('../pages/healthcheck.jsx')}/>
-    <Route name="opportunities" path="/opportunities/"
-           handler={require('../pages/opportunities.jsx')}/>
-    <Route name="tools" path="/tools/"
-           handler={require('../pages/tools.jsx')}/>
-    <Route name="me" path="/me/"
-           handler={require('../pages/makes.jsx')}/>
-    <DefaultRoute name="home"
-           handler={require('../pages/home.jsx')}/>
+  <Route path='/' component={require('../components/page.jsx')} >
+    <IndexRoute component={require('../pages/home.jsx')} />
+    {routeElements}
+    {redirectElements}
   </Route>
 );
-
-
-// TODO: come up with a better solution for nested route if we will ever have that.
-React.Children.forEach(routes.props.children, function(item) {
-  var path = item.props.path;
-  if (!path && item.props.from) {
-    path = item.props.from;
-    redirects[path] = item.props.to;
-  }
-  urls.push(path || '/');
-});
 
 // return all the route information
 module.exports = {

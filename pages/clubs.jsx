@@ -1,11 +1,11 @@
 var _ = require('underscore');
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Router = require('react-router');
-var Link = Router.Link;
+var Link = require('react-router').Link;
 
 var withTeachAPI = require('../hoc/with-teach-api.jsx');
-var exposeRouter = require('../hoc/expose-router.jsx');
+
+var fixLocation = require('../lib/fix-location.js');
 
 var HeroUnit = require('../components/hero-unit.jsx');
 var Map = require('../components/map.jsx');
@@ -56,7 +56,7 @@ var WhyOrganize = (
         </div>
         <div className="col-sm-6 col-md-6 col-lg-6">
           <p>
-            <strong>You can use Mozilla’s free and educator-tested curriculum.</strong> Our <Link to="activities">curriculum</Link> is
+            <strong>You can use Mozilla’s free and educator-tested curriculum.</strong> Our <Link to={"/activities"}>curriculum</Link> is
             free to use and remix.
           </p>
         </div>
@@ -66,7 +66,7 @@ var WhyOrganize = (
           <p>
             <strong>You can embed it in your existing program.</strong> You may already be serving a
             group of learners or running an educational offering. Mozilla Clubs can be a way to
-            embed <Link to="web-literacy">Web Literacy</Link> into your existing program.
+            embed <Link to={"/activities/web-literacy"}>Web Literacy</Link> into your existing program.
           </p>
         </div>
       </div>
@@ -190,9 +190,15 @@ var ClubsPage = React.createClass({
     pageTitle: "Clubs",
     pageClassName: "clubs"
   },
+  contextTypes: {
+    location: React.PropTypes.object
+  },
+  componentWillMount: function() {
+    fixLocation(this.context.location);
+  },
   componentDidMount: function() {
     this.props.teachAPI.updateClubs();
-    if (this.props.router.getCurrentQuery().modal === 'add') {
+    if (this.context.location.search.modal === 'add') {
       this.showAddYourClubModal();
     }
   },
@@ -249,13 +255,13 @@ var ClubsPage = React.createClass({
                onDelete={this.handleClubDelete}
                onEdit={this.handleClubEdit}/>
             </div>
-            <Link to="clubs-list" className="see-full-clubs-list">See the full list</Link>
+            <Link to={"/clubs/list/"} className="see-full-clubs-list">See the full list</Link>
           </section>
 
           <section>
             <IconLinks>
               <IconLink
-                link="web-lit-basics"
+                link="/activities/web-lit-basics/"
                 imgSrc="/img/pages/clubs/svg/icon-curriculum.svg"
                 head="Start Teaching"
                 subhead="Use our remixable Web Literacy curriculum."
@@ -283,4 +289,4 @@ var ClubsPage = React.createClass({
   }
 });
 
-module.exports = exposeRouter(withTeachAPI(ClubsPage));
+module.exports = withTeachAPI(ClubsPage);
