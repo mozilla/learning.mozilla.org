@@ -1,9 +1,11 @@
+'use strict';
+
 var React = require('react'),
-    HeroUnit = require('../components/hero-unit.jsx'),
     SocialShare = require('../components/social-share.jsx'),
     BadgeHorizontalIcon = require('../components/badge-horizontal-icon.jsx'),
     RequirementsList = require('../components/requirement-list.jsx'),
     Badge = require('../components/badge.jsx'),
+    BadgesAPI = require('../lib/badges-api'),
     Link = require('react-router').Link;
 
 /**
@@ -27,7 +29,7 @@ var SingleBadgePageNavigation = React.createClass({
         }
     },
     render: function () {
-        return (
+        var content = (
             <div className="single-badge-page-navigation">
                 <div className="row">
                     <div className="col-xs-6">
@@ -55,6 +57,10 @@ var SingleBadgePageNavigation = React.createClass({
                 </div>
             </div>
         );
+
+
+        
+        return content;
     }
 });
 
@@ -69,19 +75,49 @@ var BadgePage = React.createClass({
     },
     onQualificationsSubmit: function (event) {
         event.preventDefault();
-        console.log(event.nativeEvent.target);
+        //console.log(event.nativeEvent.target);
     },
     handleFileSelect: function (event) {
         this.refs.optionalFile.getDOMNode().click();
     },
+    componentDidMount: function(){
+        var badgesInterface = new BadgesAPI(),
+            _this = this;
+        let params = this.props.params;
+        badgesInterface.getBadgeDetails(params.id, function( err , resp ){
+            if( err ){
+                //console.log('Error in fetch badge information');
+            } else {
+                _this.setState({
+                    badge : _this.parseBadgeDetails(resp),
+                });
+            }
+        })
+
+    },
+    parseBadgeDetails: function (data) {
+        if( data.status == 200 && data.body && data.body.data ) {
+            return {
+                id: data.body.data.id || "",
+                title: data.body.data.title || "",
+                status: 'achieved',
+                description: data.body.data.description || "",
+                icon: data.body.data.image_url || "",
+                icon2x: data.body.data.image_url || "",
+            };
+        } else {
+            return {};
+        }
+    },
     getInitialState: function () {
         return {
             badge: {
-                title: 'Collaboration: Communication',
-                status: 'achieved',
-                description: 'This badge is issued to those who demonstrate an ability to interacts in a respectful manner; demonstrates active listening; contributes to group meetings and a constructive climate.',
-                icon: '/img/components/badge-icon/ProblemSolving.png',
-                icon2x: '/img/components/badge-icon/ProblemSolving@2x.png'
+                id: "",
+                title: "",
+                status: '',
+                description: "",
+                icon: "",
+                icon2x: "",
             },
             requirements: [
                 'Journal entries of personal self-reflections during group project',
@@ -105,6 +141,7 @@ var BadgePage = React.createClass({
         };
     },
     render: function () {
+
         return (
             <div>
 
