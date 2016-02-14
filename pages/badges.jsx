@@ -107,7 +107,7 @@ var BadgesPage = React.createClass({
     render: function () {
         var linkUrl = "";
         var badges = TESTING_DATA.map(function (badge) {
-            linkUrl = '/badge/' + urlize( badge.id + '-' + badge.title );
+            linkUrl = '/badge/' + badge.id + '/' + urlize( badge.title );
             return (
                 <div key={badge.id} className="col-md-4">
                     <Link to={ linkUrl } className={'badge-icon-link'}>
