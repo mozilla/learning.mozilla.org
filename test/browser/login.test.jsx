@@ -113,7 +113,8 @@ describe("Login.LoginLink", function() {
   it("should create a link w/ expected callback", function() {
     var link = renderLink(LoginLink, {
       origin: 'http://teach',
-      loginBaseURL: 'http://teach-api'
+      loginBaseURL: 'http://teach-api',
+      callbackURL: 'http://teach/path'
     });
     var info = urlParse(ReactDOM.findDOMNode(link).href, true);
 
@@ -138,7 +139,8 @@ describe("Login.LoginLink", function() {
     var link = renderLink(LoginLink, {
       origin: 'http://teach',
       callbackSearch: '?foo=on',
-      loginBaseURL: 'http://teach-api'
+      loginBaseURL: 'http://teach-api',
+      callbackURL: 'http://teach/path'
     });
     var info = urlParse(ReactDOM.findDOMNode(link).href, true);
 
@@ -150,7 +152,8 @@ describe("Login.LogoutLink", function() {
   it("should create a link w/ expected callback", function() {
     var link = renderLink(LogoutLink, {
       origin: 'http://teach',
-      loginBaseURL: 'http://teach-api'
+      loginBaseURL: 'http://teach-api',
+      callbackURL: 'http://teach/path'
     });
     var info = urlParse(ReactDOM.findDOMNode(link).href, true);
 

@@ -1,8 +1,7 @@
 var React = require('react');
 var Illustration = require('../components/illustration.jsx');
 var ActivitySection = require('../components/activity-section.jsx');
-var Router = require('react-router');
-var Link = Router.Link;
+var Link = require('react-router').Link;
 
 var Intro = (
   <div>

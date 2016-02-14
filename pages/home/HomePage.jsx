@@ -1,6 +1,5 @@
 var React = require('react');
-var Router = require('react-router');
-var Link = Router.Link;
+var Link = require('react-router').Link;
 var ga = require('react-ga');
 var OutboundLink = ga.OutboundLink;
 
@@ -11,8 +10,6 @@ var IconLink = require('../../components/icon-link.jsx');
 var IconButtons = require('../../components/icon-buttons.jsx');
 var IconButton = require('../../components/icon-button.jsx');
 
-var exposeRouter = require('../../hoc/expose-router.jsx');
-
 var config = require('../../config/config');
 
 var CaseStudies = require('./CaseStudies.jsx');
@@ -22,6 +19,8 @@ var PledgeSignupForm = require('./PledgeSignupForm.jsx');
 var validateSignupForm = require('./validateSignupForm');
 var BlogSection = require('./BlogSection.jsx');
 
+var fixLocation = require('../../lib/fix-location.js');
+
 var HomePage = React.createClass({
   statics: {
     pageClassName: 'home-page',
@@ -29,6 +28,12 @@ var HomePage = React.createClass({
     PledgeSignupForm: PledgeSignupForm,
     validateSignupForm: validateSignupForm,
     BlogSection: BlogSection
+  },
+  contextTypes: {
+    location: React.PropTypes.object
+  },
+  componentWillMount: function() {
+    fixLocation(this.context.location);
   },
   componentDidMount: function() {
     // auto pops up the Pledge modal if the user is visiting
@@ -38,7 +43,8 @@ var HomePage = React.createClass({
       this.handlePledgeBtnClick();
       localStorage.setItem(disableModal, "disabled");
     }
-    if (this.props.router.getCurrentQuery().pledge === "thanks") {
+
+    if (this.context.location.search.pledge === "thanks") {
       this.props.showModal(ThankYouModal, {
         hideModal: this.props.hideModal
       });
@@ -72,13 +78,13 @@ var HomePage = React.createClass({
               className={"pledge"}
             />
             <IconButton
-              linkTo="activities"
+              link="/activities"
               imgSrc="/img/pages/home/svg/icon-teachanactivity.svg"
               head="Teach an Activity"
               onClick={this.handleTeachBtnClick}
             />
             <IconButton
-              linkTo="mozilla-clubs"
+              link="/clubs"
               imgSrc="/img/pages/home/svg/icon-startamozillaclub.svg"
               head="Start A Mozilla Club"
               onClick={this.handleClubBtnClick}
@@ -154,4 +160,4 @@ var HomePage = React.createClass({
   }
 });
 
-module.exports = exposeRouter(HomePage);
+module.exports = HomePage;

@@ -1,6 +1,5 @@
 var React = require('react');
-var Router = require('react-router');
-var Link = Router.Link;
+var Link = require('react-router').Link;
 var OutboundLink = require('react-ga').OutboundLink;
 
 var Illustration = require('../components/illustration.jsx');
@@ -27,7 +26,7 @@ var WebLitBasics = (
     <div className="col-sm-12">
       <h2>Learning Objectives</h2>
       <p>
-        The learning objectives underpinning each activity are informed by Mozilla&apos;s <Link to="web-literacy">Web
+        The learning objectives underpinning each activity are informed by Mozilla&apos;s <Link to={"/activities/web-literacy"}>Web
         Literacy Map</Link>. Complete the activities in sequence, or mix and match for your learners. Need
         help{'? '} <a href="https://discourse.webmaker.org/c/curriculum">Visit our discussion forum</a> to get help
         and share your experience.
