@@ -32,7 +32,7 @@ var Sidebar = React.createClass({
           <button aria-label="toggle" className={toggleClass} onClick={this.handleHamburgerClick} />
         </div>
         <div onFocus={this.handleFocus} className={showCollapsibleContent}>
-          <Login/>
+          <Login currentPath={this.props.currentPath} />
           <ul className="sidebar-menu list-unstyled">
             {require('./topLevelNavItems.jsx')}
           </ul>
