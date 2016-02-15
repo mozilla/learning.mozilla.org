@@ -117,7 +117,7 @@ var Page = React.createClass({
   render: function() {
     var routes = this.props.routes;
     var currentRoute = routes.slice(-1)[0];
-    var currentPath = config.ORIGIN + '/' + currentRoute.path;
+    var currentPath = config.ORIGIN + '/' + (currentRoute.path || '');
     var pageClassName = this.getCurrentClassName();
     var className = "page container-fluid " + pageClassName;
 
@@ -133,7 +133,7 @@ var Page = React.createClass({
           {DevRibbon ? <DevRibbon showModal={this.showModal} hideModal={this.hideModal}/> : null}
 
           <div className="row">
-            <Sidebar/>
+            <Sidebar currentPath={currentPath} />
             <main className="content col-md-9" role="main" id="content" tabIndex="-1">
             {
               React.cloneElement(this.props.children, {
