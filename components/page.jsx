@@ -70,19 +70,14 @@ var Page = React.createClass({
     }
   },
 
-  componentWillMount: function() {
+  bindTitle: function() {
     if (typeof document !== "undefined") {
       document.title = this.getCurrentTitle();
     }
   },
 
   componentDidMount: function() {
-    if (process.env.NODE_ENV !== 'production' && !config.IN_TEST_SUITE) {
-      var title = this.getCurrentTitle();
-      if (document.title !== title) {
-        console.warn("Document title is '" + document.title + "' but " + "expected it to be '" + title + "'.");
-      }
-    }
+    this.bindTitle();
   },
 
   componentDidUpdate: function(prevProps, prevState) {
@@ -91,6 +86,7 @@ var Page = React.createClass({
     } else if (!this.state.modalClass && prevState.modalClass) {
       document.body.classList.remove('modal-open');
     }
+    this.bindTitle();
   },
 
   getTransition: function() {
