@@ -14,9 +14,10 @@ var LinkAnchorSwap = React.createClass({
         "external-link": ifExternalLink
       }
     );
+    var linkedContent = this.props.children || this.props.name;
     return (
-      ifExternalLink ?  <OutboundLink eventLabel={link} {...this.props}>{this.props.children}</OutboundLink> :
-                        <Link {...this.props}>{this.props.children}</Link>
+      ifExternalLink ?  <OutboundLink eventLabel={link} {...this.props}>{linkedContent}</OutboundLink> :
+                        <Link {...this.props}>{linkedContent}</Link>
     );
   }
 });
