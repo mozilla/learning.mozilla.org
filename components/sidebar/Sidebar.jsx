@@ -15,7 +15,6 @@ var Sidebar = React.createClass({
     });
   },
   handleFocus: function() {
-    console.log("WEJFOPWEKFW");
     this.setState({
       showCollapsibleContent: true
     });
