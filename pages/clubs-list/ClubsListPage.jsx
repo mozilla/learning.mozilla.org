@@ -13,6 +13,8 @@ var IconLink = require('../../components/icon-link.jsx');
 var ClubList = require('./ClubList.jsx');
 var ClubLists = require('./ClubLists.jsx');
 
+var fixLocation = require('../../lib/fix-location.js');
+
 var ClubsListPage = React.createClass({
   statics: {
     ClubList: ClubList,
@@ -24,9 +26,15 @@ var ClubsListPage = React.createClass({
     pageTitle: 'Clubs List',
     pageClassName: 'clubs-list-page'
   },
+  contextTypes: {
+    location: React.PropTypes.object
+  },
+  componentWillMount: function() {
+    fixLocation(this.context.location);
+  },
   componentDidMount: function() {
     this.props.teachAPI.updateClubs();
-    if (this.props.router.getCurrentQuery().modal === 'add') {
+    if (this.context.location.search.modal === "add") {
       this.showAddYourClubModal();
     }
   },
