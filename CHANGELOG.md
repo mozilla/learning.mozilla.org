@@ -6,6 +6,15 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+### Changed
+- The build system for the site got an overhaul.
+- Links to the Goggles were updated to point to its new home.
+- The "Creating Commons GIF exchange" activity got a new link.
+- The "CSS Story Cards" activity got a new link.
+
+### Added
+- Added Let's Encrypt campaign material.
+
 ## [0.0.30][] - 2016-01-14
 ### Changed
 - The Teach Like Mozilla page has been removed.
@@ -17,8 +26,6 @@ to [Semantic Versioning](http://semver.org/).
 - Added Leadership Opportunities page.
 - Added Parapara teaching kit.
 - Added link to the Online Tracking module.
-
-
 
 ## [0.0.29][] - 2015-12-22
 ### Changed

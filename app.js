@@ -1,9 +1,13 @@
 var path = require('path');
 var fs = require('fs');
 var express = require('express');
-var Router = require('react-router');
 
-var indexStaticWatcher = require('./lib/index-static-watcher').create();
+var React = require('react');
+var ReactRouter = require('react-router');
+var Router = ReactRouter.Router;
+var match = ReactRouter.match;
+
+var indexStaticWatcher = require('./lib/build/index-static-watcher').create();
 var PORT = process.env.PORT || 8008;
 var PRODUCTION = (process.env.NODE_ENV === 'production');
 var DIST_DIR = path.join(__dirname, 'dist');
@@ -11,6 +15,23 @@ var DIST_DIR = path.join(__dirname, 'dist');
 var indexStatic;
 var router;
 var app = express();
+
+var notFoundHTML = [
+  '<!doctype html>',
+  '<html><head>',
+  '<meta charset="utf-8">',
+  '<title>404 - Page not found</title>',
+  '</head><body>',
+  '<p>404 - Page not found</p>',
+  '</body></html>'
+].join('');
+
+var urlToRoutePath = function(loc) {
+  if (loc !== '/') {
+    loc = loc.replace(/^\//, '').replace(/\/$/, '');
+  }
+  return loc;
+};
 
 var startProdApp = function() {
   console.log([
@@ -33,36 +54,70 @@ var startProdApp = function() {
 
 var updateIndexStatic = function(newIndexStatic) {
   indexStatic = newIndexStatic;
-  router = indexStatic ? Router.create({
-    routes: indexStatic.routes
-  }) : null;
+  router = indexStatic ? React.createElement(Router, {routes: indexStatic.routes}) : null;
 };
 
+// make sure the dir we'll be using for static hosting exists.
 if (!fs.existsSync(DIST_DIR)) {
   fs.mkdirSync(DIST_DIR);
 }
 
+/**
+ * Wait for the router to come online.
+ */
 app.use(function(req, res, next) {
-  if (!router) {
-    return res.send('Please wait while the server-side bundle regenerates.');
+  if (router) {
+    return next();
   }
-  if (req.path in indexStatic.REDIRECTS) {
-    return res.redirect(indexStatic.REDIRECTS[req.path]);
+  res.send('Please wait while the server-side bundle regenerates.');
+});
+
+/**
+ * If we have a router, check if we're dealing with a redirect.
+ */
+app.use(function(req, res, next) {
+  var url = urlToRoutePath(req.path);
+  if (!indexStatic.REDIRECTS[url]) {
+    return next();
   }
-  if (!router.match(req.url)) {
-    if (router.match(req.path + '/')) {
-      return res.redirect(req.path + '/');
+  res.redirect('/' + indexStatic.REDIRECTS[url] + '/');
+});
+
+/**
+ * If it's not a redirect, is it a component page?
+ */
+app.use(function(req, res, next) {
+  var routes = indexStatic.routes;
+  var location = urlToRoutePath(req.url);
+
+  match({ routes: routes, location: location}, function resolveRoute(err, redirect, props) {
+    // this is a valid component: generat its associated page
+    if (props) {
+      indexStatic.generate(location, {}, function(err, location, title, html) {
+        if (err) {
+          return next(err);
+        }
+        return res.type('html').send(html);
+      });
     }
-    return next('route');
-  }
-  indexStatic.generate(req.url, {}, function(err, html) {
-    if (err) {
-      return next(err);
+    // this is not a specific component - although it might be if we massage the path:
+    else {
+      location = urlToRoutePath(req.path) + '/';
+      match({ routes: routes, location: location}, function resolvePath(err, redirect, props) {
+        if (redirect || props) {
+          // this will work, as long as we rewrite the path
+          return res.redirect(req.path + '/');
+        }
+        // this is not a url that can be services by React. Try more middleware.
+        return next();
+      });
     }
-    return res.type('html').send(html);
   });
 });
 
+/**
+ * Last chance: is this a static asset?
+ */
 app.use(express.static(DIST_DIR));
 
 app.DIST_DIR = DIST_DIR;

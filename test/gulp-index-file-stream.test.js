@@ -1,7 +1,7 @@
 var path = require('path');
 var should = require('should');
 
-var IndexFileStream = require('../lib/gulp-index-file-stream');
+var IndexFileStream = require('../lib/build/gulp-index-file-stream');
 
 describe('gulp-index-file-stream', function() {
   var indexStatic = {
@@ -9,7 +9,7 @@ describe('gulp-index-file-stream', function() {
     generate: function(url, options, cb) {
       options.should.eql({meta: {}});
       process.nextTick(function() {
-        cb(null, 'i am ' + url);
+        cb(null, url, '', 'i am ' + url);
       });
     }
   };

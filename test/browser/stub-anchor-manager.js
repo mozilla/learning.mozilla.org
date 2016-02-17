@@ -1,9 +1,9 @@
 var sinon = window.sinon;
 
-var AnchorManagerMixin = require('../../mixins/anchor-manager');
+var AnchorManager = require('../../hoc/anchorManager');
 
 var StubAnchorManager = function() {
-  var manager = new AnchorManagerMixin.AnchorManager();
+  var manager = new AnchorManager();
 
   // Stub out the methods that access the window object.
   manager.initialize = sinon.stub();
@@ -13,6 +13,7 @@ var StubAnchorManager = function() {
     manager.getHash.returns(hash);
     manager.handleHashChange();
   };
+
   return manager;
 };
 

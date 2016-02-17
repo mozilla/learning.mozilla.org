@@ -19,16 +19,20 @@ node lib/changelog.js release 0.0.4 toolness
 These instructions also assume that your `develop` branch currently
 contains the changes you want to release.
 
+After running this `changelog release` command, run through the following steps:
+
 1.  Verify that the ["Unreleased" section of `CHANGELOG.md`][unreleased]
     is up-to-date by comparing it against GitHub's commit list (you can
-    see that by clicking on the "Unreleased" section heading).
+    see that by clicking on the "Unreleased" section heading), and then
+    describe the changes in a human-meaningful form (see previous release
+    entries for the appropriate level of human-friendliness).
 
     Feel free to move more important, less technical entries to the top
     of the list. Remember, it will be read by both developers *and* users,
     so avoid the use of jargon where possible.
 
-2.  Create a branch off `develop` called `v0.0.4-rc` and push it to your
-    GitHub fork:
+2.  Create a branch off your `develop` called `v0.0.4-rc` and push it to
+    your GitHub fork:
 
     ```
     git checkout -b v0.0.4-rc develop

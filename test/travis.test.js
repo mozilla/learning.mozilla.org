@@ -1,7 +1,7 @@
 var _ = require('underscore');
 var should = require('should');
 
-var travis = require('../lib/travis');
+var travis = require('../lib/build/travis');
 
 function env(options) {
   return _.extend({

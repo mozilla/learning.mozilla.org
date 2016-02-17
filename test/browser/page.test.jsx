@@ -2,10 +2,15 @@ var should = require('should');
 var sinon = window.sinon;
 var React =require('react');
 var ReactDOM = require('react-dom');
-var Router = require('react-router');
+
+var ReactRouter = require('react-router');
+var Router = ReactRouter.Router;
+var RoutingContext = ReactRouter.RoutingContext;
+var match = ReactRouter.match;
+
 var TestUtils = require('react-addons-test-utils');
 
-var routes = require('../../lib/routes.jsx');
+var generator = require('../../lib/page-generate.jsx');
 var Page = require('../../components/page.jsx');
 
 var FakeModal = React.createClass({
@@ -18,8 +23,8 @@ describe("page", function() {
   var handler, page, xhr, originalTitle;
 
   function visitPage(url, cb) {
-    Router.run(routes.routes, url, function(Handler) {
-      handler = TestUtils.renderIntoDocument(<Handler/>);
+    match({routes: generator.routes, location: url}, function(error, redirect, props) {
+      handler = TestUtils.renderIntoDocument(<RoutingContext {...props}/>);
       page = TestUtils.findAllInRenderedTree(handler, function(c) {
         return !!c.showModal;
       })[0];
@@ -68,4 +73,6 @@ describe("page", function() {
       done();
     });
   });
+
+  // FIXME: TODO: dev-ribbon modal test?
 });
