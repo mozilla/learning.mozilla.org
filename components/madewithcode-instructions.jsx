@@ -1,13 +1,12 @@
 var React = require('react');
 var ImageTag = require('../components/imagetag.jsx');
-var Router = require('react-router');
-var Link = Router.Link;
+var Link = require('react-router').Link;
 
 var Instructions = React.createClass({
   propTypes: {
     remixUrl: React.PropTypes.string.isRequired,
     nextActivityTitle: React.PropTypes.string.isRequired,
-    nextActivityLinkName: React.PropTypes.string.isRequired
+    nextActivityLinkPath: React.PropTypes.string.isRequired
   },
   render: function() {
     return (
@@ -36,10 +35,10 @@ var Instructions = React.createClass({
         <h2>Go further</h2>
         <ul>
           <li>
-            <p>Try the next Made with Code activity. Use your new HTML and CSS skills to <Link to={this.props.nextActivityLinkName}>{this.props.nextActivityTitle}</Link>.</p>
+            <p>Try the next Made with Code activity. Use your new HTML and CSS skills to <Link to={this.props.nextActivityLinkPath}>{this.props.nextActivityTitle}</Link>.</p>
           </li>
           <li>
-            <p>The Mozilla Learning Network has lots of other free <Link to="activities">activities</Link> as well.</p>
+            <p>The Mozilla Learning Network has lots of other free <Link to="/activities">activities</Link> as well.</p>
           </li>
         </ul>
 

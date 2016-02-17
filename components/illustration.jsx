@@ -1,10 +1,15 @@
 var React = require('react');
 var ImageTag = require('./imagetag.jsx');
 
+var ImageDimension = React.PropTypes.oneOfType([
+  React.PropTypes.string, // Vector images may contain units
+  React.PropTypes.number  // Bitmap images use numeral dimensions
+]);
+
 var Illustration = React.createClass({
   propTypes: {
-    width: React.PropTypes.number.isRequired,
-    height: React.PropTypes.number.isRequired,
+    width: ImageDimension.isRequired,
+    height: ImageDimension.isRequired,
     src1x: React.PropTypes.string.isRequired,
     src2x: React.PropTypes.string,
     alt: React.PropTypes.string.isRequired,

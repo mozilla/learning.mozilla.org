@@ -4,10 +4,14 @@ var should = require('should');
 var React = require('react');
 var ReactDOM = require('react-dom');
 var TestUtils = require('react-addons-test-utils');
-var stubContext = require('./stub-context.jsx');
 var _ = require('underscore');
 
-var ModalAddOrChangeYourClub = require('../../components/modal-clubs.jsx');
+
+var ModalClubs = require('../../components/modal-clubs.jsx');
+
+var TeachAPI = require('./stub-teach-api');
+var stubContext = require('./stub-context.jsx');
+
 var Util = require('../util.js');
 
 var MODAL_ERROR_REGEX = /an error occurred/i;
@@ -30,26 +34,29 @@ function ensureFormFieldsDisabledValue(component, isDisabled) {
   }
 }
 
-describe("ModalClubsGeneral", function() {
-  var modal, teachAPI, onSuccess;
+describe("ModalClubs", function() {
+  var modal = null, teachAPI, onSuccess;
 
   beforeEach(function() {
     onSuccess = sinon.spy();
-    modal = null;
   });
 
   afterEach(function() {
     if (modal) {
       stubContext.unmount(modal);
+      modal = null;
     }
   });
 
   describe("adding a club", function() {
+
     beforeEach(function() {
-      modal = stubContext.render(ModalAddOrChangeYourClub, {
-        onSuccess: onSuccess
+      teachAPI = new TeachAPI();
+      var withTeach = stubContext.render(ModalClubs, {
+        onSuccess: onSuccess,
+        teachAPI: teachAPI
       });
-      teachAPI = modal.getTeachAPI();
+      modal = withTeach.getComponent();
     });
 
     it("renders", function() {
@@ -70,10 +77,12 @@ describe("ModalClubsGeneral", function() {
       modal.state.step.should.equal(modal.STEP_FORM);
     });
 
-    it("shows form validation errors", function() {
+    it("shows form validation errors", function(done) {
       teachAPI.emit('username:change', 'foo');
-      modal.setState({validationErrors: ["U SUK"]});
-      ReactDOM.findDOMNode(modal).textContent.should.match(/U SUK/);
+      modal.setState({validationErrors: ["U SUK"]}, function() {
+        ReactDOM.findDOMNode(modal).textContent.should.match(/U SUK/);
+        done();
+      });
     });
 
     it("does not show any errors by default", function() {
@@ -88,10 +97,9 @@ describe("ModalClubsGeneral", function() {
 
     it("has valid labels for form elements", function() {
       teachAPI.emit('username:change', 'foo');
-
-      Util.ensureLabelLinkage(modal, 'ModalAddOrChangeYourClub_name');
-      Util.ensureLabelLinkage(modal, 'ModalAddOrChangeYourClub_website');
-      Util.ensureLabelLinkage(modal, 'ModalAddOrChangeYourClub_description');
+      Util.ensureLabelLinkage(modal, 'ModalClubs_name');
+      Util.ensureLabelLinkage(modal, 'ModalClubs_website');
+      Util.ensureLabelLinkage(modal, 'ModalClubs_description');
     });
 
     it("handles location changes containing JSON", function() {
@@ -131,10 +139,8 @@ describe("ModalClubsGeneral", function() {
       teachAPI.addClub.callCount.should.equal(0);
     });
 
-/*
+    /*
     describe("when form is submitted", function() {
-      return;
-
       // FIXME: THESE TESTS CANNOT RUN PROPERLY, THERE IS ALL KINDS OF
       //        ASYNC MADNESS GOING ON.
       //        See Github Issue https://github.com/mozilla/teach.mozilla.org/issues/1497
@@ -219,8 +225,9 @@ describe("ModalClubsGeneral", function() {
         ReactDOM.findDOMNode(modal).textContent.should.not.match(MODAL_ERROR_REGEX);
       });
     });
-*/
+    */
   });
+
 
   describe("changing a club", function() {
     var club = {
@@ -234,11 +241,13 @@ describe("ModalClubsGeneral", function() {
     };
 
     beforeEach(function() {
-      modal = stubContext.render(ModalAddOrChangeYourClub, {
+      teachAPI = new TeachAPI();
+      var withTeach = stubContext.render(ModalClubs, {
         club: club,
-        onSuccess: onSuccess
+        onSuccess: onSuccess,
+        teachAPI: teachAPI
       });
-      teachAPI = modal.getTeachAPI();
+      modal = withTeach.getComponent();
       teachAPI.emit('username:change', 'foo');
     });
 
@@ -288,11 +297,13 @@ describe("ModalClubsGeneral", function() {
           .should.match(/your club has been changed/i);
       });
     });
-  });
+  }); // changing a club
+
 });
 
-describe("ModalAddOrChangeYourClub.normalizeClub", function() {
-  var normalizeClub = ModalAddOrChangeYourClub.normalizeClub;
+
+describe("ModalClubs.normalizeClub", function() {
+  var normalizeClub = ModalClubs.getClass().normalizeClub;
 
   it("prepends http:// to website if needed", function() {
     normalizeClub({website: 'foo'}).website.should.eql('http://foo');
@@ -311,8 +322,8 @@ describe("ModalAddOrChangeYourClub.normalizeClub", function() {
   });
 });
 
-describe("ModalAddOrChangeYourClub.validateClub", function() {
-  var validateClub = ModalAddOrChangeYourClub.validateClub;
+describe("ModalClubs.validateClub", function() {
+  var validateClub = ModalClubs.getClass().validateClub;
 
   function club(info) {
     return _.extend({

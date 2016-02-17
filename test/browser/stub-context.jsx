@@ -13,29 +13,31 @@ var StubTeachAPI = require('./stub-teach-api');
 var stubContext = function(Component, props, stubs) {
   var childContext;
   var func = React.PropTypes.func;
+  var obj = React.PropTypes.object;
+
+  // Normally these are imparted by Page.jsx, but we're bypassing that here.
+  props = props || {};
+  if (!props.showModal) props.showModal = sinon.spy();
+  if (!props.hideModal) props.hideModal = sinon.spy();
 
   return React.createClass({
     childContextTypes: {
       router: func,
-      showModal: func,
-      hideModal: func,
-      teachAPI: React.PropTypes.object
+      location: obj
     },
 
     getChildContext: function() {
       if (!childContext) {
         childContext = _.extend({
           router: new StubRouter(),
-          showModal: sinon.spy(),
-          hideModal: sinon.spy(),
-          teachAPI: new StubTeachAPI()
+          location: { search: '' }
         }, stubs);
       }
       return childContext;
     },
 
     render: function() {
-      return <Component {...props} ref="unstubbed" />;
+      return <Component {...props} ref="unstubbed"/>;
     }
   });
 };

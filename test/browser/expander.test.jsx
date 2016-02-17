@@ -9,7 +9,7 @@ var StubAnchorManager = require('./stub-anchor-manager');
 var Expander = require('../../components/expander.jsx');
 
 describe("Expander", function() {
-  var expander, itemContainer, itemHeader, anchorManager, clock;
+  var wrapped, expander, itemContainer, itemHeader, anchorManager, clock;
 
   var isAttractingAttention = function() {
     return TestUtils.scryRenderedDOMComponentsWithClass(
@@ -21,16 +21,17 @@ describe("Expander", function() {
   var createExpander = function(props) {
     clock = sinon.useFakeTimers();
     anchorManager = StubAnchorManager();
-    expander = stubContext.render(Expander, _.extend({
+    wrapped = stubContext.render(Expander, _.extend({
       head: 'heading text',
       anchorManager: anchorManager
     }, props));
+    expander = wrapped.getComponent();
     itemContainer = TestUtils.findRenderedDOMComponentWithClass(
-      expander,
+      wrapped,
       'expand-div'
     );
     itemHeader = TestUtils.findRenderedDOMComponentWithClass(
-      expander,
+      wrapped,
       'expander-header'
     );
     return expander;

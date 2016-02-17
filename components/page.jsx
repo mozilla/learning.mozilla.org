@@ -3,84 +3,53 @@ var ReactDOM = require('react-dom');
 var TimeoutTransitionGroup = require('../components/timeout-transition-group.jsx');
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
+var ga = require('react-ga');
 
 var Sidebar = require('./sidebar.jsx');
 var Footer = require('./footer.jsx');
-var TeachAPI = require('../lib/teach-api');
-var DevRibbon = (process.env.NODE_ENV === 'production' &&
-                 process.env.SHOW_DEV_RIBBON !== 'on')
-                ? null
-                : require('./dev-ribbon.jsx');
-var config = require('../lib/config');
+var DevRibbon = (process.env.NODE_ENV === 'production' && process.env.SHOW_DEV_RIBBON !== 'on') ? null : require('./dev-ribbon.jsx');
+var config = require('../config/config');
 
 var Page = React.createClass({
   statics: {
-    handlerForPage: function(router, url) {
-      return router.match(url).routes[1].handler;
-    },
     titleForHandler: function(handler) {
       var title = 'Mozilla Learning';
-
       if (handler.pageTitle) {
         title = handler.pageTitle + ' - ' + title;
       }
-
       return title;
     }
   },
-  contextTypes: {
-    router: React.PropTypes.func
-  },
-  childContextTypes: {
-    showModal: React.PropTypes.func.isRequired,
-    hideModal: React.PropTypes.func.isRequired,
-    teachAPI: React.PropTypes.object.isRequired
-  },
+
+  // Utility functions
   getCurrentPageHandler: function() {
-    return this.context.router.getCurrentRoutes()[1].handler;
+    var routes = this.props.routes;
+    var route = routes.slice(-1)[0];
+    var Component = route.component;
+    return Component;
   },
-  getInitialState: function() {
-    return {
-      modalClass: null,
-      modalProps: null
-    }
+
+  getCurrentTitle: function() {
+    var handler = this.getCurrentPageHandler();
+    var title = Page.titleForHandler(handler);
+    return title;
   },
+
+  getCurrentClassName: function() {
+    var handler = this.getCurrentPageHandler();
+    var className = handler.pageClassName || '';
+    return className;
+  },
+
   showModal: function(modalClass, modalProps) {
+    ga.modalview(modalClass.displayName);
     this.setState({modalClass: modalClass, modalProps: modalProps});
   },
+
   hideModal: function() {
     this.setState({modalClass: null, modalProps: null});
   },
-  componentDidMount: function() {
-    if (process.env.NODE_ENV !== 'production' && !config.IN_TEST_SUITE) {
-      var title = Page.titleForHandler(this.getCurrentPageHandler());
-      if (document.title !== title) {
-        console.warn("Document title is '" + document.title + "' but " +
-                     "expected it to be '" + title + "'.");
-      }
-    }
-  },
-  componentDidUpdate: function(prevProps, prevState) {
-    if (this.state.modalClass && !prevState.modalClass) {
-      document.body.classList.add('modal-open');
-    } else if (!this.state.modalClass && prevState.modalClass) {
-      document.body.classList.remove('modal-open');
-    }
-    document.title = Page.titleForHandler(this.getCurrentPageHandler());
-  },
-  getTeachAPI: function() {
-    if (!this.teachAPI) {
-      this.teachAPI = new TeachAPI();
-    }
-    return this.teachAPI;
-  },
-  getChildContext: function() {
-    return {
-      showModal: this.showModal,
-      hideModal: this.hideModal,
-      teachAPI: this.getTeachAPI()
-    };
-  },
+
   // Accessibility best practices demand that only the elements in a
   // modal be focusable while it's being displayed, so we'll enforce
   // that here.
@@ -91,41 +60,90 @@ var Page = React.createClass({
       firstFocusableEl.focus();
     }
   },
+
+  // Lifecycle functions
+
+  getInitialState: function() {
+    return {
+      modalClass: null,
+      modalProps: null
+    }
+  },
+
+  bindTitle: function() {
+    if (typeof document !== "undefined") {
+      document.title = this.getCurrentTitle();
+    }
+  },
+
+  componentDidMount: function() {
+    this.bindTitle();
+  },
+
+  componentDidUpdate: function(prevProps, prevState) {
+    if (this.state.modalClass && !prevState.modalClass) {
+      document.body.classList.add('modal-open');
+    } else if (!this.state.modalClass && prevState.modalClass) {
+      document.body.classList.remove('modal-open');
+    }
+    this.bindTitle();
+  },
+
+  getTransition: function() {
+    return (
+      <TimeoutTransitionGroup
+        transitionName="modal"
+        enterTimeout={250}
+        leaveTimeout={250}
+        transitionEnter={true}
+        transitionLeave={true}
+      >
+      {
+        this.state.modalClass ?
+          <div ref="modalHolder" key={1}>
+            {React.createElement(this.state.modalClass, this.state.modalProps)}
+            <div className="modal-backdrop"/>
+          </div>
+        : null
+      }
+      </TimeoutTransitionGroup>
+    );
+  },
+
   render: function() {
-    var pageClassName = this.getCurrentPageHandler().pageClassName || '';
+    var routes = this.props.routes;
+    var currentRoute = routes.slice(-1)[0];
+    var currentPath = config.ORIGIN + '/' + (currentRoute.path || '');
+    var pageClassName = this.getCurrentClassName();
+    var className = "page container-fluid " + pageClassName;
+
     return (
       <div>
-        <div className={"page container-fluid " + pageClassName}
+        <div className={className}
          aria-hidden={!!this.state.modalClass}
          onFocus={this.state.modalClass && this.handleNonModalFocus}>
           <a href="#content" className="sr-only sr-only-focusable skip-to-content">
             Skip to main content
           </a>
 
-          {DevRibbon ? <DevRibbon/> : null}
+          {DevRibbon ? <DevRibbon showModal={this.showModal} hideModal={this.hideModal}/> : null}
 
           <div className="row">
-            <Sidebar/>
+            <Sidebar currentPath={currentPath} />
             <main className="content col-md-9" role="main" id="content" tabIndex="-1">
-              <RouteHandler/>
+            {
+              React.cloneElement(this.props.children, {
+                showModal: this.showModal,
+                hideModal: this.hideModal,
+                currentPath: currentPath
+              })
+            }
             </main>
           </div>
           <Footer className="page-bottom"/>
         </div>
 
-        <TimeoutTransitionGroup transitionName="modal"
-                                enterTimeout={250}
-                                leaveTimeout={250}
-                                transitionEnter={true}
-                                transitionLeave={true}>
-        {this.state.modalClass
-         ? <div ref="modalHolder" key={1}>
-             {React.createElement(this.state.modalClass,
-                                  this.state.modalProps)}
-             <div className="modal-backdrop"/>
-           </div>
-         : null}
-        </TimeoutTransitionGroup>
+        {this.getTransition()}
       </div>
     );
   }

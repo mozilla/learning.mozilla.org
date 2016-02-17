@@ -1,9 +1,12 @@
 var React = require('react');
-var Router = require('react-router');
-var ga = require('react-ga');
+var ReactRouter = require('react-router');
+var Router = ReactRouter.Router;
 
-var config = require('./config');
-var routes = require('./routes.jsx');
+var ga = require('react-ga');
+var developerHelp = require('./build/developer-help');
+
+var config = require('../config/config');
+var generator = require('./page-generate.jsx');
 
 var GA_ACCOUNT = process.env.GA_ACCOUNT || 'UA-49796218-20';
 var GA_DEBUG = process.env.GA_DEBUG || 'off';
@@ -12,9 +15,9 @@ function startRunningSite() {
   var pageHolder = document.getElementById('page-holder');
 
   if (config.ENABLE_PUSHSTATE) {
-    routes.run(Router.HistoryLocation, pageHolder);
+    generator.run(Router.HistoryLocation, pageHolder);
   } else {
-    routes.run(Router.RefreshLocation, pageHolder);
+    generator.run(Router.RefreshLocation, pageHolder);
   }
 }
 
@@ -33,5 +36,5 @@ if (config.IN_STATIC_SITE) {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-  require('./developer-help')();
+  developerHelp();
 }

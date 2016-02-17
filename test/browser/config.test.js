@@ -1,6 +1,6 @@
 var should = require('should');
 
-var config = require('../../lib/config');
+var config = require('../../config/config');
 
 describe('config', function() {
   it('should think it is in a test suite', function() {

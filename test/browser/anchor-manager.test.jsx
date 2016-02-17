@@ -4,7 +4,7 @@ var ReactTestUtils = require('react-addons-test-utils');
 var should = require('should');
 var sinon = window.sinon;
 
-var AnchorManagerMixin = require('../../mixins/anchor-manager');
+var withAnchorManager = require('../../hoc/with-anchor-manager.jsx');
 var StubAnchorManager = require('./stub-anchor-manager');
 
 describe('AnchorManager', function() {
@@ -145,15 +145,16 @@ describe('AnchorManager', function() {
   });
 });
 
-describe('AnchorManagerMixin', function() {
+describe('AnchorManagerHOC', function() {
   var manager, anchors, clock;
 
-  var SampleAnchorClass = React.createClass({
-    mixins: [AnchorManagerMixin],
+  var SampleAnchor = React.createClass({
     render: function() {
       return <div></div>;
     }
   });
+
+  SampleAnchorClass = withAnchorManager(SampleAnchor);
 
   var renderAnchor = function(props) {
     var anchor = ReactTestUtils.renderIntoDocument(
@@ -218,14 +219,14 @@ describe('AnchorManagerMixin', function() {
 
   it('cancels attract timeout on unmount', function() {
     var a = renderAnchor({anchorId: 'foo'});
-    sinon.spy(a, 'cancelAttractAttentionToAnchor');
-    a.attractAttentionToAnchor();
-    a.cancelAttractAttentionToAnchor.callCount.should.equal(0);
+    sinon.spy(a, 'cancelAttractAttention');
+    a.attractAttention();
+    a.cancelAttractAttention.callCount.should.equal(0);
     unmountAnchor(a);
-    a.cancelAttractAttentionToAnchor.callCount.should.equal(1);
+    a.cancelAttractAttention.callCount.should.equal(1);
     clock.tick(999999999);
-    a.cancelAttractAttentionToAnchor.callCount.should.equal(1);
-    a.cancelAttractAttentionToAnchor.restore();
+    a.cancelAttractAttention.callCount.should.equal(1);
+    a.cancelAttractAttention.restore();
   });
 
   it('does not attract attention to anchor when mounted', function() {
@@ -242,23 +243,24 @@ describe('AnchorManagerMixin', function() {
   it('stops attracting attention to anchor after some time', function() {
     var a = renderAnchor({anchorId: 'foo'});
     manager.simulateHashChange('foo');
-    clock.tick(AnchorManagerMixin.DEFAULT_ATTRACT_DURATION + 1);
+    clock.tick(manager.DEFAULT_ATTRACT_DURATION + 1);
     a.state.attractAttentionToAnchor.should.be.false;
   });
 
   it('waits ATTRACT_ATTENTION_TO_ANCHOR_DURATION if defined', function() {
     var a = renderAnchor({anchorId: 'foo'});
     a.ATTRACT_ATTENTION_TO_ANCHOR_DURATION = 10;
-    a.attractAttentionToAnchor();
+    a.attractAttention();
     a.state.attractAttentionToAnchor.should.be.true;
     clock.tick(11);
     a.state.attractAttentionToAnchor.should.be.false;
   });
 
-  it('calls handleAttractAttentionToAnchor() if defined', function() {
+  it('calls handleAttractAttention() if defined', function() {
     var a = renderAnchor({anchorId: 'foo'});
-    a.handleAttractAttentionToAnchor = sinon.spy();
-    a.attractAttentionToAnchor();
-    a.handleAttractAttentionToAnchor.callCount.should.equal(1);
+    var c = a.getComponent();
+    c.handleAttractAttentionToAnchor = sinon.spy();
+    a.attractAttention();
+    c.handleAttractAttentionToAnchor.callCount.should.equal(1);
   });
 });

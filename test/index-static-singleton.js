@@ -1,4 +1,4 @@
-var indexStaticWatcher = require('../lib/index-static-watcher').create();
+var indexStaticWatcher = require('../lib/build/index-static-watcher').create();
 
 var indexStatic;
 
@@ -13,7 +13,6 @@ exports.build = function(done) {
   this.timeout(10000);
   indexStaticWatcher.build(function(err, newIndexStatic) {
     if (err) return done(err);
-
     indexStatic = newIndexStatic;
     done();
   });

@@ -1,6 +1,5 @@
 var React = require('react');
-var Router = require('react-router');
-var Link = Router.Link;
+var Link = require('react-router').Link;
 var ImageTag = require('./imagetag.jsx');
 var OutboundLink = require('react-ga').OutboundLink;
 
@@ -45,9 +44,9 @@ var IconLink = React.createClass({
       <div className={"icon-link " + this.props.className}>
         <LinkSwap link={this.props.link}>
           <figure>
-            <ImageTag 
-              className="image" 
-              src1x={this.props.imgSrc} 
+            <ImageTag
+              className="image"
+              src1x={this.props.imgSrc}
               src2x={this.props.imgSrc2x}
               width={this.props.width}
               height={this.props.height}

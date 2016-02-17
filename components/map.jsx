@@ -5,7 +5,7 @@ var ReactDOMServer = require('react-dom/server');
 var request = require('superagent');
 var _ = require('underscore');
 
-var config = require('../lib/config');
+var config = require('../config/config');
 
 var DEFAULT_STYLESHEETS = config.IN_TEST_SUITE ? [] : [
   'https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css',

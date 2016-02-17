@@ -1,8 +1,7 @@
 var React = require('react');
-var Router = require('react-router');
-var Link = Router.Link;
+var Link = require('react-router').Link;
 var packageJSON = require('../package.json');
-var config = require('../lib/config');
+var config = require('../config/config');
 
 var HealthcheckMeta = React.createClass({
   getInitialState: function() {
@@ -58,7 +57,7 @@ var HealthcheckPage = React.createClass({
         <h1>Site Health Check</h1>
         <HealthcheckMeta/>
         <div className="go-back-home">
-          <Link to="home">
+          <Link to={"/"}>
             <i className="fa fa-home fa-2x"></i>
             <div><small>Go back to {config.ORIGIN}</small></div>
           </Link>
