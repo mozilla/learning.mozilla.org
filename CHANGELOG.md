@@ -5,6 +5,8 @@ which uses the format described in
 to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
+
+## [0.0.31][] - 2016-02-16
 ### Changed
 - The build system for the site got an overhaul.
 - Links to the Goggles were updated to point to its new home.
@@ -479,7 +481,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.30...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.31...HEAD
+[0.0.31]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.30...v0.0.31
 [0.0.30]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.29...v0.0.30
 [0.0.29]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.28...v0.0.29
 [0.0.28]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.27...v0.0.28
