@@ -5,20 +5,26 @@ which uses the format described in
 to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
+### Changed
+- The build system for the site got an overhaul.
+- Links to the Goggles were updated to point to its new home.
+- The "Creating Commons GIF exchange" activity got a new link.
+- The "CSS Story Cards" activity got a new link.
+
+### Added
+- Added Let's Encrypt campaign material.
 
 ## [0.0.30][] - 2016-01-14
 ### Changed
 - The Teach Like Mozilla page has been removed.
 - Nav links on the sidebar have been reorganized.
-- More UI tweaks! We've updated many icons on the site to make sure they 
+- More UI tweaks! We've updated many icons on the site to make sure they
   share the same styling.
 
 ### Added
 - Added Leadership Opportunities page.
 - Added Parapara teaching kit.
 - Added link to the Online Tracking module.
-
-
 
 ## [0.0.29][] - 2015-12-22
 ### Changed
@@ -64,13 +70,13 @@ to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Cleaned up some LESS code by introducing a pageColorizer mixin.
 - Removed code used for an old A/B testing.
-- We are now using mocha-phantomjs v4.* 
+- We are now using mocha-phantomjs v4.*
 - Bumped npm module lwip version from 0.0.5 to 0.0.8.
 
 ## [0.0.24][] - 2015-10-14
 ### Added
 - Added 'Your Projects' page. This is a page for users to see the projects
-  they created using tools that we retired, such as Popcorn Maker and Appmaker, 
+  they created using tools that we retired, such as Popcorn Maker and Appmaker,
   as well as older versions of Thimble and X-Ray Goggles.
 
 ### Changed
@@ -83,9 +89,9 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [0.0.22][] - 2015-09-23
 ### Added
-- The pledge modal on the homepage pops up automatically for users who 
+- The pledge modal on the homepage pops up automatically for users who
   visit the site for the first time.
-- Check out the "Quacking JavaScript" module that we added to the 
+- Check out the "Quacking JavaScript" module that we added to the
   Teaching Activities page.
 
 ### Changed
@@ -94,7 +100,7 @@ to [Semantic Versioning](http://semver.org/).
 - Updated Thimble's sample activity listed on the Tools page.
 - The About page has been refreshed.
 - We can now track outbound links from the Tools page to each tool listed there.
-- Removed Creative Commons license note from Teaching Activites pages due to 
+- Removed Creative Commons license note from Teaching Activites pages due to
   change in policy by Legal to no longer require that particular license.
 - The GitHub repo name has been renamed from teach.webmaker.org
   to teach.mozilla.org. This shouldn't affect anything to end users.
@@ -105,20 +111,20 @@ to [Semantic Versioning](http://semver.org/).
   https://teach.mozilla.org/clubs/list/
 
 ### Changed
-- /clubs page has been redesigned. We have added lots resources to 
-  help users better understand what a Mozilla Club is and the value of 
+- /clubs page has been redesigned. We have added lots resources to
+  help users better understand what a Mozilla Club is and the value of
   starting a Mozilla Club. The full list of Mozilla Clubs has been
   moved to a new page https://teach.mozilla.org/clubs/list/.
 
 
 ## [0.0.20][] - 2015-09-02
 ### Added
-- We introduced two new env vars `OPTIMIZELY_ID` and `OPTIMIZELY_ACTIVE` 
-  in the last release. This patch exports these env vars to the client-side 
+- We introduced two new env vars `OPTIMIZELY_ID` and `OPTIMIZELY_ACTIVE`
+  in the last release. This patch exports these env vars to the client-side
   browser code as well as sets appropriate values for them.
 
 ### Changed
-- Two modals that are used on the /clubs page have been factored out as 
+- Two modals that are used on the /clubs page have been factored out as
   `<ModalAddOrChangeYourClub>` and `<ModalRemoveYourClub>` components.
 
 
