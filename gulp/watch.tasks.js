@@ -1,4 +1,5 @@
 var _ = require('underscore');
+var path = require('path');
 var BUILD_TASKS = require('./shared/build.tasks.js');
 var config = require('../config/config');
 var developerHelp = require('../lib/build/developer-help');
