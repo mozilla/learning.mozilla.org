@@ -12,6 +12,9 @@ var PORT = process.env.PORT || 8008;
 var PRODUCTION = (process.env.NODE_ENV === 'production');
 var DIST_DIR = path.join(__dirname, 'dist');
 
+var habitat = require('habitat');
+habitat.load('.env');
+
 var indexStatic;
 var router;
 var app = express();
