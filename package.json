@@ -59,6 +59,7 @@
     "gulp-sitemap": "^2.0.1",
     "gulp-sourcemaps": "^1.5.0",
     "gulp-util": "^3.0.7",
+    "habitat": "^3.1.2",
     "history": "^1.17.0",
     "imports-loader": "^0.6.3",
     "jshint": "^2.8.0",
