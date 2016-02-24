@@ -9,11 +9,11 @@ var CommunityPage = require('../../pages/community.jsx');
 var Util = require('../util.js');
 
 describe("CommunityPage", function() {
-  var communityPage, pledgeBtn;
+  var communityPage, signupBtn;
 
   beforeEach(function() {
     communityPage = stubContext.render(CommunityPage);
-    pledgeBtn = TestUtils.scryRenderedDOMComponentsWithClass(communityPage, "icon-button")[0];
+    signupBtn = TestUtils.scryRenderedDOMComponentsWithClass(communityPage, "icon-button")[0];
   });
 
   afterEach(function() {

@@ -13,9 +13,8 @@ var IconButton = require('../../components/icon-button.jsx');
 var config = require('../../config/config');
 
 var CaseStudies = require('./CaseStudies.jsx');
-var ModalPledge = require('./ModalPledge.jsx');
+var ModalEmail = require('./ModalEmail.jsx');
 var ThankYouModal = require('./ThankYouModal.jsx');
-var PledgeSignupForm = require('./PledgeSignupForm.jsx');
 var validateSignupForm = require('./validateSignupForm');
 var BlogSection = require('./BlogSection.jsx');
 
@@ -24,8 +23,6 @@ var fixLocation = require('../../lib/fix-location.js');
 var HomePage = React.createClass({
   statics: {
     pageClassName: 'home-page',
-    ModalPledge: ModalPledge,
-    PledgeSignupForm: PledgeSignupForm,
     validateSignupForm: validateSignupForm,
     BlogSection: BlogSection
   },
@@ -36,26 +33,18 @@ var HomePage = React.createClass({
     fixLocation(this.context.location);
   },
   componentDidMount: function() {
-    // auto pops up the Pledge modal if the user is visiting
-    // the homepage for the first time
-    var disableModal = "disableAutoPledgeModal";
-    if (!localStorage[disableModal]) {
-      this.handlePledgeBtnClick();
-      localStorage.setItem(disableModal, "disabled");
-    }
-
-    if (this.context.location.search.pledge === "thanks") {
+    if (this.context.location.search.signup === "thanks") {
       this.props.showModal(ThankYouModal, {
         hideModal: this.props.hideModal
       });
       // Optimizely conversion tracking
       window.optimizely = window.optimizely || [];
-      window.optimizely.push(['trackEvent', 'pledgeFormSubmitted']);
+      window.optimizely.push(['trackEvent', 'NewsletterFormSubmitted']);
     }
   },
-  handlePledgeBtnClick: function() {
-    ga.event({ category: 'Clicked Home CTA', action: 'Pledge to Teach' });
-    this.props.showModal(ModalPledge, {
+  handleEmailBtnClick: function() {
+    ga.event({ category: 'Clicked Home CTA', action: 'Get email updates' });
+    this.props.showModal(ModalEmail, {
       hideModal: this.props.hideModal
     });
   },
@@ -72,10 +61,10 @@ var HomePage = React.createClass({
           <h1>The Mozilla Learning Network</h1>
           <IconButtons>
             <IconButton
-              imgSrc="/img/pages/home/svg/icon-pledge.svg"
-              head="Pledge to Teach"
-              onClick={this.handlePledgeBtnClick}
-              className={"pledge"}
+              imgSrc="/img/pages/home/svg/icon-newsletter.svg"
+              head="Get email updates"
+              onClick={this.handleEmailBtnClick}
+              className={"newsletter"}
             />
             <IconButton
               link="/activities"

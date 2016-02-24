@@ -3,7 +3,7 @@ var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var validateSignupForm = require('./validateSignupForm');
 var _ = require('underscore');
 
-var PledgeSignupForm = React.createClass({
+var EmailSignupForm = React.createClass({
   mixins: [LinkedStateMixin],
   getInitialState: function() {
     return {
@@ -20,10 +20,10 @@ var PledgeSignupForm = React.createClass({
       return;
     }
 
-    if (process.env.NODE_ENV !== 'production' && !process.env.PLEDGE_MAILINGLIST_URL) {
+    if (process.env.NODE_ENV !== 'production' && !process.env.NEWSLETTER_MAILINGLIST_URL) {
       e.preventDefault();
-      alert("PLEDGE_MAILINGLIST_URL is not defined. Simulating a successful pledge signup now.");
-      window.location = "?pledge=thanks";
+      alert("NEWSLETTER_MAILINGLIST_URL is not defined. Simulating a successful newsletter signup now.");
+      window.location = "?signup=thanks";
     }
   },
   renderValidationErrors: function() {
@@ -38,7 +38,7 @@ var PledgeSignupForm = React.createClass({
   render: function() {
     var idPrefix = this.props.idPrefix;
     return (
-      <form className="mailinglist-signup" action={process.env.PLEDGE_MAILINGLIST_URL} method="POST" onSubmit={this.handleSubmit}>
+      <form className="mailinglist-signup" action={process.env.NEWSLETTER_MAILINGLIST_URL} method="POST" onSubmit={this.handleSubmit}>
         <fieldset>
           <label htmlFor={idPrefix+"email"} className="sr-only">email</label>
           <div className="icon-field-container">
@@ -48,16 +48,16 @@ var PledgeSignupForm = React.createClass({
           <label htmlFor={idPrefix+"privacy"} className="sr-only">
             I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>
           </label>
-          <input id={idPrefix+"privacy"} name={process.env.PLEDGE_MAILINGLIST_PRIVACY_NAME} type="checkbox" className="sr-only" checked readOnly required />
+          <input id={idPrefix+"privacy"} name={process.env.NEWSLETTER_MAILINGLIST_PRIVACY_NAME} type="checkbox" className="sr-only" checked readOnly required />
           <p className="pp-note">
             &#10003; I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.
           </p>
           {this.renderValidationErrors()}
         </fieldset>
-        <input type="submit" value="Pledge Now" className="btn btn-awsm center-block" />
+        <input type="submit" value="Sign Up" className="btn btn-awsm center-block" />
       </form>
     )
   }
 });
 
-module.exports = PledgeSignupForm;
+module.exports = EmailSignupForm;

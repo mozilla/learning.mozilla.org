@@ -7,14 +7,14 @@ var TestUtils = require('react-addons-test-utils');
 var stubContext = require('./stub-context.jsx');
 var StubRouter = require('./stub-router');
 var HomePage = require('../../pages/home.jsx');
-var ModalPledge = require('../../pages/home/ModalPledge.jsx');
+var ModalEmail = require('../../pages/home/ModalEmail.jsx');
 
 
 var stubBlogFeedLoader = require('./stub-blog-feed-loader');
 var Util = require('../util.js');
 
 describe("HomePage", function() {
-  var wrapped, homePage, pledgeBtn;
+  var wrapped, homePage, newsletterBtn;
 
   if (localStorage) {
     localStorage.clear();
@@ -22,32 +22,23 @@ describe("HomePage", function() {
 
   beforeEach(function() {
     homePage =  stubContext.render(HomePage);
-    pledgeBtn = TestUtils.scryRenderedDOMComponentsWithClass(homePage, "icon-button")[0];
+    newsletterBtn = TestUtils.scryRenderedDOMComponentsWithClass(homePage, "icon-button")[0];
   });
 
   afterEach(function() {
     stubContext.unmount(homePage);
   });
 
-  it("shows pledge modal by default when users visit the homepage for the first time", function() {
-    homePage.props.showModal.callCount.should.equal(1);
-  });
-
-  it("does not show pledge modal by default if users have already visited the homepage", function() {
-    homePage = stubContext.render(HomePage);
-    homePage.props.showModal.callCount.should.equal(0);
-  });
-
-  it("shows pledge modal when 'Pledge to Teach' button is clicked", function() {
-    var a = pledgeBtn.querySelector("a");// TestUtils.findRenderedDOMComponentWithTag(pledgeBtn, "a");
+  it("shows newsletter signup modal when 'Get Emaul updates' button is clicked", function() {
+    var a = newsletterBtn.querySelector("a");
     TestUtils.Simulate.click(a);
     homePage.props.showModal.callCount.should.equal(1);
   });
 
-  it("shows thank you modal if ?pledge=thanks is in query", function() {
+  it("shows thank you modal if ?signup=thanks is in query", function() {
     var homePage2 = stubContext.render(HomePage, {}, {
       location: {
-        search: '?pledge=thanks'
+        search: '?signup=thanks'
       }
     });
     homePage2.props.showModal.callCount.should.equal(1);
@@ -56,11 +47,11 @@ describe("HomePage", function() {
 
 });
 
-describe("HomePage.ModalPledge", function() {
+describe("HomePage.ModalEmail", function() {
   var modal;
 
   beforeEach(function() {
-    modal = stubContext.render(ModalPledge);
+    modal = stubContext.render(ModalEmail);
   });
 
   afterEach(function() {
@@ -70,32 +61,32 @@ describe("HomePage.ModalPledge", function() {
   })
 
   it("renders", function() {
-    ReactDOM.findDOMNode(modal).textContent.should.match(/pledge to teach/i);
+    ReactDOM.findDOMNode(modal).textContent.should.match(/Get Email updates/i);
   });
 });
 
-describe("HomePage.PledgeSignupForm", function() {
+describe("HomePage.EmailSignupForm", function() {
   var validateSignupForm = require('../../pages/home/validateSignupForm');
-  var PledgeSignupForm = require('../../pages/home/PledgeSignupForm.jsx');
-  var pledgeSignupFormIdPrefix = "signup-form-";
-  var pledgeSignupForm;
+  var EmailSignupForm = require('../../pages/home/EmailSignupForm.jsx');
+  var signupFormIdPrefix = "signup-form-";
+  var signupForm;
 
   beforeEach(function() {
-    pledgeSignupForm = stubContext.render(PledgeSignupForm, {idPrefix: pledgeSignupFormIdPrefix});
+    signupForm = stubContext.render(EmailSignupForm, {idPrefix: signupFormIdPrefix});
     validateSignupForm = validateSignupForm;
   });
 
   afterEach(function() {
-    stubContext.unmount(pledgeSignupForm);
+    stubContext.unmount(signupForm);
   })
 
   it("has valid labels", function() {
-    Util.ensureLabelLinkage(pledgeSignupForm, pledgeSignupFormIdPrefix + 'email');
-    Util.ensureLabelLinkage(pledgeSignupForm, pledgeSignupFormIdPrefix + 'privacy');
+    Util.ensureLabelLinkage(signupForm, signupFormIdPrefix + 'email');
+    Util.ensureLabelLinkage(signupForm, signupFormIdPrefix + 'privacy');
   });
 
   it("does not show any errors by default", function() {
-    pledgeSignupForm.state.validationErrors.length.should.equal(0);
+    signupForm.state.validationErrors.length.should.equal(0);
   });
 
   it("shows form validation errors when 'email' is left blank", function() {
