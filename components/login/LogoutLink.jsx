@@ -1,6 +1,6 @@
 var _ = require('underscore');
 var React = require('react');
-var ga = require('react-ga');
+var OutboundLink = require('react-ga').OutboundLink;
 var PureRenderMixin = require('react-addons-pure-render-mixin');
 
 var config = require('../../config/config');
@@ -20,7 +20,7 @@ var LogoutLink = React.createClass({
     var loginBaseURL = this.props.loginBaseURL;
     var href = loginBaseURL + '/auth/oauth2/logout?callback=' + encodeURIComponent(callbackURL);
     var props = _.extend({}, this.props, { href: href });
-    return <a {...props}>{this.props.children}</a>;
+    return <OutboundLink {...props}>{this.props.children}</OutboundLink>;
   }
 });
 

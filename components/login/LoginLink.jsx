@@ -1,6 +1,5 @@
 var _ = require('underscore');
 var React = require('react');
-var ga = require('react-ga');
 var OutboundLink = require('react-ga').OutboundLink;
 var PureRenderMixin = require('react-addons-pure-render-mixin');
 
