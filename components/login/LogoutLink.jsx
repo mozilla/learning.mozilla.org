@@ -8,18 +8,14 @@ var config = require('../../config/config');
 var LogoutLink = React.createClass({
   mixins: [PureRenderMixin],
   propTypes: {
-    origin: React.PropTypes.string
-  },
-  getDefaultProps: function() {
-    return {
-      origin: config.ORIGIN
-    };
+    loginBaseURL: React.PropTypes.string,
+    callbackURL: React.PropTypes.string
   },
   render: function() {
     var callbackURL = this.props.callbackURL;
     var loginBaseURL = this.props.loginBaseURL;
     var href = loginBaseURL + '/auth/oauth2/logout?callback=' + encodeURIComponent(callbackURL);
-    var props = _.extend({}, this.props, { href: href });
+    var props = _.extend({}, this.props, { to: href, eventLabel: href });
     return <OutboundLink {...props}>{this.props.children}</OutboundLink>;
   }
 });

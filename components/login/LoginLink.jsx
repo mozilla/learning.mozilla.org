@@ -8,7 +8,6 @@ var config = require('../../config/config');
 var LoginLink = React.createClass({
   mixins: [PureRenderMixin],
   propTypes: {
-    origin: React.PropTypes.string,
     callbackSearch: React.PropTypes.string,
     action: React.PropTypes.string,
     loginBaseURL: React.PropTypes.string,
@@ -19,7 +18,6 @@ var LoginLink = React.createClass({
   },
   getDefaultProps: function() {
     return {
-      origin: config.ORIGIN,
       callbackSearch: '',
       action: 'signin'
     };
