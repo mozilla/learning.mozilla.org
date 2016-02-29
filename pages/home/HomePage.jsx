@@ -96,11 +96,11 @@ var HomePage = React.createClass({
           <div className="inner-container">
             <section>
               <Illustration
-                height={190} width={190}
-                src1x="/img/pages/home/thimble-vertical-lockup.png" src2x="/img/pages/home/thimble-vertical-lockup@2x.png"
+                width={430} height={75}
+                src1x="/img/pages/home/svg/encrypt.svg"
                 alt="">
-                  <p>Try Mozilla Thimble, a more powerful way to teach web literacy. It's designed for educators and classrooms everywhere. Start teaching the Web.</p>
-                  <OutboundLink className="btn" to={config.THIMBLE} eventLabel={config.THIMBLE}>Start teaching</OutboundLink>
+                  <p>Your online privacy depends on encryption. Learn more about how encryption works, why it’s essential to a strong Web, and why it’s worth protecting.</p>
+                  <OutboundLink className="external-link" to={config.ENCRYPT_CAMPAIGN_URL} eventLabel={config.ENCRYPT_CAMPAIGN_URL}>Learn more</OutboundLink>
               </Illustration>
             </section>
           </div>

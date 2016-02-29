@@ -1,12 +1,12 @@
 var React = require('react');
-var SubItem = require('./SubItem.jsx');
+var LinkAnchorSwap = require('../link-anchor-swap.jsx');
 
 var SubItems = React.createClass({
   render: function() {
     var items = this.props.subItems.map(function (item, key) {
       return (
         <li key={item.name}>
-          <SubItem {...item} />
+          <LinkAnchorSwap {...item} activeClassName="active" />
         </li>
       )}
     );

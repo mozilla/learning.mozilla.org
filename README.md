@@ -23,7 +23,7 @@ may eventually evolve into becoming a dynamic server.
 
 ### Dependencies
 
-To get a local version of the site running, you'll need to have [git](http://git-scm.com/) and [node](http://nodejs.org/) installed on your local machine.  
+To get a local version of the site running, you'll need to have [git](http://git-scm.com/) and [node](http://nodejs.org/) installed on your local machine.
 
 ### Clone
 
@@ -173,18 +173,14 @@ software works.
 
 ### Using Environment Variables in Local Development
 
-First, create a `.env` file in the root of your project:
+Create a file called `.env` in the root of your project, and then add
+all the environment variables you need into this using the following
+format:
 
 ```
 export GA_ACCOUNT='xxxxxxx'
 export TEACH_API_URL='xxxxxxx'
 ```
-
-Then run `source .env` before running `npm start`.
-
-**Note:** If you're on Windows, this won't work, and you'll likely
-want to create a batch file that uses
-[`setx.exe`](http://stackoverflow.com/a/11190331).
 
 ## Lightweight Dynamic Server (Experimental)
 

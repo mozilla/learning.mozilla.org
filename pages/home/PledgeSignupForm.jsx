@@ -1,6 +1,7 @@
 var React = require('react');
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var validateSignupForm = require('./validateSignupForm');
+var _ = require('underscore');
 
 var PledgeSignupForm = React.createClass({
   mixins: [LinkedStateMixin],

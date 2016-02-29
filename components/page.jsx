@@ -70,19 +70,14 @@ var Page = React.createClass({
     }
   },
 
-  componentWillMount: function() {
+  bindTitle: function() {
     if (typeof document !== "undefined") {
       document.title = this.getCurrentTitle();
     }
   },
 
   componentDidMount: function() {
-    if (process.env.NODE_ENV !== 'production' && !config.IN_TEST_SUITE) {
-      var title = this.getCurrentTitle();
-      if (document.title !== title) {
-        console.warn("Document title is '" + document.title + "' but " + "expected it to be '" + title + "'.");
-      }
-    }
+    this.bindTitle();
   },
 
   componentDidUpdate: function(prevProps, prevState) {
@@ -91,6 +86,7 @@ var Page = React.createClass({
     } else if (!this.state.modalClass && prevState.modalClass) {
       document.body.classList.remove('modal-open');
     }
+    this.bindTitle();
   },
 
   getTransition: function() {
@@ -117,7 +113,7 @@ var Page = React.createClass({
   render: function() {
     var routes = this.props.routes;
     var currentRoute = routes.slice(-1)[0];
-    var currentPath = config.ORIGIN + '/' + currentRoute.path;
+    var currentPath = config.ORIGIN + '/' + (currentRoute.path || '');
     var pageClassName = this.getCurrentClassName();
     var className = "page container-fluid " + pageClassName;
 
@@ -133,7 +129,7 @@ var Page = React.createClass({
           {DevRibbon ? <DevRibbon showModal={this.showModal} hideModal={this.hideModal}/> : null}
 
           <div className="row">
-            <Sidebar/>
+            <Sidebar currentPath={currentPath} />
             <main className="content col-md-9" role="main" id="content" tabIndex="-1">
             {
               React.cloneElement(this.props.children, {
