@@ -82,8 +82,8 @@ var BadgePage = React.createClass({
     },
     componentDidMount: function(){
         var badgesInterface = new BadgesAPI(),
-            _this = this;
-        let params = this.props.params;
+            _this = this,
+            params = this.props.params;
         badgesInterface.getBadgeDetails(params.id, function( err , resp ){
             if( err ){
                 //console.log('Error in fetch badge information');
