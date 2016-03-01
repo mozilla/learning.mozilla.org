@@ -10,7 +10,7 @@ var ModalEmail = React.createClass({
       <Modal modalTitle="" className="modal-newsletter folded" hideModal={this.props.hideModal}>
         <ImageTag className="image text-center" src1x="/img/pages/home/svg/icon-newsletter.svg" alt="" width={120} height={""} />
         <h3>Get email updates</h3>
-        <EmailSignupForm idPrefix="email-form-" />
+        <EmailSignupForm idPrefix="email-form-" sourceUrl={this.props.sourceUrl} />
       </Modal>
     )
   }

@@ -5,10 +5,10 @@ var IconLinks = require('../../components/icon-links.jsx');
 var IconLink = require('../../components/icon-link.jsx');
 
 var Intro = require('./Intro.jsx');
-var SignupForm = require('./SignupForm.jsx');
+var SignupForm = require('../home/EmailSignupForm.jsx');
 var VerticalCard = require('./VerticalCard.jsx');
 
-var validateSignupForm = require('./validateSignupForm');
+var validateSignupForm = require('../home/validateSignupForm');
 
 var communityList = [
   {
@@ -58,7 +58,7 @@ var CommunityPage = React.createClass({
           <div className="vertical-divider"></div>
           <section className="text-center">
             <h2>Get the latest teaching activities, tips, and news in your inbox every month. Sign up for the MLN Community Newsletter.</h2>
-            <SignupForm idPrefix="signup-form-"/>
+            <SignupForm idPrefix="signup-form-" sourceUrl={this.props.currentPath} />
           </section>
           <section>
             <div className="horizontal-divider full-width"></div>

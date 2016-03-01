@@ -45,7 +45,8 @@ var HomePage = React.createClass({
   handleEmailBtnClick: function() {
     ga.event({ category: 'Clicked Home CTA', action: 'Get email updates' });
     this.props.showModal(ModalEmail, {
-      hideModal: this.props.hideModal
+      hideModal: this.props.hideModal,
+      sourceUrl: this.props.currentPath
     });
   },
   handleTeachBtnClick: function() {
