@@ -5,10 +5,10 @@ var IconLinks = require('../../components/icon-links.jsx');
 var IconLink = require('../../components/icon-link.jsx');
 
 var Intro = require('./Intro.jsx');
-var SignupForm = require('../home/EmailSignupForm.jsx');
+var SignupForm = require('../../components/newsletter-signup/SignupForm.jsx');
 var VerticalCard = require('./VerticalCard.jsx');
 
-var validateSignupForm = require('../home/validateSignupForm');
+var validateSignupForm = require('../../components/newsletter-signup/validateSignupForm');
 
 var communityList = [
   {

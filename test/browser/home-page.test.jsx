@@ -66,8 +66,8 @@ describe("HomePage.ModalEmail", function() {
 });
 
 describe("HomePage.EmailSignupForm", function() {
-  var validateSignupForm = require('../../pages/home/validateSignupForm');
-  var EmailSignupForm = require('../../pages/home/EmailSignupForm.jsx');
+  var validateSignupForm = require('../../components/newsletter-signup/validateSignupForm');
+  var EmailSignupForm = require('../../components/newsletter-signup/SignupForm.jsx');
   var signupFormIdPrefix = "signup-form-";
   var signupForm;
 

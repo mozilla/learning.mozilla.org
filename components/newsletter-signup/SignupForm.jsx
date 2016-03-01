@@ -6,7 +6,7 @@ var _ = require('underscore');
 var validateSignupForm = require('./validateSignupForm');
 var config = require('../../config/config');
 
-var EmailSignupForm = React.createClass({
+var SignupForm = React.createClass({
   mixins: [LinkedStateMixin],
   propTypes: {
     sourceUrl: React.PropTypes.string,
@@ -66,7 +66,6 @@ var EmailSignupForm = React.createClass({
     }
   },
   render: function() {
-    console.log("source url = ", this.props.sourceUrl);
     var idPrefix = this.props.idPrefix;
     return (
       <form className="mailinglist-signup" action={process.env.NEWSLETTER_MAILINGLIST_URL} method="POST" onSubmit={this.handleSubmit}>
@@ -91,4 +90,4 @@ var EmailSignupForm = React.createClass({
   }
 });
 
-module.exports = EmailSignupForm;
+module.exports = SignupForm;

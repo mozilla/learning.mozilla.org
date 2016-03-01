@@ -15,7 +15,7 @@ var config = require('../../config/config');
 var CaseStudies = require('./CaseStudies.jsx');
 var ModalEmail = require('./ModalEmail.jsx');
 var ThankYouModal = require('./ThankYouModal.jsx');
-var validateSignupForm = require('./validateSignupForm');
+var validateSignupForm = require('../../components/newsletter-signup/validateSignupForm');
 var BlogSection = require('./BlogSection.jsx');
 
 var fixLocation = require('../../lib/fix-location.js');

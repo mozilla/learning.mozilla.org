@@ -2,7 +2,7 @@ var React = require('react');
 var Modal = require('../../components/modal.jsx');
 var ImageTag = require('../../components/imagetag.jsx');
 
-var EmailSignupForm = require('./EmailSignupForm.jsx');
+var EmailSignupForm = require('../../components/newsletter-signup/SignupForm.jsx');
 
 var ModalEmail = React.createClass({
   render: function() {
