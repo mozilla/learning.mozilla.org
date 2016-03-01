@@ -61,7 +61,7 @@ describe("HomePage.ModalEmail", function() {
   })
 
   it("renders", function() {
-    ReactDOM.findDOMNode(modal).textContent.should.match(/Get Email updates/i);
+    ReactDOM.findDOMNode(modal).textContent.should.match(/Get Email Updates/i);
   });
 });
 

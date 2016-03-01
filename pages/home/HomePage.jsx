@@ -43,7 +43,7 @@ var HomePage = React.createClass({
     }
   },
   handleEmailBtnClick: function() {
-    ga.event({ category: 'Clicked Home CTA', action: 'Get email updates' });
+    ga.event({ category: 'Clicked Home CTA', action: 'Get Email Updates' });
     this.props.showModal(ModalEmail, {
       hideModal: this.props.hideModal
     });
@@ -62,7 +62,7 @@ var HomePage = React.createClass({
           <IconButtons>
             <IconButton
               imgSrc="/img/pages/home/svg/icon-newsletter.svg"
-              head="Get email updates"
+              head="Get Email Updates"
               onClick={this.handleEmailBtnClick}
               className={"newsletter"}
             />
