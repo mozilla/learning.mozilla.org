@@ -90,6 +90,7 @@ var BadgePage = React.createClass({
             } else {
                 _this.setState({
                     badge : _this.parseBadgeDetails(resp),
+                    requirements : _this.parseBadgeCriteria(resp),
                 });
             }
         })
@@ -109,6 +110,13 @@ var BadgePage = React.createClass({
             return {};
         }
     },
+    parseBadgeCriteria: function(data ){
+        if( data.status == 200 && data.body && data.body.data && data.body.data.criteria ) {
+            return data.body.data.criteria.split(/\r?\n/);
+        } else {
+            return [];
+        }
+    },
     getInitialState: function () {
         return {
             badge: {
@@ -119,13 +127,7 @@ var BadgePage = React.createClass({
                 icon: "",
                 icon2x: "",
             },
-            requirements: [
-                'Journal entries of personal self-reflections during group project',
-                'Notes of observations by peers or mentors',
-                'Peer-to-peer recommendations by group members',
-                'Writings, drawings, images, videos, and/or presentations to demonstrate a range of ways ideas are shared and received in group processes and projects',
-                'Documents that demonstrate collaboration and design authoring tools (white boards, google docs, spreadsheets, etc.)'
-            ],
+            requirements: [],
             navigation: {
                 next: {
                     url: '/badge/2',
@@ -141,6 +143,22 @@ var BadgePage = React.createClass({
         };
     },
     render: function () {
+
+
+        var badgeCriteria = "";
+        if(this.state.requirements.length){
+            badgeCriteria = (
+                <div className="badge-requirement">
+                    <h3 className={'text-light'}>Badge Requirements</h3>
+
+                    <p>Make or write something that demonstrates your understanding of any two or more of the
+                        following:</p>
+                    <RequirementsList
+                        list={this.state.requirements}
+                        icon="fa fa-check"/>
+                </div>
+            );
+        }
 
         return (
             <div>
@@ -187,15 +205,9 @@ var BadgePage = React.createClass({
                     <img src="/img/pages/badges/svg/divider.svg" alt="" className="center-block horizontal-divider"/>
                 </div>
 
-                <div className="badge-requirement">
-                    <h3 className={'text-light'}>Badge Requirements</h3>
 
-                    <p>Make or write something that demonstrates your understanding of any two or more of the
-                        following:</p>
-                    <RequirementsList
-                        list={this.state.requirements}
-                        icon="fa fa-check"/>
-                </div>
+                { badgeCriteria }
+
                 <div className="apply-send-qualifications">
                     <p><strong className={'text-bold'}>Ideas?</strong> You could submit a blog post, a project you made
                         using Mozilla's tools, or another web creation you made. Demonstrate your understanding in your
