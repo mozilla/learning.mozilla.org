@@ -9,7 +9,7 @@ var config = require('../../config/config');
 var SignupForm = React.createClass({
   mixins: [LinkedStateMixin],
   propTypes: {
-    sourceUrl: React.PropTypes.string,
+    sourceUrl: React.PropTypes.string.isRequired,
   },
   getInitialState: function() {
     return {
