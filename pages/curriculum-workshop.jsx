@@ -2,6 +2,7 @@ var React = require('react');
 var HeroUnit = require('../components/hero-unit.jsx');
 // use this LinkAnchorSwap component for hyperlinks
 var LinkAnchorSwap = require('../components/link-anchor-swap.jsx');
+var Illustration = require('../components/illustration.jsx');
 
 var CurriculumWorkshop = React.createClass({
   statics: {
@@ -9,14 +10,66 @@ var CurriculumWorkshop = React.createClass({
   },
   render: function () {
     return (
-      <div>
-        <HeroUnit>
-          <h1>Mozilla Curriculum Workshop</h1>
-        </HeroUnit>
         <div className="inner-container">
-        
+
+          <section className="intro intro-after-banner">
+           <Illustration
+             height={175} width={175}
+             src1x="/img/pages/community/svg/icon-circle-community.svg"
+             alt="icon toolkit">
+               <h1>Mozilla Curriculum Workshop</h1>
+               <h2>Join us on the second Tuesday of each month at 8 PM ET!</h2>
+           </Illustration>
+          </section>
+
+          <p>
+          Co-hosts Amira Dhalla and Chad Sansing, along with producer Paul Oh, help participants answer the question, <em>"How can I use the web to teach and learn what’s important to me?"</em> Join us as we prototype teaching and learning materials live on-air and think out-loud through the curriculum design process.
+          </p>
+
+          <section className="callout-box">
+            <h2>Upcoming Workshop</h2>
+            <p className="date">March 8th, 8-9 PM ET</p>
+            <h1>International Women's Day</h1>
+            <p className="description">
+              With Ingrid Dahl, Claire Shorall, Kim Wilkens, and friends.
+            </p>
+          </section>
+
+          <p>
+            On our inaugural, International Women’s Day episode, Ingrid Dahl, Claire Shorall, Kim Wilkens and friends prototype teaching and learning materials addressing women’s issues, rights, and accomplishments. Viewers can ask questions and share ideas and prototypes of their own through the embedded agenda and chat.
+          </p>
+
+          <h3>Workshop Video</h3>
+
+          <p>
+            The workshop Google Hangout video stream will be available here when the workshop begins.
+          </p>
+
+          <h3>
+            <a className="open-etherpad" href="https://public.etherpad-mozilla.org/p/curriculum-workshop">Open in new tab
+            </a>
+            Workshop Etherpad
+          </h3>
+
+          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/curriculum-workshop"></iframe>
+
+          <h2>Upcoming Workshops</h2>
+
+          <ul className="upcoming-workshops">
+            <li>
+              <p className="date">Tuesday, April 12 - 8 PM ET</p>
+              <h2>TBD</h2>
+            </li>
+            <li>
+              <p className="date">Tuesday, May 10 - 8 PM ET</p>
+              <h2>Letters to the Next President</h2>
+              <p>
+                Take a look at the National Writing Project’s Letters to the Next President (#2nextprez) campaign, remix suggested activities from campaign partners Hypothes.is and Mozilla, and prototype new pathways for youth civic engagement online.
+              </p>
+            </li>
+          </ul>
+
         </div>
-      </div>
     );
   }
 });

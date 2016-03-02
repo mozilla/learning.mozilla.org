@@ -1,1 +1,127 @@
+.inner-container {
+  padding: 10px 0 45px 0;
 
+  > p {
+    margin-bottom: 30px;
+  }
+}
+
+section {
+  padding: 0;
+}
+
+.intro {
+  margin-bottom: 20px !important;
+
+  h1 {
+    margin-bottom: 10px !important;
+    line-height: 4.3rem !important;
+  }
+
+  h2 {
+    line-height: 3.7rem !important;
+  }
+}
+
+h2 {
+  padding: 0;
+  margin: 20px 0 20px 0;
+}
+
+.callout-box {
+  background: #e3f7f7;
+  position: relative;
+  margin: 50px 0 55px 0;
+  padding: 40px 30px 30px 30px;
+  position: relative;
+
+  * {
+    color: #0c9692;
+  }
+
+  h2 {
+    background: #0c9692;
+    text-transform: uppercase;
+    position: absolute;
+    top: -19px;
+    left: 30px;
+    padding: 10px 16px;
+    font-weight: 700;
+    color: white;
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .date {
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+  }
+
+  h1 {
+    font-weight: 400;
+    padding: 0;
+    font-size: 30px;
+    margin: 0 0 8px 0;
+  }
+
+  .description {
+    margin: 0;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    height: 40px;
+    width: 40px;
+    left: ~"calc(50% - 20px)";
+    transform: rotate(45deg);
+    background: inherit;
+  }
+}
+
+.etherpad {
+  width: 100%;
+  height: 500px;
+  margin: 5px 0 35px 0;
+}
+
+.open-etherpad {
+  float: right;
+  font-size: 1.5rem;
+  position: relative;
+  top: 12px;
+}
+
+.upcoming-workshops {
+  padding: 0;
+  list-style-type: none;
+
+  h2,p {
+    font-size: 1.8rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  h2 {
+    font-weight: 600;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  li {
+    border-bottom: solid 1px #eee;
+    padding: 15px 0;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      border: none;
+    }
+  }
+}
