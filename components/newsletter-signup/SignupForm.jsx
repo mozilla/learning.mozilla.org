@@ -1,10 +1,16 @@
 var React = require('react');
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
-var validateSignupForm = require('./validateSignupForm');
+var request = require('superagent');
 var _ = require('underscore');
 
-var EmailSignupForm = React.createClass({
+var validateSignupForm = require('./validateSignupForm');
+var config = require('../../config/config');
+
+var SignupForm = React.createClass({
   mixins: [LinkedStateMixin],
+  propTypes: {
+    sourceUrl: React.PropTypes.string.isRequired,
+  },
   getInitialState: function() {
     return {
       email: "",
@@ -12,19 +18,43 @@ var EmailSignupForm = React.createClass({
     };
   },
   handleSubmit: function(e) {
+    e.preventDefault();
+
     var validationErrors = validateSignupForm(_.pick(this.state,"email"));
 
     if (validationErrors.length) {
-      e.preventDefault();
       this.setState({validationErrors: validationErrors});
       return;
     }
 
     if (process.env.NODE_ENV !== 'production' && !process.env.NEWSLETTER_MAILINGLIST_URL) {
-      e.preventDefault();
       alert("NEWSLETTER_MAILINGLIST_URL is not defined. Simulating a successful newsletter signup now.");
       window.location = "?signup=thanks";
     }
+
+    request
+      .post(process.env.NEWSLETTER_MAILINGLIST_URL)
+      .type('form')
+      .send({
+        newsletters: 'mozilla-learning-network',
+        source_url: encodeURIComponent(this.props.sourceUrl),
+        lang: 'en',
+        email: this.state.email,
+        trigger_welcome: 'N'
+      })
+      .end(function(err, res){
+        if ( err ) { 
+          // TODO: add error handling
+          return; 
+        }
+
+        if ( res.statusCode === 200 ) {
+          window.location = config.ORIGIN+"?signup=thanks";
+        } else {
+          // TODO: add error handling
+        }
+      });
+
   },
   renderValidationErrors: function() {
     if (this.state.validationErrors.length) {
@@ -48,7 +78,7 @@ var EmailSignupForm = React.createClass({
           <label htmlFor={idPrefix+"privacy"} className="sr-only">
             I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>
           </label>
-          <input id={idPrefix+"privacy"} name={process.env.NEWSLETTER_MAILINGLIST_PRIVACY_NAME} type="checkbox" className="sr-only" checked readOnly required />
+          <input id={idPrefix+"privacy"} type="checkbox" className="sr-only" checked readOnly required />
           <p className="pp-note">
             &#10003; I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.
           </p>
@@ -60,4 +90,4 @@ var EmailSignupForm = React.createClass({
   }
 });
 
-module.exports = EmailSignupForm;
+module.exports = SignupForm;
