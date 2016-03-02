@@ -3,6 +3,7 @@
 /node_modules/
 .env
 .DS_Store
+.idea
 *~
 tag-message-*.txt
 release-*.html

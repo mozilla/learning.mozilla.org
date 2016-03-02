@@ -36,7 +36,9 @@ var pages = {
   'home': require('../pages/home.jsx'),
   'opportunities': require('../pages/opportunities.jsx'),
   'tools': require('../pages/tools.jsx'),
-  'me': require('../pages/makes.jsx')
+  'me': require('../pages/makes.jsx'),
+  'badges': require('../pages/badges.jsx'),
+  'badge/:id(/:slug)': require('../pages/badge-single.jsx')
 };
 
 /**
