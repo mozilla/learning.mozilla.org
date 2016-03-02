@@ -47,7 +47,6 @@ var CurriculumWorkshop = React.createClass({
 
           <h4>
             Open Agenda
-
             <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/curriculum-workshop">
             </a>
           </h4>
