@@ -55,6 +55,12 @@ var MENU_ENTRIES = [
     to: "/community",
     icon: "/img/components/sidebar/svg/icon-nav-community.svg",
     className: "community",
+    subItems: [
+      {
+        name: "Curriculum Workshop",
+        to: '/community/curriculum-workshop'
+      }
+    ]
   }
 ];
 
