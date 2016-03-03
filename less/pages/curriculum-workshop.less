@@ -6,6 +6,10 @@
   }
 }
 
+h3 {
+  margin-bottom: 15px;
+}
+
 section {
   padding: 0;
 }
@@ -83,15 +87,13 @@ h2 {
 
 .etherpad {
   width: 100%;
-  height: 500px;
+  height: 800px;
   margin: 5px 0 35px 0;
+  border: solid 2px #eee;
 }
 
 .open-etherpad {
-  float: right;
-  font-size: 1.5rem;
-  position: relative;
-  top: 12px;
+  margin-left: 12px;
 }
 
 .upcoming-workshops {
@@ -125,3 +127,24 @@ h2 {
     }
   }
 }
+
+.video-wrapper {
+  text-align: center;
+  padding: 25px;
+  background: #eee;
+  height: 0;
+  padding-bottom: 60%;
+  margin: 0 0 25px 0;
+  position: relative;
+
+  .workshop-video {
+    margin: 0 auto;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    border: none;
+    height: ~"calc(100% - 40px)";
+    width: ~"calc(100% - 40px)";
+  }
+}
+

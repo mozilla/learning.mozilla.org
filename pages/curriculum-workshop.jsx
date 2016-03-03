@@ -39,17 +39,17 @@ var CurriculumWorkshop = React.createClass({
             On our inaugural, International Women’s Day episode, Ingrid Dahl, Claire Shorall, Kim Wilkens and friends prototype teaching and learning materials addressing women’s issues, rights, and accomplishments. Viewers can ask questions and share ideas and prototypes of their own through the embedded agenda and chat.
           </p>
 
-          <h3>Workshop Video</h3>
+          <h3>Workshop Video Stream</h3>
 
-          <p>
-            The workshop Google Hangout video stream will be available here when the workshop begins.
-          </p>
+          <div className="video-wrapper">
+            <iframe className="workshop-video" width="560" height="315" src="//www.youtube.com/embed/WqLgWloYvHk" frameborder="0" allowfullscreen></iframe>
+          </div>
 
-          <h3>
-            <a className="open-etherpad" href="https://public.etherpad-mozilla.org/p/curriculum-workshop">Open in new tab
+          <h4>
+            Open Agenda
+            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/curriculum-workshop">
             </a>
-            Workshop Etherpad
-          </h3>
+          </h4>
 
           <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/curriculum-workshop"></iframe>
 
