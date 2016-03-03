@@ -5,6 +5,13 @@ which uses the format described in
 to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
+### Changed
+- Updated the donate link.
+- Replaced Pledge to Teach CTA with newsletter signup.
+- Updated newsletter subscription url.
+
+### Added
+- Added Curriculum Workshop page.
 
 ## [0.0.31][] - 2016-02-16
 ### Changed
