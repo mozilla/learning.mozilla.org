@@ -29,6 +29,7 @@ var pages = {
   'clubs': require('../pages/clubs.jsx'),
   'clubs/list': require('../pages/clubs-list.jsx'),
   'community': require('../pages/community.jsx'),
+  'community/curriculum-workshop': require('../pages/curriculum-workshop.jsx'),
   'events': require('../pages/events.jsx'),
   'events/resources': require('../pages/event-resources.jsx'),
   'fixme': require('../pages/fixme.jsx'),
