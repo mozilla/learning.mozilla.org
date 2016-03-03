@@ -15,7 +15,7 @@ var Footer = React.createClass({
             <li><a href={config.TWITTER_LINK}>Twitter</a></li>
           </div>
           <div>
-            <li><a href="https://sendto.mozilla.org/">Donate</a></li>
+            <li><a href="https://donate.mozilla.org/">Donate</a></li>
             <li><a href="https://beta.webmaker.org/#/legal">Terms</a></li>
             <li><a href="https://www.mozilla.org/privacy/websites">Privacy</a></li>
           </div>
