@@ -5,6 +5,11 @@ var Illustration = require('../../components/illustration.jsx');
 
 var webmaps = require('./webmaplisting.jsx');
 
+var CircleTree = require('../../components/circletree');
+var weblitdata = require('./weblitdata');
+var categories = require('./categories');
+var weblitcolors = require('./colors');
+
 var WebLiteracyPage = React.createClass({
   statics: {
     pageTitle: "Web Literacy",
@@ -17,14 +22,29 @@ var WebLiteracyPage = React.createClass({
         <h1>Web Literacy</h1>
 
         <section className="intro">
-          <Illustration
-          width={210} height={210}
-          src1x="/img/pages/web-literacy/svg/icon-weblit.svg"
-          alt="web literacy illustration">
-            <h2>
-              Web Literacy is the skills and competencies needed for reading, writing, and participating on the Web.
-            </h2>
-          </Illustration>
+          <p>
+            A framework for entry-level web literacy &amp; 21st Century skills. Explore the map
+            by selecting what you want to learn more about, to see definitions and activities.
+          </p>
+        </section>
+
+        <section className="weblit-nav">
+          <CircleTree data={weblitdata} color={weblitcolors} />
+          <div className="c21-skills">
+            <h3>21st Century Skills</h3>
+            <ul>
+            {
+              Object.keys(categories).map(function(cat) {
+                return (
+                  <li className={cat} key={cat}>
+                  <span className="icon">[☺]</span>
+                  { categories[cat] }
+                  </li>
+                );
+              })
+            }
+            </ul>
+          </div>
         </section>
 
         <section>{webmaps}</section>

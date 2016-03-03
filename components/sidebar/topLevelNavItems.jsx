@@ -9,12 +9,12 @@ var MENU_ENTRIES = [
     to: '/activities',
     icon: "/img/components/sidebar/svg/icon-nav-activities.svg",
     className: "activities",
-    subItems: [
-      {
-        name: "Web Literacy",
-        to: "/activities/web-literacy"
-      }
-    ]
+  },
+  {
+    name: "Web Literacy",
+    to: "/web-literacy",
+    icon: "/img/components/sidebar/svg/icon-nav-weblit.svg",
+    className: "web-literacy"
   },
   {
     name: "Leadership Opportunities",

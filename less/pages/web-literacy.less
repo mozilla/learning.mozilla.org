@@ -31,4 +31,102 @@
       padding-left: 0;
     }
   }
+
+  .weblit-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    @problemsolving: #F1E5F0;
+    @communication: #FEFAE1;
+    @collaboration: #EEF5E8;
+    @creativity: #E2F3FA;
+
+
+    .circletree {
+      width: 60%;
+      display: inline-block;
+
+      .segment {
+        stroke: transparent;
+
+        &.underlay  {
+          fill: none!important;
+          stroke: none!important;
+        }
+  
+        &.base {
+          fill: none;
+        }
+
+        &.depth-1 {
+          fill: #EEE;
+        }
+
+        &.depth-2 {
+          fill: #F5F5F5;
+        }
+
+        &.highlight:not(.leaf) {
+          stroke: grey;
+        }
+      }
+
+      .Problem-Solving {
+        fill: @problemsolving;
+      }
+      .Communication {
+        fill: @communication;
+      }
+      .Creativity {
+        fill: @creativity;
+      }
+      .Collaboration {
+        fill: @collaboration;
+      }
+    }
+
+    .c21-skills {
+
+      h3 {
+        color: skyblue;
+      }
+
+      ul {
+        display: inline-block;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          width: 25rem;
+          padding: 0.5rem;
+          border-radius: 5px;
+
+          .icon {
+            font-family: monospace;
+            font-weight: 900;
+            margin-right: 0.5rem;
+          }
+
+          & + li {
+            margin-top: 1em;
+          }
+
+          &.PS {
+            background: @problemsolving;
+          }
+          &.Com {
+            background: @communication;
+          }
+          &.Cre {
+            background: @creativity;
+          }
+          &.Col {
+            background: @collaboration;
+          }
+        }
+      }
+    }
+  }
 }

@@ -23,7 +23,6 @@ var pages = {
   'activities/privacy-basics': require('../pages/privacy-basics.jsx'),
   'activities/web-lit-basics': require('../pages/web-lit-basics.jsx'),
   'activities/web-lit-basics-two': require('../pages/web-lit-basics-two.jsx'),
-  'activities/web-literacy': require('../pages/web-literacy.jsx'),
   'activities/webmaker': require('../pages/webmaker.jsx'),
   'activities/back-to-school-write-the-web': require('../pages/back-to-school-write-the-web.jsx'),
   'clubs': require('../pages/clubs.jsx'),
@@ -38,7 +37,8 @@ var pages = {
   'home': require('../pages/home.jsx'),
   'opportunities': require('../pages/opportunities.jsx'),
   'tools': require('../pages/tools.jsx'),
-  'me': require('../pages/makes.jsx')
+  'me': require('../pages/makes.jsx'),
+  'web-literacy': require('../pages/web-literacy.jsx')
 };
 
 /**
@@ -46,7 +46,8 @@ var pages = {
  */
 var redirects = {
   'clubs/curriculum': 'activities/web-lit-basics',
-  'teach-like-mozilla/web-literacy': 'activities/web-literacy'
+  'teach-like-mozilla/web-literacy': 'activities/web-literacy',
+  'activities/web-literacy': 'web-literacy'
 };
 
 // aggregate all paths used in the app
