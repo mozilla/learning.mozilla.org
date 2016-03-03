@@ -21,15 +21,15 @@ var defaultProps = {
 };
 
 var CircleSegment = React.createClass({
-  getDefaultProps() {
+  getDefaultProps: function() {
     return defaultProps;
   },
 
-  getInitialState() {
+  getInitialState: function() {
     return computer.getSegmentInformation(this.props);
   },
 
-  buildContent() {
+  buildContent: function() {
     this.setState(Object.assign({
       label: this.getLabel(),
       children: this.props.leaf? null : this.setupChildren(),
@@ -37,7 +37,7 @@ var CircleSegment = React.createClass({
     }, this.getInitialState()));
   },
 
-  componentWillMount() {
+  componentWillMount: function() {
     this.highlights = {
       highlight: this.highlight,
       restore: this.restore,
@@ -54,21 +54,21 @@ var CircleSegment = React.createClass({
     }
   },
 
-  componentDidMount() {
+  componentDidMount: function() {
     this.props.updateBBox(this.state.bbox);
   },
 
-  updateBBox(bbox) {
+  updateBBox: function(bbox) {
     this.setState({ bbox: this.state.bbox.expand(bbox) }, () => {
       this.props.updateBBox(this.state.bbox);
     });
   },
 
-  getLabel() {
+  getLabel: function() {
     return computer.getSVGLabel(this.props, this.state.center);
   },
 
-  setupChildren() {
+  setupChildren: function() {
     var data = this.props.data;
 
     // Leaf nodes are encoded as array
@@ -101,7 +101,7 @@ var CircleSegment = React.createClass({
     });
   },
 
-  formLeaves() {
+  formLeaves: function() {
     var baseProps = {
       leaf: true,
       start: this.state.startAngle,
@@ -128,7 +128,7 @@ var CircleSegment = React.createClass({
     });
   },
 
-  getPath() {
+  getPath: function() {
     return computer.getSVGPath(this.state.points, Object.assign({}, this.props, {
       angleDelta: this.state.angleDelta
     }),{
@@ -138,24 +138,24 @@ var CircleSegment = React.createClass({
     });
   },
 
-  highlight() {
+  highlight: function() {
     var path = this.refs.path;
     path.classList.add("highlight");
     if (this.props.highlight) { this.props.highlight(); }
   },
 
-  restore() {
+  restore: function() {
     var path = this.refs.path;
     path.classList.remove("highlight");
     if (this.props.restore) { this.props.restore(); }
   },
 
-  toggle() {
+  toggle: function() {
     console.log(this.props.label);
     if (this.props.toggle) { this.props.toggle(); }
   },
 
-  getUnderlay() {
+  getUnderlay: function() {
     var p = this.state.points.slice(),
         p1 = p[0], p2 = p[1], p3 = p[2], p4 = p[3],
         dx, dy,
@@ -178,17 +178,17 @@ var CircleSegment = React.createClass({
     });
   },
 
-  slideBack() {
+  slideBack: function() {
     this.setState({ isOffset: false });
   },
 
-  slideOut() {
+  slideOut: function() {
     if (this.props.depth===1) {
       this.setState({ isOffset: true });
     }
   },
 
-  render() {
+  render: function() {
     var path = this.getPath();
     var offset = null; //this.state.isOffset ? "translate(" + [this.state.offset.x, this.state.offset.y].join(',') + ")" : null;
     return (

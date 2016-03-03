@@ -13,11 +13,11 @@ var defaultProps = {
 };
 
 var CircleTree = React.createClass({
-  getDefaultProps() {
+  getDefaultProps: function() {
     return defaultProps;
   },
 
-  getInitialState() {
+  getInitialState: function() {
     return {
       data: this.props.data,
       label: Object.keys(this.props.data)[0],
@@ -25,7 +25,7 @@ var CircleTree = React.createClass({
     };
   },
 
-  componentWillMount() {
+  componentWillMount: function() {
     this.buildContent();
   },
 
@@ -35,17 +35,17 @@ var CircleTree = React.createClass({
     }
   },
 
-  updateBBox(bbox) {
+  updateBBox: function(bbox) {
     this.setState({ bbox: this.state.bbox.expand(bbox) });
   },
 
-  buildContent() {
+  buildContent: function() {
     this.setState(Object.assign({
       segments: this.formSegments()
     }));
   },
 
-  formSegments() {
+  formSegments: function() {
     var label = this.state.label,
         data = this.props.data[label],
         props = Object.assign({}, this.props, {
@@ -57,7 +57,7 @@ var CircleTree = React.createClass({
     return <CircleSegment {...props}/>;
   },
 
-  render() {
+  render: function() {
     var style = { overflow: "visible" };
     var bbox = this.state.bbox;
     var viewBox = [bbox.x, bbox.y, bbox.w, bbox.h].join(' ');
