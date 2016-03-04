@@ -25,7 +25,7 @@ module.exports = function(gulp) {
     gulp.watch(LESS_FILES, ['less']);
 
     lightweightDynamicServer.listen(config.DEV_SERVER_PORT, function() {
-      gutil.log('Lightweight dynamic server listening at ' +
+      gutil.log('Server defined by [app.js] listening at ' +
                 gutil.colors.green.bold(config.ORIGIN) + '.');
     });
   });
