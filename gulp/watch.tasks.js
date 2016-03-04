@@ -60,7 +60,7 @@ module.exports = function(gulp) {
     gulp.watch(LESS_FILES, ['less']);
 
     staticServer.create().listen(config.DEV_SERVER_PORT, function() {
-      gutil.log('Development server listening at ' +
+      gutil.log('Server defined by [test/browser/server.js] listening at ' +
                 gutil.colors.green.bold(config.ORIGIN) + '.');
     });
   });
