@@ -12,6 +12,8 @@ var PORT = process.env.PORT || 8008;
 var PRODUCTION = (process.env.NODE_ENV === 'production');
 var DIST_DIR = path.join(__dirname, 'dist');
 
+var WpPageChecker = require('./lib/wp-page-checker');
+
 var habitat = require('habitat');
 habitat.load('.env');
 
@@ -87,41 +89,52 @@ app.use(function(req, res, next) {
 });
 
 /**
+ * Is this a static asset?
+ */
+app.use('/', express.static(DIST_DIR));
+
+/**
  * If it's not a redirect, is it a component page?
  */
 app.use(function(req, res, next) {
   var routes = indexStatic.routes;
   var location = urlToRoutePath(req.url);
+  var urls = indexStatic.URLS;
 
   match({ routes: routes, location: location}, function resolveRoute(err, redirect, props) {
-    // this is a valid component: generat its associated page
+    // this is a valid component
     if (props) {
-      indexStatic.generate(location, {}, function(err, location, title, html) {
-        if (err) {
-          return next(err);
-        }
-        return res.type('html').send(html);
-      });
-    }
-    // this is not a specific component - although it might be if we massage the path:
-    else {
-      location = urlToRoutePath(req.path) + '/';
-      match({ routes: routes, location: location}, function resolvePath(err, redirect, props) {
-        if (redirect || props) {
-          // this will work, as long as we rewrite the path
-          return res.redirect(req.path + '/');
-        }
-        // this is not a url that can be services by React. Try more middleware.
-        return next();
-      });
+      // this belongs to one of the predefined urls, let's generate its associated page
+      if ( urls.indexOf(location) != -1 ) {
+        renderComponentPage(location,res);
+      } else { // check to see a page with this slug exists on the WordPress site
+        WpPageChecker(location, function(error, wpContent) {
+          if ( error ) {
+            console.log("///// WpPageChecker error");
+            return next();
+          }
+          // WP page exists, let's load the WordPress content through a component page
+          renderComponentPage(location,res);
+        });
+      }
+    } else { // Note we will never hit here due to our React Router's routes setup. (See routes.jsx)
+      return next();
     }
   });
 });
 
-/**
- * Last chance: is this a static asset?
- */
-app.use(express.static(DIST_DIR));
+function renderComponentPage(location, res) {
+  indexStatic.generate(location, {}, function(err, location, title, html) {
+    if (err) {
+      next(err);
+    }
+    res.type('html').send(html);
+  });
+}
+
+app.use(function(req, res, next) {
+  res.status(404).send(notFoundHTML);
+});
 
 app.DIST_DIR = DIST_DIR;
 app.updateIndexStatic = updateIndexStatic;
