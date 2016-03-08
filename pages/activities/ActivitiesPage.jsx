@@ -45,7 +45,7 @@ var ActivitiesPage = React.createClass({
               description="Explore making, media production, reverse-image search, and design on the web."/>
             <ActivityKit
               src1x="/img/pages/intermediate-web-lit/blocks.png"
-              caption={<a href="https://pixabay.com/en/building-blocks-colorful-build-456616/">CC by Counseling</a>}
+              caption={<a href="https://pixabay.com/en/building-blocks-colorful-build-456616/">CC0 by Counseling</a>}
               title="Intermediate Web Literacy I: Intro to CSS"
               level="Intermediate"
               link="/activities/intermediate-web-lit/"
