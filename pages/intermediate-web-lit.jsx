@@ -19,7 +19,7 @@ var Intro = (
   </div>
 );
 
-var WebLitBasics = (
+var IntermediateWebLit = (
   <section className="row web-lit-basics">
     <div className="col-sm-12">
       <h2>Learning Objectives</h2>
@@ -32,7 +32,7 @@ var WebLitBasics = (
 
 var curriculumList = [
   {
-    title: "Reading the Web",
+    title: "Writing the Web",
     activities: [
       {
         title: "CSS Word Pyramid",
@@ -62,50 +62,36 @@ var curriculumList = [
         description: "Learners will search for webfonts to include in a webpage, matching the mood, purpose, tone and voice of the page while learning about coding, composing, and design.",
         link: "http://chadsansing.github.io/curriculum-testing/curriculum-migration/intermediate-web-lit-css-one-migrated/session03-css-circles.html"
       },
-    ]
-  },
-  {
-    title: "Writing the Web",
-    activities: [
       {
-        title: "Hack the News",
-        image1x: "/img/pages/web-lit-basics/img-hack-news.jpg",
-        image2x: "/img/pages/web-lit-basics/img-hack-news@2x.jpg",
-        subtitle: "Understanding remixing",
-        description: "Learners use X-Ray Goggles to remix a news website, learning about openly-licensed resources, different forms of media, and how to create something new on the Web through remixing.",
-        link: "https://mozilla.github.io/mozilla-club-activity-hack-the-news/#en"
+        title: "CSS Building Blocks",
+        image1x: "/img/pages/intermediate-web-lit/blocks.png",
+        subtitle: "Coding/Scripting, Composing, Design",
+        description: "Learners will search for webfonts to include in a webpage, matching the mood, purpose, tone and voice of the page while learning about coding, composing, and design.",
+        link: "http://chadsansing.github.io/curriculum-testing/curriculum-migration/intermediate-web-lit-css-one-migrated/session04-css-building-blocks.html"
       },
       {
-        title: "HTML Puzzle Boxes",
-        image1x: "/img/pages/web-lit-basics/img-puzzle-boxes.jpg",
-        image2x: "/img/pages/web-lit-basics/img-puzzle-boxes@2x.jpg",
-        subtitle: "Understanding composing for the web",
-        description: "Learners race to sequence the paper boxes labeled with HTML tags, becoming familiar with the most common HTML tags and how to structure a web page.",
-        link: "https://mozilla.github.io/mozilla-club-activity-html-puzzle-boxes/#en"
-      }
-    ]
-  },
-  {
-    title: "Participating on the Web",
-    activities: [
-      {
-        title: "Web Chef",
-        image1x: "/img/pages/web-lit-basics/img-web-chef.jpg",
-        image2x: "/img/pages/web-lit-basics/img-web-chef@2x.jpg",
-        subtitle: "Understanding open practices",
-        description: "Learners teach their peers a skill and document the steps by making a web resource that includes properly-attributed open content.",
-        link: "https://mozilla.github.io/mozilla-club-activity-web-chef/#en"
+        title: "CSS Decoration",
+        image1x: "/img/pages/intermediate-web-lit/decoration.jpg",
+        subtitle: "Coding/Scripting, Composing, Design",
+        description: "Learners will apply text- and box-effect CSS styling techniques to inline and block elements on an HTML webpage, learning about coding, composing, and design.",
+        link: "http://chadsansing.github.io/curriculum-testing/curriculum-migration/intermediate-web-lit-css-one-migrated/session05-css-decoration.html"
       },
       {
-        title: "Final Project: Story of Us",
-        image1x: "/img/pages/web-lit-basics/img-story-of-us.jpg",
-        image2x: "/img/pages/web-lit-basics/img-story-of-us@2x.jpg",
-        subtitle: "Understanding community participation",
-        description: "Learners tell their Story of Self, use it to reflect  on what they have learned, and how they want to participate on the web and with their community going forward.",
-        link: "https://mozilla.github.io/mozilla-club-activity-story-of-us/#en"
-      }
+        title: "Web-o-tron & the Scrambled Divs",
+        image1x: "/img/pages/intermediate-web-lit/webotron-head.png",
+        subtitle: "Coding/Scripting, Composing, Design",
+        description: "Learners will apply text- and box-effect CSS styling techniques to inline and block elements on an HTML webpage, learning about coding, composing, and design.",
+        link: "http://chadsansing.github.io/curriculum-testing/curriculum-migration/intermediate-web-lit-css-one-migrated/session06-webotron-and-the-scrambled-divs.html"
+      },
+      {
+        title: "CSS External Tutorials",
+        image1x: "/img/pages/intermediate-web-lit/flexbox-froggy.png",
+        subtitle: "Coding/Scripting, Composing, Design",
+        description: "Learners will apply multi-part CSS selectors and flexbox positioning with external CSS tutorial games, learning about coding, composing, and design.",
+        link: "http://chadsansing.github.io/curriculum-testing/curriculum-migration/intermediate-web-lit-css-one-migrated/session07-external-css-tutorials.html"
+      },
     ]
-  }
+  },
 ];
 
 var curriculum = curriculumList.map(function (section) {
@@ -114,7 +100,7 @@ var curriculum = curriculumList.map(function (section) {
   );
 });
 
-var ClubsCurriculum = React.createClass({
+var ClubsCurricIntermediate = React.createClass({
   statics: {
     pageTitle: 'Web Literacy Basics',
     pageClassName: 'web-lit-basics'
@@ -125,20 +111,11 @@ var ClubsCurriculum = React.createClass({
     return (
       <div className="inner-container">
         {Intro}
-        {WebLitBasics}
-        <section>
-          <div className="alert alert-warning">
-            <strong>Help us translate: </strong>
-            We're making an effort to localize our Web Literacy Basics I curriculum and we need your help!
-            There's increasing interest in starting Mozilla Clubs and teaching web literacy skills in
-            communities around the globe, but our current curricular modules are only available in
-            English. <OutboundLink to={blogPostLink} eventLabel={blogPostLink}>Learn how you can help</OutboundLink>.
-          </div>
-        </section>
+        {IntermediateWebLit}
         {curriculum}
       </div>
     );
   }
 });
 
-module.exports = ClubsCurriculum;
+module.exports = ClubsCurricIntermediate;

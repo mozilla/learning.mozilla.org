@@ -44,6 +44,14 @@ var ActivitiesPage = React.createClass({
               developedBy="Mozilla Learning Networks"
               description="Explore making, media production, reverse-image search, and design on the web."/>
             <ActivityKit
+              src1x="/img/pages/intermediate-web-lit/blocks.png"
+              caption={<a href="https://pixabay.com/en/building-blocks-colorful-build-456616/">CC by Counseling</a>}
+              title="Intermediate Web Literacy I: Intro to CSS"
+              level="Intermediate"
+              link="/activities/intermediate-web-lit/"
+              developedBy="Mozilla Learning Networks"
+              description="Learn to style HTML elements on a webpage using CSS selectors, attributes, and values."/>
+            <ActivityKit
               src1x="/img/pages/protect-your-data/protect-your-data.png"
               src2x="/img/pages/protect-your-data/protect-your-data@2x.png"
               title="Protect Your Data"
