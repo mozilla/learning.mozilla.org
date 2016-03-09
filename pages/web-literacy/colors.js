@@ -1,7 +1,7 @@
 var categories = require('./categories');
 
 module.exports = {
-  fill(v) {
+  fill: function(v) {
     if (typeof v === 'number') {
       if(v===0) return 'white';
       if(v===1) return '#EEE';
@@ -17,7 +17,7 @@ module.exports = {
     return "transparent";
   },
 
-  stroke(v) {
+  stroke: function(v) {
     if (typeof v === 'number') {
       if(v===0) return 'black';
       if(v===1) return 'black';

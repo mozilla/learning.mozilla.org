@@ -14,7 +14,13 @@ var MENU_ENTRIES = [
     name: "Web Literacy",
     to: "/web-literacy",
     icon: "/img/components/sidebar/svg/icon-nav-weblit.svg",
-    className: "web-literacy"
+    className: "web-literacy",
+    subItems: [
+      {
+        name: "21st Century Skills",
+        to: '/web-literacy/skills'
+      }
+    ]
   },
   {
     name: "Leadership Opportunities",

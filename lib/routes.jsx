@@ -38,7 +38,7 @@ var pages = {
   'opportunities': require('../pages/opportunities.jsx'),
   'tools': require('../pages/tools.jsx'),
   'me': require('../pages/makes.jsx'),
-  'web-literacy': require('../pages/web-literacy.jsx')
+  'web-literacy/skills': require('../pages/web-literacy-skills.jsx')
 };
 
 /**
@@ -52,6 +52,27 @@ var redirects = {
 
 // aggregate all paths used in the app
 var urls = ['/'];
+urls = urls.concat([
+  'web-literacy',
+  'web-literacy/Participate',
+  'web-literacy/Participate/Connect',
+  'web-literacy/Participate/Protect',
+  'web-literacy/Participate/Open Practice',
+  'web-literacy/Participate/Contribute',
+  'web-literacy/Participate/Share',
+  'web-literacy/Write',
+  'web-literacy/Write/Design',
+  'web-literacy/Write/Code',
+  'web-literacy/Write/Compose',
+  'web-literacy/Write/Revise',
+  'web-literacy/Write/Remix',
+  'web-literacy/Read',
+  'web-literacy/Read/Search',
+  'web-literacy/Read/Navigate',
+  'web-literacy/Read/Synthesize',
+  'web-literacy/Read/Evaluate'
+]);
+
 urls = urls.concat( Object.keys(pages)     );
 urls = urls.concat( Object.keys(redirects) );
 // remove duplicates. Just in case.
@@ -80,6 +101,11 @@ var routes = (
     <IndexRoute component={require('../pages/home.jsx')} />
     {routeElements}
     {redirectElements}
+    <Route path="web-literacy" component={require('../pages/web-literacy.jsx')}>
+      <Route path=":verb" component={require('../pages/web-literacy.jsx')}>
+        <Route path=":webLitSkill" component={require('../pages/web-literacy.jsx')}/>
+      </Route>
+    </Route>
   </Route>
 );
 

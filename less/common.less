@@ -305,3 +305,8 @@ textarea {
     font-family: "FontAwesome";
   }
 }
+
+.comma-separated-links {
+  &:after { content: ", "; }
+  &:last-child:after { content: ""; }
+}
