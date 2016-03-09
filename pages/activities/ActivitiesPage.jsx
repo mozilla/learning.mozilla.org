@@ -100,13 +100,12 @@ var ActivitiesPage = React.createClass({
               developedBy={<div><a href="http://en.mozillafactory.org/tagged/COMOZILLA">Mozilla Factory</a> and <a href="http://twitter.com/smithisgeneric">Karen Smith</a> and remixed by <Link to={"/"}>Mozilla Learning Networks</Link>.</div>}
               description="Learn to use Mozilla Factory’s Parapara and Fabble, open web tools for animation and sharing work online. Create 2D animations, 3D projection-mapped animations, and ‘recipes’ that others can fork for remix on Fabble."/>
             <ActivityKit
-              src1x="/img/pages/activities/img-activity-03.png"
-              src2x="/img/pages/activities/img-activity-03@2x.png"
-              title="Creative Commons GIF Exchange"
+              src1x="/img/pages/activities/mouse.png"
+              title="Code/Explore/Connect with Mouse"
               level="Beginner"
-              link="https://d157rqmxrxj6ey.cloudfront.net/mouseorg/18015/"
-              developedBy={<div><a href="http://mouse.org">MOUSE (Hive NYC member)</a></div>}
-              description="This activity teachers students about Creative Commons licensing while creating their own animated GIFs or memes."/>
+              link="https://d157rqmxrxj6ey.cloudfront.net/mouseorg/34864/"
+              developedBy={<div><a href="http://www.mouse.org">MOUSE (Hive NYC member)</a>.</div>}
+              description="Mouse's online and offline activities like Kraken the Code, Tag Tag Revolution and CSS Story Cards explore topics ranging from HTML/CSS to search engine optimization and online identities."/>  
             <ActivityKit
               src1x="/img/pages/activities/img-activity-04.jpg"
               src2x="/img/pages/activities/img-activity-04@2x.jpg"
@@ -139,14 +138,6 @@ var ActivitiesPage = React.createClass({
               link="https://laura.makes.org/thimble/LTU1NDA0MTA4OA==/hack-your-notebook-teaching-kit"
               developedBy={<div><a href="http://educatorinnovator.org/">Educator Inovator</a> - <a href="https://twitter.com/jennifer_dick">Jen Dick</a>, <a href="http://technolojie.com/sample-page/">Jie Qi</a>, <a href="https://www.linkedin.com/in/dcole1">David Cole</a>, and <a href="http://twitter.com/chadsansing">Chad Sansing</a></div>}
               description="In this series of activities, learners will explore the connections between art, circuitry and systems thinking by hacking their notbooks/journals with power and LEDs."/>
-            <ActivityKit
-              src1x="/img/pages/activities/img-activity-08.jpg"
-              src2x="/img/pages/activities/img-activity-08@2x.jpg"
-              title="CSS Story Cards"
-              level="Intermediate"
-              link="https://d157rqmxrxj6ey.cloudfront.net/mouseorg/19913/"
-              developedBy={<div><a href="http://mouse.org">MOUSE (Hive NYC member)</a></div>}
-              description="In this card game, learners work collaboratively to create a complete story using HTML and CSS."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-QuackingJavascript.jpg"
               src2x="/img/pages/activities/img-activity-QuackingJavascript@2x.jpg"
