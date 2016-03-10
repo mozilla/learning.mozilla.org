@@ -44,6 +44,14 @@ var ActivitiesPage = React.createClass({
               developedBy="Mozilla Learning Networks"
               description="Explore making, media production, reverse-image search, and design on the web."/>
             <ActivityKit
+              src1x="/img/pages/intermediate-web-lit/blocks.png"
+              caption={<a href="https://pixabay.com/en/building-blocks-colorful-build-456616/">CC0 by Counseling</a>}
+              title="Intermediate Web Literacy I: Intro to CSS"
+              level="Intermediate"
+              link="/activities/intermediate-web-lit/"
+              developedBy="Mozilla Learning Networks"
+              description="Learn to style HTML elements on a webpage using CSS selectors, attributes, and values."/>
+            <ActivityKit
               src1x="/img/pages/protect-your-data/protect-your-data.png"
               src2x="/img/pages/protect-your-data/protect-your-data@2x.png"
               title="Protect Your Data"
@@ -100,13 +108,12 @@ var ActivitiesPage = React.createClass({
               developedBy={<div><a href="http://en.mozillafactory.org/tagged/COMOZILLA">Mozilla Factory</a> and <a href="http://twitter.com/smithisgeneric">Karen Smith</a> and remixed by <Link to={"/"}>Mozilla Learning Networks</Link>.</div>}
               description="Learn to use Mozilla Factory’s Parapara and Fabble, open web tools for animation and sharing work online. Create 2D animations, 3D projection-mapped animations, and ‘recipes’ that others can fork for remix on Fabble."/>
             <ActivityKit
-              src1x="/img/pages/activities/img-activity-03.png"
-              src2x="/img/pages/activities/img-activity-03@2x.png"
-              title="Creative Commons GIF Exchange"
+              src1x="/img/pages/activities/mouse.png"
+              title="Code/Explore/Connect with Mouse"
               level="Beginner"
-              link="https://d157rqmxrxj6ey.cloudfront.net/mouseorg/18015/"
-              developedBy={<div><a href="http://mouse.org">MOUSE (Hive NYC member)</a></div>}
-              description="This activity teachers students about Creative Commons licensing while creating their own animated GIFs or memes."/>
+              link="https://d157rqmxrxj6ey.cloudfront.net/mouseorg/34864/"
+              developedBy={<div><a href="http://www.mouse.org">MOUSE (Hive NYC member)</a>.</div>}
+              description="Mouse's online and offline activities like Kraken the Code, Tag Tag Revolution and CSS Story Cards explore topics ranging from HTML/CSS to search engine optimization and online identities."/>  
             <ActivityKit
               src1x="/img/pages/activities/img-activity-04.jpg"
               src2x="/img/pages/activities/img-activity-04@2x.jpg"
@@ -140,14 +147,6 @@ var ActivitiesPage = React.createClass({
               developedBy={<div><a href="http://educatorinnovator.org/">Educator Inovator</a> - <a href="https://twitter.com/jennifer_dick">Jen Dick</a>, <a href="http://technolojie.com/sample-page/">Jie Qi</a>, <a href="https://www.linkedin.com/in/dcole1">David Cole</a>, and <a href="http://twitter.com/chadsansing">Chad Sansing</a></div>}
               description="In this series of activities, learners will explore the connections between art, circuitry and systems thinking by hacking their notbooks/journals with power and LEDs."/>
             <ActivityKit
-              src1x="/img/pages/activities/img-activity-08.jpg"
-              src2x="/img/pages/activities/img-activity-08@2x.jpg"
-              title="CSS Story Cards"
-              level="Intermediate"
-              link="https://d157rqmxrxj6ey.cloudfront.net/mouseorg/19913/"
-              developedBy={<div><a href="http://mouse.org">MOUSE (Hive NYC member)</a></div>}
-              description="In this card game, learners work collaboratively to create a complete story using HTML and CSS."/>
-            <ActivityKit
               src1x="/img/pages/activities/img-activity-QuackingJavascript.jpg"
               src2x="/img/pages/activities/img-activity-QuackingJavascript@2x.jpg"
               title="Quacking JavaScript"
@@ -171,6 +170,14 @@ var ActivitiesPage = React.createClass({
               link="https://stephguthrie.makes.org/thimble/ODU3ODAxMjE2/hacking-my-media-with-x-ray-goggles"
               developedBy={<div><a href="http://twitter.com/amirightfolks">Steph Guthrie</a>, <a href="http://twitter.com/kimxtom">Kim Wilkens</a>, and 2013 MozGirls</div>}
               description="In this activity, learners create a remix of a Wikimedia page as they think critically about the intersection of gender, culture, technology and identity."/>
+            <ActivityKit
+              src1x="/img/pages/activities/web-lit-training.jpg"
+              caption={ <a href="https://www.flickr.com/photos/newyouthcity/16304513515/in/album-72157650350884885/">Hive Learning NYC</a> }
+              title="Mozilla Web Literacy Leaders 1-Day Training Module"
+              level="Beginner"
+              link="https://d157rqmxrxj6ey.cloudfront.net/anmechung/40860/"
+              developedBy={<div>Mozilla</div>}
+              description="An interactive, learner-centered 1-day training module designed to learn and teach others how to read, write, and participate on the Web."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-madewithcode.png"
               title="Made with Code"

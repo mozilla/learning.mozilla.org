@@ -113,7 +113,7 @@ var HomePage = React.createClass({
           </section>
         </div>
 
-        <div className="row quote">
+        <div className="row full-row quote">
           <section>
             {CaseStudies}
           </section>

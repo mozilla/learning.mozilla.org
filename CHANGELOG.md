@@ -5,6 +5,17 @@ which uses the format described in
 to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
+
+## [0.0.33][] - 2016-03-10
+### Changed
+- Removed Creative Commons GIF Exchange module and CSS Story Cards module.
+- Minor text updates to Curriculum Workshop page.
+
+### Added
+- Added two new modules to /activities, the Mouse module and Intermediate 
+  Web Literacy module.
+
+## [0.0.32][] - 2016-03-02
 ### Changed
 - Updated the donate link.
 - Replaced Pledge to Teach CTA with newsletter signup.
@@ -488,7 +499,9 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.31...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.33...HEAD
+[0.0.33]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.32...v0.0.33
+[0.0.32]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.31...v0.0.32
 [0.0.31]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.30...v0.0.31
 [0.0.30]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.29...v0.0.30
 [0.0.29]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.28...v0.0.29
