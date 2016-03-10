@@ -28,7 +28,7 @@ var CurriculumWorkshop = React.createClass({
 
           <section className="callout-box">
             <h2>Upcoming Workshop</h2>
-            <p className="date">March 8th, 8-9 PM ET</p>
+            <p className="date">March 8th - 5 PM PT, 8 PM ET, 10 PM BRT</p>
             <h1>International Women's Day</h1>
             <p className="description">
               With Ingrid Dahl, Claire Shorall, Kim Wilkens, and friends.
@@ -37,6 +37,10 @@ var CurriculumWorkshop = React.createClass({
 
           <p>
             On our inaugural, International Women’s Day episode, Ingrid Dahl, Claire Shorall, Kim Wilkens and friends prototype teaching and learning materials addressing women’s issues, rights, and accomplishments. Viewers can ask questions and share ideas and prototypes of their own through the embedded agenda and chat.
+          </p>
+
+          <p>
+            You can also join the discussion on <a href="https://discourse.webmaker.org/c/mozilla-curriculum-workshop">our community forum</a> or <a href="https://github.com/MozillaFoundation/curriculum-workshop">GitHub</a>.
           </p>
 
           <h3>Workshop Video Stream</h3>
@@ -57,11 +61,14 @@ var CurriculumWorkshop = React.createClass({
 
           <ul className="upcoming-workshops">
             <li>
-              <p className="date">Tuesday, April 12 - 8 PM ET</p>
-              <h2>TBD</h2>
+              <p className="date">Tuesday, April 12 - 5 PM PT, 8 PM ET, 9 PM BRT</p>
+              <h2>Internet of Things</h2>
+              <p>
+                Consider how the Internet of Things might impact our lives and learning and prototype resources to teach about the ways wearables and household items connect to the web.
+              </p>
             </li>
             <li>
-              <p className="date">Tuesday, May 10 - 8 PM ET</p>
+              <p className="date">Tuesday, May 10 -  5 PM PT, 8 PM ET, 9 PM BRT</p>
               <h2>Letters to the Next President</h2>
               <p>
                 Take a look at the National Writing Project’s Letters to the Next President (#2nextprez) campaign, remix suggested activities from campaign partners Hypothes.is and Mozilla, and prototype new pathways for youth civic engagement online.
