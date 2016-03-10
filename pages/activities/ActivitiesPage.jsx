@@ -180,6 +180,14 @@ var ActivitiesPage = React.createClass({
               developedBy={<div><a href="http://twitter.com/amirightfolks">Steph Guthrie</a>, <a href="http://twitter.com/kimxtom">Kim Wilkens</a>, and 2013 MozGirls</div>}
               description="In this activity, learners create a remix of a Wikimedia page as they think critically about the intersection of gender, culture, technology and identity."/>
             <ActivityKit
+              src1x="/img/pages/activities/web-lit-training.jpg"
+              caption={ <a href="https://www.flickr.com/photos/newyouthcity/16304513515/in/album-72157650350884885/">Hive Learning NYC</a> }
+              title="Mozilla Web Literacy Leaders 1-Day Training Module"
+              level="Beginner"
+              link="https://d157rqmxrxj6ey.cloudfront.net/anmechung/40860/"
+              developedBy={<div>Mozilla</div>}
+              description="An interactive, learner-centered 1-day training module designed to learn and teach others how to read, write, and participate on the Web."/>
+            <ActivityKit
               src1x="/img/pages/activities/img-activity-madewithcode.png"
               title="Made with Code"
               level="Beginner"
