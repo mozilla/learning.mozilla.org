@@ -1,19 +1,6 @@
 var React = require('react');
 var WpContentLoader = require('react-wp-content-loader');
-var ImageTag = require('../components/imagetag.jsx');
-
-var NotFoundMessage = function(props) { 
-  return (
-    <div className="not-found">
-      <ImageTag width={500}
-                height='auto'
-                src1x='/img/pages/not-found/book_singlepageflip.gif'
-                alt='' />
-      <p>some error messages here</p>
-    </div>
-  );
-};
-
+var NotFoundMessage = require('../components/not-found.jsx');
 
 var WpContent = function(props) { 
   return (
