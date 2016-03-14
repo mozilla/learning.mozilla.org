@@ -4,10 +4,11 @@ var ImageTag = require('../components/imagetag.jsx');
 
 var NotFoundMessage = function(props) { 
   return (
-    <div classname="not-found">
+    <div className="not-found">
       <ImageTag width={500}
                 height='auto'
-                src1x='/img/pages/not-found/book_singlepageflip.gif' />
+                src1x='/img/pages/not-found/book_singlepageflip.gif'
+                alt='' />
       <p>some error messages here</p>
     </div>
   );
