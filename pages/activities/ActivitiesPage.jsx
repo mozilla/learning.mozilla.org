@@ -58,7 +58,7 @@ var ActivitiesPage = React.createClass({
               level="Beginner mobile users"
               link="/activities/webmaker/"
               developedBy={<div><a href="https://twitter.com/secretrobotron">Bobby Richter</a> and <a href="https://twitter.com/lau_nk">Laura de Reynal</a> for Mozilla Learning</div>}
-              description="Learn how to set up your mobile device to write, publish, and share stories with the Webmaker App from Mozilla Learning Networks."/>
+              description="Learn how to set up your mobile device to write, publish, and share stories with the Webmaker App from Mozilla Learning."/>
             <ActivityKit
               src1x="/img/pages/protect-your-data/protect-your-data.png"
               src2x="/img/pages/protect-your-data/protect-your-data@2x.png"
