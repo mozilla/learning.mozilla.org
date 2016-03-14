@@ -19,7 +19,6 @@ var pages = {
   'activities/madewithcode-poster': require('../pages/madewithcode-poster.jsx'),
   'activities/maker-party-2015': require('../pages/maker-party-2015.jsx'),
   'activities/parapara': require('../pages/parapara.jsx'),
-  'activities/private-eye': require('../pages/private-eye.jsx'),
   'activities/protect-your-data': require('../pages/protect-your-data.jsx'),
   'activities/privacy-basics': require('../pages/privacy-basics.jsx'),
   'activities/web-lit-basics': require('../pages/web-lit-basics.jsx'),
