@@ -77,11 +77,10 @@ describe('app', function() {
       .end(done);
   });
 
-  // [Note] With our React Router routes setup, there will never be any 404 page. (See routes.jsx)
-  // it('reports 404s', function(done) {
-  //   request(app)
-  //     .get('/asdfasdfasdf')
-  //     .expect(404)
-  //     .end(done);
-  // });
+  it('reports 404s', function(done) {
+    request(app)
+      .get('/asdfasdfasdf')
+      .expect(404)
+      .end(done);
+  });
 });

@@ -126,9 +126,9 @@ function renderComponentPage(location, res) {
 }
 
 /**
- * Is this a static asset?
+ * Last chance: is this a static asset?
  */
-app.use('/', express.static(DIST_DIR));
+app.use(express.static(DIST_DIR));
 
 app.use(function(req, res, next) {
   res.status(404).send(notFoundHTML);
