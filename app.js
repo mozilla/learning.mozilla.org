@@ -110,7 +110,6 @@ app.use(function(req, res, next) {
       } else { // check to see a page with this slug exists on the WordPress site
         WpPageChecker(location, function(error, wpContent) {
           if ( error ) {
-            console.log("///// WpPageChecker error");
             return next();
           }
           // WP page exists, let's load the WordPress content through a component page
