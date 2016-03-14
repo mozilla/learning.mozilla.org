@@ -89,11 +89,6 @@ app.use(function(req, res, next) {
 });
 
 /**
- * Is this a static asset?
- */
-app.use('/', express.static(DIST_DIR));
-
-/**
  * If it's not a redirect, is it a component page?
  */
 app.use(function(req, res, next) {
@@ -129,6 +124,11 @@ function renderComponentPage(location, res) {
     res.type('html').send(html);
   });
 }
+
+/**
+ * Is this a static asset?
+ */
+app.use('/', express.static(DIST_DIR));
 
 app.use(function(req, res, next) {
   res.status(404).send(notFoundHTML);
