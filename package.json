@@ -83,7 +83,7 @@
     "react-ga": "^1.0.12",
     "react-router": "^1.0.3",
     "react-select": "^0.9.1",
-    "react-wp-content-loader": "git://github.com/mmmavis/react-wp-content-loader.git",
+    "react-wp-content-loader": "^0.0.2",
     "should": "^8.0.2",
     "source-map-support": "^0.4.0",
     "superagent": "^1.6.1",
