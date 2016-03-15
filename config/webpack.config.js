@@ -50,7 +50,8 @@ module.exports = {
       'NEWSLETTER_MAILINGLIST_URL',
       'OPTIMIZELY_ID',
       'OPTIMIZELY_ACTIVE',
-      'MAKE_METADATA_URL'
+      'MAKE_METADATA_URL',
+      'WORDPRESS_SITE_URL'
     ])),
     new webpack.optimize.CommonsChunkPlugin('commons',
                                             'commons.bundle.js')

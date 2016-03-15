@@ -1,2 +1,2 @@
 // TOOD: clean up indirection
-module.exports = require('./sidebar');
+module.exports = require('./sidebar/');

@@ -55,6 +55,8 @@ describe('app', function() {
   });
 
   it('serves static files', function(done) {
+    this.timeout(10000);
+
     var filename = path.join(app.DIST_DIR, 'hi.txt');
     var str = 'hi ' + Date.now();
 
@@ -78,6 +80,8 @@ describe('app', function() {
   });
 
   it('reports 404s', function(done) {
+    this.timeout(10000);
+    
     request(app)
       .get('/asdfasdfasdf')
       .expect(404)
