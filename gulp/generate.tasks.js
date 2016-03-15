@@ -11,7 +11,7 @@ module.exports = function(gulp) {
     return createIndexFileStream().pipe(gulp.dest('./dist'));
   });
 
-  gulp.task('sitemap', ['generate-index-files'], function() {
+  gulp.task('sitemap', function() {
     gulp.src('dist/**/*.html')
       .pipe(sitemap({
         siteUrl: config.ORIGIN

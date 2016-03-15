@@ -1,4 +1,6 @@
 var webpack = require('webpack');
+var habitat = require('habitat');
+habitat.load();
 
 var production = process.env.NODE_ENV === 'production';
 var IMPORT_ES5_SHIM = 'imports?shim=es5-shim/es5-shim&' +
