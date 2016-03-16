@@ -7,7 +7,8 @@ var React = require('react'),
   Link = require('react-router').Link,
   BadgesAPI = require('../lib/badges-api'),
   TeachAPI = require('../lib/teach-api'),
-  LoginLink = require('../components/login/LoginLink.jsx');
+  LoginLink = require('../components/login/LoginLink.jsx'),
+  Divider = require('../components/Divider.jsx');
 
 var BadgesPage = React.createClass({
   statics: {
@@ -52,6 +53,22 @@ var BadgesPage = React.createClass({
     }
 
     return data;
+  },
+  formLoginBlock: function() {
+    if (this.state.teachAPI.getUsername()) return null;
+ 
+    return (
+      <div className="signinblock" style={{ marginTop: '4em' }}>
+        <Divider className="badges"/>
+
+        <div className={'text-center login-cta'}>
+          <span className={'login-text'}>Sign in to start earning credentials.</span>
+          <LoginLink className="btn btn-awsm" loginBaseURL={this.state.teachAPI.baseURL} callbackURL={this.props.currentPath}>Sign in</LoginLink>
+        </div>
+
+        <Divider className="badges"/>
+      </div>
+    );
   },
   render: function () {
     var linkUrl = "",
@@ -109,22 +126,7 @@ var BadgesPage = React.createClass({
           </section>
         </HeroUnit>
 
-        <div className="login-section">
-          <div>
-            <img src="/img/pages/badges/svg/divider.svg" width={'90%'}
-               className="center-block horizontal-divider"/>
-          </div>
-
-          <div className={'text-center login-cta'}>
-            <span className={'login-text'}>Sign in to start earning credentials.</span>
-            <LoginLink loginBaseURL={this.state.teachAPI.baseURL} callbackURL={this.props.currentPath}>Sign in</LoginLink>
-          </div>
-
-          <div>
-            <img src="/img/pages/badges/svg/divider.svg" width={'90%'} alt=""
-               className="center-block horizontal-divider"/>
-          </div>
-        </div>
+        { this.formLoginBlock() }
 
         <div className="inner-container badges-content">
           <section>
