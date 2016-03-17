@@ -30,6 +30,7 @@ var pages = {
   'clubs/list': require('../pages/clubs-list.jsx'),
   'community': require('../pages/community.jsx'),
   'community/curriculum-workshop': require('../pages/curriculum-workshop.jsx'),
+  'community/community-call': require('../pages/community-call.jsx'),
   'events': require('../pages/events.jsx'),
   'events/resources': require('../pages/event-resources.jsx'),
   'fixme': require('../pages/fixme.jsx'),
