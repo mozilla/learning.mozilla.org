@@ -133,7 +133,7 @@ h2 {
   padding: 25px;
   background: #eee;
   height: 0;
-  padding-bottom: 60%;
+  padding-bottom: 34%;
   margin: 0 0 25px 0;
   position: relative;
 
@@ -141,10 +141,22 @@ h2 {
     margin: 0 auto;
     position: absolute;
     top: 20px;
-    left: 20px;
+    left: 20%;
     border: none;
     height: ~"calc(100% - 40px)";
     width: ~"calc(100% - 40px)";
+    max-width: 60%;
   }
 }
 
+// Makes the embedded video 100% width for smaller screen widths
+@media screen and (max-width: @screen-sm) {
+  .video-wrapper {
+    padding-bottom: 60%;
+
+    .workshop-video {
+      max-width: 100%;
+      left: 20px;
+    }
+  }
+}
