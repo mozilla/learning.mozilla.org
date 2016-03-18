@@ -44,7 +44,7 @@ var curriculumList = [
         image1x: "/img/pages/web-lit-basics/img-kraken-code.jpg",
         image2x: "/img/pages/web-lit-basics/img-kraken-code@2x.jpg",
         subtitle: "Understanding credibility",
-        description: "Learners use the Internet to solve the mystery of The Kraken, a legendary sea creature, while also learning about search terms, keywords, and how to assess the validity and relevance of web sources.",
+        description: "Learners use the Internet to solve the mystery of The Kraken, a legendary sea creature, while also learning about search terms, keywords, and how to assess the validity and relevance of web sources. This activity was made by <a href='http://mouse.org'>MOUSE</a>.",
         link: "https://mozilla.github.io/mozilla-club-activity-kraken-the-code/#en"
       },
       {
