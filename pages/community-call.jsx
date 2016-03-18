@@ -11,7 +11,7 @@ var CommunityCallPage = React.createClass({
   },
   render: function () {
     return (
-        <div className="inner-container">
+        <div className="inner-container call-container">
           <section className="intro intro-after-banner">
            <Illustration
              height={175} width={175}
