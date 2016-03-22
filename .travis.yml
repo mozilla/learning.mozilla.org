@@ -1,8 +1,11 @@
 language: node_js
 node_js:
 - '4.2'
-after_success: npm run travis-after-success
-env:
-  global:
-  - AWS_ACCESS_KEY: AKIAJRDKELRKFFVV5CPA
-  - secure: fTFD+q9V+GLtGryFuI0PjeXMex7tVOEhslC9WEIseL/IlSYgupL/qc+pZJ5PEdpEGDAc4HigizkOxjVDS8BGYbvC3E0Q5mSQ02fMGPJmZdr18XcHpdTs9PabHJiI8elVKV5Z0Co0UzVGl9w/Qv32wDpBJOQaWPH8VD6zHzqufDY=
+deploy:
+  provider: heroku
+  api_key:
+    secure: HJsD9fZmzHY7MhUjVJBbsRl9mpjDvsThs4V66hU8kIqFMOtSKjbTxgwIyYABSCgN1NkmA5vWDUE8Ux3rdZ/MWQrnN50IM8+zSDUTwW6tqOAysPNv8R9+oMziAvAuLt5ykzeHAUEhO6UHojjHoSJ5kV13Ja5/blfgEfjJAdCMb+M=
+  app: teach-mozilla-org-production
+  on:
+    repo: mozilla/teach.mozilla.org
+    branch: master
