@@ -6,6 +6,18 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.34][] - 2016-03-22
+### Changed
+- The site now has a real server! Pages on https://teach.mozilla.org are 
+  served by the server and  are no longer static files live on S3.
+- Turned off auto push to S3 when the `develop` branch is updated.
+- Updated Mouse logo.
+- Removed Private Eye page.
+
+### Added
+- Added Community Call page.
+- Added 404 messages server side.
+
 ## [0.0.33][] - 2016-03-10
 ### Changed
 - Removed Creative Commons GIF Exchange module and CSS Story Cards module.
@@ -499,7 +511,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.33...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.34...HEAD
+[0.0.34]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.33...v0.0.34
 [0.0.33]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.32...v0.0.33
 [0.0.32]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.31...v0.0.32
 [0.0.31]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.30...v0.0.31
