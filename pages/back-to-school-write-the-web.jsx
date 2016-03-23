@@ -5,7 +5,7 @@ var Link = require('react-router').Link;
 
 var Intro = (
   <div>
-    <h1>Back-to-School Write the Web Kit</h1>
+    <h1>Back-to-School Write the Web Activities</h1>
     <section className="intro">
       <Illustration
         height={204} width={204}
