@@ -72,12 +72,13 @@ var redirectElements = Object.keys(redirects).map(function(path) {
 // This is basically a catch-all pattern that allows us to grab requested path and pass it 
 // as the WP page slug in a WP API call. If WP sends back 200, we display the content.
 // Else error message will be shown on the page. Note that the API call is made on client side.
+// [NOTE] add <Route path=":wpSlug" component={require('../pages/wp-content.jsx')}/> back
+//        when we are ready to expose "WP pages" on production
 var routes = (
   <Route path='/' component={require('../components/page.jsx')} >
     <IndexRoute component={require('../pages/home.jsx')} />
     {routeElements}
     {redirectElements}
-    <Route path=":wpSlug" component={require('../pages/wp-content.jsx')}/>
   </Route>
 );
 
