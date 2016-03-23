@@ -18,6 +18,11 @@
   "scripts": {
     "app": "gulp app",
     "build": "gulp",
+    "preapp": "rm -rf dist",
+    "prebuild": "rm -rf dist",
+    "presmoketest": "rm -rf dist",
+    "prestart": "rm -rf dist",
+    "pretest": "rm -rf dist",
     "postinstall": "gulp postinstall",
     "smoketest": "gulp smoketest",
     "spider": "node test/browser/spider.js",
