@@ -30,7 +30,7 @@ describe('app', function() {
       return redirects.indexOf(route) === -1;
     }).map(function(url) {
       if (url === '/') return '/';
-      return '/' + url;
+      return '/' + url + '/';
     });
 
     function nextRequest(lastErr) {

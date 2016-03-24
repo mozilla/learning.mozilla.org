@@ -1,0 +1,41 @@
+.web-literacy-skills-page {
+  .hero-unit {
+    background-image: url(/img/pages/web-literacy/21cskills/hero-unit.jpg);
+    background-position: 0px 0px;
+    .retina2x({
+      background-image: url(/img/pages/web-literacy/21cskills/hero-unit@2x.jpg);
+    });
+  }
+  h3 {
+    font-weight: 300;
+    line-height: 1.375;
+  }
+  .competency-content {
+    h4 {
+      margin-top: 20px;
+      margin-bottom: 5px;
+    }
+    .line-item {
+      padding: 8px 0;
+      border-bottom: solid 1px rgba(0,0,0,.1);
+      &:last-child {
+        border-bottom: none;
+      }
+      padding-bottom: 10px;
+    }
+  }
+  .illustration {
+    @media screen and (min-width: @screen-sm-min) {
+      padding-top: 8px;
+      align-items: stretch;
+      .image-container {
+        margin-top: 10px;
+      }
+      .content-container {
+        h2 {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}

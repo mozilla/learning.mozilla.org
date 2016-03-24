@@ -44,7 +44,7 @@ var ToolsPage = React.createClass({
               highlightedText="podcast"
             />
             <IconLink
-              link="/activities/web-literacy"
+              link="/web-literacy"
               imgSrc="/img/pages/tools/svg/icon-learn.svg"
               head="Explore"
               subhead="Learn more about the Web Literacy Map."
