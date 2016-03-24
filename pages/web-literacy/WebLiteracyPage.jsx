@@ -282,7 +282,7 @@ var WebLitPage = React.createClass({
           </section>
           <section className="weblit-nav">
             <div className="c21-skills">
-              <Link to="web-literacy/skills"><h3>21st Century Skills</h3></Link>
+              <Link to="/web-literacy/skills/"><h3>21st Century Skills</h3></Link>
               <ul>
                 {this.renderCheckboxes()}
               </ul>
