@@ -1,6 +1,8 @@
 var path = require('path');
 var fs = require('fs');
 var express = require('express');
+var helmet = require('helmet');
+var frameguard = require('frameguard');
 
 var React = require('react');
 var ReactRouter = require('react-router');
@@ -84,6 +86,11 @@ if (!fs.existsSync(DIST_DIR)) {
   fs.mkdirSync(DIST_DIR);
 }
 
+// app.use(frameguard({
+//   action: 'allow-from',
+//   domain: 'http://calypso.localhost:3000'
+// }))
+
 /**
  * Wait for the router to come online.
  */
@@ -121,8 +128,10 @@ app.use(function(req, res, next) {
     // this belongs to one of the predefined urls, let's generate its associated page
     if ( urls.indexOf(location) != -1 ) {
       return renderComponentPage(location,res);
+    } else if (props.params.preview_id) {
+      return renderComponentPage(location,res);
     } else { // check to see a page with this slug exists on the WordPress site
-      WpPageChecker(location, function(error, wpContent) {
+      WpPageChecker(props.params.wpSlug, function(error, wpContent) {
         if ( error ) {
           return next();
         }
