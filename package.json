@@ -1,6 +1,6 @@
 {
   "name": "teach.mozilla.org",
-  "version": "0.0.34",
+  "version": "0.0.35",
   "description": " Initial attempt at implementing Webmaker Learning front-page.",
   "author": "Mozilla",
   "license": "MPL-2.0",
@@ -13,7 +13,7 @@
     "url": "https://github.com/mozilla/teach.mozilla.org/issues"
   },
   "engines": {
-    "node": ">=4.2.0"
+    "node": "^4.4.1"
   },
   "scripts": {
     "app": "gulp app",
@@ -79,6 +79,7 @@
     "react-addons-pure-render-mixin": "^0.14.3",
     "react-addons-test-utils": "^0.14.3",
     "react-addons-transition-group": "^0.14.3",
+    "react-circletree": "^2.5.0",
     "react-dom": "^0.14.3",
     "react-ga": "^1.0.12",
     "react-router": "^1.0.3",
@@ -102,5 +103,6 @@
     "open": "0.0.5",
     "simplecrawler": "^0.5.2",
     "supertest": "^1.0.1"
-  }
+  },
+  "private": true
 }

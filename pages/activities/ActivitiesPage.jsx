@@ -30,7 +30,7 @@ var ActivitiesPage = React.createClass({
             <ActivityKit
               src1x="/img/pages/activities/img-activity-curriculum.png"
               src2x="/img/pages/activities/img-activity-curriculum@2x.png"
-              title="Web Literacy Basics (Teaching Kit)"
+              title="Web Literacy Basics"
               level="Beginner"
               link="/activities/web-lit-basics/"
               developedBy="Our seasoned educator community"
@@ -38,10 +38,10 @@ var ActivitiesPage = React.createClass({
             <ActivityKit
               src1x="/img/pages/activities/web-lit-basics-two.jpg"
               caption={<a href="https://c2.staticflickr.com/6/5760/22431506387_43e85e71bd.jpg">cc-by-2.0 Mozilla Festival</a>}
-              title="Web Literacy Basics II (Teaching Kit)"
+              title="Web Literacy Basics II"
               level="Beginner"
               link="/activities/web-lit-basics-two/"
-              developedBy="Mozilla Learning Networks"
+              developedBy="Mozilla Learning"
               description="Explore making, media production, reverse-image search, and design on the web."/>
             <ActivityKit
               src1x="/img/pages/intermediate-web-lit/blocks.png"
@@ -49,31 +49,31 @@ var ActivitiesPage = React.createClass({
               title="Intermediate Web Literacy I: Intro to CSS"
               level="Intermediate"
               link="/activities/intermediate-web-lit/"
-              developedBy="Mozilla Learning Networks"
+              developedBy="Mozilla Learning"
               description="Learn to style HTML elements on a webpage using CSS selectors, attributes, and values."/>
-            <ActivityKit
-              src1x="/img/pages/protect-your-data/protect-your-data.png"
-              src2x="/img/pages/protect-your-data/protect-your-data@2x.png"
-              title="Protect Your Data"
-              level="Beginner"
-              link="/activities/protect-your-data/"
-              developedBy={<div><a href="http://hivetoronto.org">Hive Toronto</a> in partnership with <a href="https://www.priv.gc.ca/index_e.asp">the Office of the Privacy Commissioner of Canada</a>, and <a href="https://www.mozilla.org/privacy/">Mozilla Privacy</a></div>}
-              description="These six hands-on activities engage learners in thinking critically about online privacy by creating secure passwords, understanding how and where their data is being collected, and more. This is an ideal kit for Mozilla Clubs."/>
             <ActivityKit
               src1x="/img/pages/webmaker/designing-webmaker.jpg"
               src2x="/img/pages/webmaker/designing-webmaker@2x.jpg"
               title="Read, Write, and Participate with Webmaker"
               level="Beginner mobile users"
               link="/activities/webmaker/"
-              developedBy={<div><a href="https://twitter.com/secretrobotron">Bobby Richter</a> and <a href="https://twitter.com/lau_nk">Laura de Reynal</a> for Mozilla Learning Networks</div>}
-              description="Learn how to set up your mobile device to write, publish, and share stories with the Webmaker App from Mozilla Learning Networks."/>
+              developedBy={<div><a href="https://twitter.com/secretrobotron">Bobby Richter</a> and <a href="https://twitter.com/lau_nk">Laura de Reynal</a> for Mozilla Learning</div>}
+              description="Learn how to set up your mobile device to write, publish, and share stories with the Webmaker App from Mozilla Learning."/>
+            <ActivityKit
+              src1x="/img/pages/protect-your-data/protect-your-data.png"
+              src2x="/img/pages/protect-your-data/protect-your-data@2x.png"
+              title="Privacy Basics: Protect Your Data"
+              level="Beginner"
+              link="/activities/protect-your-data/"
+              developedBy={<div><a href="http://hivetoronto.org">Hive Toronto</a> in partnership with <a href="https://www.priv.gc.ca/index_e.asp">the Office of the Privacy Commissioner of Canada</a>, and <a href="https://www.mozilla.org/privacy/">Mozilla Privacy</a></div>}
+              description="These six hands-on activities engage learners in thinking critically about online privacy by creating secure passwords, understanding how and where their data is being collected, and more. This is an ideal kit for Mozilla Clubs."/>
             <ActivityKit
               src1x="/img/pages/activities/online-tracking.png"
               caption={ <a href="https://mozorg.cdn.mozilla.net/media/img/teach/smarton/tracking/topic-think-deeper.2d1fbc329611.png">view original</a> }
               title="Privacy Basics: Online Tracking"
               level="Beginner"
               link="https://d157rqmxrxj6ey.cloudfront.net/mozstacy/21938/"
-              developedBy={<div><a href="https://mozillians.org/en-US/u/stacy">Stacy Martin</a> - Senior Data Privacy Manager at Mozilla and the Mozilla Learning Network team</div>}
+              developedBy={<div><a href="https://mozillians.org/en-US/u/stacy">Stacy Martin</a> - Senior Data Privacy Manager at Mozilla and Mozilla Learning</div>}
               description="Learners will complete a set of hands-on activities to better understand types of online tracking through the use of cookies and other technologies."/>
             <ActivityKit
               src1x="https://upload.wikimedia.org/wikipedia/commons/7/73/Monitor_padlock.svg"
@@ -81,20 +81,20 @@ var ActivitiesPage = React.createClass({
               title="Privacy Basics: Passwords, Tracking, and Data Retention"
               level="Intermediate"
               link="/activities/privacy-basics/"
-              developedBy={<div><a href="https://mozillians.org/en-US/u/stacy">Stacy Martin</a> - Senior Data Privacy Manager at Mozilla and the Mozilla Learning Network team</div>}
+              developedBy={<div><a href="https://mozillians.org/en-US/u/stacy">Stacy Martin</a> - Senior Data Privacy Manager at Mozilla and Mozilla Learning</div>}
               description="Learn how to safeguard your privacy online and develop an awareness of how companies and governments track and collect your data online."/>
             <ActivityKit
             src1x="/img/pages/activities/img-activity-11.jpg"
             src2x="/img/pages/activities/img-activity-11@2x.jpg"
-            title="Back to School Write the Web Kit"
+            title="Back to School Write the Web Activities"
             level="13+"
             link="/activities/back-to-school-write-the-web/"
-            developedBy={<div><a href="https://webmaker.org">Mozilla</a></div>}
+            developedBy="Mozilla Learning"
             description="Learn how to remix and write basic HTML, CSS, and JavaScript with these Back-to-School Thimble activities and lesson plans."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-01.png"
               src2x="/img/pages/activities/img-activity-01@2x.png"
-              title="Lo-Fi, No-Fi (Teaching Kit)"
+              title="Lo-Fi, No-Fi"
               level="Beginner"
               link="https://laura.makes.org/thimble/MTUyODMwNDY0/lofi-nofi-teaching-kit"
               developedBy={<div><a href="http://twitter.com/codekat">Kat Braybrooke</a>, <a href="https://twitter.com/epilepticrabbit">Laura Hilliger</a>, <a href="http://twitter.com/smithisgeneric">Karen Smith</a>, <a href="http://twitter.com/colorwheelz">Julia Vallera</a>, <a href="http://twitter.com/iamjessklein">Jess Klein</a>, and <a href="http://twitter.com/chadsansing">Chad Sansing</a></div>}
@@ -105,7 +105,7 @@ var ActivitiesPage = React.createClass({
               title="Animation on the Open Web with Fabble, Para Para, and 3D Projection Mapping"
               level="Beginner"
               link="/activities/parapara/"
-              developedBy={<div><a href="http://en.mozillafactory.org/tagged/COMOZILLA">Mozilla Factory</a> and <a href="http://twitter.com/smithisgeneric">Karen Smith</a> and remixed by <Link to={"/"}>Mozilla Learning Networks</Link>.</div>}
+              developedBy={<div><a href="http://en.mozillafactory.org/tagged/COMOZILLA">Mozilla Factory</a> and <a href="http://twitter.com/smithisgeneric">Karen Smith</a> and remixed by Mozilla Learning.</div>}
               description="Learn to use Mozilla Factory’s Parapara and Fabble, open web tools for animation and sharing work online. Create 2D animations, 3D projection-mapped animations, and ‘recipes’ that others can fork for remix on Fabble."/>
             <ActivityKit
               src1x="/img/pages/activities/mouse.png"
@@ -131,22 +131,6 @@ var ActivitiesPage = React.createClass({
               developedBy={<div><a href="http://cogdog.info">Alan Levine</a></div>}
               description="In this activity, learners search for photos that communicate ideas and concepts, while also exploring best practices around attribution and openly-licensed content on the web."/>
             <ActivityKit
-              src1x="/img/pages/activities/img-activity-06.jpg"
-              src2x="/img/pages/activities/img-activity-06@2x.jpg"
-              title="Become a Password Pro (Teaching Kit)"
-              level="Beginner-Intermediate"
-              link="https://stacy.makes.org/thimble/MjAxMjIxNzYwMA==/whats-wrong-with-your-password"
-              developedBy={<div><a href="https://mozillians.org/en-US/u/stacy">Stacy Martin</a> and <a href="https://webmaker.org">Mozilla</a></div>}
-              description="This teaching kit includes a series of activities to help leaners understand passwords &mdash; including why they're important, best practices, and tools to help you manage multiple passwords."/>
-            <ActivityKit
-              src1x="/img/pages/activities/img-activity-07.jpg"
-              src2x="/img/pages/activities/img-activity-07@2x.jpg"
-              title="Hack Your Notebook (Teaching Kit)"
-              level="Beginner-Intermediate"
-              link="https://laura.makes.org/thimble/LTU1NDA0MTA4OA==/hack-your-notebook-teaching-kit"
-              developedBy={<div><a href="http://educatorinnovator.org/">Educator Inovator</a> - <a href="https://twitter.com/jennifer_dick">Jen Dick</a>, <a href="http://technolojie.com/sample-page/">Jie Qi</a>, <a href="https://www.linkedin.com/in/dcole1">David Cole</a>, and <a href="http://twitter.com/chadsansing">Chad Sansing</a></div>}
-              description="In this series of activities, learners will explore the connections between art, circuitry and systems thinking by hacking their notbooks/journals with power and LEDs."/>
-            <ActivityKit
               src1x="/img/pages/activities/img-activity-QuackingJavascript.jpg"
               src2x="/img/pages/activities/img-activity-QuackingJavascript@2x.jpg"
               title="Quacking JavaScript"
@@ -157,7 +141,7 @@ var ActivitiesPage = React.createClass({
             <ActivityKit
               src1x="/img/pages/activities/img-activity-09.jpg"
               src2x="/img/pages/activities/img-activity-09@2x.jpg"
-              title="Minecraft a Flavor of Java (Teaching Kit)"
+              title="Minecraft a Flavor of Java"
               level="Intermediate"
               link="https://epik.makes.org/thimble/NjU2MTQ2OTQ0/minecraft-a-flavor-of-java-epik"
               developedBy={<div><a href="http://epik.org.uk/about/">EPIK</a></div>}
@@ -185,10 +169,6 @@ var ActivitiesPage = React.createClass({
               link="/activities/madewithcode"
               developedBy={<div>Mozilla for Google's Made with Code initiative</div>}
               description="Mozilla is happy to partner with Google's Made with Code initiative to inspire girls to get creative with code. There are three fun activities to help you create your own webpages by writing and remixing HTML."/>
-          </section>
-          <section>
-            <h2>Coming soon</h2>
-            <p>Want to see what new activities and teaching kits we have in the works? Check out our <OutboundLink to={linkCurriculumQueue} eventLabel={linkCurriculumQueue}>Curriculum Queue</OutboundLink>.</p>
           </section>
           <section>
             <h2>More resources</h2>
@@ -238,7 +218,7 @@ var ActivitiesPage = React.createClass({
                 highlightedText="Start a Club"
               />
               <IconLink
-                link="/activities/web-literacy"
+                link="/web-literacy"
                 imgSrc="/img/pages/activities/svg/icon-learn.svg"
                 head="Explore"
                 subhead="See our Web Literacy Map."

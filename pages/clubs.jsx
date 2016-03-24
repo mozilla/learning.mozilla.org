@@ -66,7 +66,7 @@ var WhyOrganize = (
           <p>
             <strong>You can embed it in your existing program.</strong> You may already be serving a
             group of learners or running an educational offering. Mozilla Clubs can be a way to
-            embed <Link to={"/activities/web-literacy"}>Web Literacy</Link> into your existing program.
+            embed <Link to="/web-literacy">Web Literacy</Link> into your existing program.
           </p>
         </div>
       </div>

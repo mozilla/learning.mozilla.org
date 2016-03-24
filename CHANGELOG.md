@@ -6,10 +6,20 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.35][] - 2016-03-24
+### Changed
+- Edited v0.0.34 release changelog message - production site hasn't been switched to
+  use a real server yet.
+
+### Added
+- Woohooo! It's live now! Check out the interactive web literacy map on 
+  https://teach.mozilla.org/web-literacy and 21st Century Skills on 
+  https://teach.mozilla.org/web-literacy/skills
+
 ## [0.0.34][] - 2016-03-22
 ### Changed
-- The site now has a real server! Pages on https://teach.mozilla.org are 
-  served by the server and  are no longer static files live on S3.
+- The site now has a real server! ~~Pages on https://teach.mozilla.org are 
+  served by the server and are no longer static files live on S3.~~ (edited on 2016-03-24)
 - Turned off auto push to S3 when the `develop` branch is updated.
 - Updated Mouse logo.
 - Removed Private Eye page.
@@ -511,7 +521,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.34...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.35...HEAD
+[0.0.35]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.34...v0.0.35
 [0.0.34]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.33...v0.0.34
 [0.0.33]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.32...v0.0.33
 [0.0.32]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.31...v0.0.32
