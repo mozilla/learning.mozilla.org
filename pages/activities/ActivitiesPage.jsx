@@ -218,7 +218,7 @@ var ActivitiesPage = React.createClass({
                 highlightedText="Start a Club"
               />
               <IconLink
-                link="/activities/web-literacy"
+                link="/web-literacy"
                 imgSrc="/img/pages/activities/svg/icon-learn.svg"
                 head="Explore"
                 subhead="See our Web Literacy Map."
