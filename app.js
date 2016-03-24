@@ -102,7 +102,7 @@ app.use(function(req, res, next) {
       return next();
     }
     // this belongs to one of the predefined urls, let's generate its associated page
-    if ( urls.indexOf(decodeURIComponent(location)) != -1 ) {
+    if ( urls.indexOf(location) != -1 ) {
       return renderComponentPage(location,res);
     } else { // check to see a page with this slug exists on the WordPress site
       WpPageChecker(location, function(error, wpContent) {

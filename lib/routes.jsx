@@ -47,7 +47,7 @@ var pages = {
 var redirects = {
   'clubs/curriculum': 'activities/web-lit-basics',
   'teach-like-mozilla/web-literacy': 'activities/web-literacy',
-  '/activities/web-literacy': '/web-literacy'
+  'activities/web-literacy': 'web-literacy'
 };
 
 // aggregate all paths used in the app
