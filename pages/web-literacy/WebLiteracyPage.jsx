@@ -22,8 +22,8 @@ var makeLinksFromWebLitSkills = require("./MakeLinksFromWebLitSkills.jsx");
 function makeLinksFrom21CSkills(skills21C) {
   return skills21C.map(function(skill21C, index) {
     return (
-      <span className="comma-separated-links">
-        <a className="comma-separated-links" key={skill21C} href={"/web-literacy/skills/#" + categories[skill21C]}>
+      <span key={skill21C} className="comma-separated-links">
+        <a href={"/web-literacy/skills/#" + categories[skill21C]}>
           {categories[skill21C]}
         </a>
       </span>
