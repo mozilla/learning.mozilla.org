@@ -192,12 +192,12 @@ var WebLitPage = React.createClass({
     }
     return Object.keys(weblitdata).map(function(topic) {
       return (
-        <div key={topic} className="">
+        <div key={topic}>
           <Illustration
             width={150} height={150}
             src1x={topicContent[topic].imgSrc1x}
             src2x={topicContent[topic].imgSrc2x}
-            alt="">
+            alt={"weblit-map-icon-" + topic}>
             <h2>{topic}</h2>
             <p>{topicContent[topic].content}</p>
             <span><b>Web Literacy Skills:</b> {makeLinksFromWebLitSkills(Object.keys(weblitdata[topic]))}</span>
