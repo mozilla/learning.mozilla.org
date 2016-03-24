@@ -45,9 +45,9 @@ var pages = {
  * Redirects from old URLs to new URLs
  */
 var redirects = {
-  'clubs/curriculum': 'activities/web-lit-basics',
-  'teach-like-mozilla/web-literacy': 'activities/web-literacy',
-  'activities/web-literacy': 'web-literacy'
+  '/clubs/curriculum': '/activities/web-lit-basics',
+  '/teach-like-mozilla/web-literacy': '/activities/web-literacy',
+  '/activities/web-literacy': '/web-literacy'
 };
 
 // aggregate all paths used in the app
