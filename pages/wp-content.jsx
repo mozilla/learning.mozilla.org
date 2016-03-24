@@ -6,7 +6,7 @@ var config = require('../config/config');
 
 var WpContent = function(props) { 
   return (
-    <div className="wp-content">
+    <div className="wp-content-wrapper">
       <div className="inner-container">
         <WpContentLoader wpUrl={config.WORDPRESS_SITE_URL} wpPostSlug={props.params.wpSlug}>
           <NotFoundMessage/>
