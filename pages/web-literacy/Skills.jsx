@@ -10,6 +10,13 @@ module.exports = React.createClass({
     pageTitle: '21st Century Skills',
     pageClassName: 'web-literacy-skills-page'
   },
+  generateSkillItem: function(skill) {
+    return Object.keys(skill.topics).map(function(topic) {
+      return (
+        <div><b>{topic}:</b> {makeLinksFromWebLitSkills(skill.topics[topic])}</div>
+      );
+    });
+  },
   generateSkills: function() {
     return skills.map(function(skill) {
       return (
@@ -26,38 +33,33 @@ module.exports = React.createClass({
             { this.generateCompetencies(skill.competencies) }
           </div>
           <h3>Web Literacy Skills</h3>
-          {
-            Object.keys(skill.topics).map(function(topic) {
-              return (
-                <div><b>{topic}:</b> {makeLinksFromWebLitSkills(skill.topics[topic])}</div>
-              );
-            })
-          }
+          { this.generateSkillItem(skill) }
         </Illustration>
       );
     }.bind(this));
   },
+  generateCompetencyItem: function(competency) {
+    return competency.content.map(function(contentItem) {
+      return (
+        <div className="line-item" key={contentItem}>{contentItem}</div>
+      );
+    });
+  },
   generateCompetencies: function(competencies) {
-    competencies = competencies || [];
+    if (!competencies) return null;
     return competencies.map(function(competency) {
       if (competency.name) {
         return (
           <div key={competency.name}>
             <h4>{competency.name}</h4>
-            {
-              competency.content.map(function(contentItem) {
-                return (
-                  <div className="line-item" key={contentItem}>{contentItem}</div>
-                );
-              })
-            }
+            { this.generateCompetencyItem(competency) }
           </div>
         );
       }
       return (
         <div className="line-item" key={competency}>{competency}</div>
       );
-    });
+    }.bind(this));
   },
   render: function() {
     var whitepaperLink = "https://mozilla.github.io/webmaker-whitepaper";

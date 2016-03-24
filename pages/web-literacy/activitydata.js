@@ -1,22 +1,24 @@
-var search = "Search";
-var navigate = "Navigate";
-var synthesize = "Synthesize";
-var evaluate = "Evaluate";
-var design = "Design";
-var compose = "Compose";
-var code = "Code";
-var revise = "Revise";
-var remix = "Remix";
-var share = "Share";
-var connect = "Connect";
-var protect = "Protect";
-var open = "Open Practice";
+var skills = require("./skills");
+
+var SEARCH = skills.SEARCH;
+var NAVIGATE = skills.NAVIGATE;
+var SYNTHESIZE = skills.SYNTHESIZE;
+var EVALUATE = skills.EVALUATE;
+var DESIGN = skills.DESIGN;
+var COMPOSE = skills.COMPOSE;
+var CODE = skills.CODE;
+var REVISE = skills.REVISE;
+var REMIX = skills.REMIX;
+var SHARE = skills.SHARE;
+var CONNECT = skills.CONNECT;
+var PROTECT = skills.PROTECT;
+var OPEN = skills.OPEN;
 
 module.exports = [
   {
     name: "Kraken the Code",
     topic: "Read",
-    webLitSkills: [search, synthesize, evaluate],
+    webLitSkills: [SEARCH, SYNTHESIZE, EVALUATE],
     skills: ["PS"],
     imgSrc1x: "/img/pages/web-lit-basics/img-kraken-code.jpg",
     imgSrc2x: "/img/pages/web-lit-basics/img-kraken-code@2x.jpg",
@@ -28,7 +30,7 @@ module.exports = [
   {
     name: "Ping Kong",
     topic: "Read",
-    webLitSkills: [navigate, synthesize],
+    webLitSkills: [NAVIGATE, SYNTHESIZE],
     skills: ["Com"],
     imgSrc1x: "/img/pages/web-lit-basics/img-ping-kong.jpg",
     imgSrc2x: "/img/pages/web-lit-basics/img-ping-kong@2x.jpg",
@@ -40,7 +42,7 @@ module.exports = [
   {
     name: "HTML Puzzle Cubes",
     topic: "Write",
-    webLitSkills: [code, remix],
+    webLitSkills: [CODE, REMIX],
     skills: ["Cre"],
     imgSrc1x: "/img/pages/web-lit-basics/img-puzzle-boxes.jpg",
     imgSrc2x: "/img/pages/web-lit-basics/img-puzzle-boxes@2x.jpg",
@@ -52,7 +54,7 @@ module.exports = [
   {
     name: "Hack the News",
     topic: "Write",
-    webLitSkills: [connect, code, compose, open],
+    webLitSkills: [CONNECT, CODE, COMPOSE, OPEN],
     skills: ["PS", "Cre", "Com"],
     imgSrc1x: "/img/pages/web-lit-basics/img-hack-news.jpg",
     imgSrc2x: "/img/pages/web-lit-basics/img-hack-news@2x.jpg",
@@ -64,7 +66,7 @@ module.exports = [
   {
     name: "Web Chef",
     topic: "Participate",
-    webLitSkills: [connect, open, remix, share],
+    webLitSkills: [CONNECT, OPEN, REMIX, SHARE],
     skills: ["Com", "PS", "Col"],
     imgSrc1x: "/img/pages/web-lit-basics/img-web-chef.jpg",
     imgSrc2x: "/img/pages/web-lit-basics/img-web-chef@2x.jpg",
@@ -76,7 +78,7 @@ module.exports = [
   {
     name: "Story of Us",
     topic: "Participate",
-    webLitSkills: [compose, connect, share],
+    webLitSkills: [COMPOSE, CONNECT, SHARE],
     skills: ["Com", "Cre", "Col"],
     imgSrc1x: "/img/pages/web-lit-basics/img-story-of-us.jpg",
     imgSrc2x: "/img/pages/web-lit-basics/img-story-of-us@2x.jpg",
@@ -88,7 +90,7 @@ module.exports = [
   {
     name: "Why do we use the Web?",
     topic: "Participate",
-    webLitSkills: [evaluate, open, share],
+    webLitSkills: [EVALUATE, OPEN, SHARE],
     skills: ["Com", "PS", "Col"],
     imgSrc1x: "/img/pages/web-lit-basics-two/why-do-we-use-the-web.png",
     imgSrc2x: "/img/pages/web-lit-basics-two/why-do-we-use-the-web@2x.png",
@@ -100,7 +102,7 @@ module.exports = [
   {
     name: "The Web is a Tool for Learning",
     topic: "Read",
-    webLitSkills: [navigate, remix, evaluate, open],
+    webLitSkills: [NAVIGATE, REMIX, EVALUATE, OPEN],
     skills: ["PS"],
     imgSrc1x: "/img/pages/web-lit-basics-two/the-web-is-a-tool-for-learning.jpg",
     imgSrc2x: "/img/pages/web-lit-basics-two/the-web-is-a-tool-for-learning@2x.jpg",
@@ -112,7 +114,7 @@ module.exports = [
   {
     name: "Project Playlist",
     topic: "Write",
-    webLitSkills: [code, compose, remix, search, open],
+    webLitSkills: [CODE, COMPOSE, REMIX, SEARCH, OPEN],
     skills: ["Cre"],
     imgSrc1x: "/img/pages/web-lit-basics-two/project-playlist.png",
     href: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/web-lit-basics-two-migrated/bridge01-project-playlist.html#overview",
@@ -123,7 +125,7 @@ module.exports = [
   {
     name: "Welcome to My Mixtape",
     topic: "Write",
-    webLitSkills: [code, compose, synthesize, remix, open],
+    webLitSkills: [CODE, COMPOSE, SYNTHESIZE, REMIX, OPEN],
     skills: ["Cre"],
     imgSrc1x: "/img/pages/web-lit-basics-two/welcome-to-my-mixtape.jpg",
     href: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/web-lit-basics-two-migrated/session03-welcome-to-my-mixtape.html#overview",
@@ -134,7 +136,7 @@ module.exports = [
   {
     name: "Pixel Portrait",
     topic: "Write",
-    webLitSkills: [compose, open],
+    webLitSkills: [COMPOSE, OPEN],
     skills: ["Cre"],
     imgSrc1x: "/img/pages/web-lit-basics-two/pixel-portrait.png",
     href: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/web-lit-basics-two-migrated/bridge02-pixel-portrait.html#overview",
@@ -145,7 +147,7 @@ module.exports = [
   {
     name: "#allthezstickerz",
     topic: "Participate",
-    webLitSkills: [code, compose, connect, evaluate, open, remix, synthesize],
+    webLitSkills: [CODE, COMPOSE, CONNECT, EVALUATE, OPEN, REMIX, SYNTHESIZE],
     skills: ["Com", "Cre", "PS", "Col"],
     imgSrc1x: "/img/pages/web-lit-basics-two/allthestickerz.png",
     href: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/web-lit-basics-two-migrated/session04-allthestickerz.html#overview",
@@ -156,7 +158,7 @@ module.exports = [
   {
     name: "Who Am I?",
     topic: "Read",
-    webLitSkills: [evaluate, navigate, search, compose, remix],
+    webLitSkills: [EVALUATE, NAVIGATE, SEARCH, COMPOSE, REMIX],
     skills: ["PS", "Cre"],
     imgSrc1x: "/img/pages/web-lit-basics-two/who-am-i.png",
     href: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/web-lit-basics-two-migrated/bridge03-who-am-i.html",
@@ -167,7 +169,7 @@ module.exports = [
   {
     name: "Fair Use Free-for-All",
     topic: "Read",
-    webLitSkills: [evaluate, navigate, open, search],
+    webLitSkills: [EVALUATE, NAVIGATE, OPEN, SEARCH],
     skills: ["Com", "PS"],
     imgSrc1x: "/img/pages/web-lit-basics-two/fair-use-free-for-all.png",
     href: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/web-lit-basics-two-migrated/session05-fair-use-free-for-all.html#overview",
@@ -178,7 +180,7 @@ module.exports = [
   {
     name: "The Planets & Accessibility",
     topic: "Write",
-    webLitSkills: [code, compose, design, remix],
+    webLitSkills: [CODE, COMPOSE, DESIGN, REMIX],
     skills: ["Com", "Cre", "PS"],
     imgSrc1x: "/img/pages/web-lit-basics-two/the-planets.jpg",
     href: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/web-lit-basics-two-migrated/session06-the-planets-and-accessibility.html#overview",

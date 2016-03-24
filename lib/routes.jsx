@@ -38,7 +38,7 @@ var pages = {
   'opportunities': require('../pages/opportunities.jsx'),
   'tools': require('../pages/tools.jsx'),
   'me': require('../pages/makes.jsx'),
-  'web-literacy/skills': require('../pages/web-literacy-skills.jsx')
+  'web-literacy/skills': require('../pages/web-literacy/Skills.jsx')
 };
 
 /**
@@ -46,7 +46,7 @@ var pages = {
  */
 var redirects = {
   'clubs/curriculum': 'activities/web-lit-basics',
-  'teach-like-mozilla/web-literacy': 'activities/web-literacy',
+  'teach-like-mozilla/web-literacy': 'web-literacy',
   'activities/web-literacy': 'web-literacy'
 };
 

@@ -1,17 +1,19 @@
-var search = "Search";
-var navigate = "Navigate";
-var synthesize = "Synthesize";
-var evaluate = "Evaluate";
-var design = "Design";
-var compose = "Compose";
-var code = "Code";
-var revise = "Revise";
-var remix = "Remix";
-var share = "Share";
-var contribute = "Contribute";
-var connect = "Connect";
-var protect = "Protect";
-var open = "Open Practice";
+var skills = require("./skills");
+
+var SEARCH = skills.SEARCH;
+var NAVIGATE = skills.NAVIGATE;
+var SYNTHESIZE = skills.SYNTHESIZE;
+var EVALUATE = skills.EVALUATE;
+var DESIGN = skills.DESIGN;
+var COMPOSE = skills.COMPOSE;
+var CODE = skills.CODE;
+var REVISE = skills.REVISE;
+var REMIX = skills.REMIX;
+var SHARE = skills.SHARE;
+var CONNECT = skills.CONNECT;
+var PROTECT = skills.PROTECT;
+var OPEN = skills.OPEN;
+var CONTRIBUTE = skills.CONTRIBUTE;
 
 module.exports = [
   {
@@ -26,9 +28,9 @@ module.exports = [
       "Applying feedback, data, and research to revise and iterate on the plan as a part of the process."
     ],
     topics: {
-      "Read": [search, navigate, synthesize, evaluate],
-      "Write": [design, compose, code, revise, remix],
-      "Participate": [share, contribute, connect, protect, open]
+      "Read": [SEARCH, NAVIGATE, SYNTHESIZE, EVALUATE],
+      "Write": [DESIGN, COMPOSE, CODE, REVISE, REMIX],
+      "Participate": [SHARE, CONTRIBUTE, CONNECT, PROTECT, OPEN]
     }
   },
   {
@@ -72,7 +74,7 @@ module.exports = [
       }
     ],
     topics: {
-      "Participate": [share, contribute, connect, open]
+      "Participate": [SHARE, CONTRIBUTE, CONNECT, OPEN]
     }
   },
   {
@@ -89,8 +91,8 @@ module.exports = [
       "Incorporating new approaches that may be untested and potentially risky."
     ],
     topics: {
-      "Write": [design, revise, remix],
-      "Participate": [share, contribute, open]
+      "Write": [DESIGN, REVISE, REMIX],
+      "Participate": [SHARE, CONTRIBUTE, OPEN]
     }
   },
   {
@@ -123,9 +125,9 @@ module.exports = [
       }
     ],
     topics: {
-      "Read": [synthesize],
-      "Write": [compose, remix],
-      "Participate": [share, contribute, connect, open]
+      "Read": [SYNTHESIZE],
+      "Write": [COMPOSE, REMIX],
+      "Participate": [SHARE, CONTRIBUTE, CONNECT, OPEN]
     }
   }
 ];

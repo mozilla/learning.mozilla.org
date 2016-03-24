@@ -6,7 +6,7 @@ var Cre = categories.Cre;
 var Col = categories.Col;
 
 var weblitdata = {
-	"WEB LITERACY" : {
+  "WEB LITERACY" : {
     "Write": {
       "Design": [PS,Com,Cre],
       "Code": [PS,Cre],
@@ -27,7 +27,7 @@ var weblitdata = {
       "Contribute": [PS,Cre,Col],
       "Share": [Com,Col]
     }
-	}
+  }
 };
 
 module.exports = weblitdata;

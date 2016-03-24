@@ -1,7 +1,6 @@
 var React = require('react');
 var OutboundLink = require('react-ga').OutboundLink;
 var ReactRouter = require('react-router');
-var History = ReactRouter.History;
 var Link = ReactRouter.Link;
 
 var Illustration = require('../../components/illustration.jsx');
@@ -14,7 +13,6 @@ var weblitdata = weblitdataroot["WEB LITERACY"];
 var weblitcontent = require('./weblitcontent');
 var activitydata = require('./activitydata');
 var categories = require('./categories');
-var weblitcolors = require('./colors');
 var topicContent = weblitcontent.topics;
 var webLitSkillsContent = weblitcontent.webLitSkills;
 var makeLinksFromWebLitSkills = require("./MakeLinksFromWebLitSkills.jsx");
@@ -47,15 +45,15 @@ var Activity = React.createClass({
           <span className="meta-item"><i className="fa fa-clock-o"></i>{this.props.duration}</span>
         </div>
         <p>{this.props.content}</p>
-        <div><b>Web Literacy Skills:</b> {makeLinksFromWebLitSkills(this.props.webLitSkills)}</div>
-        <div><b>21C Skills:</b> {makeLinksFrom21CSkills(this.props.skills)}</div>
+        <div><strong>Web Literacy Skills:</strong> {makeLinksFromWebLitSkills(this.props.webLitSkills)}</div>
+        <div><strong>21C Skills:</strong> {makeLinksFrom21CSkills(this.props.skills)}</div>
       </Illustration>
     );
   }
 });
 
 var WebLitPage = React.createClass({
-  mixins: [History],
+  contextTypes: { history: React.PropTypes.object },
   statics: {
     pageTitle: "Web Literacy",
     pageClassName: "web-literacy"
@@ -63,11 +61,11 @@ var WebLitPage = React.createClass({
   updateMapNavState: function() {
     var topic = this.props.params.verb || "";
     var webLitSkill = this.props.params.webLitSkill || "";
-    var state = {};
     if (this.state.topic !== topic || this.state.webLitSkill !== webLitSkill) {
-      state.topic = topic;
-      state.webLitSkill = webLitSkill;
-      this.setState(state);
+      this.setState({
+        topic: topic,
+        webLitSkill: webLitSkill
+      });
     }
   },
   componentDidUpdate: function() {
@@ -129,21 +127,14 @@ var WebLitPage = React.createClass({
     var activities = [];
     activitydata.forEach(function(activity, index) {
       if ((this.hasWebLitSkillIn(activity.webLitSkills) || this.hasMatchingWebLitSkillIn(activity.webLitSkills)) && this.hasMatching21CSkillIn(activity.skills)) {
+        activity.src1x = activity.imgSrc1x;
+        activity.src2x = activity.imgSrc2x;
         activities.push(
           <div className="activity-item" key={index}>
             <Activity
               selectedTopic={this.state.topic}
               selectedWebLitSKill={this.state.webLitSkill}
-              topic={activity.topic}
-              name={activity.name}
-              src1x={activity.imgSrc1x}
-              src2x={activity.imgSrc2x}
-              content={activity.content}
-              duration={activity.duration}
-              difficulty={activity.difficulty}
-              webLitSkills={activity.webLitSkills}
-              skills={activity.skills}
-              href={activity.href}
+              {...activity}
             />
           </div>
         );
@@ -152,14 +143,13 @@ var WebLitPage = React.createClass({
 
     if (!activities.length) {
       return null;
-    } else {
-      return (
-        <div>
-          <h2>Related {this.state.webLitSkill || this.state.topic} Activities</h2>
-          {activities}
-        </div>
-      );
     }
+    return (
+      <div>
+        <h2>Related {this.state.webLitSkill || this.state.topic} Activities</h2>
+        {activities}
+      </div>
+    );
   },
   renderCheckboxes: function() {
     return Object.keys(categories).map(function(cat) {
@@ -200,7 +190,7 @@ var WebLitPage = React.createClass({
             alt={"weblit-map-icon-" + topic}>
             <h2>{topic}</h2>
             <p>{topicContent[topic].content}</p>
-            <span><b>Web Literacy Skills:</b> {makeLinksFromWebLitSkills(Object.keys(weblitdata[topic]))}</span>
+            <span><strong>Web Literacy Skills:</strong> {makeLinksFromWebLitSkills(Object.keys(weblitdata[topic]))}</span>
           </Illustration>
         </div>
       );
@@ -248,23 +238,23 @@ var WebLitPage = React.createClass({
     );
   },
   onMapToggle: function(labels) {
-    var verb =  labels[1] || "";
-    var webLitSkill = labels[2] || "";
     var url = "/web-literacy/";
+    var verb =  labels[1];
+    var webLitSkill = labels[2];
     if (verb) {
       url += verb + "/";
       if (webLitSkill) {
         url += webLitSkill + "/";
       }
     }
-    this.history.pushState(null, url);
+    this.context.history.push({
+      pathname: url
+    });
   },
   skillCheckboxUpdated: function(checkbox, checked) {
-    var state = {
-      filter: this.state.filter
-    };
-    state.filter[checkbox] = !checked;
-    this.setState(state);
+    var filter = this.state.filter;
+    filter[checkbox] = !checked;
+    this.setState({ filter: filter });
   },
   render: function() {
     var whitepaperLink = "http://mozilla.github.io/content/web-lit-whitepaper/";
@@ -287,7 +277,7 @@ var WebLitPage = React.createClass({
                 {this.renderCheckboxes()}
               </ul>
             </div>
-            <CircleTree data={weblitdataroot} filter={filter} color={weblitcolors} onToggle={this.onMapToggle}/>
+            <CircleTree data={weblitdataroot} filter={filter} onToggle={this.onMapToggle}/>
             <div className="c21-skills">
               {this.renderTopic()}
               {this.renderWebLitSkill()}
