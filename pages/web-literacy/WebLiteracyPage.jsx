@@ -16,6 +16,7 @@ var categories = require('./categories');
 var topicContent = weblitcontent.topics;
 var webLitSkillsContent = weblitcontent.webLitSkills;
 var makeLinksFromWebLitSkills = require("./MakeLinksFromWebLitSkills.jsx");
+var WhitePaperLink = require("./WhitePaperLink.jsx");
 
 function makeLinksFrom21CSkills(skills21C) {
   return skills21C.map(function(skill21C, index) {
@@ -288,13 +289,7 @@ var WebLitPage = React.createClass({
             {this.renderCompetencies()}
             {this.renderActivities()}
           </section>
-          <section className="text-center">
-            <div className="vertical-divider"></div>
-            <h3 className="text-center">Read our whitepaper on why Mozilla cares about Web Literacy.</h3>
-            <OutboundLink to={whitepaperLink} eventLabel={whitepaperLink} className="btn btn-awsm">
-              Read whitepaper <i className="fa fa-external-link"></i>
-            </OutboundLink>
-          </section>
+          <WhitePaperLink/>
         </div>
       </div>
     );

@@ -1,9 +1,9 @@
 var React = require('react');
 var HeroUnit = require('../../components/hero-unit.jsx');
 var Illustration = require('../../components/illustration.jsx');
-var OutboundLink = require('react-ga').OutboundLink;
 var skills = require('./skillsdata');
 var makeLinksFromWebLitSkills = require("./MakeLinksFromWebLitSkills.jsx");
+var WhitePaperLink = require("./WhitePaperLink.jsx");
 
 module.exports = React.createClass({
   statics: {
@@ -13,7 +13,7 @@ module.exports = React.createClass({
   generateSkillItem: function(skill) {
     return Object.keys(skill.topics).map(function(topic) {
       return (
-        <div><b>{topic}:</b> {makeLinksFromWebLitSkills(skill.topics[topic])}</div>
+        <div><strong>{topic}:</strong> {makeLinksFromWebLitSkills(skill.topics[topic])}</div>
       );
     });
   },
@@ -62,7 +62,6 @@ module.exports = React.createClass({
     }.bind(this));
   },
   render: function() {
-    var whitepaperLink = "https://mozilla.github.io/webmaker-whitepaper";
     return (
       <div>
         <HeroUnit>
@@ -76,13 +75,7 @@ module.exports = React.createClass({
             </p>
             { this.generateSkills() }
           </section>
-          <section className="text-center">
-            <div className="vertical-divider"></div>
-            <h3 className="text-center">Read our whitepaper on why Mozilla cares about Web Literacy.</h3>
-            <OutboundLink to={whitepaperLink} eventLabel={whitepaperLink} className="btn btn-awsm">
-              Read whitepaper <i className="fa fa-external-link"></i>
-            </OutboundLink>
-          </section>
+          <WhitePaperLink/>
         </div>
       </div>
     );
