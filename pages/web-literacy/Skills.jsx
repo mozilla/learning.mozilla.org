@@ -26,7 +26,7 @@ module.exports = React.createClass({
           src2x={skill.imgSrc2x}
           key={skill.name}
           alt={"21c-skills-icon-" + skill.name}>
-          <h2 id={skill.name}>{skill.name}</h2>
+          <h2 id={skill.name.toLowerCase()}>{skill.name}</h2>
           <p>{skill.content}</p>
           <h3>Competencies</h3>
           <div className="competency-content">
