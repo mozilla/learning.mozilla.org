@@ -1,11 +1,3 @@
 language: node_js
 node_js:
 - '4.2'
-deploy:
-  provider: heroku
-  api_key:
-    secure: HJsD9fZmzHY7MhUjVJBbsRl9mpjDvsThs4V66hU8kIqFMOtSKjbTxgwIyYABSCgN1NkmA5vWDUE8Ux3rdZ/MWQrnN50IM8+zSDUTwW6tqOAysPNv8R9+oMziAvAuLt5ykzeHAUEhO6UHojjHoSJ5kV13Ja5/blfgEfjJAdCMb+M=
-  app: teach-mozilla-org-production
-  on:
-    repo: mozilla/teach.mozilla.org
-    branch: master
