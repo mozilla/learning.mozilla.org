@@ -5,7 +5,7 @@ var skills = require('./skillsdata');
 var makeLinksFromWebLitSkills = require("./MakeLinksFromWebLitSkills.jsx");
 var WhitePaperLink = require("./WhitePaperLink.jsx");
 
-module.exports = React.createClass({
+var Skills21CPage = React.createClass({
   statics: {
     pageTitle: '21st Century Skills',
     pageClassName: 'web-literacy-skills-page'
@@ -13,7 +13,7 @@ module.exports = React.createClass({
   generateSkillItem: function(skill) {
     return Object.keys(skill.topics).map(function(topic) {
       return (
-        <div><strong>{topic}:</strong> {makeLinksFromWebLitSkills(skill.topics[topic])}</div>
+        <div key={topic}><strong>{topic}:</strong> {makeLinksFromWebLitSkills(skill.topics[topic])}</div>
       );
     });
   },
@@ -81,3 +81,4 @@ module.exports = React.createClass({
     );
   }
 });
+module.exports = Skills21CPage;
