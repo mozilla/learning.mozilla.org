@@ -1,8 +1,3 @@
 language: node_js
 node_js:
 - '4.2'
-after_success: npm run travis-after-success
-env:
-  global:
-  - AWS_ACCESS_KEY: AKIAJRDKELRKFFVV5CPA
-  - secure: fTFD+q9V+GLtGryFuI0PjeXMex7tVOEhslC9WEIseL/IlSYgupL/qc+pZJ5PEdpEGDAc4HigizkOxjVDS8BGYbvC3E0Q5mSQ02fMGPJmZdr18XcHpdTs9PabHJiI8elVKV5Z0Co0UzVGl9w/Qv32wDpBJOQaWPH8VD6zHzqufDY=

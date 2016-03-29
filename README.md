@@ -139,9 +139,7 @@ supports it.
 For reference, a recent static build of the site can be found at
 [teach.mofostaging.net][].
 
-The static site can also be deployed to S3 via `npm run s3`, but
-this requires setting at least a few environment variables. See
-the **Environment Variables** section below for more details.
+See the **Environment Variables** section below for more details.
 
 ## Environment Variables
 
@@ -154,10 +152,6 @@ software works.
 `SHOW_DEV_RIBBON` | set this to `on` to show the "dev version" ribbon even when `NODE_ENV` is set to production. This can be used on staging sites.
 `WEBPACK_DEVTOOL` | determines the setting for the [`devtool`][] Webpack option. In development, it defaults to `eval`, while in production it defaults to `source-map`. For more details on the trade-offs between different options, see our [conversation on sourcemaps][sourcemaps].
 `LESS_AUTOPREFIXER` | set this to `off` to disable the LESS autoprefixer and enable useful CSS source maps, which is a workaround for [#413][].
-`AWS_ACCESS_KEY` | is the Amazon Web Services access key used when uploading to s3 via `npm run s3`.
-`AWS_SECRET_KEY` | is the Amazon Web Services secret key used when uploading to s3 via `npm run s3`.
-`AWS_BUCKET` | is the S3 bucket to upload to when using `npm run s3`. It defaults to `teach.mofostaging.net`.
-`AWS_REGION` | is the S3 region to upload to when using `npm run s3`. It defaults to `us-east-1`.
 `ORIGIN` | is the domain name of which the site is hosted. This is used in situations where absolute URLs are required, such as generating a `sitemap.xml` file.
 `MAPBOX_ACCESS_TOKEN` | is the [Mapbox][] access token to use for embedded maps in the website. Optional.
 `MAPBOX_MAP_ID` | is the Mapbox map ID to use for embedded maps in the website. Optional.
