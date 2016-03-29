@@ -54,23 +54,23 @@ var redirects = {
 var urls = ['/'];
 urls = urls.concat([
   'web-literacy',
-  'web-literacy/Participate',
-  'web-literacy/Participate/Connect',
-  'web-literacy/Participate/Protect',
-  'web-literacy/Participate/Open Practice',
-  'web-literacy/Participate/Contribute',
-  'web-literacy/Participate/Share',
-  'web-literacy/Write',
-  'web-literacy/Write/Design',
-  'web-literacy/Write/Code',
-  'web-literacy/Write/Compose',
-  'web-literacy/Write/Revise',
-  'web-literacy/Write/Remix',
-  'web-literacy/Read',
-  'web-literacy/Read/Search',
-  'web-literacy/Read/Navigate',
-  'web-literacy/Read/Synthesize',
-  'web-literacy/Read/Evaluate'
+  'web-literacy/participate',
+  'web-literacy/participate/connect',
+  'web-literacy/participate/protect',
+  'web-literacy/participate/open-practice',
+  'web-literacy/participate/contribute',
+  'web-literacy/participate/share',
+  'web-literacy/write',
+  'web-literacy/write/design',
+  'web-literacy/write/code',
+  'web-literacy/write/compose',
+  'web-literacy/write/revise',
+  'web-literacy/write/remix',
+  'web-literacy/read',
+  'web-literacy/read/search',
+  'web-literacy/read/navigate',
+  'web-literacy/read/synthesize',
+  'web-literacy/read/evaluate'
 ]);
 
 urls = urls.concat( Object.keys(pages)     );

@@ -3,13 +3,14 @@ var weblitcontent = require('./weblitcontent');
 var webLitSkillsContent = weblitcontent.webLitSkills;
 var ReactRouter = require('react-router');
 var Link = ReactRouter.Link;
+var convertToRoute = require("../../lib/util").convertToRoute;
 
 var MakeLinksFromWebLitSkills = function(webLitSkills) {
   return webLitSkills.map(function(webLitSkill, index) {
     return (
       <span className="comma-separated-links" key={webLitSkill}>
         <Link
-          to={"/web-literacy/" + webLitSkillsContent[webLitSkill].topic + "/" + webLitSkill + "/"}
+          to={"/web-literacy/" + convertToRoute(webLitSkillsContent[webLitSkill].topic) + "/" + convertToRoute(webLitSkill) + "/"}
         >
           {webLitSkill}
         </Link>

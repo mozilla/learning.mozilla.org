@@ -44,7 +44,7 @@ var curriculumList = [
         image1x: "/img/pages/web-lit-basics/img-kraken-code.jpg",
         image2x: "/img/pages/web-lit-basics/img-kraken-code@2x.jpg",
         subtitle: "Understanding credibility",
-        description: "Learners use the Internet to solve the mystery of The Kraken, a legendary sea creature, while also learning about search terms, keywords, and how to assess the validity and relevance of web sources.",
+        description: "Learners use the Internet to solve the mystery of The Kraken, a legendary sea creature, while also learning about search terms, keywords, and how to assess the validity and relevance of web sources. This activity was made by <a href='http://mouse.org'>MOUSE</a>.",
         link: "https://mozilla.github.io/mozilla-club-activity-kraken-the-code/#en"
       },
       {
@@ -52,7 +52,7 @@ var curriculumList = [
         image1x: "/img/pages/web-lit-basics/img-ping-kong.jpg",
         image2x: "/img/pages/web-lit-basics/img-ping-kong@2x.jpg",
         subtitle: "Understanding web mechanics",
-        description: "For many, &ldquo;the Internet&rdquo; is an abstract and overwhelming concept. This activity challenges learners to think concretely about how the internet communicates with a computer.",
+        description: "For many, &ldquo;the Internet&rdquo; is an abstract and overwhelming concept. This activity challenges learners to think concretely about how the internet communicates with a computer. This activity was made by <a href='http://mouse.org'>MOUSE</a>.",
         link: "https://mozilla.github.io/mozilla-club-activity-ping-kong/#en"
       }
     ]
@@ -73,7 +73,7 @@ var curriculumList = [
         image1x: "/img/pages/web-lit-basics/img-puzzle-boxes.jpg",
         image2x: "/img/pages/web-lit-basics/img-puzzle-boxes@2x.jpg",
         subtitle: "Understanding composing for the web",
-        description: "Learners race to sequence the paper boxes labeled with HTML tags, becoming familiar with the most common HTML tags and how to structure a web page.",
+        description: "Learners race to sequence the paper boxes labeled with HTML tags, becoming familiar with the most common HTML tags and how to structure a web page. This activity was made by <a href='http://www.mozilla.or.id/'>Yofie Setiawan and Mozilla Indonesia</a>.",
         link: "https://mozilla.github.io/mozilla-club-activity-html-puzzle-boxes/#en"
       }
     ]
@@ -86,7 +86,7 @@ var curriculumList = [
         image1x: "/img/pages/web-lit-basics/img-web-chef.jpg",
         image2x: "/img/pages/web-lit-basics/img-web-chef@2x.jpg",
         subtitle: "Understanding open practices",
-        description: "Learners teach their peers a skill and document the steps by making a web resource that includes properly-attributed open content.",
+        description: "Learners teach their peers a skill and document the steps by making a web resource that includes properly-attributed open content. This activity was inspired by <a href='https://creativecommons.org/'>Creative Commons</a> and <a href='https://courses.p2pu.org/en/groups/teach-someone-something-with-open-content/'>P2PU School of Open</a>.",
         link: "https://mozilla.github.io/mozilla-club-activity-web-chef/#en"
       },
       {
@@ -94,7 +94,7 @@ var curriculumList = [
         image1x: "/img/pages/web-lit-basics/img-story-of-us.jpg",
         image2x: "/img/pages/web-lit-basics/img-story-of-us@2x.jpg",
         subtitle: "Understanding community participation",
-        description: "Learners tell their Story of Self, use it to reflect  on what they have learned, and how they want to participate on the web and with their community going forward.",
+        description: "Learners tell their Story of Self, use it to reflect  on what they have learned, and how they want to participate on the web and with their community going forward. This activity is based on a project by <a href='https://radiorookies.makes.org/thimble/diy-toolkit-how-to-report-your-own-story'>WNYC Radio Rookies</a>.",
         link: "https://mozilla.github.io/mozilla-club-activity-story-of-us/#en"
       }
     ]

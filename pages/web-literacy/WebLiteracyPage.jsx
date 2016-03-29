@@ -16,12 +16,16 @@ var categories = require('./categories');
 var topicContent = weblitcontent.topics;
 var webLitSkillsContent = weblitcontent.webLitSkills;
 var makeLinksFromWebLitSkills = require("./MakeLinksFromWebLitSkills.jsx");
+var WhitePaperLink = require("./WhitePaperLink.jsx");
+var Util = require("../../lib/util");
+var convertToRoute = Util.convertToRoute;
+var parseRoute = Util.parseRoute;
 
 function makeLinksFrom21CSkills(skills21C) {
   return skills21C.map(function(skill21C, index) {
     return (
       <span key={skill21C} className="comma-separated-links">
-        <a href={"/web-literacy/skills/#" + categories[skill21C]}>
+        <a href={"/web-literacy/skills/#" + categories[skill21C].toLowerCase()}>
           {categories[skill21C]}
         </a>
       </span>
@@ -59,8 +63,8 @@ var WebLitPage = React.createClass({
     pageClassName: "web-literacy"
   },
   updateMapNavState: function() {
-    var topic = this.props.params.verb || "";
-    var webLitSkill = this.props.params.webLitSkill || "";
+    var topic = parseRoute(this.props.params.verb);
+    var webLitSkill = parseRoute(this.props.params.webLitSkill);
     if (this.state.topic !== topic || this.state.webLitSkill !== webLitSkill) {
       this.setState({
         topic: topic,
@@ -242,9 +246,9 @@ var WebLitPage = React.createClass({
     var verb =  labels[1];
     var webLitSkill = labels[2];
     if (verb) {
-      url += verb + "/";
+      url += convertToRoute(verb) + "/";
       if (webLitSkill) {
-        url += webLitSkill + "/";
+        url += convertToRoute(webLitSkill) + "/";
       }
     }
     this.context.history.push({
@@ -288,13 +292,7 @@ var WebLitPage = React.createClass({
             {this.renderCompetencies()}
             {this.renderActivities()}
           </section>
-          <section className="text-center">
-            <div className="vertical-divider"></div>
-            <h3 className="text-center">Read our whitepaper on why Mozilla cares about Web Literacy.</h3>
-            <OutboundLink to={whitepaperLink} eventLabel={whitepaperLink} className="btn btn-awsm">
-              Read whitepaper <i className="fa fa-external-link"></i>
-            </OutboundLink>
-          </section>
+          <WhitePaperLink/>
         </div>
       </div>
     );

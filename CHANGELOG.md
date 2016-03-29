@@ -6,6 +6,19 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.36][] - 2016-03-29
+### Changed
+- Added attribution on Web Lit Basics I module.
+- Updated link to Mozilla's Web Literacy whitepaper.
+- Converted url values for weblit map to lowercase and replaced spaces 
+  with dashes.
+- The site now has a real server! Pages on https://teach.mozilla.org are 
+  served by the server and are no longer static files live on S3.
+- Removed S3 related gulp tasks and files.
+- Both staging the production instances now live on Heroku instead. Auto-
+  deployment to staging and production is triggered by push to `develop` 
+  and `master` branches respectively.
+
 ## [0.0.35][] - 2016-03-24
 ### Changed
 - Edited v0.0.34 release changelog message - production site hasn't been switched to
@@ -521,7 +534,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.35...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.36...HEAD
+[0.0.36]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.35...v0.0.36
 [0.0.35]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.34...v0.0.35
 [0.0.34]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.33...v0.0.34
 [0.0.33]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.32...v0.0.33
