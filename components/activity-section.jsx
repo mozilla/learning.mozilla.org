@@ -31,9 +31,9 @@ var ActivitySection = React.createClass({
                 link={activity.link}
                 className={activity.className}>
                   <div className="curriculum-description">
-                    <a href={activity.link}>
-                      <h3>{activity.title}</h3>
-                    </a>
+                    <h3>
+                      <a href={activity.link}>{activity.title}</a>
+                    </h3>
                     <p>
                       <em>{activity.subtitle}</em>
                     </p>
