@@ -136,7 +136,7 @@ app.use(function(req, res, next) {
           return next();
         }
         // WP page exists, let's load the WordPress content through a component page
-        return renderComponentPage(location,res);
+        return renderComponentPage(location,res, 'wordpress', wpContent);
       });
     }
   });
