@@ -29,6 +29,7 @@ var pages = {
   'clubs/list': require('../pages/clubs-list.jsx'),
   'community': require('../pages/community.jsx'),
   'community/curriculum-workshop': require('../pages/curriculum-workshop.jsx'),
+  'community/curriculum-workshop/march-8-2016': require('../pages/curriculum-workshop-march-8-2016.jsx'),
   'community/community-call': require('../pages/community-call.jsx'),
   'events': require('../pages/events.jsx'),
   'events/resources': require('../pages/event-resources.jsx'),
@@ -90,8 +91,8 @@ var redirectElements = Object.keys(redirects).map(function(path) {
 
 // routes below are listed alphabetically by their path
 // ---
-// Since WordPress page slug is arbitrary, <Route path=":wpSlug"> is added last. 
-// This is basically a catch-all pattern that allows us to grab requested path and pass it 
+// Since WordPress page slug is arbitrary, <Route path=":wpSlug"> is added last.
+// This is basically a catch-all pattern that allows us to grab requested path and pass it
 // as the WP page slug in a WP API call. If WP sends back 200, we display the content.
 // Else error message will be shown on the page. Note that the API call is made on client side.
 // [NOTE] add <Route path=":wpSlug" component={require('../pages/wp-content.jsx')}/> back
