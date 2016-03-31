@@ -151,7 +151,7 @@ var ActivitiesPage = React.createClass({
               src2x="/img/pages/activities/img-activity-10@2x.jpg"
               title="Girls in Tech: Hacking My Media"
               level="Intermediate"
-              link="https://stephguthrie.makes.org/thimble/ODU3ODAxMjE2/hacking-my-media-with-x-ray-goggles"
+              link="https://thimbleprojects.org/stephguthrie/48361/"
               developedBy={<div><a href="http://twitter.com/amirightfolks">Steph Guthrie</a>, <a href="http://twitter.com/kimxtom">Kim Wilkens</a>, and 2013 MozGirls</div>}
               description="In this activity, learners create a remix of a Wikimedia page as they think critically about the intersection of gender, culture, technology and identity."/>
             <ActivityKit
