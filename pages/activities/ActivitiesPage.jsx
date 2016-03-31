@@ -143,7 +143,7 @@ var ActivitiesPage = React.createClass({
               src2x="/img/pages/activities/img-activity-09@2x.jpg"
               title="Minecraft a Flavor of Java"
               level="Intermediate"
-              link="https://epik.makes.org/thimble/NjU2MTQ2OTQ0/minecraft-a-flavor-of-java-epik"
+              link="https://thimbleprojects.org/epikhub/48607/"
               developedBy={<div><a href="http://epik.org.uk/about/">EPIK</a></div>}
               description="In this series of activities, learners develop computational thinking skills by using Java to create their own Minecraft mod."/>
             <ActivityKit
