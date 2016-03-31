@@ -32,18 +32,18 @@
   }
 
   .callout-box {
-    background: #e3f7f7;
+    background: @upcoming-workshop-bg;
     position: relative;
     margin: 50px 0 55px 0;
     padding: 40px 30px 30px 30px;
     position: relative;
 
     * {
-      color: #0c9692;
+      color: @upcoming-workshop-text;
     }
 
     h2 {
-      background: #0c9692;
+      background: @upcoming-workshop-text;
       text-transform: uppercase;
       position: absolute;
       top: -19px;
@@ -53,6 +53,18 @@
       color: white;
       font-size: 16px;
       margin: 0;
+    }
+
+    &.past-workshop {
+      background: @past-workshop-bg;
+      * {
+        color: @past-workshop-text;
+      }
+
+      h2 {
+        background: @past-workshop-text;
+        color: @past-workshop-bg;
+      }
     }
 
     .date {
@@ -95,7 +107,7 @@
     margin-left: 12px;
   }
 
-  .upcoming-workshops {
+  .upcoming-workshops, .past-workshops {
     padding: 0;
     list-style-type: none;
 
@@ -103,6 +115,14 @@
       font-size: 1.8rem;
       margin: 0;
       padding: 0;
+    }
+
+    .watch-archive {
+      margin-top: 15px;
+
+      a {
+        font-weight: bold;
+      }
     }
 
     h2 {
