@@ -181,8 +181,8 @@ var ModalClubs = React.createClass({
     return (
       <div>
         <p>Before you can {action} your club, you need to log in.</p>
-        <LoginLink loginBaseURL={loginURL} callbackSearch="?modal=add" className="btn btn-primary btn-block">Log In</LoginLink>
-        <LoginLink loginBaseURL={loginURL} callbackSearch="?modal=add" action="signup" className="btn btn-default btn-block">
+        <LoginLink loginBaseURL={loginURL} callbackSearch="?modal=add" className="btn btn-block">Log In</LoginLink>
+        <LoginLink loginBaseURL={loginURL} callbackSearch="?modal=add" action="signup" className="btn btn-block">
           Create an account
         </LoginLink>
       </div>

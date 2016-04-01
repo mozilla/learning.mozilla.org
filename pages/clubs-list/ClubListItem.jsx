@@ -21,10 +21,10 @@ var ClubListItem = React.createClass({
     if (isOwned) {
       ownerControls = (
         <p className="action-panel">
-          <button className="btn btn-default btn-xs" onClick={this.props.onEdit.bind(null, club.url)}>
+          <button className="btn" onClick={this.props.onEdit.bind(null, club.url)}>
             <span className="glyphicon glyphicon-pencil"></span>Edit
           </button>
-          <button className="btn btn-default btn-xs" onClick={this.props.onDelete.bind(null, club.url, club.name)}>
+          <button className="btn" onClick={this.props.onDelete.bind(null, club.url, club.name)}>
             <span className="glyphicon glyphicon-trash"></span>Remove
           </button>
         </p>

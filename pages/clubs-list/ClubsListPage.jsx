@@ -74,7 +74,7 @@ var ClubsListPage = React.createClass({
         <HeroUnit>
           <h1>Mozilla Clubs</h1>
           <h2>Local groups teaching the Web around the world</h2>
-          <div><a className="btn btn-awsm" onClick={this.showAddYourClubModal}>Apply to be a Club Captain</a></div>
+          <div><a className="btn" onClick={this.showAddYourClubModal}>Apply to be a Club Captain</a></div>
         </HeroUnit>
         <div className="inner-container">
           <section>

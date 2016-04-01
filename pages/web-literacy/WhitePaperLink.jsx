@@ -8,7 +8,7 @@ var WhitePaperLink = React.createClass({
       <section className="text-center">
         <div className="vertical-divider"></div>
         <h3 className="text-center">Read our whitepaper on why Mozilla cares about Web Literacy.</h3>
-        <OutboundLink to={whitepaperLink} eventLabel={whitepaperLink} className="btn btn-awsm">
+        <OutboundLink to={whitepaperLink} eventLabel={whitepaperLink} className="btn">
           Read whitepaper <i className="fa fa-external-link"></i>
         </OutboundLink>
       </section>

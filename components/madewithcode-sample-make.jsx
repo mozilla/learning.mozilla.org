@@ -23,8 +23,8 @@ var SampleMake = React.createClass({
           <p className="author">By @mozilla</p>
           <p className="description">{this.props.description}</p>
           <div className="btn-section">
-            <a className="makerstrap-btn makerstrap-btn-primary" href={this.props.remixUrl}><i className="fa fa-code-fork"></i>Remix</a>
-            <a className="makerstrap-btn makerstrap-btn-info" href={this.props.detailsUrl}>Details</a>
+            <a className="btn" href={this.props.remixUrl}><i className="fa fa-code-fork"></i> Remix</a>
+            <a className="btn" href={this.props.detailsUrl}>Details</a>
           </div>
         </div>
       </div>

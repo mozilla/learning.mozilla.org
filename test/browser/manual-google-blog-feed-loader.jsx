@@ -51,7 +51,7 @@ var GoogleBlogFeedLoaderTest = React.createClass({
         <p><small>
           Google script tags loaded: <code>{this.state.scriptTagCount}</code> (should never be &gt; 1)
         </small></p>
-        <button className="btn btn-default btn-xs" onClick={this.handleLoadClick}>
+        <button className="btn btn-xs" onClick={this.handleLoadClick}>
           Load Blog Posts
         </button>
         <ul>
