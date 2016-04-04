@@ -111,7 +111,7 @@ var ActivitiesPage = React.createClass({
               src1x="/img/pages/activities/mouse.png"
               title="Code/Explore/Connect with Mouse"
               level="Beginner"
-              link="https://d157rqmxrxj6ey.cloudfront.net/mouseorg/34864/"
+              link="https://thimbleprojects.org/mouseorg/49745/"
               developedBy={<div><a href="http://www.mouse.org">MOUSE (Hive NYC member)</a>.</div>}
               description="Mouse's online and offline activities like Kraken the Code, Tag Tag Revolution and CSS Story Cards explore topics ranging from HTML/CSS to search engine optimization and online identities."/>  
             <ActivityKit
