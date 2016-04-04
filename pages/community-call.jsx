@@ -46,7 +46,7 @@ var CommunityCallPage = React.createClass({
           <h3>Workshop Video Stream</h3>
 
           <div className="video-wrapper">
-            <iframe className="workshop-video" width="560" height="315" src="//www.youtube.com/embed/QfvrKvx4mUk" frameborder="0" allowfullscreen></iframe>
+            <iframe className="workshop-video" width="560" height="315" src="//www.youtube.com/embed/QfvrKvx4mUk" frameBorder="0" allowFullScreen></iframe>
           </div>
 
           <h4>
