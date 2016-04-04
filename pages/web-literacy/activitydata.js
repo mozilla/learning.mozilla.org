@@ -22,7 +22,7 @@ module.exports = [
     skills: ["PS"],
     imgSrc1x: "/img/pages/web-lit-basics/img-kraken-code.jpg",
     imgSrc2x: "/img/pages/web-lit-basics/img-kraken-code@2x.jpg",
-    href: "http://mozilla.github.io/webmaker-curriculum/WebLiteracyBasics-I/session01-kraken.html",
+    href: "https://mozilla.github.io/mozilla-club-activity-kraken-the-code/#en",
     duration: "60 minutes",
     content: "Learners will use the Internet to solve the mystery of The Kraken, a legendary sea creature, while also learning about search terms, keywords, and how to assess the validity and relevance of web sources.",
     difficulty: "For beginners"
@@ -34,7 +34,7 @@ module.exports = [
     skills: ["Com"],
     imgSrc1x: "/img/pages/web-lit-basics/img-ping-kong.jpg",
     imgSrc2x: "/img/pages/web-lit-basics/img-ping-kong@2x.jpg",
-    href: "http://mozilla.github.io/webmaker-curriculum/WebLiteracyBasics-I/session01-pingkong.html",
+    href: "https://mozilla.github.io/mozilla-club-activity-ping-kong/#en",
     duration: "1-2 hours",
     content: "For many, \"the Internet\" is an abstract and overwhelming concept. This activity challenges learners to think concretely about how the internet communicates with a computer.",
     difficulty: "For beginners"
@@ -46,7 +46,7 @@ module.exports = [
     skills: ["Cre"],
     imgSrc1x: "/img/pages/web-lit-basics/img-puzzle-boxes.jpg",
     imgSrc2x: "/img/pages/web-lit-basics/img-puzzle-boxes@2x.jpg",
-    href: "http://mozilla.github.io/webmaker-curriculum/WebLiteracyBasics-I/session02-puzzlebox.html",
+    href: "https://mozilla.github.io/mozilla-club-activity-html-puzzle-boxes/#en",
     duration: "45 minutes-1 hour",
     content: "Learners will race to sequence the paper boxes labeled with HTML tags, becoming familiar with the most common HTML tags and how to structure a web page.",
     difficulty: "For beginners"
@@ -58,7 +58,7 @@ module.exports = [
     skills: ["PS", "Cre", "Com"],
     imgSrc1x: "/img/pages/web-lit-basics/img-hack-news.jpg",
     imgSrc2x: "/img/pages/web-lit-basics/img-hack-news@2x.jpg",
-    href: "http://mozilla.github.io/webmaker-curriculum/WebLiteracyBasics-I/session02-hackthenews.html",
+    href: "https://mozilla.github.io/mozilla-club-activity-hack-the-news/#en",
     duration: "45 minutes-1 hour",
     content: "Learners will use X-Ray Goggles to remix a news website, learning about openly-licensed resources, different forms of media, and how to create something new on the Web through remix.",
     difficulty: "For beginners"
@@ -70,7 +70,7 @@ module.exports = [
     skills: ["Com", "PS", "Col"],
     imgSrc1x: "/img/pages/web-lit-basics/img-web-chef.jpg",
     imgSrc2x: "/img/pages/web-lit-basics/img-web-chef@2x.jpg",
-    href: "http://mozilla.github.io/webmaker-curriculum/WebLiteracyBasics-I/session03-chef.html",
+    href: "https://mozilla.github.io/mozilla-club-activity-web-chef/#en",
     duration: "1-2 hours",
     content: "Learners will teach their peers a skill and document the steps by making a web resource that includes properly attributed open content.",
     difficulty: "For beginners"
@@ -82,7 +82,7 @@ module.exports = [
     skills: ["Com", "Cre", "Col"],
     imgSrc1x: "/img/pages/web-lit-basics/img-story-of-us.jpg",
     imgSrc2x: "/img/pages/web-lit-basics/img-story-of-us@2x.jpg",
-    href: "http://mozilla.github.io/webmaker-curriculum/WebLiteracyBasics-I/session03-storyofus.html",
+    href: "https://mozilla.github.io/mozilla-club-activity-story-of-us/#en",
     duration: "1-2 hours",
     content: "Learners will learn how to tell their Story of Self, use it to reflect on what they have learned, the role of learning socially, and how they want to learn and participate on the web and with their community going forward.",
     difficulty: "For beginners"
