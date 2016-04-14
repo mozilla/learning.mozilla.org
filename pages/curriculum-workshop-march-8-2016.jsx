@@ -6,7 +6,8 @@ var Illustration = require('../components/illustration.jsx');
 
 var CurriculumWorkshop = React.createClass({
   statics: {
-    pageClassName: 'curriculum-workshop'
+    pageClassName: 'curriculum-workshop',
+    pageTitle: 'Curriculum Workshops'
   },
   render: function () {
     return (
@@ -22,7 +23,7 @@ var CurriculumWorkshop = React.createClass({
           </section>
 
           <p>
-          Co-hosts Amira Dhalla and Chad Sansing, along with producer Paul Oh, help participants answer the question, <em>"How can I use the web to teach and learn what’s important to me?"</em> Join us as we prototype teaching and learning materials live on-air and think out-loud through the curriculum design process.
+            Co-hosts Amira Dhalla and Chad Sansing, along with producer Paul Oh, help participants answer the question, <em>"How can I use the web to teach and learn what’s important to me?"</em> Join us as we prototype teaching and learning materials live on-air and think out-loud through the curriculum design process.
           </p>
 
           <section className="callout-box past-workshop">
