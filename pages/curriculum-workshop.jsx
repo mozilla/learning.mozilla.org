@@ -6,7 +6,8 @@ var Illustration = require('../components/illustration.jsx');
 
 var CurriculumWorkshop = React.createClass({
   statics: {
-    pageClassName: 'curriculum-workshop'
+    pageClassName: 'curriculum-workshop',
+    pageTitle: 'Curriculum Workshops'
   },
   render: function () {
     return (

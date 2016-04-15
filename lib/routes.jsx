@@ -27,10 +27,13 @@ var pages = {
   'activities/back-to-school-write-the-web': require('../pages/back-to-school-write-the-web.jsx'),
   'clubs': require('../pages/clubs.jsx'),
   'clubs/list': require('../pages/clubs-list.jsx'),
+  // NOTE: 'codemoji' is reserved. See https://github.com/mozilla/teach.mozilla.org/issues/1798
   'community': require('../pages/community.jsx'),
   'community/curriculum-workshop': require('../pages/curriculum-workshop.jsx'),
   'community/curriculum-workshop/march-8-2016': require('../pages/curriculum-workshop-march-8-2016.jsx'),
   'community/community-call': require('../pages/community-call.jsx'),
+  'community/community-call/march-23-2016': require('../pages/community-call-march-23.jsx'),
+  // NOTE: 'encryption' is reserved. See https://github.com/mozilla/teach.mozilla.org/issues/1798
   'events': require('../pages/events.jsx'),
   'events/resources': require('../pages/event-resources.jsx'),
   'fixme': require('../pages/fixme.jsx'),
