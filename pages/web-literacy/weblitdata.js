@@ -16,16 +16,16 @@ var weblitdata = {
     },
     "Read": {
       "Evaluate": [PS],
-      "Synthesize": [PS,Cre],
+      "Synthesize": [PS,Com],
       "Navigate": [PS],
       "Search": [PS]
     },
     "Participate": {
-      "Connect": [PS,Cre,Col],
+      "Connect": [PS,Com,Col],
       "Protect": [PS,Com],
       "Open Practice": [Com,Col],
       "Contribute": [PS,Cre,Col],
-      "Share": [Com,Col]
+      "Share": [Com,Cre]
     }
   }
 };
