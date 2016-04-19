@@ -26,7 +26,7 @@ var ToolsColumn = React.createClass({
       }
       sampleActivity = (
         <div className="sample-activity">
-          <div className="label-container"><div className="label label-success">Sample Activity</div></div>
+          <div className="label-container"><div className="label-tag">Sample Activity</div></div>
           {activityTitle}
         </div>
       );

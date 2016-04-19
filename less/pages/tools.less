@@ -43,8 +43,10 @@
     .label-container {
       display: block;
     }
-    .label {
+    .label-tag {
+      .labelColorizer(@greenSidebarColor);
       position: relative;
+      display: inline;
       &:before,
       &:after {
         content: "";
