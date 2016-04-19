@@ -15,11 +15,6 @@ var Instructions = React.createClass({
         <ol>
           <li>
             {this.props.step1}
-             <a href={this.props.remixUrl}>
-              <ImageTag src1x="/img/pages/madewithcode/graphic_remix.png"
-                      alt=""
-                      width={245} />
-            </a>
           </li>
           <li>
             {this.props.step2}

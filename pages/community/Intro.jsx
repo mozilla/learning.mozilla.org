@@ -9,7 +9,7 @@ var Intro = (
       alt="icon toolkit">
       <h1>Connect with Others</h1>
       <h2>Introduce yourself in the Mozilla Learning Network discussion forum, help test out the latest curriculum modules, or start a new thread about a related issue or challenge you care about.</h2>
-      <a href="https://discourse.webmaker.org/" className="btn btn-awsm">Join the Discussion <i className="fa fa-external-link"></i></a>
+      <a href="https://discourse.webmaker.org/" className="btn">Join the Discussion <i className="fa fa-external-link"></i></a>
     </Illustration>
   </section>
 );

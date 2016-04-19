@@ -51,7 +51,7 @@ var ModalRemoveYourClub = React.createClass({
              </div>
            : null}
           <p>Are you sure you want to remove your club <strong>{this.props.name}</strong>?</p>
-          <button className="btn btn-primary btn-block"
+          <button className="btn btn-block"
            disabled={isFormDisabled}
            onClick={this.handleConfirm}>
              {isFormDisabled

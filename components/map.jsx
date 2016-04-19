@@ -132,11 +132,11 @@ var MarkerPopupClub = React.createClass({
     if (this.props.isOwned) {
       actions = (
         <div className="action-panel">
-          <button className="btn btn-default btn-xs"
+          <button className="btn"
            data-club-action="edit" data-club-url={this.props.url}>
             <span className="glyphicon glyphicon-pencil"></span>Edit
           </button>
-          <button className="btn btn-default btn-xs"
+          <button className="btn"
            data-club-action="delete" data-club-url={this.props.url}
            data-club-name={this.props.title}>
             <span className="glyphicon glyphicon-trash"></span>Remove

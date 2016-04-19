@@ -170,7 +170,7 @@ var ApplyCallout = React.createClass({
         <div className="apply-callout text-center">
           <div className="vertical-divider"></div>
           <h3 className="text-center">To get matched with a Regional Coordinator, please apply to be a Mozilla Club Captain.</h3>
-          <a className="btn btn-awsm" onClick={this.props.showAddYourClubModal}>Apply to be a Club Captain</a>
+          <a className="btn" onClick={this.props.showAddYourClubModal}>Apply to be a Club Captain</a>
           <p className="check-out-resources">If you’d like to get started on your own, check out these <a href="http://mozilla.github.io/learning-networks/clubs/">resources</a>.</p>
           <div className="alert alert-warning text-left center-block">
             <strong>Please note: </strong><span>Our first cohort of Regional Coordinators is in full swing right now, so you’ll be added to our waiting list. We’ll match you with a Regional Coordinator as soon as we can.</span>
@@ -237,7 +237,7 @@ var ClubsPage = React.createClass({
         <HeroUnit>
           <h1>Mozilla Clubs</h1>
           <h2>Local groups teaching the Web around the world</h2>
-          <div><a className="btn btn-awsm" onClick={this.showAddYourClubModal}>Apply to be a Club Captain</a></div>
+          <div><a className="btn" onClick={this.showAddYourClubModal}>Apply to be a Club Captain</a></div>
         </HeroUnit>
         <div className="inner-container">
           {Intro}

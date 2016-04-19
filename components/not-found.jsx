@@ -11,7 +11,7 @@ var NotFoundMessage = function(props) {
                 alt='' />
       <h2>Hey, this 404 is a teachable moment!</h2>
       <p>Did you know that a 404 is the generic error code used across the internet to mean "page not found"? It might mean the page used to exist, but doesn't anymore. Or that someone made a typo somewhere. Regardless, there's no page at this address.</p>
-      <Link to="/" className="btn btn-awsm">Go To Home Page</Link>
+      <Link to="/" className="btn">Go To Home Page</Link>
     </div>
   );
 };
