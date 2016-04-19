@@ -274,7 +274,7 @@ var ModalClubs = React.createClass({
             </label>
           </div> : null}
 
-          <input type="submit" className="btn"
+          <input type="submit" className="btn center-block"
            disabled={isFormDisabled}
            value={value} />
         </form>
