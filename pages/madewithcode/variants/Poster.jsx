@@ -25,7 +25,7 @@ var MadeWithCodePoster = createVariant({
   remixUrl: "https://thimble.mozilla.org/projects/17071/remix",
   steps: [
     <div>
-      <p><strong>Click the “remix” button.</strong> This will open Thimble. You’ll see a placeholder movie poster to help you get started.</p>
+      <p><strong>Click the “REMIX” button.</strong> This will open Thimble. You’ll see a placeholder movie poster to help you get started.</p>
     </div>
     ,
     <div>

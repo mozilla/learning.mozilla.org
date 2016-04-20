@@ -88,21 +88,21 @@ var DevModal = React.createClass({
     return (
       <Modal modalTitle="Development Version" showModal={this.props.showModal} hideModal={this.props.hideModal}>
         <Healthcheck.HealthcheckMeta/>
-        <a href="http://invis.io/9G2DK7SR2" target="_blank" className="btn btn-block btn-default">
+        <a href="http://invis.io/9G2DK7SR2" target="_blank" className="btn btn-block">
           <span className="glyphicon glyphicon glyphicon-plane"/> Site Map
         </a>
-        <a href="https://github.com/mozilla/teach.mozilla.org/issues" target="_blank" className="btn btn-block btn-default">
+        <a href="https://github.com/mozilla/teach.mozilla.org/issues" target="_blank" className="btn btn-block">
           <span className="glyphicon glyphicon glyphicon-exclamation-sign"/> File An Issue on GitHub
         </a>
-        <a href={TeachAPI.getDefaultURL()} target="_blank" className="btn btn-block btn-default">
+        <a href={TeachAPI.getDefaultURL()} target="_blank" className="btn btn-block">
           <span className="glyphicon glyphicon glyphicon-cloud"/> REST API Documentation
         </a>
-        <a href={testURL} target="_blank" className="btn btn-block btn-default">
+        <a href={testURL} target="_blank" className="btn btn-block">
           <span className="glyphicon glyphicon glyphicon-heart"/> {testName}
         </a>
         <h3>Diagnostic Tools</h3>
-        <TenonLink className="btn btn-block btn-default"/>
-        <InsightsLink className="btn btn-block btn-default"/>
+        <TenonLink className="btn btn-block"/>
+        <InsightsLink className="btn btn-block"/>
 
         <br/>
         <p><small>

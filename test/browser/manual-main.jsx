@@ -108,8 +108,8 @@ var RouteTest = React.createClass({
           </a>
         </h2>
         <div className="actions btn-group">
-          <DevRibbon.TenonLink className="btn btn-default btn-sm" url={this.props.url} />
-          <DevRibbon.InsightsLink className="btn btn-default btn-sm" url={this.props.url} />
+          <DevRibbon.TenonLink className="btn btn-sm" url={this.props.url} />
+          <DevRibbon.InsightsLink className="btn btn-sm" url={this.props.url} />
         </div>
         <div className="examples">
           {

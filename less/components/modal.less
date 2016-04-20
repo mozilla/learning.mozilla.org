@@ -73,50 +73,11 @@
     .globe {
       padding: 1rem 0;
     }
-    .btn {
-      margin: 2rem 0 0 0;
-      padding: 1.4rem 0;
-      background: @orangeSidebarColor;
-      color: @white;
-      font-size: 1.6rem;
-      font-weight: 600;
-      border-radius: 0px;
-      border: 1px solid darken(@orangeSidebarColor, 15%);
-      &:hover {
-        background: saturate(@orangeSidebarColor, 10%);
-      }
-    }
-    .btn.btn-awsm {
-      // FIXME / TODO
-      // some (redundant) rules to override .modal-body .btn stylings
-      border-radius: @form-field-border-radius;
-      width: auto;
-      margin: 1rem auto;
-      background-color: @blueSidebarColor;
-      box-shadow: 0px 0.4rem 0px @darkBlueSidebarColor,
-                  0px 0.1rem 0px rgba(255, 255, 255, 0.5) inset;
-      color: @white;
-      // the following rules are copied directly from the .btn-awsm ruleset in btn.less,
-      // once we have come to a conclusion on the button stylings for modal (Issue #1045)
-      // we should clean this file up by separating rules into different rulesets
-      position: relative;
-      padding: 1rem 3.5rem;
-      vertical-align: baseline;
-      line-height: 1.42857;
-      font-size: 1.5rem;
-      text-transform: uppercase;
+    input.btn {
       font-weight: 700;
-      letter-spacing: 0.01rem;
-      border: medium none transparent;
-      &:hover {
-        top: 0.2rem;
-        box-shadow: 0px 0.2rem 0px @darkBlueSidebarColor,
-                    0px 0.1rem 0px rgba(255, 255, 255, 0.5) inset;
-      }
-      &:active {
-        top: 0.4rem;
-        box-shadow: 0px 0.1rem 0.1rem rgba(0, 0, 0, 0.2) inset;
-      }
+    }
+    .btn {
+      margin: 1rem auto;
     }
   }
 }

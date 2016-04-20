@@ -24,10 +24,10 @@ var ActivityKit = React.createClass({
           <div className="activity-kit-content">
             <h3>{title}</h3>
             <div>
-              <span className="span-content label-tag">level</span><span className="span-content">{this.props.level}</span>
+              <span className="span-content label-tag">Level</span><span className="span-content">{this.props.level}</span>
             </div>
             <div>
-              <span className="span-content label-tag">developed by</span><div className="span-content developed-by">
+              <span className="span-content label-tag">Developed by</span><div className="span-content developed-by">
                 {this.props.developedBy}
               </div>
             </div>

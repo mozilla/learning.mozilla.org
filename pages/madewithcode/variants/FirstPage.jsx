@@ -30,7 +30,7 @@ var MadeWithCodeFirstWebPage = createVariant({
   remixUrl: "https://thimble.mozilla.org/projects/17084/remix",
   steps: [
     <div>
-      <p><strong>Click the “remix” button.</strong> This will open Thimble. You’ll see a simple web page we created to get you started. The code is on one side, the page preview is on the other.</p>
+      <p><strong>Click the “REMIX” button.</strong> This will open Thimble. You’ll see a simple web page we created to get you started. The code is on one side, the page preview is on the other.</p>
     </div>
     ,
     <div>

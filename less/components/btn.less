@@ -3,72 +3,31 @@
   // we shouldn't assume button text can always fit into one line,
   // especially knowing that the site needs to be localizable
   white-space: normal;
-  &.btn-awsm {
-    position: relative;
-    width: 100%;
-    padding: 1rem 3.5rem;
-    margin: 1rem 0;
-    vertical-align: baseline;
-    line-height: 1.42857;
-    background-color: @awsmBtnColor;
-    color: #4C4F56;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 0.01rem;
-    border: medium none transparent;
-    box-shadow: 0px 0.4rem 0px #C4A74F,
+  position: relative;
+  width: 100%;
+  padding: 1rem 3.5rem;
+  margin: 1rem 0;
+  vertical-align: baseline;
+  line-height: 1.42857;
+  background-color: @awsmBtnColor;
+  color: #4C4F56;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.01rem;
+  border: medium none transparent;
+  box-shadow: 0px 0.4rem 0px #C4A74F,
+              0px 0.1rem 0px rgba(255, 255, 255, 0.5) inset;
+  &:hover {
+    top: 0.2rem;
+    box-shadow: 0px 0.2rem 0px #C4A74F,
                 0px 0.1rem 0px rgba(255, 255, 255, 0.5) inset;
-    &:hover {
-      top: 0.2rem;
-      box-shadow: 0px 0.2rem 0px #C4A74F,
-                  0px 0.1rem 0px rgba(255, 255, 255, 0.5) inset;
-    }
-    &:active {
-      top: 0.4rem;
-      box-shadow: 0px 0.1rem 0.1rem rgba(0, 0, 0, 0.2) inset;
-    }
-    @media screen and (min-width: @screen-teensy) {
-      width: auto;
-    }
   }
-}
-
-
-
-
-// Makerstrap-style buttons
-// These are used in pages migrated from the old webmaker.org
-// TODO: we should clean this up when we get to visit the inconsistency in button styling issue across our site
-
-.makerstrap-btn {
-  display: inline-block;
-  padding: .8rem 1.2rem;
-  margin: 0.3rem;
-  color: @white;
-  &:hover {
-    color: @white;
-    text-decoration: none;
+  &:active {
+    top: 0.4rem;
+    box-shadow: 0px 0.1rem 0.1rem rgba(0, 0, 0, 0.2) inset;
   }
-}
-
-.makerstrap-btn-primary {
-  background-color: @makerstrapBrandPrimary;
-  border: .1rem solid #38A27F;
-  i {
-    margin-right: .5rem;
-  }
-  &:hover {
-    background-color: @makerstrapDarkGreen;
-    border-color: #29755C;
-  }
-}
-
-.makerstrap-btn-info {
-  background-color: #27AAE1;
-  border: .1rem solid #1D9CD1;
-  &:hover {
-    background-color: #1b92c4;
-    border-color: #16749c;
+  @media screen and (min-width: @screen-teensy) {
+    width: auto;
   }
 }

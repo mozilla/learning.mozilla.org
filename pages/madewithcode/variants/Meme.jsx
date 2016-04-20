@@ -29,7 +29,7 @@ var MadeWithCodeMeme = createVariant({
   remixUrl: "https://thimble.mozilla.org/projects/17083/remix",
   steps: [
     <div>
-      <p><strong>Click the “remix” button.</strong> This will open Thimble. You’ll see a simple meme we created to get you started.</p>
+      <p><strong>Click the “REMIX” button.</strong> This will open Thimble. You’ll see a simple meme we created to get you started.</p>
     </div>
     ,
     <div>

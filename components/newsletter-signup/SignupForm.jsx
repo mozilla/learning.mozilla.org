@@ -84,7 +84,7 @@ var SignupForm = React.createClass({
           </p>
           {this.renderValidationErrors()}
         </fieldset>
-        <input type="submit" value="Sign Up" className="btn btn-awsm center-block" />
+        <input type="submit" value="Sign Up" className="btn center-block" />
       </form>
     )
   }
