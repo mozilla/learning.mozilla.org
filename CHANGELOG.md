@@ -6,6 +6,14 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.39][] - 2016-04-20
+### Changed
+- Fixed Web Literacy Map data since Synthesize, Share and Connect were
+  assgined the wrong 21st century skills.
+- Unified button, label, and link styles across the site.
+- Fixed url-to-react-router-path rewriter so that hitting pages with hash 
+  and/or query string in the URL won't result in 404.
+
 ## [0.0.38][] - 2016-04-15
 ### Changed
 - Fixed width scrollbars issue in vertical container for Firefox stable.
@@ -551,7 +559,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.38...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.39...HEAD
+[0.0.39]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.38...v0.0.39
 [0.0.38]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.37...v0.0.38
 [0.0.37]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.36...v0.0.37
 [0.0.36]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.35...v0.0.36
