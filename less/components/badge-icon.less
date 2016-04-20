@@ -1,0 +1,78 @@
+@achievedBadge: #4E4E4E;
+@pendingBadge: #BDBDBD;
+@eligibleBadge: #7180B1;
+
+.badge-icon {
+  .image-container{
+    text-align: center;
+  }
+  .status{
+    text-align: center;
+    text-transform: uppercase;
+    padding:10px 0px;
+
+    .label{
+      font-weight: 500;
+      border-radius: 0px;
+      padding: .2em .8em;
+      position: relative;
+      background: @achievedBadge;
+
+      &:before,
+      &:after{
+        content:"";
+        display: block;
+        position: absolute;
+        top:0px;
+        width: 0;
+        height: 0;
+      }
+      &:before{
+        left: -6px;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-right:6px solid @achievedBadge;
+      }
+      &:after{
+        right: -6px;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left:6px solid @achievedBadge;
+      }
+
+      &.pending{
+        background: @pendingBadge;
+
+        &:before{
+          border-right-color:@pendingBadge;
+        }
+        &:after{
+          border-left-color: @pendingBadge;
+        }
+      }
+
+      &.eligible{
+        background: @eligibleBadge;
+
+        &:before{
+          border-right-color:@eligibleBadge;
+        }
+        &:after{
+          border-left-color: @eligibleBadge;
+        }
+      }
+    }
+  }
+}
+
+
+.badge-vertical-icon{
+  padding-bottom: @padding-large-horizontal;
+  .badge-text{
+    .title{
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+  }
+}

@@ -51,6 +51,13 @@ var MENU_ENTRIES = [
     ]
   },
   {
+    name: "Credentials",
+    to: '/badges',
+    icon: "/img/components/sidebar/svg/icon-nav-tools.svg",
+    className: "badge-page"
+    // FIXME: TODO: we need to give this its own icon
+  },
+  {
     name: "Tools",
     to: '/tools',
     icon: "/img/components/sidebar/svg/icon-nav-tools.svg",
@@ -73,6 +80,12 @@ var MENU_ENTRIES = [
     ]
   }
 ];
+
+// FEATURE FLAG:
+// remove badges if its feature flag is not used
+if (!config.ENABLE_BADGES) {
+  MENU_ENTRIES.splice(3,1);
+}
 
 var topLevelNavItems = MENU_ENTRIES.map(function(entry, i) {
   return <TopLevelNavItem key={entry.name} {...entry} />;

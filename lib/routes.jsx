@@ -47,6 +47,16 @@ var pages = {
   'web-literacy/skills': require('../pages/web-literacy/Skills.jsx')
 };
 
+// FEATURE FLAG:
+// badges are behind a feature flag until finalized
+if (process.env.ENABLE_BADGES) {
+  pages = Object.assign(pages, {
+    'badges': require('../pages/badges/badges.jsx'),
+    'badge/:id': require('../pages/badges/badge-single.jsx'),
+    'badge/:id/:slug': require('../pages/badges/badge-single.jsx')
+  });
+};
+
 /**
  * Redirects from old URLs to new URLs
  */

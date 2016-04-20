@@ -4,6 +4,9 @@ var production = process.env.NODE_ENV === 'production';
 var IMPORT_ES5_SHIM = 'imports?shim=es5-shim/es5-shim&' +
                       'sham=es5-shim/es5-sham';
 
+var habitat = require('habitat');
+habitat.load('.env');
+
 function importEnvVars(keys) {
   var result = {};
 
@@ -51,7 +54,9 @@ module.exports = {
       'OPTIMIZELY_ID',
       'OPTIMIZELY_ACTIVE',
       'MAKE_METADATA_URL',
-      'WORDPRESS_SITE_URL'
+      'WORDPRESS_SITE_URL',
+      // feature flags:
+      "ENABLE_BADGES"
     ])),
     new webpack.optimize.CommonsChunkPlugin('commons',
                                             'commons.bundle.js')

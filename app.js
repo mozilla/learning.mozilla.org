@@ -6,6 +6,7 @@ var React = require('react');
 var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
 var match = ReactRouter.match;
+var routington = require('routington');
 
 var indexStaticWatcher = require('./lib/build/index-static-watcher').create();
 var PORT = process.env.PORT || 8008;
@@ -19,6 +20,7 @@ habitat.load('.env');
 
 var indexStatic;
 var router;
+var matcher;
 var app = express();
 
 var notFoundHTML = [
@@ -103,15 +105,25 @@ app.use(function(req, res, next) {
   var location = urlToRoutePath(req.url);
   var urls = indexStatic.URLS;
 
+  if (!matcher) {
+    matcher = routington();
+    urls.forEach(function(route) { matcher.define(route); });
+  }
+
   match({ routes: routes, location: location}, function resolveRoute(err, redirect, props) {
-    // this is not a component
+    // is this even a component?
     if ( !props ) {
       return next();
     }
-    // this belongs to one of the predefined urls, let's generate its associated page
-    if ( urls.indexOf(location) != -1 ) {
+
+    // if this belongs to one of the predefined urls, let's generate its associated page
+    if ( matcher.match(location) ) {
       return renderComponentPage(location,res);
-    } else { // check to see a page with this slug exists on the WordPress site
+    }
+
+    // if neither of those, this is wordpress content
+    else {
+      // check to see a page with this slug exists on the WordPress site
       WpPageChecker(location, function(error, wpContent) {
         if ( error ) {
           return next();

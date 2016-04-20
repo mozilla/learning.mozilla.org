@@ -176,6 +176,16 @@ export GA_ACCOUNT='xxxxxxx'
 export TEACH_API_URL='xxxxxxx'
 ```
 
+### Feature Flags
+
+These are environment variables that turn on experimental features that need to be tested in a staging environment but should not show up on a production deploy. These flags need to explicitly be set for the feature to show up.
+
+The current list of feature flags is:
+
+Name|If set, enables...
+-|-
+`ENABLE_BADGES` | rendering the `/badges` and `/badge/....` routes, and reveals the badge main page as a sidebar navigation option.
+
 ## Lightweight Dynamic Server (Experimental)
 
 The site can also be served through a lightweight server which

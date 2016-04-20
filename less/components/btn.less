@@ -18,12 +18,12 @@
   border: medium none transparent;
   box-shadow: 0px 0.4rem 0px #C4A74F,
               0px 0.1rem 0px rgba(255, 255, 255, 0.5) inset;
-  &:hover {
+  &:not([disabled]):hover {
     top: 0.2rem;
     box-shadow: 0px 0.2rem 0px #C4A74F,
                 0px 0.1rem 0px rgba(255, 255, 255, 0.5) inset;
   }
-  &:active {
+  &:not([disabled]):active {
     top: 0.4rem;
     box-shadow: 0px 0.1rem 0.1rem rgba(0, 0, 0, 0.2) inset;
   }
