@@ -112,6 +112,7 @@ var routes = (
         <Route path=":webLitSkill" component={require('../pages/web-literacy.jsx')}/>
       </Route>
     </Route>
+    <Route path=":wpSlug" component={require('../pages/wp-content.jsx')}/>
   </Route>
 );
 

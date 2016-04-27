@@ -23,12 +23,22 @@ var app = express();
 
 var notFoundHTML = [
   '<!doctype html>',
-  '<html><head>',
-  '<meta charset="utf-8">',
-  '<title>404 - Page not found</title>',
-  '</head><body>',
-  '<p>404 - Page not found</p>',
-  '</body></html>'
+  '<html>',
+  '<head>',
+    '<meta charset="utf-8">',
+    '<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css"/>',
+    '<link rel="stylesheet" href="/styles.css"/>',
+    '<title>404 - Page not found</title>',
+  '</head>',
+  '<body>',
+    '<div class="not-found">',
+        '<img src="img/pages/not-found/book_singlepageflip.gif" width="500" />',
+        '<h2>Hey, this 404 is a teachable moment!</h2>',
+        '<p>Did you know that a 404 is the generic error code used across the internet to mean "page not found"? It might mean the page used to exist, but doesn\'t anymore. Or that someone made a typo somewhere. Regardless, there\'s no page at this address.</p>',
+        '<a href="/" class="btn">Go To Home Page</a>',
+      '</div>',
+    '</body>',
+  '</html>'
 ].join('');
 
 var urlToRoutePath = function(loc) {
