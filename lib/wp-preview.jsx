@@ -2,7 +2,7 @@ var React = require('react');
 var request = require('superagent');
 var NotFoundMessage = require('../components/not-found.jsx');
 
-var WORDPRESS_COM_API_ENDPOINT_BASE = 'http://calypso.localhost:3000/proxy/';
+var WORDPRESS_COM_API_ENDPOINT_BASE = process.env.WPCALYPSO_URL + '/proxy/';
 
 var ReactWpContentLoader = React.createClass({
   wpApiEndpoint: null,

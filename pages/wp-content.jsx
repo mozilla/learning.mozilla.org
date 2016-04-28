@@ -8,7 +8,7 @@ var WpContent = function(props) {
   return (
     <div className="wp-content-wrapper">
       <div className="inner-container">
-        <WpContentLoader wpUrl={'alicoding.wordpress.com'} wpPostSlug={props.params.wpSlug}>
+        <WpContentLoader wpUrl={config.WORDPRESS_SITE_URL} wpPostSlug={props.params.wpSlug}>
           <NotFoundMessage/>
         </WpContentLoader>
       </div>

@@ -86,10 +86,10 @@ if (!fs.existsSync(DIST_DIR)) {
   fs.mkdirSync(DIST_DIR);
 }
 
-// app.use(frameguard({
-//   action: 'allow-from',
-//   domain: 'http://calypso.localhost:3000'
-// }))
+app.use(frameguard({
+  action: 'allow-from',
+  domain: process.env.WPCALYPSO_URL
+}))
 
 /**
  * Wait for the router to come online.
