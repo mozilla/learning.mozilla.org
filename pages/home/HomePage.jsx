@@ -60,7 +60,6 @@ var HomePage = React.createClass({
       <div>
         <HeroUnit>
           <h1>The Mozilla Learning Network</h1>
-          <Link to='/preview/test-published'>aa</Link>
           <IconButtons>
             <IconButton
               imgSrc="/img/pages/home/svg/icon-newsletter.svg"
