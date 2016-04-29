@@ -57,7 +57,6 @@ var CommunityCallPage = React.createClass({
 
           <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/MozTeachCC"></iframe>
 
-          
         </div>
     );
   }
