@@ -28,34 +28,36 @@ var CurriculumWorkshop = React.createClass({
 
           <section className="callout-box past-workshop">
             <h2>Past Workshop</h2>
-            <p className="date">March 8th - 5 PM PT, 8 PM ET, 10 PM BRT</p>
-            <h1>International Women's Day</h1>
+            <p className="date">April 12th - 5 PM PT, 8 PM ET, 10 PM BRT</p>
+            <h1>Physical Computing</h1>
             <p className="description">
-              With Ingrid Dahl, Claire Shorall, Kim Wilkens, and friends.
+              With Jeremy Boggs, Natalie Freed, Andre Garzia, and Jie Qi.
             </p>
           </section>
 
           <p>
-            On our inaugural, International Women’s Day episode, Ingrid Dahl, Claire Shorall, Kim Wilkens and friends prototype teaching and learning materials addressing women’s issues, rights, and accomplishments. Viewers can ask questions and share ideas and prototypes of their own through the embedded agenda and chat.
+            On our April episode of the Mozilla Curriculum Workshop, <LinkAnchorSwap to="http://scholarslab.org/people/jeremy-boggs/">Jeremy Boggs</LinkAnchorSwap>, <LinkAnchorSwap to="http://www.nataliefreed.com/">Natalie Freed</LinkAnchorSwap>, <LinkAnchorSwap to="http://andregarzia.com/pages/en/blog/">Andre Garzia</LinkAnchorSwap>, and <LinkAnchorSwap to="http://technolojie.com/">Jie Qi</LinkAnchorSwap> will help us understand physical computing as a gateway into the Internet of Things (IoT), the network of connected devices embedded in everyday objects. An in-depth episode on IoT will follow this summer. 
           </p>
 
           <p>
-            You can also join the discussion on <a href="https://discourse.webmaker.org/c/mozilla-curriculum-workshop">our community forum</a> or <a href="https://github.com/MozillaFoundation/curriculum-workshop">GitHub</a>.
+            You can also join the discussion on <LinkAnchorSwap to="https://discourse.webmaker.org/c/mozilla-curriculum-workshop">our community forum</LinkAnchorSwap> or <LinkAnchorSwap to="https://github.com/MozillaFoundation/curriculum-workshop">GitHub</LinkAnchorSwap>.
           </p>
 
           <h3>Workshop Video Stream</h3>
 
           <div className="video-wrapper">
-            <iframe className="workshop-video" width="560" height="315" src="//www.youtube.com/embed/WqLgWloYvHk" frameBorder="0" allowFullScreen></iframe>
+            <iframe className="workshop-video" width="560" height="315" src="//www.youtube.com/embed/XjyMkGPP3R0" frameBorder="0" allowFullScreen></iframe>
           </div>
 
           <h4>
             Open Agenda
-            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/curriculum-workshop">
+            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/curriculum-workshop-april-12-2016">
             </a>
           </h4>
 
-          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/curriculum-workshop"></iframe>
+          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/curriculum-workshop-april-12-2016"></iframe>
+
+
         </div>
     );
   }
