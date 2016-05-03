@@ -17,8 +17,13 @@ var LinkAnchorSwap = React.createClass({
     var linkedContent = this.props.children || this.props.name;
     return (
       ifExternalLink ?  <OutboundLink eventLabel={link} {...this.props}>{linkedContent}</OutboundLink> :
-                        <Link {...this.props}>{linkedContent}</Link>
+                        <Link {...this.props} onClick={this.scrollToTop}>{linkedContent}</Link>
     );
+  },
+  scrollToTop: function() {
+    if (typeof window !== "undefined" && window.scrollTo) {
+      window.scrollTo(0,0);
+    }
   }
 });
 
