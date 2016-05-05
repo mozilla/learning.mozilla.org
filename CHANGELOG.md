@@ -6,6 +6,11 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [0.0.40][] - 2016-05-05
+### Added
+- Added May 10 Curriculum Workshop details and updated archives.
+- Added May 25 MLN Community Call details and updated archives.
+
 ## [0.0.39][] - 2016-04-20
 ### Changed
 - Fixed Web Literacy Map data since Synthesize, Share and Connect were
@@ -559,7 +564,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.39...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.40...HEAD
+[0.0.40]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.39...v0.0.40
 [0.0.39]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.38...v0.0.39
 [0.0.38]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.37...v0.0.38
 [0.0.37]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.36...v0.0.37
