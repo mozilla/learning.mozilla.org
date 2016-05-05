@@ -28,15 +28,19 @@ var CommunityCallPage = React.createClass({
 
           <section className="callout-box past-workshop">
             <h2>Archived Call</h2>
-            <p className="date">March 23, 11 AM ET, 4pm UTC, 5pm CET, 9:30pm IST</p>
-            <h1>Celebrating Women &amp; The Open Web</h1>
+            <p className="date">April 20, 11 AM ET, 4pm UTC, 5pm CET, 9:30pm IST</p>
+            <h1>Internet of Things</h1>
             <p className="description">
-              Featured speakers from Arizona State University Girls in Tech, New York Hall of Science, Girl Scouts, and Hype Girl
+              Featured speakers from Quicksand and the University of Dundee
             </p>
           </section>
 
           <p>
-          For our first community call, in conjunction with International Women’s Day, we’ll explore topics related to teaching women and girls. Topics include best practices for engaging girls around the web and technology and case studies of programs and organizations that focus on girls and the web.
+          The Internet is a global, public resource that should be open and accessible to all. As the Internet evolves, it must remain a public resource. It will also offer opportunity for creativity and innovation beyond the screens of our computers and phones.
+          </p>
+
+          <p>
+          In this call, we’ll explore how we’d like to control our personal data in the home, especially as homes become increasingly connected. We’ll compare how people from India, Scotland, Germany, the UK and beyond are engaging with these questions and how we can build provocative prototypes that bring these ideas to life.
           </p>
 
           <p>
@@ -46,16 +50,16 @@ var CommunityCallPage = React.createClass({
           <h3>Workshop Video Stream</h3>
 
           <div className="video-wrapper">
-            <iframe className="workshop-video" width="560" height="315" src="//www.youtube.com/embed/QfvrKvx4mUk" frameBorder="0" allowFullScreen></iframe>
+            <iframe className="workshop-video" width="560" height="315" src="//www.youtube.com/embed/d3YJUZVoYws" frameBorder="0" allowFullScreen></iframe>
           </div>
 
           <h4>
             Open Agenda
-            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/MozTeachCC">
+            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/mozcommunitycallApril16">
             </a>
           </h4>
 
-          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/MozTeachCC"></iframe>
+          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/mozcommunitycallApril16"></iframe>
 
         </div>
     );
