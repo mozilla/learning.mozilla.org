@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/mozilla/teach.mozilla.org.svg)](https://travis-ci.org/mozilla/teach.mozilla.org)
 
-This is the source code for [teach.mozilla.org][].
+This is the source code for [learning.mozilla.org][https://learning.mozilla.org].
 
 **For a summary of the most recent changes to the project, please
 see [`CHANGELOG.md`][changelog]. It's awesome.**
@@ -32,13 +32,13 @@ In order to contribute to this project, you'll need to **create your own fork** 
 Clone from your own fork or from the original:
 
 ```
-git clone git@github.com:mozilla/teach.mozilla.org.git
-cd teach.mozilla.org
+git clone git@github.com:mozilla/learning.mozilla.org.git
+cd learning.mozilla.org
 ```
 
 ### Build and Develop
 
-To start developing, all you need to do is run the following in the `teach.mozilla.org` directory you just created:
+To start developing, all you need to do is run the following in the `learning.mozilla.org` directory you just created:
 
 ```
 $> npm install
@@ -215,19 +215,19 @@ The server is also designed to be easily deployable on Heroku.
 
 <!-- links -->
 
-  [teach.mozilla.org]: https://teach.mozilla.org
+  [learning.mozilla.org]: https://learning.mozilla.org
   [`devtool`]: http://webpack.github.io/docs/configuration.html#devtool
-  [sourcemaps]: https://github.com/mozilla/teach.mozilla.org/pull/147#discussion-diff-25879885
+  [sourcemaps]: https://github.com/mozilla/learning.mozilla.org/pull/147#discussion-diff-25879885
   [roadmap]: http://wiki.webmaker.org/Teach
   [mocha]: http://mochajs.org/
   [mocha (1)]: http://mochajs.org/#usage
   [should]: https://www.npmjs.com/package/should
-  [teach.mofostaging.net]: http://teach.mofostaging.net/
+  [teach.mofostaging.net]: https://teach.mofostaging.net/
   [Mapbox]: http://mapbox.com/
   [Teach API]: https://github.com/mozilla/teach-api
-  [#413]: https://github.com/mozilla/teach.mozilla.org/issues/413
+  [#413]: https://github.com/mozilla/learning.mozilla.org/issues/413
   [source maps]: http://blog.teamtreehouse.com/introduction-source-maps
-  [changelog]: https://github.com/mozilla/teach.mozilla.org/blob/develop/CHANGELOG.md
-  [contributing]: https://github.com/mozilla/teach.mozilla.org/blob/develop/CONTRIBUTING.md
-  [Manual Testing]: https://github.com/mozilla/teach.mozilla.org/blob/develop/CONTRIBUTING.md#manual-testing
-  [#585]: https://github.com/mozilla/teach.mozilla.org/issues/585
+  [changelog]: https://github.com/mozilla/learning.mozilla.org/blob/develop/CHANGELOG.md
+  [contributing]: https://github.com/mozilla/learning.mozilla.org/blob/develop/CONTRIBUTING.md
+  [Manual Testing]: https://github.com/mozilla/learning.mozilla.org/blob/develop/CONTRIBUTING.md#manual-testing
+  [#585]: https://github.com/mozilla/learning.mozilla.org/issues/585
