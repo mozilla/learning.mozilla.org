@@ -22,9 +22,16 @@ var Login = React.createClass({
     }
   },
   componentDidMount: function() {
+    var component = this;
     var teachAPI = this.props.teachAPI;
-    teachAPI.checkLoginStatus();
-    this.setState({username: teachAPI.getUsername()});
+    // Send this off on its own tick, to prevent thread-blocking.
+    setTimeout(function() {
+      teachAPI.checkLoginStatus(function() {
+        component.setState({
+          username: teachAPI.getUsername()
+        });
+      });
+    }, 0);
   },
   getInitialState: function() {
     return {

@@ -1,1 +1,1 @@
-module.exports = require('./minimal.build.tasks.js').concat(['sitemap']);
+module.exports = require('./minimal.build.tasks.js');
