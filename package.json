@@ -25,7 +25,7 @@
     "pretest": "rm -rf dist",
     "postinstall": "gulp postinstall",
     "smoketest": "gulp smoketest",
-    "start": "node run app",
+    "start": "npm run app",
     "test": "gulp smoketest && npm run test:mocha && npm run test:browser && gulp lint-test",
     "test:browser": "node test/browser/run-in-phantom.js",
     "test:mocha": "mocha test/*.test.js",
