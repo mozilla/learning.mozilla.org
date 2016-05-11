@@ -9,6 +9,7 @@ var LinkSwap = React.createClass({
   },
   render: function() {
     var link = this.props.link;
+    if (!link) return this.props.children;
     var ifExternalLink = (link.substr(0,4).toLowerCase() === "http") || (link.substr(0,7).toLowerCase() === "mailto:");
     return (
       ifExternalLink ?  <OutboundLink to={this.props.link} eventLabel={this.props.link} className="external-link">{this.props.children}</OutboundLink> :

@@ -13,6 +13,7 @@ var pages = {
   'about': require('../pages/about.jsx'),
   'activities': require('../pages/activities.jsx'),
   'activities/intermediate-web-lit': require('../pages/intermediate-web-lit.jsx'),
+  'activities/intermediate-web-lit-two': require('../pages/intermediate-web-lit-two.jsx'),
   'activities/madewithcode': require('../pages/madewithcode.jsx'),
   'activities/madewithcode-firstwebpage': require('../pages/madewithcode-firstwebpage.jsx'),
   'activities/madewithcode-meme': require('../pages/madewithcode-meme.jsx'),
@@ -45,6 +46,16 @@ var pages = {
   'tools': require('../pages/tools.jsx'),
   'me': require('../pages/makes.jsx'),
   'web-literacy/skills': require('../pages/web-literacy/Skills.jsx')
+};
+
+// FEATURE FLAG:
+// badges are behind a feature flag until finalized
+if (process.env.ENABLE_BADGES) {
+  pages = Object.assign(pages, {
+    'badges': require('../pages/badges/badges.jsx'),
+    'badge/:id': require('../pages/badges/badge-single.jsx'),
+    'badge/:id/:slug': require('../pages/badges/badge-single.jsx')
+  });
 };
 
 /**

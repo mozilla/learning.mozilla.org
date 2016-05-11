@@ -111,9 +111,16 @@ var Page = React.createClass({
   },
 
   render: function() {
+    // we need the next three lines for server-side rendering:
     var routes = this.props.routes;
     var currentRoute = routes.slice(-1)[0];
     var currentPath = config.ORIGIN + '/' + (currentRoute.path || '');
+
+    // but we _actually_ want to rely on this, instead:
+    if (typeof window !== 'undefined') {
+      currentPath = config.ORIGIN + window.location.pathname;
+    }
+
     var pageClassName = this.getCurrentClassName();
     var className = "page container-fluid " + pageClassName;
 

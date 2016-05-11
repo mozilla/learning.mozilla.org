@@ -1,0 +1,256 @@
+@indigoSidebarTextColor: #AEB1CE;
+
+.page.badges {
+  .hero-unit {
+    background-image: url(/img/pages/badges/badge-banner.jpg);
+    background-repeat: no-repeat;
+    background-color: #474E79;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+
+    h1{
+      margin-top: 40px;
+    }
+
+    .retina2x({ background-image: url(/img/pages/badges/badge-banner@2x.jpg); });
+
+    .sub-title {
+      padding: 0px 10rem;
+      font-size: 3.5rem;
+    }
+  }
+
+  .about-credentials {
+    padding-top: 2em;
+    width: 90%;
+    margin: auto;
+
+    p {
+      font-size: 2.6rem;
+      line-height: 2.8rem;
+    }
+  }
+}
+
+.badges {
+  .hive-links {
+    margin: 2.5rem 0;
+    .hive-link {
+      white-space: nowrap;
+      margin: 0.6rem 0;
+      .image-tag {
+        width: 6.3rem;
+      }
+      span {
+        margin: 0 0 0 1rem;
+        text-transform: uppercase;
+      }
+    }
+  }
+  .image-container {
+    padding-bottom: 0;
+    img {
+      border-radius: 4px;
+      width: 100%;
+    }
+  }
+}
+
+
+
+
+.top-back-navigation{
+  margin-top: @padding-base-horizontal;
+  margin-bottom: @padding-base-horizontal * 2;
+
+  .btn-link{
+    text-transform: uppercase;
+    color: @indigoSidebarColor;
+  }
+}
+
+
+.single-badge {
+  .badge-icon {
+    img {
+      width: 40%;
+    }
+  }
+
+  .badge-horizontal-icon{
+    margin-bottom: 3rem;
+    .badge-description{
+      margin-top: 3rem;
+      h2{
+        margin-top: 10px;
+      }
+
+      .description{
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  #content{
+    padding: 0px 4rem;
+  }
+
+  .modal.show {
+    background: rgba(0,0,0,0.5);
+
+    h3.centered{
+      text-align: center;
+    }
+
+    p.pp-note {
+      font-size: 1.2rem;
+      margin-top: .5rem;
+      line-height: 1.2;
+    }
+  }
+}
+
+
+.apply-send-qualifications{
+  h3{
+    margin-top: @padding-large-horizontal * 3.5;
+  }
+
+  form{
+    .form-group{
+      .control-label{
+        font-weight: 300;
+        margin-bottom: @padding-base-horizontal;
+      }
+
+      .form-control{
+        background-color: @liBgEvenColor;
+        padding: @padding-base-horizontal;
+        font-size: 1.8rem;
+        border: 0px;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+
+        &::-webkit-input-placeholder { font-style: italic; }
+        &:-moz-placeholder { font-style: italic; }
+      }
+    }
+  }
+
+  .btn.attach {
+    padding: 0.25rem 1rem;
+    margin-left: 1rem;
+  }
+}
+
+.individual-badge {
+  .badge-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+
+    .next,
+    .previous {
+      .icon{
+        display: inline-block;
+        max-width: 100px;
+        max-height: 114px;
+
+        img{
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+      .text{
+        display: inline-block;
+        text-transform: uppercase;
+      }
+    }
+
+    .next{
+      text-align: right;
+      .text{
+        margin-right: @padding-base-horizontal;
+      }
+      img {
+        width: 100px;
+      }
+    }
+
+    .previous {
+      .text{
+        margin-left: @padding-base-horizontal;
+      }
+      img {
+        width: 100px;
+      }
+    }
+  }
+
+  .attached {
+    margin-left: 1em;
+  }
+}
+
+.optional-file-input{
+  .btn-link{
+    padding-left:0px;
+    padding-right:0px;
+  }
+}
+
+.login-cta {
+  .login-text{
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-right: 1.5em;
+    color: #777;
+  }
+  a.btn {
+    padding-left: 4em;
+    padding-right: 4em;
+  }
+}
+
+.badge-reward-text{
+  background-color: @liBgOddColor;
+  padding: @padding-large-horizontal * 2;
+  border-radius: 4px;
+
+  .date{
+    margin-bottom: @padding-base-horizontal;
+    text-transform: uppercase;
+  }
+  .qualifications{
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    font-style: italic;
+    margin-bottom: @padding-base-horizontal;
+
+    &:before{
+      content: '"';
+    }
+    &:after{
+      content: '"';
+    }
+  }
+
+}
+
+.badges-content{
+  .badge-icon-link{
+    text-decoration: none;
+    color: #56565A
+  }
+}
+
+
+.badge-vertical-icon{
+  .badge-text{
+    .description{
+      height: 7rem;
+    }
+  }
+}

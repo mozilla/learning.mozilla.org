@@ -1,0 +1,37 @@
+.btn{
+  &.icon-only{
+    .fa{
+      width: 16px;
+    }
+  }
+  &.btn-social{
+    .btn.btn-awsm;
+    padding: 6px 12px;
+    text-align: center;
+    color: @white;
+
+    &.facebook{
+      .socialBtn( @facebookColor );
+    }
+    &.linkedin{
+      .socialBtn( @linkedinColor );
+    }
+    &.twitter{
+      .socialBtn( @twitterColor );
+    }
+  }
+}
+
+.social-share-wrapper{
+  padding-top: @padding-base-horizontal * 2;
+  .btn-social{
+    display: inline-block;
+    margin-right: @padding-base-vertical;
+    margin-top:0px;
+
+    &:last-child{
+      margin-right: 0px;
+    }
+  }
+}
+

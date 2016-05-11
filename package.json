@@ -1,6 +1,6 @@
 {
   "name": "teach.mozilla.org",
-  "version": "0.0.40",
+  "version": "1.0.0",
   "description": " Initial attempt at implementing Webmaker Learning front-page.",
   "author": "Mozilla",
   "license": "MPL-2.0",
@@ -25,11 +25,11 @@
     "pretest": "rm -rf dist",
     "postinstall": "gulp postinstall",
     "smoketest": "gulp smoketest",
-    "spider": "node test/browser/spider.js",
-    "start": "gulp watch",
-    "test": "gulp smoketest && npm run test:mocha && npm run test:browser && gulp lint-test && npm run spider",
+    "start": "npm run app",
+    "test": "gulp smoketest && npm run test:mocha && npm run test:browser && gulp lint-test",
     "test:browser": "node test/browser/run-in-phantom.js",
-    "test:mocha": "mocha test/*.test.js"
+    "test:mocha": "mocha test/*.test.js",
+    "watch": "gulp watch"
   },
   "dependencies": {
     "babel-core": "^6.3.21",
@@ -80,6 +80,7 @@
     "react-router": "^1.0.3",
     "react-select": "^0.9.1",
     "react-wp-content-loader": "0.0.2",
+    "routington": "^1.0.3",
     "should": "^8.0.2",
     "source-map-support": "^0.4.0",
     "superagent": "^1.6.1",
@@ -87,6 +88,7 @@
     "through2": "^2.0.0",
     "underscore": "^1.8.3",
     "url-template": "^2.0.6",
+    "urlize": "^0.2.1",
     "val-loader": "^0.5.0",
     "vinyl": "^1.1.0",
     "webpack": "^1.12.9",

@@ -52,6 +52,14 @@ var ActivitiesPage = React.createClass({
               developedBy="Mozilla Learning"
               description="Learn to style HTML elements on a webpage using CSS selectors, attributes, and values."/>
             <ActivityKit
+              src1x="/img/pages/intermediate-web-lit-two/buttons.jpg"
+              caption={<a href="https://pixabay.com/static/uploads/photo/2015/01/30/09/44/buttons-617323_960_720.jpg ">CC0 Public Domain</a>}
+              title="Intermediate Web Literacy II: Storytelling with Scripts"
+              level="Intermediate"
+              link="/activities/intermediate-web-lit-two/"
+              developedBy="Mozilla Learning"
+              description="Learn to use buttons, forms, and inputs alongside JavaScript functions to tell stories on the web."/>
+            <ActivityKit
               src1x="/img/pages/webmaker/designing-webmaker.jpg"
               src2x="/img/pages/webmaker/designing-webmaker@2x.jpg"
               title="Read, Write, and Participate with Webmaker"
