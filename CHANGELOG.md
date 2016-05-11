@@ -6,6 +6,17 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [1.0.0][] - 2016-05-11
+### Added
+- Added Intermediate Web Lit II module.
+- Badges related code has been merged into the codebase! The `ENABLE_BADGES` 
+  flag is currently off. Turning it on renders the `/badges` and 
+  `/badge/....` routes, and reveals the badge main page as a sidebar navigation 
+  option.
+
+### Changed
+- `npm start` now triggers the `npm run app` task
+
 ## [0.0.40][] - 2016-05-05
 ### Added
 - Added May 10 Curriculum Workshop details and updated archives.
@@ -564,7 +575,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.40...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.40...v1.0.0
 [0.0.40]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.39...v0.0.40
 [0.0.39]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.38...v0.0.39
 [0.0.38]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.37...v0.0.38
