@@ -41,3 +41,4 @@ exports.LIGHT_BEAM_URL = "https://addons.mozilla.org/firefox/downloads/latest/36
 exports.ENCRYPT_CAMPAIGN_URL = "https://mzl.la/encrypt";
 exports.WORDPRESS_SITE_URL = process.env.WORDPRESS_SITE_URL || '';
 exports.ENABLE_BADGES = !!process.env.ENABLE_BADGES;
+exports.WPCALYPSO_URL = process.env.WPCALYPSO_URL || ''
