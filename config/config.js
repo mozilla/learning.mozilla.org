@@ -40,4 +40,4 @@ exports.ORIGIN = ORIGIN;
 exports.LIGHT_BEAM_URL = "https://addons.mozilla.org/firefox/downloads/latest/363974/addon-363974-latest.xpi";
 exports.ENCRYPT_CAMPAIGN_URL = "https://mzl.la/encrypt";
 exports.WORDPRESS_SITE_URL = process.env.WORDPRESS_SITE_URL || '';
-
+exports.WPCALYPSO_URL = process.env.WPCALYPSO_URL || ''
