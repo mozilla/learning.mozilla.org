@@ -19,8 +19,6 @@ var ReactWpContentLoader = React.createClass({
   },
   componentDidMount: function() {
     this.wpApiEndpoint = WORDPRESS_COM_API_ENDPOINT_BASE + this.props.wpPostSlug;
-    console.log( this.wpApiEndpoint)
-    console.log('/// this.wpApiEndpoint = ', this.wpApiEndpoint);
     this.getContent();
   },
   getContent: function() {
