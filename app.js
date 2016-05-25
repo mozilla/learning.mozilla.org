@@ -1,7 +1,6 @@
 var path = require('path');
 var fs = require('fs');
 var express = require('express');
-var helmet = require('helmet');
 var frameguard = require('frameguard');
 
 var React = require('react');
