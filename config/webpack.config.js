@@ -1,4 +1,6 @@
 var webpack = require('webpack');
+var habitat = require('habitat');
+habitat.load('.env');
 
 var production = process.env.NODE_ENV === 'production';
 var IMPORT_ES5_SHIM = 'imports?shim=es5-shim/es5-shim&' +
@@ -51,7 +53,8 @@ module.exports = {
       'OPTIMIZELY_ID',
       'OPTIMIZELY_ACTIVE',
       'MAKE_METADATA_URL',
-      'WORDPRESS_SITE_URL'
+      'WORDPRESS_SITE_URL',
+      'WPCALYPSO_URL'
     ])),
     new webpack.optimize.CommonsChunkPlugin('commons',
                                             'commons.bundle.js')
