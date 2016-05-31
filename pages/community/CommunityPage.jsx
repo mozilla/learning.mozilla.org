@@ -66,12 +66,12 @@ var CommunityPage = React.createClass({
           <section>
           <IconLinks>
             <IconLink
-              link="https://twitter.com/mozteach"
+              link="https://twitter.com/mozlearn"
               imgSrc="/img/pages/community/svg/icon-community-twitter.svg"
               width={60}
               head="Follow Us"
-              subhead="We're @mozteach on Twitter and our community uses #teachtheweb"
-              highlightedText="@mozteach"
+              subhead="We're @mozlearn on Twitter and our community uses #teachtheweb"
+              highlightedText="@mozlearn"
             />
             <IconLink
               link="https://docs.google.com/a/mozillafoundation.org/forms/d/1bOXV1OiF2EKS5KprlnzfFpwaoVNwxLAwN_UEq6hGKqU/viewform"
