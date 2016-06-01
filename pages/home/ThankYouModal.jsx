@@ -4,8 +4,8 @@ var Modal = require('../../components/modal.jsx');
 var ThankYouModal = React.createClass({
   render: function() {
   // we can't preset the message sharing on Facebook
-  var facebookShare = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent("https://teach.mozilla.org");
-  var twitterShare = "https://twitter.com/home?status=" + encodeURIComponent("I love to #TeachTheWeb! https://teach.mozilla.org");
+  var facebookShare = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent("https://learning.mozilla.org");
+  var twitterShare = "https://twitter.com/home?status=" + encodeURIComponent("I love to #TeachTheWeb! https://learning.mozilla.org");
     return (
       <Modal modalTitle="Thanks for your interest!" className="modal-signup" hideModal={this.props.hideModal}>
         <p>We appreciate your commitment to keeping the web open, accessible and ours.</p>
