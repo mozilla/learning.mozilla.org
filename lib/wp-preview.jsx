@@ -2,7 +2,7 @@ var React = require('react');
 var request = require('superagent');
 var NotFoundMessage = require('../components/not-found.jsx');
 
-var WORDPRESS_COM_API_ENDPOINT_BASE = process.env.WPCALYPSO_URL + '/proxy/';
+var WORDPRESS_COM_API_ENDPOINT_BASE = process.env.WPCALYPSO_URL + '/proxy/learning.mozilla.org/';
 
 var ReactWpContentLoader = React.createClass({
   wpApiEndpoint: null,
@@ -23,19 +23,19 @@ var ReactWpContentLoader = React.createClass({
   },
   getContent: function() {
     var that = this;
+
     request
       .get(that.wpApiEndpoint)
       .withCredentials()
       .accept('json')
       .end(function(err, res) {
-        console.log(err)
-        if( err ) {
-          that.setState({fourOhFour: true});
-        }
-        if ( err || res.statusCode !== 200 ) {
+        if ( err ) {
           console.log('error: ', err);
           that.content = 'Oops, unable to load Wordpress post.';
           that.setState({failedToLoad: true});
+        } else if ( res.statusCode === 404 ) {
+          console.log(err)
+          that.setState({fourOhFour: true});
         } else {
           that.content = JSON.parse(res.text).content;
         }
