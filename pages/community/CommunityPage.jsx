@@ -10,6 +10,8 @@ var VerticalCard = require('./VerticalCard.jsx');
 
 var validateSignupForm = require('../../components/newsletter-signup/validateSignupForm');
 
+var config = require('../../config/config.js');
+
 var communityList = [
   {
     imgSrc1x: '/img/pages/community/clubs.jpg',
@@ -66,12 +68,12 @@ var CommunityPage = React.createClass({
           <section>
           <IconLinks>
             <IconLink
-              link="https://twitter.com/mozlearn"
+              link={ config.TWITTER_LINK }
               imgSrc="/img/pages/community/svg/icon-community-twitter.svg"
               width={60}
               head="Follow Us"
-              subhead="We're @mozlearn on Twitter and our community uses #teachtheweb"
-              highlightedText="@mozlearn"
+              subhead={"We're " + config.TWITTER_HANDLE + " on Twitter and our community uses #teachtheweb" }
+              highlightedText={ config.TWITTER_HANDLE }
             />
             <IconLink
               link="https://docs.google.com/a/mozillafoundation.org/forms/d/1bOXV1OiF2EKS5KprlnzfFpwaoVNwxLAwN_UEq6hGKqU/viewform"
