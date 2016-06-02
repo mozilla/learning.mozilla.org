@@ -29,8 +29,8 @@ var OpportunitiesPage = React.createClass({
                 imgSrc="/img/pages/opportunities/svg/icon-leadership-twitter.svg"
                 width={60}
                 head="Follow Us"
-                subhead="We're @mozlearn on Twitter and our community uses #teachtheweb"
-                highlightedText="@mozlearn"
+                subhead={"We're " + config.TWITTER_HANDLE + " on Twitter and our community uses #teachtheweb" } 
+                highlightedText={ config.TWITTER_HANDLE }
               />
               <IconLink
                 link="https://discourse.webmaker.org/"

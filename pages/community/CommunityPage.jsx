@@ -59,7 +59,7 @@ var CommunityPage = React.createClass({
           </section>
           <div className="vertical-divider"></div>
           <section className="text-center">
-            <h2>Get the latest teaching activities, tips, and news in your inbox every month. Sign up for the MLN Community Newsletter.</h2>
+            <h2>Get the latest teaching activities, tips, and news in your inbox every month. Sign up for the Mozilla Learning Newsletter.</h2>
             <SignupForm idPrefix="signup-form-" sourceUrl={this.props.currentPath} />
           </section>
           <section>
