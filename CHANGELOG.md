@@ -6,6 +6,11 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [1.0.1][] - 2016-06-03
+### Changed
+- Updated references to teach.mozilla.org with learning.mozilla.org
+- Updated Twitter link.
+
 ## [1.0.0][] - 2016-05-11
 ### Added
 - Added Intermediate Web Lit II module.
@@ -575,7 +580,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.0...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.40...v1.0.0
 [0.0.40]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.39...v0.0.40
 [0.0.39]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.38...v0.0.39
