@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mozilla/teach.mozilla.org.svg)](https://travis-ci.org/mozilla/teach.mozilla.org)
+[![Build Status](https://travis-ci.org/mozilla/learning.mozilla.org.svg)](https://travis-ci.org/mozilla/learning.mozilla.org)
 
 This is the source code for [learning.mozilla.org][https://learning.mozilla.org].
 

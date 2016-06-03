@@ -10,6 +10,8 @@ var VerticalCard = require('./VerticalCard.jsx');
 
 var validateSignupForm = require('../../components/newsletter-signup/validateSignupForm');
 
+var config = require('../../config/config.js');
+
 var communityList = [
   {
     imgSrc1x: '/img/pages/community/clubs.jpg',
@@ -57,7 +59,7 @@ var CommunityPage = React.createClass({
           </section>
           <div className="vertical-divider"></div>
           <section className="text-center">
-            <h2>Get the latest teaching activities, tips, and news in your inbox every month. Sign up for the MLN Community Newsletter.</h2>
+            <h2>Get the latest teaching activities, tips, and news in your inbox every month. Sign up for the Mozilla Learning Newsletter.</h2>
             <SignupForm idPrefix="signup-form-" sourceUrl={this.props.currentPath} />
           </section>
           <section>
@@ -66,12 +68,12 @@ var CommunityPage = React.createClass({
           <section>
           <IconLinks>
             <IconLink
-              link="https://twitter.com/mozteach"
+              link={ config.TWITTER_LINK }
               imgSrc="/img/pages/community/svg/icon-community-twitter.svg"
               width={60}
               head="Follow Us"
-              subhead="We're @mozteach on Twitter and our community uses #teachtheweb"
-              highlightedText="@mozteach"
+              subhead={"We're " + config.TWITTER_HANDLE + " on Twitter and our community uses #teachtheweb" }
+              highlightedText={ config.TWITTER_HANDLE }
             />
             <IconLink
               link="https://docs.google.com/a/mozillafoundation.org/forms/d/1bOXV1OiF2EKS5KprlnzfFpwaoVNwxLAwN_UEq6hGKqU/viewform"
