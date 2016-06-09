@@ -31,12 +31,12 @@ var CurriculumWorkshop = React.createClass({
             <p className="date">June 16th - 9 AM PT / 12 PM ET / 4 PM GMT / 5 PM BST</p>
             <h1>Summer Learning</h1>
             <p className="description">
-              With Su Adams, Antero Garcia, and Christopher Rogers
+              With Su Adams, Bud Hunt, and Christopher Rogers
             </p>
           </section>
 
           <p>
-           Join co-hosts Amira Dhalla and Chad Sansing broadcasting live from Mozilla’s all-hands work-week. Invited guests Su Adams, Antero Garcia, and Christopher Rogers, as well as drop-in Mozillians, will talk shop about summer learning, participatory learning outside school, and curriculum development on the web.
+           Join co-hosts Amira Dhalla and Chad Sansing broadcasting live from Mozilla’s all-hands work-week. Invited guests Su Adams, Bud Hunt, and Christopher Rogers, as well as drop-in Mozillians, will talk shop about summer learning, participatory learning outside school, and curriculum development on the web.
           </p>
 
           <p>
