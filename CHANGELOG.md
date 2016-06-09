@@ -6,6 +6,11 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [1.0.2][] - 2016-06-09
+### Added
+- Added June 16 Curriculum Workshop details and updated archives.
+- Added June 29 MLN Community Call details and updated archives.
+
 ## [1.0.1][] - 2016-06-03
 ### Changed
 - Updated references to teach.mozilla.org with learning.mozilla.org
@@ -580,7 +585,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.1...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.40...v1.0.0
 [0.0.40]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.39...v0.0.40
