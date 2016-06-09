@@ -18,7 +18,7 @@ var CurriculumWorkshop = React.createClass({
              src1x="/img/pages/community/svg/icon-circle-community.svg"
              alt="icon toolkit">
                <h1>Mozilla Curriculum Workshop</h1>
-               <h2>Join us on the second Tuesday of each month at 8 PM ET!</h2>
+               <h2>Join us on the second Tuesday of each month!</h2>
            </Illustration>
           </section>
 

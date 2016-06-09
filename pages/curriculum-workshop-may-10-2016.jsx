@@ -28,34 +28,36 @@ var CurriculumWorkshop = React.createClass({
 
           <section className="callout-box past-workshop">
             <h2>Past Workshop</h2>
-            <p className="date">March 8th - 5 PM PT, 8 PM ET, 10 PM BRT</p>
-            <h1>International Women's Day</h1>
+            <p className="date">May 10th - 5 PM PT, 8 PM ET, 10 PM BRT</p>
+            <h1>Youth Civic Engagement</h1>
             <p className="description">
-              With Ingrid Dahl, Claire Shorall, Kim Wilkens, and friends.
+              With Rafranz Davis, Jeremy Dean, and D.C. Vito.
             </p>
           </section>
 
           <p>
-            On our inaugural, International Women’s Day episode, Ingrid Dahl, Claire Shorall, Kim Wilkens and friends prototype teaching and learning materials addressing women’s issues, rights, and accomplishments. Viewers can ask questions and share ideas and prototypes of their own through the embedded agenda and chat.
+            On our May episode of the Mozilla Curriculum Workshop, Rafranz Davis, Jeremy Dean, and D.C. Vito will help us learn about youth civic engagement. We’ll talk about compelling examples of youth organization and leadership before we prototype resources that might help foster both. Join the work on our shared etherpad and help us build something useful to youth near you!
           </p>
 
           <p>
-            You can also join the discussion on <a href="https://discourse.webmaker.org/c/mozilla-curriculum-workshop">our community forum</a> or <a href="https://github.com/MozillaFoundation/curriculum-workshop">GitHub</a>.
+            You can also join the discussion on <LinkAnchorSwap to="https://discourse.webmaker.org/c/mozilla-curriculum-workshop">our community forum</LinkAnchorSwap> or <LinkAnchorSwap to="https://github.com/MozillaFoundation/curriculum-workshop">GitHub</LinkAnchorSwap>.
           </p>
 
           <h3>Workshop Video Stream</h3>
 
           <div className="video-wrapper">
-            <iframe className="workshop-video" width="560" height="315" src="//www.youtube.com/embed/WqLgWloYvHk" frameBorder="0" allowFullScreen></iframe>
+            <iframe className="workshop-video" width="560" height="315" src="//www.youtube.com/embed/dReBsw0oiy0" frameBorder="0" allowFullScreen></iframe>
           </div>
 
           <h4>
             Open Agenda
-            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/curriculum-workshop">
+            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/curriculum-workshop-may-10-2016">
             </a>
           </h4>
 
-          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/curriculum-workshop"></iframe>
+          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/curriculum-workshop-may-10-2016"></iframe>
+
+
         </div>
     );
   }
