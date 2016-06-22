@@ -70,11 +70,6 @@ var SignupForm = React.createClass({
     return (
       <form className="mailinglist-signup" action={process.env.NEWSLETTER_MAILINGLIST_URL} method="POST" onSubmit={this.handleSubmit}>
         <fieldset>
-          <label htmlFor={idPrefix+"email"} className="sr-only">email</label>
-          <div className="icon-field-container">
-            <i className="fa fa-envelope"></i>
-            <input id={idPrefix+"email"} name="email" type="email" size="30" placeholder="email@example.com" valueLink={this.linkState("email")} required />
-          </div>
           <label htmlFor={idPrefix+"privacy"} className="sr-only">
             I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>
           </label>
@@ -82,6 +77,11 @@ var SignupForm = React.createClass({
           <p className="pp-note">
             &#10003; I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/en-US/privacy/websites/">privacy policy</a>.
           </p>
+          <label htmlFor={idPrefix+"email"} className="sr-only">email</label>
+          <div className="icon-field-container">
+            <i className="fa fa-envelope"></i>
+            <input id={idPrefix+"email"} name="email" type="email" size="30" placeholder="email@example.com" valueLink={this.linkState("email")} required />
+          </div>
           {this.renderValidationErrors()}
         </fieldset>
         <input type="submit" value="Sign Up" className="btn center-block" />
