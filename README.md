@@ -163,7 +163,7 @@ software works.
 `OPTIMIZELY_ID` | Optimizely Project ID (not a secret) e.g. '206878104'
 `OPTIMIZELY_ACTIVE` | If set to 'yes' (String) the project will include Optimizely snippet in the page load
 `MAKE_METADATA_URL` | The template source url to load users' Makes metadata. Username should be included in the URL as a variable. e.g., `https://{username}.makes.org/makes.json`
-`WORDPRESS_SITE_URL` | The URL to the wordpress.com site this app retrieves data from. e.g., `helloworld.wordpress.com`,
+`WORDPRESS_DOMAIN` | The domain to the wordpress.com site this app retrieves data from. e.g., `helloworld.wordpress.com` (with no protocol),
 
 ### Using Environment Variables in Local Development
 
