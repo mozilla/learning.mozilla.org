@@ -39,6 +39,6 @@ exports.THIMBLE = 'https://thimble.mozilla.org/';
 exports.TWITTER_HANDLE = '@MozLearn';
 exports.TWITTER_LINK = 'https://twitter.com/MozLearn';
 exports.WEBMAKER = 'https://webmaker.org';
-exports.WORDPRESS_SITE_URL = process.env.WORDPRESS_SITE_URL || '';
+exports.WORDPRESS_DOMAIN = process.env.WORDPRESS_DOMAIN || '';
 exports.XRAY_GOGGLES_LINK = 'https://goggles.mozilla.org/';
 

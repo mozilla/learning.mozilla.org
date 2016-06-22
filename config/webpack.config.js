@@ -54,7 +54,7 @@ module.exports = {
       'OPTIMIZELY_ID',
       'OPTIMIZELY_ACTIVE',
       'MAKE_METADATA_URL',
-      'WORDPRESS_SITE_URL',
+      'WORDPRESS_DOMAIN',
       // feature flags:
       "ENABLE_BADGES"
     ])),
