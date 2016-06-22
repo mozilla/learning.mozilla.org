@@ -19,6 +19,7 @@ var pages = {
   'activities/madewithcode-meme': require('../pages/madewithcode-meme.jsx'),
   'activities/madewithcode-poster': require('../pages/madewithcode-poster.jsx'),
   'activities/maker-party-2015': require('../pages/maker-party-2015.jsx'),
+  'activities/offline-icebreakers': require('../pages/offline-icebreakers.jsx'),
   'activities/parapara': require('../pages/parapara.jsx'),
   'activities/protect-your-data': require('../pages/protect-your-data.jsx'),
   'activities/privacy-basics': require('../pages/privacy-basics.jsx'),

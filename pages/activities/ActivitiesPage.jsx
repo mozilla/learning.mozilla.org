@@ -60,6 +60,14 @@ var ActivitiesPage = React.createClass({
               developedBy="Mozilla Learning"
               description="Learn to use buttons, forms, and inputs alongside JavaScript functions to tell stories on the web."/>
             <ActivityKit
+              src1x="/img/pages/offline-icebreakers/html-puzzleboxes.jpg"
+              caption={<a href="https://mozilla.github.io/mozilla-club-activity-html-puzzle-boxes/activity-data/images/html-puzzleboxes.jpg">by MOUSE</a>}
+              title="Offline Icebreakers"
+              level="Beginner"
+              link="/activities/offline-icebreakers/"
+              developedBy={<div><a href="https://learning.mozilla.org">Mozilla</a>, <a href="https://thedigitalcorps.wordpress.com"> Digital Corps</a>, <a href="https://twitter.com/ossington">ginger coons</a>, <a href="https://twitter.com/malesser">Marc Lesser</a>, <a href="https://twitter.com/thomashpark">Thomas Park</a>, <a href="https://twitter.com/yofiesetiawan">Yofie Setiawan</a>, and <a href="https://twitter.com/smithisgeneric">Karen Smith</a>.</div>}
+              description="Solve puzzles and play games to get to know your fellow learners and the web."/>
+            <ActivityKit
               src1x="/img/pages/webmaker/designing-webmaker.jpg"
               src2x="/img/pages/webmaker/designing-webmaker@2x.jpg"
               title="Read, Write, and Participate with Webmaker"
@@ -92,21 +100,13 @@ var ActivitiesPage = React.createClass({
               developedBy={<div><a href="https://mozillians.org/en-US/u/stacy">Stacy Martin</a> - Senior Data Privacy Manager at Mozilla and Mozilla Learning</div>}
               description="Learn how to safeguard your privacy online and develop an awareness of how companies and governments track and collect your data online."/>
             <ActivityKit
-            src1x="/img/pages/activities/img-activity-11.jpg"
-            src2x="/img/pages/activities/img-activity-11@2x.jpg"
-            title="Back to School Write the Web Activities"
-            level="13+"
-            link="/activities/back-to-school-write-the-web/"
-            developedBy="Mozilla Learning"
-            description="Learn how to remix and write basic HTML, CSS, and JavaScript with these Back-to-School Thimble activities and lesson plans."/>
-            <ActivityKit
-              src1x="/img/pages/activities/img-activity-01.png"
-              src2x="/img/pages/activities/img-activity-01@2x.png"
-              title="Lo-Fi, No-Fi"
-              level="Beginner"
-              link="https://laura.makes.org/thimble/MTUyODMwNDY0/lofi-nofi-teaching-kit"
-              developedBy={<div><a href="http://twitter.com/codekat">Kat Braybrooke</a>, <a href="https://twitter.com/epilepticrabbit">Laura Hilliger</a>, <a href="http://twitter.com/smithisgeneric">Karen Smith</a>, <a href="http://twitter.com/colorwheelz">Julia Vallera</a>, <a href="http://twitter.com/iamjessklein">Jess Klein</a>, and <a href="http://twitter.com/chadsansing">Chad Sansing</a></div>}
-              description="This series of activities help teach web literacy concepts offline, or where access to technology is limited. Includes printable templates and games to teach coding, game design and app development."/>
+              src1x="/img/pages/activities/img-activity-11.jpg"
+              src2x="/img/pages/activities/img-activity-11@2x.jpg"
+              title="Back to School Write the Web Activities"
+              level="13+"
+              link="/activities/back-to-school-write-the-web/"
+              developedBy="Mozilla Learning"
+              description="Learn how to remix and write basic HTML, CSS, and JavaScript with these Back-to-School Thimble activities and lesson plans."/>
             <ActivityKit
               src1x="/img/pages/activities/parapara.jpg"
               caption={ <a href="http://fabble.cc/uploads/figure/content/5625b974676974668fc60d00/small_DSC_4310_.jpg">view original</a> }
