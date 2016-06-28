@@ -54,7 +54,8 @@ var pages = {
 // FEATURE FLAG:
 // badges are behind a feature flag until finalized
 if (process.env.ENABLE_BADGES) {
-  pages = Object.assign(pages, {
+  var objectAssign = require('object-assign');
+  pages = objectAssign(pages, {
     'badges': require('../pages/badges/badges.jsx'),
     'badge/:id': require('../pages/badges/badge-single.jsx'),
     'badge/:id/:slug': require('../pages/badges/badge-single.jsx')
