@@ -226,6 +226,11 @@ function renderComponentPage(location, res) {
 }
 
 /**
+ * codemoji - https://github.com/mozilla/codemoji
+ */
+app.use('/codemoji', express.static('codemoji'));
+
+/**
  * Last chance: is this a static asset?
  */
 app.use(express.static(DIST_DIR));
