@@ -102,7 +102,8 @@ app.use(helmet.contentSecurityPolicy({
     ],
     fontSrc: [
       '\'self\'',
-      'fonts.googleapis.com'
+      'fonts.googleapis.com',
+      'fonts.gstatic.com'
     ],
     styleSrc: [
       '\'self\'',
@@ -118,12 +119,14 @@ app.use(helmet.contentSecurityPolicy({
       'twemoji.maxcdn.com',
       'https://upload.wikimedia.org',
       '*.tiles.mapbox.com',
-      'www.google-analytics.com'
+      'www.google-analytics.com',
+      '*.log.optimizely.com'
     ],
     connectSrc: [
       '\'self\'',
       'https://www.google.com',
       '*.tiles.mapbox.com',
+      '*.log.optimizely.com',
       process.env.TEACH_API_URL || 'https://teach-api.herokuapp.com',
       url.parse(process.env.NEWSLETTER_MAILINGLIST_URL || 'https://basket-dev.allizom.org').hostname
     ]
