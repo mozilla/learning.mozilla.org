@@ -1,6 +1,8 @@
 var path = require('path');
 var fs = require('fs');
 var express = require('express');
+var helmet = require('helmet');
+var url = require('url');
 
 var React = require('react');
 var ReactRouter = require('react-router');
@@ -22,6 +24,8 @@ var indexStatic;
 var router;
 var matcher;
 var app = express();
+
+app.disable('x-powered-by');
 
 var notFoundHTML = [
   '<!doctype html>',
@@ -75,6 +79,79 @@ var updateIndexStatic = function(newIndexStatic) {
 if (!fs.existsSync(DIST_DIR)) {
   fs.mkdirSync(DIST_DIR);
 }
+
+/**
+ * Security Headers
+ */
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: [],
+    scriptSrc: [
+      '\'self\'',
+      '\'unsafe-inline\'',
+      '\'unsafe-eval\'',
+      'https://www.google-analytics.com',
+      'https://www.google.com',
+      'https://s.ytimg.com',
+      'https://www.mozilla.org'
+    ],
+    fontSrc: [
+      '\'self\'',
+      'fonts.googleapis.com'
+    ],
+    styleSrc: [
+      '\'self\'',
+      '\'unsafe-inline\'',
+      'https://www.google.com',
+      'https://fonts.googleapis.com',
+      'https://api.tiles.mapbox.com',
+      'https://s.ytimg.com'
+    ],
+    imgSrc: [
+      '\'self\'',
+      '\'unsafe-inline\'',
+      'https://twemoji.maxcdn.com',
+      'https://upload.wikimedia.org',
+      'https://api.tiles.mapbox.com'
+    ],
+    connectSrc: [
+      '\'self\'',
+      'https://www.google.com',
+      'https://*.tiles.mapbox.com',
+      process.env.TEACH_API_URL,
+      url.parse(process.env.NEWSLETTER_MAILINGLIST_URL || 'https://basket-dev.allizom.org/news/subscribe/').hostname
+    ],
+    mediaSrc: [
+      'https://www.youtube.com'
+    ]
+  },
+  reportOnly: false,
+  browserSniff: false
+}));
+
+app.use(helmet.xssFilter({
+  setOnOldIE: true
+}));
+
+app.use(helmet.frameguard({
+  action: 'deny'
+}));
+
+app.use(helmet.hsts({
+  maxAge: 1000 * 60 * 60 * 24 * 90
+}));
+
+app.use(helmet.ieNoOpen());
+
+app.use(helmet.noSniff());
+
+app.use(helmet.hpkp({
+  maxAge: 1000 * 60 * 60 * 24 * 90,
+  sha256s: ['Pr6JbmCJtaITtg3wt4R1QPZYiO4bono76oDcoS2LLbE=', '47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='],
+  setIf: function (req, res) {
+    return req.secure
+  }
+}));
 
 /**
  * Wait for the router to come online.
