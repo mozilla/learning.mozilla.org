@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   viewBox="0 0 800 800" enable-background="new 0 0 800 800" xml:space="preserve">
+<g>
+  <rect x="107.6" y="340" fill="#FFFFFF" width="583" height="120"/>
+  <g>
+    <g>
+      <defs>
+        <rect id="lod_SVGID_1_" x="107.6" y="340" width="583" height="120"/>
+      </defs>
+      <clipPath id="lod_SVGID_2_">
+        <use xlink:href="#lod_SVGID_1_"  overflow="visible"/>
+      </clipPath>
+      <g id="loader_barber" clip-path="url(#lod_SVGID_2_)">
+        <polygon fill="#ED6C30" points="-558.3,334.5 -498.9,295.1 -328.6,465.4 -378,514.8"/>
+        <polygon fill="#ED6C30" points="-184.3,334.5 -124.9,295.1 45.4,465.4 -4,514.8"/>
+        <polygon fill="#ED6C30" points="189.7,334.5 249.1,295.1 419.4,465.4 370,514.8"/>
+        <polygon fill="#ED6C30" points="563.7,334.5 623.1,295.1 793.4,465.4 744,514.8"/>
+        <polygon fill="#016DA3" points="-371.3,334.5 -311.9,295.1 -141.6,465.4 -191,514.8"/>
+        <polygon fill="#016DA3" points="2.7,334.5 62.1,295.1 232.4,465.4 183,514.8"/>
+        <polygon fill="#016DA3" points="376.7,334.5 436.1,295.1 606.4,465.4 557,514.8"/>
+        <polygon fill="#016DA3" points="750.7,334.5 810.1,295.1 980.4,465.4 931,514.8"/>
+      </g>
+    </g>
+  </g>
+  <path fill="#78A3AD" d="M92.1,487L92.1,487c-9.1,0-16.5-7.4-16.5-16.5v-141c0-9.1,7.4-16.5,16.5-16.5l0,0c9.1,0,16.5,7.4,16.5,16.5
+    v141C108.6,479.6,101.2,487,92.1,487z"/>
+  <path fill="#78A3AD" d="M92.1,340c-33.1,0-60,26.9-60,60s26.9,60,60,60V340z"/>
+  <path fill="#78A3AD" d="M707.9,313L707.9,313c9.1,0,16.5,7.4,16.5,16.5v141c0,9.1-7.4,16.5-16.5,16.5l0,0
+    c-9.1,0-16.5-7.4-16.5-16.5v-141C691.4,320.4,698.8,313,707.9,313z"/>
+  <path fill="#78A3AD" d="M707.9,460c33.1,0,60-26.9,60-60s-26.9-60-60-60V460z"/>
+</g>
+</svg>
