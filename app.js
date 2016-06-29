@@ -146,13 +146,16 @@ app.use(helmet.ieNoOpen());
 
 app.use(helmet.noSniff());
 
-app.use(helmet.hpkp({
-  maxAge: 1000 * 60 * 60 * 24 * 90,
-  sha256s: ['Pr6JbmCJtaITtg3wt4R1QPZYiO4bono76oDcoS2LLbE=', '47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='],
-  setIf: function (req, res) {
-    return req.secure
-  }
-}));
+if (process.env.HKPK) { 
+  app.use(helmet.hpkp({
+    maxAge: 1000 * 60 * 60 * 24 * 90,
+    sha256s: process.env.HKPK.split(' '),
+    setIf: function (req, res) {
+      return req.secure
+    }
+  }));
+}
+
 
 /**
  * Wait for the router to come online.
