@@ -94,7 +94,7 @@ app.use(helmet.contentSecurityPolicy({
       '\'unsafe-inline\'',
       '\'unsafe-eval\'',
       'data:',
-      'https://www.google-analytics.com',
+      'www.google-analytics.com',
       'https://www.google.com',
       'https://s.ytimg.com',
       'https://www.mozilla.org'
@@ -114,7 +114,7 @@ app.use(helmet.contentSecurityPolicy({
     imgSrc: [
       '\'self\'',
       '\'unsafe-inline\'',
-      'https://twemoji.maxcdn.com',
+      'twemoji.maxcdn.com',
       'https://upload.wikimedia.org',
       '*.tiles.mapbox.com'
     ],
