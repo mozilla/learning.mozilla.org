@@ -85,11 +85,15 @@ if (!fs.existsSync(DIST_DIR)) {
  */
 app.use(helmet.contentSecurityPolicy({
   directives: {
-    defaultSrc: [],
+    defaultSrc: [
+      'www.youtube.com',
+      'https://public.etherpad-mozilla.org'
+    ],
     scriptSrc: [
       '\'self\'',
       '\'unsafe-inline\'',
       '\'unsafe-eval\'',
+      'data:',
       'https://www.google-analytics.com',
       'https://www.google.com',
       'https://s.ytimg.com',
@@ -103,7 +107,7 @@ app.use(helmet.contentSecurityPolicy({
       '\'self\'',
       '\'unsafe-inline\'',
       'https://www.google.com',
-      'https://fonts.googleapis.com',
+      'fonts.googleapis.com',
       'https://api.tiles.mapbox.com',
       'https://s.ytimg.com'
     ],
@@ -112,17 +116,14 @@ app.use(helmet.contentSecurityPolicy({
       '\'unsafe-inline\'',
       'https://twemoji.maxcdn.com',
       'https://upload.wikimedia.org',
-      'https://api.tiles.mapbox.com'
+      '*.tiles.mapbox.com'
     ],
     connectSrc: [
       '\'self\'',
       'https://www.google.com',
-      'https://*.tiles.mapbox.com',
-      process.env.TEACH_API_URL,
+      '*.tiles.mapbox.com',
+      process.env.TEACH_API_URL || 'https://teach-api.herokuapp.com',
       url.parse(process.env.NEWSLETTER_MAILINGLIST_URL || 'https://basket-dev.allizom.org/news/subscribe/').hostname
-    ],
-    mediaSrc: [
-      'https://www.youtube.com'
     ]
   },
   reportOnly: false,
