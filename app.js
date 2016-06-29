@@ -94,7 +94,8 @@ app.use(helmet.contentSecurityPolicy({
       '\'unsafe-inline\'',
       '\'unsafe-eval\'',
       'data:',
-      'https://www.google-analytics.com',
+      'www.google-analytics.com',
+      'cdn.optimizely.com',
       'https://www.google.com',
       'https://s.ytimg.com',
       'https://www.mozilla.org'
@@ -114,7 +115,7 @@ app.use(helmet.contentSecurityPolicy({
     imgSrc: [
       '\'self\'',
       '\'unsafe-inline\'',
-      'https://twemoji.maxcdn.com',
+      'twemoji.maxcdn.com',
       'https://upload.wikimedia.org',
       '*.tiles.mapbox.com'
     ],
@@ -224,6 +225,11 @@ function renderComponentPage(location, res) {
     res.type('html').send(html);
   });
 }
+
+/**
+ * codemoji - https://github.com/mozilla/codemoji
+ */
+app.use('/codemoji', express.static('codemoji'));
 
 /**
  * Last chance: is this a static asset?

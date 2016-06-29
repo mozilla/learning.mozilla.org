@@ -1,0 +1,808 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   viewBox="0 0 400 700" enable-background="new 0 0 400 700" xml:space="preserve">
+        <g class="loading_text"> 
+          <text class="loading_text_black letter_i" transform="matrix(1 0 0 1 292.2168 556.0117)" font-family="'FiraMono'" font-size="75" letter-spacing="3">I</text>
+          <text class="loading_text_black letter_j" transform="matrix(1 0 0 1 214.0898 556.0117)" font-family="'FiraMono'" font-size="75" letter-spacing="3">J</text>
+          <text class="loading_text_black letter_o" transform="matrix(1 0 0 1 135.1942 556.0119)" font-family="'FiraMono'" font-size="75" letter-spacing="3">O</text>
+          <text class="loading_text_black letter_l" transform="matrix(1 0 0 1 57.8335 556.0117)" font-family="'FiraMono'" font-size="75" letter-spacing="3">L</text>
+          <text class="loading_text_black letter_o" transform="matrix(1 0 0 1 292.2167 447.672)" font-family="'FiraMono'" font-size="75" letter-spacing="3">O</text>
+          <text class="loading_text_black letter_t" transform="matrix(1 0 0 1 214.0898 447.6719)" font-family="'FiraMono'" font-size="75" letter-spacing="3">T</text>
+          <text class="loading_text_black letter_p" transform="matrix(1 0 0 1 135.1948 447.6719)" font-family="'FiraMono'" font-size="75" letter-spacing="3">P</text>
+          <text class="loading_text_black letter_y" transform="matrix(1 0 0 1 57.8335 447.6719)" font-family="'FiraMono'" font-size="75" letter-spacing="3">Y</text>
+          <text class="loading_text_black letter_r" transform="matrix(1 0 0 1 292.2168 338.4194)" font-family="'FiraMono'" font-size="75" letter-spacing="3">R</text>
+          <text class="loading_text_black letter_c" transform="matrix(1 0 0 1 214.0901 338.4195)" font-family="'FiraMono'" font-size="75" letter-spacing="3">C</text>
+        </g>
+        <g class="loading_text"> 
+          <text class="loading_text_gray letter_s" transform="matrix(1 0 0 1 135.9614 338.4194)" font-family="'FiraMono'" font-size="75" letter-spacing="3">S</text>
+          <text class="loading_text_gray letter_i" transform="matrix(1 0 0 1 57.8335 338.4194)" font-family="'FiraMono'" font-size="75" letter-spacing="3">I</text>
+          <text class="loading_text_gray letter_s" transform="matrix(1 0 0 1 292.2168 234.7925)" font-family="'FiraMono'" font-size="75" letter-spacing="3">S</text>
+          <text class="loading_text_gray letter_i" transform="matrix(1 0 0 1 214.0902 234.7926)" font-family="'FiraMono'" font-size="75" letter-spacing="3">I</text>
+          <text class="loading_text_gray letter_h" transform="matrix(1 0 0 1 135.9614 234.7925)" font-family="'FiraMono'" font-size="75" letter-spacing="3">H</text>
+          <text class="loading_text_gray letter_t" transform="matrix(1 0 0 1 57.8335 234.7925)" font-family="'FiraMono'" font-size="75" letter-spacing="3">T</text>
+        </g>
+        <g>
+          <g class="emoji_r emoji_item" transform="matrix(1.25,0,0,-1.25,0,47.5)">
+            <g>
+              <g>
+                <defs>
+                  <rect x="220.1" y="-242.6" width="63" height="62"/>
+                </defs>
+                <clipPath>
+                  <use xlink:href="#SVGID_1_"  overflow="visible"/>
+                </clipPath>
+                <g clip-path="url(#SVGID_2_)">
+                  <g transform="translate(10.999,25)">
+                    <path fill="#77B255" d="M230.2-229.3c-0.2,0-0.4,0-0.6,0.1c-5.7,2.9-9.8,9.9-11.2,13.9
+                      c-0.2,0.7,0.1,1.4,0.8,1.7c0.7,0.2,1.4-0.1,1.7-0.8c1.2-3.5,4.8-9.9,9.8-12.4c0.6-0.3,0.9-1.1,0.6-1.8
+                      C231.1-229,230.7-229.3,230.2-229.3"/>
+                  </g>
+                  <g transform="translate(27,8)">
+                    <path fill="#553788" d="M235.2-234.6c0-5.1-4.1-9.2-9.2-9.2s-9.2,4.1-9.2,9.2s4.1,9.2,9.2,9.2
+                      S235.2-229.5,235.2-234.6"/>
+                  </g>
+                  <g transform="translate(18,22)">
+                    <path fill="#9266CC" d="M232.4-230.2c0-5.1-4.1-9.2-9.2-9.2s-9.2,4.1-9.2,9.2c0,5.1,4.1,9.2,9.2,9.2
+                      S232.4-225.1,232.4-230.2"/>
+                  </g>
+                  <g transform="translate(27,25)">
+                    <path fill="#AA8DD8" d="M235.2-229.3c0-5.1-4.1-9.2-9.2-9.2s-9.2,4.1-9.2,9.2s4.1,9.2,9.2,9.2
+                      S235.2-224.2,235.2-229.3"/>
+                  </g>
+                  <g transform="translate(35,19)">
+                    <path fill="#744EAA" d="M237.7-231.2c0-5.1-4.1-9.2-9.2-9.2s-9.2,4.1-9.2,9.2s4.1,9.2,9.2,9.2
+                      S237.7-226.1,237.7-231.2"/>
+                  </g>
+                  <g transform="translate(17,11)">
+                    <path fill="#744EAA" d="M232.1-233.7c0-5.1-4.1-9.2-9.2-9.2c-5.1,0-9.2,4.1-9.2,9.2s4.1,9.2,9.2,9.2
+                      C227.9-224.5,232.1-228.6,232.1-233.7"/>
+                  </g>
+                  <g transform="translate(26,16)">
+                    <path fill="#9266CC" d="M234.9-232.1c0-5.1-4.1-9.2-9.2-9.2s-9.2,4.1-9.2,9.2s4.1,9.2,9.2,9.2
+                      S234.9-227,234.9-232.1"/>
+                  </g>
+                  <g transform="translate(37,8)">
+                    <path fill="#9266CC" d="M238.3-234.6c0-5.1-4.1-9.2-9.2-9.2s-9.2,4.1-9.2,9.2s4.1,9.2,9.2,9.2
+                      S238.3-229.5,238.3-234.6"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+          <g class="emoji_l emoji_item" transform="matrix(1.25,0,0,-1.25,0,47.5)">
+            <g>
+              <g>
+                <defs>
+                  <rect x="33.8" y="-413" width="62" height="62"/>
+                </defs>
+                <clipPath>
+                  <use xlink:href="#SVGID_3_"  overflow="visible"/>
+                </clipPath>
+                <g clip-path="url(#SVGID_4_)">
+                  <g transform="translate(37,19)">
+                    <path fill="#CCD6DD" d="M51.7-400.6c0-13-10.5-23.5-23.5-23.5S4.7-413.6,4.7-400.6s10.5,23.5,23.5,23.5
+                      S51.7-387.6,51.7-400.6"/>
+                  </g>
+                  <g transform="translate(33,19)">
+                    <path fill="#3B88C3" d="M50.5-400.6c0-10.1-8.2-18.3-18.3-18.3s-18.3,8.2-18.3,18.3
+                      c0,10.1,8.2,18.3,18.3,18.3S50.5-390.5,50.5-400.6"/>
+                  </g>
+                  <g transform="translate(29,19)">
+                    <path fill="#DD2E44" d="M49.3-400.6c0-7.2-5.8-13.1-13.1-13.1c-7.2,0-13.1,5.8-13.1,13.1
+                      c0,7.2,5.8,13.1,13.1,13.1C43.4-387.5,49.3-393.4,49.3-400.6"/>
+                  </g>
+                  <g transform="translate(25,19)">
+                    <path fill="#FFAC33" d="M48-400.6c0-4.3-3.5-7.8-7.8-7.8c-4.3,0-7.8,3.5-7.8,7.8c0,4.3,3.5,7.8,7.8,7.8
+                      C44.5-392.8,48-396.3,48-400.6"/>
+                  </g>
+                  <g transform="translate(35.8643,7.8008)">
+                    <path d="M51.3-404c-0.5-0.4-1.6-0.8-2.5-0.8c-2.6,0-6.1,0.9-8.3,3.1l-3.9,5.1c-0.4,0.4-0.5,0.8-0.3,1.2
+                      c0.2,0.5-1,0.8-0.4,0.8h6.6c2.4,0,5.6-1.7,7.7-3.9l0.5-0.5c1-1.1,1.5-2.1,1.5-3.1C52.3-402.9,52-403.6,51.3-404"/>
+                  </g>
+                  <g transform="translate(29.3047,1.7959)">
+                    <path d="M49.3-405.9L49.3-405.9c-1,0-2.1,0.5-3.3,1.6l-0.6,0.5c-2.3,2.1-4.4,5.4-4.4,7.9v6.7
+                      c0,0.5,0.7-0.7,1.1-0.5c0.5,0.2,1.2,0.1,1.6-0.3l4.1-4.1c2.2-2.2,4-6,4-8.6c0-0.9-0.2-1.6-0.6-2.2
+                      C50.9-405.5,50.2-405.9,49.3-405.9"/>
+                  </g>
+                  <g transform="translate(32.3447,5.0361)">
+                    <path fill="#C1694F" d="M50.3-404.9c-0.3,0-0.6,0.2-0.9,0.4l-18.3,18.3c-0.5,0.5-0.5,1.3,0,1.8
+                      c0.5,0.5,1.3,0.5,1.8,0l18.3-18.3c0.5-0.5,0.5-1.4,0-1.9C51-404.7,50.6-404.9,50.3-404.9"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+          <g class="emoji_t emoji_item" >
+            <g transform="matrix(1.25,0,0,-1.25,0,47.5)">
+              <g transform="translate(14,34)">
+                <path fill="#BDDDF4" d="M169.9-312H162l-9.2-12h13.1L169.9-312z"/>
+              </g>
+              <g transform="translate(37,25)">
+                <path fill="#5DADEC" d="M176.9-315l-9.2,12h-7.8l3.9-12H176.9z"/>
+              </g>
+              <g transform="translate(27,25)">
+                <path fill="#4289C1" d="M173.9-315h13.1l-23.5-27.5L173.9-315z"/>
+              </g>
+              <g transform="translate(11,25)">
+                <path fill="#8CCAF7" d="M168.9-315h-13.1l23.5-27.5L168.9-315z"/>
+              </g>
+              <g transform="translate(14,34)">
+                <path fill="#8CCAF7" d="M169.9-312l-3.9-12h20.9l-3.9,12H169.9z"/>
+              </g>
+              <g transform="translate(19,4)">
+                <path fill="#5DADEC" d="M171.4-321.5L160.9-294h20.9L171.4-321.5z"/>
+              </g>
+            </g>
+            <rect x="207" y="389" fill="none" width="62" height="62"/>
+          </g>
+          <g class="emoji_t emoji_item" >
+            <g transform="matrix(1.25,0,0,-1.25,0,47.5)">
+              <g transform="translate(14,34)">
+                <path fill="#BDDDF4" d="M43.5-142.4h-7.8l-9.2-12h13.1L43.5-142.4z"/>
+              </g>
+              <g transform="translate(37,25)">
+                <path fill="#5DADEC" d="M50.5-145.4l-9.2,12h-7.8l3.9-12H50.5z"/>
+              </g>
+              <g transform="translate(27,25)">
+                <path fill="#4289C1" d="M47.5-145.4h13.1L37-172.9L47.5-145.4z"/>
+              </g>
+              <g transform="translate(11,25)">
+                <path fill="#8CCAF7" d="M42.5-145.4H29.5L53-172.9L42.5-145.4z"/>
+              </g>
+              <g transform="translate(14,34)">
+                <path fill="#8CCAF7" d="M43.5-142.4l-3.9-12h20.9l-3.9,12H43.5z"/>
+              </g>
+              <g transform="translate(19,4)">
+                <path fill="#5DADEC" d="M45-151.9l-10.5,27.5h20.9L45-151.9z"/>
+              </g>
+            </g>
+            <rect x="49" y="177" fill="none" width="62" height="62"/>
+          </g>
+          <g class="emoji_o emoji_item" transform="matrix(1.25,0,0,-1.25,0,47.5)">
+            <g>
+              <g>
+                <defs>
+                  <rect x="96.3" y="-413" width="61" height="62"/>
+                </defs>
+                <clipPath>
+                  <use xlink:href="#SVGID_5_"  overflow="visible"/>
+                </clipPath>
+                <g clip-path="url(#SVGID_6_)">
+                  <g transform="translate(3.9995,17.5)">
+                    <path fill="#F4900C" d="M103.3-401.8c0,11.8,9.5,21.3,21.3,21.3c11.8,0,21.3-9.5,21.3-21.3
+                      c0-11.8-9.5-21.3-21.3-21.3C112.9-423.2,103.3-413.6,103.3-401.8"/>
+                  </g>
+                  <g transform="translate(12.4136,29.4146)">
+                    <path fill="#662113" d="M105.8-398.4c-0.3,0.3-1,0.3-1.8-0.2c-4.3,3.5-11.2,4.7-11.5,4.8
+                      c-0.7,0.1-1.4-0.4-1.5-1.1c-0.1-0.7,0.4-1.4,1.1-1.5c0.1,0,6.4-1.1,10.1-4.1c-0.4-0.7-0.4-1.3-0.1-1.6
+                      c0.5-0.5,1.7-0.1,2.7,0.9C105.9-400.1,106.3-398.9,105.8-398.4"/>
+                  </g>
+                  <g transform="translate(22,36.0005)">
+                    <path fill="#5C913B" d="M108.6-396.4c0,0-4-5.6-9.1-6.8c-3.8-0.9-9-1-9.5,0.2c-0.5,1.2,2,5.1,6.4,7
+                      C100.9-394.3,108.6-396.4,108.6-396.4"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+          <g class="emoji_o emoji_item" transform="matrix(1.25,0,0,-1.25,0,47.5)">
+            <g>
+              <g>
+                <defs>
+                  <rect x="220.1" y="-329.9" width="63" height="63"/>
+                </defs>
+                <clipPath>
+                  <use xlink:href="#SVGID_7_"  overflow="visible"/>
+                </clipPath>
+                <g clip-path="url(#SVGID_8_)">
+                  <g transform="translate(3.9995,17.5)">
+                    <path fill="#F4900C" d="M228.2-317.2c0,12.2,9.9,22,22,22s22-9.9,22-22c0-12.2-9.9-22-22-22
+                      S228.2-329.4,228.2-317.2"/>
+                  </g>
+                  <g transform="translate(12.4136,29.4146)">
+                    <path fill="#662113" d="M231-313.2c-0.4,0.4-1.1,0.3-1.8-0.2c-4.4,3.6-11.5,4.9-11.9,4.9
+                      c-0.7,0.1-1.4-0.4-1.5-1.1c-0.1-0.7,0.4-1.4,1.1-1.5c0.1,0,6.6-1.1,10.4-4.2c-0.4-0.7-0.4-1.4-0.1-1.7
+                      c0.5-0.5,1.8-0.1,2.8,0.9C231.1-315,231.5-313.8,231-313.2"/>
+                  </g>
+                  <g transform="translate(22,36.0005)">
+                    <path fill="#5C913B" d="M234.2-311c0,0-4.1-5.8-9.4-7c-4-1-9.3-1.1-9.8,0.2c-0.5,1.2,2.1,5.3,6.6,7.2
+                      S234.2-311,234.2-311"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+          <g class="emoji_c emoji_item" transform="matrix(1.25,0,0,-1.25,0,47.5)">
+            <g>
+              <g>
+                <defs>
+                  <rect x="159.4" y="-242.6" width="62" height="62"/>
+                </defs>
+                <clipPath>
+                  <use xlink:href="#SVGID_9_"  overflow="visible"/>
+                </clipPath>
+                <g clip-path="url(#SVGID_10_)">
+                  <g transform="translate(3.4717,30.4277)">
+                    <path fill="#5C913B" d="M166.6-227.3c-1.2-2.7-1.9-5.8-1.9-8.9c0-12.5,10.4-22.6,23.2-22.6
+                      c10,0,18.5,6.2,21.8,14.8L166.6-227.3z"/>
+                  </g>
+                  <g transform="translate(5.3315,29.7046)">
+                    <path fill="#FFE8B6" d="M167.2-227.5c-1.1-2.5-1.7-5.2-1.7-8c0-11.1,9.2-20.1,20.7-20.1
+                      c8.9,0,16.5,5.5,19.4,13.2L167.2-227.5z"/>
+                  </g>
+                  <g transform="translate(7.1909,28.9814)">
+                    <path fill="#DD2E44" d="M167.7-227.7c-1-2.2-1.5-4.6-1.5-7.1c0-9.7,8.1-17.6,18.1-17.6
+                      c7.8,0,14.5,4.8,17,11.6L167.7-227.7z"/>
+                  </g>
+                  <g transform="translate(10.916,22.7227)">
+                    <path d="M168.8-229.5c-0.4-0.6-1-0.9-1.3-0.7c-0.3,0.2-0.2,0.8,0.2,1.4c0.4,0.6,1,0.9,1.3,0.7
+                      C169.2-228.3,169.2-228.9,168.8-229.5"/>
+                  </g>
+                  <g transform="translate(16.916,21.7227)">
+                    <path d="M170.5-229.8c-0.4-0.6-1-0.9-1.3-0.7c-0.3,0.2-0.2,0.8,0.2,1.4c0.4,0.6,1,0.9,1.3,0.7
+                      C171-228.6,170.9-229.2,170.5-229.8"/>
+                  </g>
+                  <g transform="translate(21.998,17.0449)">
+                    <path d="M172-231.2c0.1-0.7-0.2-1.3-0.5-1.3c-0.4,0-0.7,0.5-0.8,1.2c-0.1,0.7,0.2,1.3,0.5,1.3
+                      C171.6-229.9,171.9-230.5,172-231.2"/>
+                  </g>
+                  <g transform="translate(12.998,19.0449)">
+                    <path d="M169.4-230.6c0.1-0.7-0.2-1.3-0.5-1.3c-0.4,0-0.7,0.5-0.8,1.2c-0.1,0.7,0.2,1.3,0.5,1.3
+                      C169-229.3,169.3-229.9,169.4-230.6"/>
+                  </g>
+                  <g transform="translate(16.8994,13.6992)">
+                    <path d="M170.5-232.2c-0.4-0.6-1-0.9-1.3-0.6c-0.3,0.2-0.2,0.8,0.3,1.4c0.4,0.6,1,0.9,1.3,0.6
+                      C171.1-230.9,170.9-231.6,170.5-232.2"/>
+                  </g>
+                  <g transform="translate(24.9355,13.2451)">
+                    <path d="M172.8-232.3c0.4-0.6,0.4-1.3,0.1-1.4c-0.3-0.2-0.8,0.2-1.2,0.8c-0.4,0.6-0.4,1.3-0.1,1.4
+                      C172-231.3,172.5-231.7,172.8-232.3"/>
+                  </g>
+                  <g transform="translate(17.918,18.2734)">
+                    <path d="M170.8-230.8c0.4-0.6,0.5-1.2,0.2-1.4c-0.3-0.2-0.9,0.1-1.2,0.7c-0.4,0.6-0.5,1.2-0.2,1.4
+                      C169.9-229.9,170.4-230.2,170.8-230.8"/>
+                  </g>
+                  <g transform="translate(26.8994,16.6992)">
+                    <path d="M173.4-231.3c-0.4-0.6-1-0.9-1.3-0.6s-0.2,0.8,0.3,1.4c0.4,0.6,1,0.9,1.3,0.6
+                      C174-230.1,173.9-230.7,173.4-231.3"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+
+                    <g class="emoji_i emoji_item" transform="matrix(1.25,0,0,-1.25,0,47.5)">
+            <g>
+              <g>
+                <defs>
+                  <rect x="221.1" y="-413" width="61" height="62"/>
+                </defs>
+                <clipPath>
+                  <use xlink:href="#SVGID_23_"  overflow="visible"/>
+                </clipPath>
+                <g clip-path="url(#SVGID_24_)">
+                  <g transform="translate(25,31)">
+                    <path fill="#CCD6DD" d="M234.6-397.7c0-4.3-3.5-7.7-7.7-7.7s-7.7,3.5-7.7,7.7c0,4.3,3.5,7.7,7.7,7.7
+                      S234.6-393.4,234.6-397.7"/>
+                  </g>
+                  <path fill="#CCD6DD" d="M260.8-401.2h-17.6v27.2h17.6V-401.2z"/>
+                </g>
+              </g>
+            </g>
+            <g>
+              <g>
+                <defs>
+                  <rect x="241" y="-404.6" width="22" height="34"/>
+                </defs>
+                <clipPath>
+                  <use xlink:href="#SVGID_25_"  overflow="visible"/>
+                </clipPath>
+                <g clip-path="url(#SVGID_26_)">
+                  <g transform="translate(34.1914,15.4902)">
+                    <path fill="#DD2E44" d="M237.2-402.2l-30.1,14.7l2.3,4.6l30.1-14.7L237.2-402.2z"/>
+                  </g>
+                  <g transform="translate(27.1758,1.1094)">
+                    <path fill="#DD2E44" d="M235.2-406.3l-30.1,14.7l2.3,4.6l30.1-14.7L235.2-406.3z"/>
+                  </g>
+                  <g transform="translate(32.4375,11.8945)">
+                    <path fill="#FFFFFF" d="M236.7-403.2l-30.1,14.7l2.3,4.6l30.1-14.7L236.7-403.2z"/>
+                  </g>
+                  <g transform="translate(28.9297,4.7051)">
+                    <path fill="#FFFFFF" d="M235.7-405.3l-30.1,14.7l2.3,4.6l30.1-14.7L235.7-405.3z"/>
+                  </g>
+                  <g transform="translate(25.4219,-2.4854)">
+                    <path fill="#FFFFFF" d="M234.7-407.4l-30.1,14.7l2.3,4.6l30.1-14.7L234.7-407.4z"/>
+                  </g>
+                  <g transform="translate(30.6836,8.2998)">
+                    <path fill="#55ACEE" d="M236.2-404.3l-30.1,14.7l2.3,4.6l30.1-14.7L236.2-404.3z"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+            <g>
+              <g>
+                <defs>
+                  <rect x="221.1" y="-413" width="61" height="62"/>
+                </defs>
+                <clipPath>
+                  <use xlink:href="#SVGID_27_"  overflow="visible"/>
+                </clipPath>
+                <g clip-path="url(#SVGID_28_)">
+                  <g transform="translate(28,26)">
+                    <path fill="#99AAB5" d="M235.4-398.4c0-1.4-1.2-2.4-2.6-2.4h-18c-1.4,0-2.6,1-2.6,2.4s1.2,2.4,2.6,2.4h18
+                      C234.3-396,235.4-397,235.4-398.4"/>
+                  </g>
+                  <g transform="translate(28,3)">
+                    <path fill="#99AAB5" d="M235.4-405.4c0-1.4-1.2-2.8-2.6-2.8h-18c-1.4,0-2.6,1.4-2.6,2.8s1.2,2.8,2.6,2.8h18
+                      C234.3-402.6,235.4-404,235.4-405.4"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+          
+            <g class="emoji_i emoji_item" transform="matrix(1.25,0,0,-1.25,0,47.5)">
+            <g>
+              <g>
+                <defs>
+                  <rect x="34.7" y="-242.6" width="61" height="62"/>
+                </defs>
+                <clipPath>
+                  <use xlink:href="#SVGID_11_"  overflow="visible"/>
+                </clipPath>
+                <g clip-path="url(#SVGID_12_)">
+                  <g transform="translate(25,31)">
+                    <path fill="#CCD6DD" d="M47.4-227.2c0-4.3-3.5-7.7-7.7-7.7s-7.7,3.5-7.7,7.7c0,4.3,3.5,7.7,7.7,7.7
+                      S47.4-222.9,47.4-227.2"/>
+                  </g>
+                  <path fill="#CCD6DD" d="M73.6-230.8H55.2v26.4h18.4V-230.8z"/>
+                </g>
+              </g>
+            </g>
+            <g>
+              <g>
+                <defs>
+                  <rect x="52.9" y="-234.1" width="23" height="33"/>
+                </defs>
+                <clipPath>
+                  <use xlink:href="#SVGID_13_"  overflow="visible"/>
+                </clipPath>
+                <g clip-path="url(#SVGID_14_)">
+                  <g transform="translate(34.1914,15.4902)">
+                    <path fill="#DD2E44" d="M50.1-231.7L20-217l2.3,4.6L52.4-227L50.1-231.7z"/>
+                  </g>
+                  <g transform="translate(27.1758,1.1094)">
+                    <path fill="#DD2E44" d="M48.1-235.8L18-221.1l2.3,4.6l30.1-14.7L48.1-235.8z"/>
+                  </g>
+                  <g transform="translate(32.4375,11.8945)">
+                    <path fill="#FFFFFF" d="M49.6-232.7L19.5-218l2.3,4.6l30.1-14.7L49.6-232.7z"/>
+                  </g>
+                  <g transform="translate(28.9297,4.7051)">
+                    <path fill="#FFFFFF" d="M48.6-234.8l-30.1,14.7l2.3,4.6l30.1-14.7L48.6-234.8z"/>
+                  </g>
+                  <g transform="translate(25.4219,-2.4854)">
+                    <path fill="#FFFFFF" d="M47.6-236.9l-30.1,14.7l2.3,4.6l30.1-14.7L47.6-236.9z"/>
+                  </g>
+                  <g transform="translate(30.6836,8.2998)">
+                    <path fill="#55ACEE" d="M49.1-233.7L19-219l2.3,4.6l30.1-14.7L49.1-233.7z"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+            <g>
+              <g>
+                <defs>
+                  <rect x="34.7" y="-242.6" width="61" height="62"/>
+                </defs>
+                <clipPath>
+                  <use xlink:href="#SVGID_15_"  overflow="visible"/>
+                </clipPath>
+                <g clip-path="url(#SVGID_16_)">
+                  <g transform="translate(28,26)">
+                    <path fill="#99AAB5" d="M48.3-228.8c0-1.4-1.2-2.4-2.6-2.4h-18c-1.4,0-2.6,1-2.6,2.4s1.2,2.4,2.6,2.4h18
+                      C47.2-226.4,48.3-227.4,48.3-228.8"/>
+                  </g>
+                  <g transform="translate(28,3)">
+                    <path fill="#99AAB5" d="M48.3-235c0-1.4-1.2-2.8-2.6-2.8h-18c-1.4,0-2.6,1.4-2.6,2.8s1.2,2.8,2.6,2.8h18
+                      C47.2-232.2,48.3-233.6,48.3-235"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+
+          <g class="emoji_i emoji_item" transform="matrix(1.25,0,0,-1.25,0,47.5)">
+            <g>
+              <g>
+                <defs>
+                  <rect x="159.5" y="-159.4" width="61" height="62"/>
+                </defs>
+                <clipPath>
+                  <use xlink:href="#SVGID_17_"  overflow="visible"/>
+                </clipPath>
+                <g clip-path="url(#SVGID_18_)">
+                  <g transform="translate(25,31)">
+                    <path fill="#CCD6DD" d="M173-144.1c0-4.3-3.5-7.7-7.7-7.7c-4.3,0-7.7,3.5-7.7,7.7c0,4.3,3.5,7.7,7.7,7.7
+                      C169.5-136.4,173-139.8,173-144.1"/>
+                  </g>
+                  <path fill="#CCD6DD" d="M199.2-147.6h-17.6v27.2h17.6V-147.6z"/>
+                </g>
+              </g>
+            </g>
+            <g>
+              <g>
+                <defs>
+                  <rect x="179.4" y="-151" width="22" height="34"/>
+                </defs>
+                <clipPath>
+                  <use xlink:href="#SVGID_19_"  overflow="visible"/>
+                </clipPath>
+                <g clip-path="url(#SVGID_20_)">
+                  <g transform="translate(34.1914,15.4902)">
+                    <path fill="#DD2E44" d="M175.6-148.6l-30.1,14.7l2.3,4.6l30.1-14.7L175.6-148.6z"/>
+                  </g>
+                  <g transform="translate(27.1758,1.1094)">
+                    <path fill="#DD2E44" d="M173.6-152.7l-30.1,14.7l2.3,4.6l30.1-14.7L173.6-152.7z"/>
+                  </g>
+                  <g transform="translate(32.4375,11.8945)">
+                    <path fill="#FFFFFF" d="M175.1-149.6L145-134.9l2.3,4.6l30.1-14.7L175.1-149.6z"/>
+                  </g>
+                  <g transform="translate(28.9297,4.7051)">
+                    <path fill="#FFFFFF" d="M174.1-151.7L144-137l2.3,4.6l30.1-14.7L174.1-151.7z"/>
+                  </g>
+                  <g transform="translate(25.4219,-2.4854)">
+                    <path fill="#FFFFFF" d="M173.1-153.8L143-139.1l2.3,4.6l30.1-14.7L173.1-153.8z"/>
+                  </g>
+                  <g transform="translate(30.6836,8.2998)">
+                    <path fill="#55ACEE" d="M174.6-150.7L144.5-136l2.3,4.6l30.1-14.7L174.6-150.7z"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+            <g>
+              <g>
+                <defs>
+                  <rect x="159.5" y="-159.4" width="61" height="62"/>
+                </defs>
+                <clipPath>
+                  <use xlink:href="#SVGID_21_"  overflow="visible"/>
+                </clipPath>
+                <g clip-path="url(#SVGID_22_)">
+                  <g transform="translate(28,26)">
+                    <path fill="#99AAB5" d="M173.8-144.8c0-1.4-1.2-2.4-2.6-2.4h-18c-1.4,0-2.6,1-2.6,2.4s1.2,2.4,2.6,2.4h18
+                      C172.7-142.4,173.8-143.4,173.8-144.8"/>
+                  </g>
+                  <g transform="translate(28,3)">
+                    <path fill="#99AAB5" d="M173.8-151.8c0-1.4-1.2-2.8-2.6-2.8h-18c-1.4,0-2.6,1.4-2.6,2.8s1.2,2.8,2.6,2.8h18
+                      C172.7-149,173.8-150.4,173.8-151.8"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+
+          <g class="emoji_j emoji_item" transform="matrix(1.25,0,0,-1.25,0,47.5)">
+            <g>
+              <g>
+                <defs>
+                  <rect x="159.4" y="-413" width="62" height="62"/>
+                </defs>
+                <clipPath>
+                  <use xlink:href="#SVGID_29_"  overflow="visible"/>
+                </clipPath>
+                <g clip-path="url(#SVGID_30_)">
+                  <g transform="translate(31,33)">
+                    <path fill="#77B255" d="M175-396.7c-2.9,0-5.2-2.3-5.2-5.2v-11.9c0-1.4-0.8-2.6-2.4-3.2v17.7
+                      c0,4.3-3.7,7.8-8,7.8c-4.3,0-8-3.5-8-7.8v-23c-1.6,0.6-2.4,1.8-2.4,3.3v6.7c0,2.9-2.3,5.2-5.2,5.2s-5.2-2.3-5.2-5.2v-9.1
+                      c0-2.9,2.2-5.1,4.3-6.3c1.6-0.9,6.1-2.1,8.5-2.2v-4.3c0-4.8,16-4.8,16,0v9.5c2.4,0.2,6.8,1.2,8.3,2.1c2.1,1.2,4.5,3.4,4.5,6.3
+                      v14.4C180.2-399.1,177.9-396.7,175-396.7"/>
+                  </g>
+                  <g transform="translate(14,31)">
+                    <path fill="#3E721D" d="M169.9-397.3c0-0.7-0.6-1.3-1.3-1.3c-0.7,0-1.3,0.6-1.3,1.3c0,0.7,0.6,1.3,1.3,1.3
+                      C169.3-396,169.9-396.6,169.9-397.3"/>
+                  </g>
+                  <g transform="translate(25,34)">
+                    <path fill="#3E721D" d="M173.2-396.4c0-0.7-0.6-1.3-1.3-1.3c-0.7,0-1.3,0.6-1.3,1.3c0,0.7,0.6,1.3,1.3,1.3
+                      C172.6-395.1,173.2-395.7,173.2-396.4"/>
+                  </g>
+                  <g transform="translate(23,28)">
+                    <path fill="#3E721D" d="M172.6-398.2c0-0.7-0.6-1.3-1.3-1.3c-0.7,0-1.3,0.6-1.3,1.3c0,0.7,0.6,1.3,1.3,1.3
+                      C172-396.9,172.6-397.5,172.6-398.2"/>
+                  </g>
+                  <g transform="translate(16,21)">
+                    <path fill="#3E721D" d="M170.5-400.4c0-0.7-0.6-1.3-1.3-1.3c-0.7,0-1.3,0.6-1.3,1.3c0,0.7,0.6,1.3,1.3,1.3
+                      C169.9-399.1,170.5-399.7,170.5-400.4"/>
+                  </g>
+                  <g transform="translate(22,17)">
+                    <path fill="#3E721D" d="M172.3-401.6c0-0.7-0.6-1.3-1.3-1.3c-0.7,0-1.3,0.6-1.3,1.3c0,0.7,0.6,1.3,1.3,1.3
+                      C171.7-400.3,172.3-400.9,172.3-401.6"/>
+                  </g>
+                  <g transform="translate(15,11)">
+                    <path fill="#3E721D" d="M170.2-403.4c0-0.7-0.6-1.3-1.3-1.3c-0.7,0-1.3,0.6-1.3,1.3c0,0.7,0.6,1.3,1.3,1.3
+                      C169.6-402.1,170.2-402.7,170.2-403.4"/>
+                  </g>
+                  <g transform="translate(7,10)">
+                    <path fill="#3E721D" d="M167.7-403.7c0-0.7-0.6-1.3-1.3-1.3c-0.7,0-1.3,0.6-1.3,1.3c0,0.7,0.6,1.3,1.3,1.3
+                      C167.2-402.4,167.7-403,167.7-403.7"/>
+                  </g>
+                  <g transform="translate(11,17)">
+                    <path fill="#3E721D" d="M169-401.6c0-0.7-0.6-1.3-1.3-1.3c-0.7,0-1.3,0.6-1.3,1.3c0,0.7,0.6,1.3,1.3,1.3
+                      C168.4-400.3,169-400.9,169-401.6"/>
+                  </g>
+                  <g transform="translate(4,19)">
+                    <path fill="#3E721D" d="M166.8-401c0-0.7-0.6-1.3-1.3-1.3c-0.7,0-1.3,0.6-1.3,1.3c0,0.7,0.6,1.3,1.3,1.3
+                      C166.2-399.7,166.8-400.3,166.8-401"/>
+                  </g>
+                  <g transform="translate(36,29)">
+                    <path fill="#3E721D" d="M176.6-397.9c0-0.7-0.6-1.3-1.3-1.3s-1.3,0.6-1.3,1.3c0,0.7,0.6,1.3,1.3,1.3
+                      S176.6-397.2,176.6-397.9"/>
+                  </g>
+                  <g transform="translate(30,26)">
+                    <path fill="#3E721D" d="M174.8-398.9c0-0.7-0.6-1.3-1.3-1.3c-0.7,0-1.3,0.6-1.3,1.3c0,0.7,0.6,1.3,1.3,1.3
+                      C174.2-397.6,174.8-398.1,174.8-398.9"/>
+                  </g>
+                  <g transform="translate(34,21)">
+                    <path fill="#3E721D" d="M176-400.4c0-0.7-0.6-1.3-1.3-1.3s-1.3,0.6-1.3,1.3c0,0.7,0.6,1.3,1.3,1.3
+                      S176-399.7,176-400.4"/>
+                  </g>
+                  <g transform="translate(31,13)">
+                    <path fill="#3E721D" d="M175.1-402.8c0-0.7-0.6-1.3-1.3-1.3c-0.7,0-1.3,0.6-1.3,1.3c0,0.7,0.6,1.3,1.3,1.3
+                      C174.5-401.5,175.1-402.1,175.1-402.8"/>
+                  </g>
+                  <g transform="translate(24,7)">
+                    <path fill="#3E721D" d="M172.9-404.6c0-0.7-0.6-1.3-1.3-1.3c-0.7,0-1.3,0.6-1.3,1.3c0,0.7,0.6,1.3,1.3,1.3
+                      C172.3-403.3,172.9-403.9,172.9-404.6"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+          <g class="emoji_p emoji_item" transform="matrix(1.25,0,0,-1.25,0,47.5)">
+            <g>
+              <g>
+                <defs>
+                  <rect x="96.2" y="-329" width="62" height="62"/>
+                </defs>
+                <clipPath>
+                  <use xlink:href="#SVGID_31_"  overflow="visible"/>
+                </clipPath>
+                <g clip-path="url(#SVGID_32_)">
+                  <g transform="translate(36.3369,13.4512)">
+                    <path fill="#FFAC33" d="M112.9-318.7c-1.4-8.2-10.1-13.6-22.5-13.6s-21.1,5.5-22.5,13.6
+                      c-0.3,1.9,0.2,10.6,1.4,12.3c3.3,4.8,4.5-13.5,21.1-13.5c18.1,0,17.8,18.3,21.1,13.5C112.7-308.1,113.2-316.7,112.9-318.7"/>
+                  </g>
+                  <g transform="translate(19.0923,17.6309)">
+                    <path fill="#8A4B38" d="M107.6-317.4c-4.1,0-7.5,0.9-7.5,2c0,1.1,3.4,2,7.5,2c4.1,0,7.5-0.9,7.5-2
+                      C115.1-316.5,111.8-317.4,107.6-317.4 M107.6-299.9c-12.2,0-22.1-6-22.1-13.4c0-7.4,9.9-13.4,22.1-13.4
+                      c12.2,0,22.1,6,22.1,13.4C129.7-305.9,119.8-299.9,107.6-299.9"/>
+                  </g>
+                  <g transform="translate(2.7197,22.3774)">
+                    <path fill="#8A4B38" d="M102.6-315.9c-0.9-1.4-1.2-7.2,0.6-9.9c2.8-4.1,4.1-2,6.2-2.7c3-0.9,3.3-3.3,5.7-4.5
+                      c2.7-1.4,4.3-1,8.2,0c5.5,1.4,8.9-1.4,12.3,0c2.7,1.2,4.3,5.4,5.9,5.9c4.9,1.6,5.9,9.3,2.3,12.4c-1.1-2.4-6.7-11-10.3-11.4
+                      c-3.6-0.4-14.3-1.3-18.9,1c-4.5,2.3-9.2,5.2-9.7,6C104.3-318.2,102.6-315.9,102.6-315.9"/>
+                  </g>
+                  <g transform="translate(19.0923,23.1177)">
+                    <path fill="#F4900C" d="M107.6-315.7c-4.9,0-8.9-1.6-8.9-3.6c0-0.8,0.6-1.5,1.6-2.1c-0.2,0.2-0.3,0.3-0.3,0.5
+                      c0,1.1,3.4,2,7.5,2c4.1,0,7.5-0.9,7.5-2c0-0.2-0.1-0.4-0.3-0.5c1,0.6,1.6,1.3,1.6,2.1C116.5-317.3,112.5-315.7,107.6-315.7"/>
+                  </g>
+                  <g transform="translate(5.4199,18.8496)">
+                    <path fill="#F4ABBA" d="M103.4-317c-0.5,0-1,0.3-1.2,0.7c-0.4,0.7-0.1,1.5,0.6,1.8l3,1.6
+                      c0.7,0.4,1.5,0.1,1.8-0.6c0.4-0.7,0.1-1.5-0.6-1.8l-3-1.6C103.9-317,103.7-317,103.4-317"/>
+                  </g>
+                  <g transform="translate(17.3071,11.0557)">
+                    <path fill="#F4ABBA" d="M107.1-319.4c-0.5,0-1,0.3-1.3,0.8l-1,2.3c-0.3,0.7,0,1.5,0.7,1.8
+                      c0.7,0.3,1.5,0,1.8-0.7l1-2.3c0.3-0.7,0-1.5-0.7-1.8C107.4-319.4,107.3-319.4,107.1-319.4"/>
+                  </g>
+                  <g transform="translate(29.1514,15.2363)">
+                    <path fill="#55ACEE" d="M110.7-318.1c-0.2,0-0.5,0.1-0.7,0.2c-0.6,0.4-0.9,1.2-0.5,1.9l1.5,2.5
+                      c0.4,0.6,1.2,0.9,1.9,0.5c0.6-0.4,0.9-1.2,0.5-1.9l-1.5-2.5C111.6-317.9,111.2-318.1,110.7-318.1"/>
+                  </g>
+                  <g transform="translate(30.8926,23)">
+                    <path fill="#F4ABBA" d="M111.2-315.4c-0.7,0-1.3,0.5-1.4,1.2c0,0.8,0.6,1.3,1.3,1.4l1.6,0
+                      c0.8,0,1.4-0.6,1.4-1.3c0-0.8-0.6-1.3-1.3-1.3L111.2-315.4L111.2-315.4z"/>
+                  </g>
+                  <g transform="translate(20.792,27.1235)">
+                    <path fill="#F4ABBA" d="M108.1-314.5c-0.6,0-1.1,0.4-1.3,1c-0.2,0.7,0.2,1.5,0.9,1.7l1.1,0.3
+                      c0.7,0.2,1.5-0.2,1.7-0.9c0.2-0.7-0.2-1.5-0.9-1.7l-1.1-0.3C108.4-314.5,108.3-314.5,108.1-314.5"/>
+                  </g>
+                  <g transform="translate(14.9976,25.4258)">
+                    <path fill="#88C9F9" d="M106.4-315c-0.2,0-0.4,0-0.6,0.1l-1,0.5c-0.7,0.3-0.9,1.2-0.6,1.8
+                      c0.3,0.7,1.2,0.9,1.8,0.6l1-0.5c0.7-0.3,0.9-1.2,0.6-1.8C107.4-314.7,106.9-315,106.4-315"/>
+                  </g>
+                  <g transform="translate(24.0996,12.1465)">
+                    <path fill="#88C9F9" d="M109.2-319.1c-0.2,0-0.4,0-0.6,0.1l-1,0.5c-0.7,0.3-0.9,1.2-0.6,1.8
+                      c0.3,0.7,1.2,0.9,1.8,0.6l1-0.5c0.7-0.3,0.9-1.2,0.6-1.8C110.1-318.8,109.7-319.1,109.2-319.1"/>
+                  </g>
+                  <g transform="translate(10.4263,14.4521)">
+                    <path fill="#55ACEE" d="M105-318.4c-0.2,0-0.4,0-0.5,0.1c-0.7,0.3-1,1.1-0.7,1.8l0.5,1.2
+                      c0.3,0.7,1.1,1,1.8,0.7c0.7-0.3,1-1.1,0.7-1.8l-0.5-1.2C106-318,105.5-318.4,105-318.4"/>
+                  </g>
+                  <g transform="translate(26.0176,24.3369)">
+                    <path fill="#55ACEE" d="M109.7-315.3c-0.5,0-1,0.3-1.3,0.8c-0.3,0.7,0,1.5,0.7,1.8l0.9,0.4
+                      c0.7,0.3,1.5,0,1.8-0.7c0.3-0.7,0-1.5-0.7-1.8l-0.9-0.4C110.1-315.3,109.9-315.3,109.7-315.3"/>
+                  </g>
+                  <g transform="translate(9.0347,24.3804)">
+                    <path fill="#55ACEE" d="M104.6-315.3c-0.1,0-0.2,0-0.3,0l-0.7,0.2c-0.7,0.2-1.2,0.9-1,1.6
+                      c0.2,0.7,0.9,1.2,1.6,1l0.7-0.2c0.7-0.2,1.2-0.9,1-1.6C105.7-314.9,105.2-315.3,104.6-315.3"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+          <g class="emoji_s emoji_item" transform="matrix(1.25,0,0,-1.25,0,47.5)">
+            <g>
+              <g>
+                <defs>
+                  <rect x="96.2" y="-242.6" width="62" height="62"/>
+                </defs>
+                <clipPath>
+                  <use xlink:href="#SVGID_33_"  overflow="visible"/>
+                </clipPath>
+                <g clip-path="url(#SVGID_34_)">
+                  <g transform="translate(36,19)">
+                    <path fill="#FFCC4D" d="M113.7-230.6c0-12.3-9.9-22.2-22.2-22.2c-12.3,0-22.2,9.9-22.2,22.2
+                      c0,12.3,9.9,22.2,22.2,22.2C103.7-208.4,113.7-218.3,113.7-230.6"/>
+                  </g>
+                  <g transform="translate(16.457,20.185)">
+                    <path fill="#664500" d="M107.7-230.2c-0.1,0.2-2,4.3-5.8,4.3c-3.9,0-5.7-4.1-5.8-4.3c-0.1-0.3,0-0.6,0.2-0.8
+                      c0.2-0.2,0.6-0.2,0.8,0c0,0,1.6,1.2,4.8,1.2c3.2,0,4.8-1.1,4.8-1.2c0.1-0.1,0.3-0.1,0.4-0.1c0.1,0,0.3,0,0.4,0.1
+                      C107.7-230.8,107.8-230.5,107.7-230.2"/>
+                  </g>
+                  <g transform="translate(32,22.4819)">
+                    <path fill="#F5F8FA" d="M112.4-229.5c0-4.7-3.8-8.5-8.5-8.5c-4.7,0-8.5,3.8-8.5,8.5s3.8,8.5,8.5,8.5
+                      C108.6-221.1,112.4-224.9,112.4-229.5"/>
+                  </g>
+                  <g transform="translate(28,22.4819)">
+                    <path fill="#292F33" d="M111.2-229.5c0-1.8-1.5-3.3-3.3-3.3c-1.8,0-3.3,1.5-3.3,3.3s1.5,3.3,3.3,3.3
+                      C109.8-226.3,111.2-227.7,111.2-229.5"/>
+                  </g>
+                  <g transform="translate(8,13.9819)">
+                    <path fill="#664500" d="M105.1-232.1c0-5.2,6-11.7,14.4-11.7s14.4,6.5,14.4,11.7
+                      C133.8-232.1,120.3-235.7,105.1-232.1"/>
+                  </g>
+                  <g transform="translate(13,12.101)">
+                    <path fill="#E75A70" d="M107-232.5v-8.1c0-3.9,2.4-7.8,7.6-7.8s7.6,3.9,7.6,7.8v7.9c-8-1.7-15.2,0.1-15.2,0.1"
+                      />
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+          <g class="emoji_s emoji_item" transform="matrix(1.25,0,0,-1.25,0,47.5)">
+            <g>
+              <g>
+                <defs>
+                  <rect x="221" y="-159.4" width="62" height="62"/>
+                </defs>
+                <clipPath>
+                  <use xlink:href="#SVGID_35_"  overflow="visible"/>
+                </clipPath>
+                <g clip-path="url(#SVGID_36_)">
+                  <g transform="translate(36,19)">
+                    <path fill="#FFCC4D" d="M238.5-147.4c0-12.3-9.9-22.2-22.2-22.2c-12.3,0-22.2,9.9-22.2,22.2
+                      c0,12.3,9.9,22.2,22.2,22.2C228.5-125.2,238.5-135.1,238.5-147.4"/>
+                  </g>
+                  <g transform="translate(16.457,20.185)">
+                    <path fill="#664500" d="M232.5-147c-0.1,0.2-2,4.3-5.8,4.3c-3.9,0-5.7-4.1-5.8-4.3c-0.1-0.3,0-0.6,0.2-0.8
+                      c0.2-0.2,0.6-0.2,0.8,0c0,0,1.6,1.2,4.8,1.2c3.2,0,4.8-1.1,4.8-1.2c0.1-0.1,0.3-0.1,0.4-0.1c0.1,0,0.3,0,0.4,0.1
+                      C232.5-147.6,232.6-147.3,232.5-147"/>
+                  </g>
+                  <g transform="translate(32,22.4819)">
+                    <path fill="#F5F8FA" d="M237.2-146.3c0-4.7-3.8-8.5-8.5-8.5c-4.7,0-8.5,3.8-8.5,8.5c0,4.7,3.8,8.5,8.5,8.5
+                      C233.4-137.9,237.2-141.7,237.2-146.3"/>
+                  </g>
+                  <g transform="translate(28,22.4819)">
+                    <path fill="#292F33" d="M236-146.3c0-1.8-1.5-3.3-3.3-3.3c-1.8,0-3.3,1.5-3.3,3.3s1.5,3.3,3.3,3.3
+                      C234.6-143.1,236-144.5,236-146.3"/>
+                  </g>
+                  <g transform="translate(8,13.9819)">
+                    <path fill="#664500" d="M229.9-148.9c0-5.2,6-11.7,14.4-11.7s14.4,6.5,14.4,11.7
+                      C258.6-148.9,245.1-152.5,229.9-148.9"/>
+                  </g>
+                  <g transform="translate(13,12.101)">
+                    <path fill="#E75A70" d="M231.8-149.3v-8.1c0-3.9,2.4-7.8,7.6-7.8c5.2,0,7.6,3.9,7.6,7.8v7.9
+                      c-8-1.7-15.2,0.1-15.2,0.1"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+          <g class="emoji_h emoji_item" transform="matrix(1.25,0,0,-1.25,0,47.5)">
+            <g>
+              <g>
+                <defs>
+                  <rect x="95.7" y="-159.7" width="62.3" height="62.3"/>
+                </defs>
+                <clipPath>
+                  <use xlink:href="#SVGID_37_"  overflow="visible"/>
+                </clipPath>
+                <g clip-path="url(#SVGID_38_)">
+                  <g transform="translate(21.1426,4.7852)">
+                    <path fill="#E1E8ED" d="M108.5-151.9c0-1.6-1.3-2.8-2.8-2.8c-1.6,0-2.8,1.3-2.8,2.8c0,1.6,1.3,2.8,2.8,2.8
+                      C107.2-149.1,108.5-150.4,108.5-151.9"/>
+                  </g>
+                  <g transform="translate(28.6426,21.3569)">
+                    <path fill="#E1E8ED" d="M110.8-146.8c0,7-5.7,12.6-12.6,12.6s-12.6-5.7-12.6-12.6c0-7-1.4-21.7-1.4-21.7
+                      c0-1.5,1.3-2.8,2.8-2.8s2.8,1.3,2.8,2.8c0-1.5,1.3-2.8,2.8-2.8c1.6,0,2.8,1.3,2.8,2.8h5.6c0-1.5,1.3-2.8,2.8-2.8
+                      c1.5,0,2.8,1.3,2.8,2.8c0-1.5,1.3-2.8,2.8-2.8c1.6,0,2.8,1.3,2.8,2.8C112.2-168.5,110.8-153.8,110.8-146.8"/>
+                  </g>
+                  <g transform="translate(21,34)">
+                    <path fill="#DD2E44" d="M108.5-142.8c0-2.9-1.9-7.9-2.6-7.9c-0.7,0-2.6,5-2.6,7.9c0,2.9,1.9,3.9,2.6,3.9
+                      C106.6-138.9,108.5-139.9,108.5-142.8"/>
+                  </g>
+                  <g transform="translate(16.6348,4)">
+                    <path fill="#DD2E44" d="M107.1-152.2c0,3.4,2.2,10.5,3.1,10.5s3.1-7.1,3.1-10.5c0-3.4-2.2-3.9-3.1-3.9
+                      C109.3-156.1,107.1-155.6,107.1-152.2"/>
+                  </g>
+                  <g transform="translate(26,14.5)">
+                    <path fill="#F4900C" d="M110-148.9c0-2-6.3-5.9-9.2-5.9c-2.9,0-9.2,3.9-9.2,5.9c0,2,6.3,5.9,9.2,5.9
+                      C103.7-143,110-146.9,110-148.9"/>
+                  </g>
+                  <g transform="translate(26,14.5)">
+                    <path fill="#FFAC33" d="M110-148.9c0-2-18.4-2-18.4,0c0,2,6.3,5.9,9.2,5.9C103.7-143,110-146.9,110-148.9"/>
+                  </g>
+                  <g transform="translate(14,18.5)">
+                    <path fill="#292F33" d="M106.3-147.7c0-1.1-0.9-2-2-2c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2
+                      C105.4-145.7,106.3-146.6,106.3-147.7"/>
+                  </g>
+                  <g transform="translate(27,18.5)">
+                    <path fill="#292F33" d="M110.3-147.7c0-1.1-0.9-2-2-2c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2
+                      C109.4-145.7,110.3-146.6,110.3-147.7"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+          <g class="emoji_y emoji_item" transform="matrix(1.25,0,0,-1.25,0,47.5)">
+            <g>
+              <g>
+                <defs>
+                  <rect x="33" y="-330.5" width="63.7" height="63.7"/>
+                </defs>
+                <clipPath>
+                  <use xlink:href="#SVGID_39_"  overflow="visible"/>
+                </clipPath>
+                <g clip-path="url(#SVGID_40_)">
+                  <g transform="translate(20,16.7451)">
+                    <path fill="#8899A6" d="M46.1-318.4c0,0,15.4,14.8,16.9,16.1c1.5,1.3-0.9,3-4,3H45.5H44h-1.5H28.9
+                      c-1.5,0-6-1-3.7-3.2c1.6-1.6,17-15.9,17-15.9V-332c0,0-6.1-3.1-7.4-3.9c-1.3-0.8-0.4-2,0.1-2.2c0.9-0.3,3-1.5,9.1-1.5
+                      c6.2,0,8.3,1.2,9.1,1.5c0.3,0.1,1.8,1.2,0,2.3c-3.2,1.9-6.9,3.7-6.9,3.7V-318.4z"/>
+                  </g>
+                  <g transform="translate(33,29.5576)">
+                    <path fill="#CCD6DD" d="M50.6-314.1c0-2.2-8.8-3.9-19.6-3.9s-19.6,1.8-19.6,3.9c0,2.2,8.8,3.9,19.6,3.9
+                      S50.6-311.9,50.6-314.1"/>
+                  </g>
+                  <g transform="translate(5.4585,29.4165)">
+                    <path fill="#CCD6DD" d="M41.2-314.1c1.7-1.7,11.4-9.7,15.7-13.2c1.2-1,2.9-0.8,3.8-0.2s15,12.9,15,12.9
+                      L41.2-314.1z"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+            <g>
+              <g>
+                <defs>
+                  <rect x="33" y="-330.5" width="63.7" height="63.7"/>
+                </defs>
+                <clipPath>
+                  <use xlink:href="#SVGID_41_"  overflow="visible"/>
+                </clipPath>
+                <g clip-path="url(#SVGID_42_)">
+                  <g transform="translate(17.8677,20.4678)">
+                    <path fill="#662113" d="M45.4-317.2c-0.3,0.2-0.1,1.1,0.3,1.8l10,19.5c0.4,0.7,1.3,1,2,0.6c0.7-0.4,1-1.3,0.6-2
+                      L46.7-316C46.5-316.4,45.8-317.4,45.4-317.2"/>
+                  </g>
+                  <g transform="translate(22.7451,29.1445)">
+                    <path fill="#5C913B" d="M47.1-314.2c1.5-0.9,2.7-3.5,1.6-5.4c-1.1-1.9-4-2.3-5.5-1.4c-1.5,0.9-2.8,3.4-1.6,5.4
+                      C42.8-313.6,45.6-313.4,47.1-314.2"/>
+                  </g>
+                  <g transform="translate(17.7969,26.2388)">
+                    <path fill="#FFFFFF" d="M45.4-315.2c-5.1,0-9.9,0.7-14.4,2l-0.2,0c-0.7,0.2-1.1,0.9-0.9,1.7
+                      c0.2,0.7,0.9,1.1,1.7,0.9l0.2-0.1c8.8-2.5,18.7-2.5,29.5,0.2c0.7,0.2,1.4-0.3,1.6-1c0.2-0.7-0.3-1.4-1-1.6
+                      C56.2-314.5,50.6-315.2,45.4-315.2"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+</svg>
