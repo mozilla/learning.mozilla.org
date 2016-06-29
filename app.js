@@ -95,6 +95,7 @@ app.use(helmet.contentSecurityPolicy({
       '\'unsafe-eval\'',
       'data:',
       'www.google-analytics.com',
+      'cdn.optimizely.com',
       'https://www.google.com',
       'https://s.ytimg.com',
       'https://www.mozilla.org'
