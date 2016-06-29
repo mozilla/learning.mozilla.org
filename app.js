@@ -1,6 +1,8 @@
 var path = require('path');
 var fs = require('fs');
 var express = require('express');
+var helmet = require('helmet');
+var url = require('url');
 
 var React = require('react');
 var ReactRouter = require('react-router');
@@ -22,6 +24,8 @@ var indexStatic;
 var router;
 var matcher;
 var app = express();
+
+app.disable('x-powered-by');
 
 var notFoundHTML = [
   '<!doctype html>',
@@ -75,6 +79,83 @@ var updateIndexStatic = function(newIndexStatic) {
 if (!fs.existsSync(DIST_DIR)) {
   fs.mkdirSync(DIST_DIR);
 }
+
+/**
+ * Security Headers
+ */
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: [
+      'www.youtube.com',
+      'https://public.etherpad-mozilla.org'
+    ],
+    scriptSrc: [
+      '\'self\'',
+      '\'unsafe-inline\'',
+      '\'unsafe-eval\'',
+      'data:',
+      'https://www.google-analytics.com',
+      'https://www.google.com',
+      'https://s.ytimg.com',
+      'https://www.mozilla.org'
+    ],
+    fontSrc: [
+      '\'self\'',
+      'fonts.googleapis.com'
+    ],
+    styleSrc: [
+      '\'self\'',
+      '\'unsafe-inline\'',
+      'https://www.google.com',
+      'fonts.googleapis.com',
+      'https://api.tiles.mapbox.com',
+      'https://s.ytimg.com'
+    ],
+    imgSrc: [
+      '\'self\'',
+      '\'unsafe-inline\'',
+      'https://twemoji.maxcdn.com',
+      'https://upload.wikimedia.org',
+      '*.tiles.mapbox.com'
+    ],
+    connectSrc: [
+      '\'self\'',
+      'https://www.google.com',
+      '*.tiles.mapbox.com',
+      process.env.TEACH_API_URL || 'https://teach-api.herokuapp.com',
+      url.parse(process.env.NEWSLETTER_MAILINGLIST_URL || 'https://basket-dev.allizom.org').hostname
+    ]
+  },
+  reportOnly: false,
+  browserSniff: false
+}));
+
+app.use(helmet.xssFilter({
+  setOnOldIE: true
+}));
+
+app.use(helmet.frameguard({
+  action: 'deny'
+}));
+
+app.use(helmet.hsts({
+  maxAge: 1000 * 60 * 60 * 24 * 90
+}));
+
+app.use(helmet.ieNoOpen());
+
+app.use(helmet.noSniff());
+
+if (process.env.HPKP) { 
+  app.use(helmet.hpkp({
+    maxAge: 1000 * 60 * 60 * 24 * 90,
+    sha256s: process.env.HPKP.split(' '),
+    setIf: function (req, res) {
+      return req.secure;
+    }
+  }));
+}
+
 
 /**
  * Wait for the router to come online.

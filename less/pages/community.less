@@ -14,13 +14,14 @@
     flex-direction: column;
     @media screen and (min-width: @screen-sm-min) {
       flex-direction: row;
+      align-items: flex-end;
     }
     fieldset {
       max-width: 40rem;
     }
     input[type="submit"] {
       @media screen and (min-width: @screen-sm-min) {
-        margin: 0 2rem;
+        margin: 0 2rem 5px 2rem;
       }
     }
     .icon-field-container .fa {

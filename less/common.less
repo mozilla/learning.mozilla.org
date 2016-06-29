@@ -192,6 +192,34 @@ textarea {
   border-radius: @form-field-border-radius;
 }
 
+.mailinglist-signup {
+  fieldset {
+    width: 100%;
+  }
+  input[name="email"] {
+    margin-top: 0;
+  }
+  p.pp-note {
+    font-size: 1.2rem;
+    line-height: 1.2;
+    margin-bottom: 0;
+    a {
+      font-size: inherit;
+    }
+  }
+  .alert.alert-danger {
+    padding: 0 .5rem;
+    margin: .5rem 0;
+    p.error-msg {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+  }
+  label.sr-only + .icon-field-container input[name="email"] {
+    margin-top: 0;
+  }
+}
+
 .optional-text {
   color: @grey;
   font-style: italic;

@@ -65,54 +65,6 @@ describe("HomePage.ModalEmail", function() {
   });
 });
 
-describe("HomePage.EmailSignupForm", function() {
-  var validateSignupForm = require('../../components/newsletter-signup/validateSignupForm');
-  var EmailSignupForm = require('../../components/newsletter-signup/SignupForm.jsx');
-  var signupFormIdPrefix = "signup-form-";
-  var signupForm;
-
-  beforeEach(function() {
-    signupForm = stubContext.render(EmailSignupForm, {idPrefix: signupFormIdPrefix});
-    validateSignupForm = validateSignupForm;
-  });
-
-  afterEach(function() {
-    stubContext.unmount(signupForm);
-  })
-
-  it("has valid labels", function() {
-    Util.ensureLabelLinkage(signupForm, signupFormIdPrefix + 'email');
-    Util.ensureLabelLinkage(signupForm, signupFormIdPrefix + 'privacy');
-  });
-
-  it("does not show any errors by default", function() {
-    signupForm.state.validationErrors.length.should.equal(0);
-  });
-
-  it("shows form validation errors when 'email' is left blank", function() {
-    validateSignupForm( {email: ""} ).should.eql([
-      "Please enter an email address."
-    ]);
-  });
-
-  it("shows error message for invalid 'email'", function() {
-    validateSignupForm( {email: "123"} ).should.eql([
-      "Please enter an email address."
-    ]);
-    validateSignupForm( {email: "helloworld.example.com"} ).should.eql([
-      "Please enter an email address."
-    ]);
-    validateSignupForm( {email: "@"} ).should.eql([
-      "Please enter an email address."
-    ]);
-  });
-
-  it("hides form validation error when 'email' is valid", function() {
-    validateSignupForm( {email: "hellomofo@example.com"} ).should.eql([]);
-  });
-});
-
-
 describe("HomePage.BlogSection", function() {
   var BlogSection = require('../../pages/home/BlogSection.jsx');
   var blogSection;

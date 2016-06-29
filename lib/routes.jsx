@@ -19,6 +19,7 @@ var pages = {
   'activities/madewithcode-meme': require('../pages/madewithcode-meme.jsx'),
   'activities/madewithcode-poster': require('../pages/madewithcode-poster.jsx'),
   'activities/maker-party-2015': require('../pages/maker-party-2015.jsx'),
+  'activities/offline-icebreakers': require('../pages/offline-icebreakers.jsx'),
   'activities/parapara': require('../pages/parapara.jsx'),
   'activities/protect-your-data': require('../pages/protect-your-data.jsx'),
   'activities/privacy-basics': require('../pages/privacy-basics.jsx'),
@@ -53,7 +54,8 @@ var pages = {
 // FEATURE FLAG:
 // badges are behind a feature flag until finalized
 if (process.env.ENABLE_BADGES) {
-  pages = Object.assign(pages, {
+  var objectAssign = require('object-assign');
+  pages = objectAssign(pages, {
     'badges': require('../pages/badges/badges.jsx'),
     'badge/:id': require('../pages/badges/badge-single.jsx'),
     'badge/:id/:slug': require('../pages/badges/badge-single.jsx')
