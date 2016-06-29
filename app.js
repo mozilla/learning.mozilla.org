@@ -146,10 +146,10 @@ app.use(helmet.ieNoOpen());
 
 app.use(helmet.noSniff());
 
-if (process.env.HKPK) { 
+if (process.env.HPKP) { 
   app.use(helmet.hpkp({
     maxAge: 1000 * 60 * 60 * 24 * 90,
-    sha256s: process.env.HKPK.split(' '),
+    sha256s: process.env.HPKP.split(' '),
     setIf: function (req, res) {
       return req.secure
     }
