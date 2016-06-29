@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 400 400" enable-background="new 0 0 400 400" xml:space="preserve">
+<g >
+	<path class="help_button_balon" fill="#2A6797" d="M200,2.5c-73.6,0-133.3,46.4-133.3,103.7c0,32.3,19.1,61.2,48.9,80.2c-3.9,17.1-12.9,42.5-34.1,67.9
+		c42.6-7.1,69.9-27.8,86.8-47.5c10.2,1.9,20.8,3.1,31.7,3.1c73.6,0,133.3-46.4,133.3-103.7C333.3,48.9,273.6,2.5,200,2.5"/>
+  <path class="help_button_point" fill="#BDDDF4" d="M155.6,106.1c0,8.2-6.6,14.8-14.8,14.8c-8.2,0-14.8-6.6-14.8-14.8c0-8.2,6.6-14.8,14.8-14.8
+    C148.9,91.3,155.6,98,155.6,106.1"/>
+  <path class="help_button_point" fill="#BDDDF4" d="M214.8,106.1c0,8.2-6.6,14.8-14.8,14.8c-8.2,0-14.8-6.6-14.8-14.8c0-8.2,6.6-14.8,14.8-14.8
+    C208.2,91.3,214.8,98,214.8,106.1"/>
+  <path class="help_button_point" fill="#BDDDF4" d="M274.1,106.1c0,8.2-6.6,14.8-14.8,14.8c-8.2,0-14.8-6.6-14.8-14.8c0-8.2,6.6-14.8,14.8-14.8
+    C267.4,91.3,274.1,98,274.1,106.1"/>    
+</g>
+<text transform="matrix(1 0 0 1 37.4771 395.5957)" fill="#005189" font-family="'FiraMono-Medium'" font-size="135.4379">HELP</text>
+</svg>

@@ -94,14 +94,16 @@ app.use(helmet.contentSecurityPolicy({
       '\'unsafe-inline\'',
       '\'unsafe-eval\'',
       'data:',
-      'https://www.google-analytics.com',
+      'www.google-analytics.com',
+      'cdn.optimizely.com',
       'https://www.google.com',
       'https://s.ytimg.com',
       'https://www.mozilla.org'
     ],
     fontSrc: [
       '\'self\'',
-      'fonts.googleapis.com'
+      'fonts.googleapis.com',
+      'fonts.gstatic.com'
     ],
     styleSrc: [
       '\'self\'',
@@ -114,14 +116,17 @@ app.use(helmet.contentSecurityPolicy({
     imgSrc: [
       '\'self\'',
       '\'unsafe-inline\'',
-      'https://twemoji.maxcdn.com',
+      'twemoji.maxcdn.com',
       'https://upload.wikimedia.org',
-      '*.tiles.mapbox.com'
+      '*.tiles.mapbox.com',
+      'www.google-analytics.com',
+      '*.log.optimizely.com'
     ],
     connectSrc: [
       '\'self\'',
       'https://www.google.com',
       '*.tiles.mapbox.com',
+      '*.log.optimizely.com',
       process.env.TEACH_API_URL || 'https://teach-api.herokuapp.com',
       url.parse(process.env.NEWSLETTER_MAILINGLIST_URL || 'https://basket-dev.allizom.org').hostname
     ]
@@ -224,6 +229,11 @@ function renderComponentPage(location, res) {
     res.type('html').send(html);
   });
 }
+
+/**
+ * codemoji - https://github.com/mozilla/codemoji
+ */
+app.use('/codemoji', express.static('codemoji'));
 
 /**
  * Last chance: is this a static asset?
