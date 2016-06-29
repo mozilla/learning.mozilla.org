@@ -151,7 +151,7 @@ if (process.env.HPKP) {
     maxAge: 1000 * 60 * 60 * 24 * 90,
     sha256s: process.env.HPKP.split(' '),
     setIf: function (req, res) {
-      return req.secure
+      return req.secure;
     }
   }));
 }
