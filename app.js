@@ -117,7 +117,8 @@ app.use(helmet.contentSecurityPolicy({
       '\'unsafe-inline\'',
       'twemoji.maxcdn.com',
       'https://upload.wikimedia.org',
-      '*.tiles.mapbox.com'
+      '*.tiles.mapbox.com',
+      'www.google-analytics.com'
     ],
     connectSrc: [
       '\'self\'',
