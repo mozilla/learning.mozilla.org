@@ -3,7 +3,6 @@ var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var request = require('superagent');
 var _ = require('underscore');
 
-var validateSignupForm = require('./validateSignupForm');
 var config = require('../../config/config');
 
 var SignupForm = React.createClass({
@@ -14,24 +13,18 @@ var SignupForm = React.createClass({
   getInitialState: function() {
     return {
       email: "",
-      validationErrors: []
+      validationErrorType: null
     };
   },
   handleSubmit: function(e) {
     e.preventDefault();
-
-    var validationErrors = validateSignupForm(_.pick(this.state,"email"));
-
-    if (validationErrors.length) {
-      this.setState({validationErrors: validationErrors});
-      return;
-    }
 
     if (process.env.NODE_ENV !== 'production' && !process.env.NEWSLETTER_MAILINGLIST_URL) {
       alert("NEWSLETTER_MAILINGLIST_URL is not defined. Simulating a successful newsletter signup now.");
       window.location = "?signup=thanks";
     }
 
+    var self = this;
     request
       .post(process.env.NEWSLETTER_MAILINGLIST_URL)
       .type('form')
@@ -42,25 +35,30 @@ var SignupForm = React.createClass({
         email: this.state.email,
         trigger_welcome: 'N'
       })
-      .end(function(err, res){
-        if ( err ) { 
-          // TODO: add error handling
-          return; 
-        }
-
-        if ( res.statusCode === 200 ) {
-          window.location = config.ORIGIN+"?signup=thanks";
+      .end(function(err, res) {
+        console.log("err = ", err);
+        console.log("res", res);
+        if (res.statusCode >= 200 && res.statusCode < 300) {
+          self.setState({validationErrorType: null}, function() {
+            window.location = config.ORIGIN+"?signup=thanks";
+          });
         } else {
-          // TODO: add error handling
+          // for basket error code references, 
+          // see https://github.com/mozilla/basket-client/blob/master/basket/errors.py
+          var basketErrorType = JSON.parse(res.text).code == 2 ? "email" : "other";
+          self.setState( {validationErrorType: basketErrorType} );
         }
       });
 
   },
   renderValidationErrors: function() {
-    if (this.state.validationErrors.length) {
+    var errorType = this.state.validationErrorType;
+    if ( errorType ) {
+      var errorMsg = errorType === "email" ? "Please enter a valid email address." : "There's been a problem with our system. Please try again later.";
+
       return (
         <div className="alert alert-danger" role="alert">
-          <p className="error-msg">Please enter an email address.</p>
+          <p className="error-msg">{errorMsg}</p>
         </div>
       );
     }

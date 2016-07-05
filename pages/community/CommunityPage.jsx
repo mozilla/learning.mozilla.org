@@ -8,8 +8,6 @@ var Intro = require('./Intro.jsx');
 var SignupForm = require('../../components/newsletter-signup/SignupForm.jsx');
 var VerticalCard = require('./VerticalCard.jsx');
 
-var validateSignupForm = require('../../components/newsletter-signup/validateSignupForm');
-
 var config = require('../../config/config.js');
 
 var communityList = [
@@ -39,8 +37,7 @@ var CommunityPage = React.createClass({
   statics: {
     pageTitle: 'Community',
     pageClassName: 'community-page',
-    SignupForm: SignupForm,
-    validateSignupForm: validateSignupForm
+    SignupForm: SignupForm
   },
   render: function () {
     return (

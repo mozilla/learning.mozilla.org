@@ -1,40 +1,14 @@
+var TestUtils = require('react-addons-test-utils');
 var NewsletterSignupForm = require('../../components/newsletter-signup/SignupForm.jsx');
-var validateSignupForm = require('../../components/newsletter-signup/validateSignupForm.js');
-
 var stubContext = require('./stub-context.jsx');
 var Util = require('../util.js');
-
-var GOOD_EMAIL_EXAMPLES = [
-  "hello@example.com",
-  "hello123@example.com",
-  "hello+test@example.com",
-  "hello123+test@example.com",
-  "hello!@example.com",
-  "!@example.com",
-  "#!$%&'*+-/=?^_`{}|~@example.org"
-];
-
-var BAD_EMAIL_EXAMPLES = [
-  "",
-  "h.e.llo",
-  "h@e@llo@example.com",
-  "@example.com",
-  "@example.com.",
-  "h..ello@examplecom",
-  "hello@example..com",
-  "hel lo@example.com",
-  "@.com",
-  "@",
-  "hello",
-  ".com",
-  "."
-];
 
 describe("Newsletter Signup Form", function() {
   var signupFormIdPrefix = "signup-form-";
   var signupForm;
 
   beforeEach(function() {
+    NewsletterSignupForm.handleSubmit = sinon.spy();
     signupForm = stubContext.render(NewsletterSignupForm, {idPrefix: signupFormIdPrefix});
   });
 
@@ -48,18 +22,21 @@ describe("Newsletter Signup Form", function() {
   });
 
   it("does not show any errors by default", function() {
-    signupForm.state.validationErrors.length.should.equal(0);
+    TestUtils.scryRenderedDOMComponentsWithClass(signupForm,'error-msg').length.should.equal(0);
   });
 
   it("shows error message for invalid 'email'", function() {
-    BAD_EMAIL_EXAMPLES.forEach(function(email) {
-      validateSignupForm( {email: email} ).should.eql([ "Please enter an email address." ]);
-    });
+    signupForm.setState({validationErrorType: 'email'});
+
+    var validationError = TestUtils.findRenderedDOMComponentWithClass(signupForm,'error-msg');
+    validationError.textContent.should.match(/Please enter a valid email address./);
+
   });
 
-  it("hides form validation error when 'email' is valid", function() {
-    GOOD_EMAIL_EXAMPLES.forEach(function(email) {
-      validateSignupForm( {email: email} ).should.eql([]);
-    });
+  it("shows error message for errors other than invalid email", function() {
+    signupForm.setState({validationErrorType: 'other'});
+    var validationError = TestUtils.findRenderedDOMComponentWithClass(signupForm,'error-msg');
+    validationError.textContent.should.match(/There's been a problem with our system. Please try again later./);
   });
+
 });
