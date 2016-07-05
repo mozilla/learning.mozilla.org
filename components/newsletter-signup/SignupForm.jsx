@@ -36,8 +36,6 @@ var SignupForm = React.createClass({
         trigger_welcome: 'N'
       })
       .end(function(err, res) {
-        console.log("err = ", err);
-        console.log("res", res);
         if (res.statusCode >= 200 && res.statusCode < 300) {
           self.setState({validationErrorType: null}, function() {
             window.location = config.ORIGIN+"?signup=thanks";
