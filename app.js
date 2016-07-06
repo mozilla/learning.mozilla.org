@@ -14,6 +14,7 @@ var indexStaticWatcher = require('./lib/build/index-static-watcher').create();
 var PORT = process.env.PORT || 8008;
 var PRODUCTION = (process.env.NODE_ENV === 'production');
 var DIST_DIR = path.join(__dirname, 'dist');
+var CODEMOJI_URL = process.env.CODEMOJI_URL || "https://codemoji.mofostaging.net";
 
 var WpPageChecker = require('./lib/wp-page-checker');
 
@@ -234,9 +235,14 @@ function renderComponentPage(location, res) {
 }
 
 /**
- * codemoji - https://github.com/mozilla/codemoji
+ * codemoji redirect - https://github.com/mozilla/codemoji
  */
-app.use('/codemoji', express.static('codemoji'));
+app.use('/codemoji', function(req, res) {
+  var location = url.parse(CODEMOJI_URL);
+  location.pathname = req.path;
+  location.query = req.query;
+  res.redirect(307, url.format(location));
+});
 
 /**
  * Last chance: is this a static asset?
