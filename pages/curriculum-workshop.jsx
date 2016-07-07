@@ -28,7 +28,7 @@ var CurriculumWorkshop = React.createClass({
 
           <section className="callout-box">
             <h2>Upcoming Workshop</h2>
-            <p className="date">July 12th - 12th - 7 AM PT (Pacific Time), 10 AM ET (Eastern Time), 2 PM GMT (Greenwich Meridian Time), 5 PM EAT (East Africa Time), and 7:30 PM IST (India Standard Time)</p>
+            <p className="date">July 12th - 7 AM PT (Pacific Time), 10 AM ET (Eastern Time), 2 PM GMT (Greenwich Meridian Time), 5 PM EAT (East Africa Time), and 7:30 PM IST (India Standard Time)</p>
             <h1>Brokering Web Literacy Learning Around the World</h1>
             <p className="description">
               With Mmaki Jantjies, Arkodyuti Saha, and friends
