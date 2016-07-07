@@ -28,15 +28,15 @@ var CurriculumWorkshop = React.createClass({
 
           <section className="callout-box">
             <h2>Upcoming Workshop</h2>
-            <p className="date">June 16th - 9 AM PT / 12 PM ET / 4 PM GMT / 5 PM BST</p>
-            <h1>Summer Learning</h1>
+            <p className="date">July 12th - 7 AM PT (Pacific Time), 10 AM ET (Eastern Time), 2 PM GMT (Greenwich Meridian Time), 5 PM EAT (East Africa Time), and 7:30 PM IST (India Standard Time)</p>
+            <h1>Brokering Web Literacy Learning Around the World</h1>
             <p className="description">
-              With Su Adams, Bud Hunt, and Christopher Rogers
+              With Mmaki Jantjies, Arkodyuti Saha, and friends
             </p>
           </section>
 
           <p>
-           Join co-hosts Amira Dhalla and Chad Sansing broadcasting live from Mozilla’s all-hands work-week. Invited guests Su Adams, Bud Hunt, and Christopher Rogers, as well as drop-in Mozillians, will talk shop about summer learning, participatory learning outside school, and curriculum development on the web.
+           Join co-hosts Amira Dhalla and Chad Sansing to talk about brokering web literacy learning around the world. How do you connect youth with opportunities to learn about the web and use it in their daily lives?  Invited guests Mmaki Jantjies, Arkodyuti Saha, and friends will talk shop about brokering, network-building, and earning the trust of local communities and youth interested in the web.
           </p>
 
           <p>
@@ -46,21 +46,21 @@ var CurriculumWorkshop = React.createClass({
           <h3>Workshop Video Stream</h3>
 
           <div className="video-wrapper">
-            <iframe width="560" height="315" src="//www.youtube.com/embed/qXRGOJCVXdA?rel=0" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="//www.youtube.com/embed/mo-WQmOuDN4" frameborder="0" allowfullscreen></iframe>
           </div>
           <h4>
             Open Agenda
-            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/curriculum-workshop-june-16-2016">
+            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/curriculum-workshop-july-12-2016">
             </a>
           </h4>
 
-          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/curriculum-workshop-june-16-2016"></iframe>
+          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/curriculum-workshop-july-12-2016"></iframe>
 
           <h2>Upcoming Workshops</h2>
 
           <ul className="upcoming-workshops">
             <li>
-              <p className="date">July, 2016 </p>
+              <p className="date">August 2016 </p>
               <h2>TBD</h2>
             </li>
           </ul>
@@ -68,6 +68,16 @@ var CurriculumWorkshop = React.createClass({
           <h2>Past Workshops</h2>
 
           <ul className="past-workshops">
+            <li>
+              <p className="date">June 16th, 2016</p>
+              <h2>Summer Learning</h2>
+              <p>
+                Join co-hosts Amira Dhalla and Chad Sansing broadcasting live from Mozilla’s all-hands work-week. Invited guests Su Adams, Bud Hunt, and Christopher Rogers, as well as drop-in Mozillians, will talk shop about summer learning, participatory learning outside school, and curriculum development on the web.
+              </p>
+              <p className="watch-archive">
+                <LinkAnchorSwap to="/community/curriculum-workshop/june-16-2016/">Watch the Replay</LinkAnchorSwap>
+              </p>
+            </li>
             <li>
               <p className="date">May 10th, 2016</p>
               <h2>Youth Civic Engagement</h2>
