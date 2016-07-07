@@ -6,6 +6,24 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [1.0.3][] - 2016-07-07
+### Added
+- Added July 12th Curriculum Workshop details and updated archives.
+
+********************************************************************
+**And... things are already on production site but we forgot to mention them in the CHANGELOG**
+
+### Added
+- Visit https://learning.mozilla.org/codemoji to check out a browser-based 
+  learning tool / game that teaches everyday internet users about ciphers, 
+  the basic building blocks of encryption.
+- Added Offline Icebreakers teaching activity page.
+
+### Changed
+- Improved newsletter signup form validation.
+- Moved privacy policy agreement text above email input box in newsletter
+  signup forms.
+
 ## [1.0.2][] - 2016-06-09
 ### Added
 - Added June 16 Curriculum Workshop details and updated archives.
@@ -585,7 +603,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.2...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.3...HEAD
+[1.0.3]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/mozilla/teach.webmaker.org/compare/v0.0.40...v1.0.0
