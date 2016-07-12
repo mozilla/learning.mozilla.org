@@ -117,11 +117,7 @@ app.use(helmet.contentSecurityPolicy({
     imgSrc: [
       '\'self\'',
       '\'unsafe-inline\'',
-      'twemoji.maxcdn.com',
-      'https://upload.wikimedia.org',
-      '*.tiles.mapbox.com',
-      'www.google-analytics.com',
-      '*.log.optimizely.com'
+      '*'
     ],
     connectSrc: [
       '\'self\'',
