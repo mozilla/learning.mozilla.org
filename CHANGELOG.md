@@ -6,6 +6,10 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [1.0.4][] - 2016-07-07
+### Added
+- Modified the Content Security Policy img-src directive to allow images from all hosts
+
 ## [1.0.3][] - 2016-07-07
 ### Added
 - Added July 12th Curriculum Workshop details and updated archives.
