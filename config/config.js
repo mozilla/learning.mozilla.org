@@ -41,4 +41,5 @@ exports.TWITTER_LINK = 'https://twitter.com/MozLearn';
 exports.WEBMAKER = 'https://webmaker.org';
 exports.WORDPRESS_DOMAIN = process.env.WORDPRESS_DOMAIN || '';
 exports.XRAY_GOGGLES_LINK = 'https://goggles.mozilla.org/';
+exports.MOZFEST_PROPOSAL_LINK = 'https://mozillafestival.org/proposals';
 

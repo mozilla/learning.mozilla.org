@@ -58,8 +58,9 @@ main {
   }
 }
 
-section {
-  padding: 1.5rem;
+section,
+.section {
+  padding: @section-padding-vertical-mobile @section-padding-horizontal-mobile;
   @media screen and (min-width: @screen-md-min) {
     padding: @section-padding-vertical @section-padding-horizontal;
   }
