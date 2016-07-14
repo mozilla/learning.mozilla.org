@@ -10,12 +10,18 @@ var match = ReactRouter.match;
 var ga = require('react-ga');
 
 var routeData = require('./routes.jsx');
+var locales = require('../dist/locales.json');
 
 var urls = routeData.URLS;
 var redirects = routeData.REDIRECTS;
 var routes = routeData.routes;
 
 var Page = require('../components/page.jsx');
+
+var IntlProvider = require('react-intl').IntlProvider;
+var locales = require('../dist/locales.json');
+var currentLocale = 'en-US';
+var supportedLocale;
 
 /**
  * content for redirect pages
@@ -40,6 +46,16 @@ function generateStaticRedirect(fromURL, toURL, next) {
   });
 }
 
+function createElement(Component, props) {
+  var messages = locales['en-US'];
+  // make sure you pass all the props in!
+  return (
+    <IntlProvider locale='en-US' messages={messages}>
+      <Component {...props} />
+    </IntlProvider>
+  );
+}
+
 /**
  * Static function for generating the site as static html files
  */
@@ -57,9 +73,11 @@ function generateStatic(url, next) {
       return next(new Error("No render properties for '"+url+"'"));
     }
 
+
+
     var Component = renderProps.routes.slice(-1)[0].component;
     var title = Page.titleForHandler(Component);
-    var html = ReactDOMServer.renderToString(<RoutingContext {...renderProps} />);
+    var html = ReactDOMServer.renderToString(<RoutingContext createElement={createElement} {...renderProps} />);
 
     next(null, html, { title: title });
   });
@@ -76,8 +94,21 @@ function run(location, el) {
   history.listen(function(location) {
     ga.pageview(location.pathname);
   });
+  /* L10N comment
+    What we are trying to do here is to check if what's coming in
+    `navigator.language` is supported in our locales list, and if it is
+    we will be using the value there otherwise we will default to
+    what was assigned above.
+  */
+  supportedLocale = Object.keys(locales).indexOf(navigator.language) !== -1;
+  currentLocale = supportedLocale ? navigator.language : currentLocale;
+  messages = locales[currentLocale] || messages;
+  /* END */
 
-  ReactDOM.render(<Router history={history}>{routes}</Router>, el);
+  ReactDOM.render(
+    <IntlProvider locale={currentLocale} messages={messages}>
+      <Router history={history}>{routes}</Router>
+    </IntlProvider>, el);
 }
 
 /**

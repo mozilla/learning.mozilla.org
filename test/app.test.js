@@ -81,7 +81,7 @@ describe('app', function() {
 
   it('reports 404s', function(done) {
     this.timeout(10000);
-    
+
     request(app)
       .get('/asdfasdfasdf')
       .expect(404)
