@@ -51,15 +51,16 @@ var SignupForm = React.createClass({
   },
   renderValidationErrors: function() {
     var errorType = this.state.validationErrorType;
-    if ( errorType ) {
-      var errorMsg = errorType === "email" ? "Please enter a valid email address." : "There's been a problem with our system. Please try again later.";
-
-      return (
-        <div className="alert alert-danger" role="alert">
-          <p className="error-msg">{errorMsg}</p>
-        </div>
-      );
+    var errorMsg = "There's been a problem with our system. Please try again later.";
+    if (!errorType) return;
+    if (errorType === "email") {
+      errorMsg = "Please enter a valid email address";
     }
+    return (
+      <div className="alert alert-danger" role="alert">
+        <p className="error-msg">{errorMsg}</p>
+      </div>
+    );
   },
   render: function() {
     var idPrefix = this.props.idPrefix;
