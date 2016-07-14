@@ -1,4 +1,19 @@
 var originalConsoleWarn = console.warn;
+// Version of PhantomJS that's being used by `mocha-phantomjs` does not enabled `intl`
+// which causes most tests to fail because it relies on `Intl` to be in `Window/Global`
+// This can be removed once the library is updated to use latest version that supports it.
+var areIntlLocalesSupported = require('intl-locales-supported');
+if (global.Intl) {
+    if (!areIntlLocalesSupported(['en-US'])) {
+        var IntlPolyfill    = require('intl');
+        Intl.NumberFormat   = IntlPolyfill.NumberFormat;
+        Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
+    }
+} else {
+    // No `Intl`, so use and load the polyfill.
+    global.Intl = require('intl');
+}
+
 
 console.warn = function(msg) {
   if (msg == "Warning: You should not use a static location in a " +
