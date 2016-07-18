@@ -88,7 +88,8 @@ app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: [
       'www.youtube.com',
-      'https://public.etherpad-mozilla.org'
+      'https://public.etherpad-mozilla.org',
+      'https://pontoon.mozilla.org'
     ],
     scriptSrc: [
       '\'self\'',
@@ -99,12 +100,14 @@ app.use(helmet.contentSecurityPolicy({
       'cdn.optimizely.com',
       'https://www.google.com',
       'https://s.ytimg.com',
-      'https://www.mozilla.org'
+      'https://www.mozilla.org',
+      'https://pontoon.mozilla.org'
     ],
     fontSrc: [
       '\'self\'',
       'fonts.googleapis.com',
-      'fonts.gstatic.com'
+      'fonts.gstatic.com',
+      'https://pontoon.mozilla.org'
     ],
     styleSrc: [
       '\'self\'',
@@ -112,7 +115,8 @@ app.use(helmet.contentSecurityPolicy({
       'https://www.google.com',
       'fonts.googleapis.com',
       'https://api.tiles.mapbox.com',
-      'https://s.ytimg.com'
+      'https://s.ytimg.com',
+      'https://pontoon.mozilla.org'
     ],
     imgSrc: [
       '\'self\'',
@@ -127,6 +131,7 @@ app.use(helmet.contentSecurityPolicy({
       '*.mywebmaker.org',
       '*.makes.org',
       'bitly.mofoprod.net',
+      'https://pontoon.mozilla.org',
       process.env.TEACH_API_URL || 'https://teach-api.herokuapp.com',
       url.parse(process.env.NEWSLETTER_MAILINGLIST_URL || 'https://basket-dev.allizom.org').hostname
     ]
@@ -151,7 +156,7 @@ app.use(helmet.ieNoOpen());
 
 app.use(helmet.noSniff());
 
-if (process.env.HPKP) { 
+if (process.env.HPKP) {
   app.use(helmet.hpkp({
     maxAge: 1000 * 60 * 60 * 24 * 90,
     sha256s: process.env.HPKP.split(' '),
