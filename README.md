@@ -78,6 +78,10 @@ Other
 * `img/`: For images
 * `dist/`: Generated site assets goes here. **This folder is gitignored, do not edit files here.**
 
+### Localization
+
+Work in progress, but please read the documentation on how we are doing it for the site [here](./L10N.md).
+
 ### Test
 
 Fully testing the code is accomplished by running `npm test`,
@@ -165,6 +169,7 @@ software works.
 `MAKE_METADATA_URL` | The template source url to load users' Makes metadata. Username should be included in the URL as a variable. e.g., `https://{username}.makes.org/makes.json`
 `WORDPRESS_DOMAIN` | The domain to the wordpress.com site this app retrieves data from. e.g., `helloworld.wordpress.com` (with no protocol),
 `HPKP` | [HTTP Public Key Pinning](https://developer.mozilla.org/en/docs/Web/Security/Public_Key_Pinning) - requires at least two sha256s, space separated. i.e "asdf= qwer="
+`supportedLocales` | enables specific locales, for example: `['en-US', 'id']` will only enable 2 locales. Default value is `*` which will enable all locales under [locales](./locales) directory.
 
 ### Using Environment Variables in Local Development
 
