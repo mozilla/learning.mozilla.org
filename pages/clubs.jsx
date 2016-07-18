@@ -175,7 +175,7 @@ var ApplyCallout = React.createClass({
           <div className="vertical-divider"></div>
           <h3 className="text-center">To get matched with a Regional Coordinator, please apply to be a Mozilla Club Captain.</h3>
           <a className="btn" onClick={this.props.showAddYourClubModal}>Apply to be a Club Captain</a>
-          <p className="check-out-resources">If you’d like to get started on your own, check out these <a href="http://mozilla.github.io/learning-networks/clubs/">resources</a>.</p>
+          <p className="check-out-resources">If you’d like to get started on your own, check out the <a href="http://mozilla.github.io/learning-networks/clubs/facts">Fact Sheet</a>.</p>
         </div>
       </section>
     );
@@ -277,7 +277,7 @@ var ClubsPage = React.createClass({
                 highlightedText="Connect"
               />
               <IconLink
-                link="http://mozilla.github.io/learning-networks/clubs/facts"
+                link="/clubs/guides"
                 imgSrc="/img/pages/clubs/svg/icon-tips.svg"
                 head="Get Help"
                 subhead="Resources for running your Club."

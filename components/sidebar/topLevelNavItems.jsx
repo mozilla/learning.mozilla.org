@@ -33,6 +33,10 @@ var MENU_ENTRIES = [
         to: '/clubs'
       },
       {
+        name: "Guides & Resources",
+        to: '/clubs/guides'
+      },
+      {
         name: "maker_party",
         to: '/events'
       },
