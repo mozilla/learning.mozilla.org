@@ -25,7 +25,7 @@
     "presmoketest": "npm run cleanup",
     "prestart": "rm -rf dist",
     "pretest": "npm run cleanup",
-    "postinstall": "gulp postinstall",
+    "postinstall": "gulp postinstall && npm run l10n",
     "smoketest": "gulp smoketest",
     "start": "npm run app",
     "test": "gulp smoketest && npm run test:mocha && npm run test:browser && gulp lint-test",
