@@ -28,7 +28,7 @@ var CommunityCallPage = React.createClass({
 
           <section className="callout-box">
             <h2>Upcoming Call</h2>
-            <p className="date">July 27, 9am PT / 12pm ET / 4pm UTC</p>
+            <p className="date">July 28, 9am PT / 12pm ET / 4pm UTC</p>
             <h1>Brokering Learning</h1>
             <p className="description">
               Representing libraries, game education organizations, Mozilla Club leads and Mozilla staff, guests include: Hive Cascadia (Portland, Oregon, USA), Hive Toronto (Canada), Tina Verbo from the Mozilla Philippines community.
