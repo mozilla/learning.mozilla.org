@@ -192,6 +192,12 @@ Name|If set, enables...
 -|-
 `ENABLE_BADGES` | rendering the `/badges` and `/badge/....` routes, and reveals the badge main page as a sidebar navigation option.
 
+## Content Security Policies
+
+If you run into CORS or CSP issues (blocked domains trying to GET or POST, loading external scripts like X-Ray Goggles, etc) then you probably want to make sure that the Content Security Policy is set to clear whatever it is you need cleared.
+
+We handle this in `app.js`, in the `helmet.contentSecurityPolicy` block. Typically you'll care about the `connectSrc` block for remote content fetching, and the `scriptSrc` block for injecting/loading external scripts, although you might have CSP needs outside those two categories: all of the major CSP categories have their own section and should be readily identifiable.
+
 ## Lightweight Dynamic Server (Experimental)
 
 The site can also be served through a lightweight server which
