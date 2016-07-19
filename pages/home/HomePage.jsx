@@ -27,7 +27,8 @@ var HomePage = React.createClass({
     BlogSection: BlogSection
   },
   contextTypes: {
-    location: React.PropTypes.object
+    location: React.PropTypes.object,
+    intl: React.PropTypes.object
   },
   componentWillMount: function() {
     fixLocation(this.context.location);
@@ -59,7 +60,7 @@ var HomePage = React.createClass({
     return (
       <div>
         <HeroUnit>
-          <h1>The Mozilla Learning Network</h1>
+          <h1>{this.context.intl.formatMessage({id: 'MLN'})}</h1>
           <IconButtons>
             <IconButton
               imgSrc="/img/pages/home/svg/icon-newsletter.svg"

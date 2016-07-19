@@ -1,16 +1,16 @@
 {
-  "name": "teach.mozilla.org",
+  "name": "learning.mozilla.org",
   "version": "1.0.3",
   "description": " Initial attempt at implementing Webmaker Learning front-page.",
   "author": "Mozilla",
   "license": "MPL-2.0",
-  "homepage": "https://github.com/mozilla/teach.mozilla.org",
+  "homepage": "https://github.com/mozilla/learning.mozilla.org",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mozilla/teach.mozilla.org.git"
+    "url": "https://github.com/mozilla/learning.mozilla.org.git"
   },
   "bugs": {
-    "url": "https://github.com/mozilla/teach.mozilla.org/issues"
+    "url": "https://github.com/mozilla/learning.mozilla.org/issues"
   },
   "engines": {
     "node": "^4.4.1"
@@ -19,11 +19,12 @@
     "app": "gulp app",
     "build": "gulp",
     "l10n": "node scripts/properties2json",
-    "preapp": "rm -rf dist",
-    "prebuild": "rm -rf dist && npm run l10n",
-    "presmoketest": "rm -rf dist",
+    "cleanup": "rm -rf dist && npm run l10n",
+    "preapp": "npm run cleanup",
+    "prebuild": "npm run cleanup",
+    "presmoketest": "npm run cleanup",
     "prestart": "rm -rf dist",
-    "pretest": "rm -rf dist",
+    "pretest": "npm run cleanup",
     "postinstall": "gulp postinstall",
     "smoketest": "gulp smoketest",
     "start": "npm run app",
@@ -58,7 +59,10 @@
     "habitat": "^3.1.2",
     "helmet": "^2.1.1",
     "history": "^1.17.0",
+    "hoek": "^4.0.1",
     "imports-loader": "^0.6.3",
+    "intl": "^1.2.4",
+    "intl-locales-supported": "^1.0.0",
     "jshint": "^2.8.0",
     "json-loader": "^0.5.1",
     "jsx-loader": "^0.13.2",
@@ -82,6 +86,7 @@
     "react-circletree": "^2.5.0",
     "react-dom": "^0.14.3",
     "react-ga": "^1.0.12",
+    "react-intl": "^2.1.3",
     "react-router": "^1.0.3",
     "react-select": "^0.9.1",
     "react-wp-content-loader": "0.0.2",
