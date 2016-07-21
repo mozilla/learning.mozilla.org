@@ -15,6 +15,7 @@ var PORT = process.env.PORT || 8008;
 var PRODUCTION = (process.env.NODE_ENV === 'production');
 var DIST_DIR = path.join(__dirname, 'dist');
 var CODEMOJI_URL = process.env.CODEMOJI_URL || "https://codemoji.mofostaging.net";
+var localize = require('mofo-localize');
 
 var WpPageChecker = require('./lib/wp-page-checker');
 
@@ -25,6 +26,8 @@ var indexStatic;
 var router;
 var matcher;
 var app = express();
+var locale = "";
+var locales = require('./dist/locales.json')
 
 app.disable('x-powered-by');
 
@@ -209,6 +212,13 @@ app.use(function(req, res, next) {
 
     // if this belongs to one of the predefined urls, let's generate its associated page
     if ( matcher.match(location) ) {
+      var search = url.parse(req.url).search || "";
+
+      locale = localize.parseLocale(req.headers["accept-language"], location, locales).locale;
+      if (location === "/") {
+        res.redirect(302, location + locale + search);
+        return;
+      }
       return renderComponentPage(location,res);
     }
 
@@ -246,9 +256,28 @@ app.use('/codemoji', function(req, res) {
 });
 
 /**
- * Last chance: is this a static asset?
+ * Is this a static asset?
  */
 app.use(express.static(DIST_DIR));
+
+
+/**
+* Maybe it is a route, but needs the localized path
+*/
+app.use(function(req, res, next) {
+  var location = url.parse(req.url).pathname;
+  var search = url.parse(req.url).search || "";
+  // Get a valid locale from the path and header
+  var parsed = localize.parseLocale(req.headers["accept-language"], location, locales);
+  var parsedLocale = parsed.locale;
+  var parsedRedirect = parsed.redirect;
+  // See if we should redirect.
+  if (parsedRedirect) {
+    res.redirect(301, "/" + parsedLocale + parsedRedirect + search);
+  } else {
+    next();
+  }
+})
 
 app.use(function(req, res, next) {
   res.status(404).send(notFoundHTML);
