@@ -13,6 +13,9 @@ var LoginLink = require('./LoginLink.jsx');
 var LogoutLink = require('./LogoutLink.jsx');
 
 var Login = React.createClass({
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
   statics: {
     teachAPIEvents: {
       'login:start': 'handleApiLoginStart',
@@ -126,7 +129,7 @@ var Login = React.createClass({
           <div className="options">
             <ul>
               { this.renderAdminLink() ? <li>{this.renderAdminLink()}</li> : null }
-              <li><span className="fa fa-list"></span><Link to={"/me"}>Your Projects</Link></li>
+              <li><span className="fa fa-list"></span><Link to={"/" + this.context.intl.locale + "/me"}>Your Projects</Link></li>
               <li>
                 <span className="fa fa-sign-out"></span>
                 <LogoutLink loginBaseURL={this.props.teachAPI.baseURL} callbackURL={this.props.currentPath}>Log Out</LogoutLink>

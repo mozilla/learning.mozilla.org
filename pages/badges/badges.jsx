@@ -12,6 +12,9 @@ var React = require('react'),
     TeachAPI = require('../../lib/teach-api');
 
 var BadgesPage = React.createClass({
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
   statics: {
     pageTitle: 'Badges',
     pageClassName: 'badges'
@@ -167,7 +170,7 @@ var BadgesPage = React.createClass({
       var linkUrl = '/badge/' + badge.id + '/' + urlize(badge.title);
       return (
         <div key={badge.id} className="col-md-3">
-          <Link to={ linkUrl } className={'badge-icon-link'}>
+          <Link to={ "/" + this.context.intl.locale + linkUrl } className={'badge-icon-link'}>
             <BadgeVerticalIcon badge={badge} anonymous={anonymous} />
           </Link>
         </div>

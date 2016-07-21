@@ -31,7 +31,7 @@ function makeLinksFrom21CSkills(skills21C) {
       </span>
     );
   });
-} 
+}
 
 var Activity = React.createClass({
   render: function() {
@@ -57,7 +57,10 @@ var Activity = React.createClass({
 });
 
 var WebLitPage = React.createClass({
-  contextTypes: { history: React.PropTypes.object },
+  contextTypes: {
+    history: React.PropTypes.object,
+    intl: React.PropTypes.object
+  },
   statics: {
     pageTitle: "Web Literacy",
     pageClassName: "web-literacy"
@@ -276,7 +279,7 @@ var WebLitPage = React.createClass({
           </section>
           <section className="weblit-nav">
             <div className="c21-skills">
-              <Link to="/web-literacy/skills/"><h3>21st Century Skills</h3></Link>
+              <Link to={"/" + this.context.intl.locale + "/web-literacy/skills/"}><h3>21st Century Skills</h3></Link>
               <ul>
                 {this.renderCheckboxes()}
               </ul>

@@ -4,6 +4,9 @@ var ImageTag = require('./imagetag.jsx');
 var _ = require('underscore');
 
 var LinkSwap = React.createClass({
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
   propTypes: {
     link: React.PropTypes.string,
     href: React.PropTypes.string
@@ -13,7 +16,7 @@ var LinkSwap = React.createClass({
     // Swap out Link or a simple anchor depending on the props we have.
     if (this.props.link) {
       return (
-        <Link to={this.props.link} {...otherProps}>
+        <Link to={"/" + this.context.intl.locale + this.props.link} {...otherProps}>
           {this.props.children}
         </Link>
       )

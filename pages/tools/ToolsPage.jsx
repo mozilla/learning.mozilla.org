@@ -8,6 +8,9 @@ var ToolsIntro = require('./ToolsIntro.jsx');
 var ToolsSection = require('./ToolsSection.jsx');
 
 var ToolsPage = React.createClass({
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
   statics: {
     pageTitle: 'Tools',
     pageClassName: 'tools-page'
@@ -27,7 +30,7 @@ var ToolsPage = React.createClass({
         <section>
           <div className="row">
             <div className="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
-              <p className="callout-heading">Visit our <Link to="/activities">Teaching Activities page</Link> for more examples of how to use these tools in your practice.</p>
+              <p className="callout-heading">Visit our <Link to={"/" + this.context.intl.locale + "/activities"}>Teaching Activities page</Link> for more examples of how to use these tools in your practice.</p>
             </div>
           </div>
         </section>

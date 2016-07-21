@@ -12,6 +12,9 @@ var config = require('../../config/config');
 var MakerPartyExamples = require('./MakerPartyExamples.jsx');
 
 var EventsPage = React.createClass({
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
   statics: {
     pageTitle: 'Events',
     pageClassName: 'events'
@@ -40,7 +43,7 @@ var EventsPage = React.createClass({
           <div className="row mp-activities-banner">
             <section>
               <div className="btn-container">
-                <Link to={"/activities/maker-party-2015"} className="btn">Get the 2015 Maker Party Activities</Link>
+                <Link to={"/" + this.context.intl.locale + "/activities/maker-party-2015"} className="btn">Get the 2015 Maker Party Activities</Link>
               </div>
             </section>
           </div>

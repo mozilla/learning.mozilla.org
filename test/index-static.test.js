@@ -24,7 +24,7 @@ describe('index-static', function() {
   beforeEach(indexStatic.build);
 
   it('should work w/o meta options', function(done) {
-    indexStatic.get().generate('/', {
+    indexStatic.get().generate('/en-US/', {
       // no options passed
     }, function(err, url, title, html) {
       should(err).equal(null);
@@ -33,7 +33,7 @@ describe('index-static', function() {
   });
 
   it('should include meta options', function(done) {
-    indexStatic.get().generate('/', {
+    indexStatic.get().generate('/en-US/', {
       meta: { foo: 'bar' }
     }, function(err, url, title, html) {
       should(err).equal(null);
@@ -43,7 +43,7 @@ describe('index-static', function() {
   });
 
   it('should include page title', function(done) {
-    indexStatic.get().generate('/', {
+    indexStatic.get().generate('/en-US/', {
       title: 'hello there'
     }, function(err, url, title, html) {
       should(err).equal(null);
