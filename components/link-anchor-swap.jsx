@@ -5,6 +5,9 @@ var classNames = require('classnames');
 var OutboundLink = ga.OutboundLink;
 
 var LinkAnchorSwap = React.createClass({
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
   render: function() {
     var link = this.props.to;
     var ifExternalLink = (link.substr(0,4).toLowerCase() === "http") || (link.substr(0,7).toLowerCase() === "mailto:");
@@ -17,7 +20,7 @@ var LinkAnchorSwap = React.createClass({
     var linkedContent = this.props.children || this.props.name;
     return (
       ifExternalLink ?  <OutboundLink eventLabel={link} {...this.props}>{linkedContent}</OutboundLink> :
-                        <Link {...this.props} onClick={this.scrollToTop}>{linkedContent}</Link>
+                        <Link {...this.props} to={"/" + this.context.intl.locale + this.props.to } onClick={this.scrollToTop}>{linkedContent}</Link>
     );
   },
   scrollToTop: function() {

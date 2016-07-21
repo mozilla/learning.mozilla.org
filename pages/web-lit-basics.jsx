@@ -21,19 +21,6 @@ var Intro = (
   </div>
 );
 
-var WebLitBasics = (
-  <section className="row web-lit-basics">
-    <div className="col-sm-12">
-      <h2>Learning Objectives</h2>
-      <p>
-        The learning objectives underpinning each activity are informed by Mozilla&apos;s <Link to={"/web-literacy"}>Web
-        Literacy Map</Link>. Complete the activities in sequence, or mix and match for your learners. Need
-        help{'? '} <a href="https://discourse.webmaker.org/c/curriculum">Visit our discussion forum</a> to get help
-        and share your experience.
-      </p>
-    </div>
-  </section>
-);
 
 var curriculumList = [
   {
@@ -108,6 +95,9 @@ var curriculum = curriculumList.map(function (section) {
 });
 
 var ClubsCurriculum = React.createClass({
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
   statics: {
     pageTitle: 'Web Literacy Basics',
     pageClassName: 'web-lit-basics'
@@ -115,6 +105,20 @@ var ClubsCurriculum = React.createClass({
 
   render: function () {
     var blogPostLink = "https://blog.webmaker.org/help-us-get-local-with-web-literacy";
+    var WebLitBasics = (
+      <section className="row web-lit-basics">
+        <div className="col-sm-12">
+          <h2>Learning Objectives</h2>
+          <p>
+            The learning objectives underpinning each activity are informed by Mozilla&apos;s <Link to={"/" + this.context.intl.locale + "/web-literacy"}>Web
+            Literacy Map</Link>. Complete the activities in sequence, or mix and match for your learners. Need
+            help{'? '} <a href="https://discourse.webmaker.org/c/curriculum">Visit our discussion forum</a> to get help
+            and share your experience.
+          </p>
+        </div>
+      </section>
+    );
+
     return (
       <div className="inner-container">
         {Intro}

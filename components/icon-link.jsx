@@ -4,6 +4,9 @@ var ImageTag = require('./imagetag.jsx');
 var OutboundLink = require('react-ga').OutboundLink;
 
 var LinkSwap = React.createClass({
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
   propTypes: {
     link: React.PropTypes.string.isRequired
   },
@@ -13,7 +16,7 @@ var LinkSwap = React.createClass({
     var ifExternalLink = (link.substr(0,4).toLowerCase() === "http") || (link.substr(0,7).toLowerCase() === "mailto:");
     return (
       ifExternalLink ?  <OutboundLink to={this.props.link} eventLabel={this.props.link} className="external-link">{this.props.children}</OutboundLink> :
-                        <Link to={this.props.link} ref={this.props.key}>{this.props.children}</Link>
+                        <Link to={"/" + this.context.intl.locale + this.props.link} ref={this.props.key}>{this.props.children}</Link>
     );
   }
 });
