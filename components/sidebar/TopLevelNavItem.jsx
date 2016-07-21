@@ -3,8 +3,12 @@ var ReactDOM = require('react-dom');
 var classNames = require('classnames');
 var LinkAnchorSwap = require('../link-anchor-swap.jsx');
 var SubItems = require('./SubItems.jsx');
+var FormattedMessage = require('react-intl').FormattedMessage;
 
 var TopLevelNavItem = React.createClass({
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
   getInitialState: function() {
     return {
       activeSubNav: false
@@ -42,7 +46,7 @@ var TopLevelNavItem = React.createClass({
           <div className="img-container">
             <img src={this.props.icon} alt=""/>
           </div>
-          <strong>{this.props.name}</strong>
+          <strong><FormattedMessage id={this.props.name} defaultMessage={this.props.name}/></strong>
         </LinkAnchorSwap>
         {this.props.subItems ? <SubItems subItems={this.props.subItems} /> : null}
       </li>
