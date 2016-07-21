@@ -4,6 +4,8 @@ var Link = require('react-router').Link;
 var ga = require('react-ga');
 var OutboundLink = require('react-ga').OutboundLink;
 var PureRenderMixin = require('react-addons-pure-render-mixin');
+var FormattedMessage = require('react-intl').FormattedMessage;
+var FormattedHTMLMessage = require('react-intl').FormattedHTMLMessage;
 
 var withTeachAPI = require('../../hoc/with-teach-api.jsx');
 
@@ -107,9 +109,7 @@ var Login = React.createClass({
           <p>
             <small>
               <span className="fa fa-wrench"/>
-              Unable to contact login server.
-              <br/>
-              Refresh the page to try again.
+              <FormattedHTMLMessage id='unable_to_contact_login_server' />
             </small>
           </p>
         </div>
@@ -117,22 +117,22 @@ var Login = React.createClass({
     } else if (this.state.loggingIn) {
       content = (
         <div className="login-status-text">
-          Loading&hellip;
+          <FormattedHTMLMessage id="loading_message"/>
         </div>
       );
     } else if (this.state.username) {
       content = (
         <div className={"user-panel "+userPanelState}>
           <div className="login-status-text" onMouseDown={this.handleMouseDown}>
-            Hi, {this.state.username}
+            <FormattedMessage id="hi_username" values={{name: this.state.username}}/>
           </div>
           <div className="options">
             <ul>
               { this.renderAdminLink() ? <li>{this.renderAdminLink()}</li> : null }
-              <li><span className="fa fa-list"></span><Link to={"/" + this.context.intl.locale + "/me"}>Your Projects</Link></li>
+              <li><span className="fa fa-list"></span><Link to={"/" + this.context.intl.locale + "/me"}>{this.context.intl.formatMessage({id: 'your_projects'})}</Link></li>
               <li>
                 <span className="fa fa-sign-out"></span>
-                <LogoutLink loginBaseURL={this.props.teachAPI.baseURL} callbackURL={this.props.currentPath}>Log Out</LogoutLink>
+                <LogoutLink loginBaseURL={this.props.teachAPI.baseURL} callbackURL={this.props.currentPath}>{this.context.intl.formatMessage({id: 'log_out'})}</LogoutLink>
               </li>
             </ul>
           </div>
@@ -141,9 +141,9 @@ var Login = React.createClass({
     } else {
       content = (
         <div className="login-status-text">
-          <LoginLink loginBaseURL={this.props.teachAPI.baseURL} callbackURL={this.props.currentPath}>Sign in</LoginLink>
-          <span className="or"> or </span>
-          <LoginLink loginBaseURL={this.props.teachAPI.baseURL} callbackURL={this.props.currentPath} action="signup">Sign Up</LoginLink>
+          <LoginLink loginBaseURL={this.props.teachAPI.baseURL} callbackURL={this.props.currentPath}>{this.context.intl.formatMessage({id: 'sign_in'})}</LoginLink>
+          <span className="or"> {this.context.intl.formatMessage({id: 'or'})} </span>
+          <LoginLink loginBaseURL={this.props.teachAPI.baseURL} callbackURL={this.props.currentPath} action="signup">{this.context.intl.formatMessage({id: 'sign_up'})}</LoginLink>
         </div>
       );
     }
