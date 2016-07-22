@@ -16,7 +16,7 @@
     "node": "^4.4.1"
   },
   "scripts": {
-    "app": "gulp app",
+    "app": "npm run l10n && gulp app",
     "build": "gulp",
     "l10n": "node scripts/properties2json",
     "cleanup": "rm -rf dist && npm run l10n",
