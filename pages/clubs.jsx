@@ -172,9 +172,6 @@ var ApplyCallout = React.createClass({
           <h3 className="text-center">To get matched with a Regional Coordinator, please apply to be a Mozilla Club Captain.</h3>
           <a className="btn" onClick={this.props.showAddYourClubModal}>Apply to be a Club Captain</a>
           <p className="check-out-resources">If you’d like to get started on your own, check out these <a href="http://mozilla.github.io/learning-networks/clubs/">resources</a>.</p>
-          <div className="alert alert-warning text-left center-block">
-            <strong>Please note: </strong><span>Our first cohort of Regional Coordinators is in full swing right now, so you’ll be added to our waiting list. We’ll match you with a Regional Coordinator as soon as we can.</span>
-          </div>
         </div>
       </section>
     );
@@ -275,7 +272,7 @@ var ClubsPage = React.createClass({
                 highlightedText="Connect"
               />
               <IconLink
-                link="http://mozilla.github.io/learning-networks/clubs/"
+                link="http://mozilla.github.io/learning-networks/clubs/facts"
                 imgSrc="/img/pages/clubs/svg/icon-tips.svg"
                 head="Get Help"
                 subhead="Resources for running your Club."
