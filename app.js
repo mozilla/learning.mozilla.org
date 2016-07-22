@@ -87,12 +87,11 @@ if (!fs.existsSync(DIST_DIR)) {
 /**
  * Security Headers
  */
-app.use(helmet.contentSecurityPolicy({
+ var securityHeaders = {
   directives: {
     defaultSrc: [
       'www.youtube.com',
-      'https://public.etherpad-mozilla.org',
-      'https://pontoon.mozilla.org'
+      'https://public.etherpad-mozilla.org'
     ],
     scriptSrc: [
       '\'self\'',
@@ -103,14 +102,12 @@ app.use(helmet.contentSecurityPolicy({
       'cdn.optimizely.com',
       'https://www.google.com',
       'https://s.ytimg.com',
-      'https://www.mozilla.org',
-      'https://pontoon.mozilla.org'
+      'https://www.mozilla.org'
     ],
     fontSrc: [
       '\'self\'',
       'fonts.googleapis.com',
-      'fonts.gstatic.com',
-      'https://pontoon.mozilla.org'
+      'fonts.gstatic.com'
     ],
     styleSrc: [
       '\'self\'',
@@ -118,8 +115,7 @@ app.use(helmet.contentSecurityPolicy({
       'https://www.google.com',
       'fonts.googleapis.com',
       'https://api.tiles.mapbox.com',
-      'https://s.ytimg.com',
-      'https://pontoon.mozilla.org'
+      'https://s.ytimg.com'
     ],
     imgSrc: [
       '\'self\'',
@@ -134,14 +130,22 @@ app.use(helmet.contentSecurityPolicy({
       '*.mywebmaker.org',
       '*.makes.org',
       'bitly.mofoprod.net',
-      'https://pontoon.mozilla.org',
       process.env.TEACH_API_URL || 'https://teach-api.herokuapp.com',
       url.parse(process.env.NEWSLETTER_MAILINGLIST_URL || 'https://basket-dev.allizom.org').hostname
     ]
   },
   reportOnly: false,
   browserSniff: false
-}));
+};
+
+if (process.env.ENABLE_PONTOON) {
+  securityHeaders.directives.defaultSrc.push('https://pontoon.mozilla.org', 'https://mozilla-pontoon-staging.herokuapp.com');
+  securityHeaders.directives.scriptSrc.push('https://pontoon.mozilla.org', 'https://mozilla-pontoon-staging.herokuapp.com');
+  securityHeaders.directives.fontSrc.push('https://pontoon.mozilla.org', 'https://mozilla-pontoon-staging.herokuapp.com');
+  securityHeaders.directives.styleSrc.push('https://pontoon.mozilla.org', 'https://mozilla-pontoon-staging.herokuapp.com');
+  securityHeaders.directives.connectSrc.push('https://pontoon.mozilla.org', 'https://mozilla-pontoon-staging.herokuapp.com');
+}
+app.use(helmet.contentSecurityPolicy(securityHeaders));
 
 app.use(helmet.xssFilter({
   setOnOldIE: true
