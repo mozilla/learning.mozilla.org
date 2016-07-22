@@ -1,4 +1,4 @@
- var React = require('react');
+var React = require('react');
 var HeroUnit = require('../components/hero-unit.jsx');
 // use this LinkAnchorSwap component for hyperlinks
 var LinkAnchorSwap = require('../components/link-anchor-swap.jsx');
