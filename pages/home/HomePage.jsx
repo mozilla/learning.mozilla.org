@@ -27,7 +27,8 @@ var HomePage = React.createClass({
     BlogSection: BlogSection
   },
   contextTypes: {
-    location: React.PropTypes.object
+    location: React.PropTypes.object,
+    intl: React.PropTypes.object
   },
   componentWillMount: function() {
     fixLocation(this.context.location);
@@ -59,7 +60,7 @@ var HomePage = React.createClass({
     return (
       <div>
         <HeroUnit>
-          <h1>The Mozilla Learning Network</h1>
+          <h1>{this.context.intl.formatMessage({id: 'MLN'})}</h1>
           <IconButtons>
             <IconButton
               imgSrc="/img/pages/home/svg/icon-newsletter.svg"
@@ -104,7 +105,7 @@ var HomePage = React.createClass({
                 src1x="/img/pages/home/svg/icon-circle-home.svg"
                 alt="">
                   <h2>About Us</h2>
-                  <p>We want more people to see themselves as citizens of the web. The Mozilla Learning Network offers programs and a global community dedicated to helping people learn the most important skills of our age: <em>the ability to read, write and participate in the digital world.</em> <Link to="about" className="more">Learn more</Link></p>
+                  <p>We want more people to see themselves as citizens of the web. The Mozilla Learning Network offers programs and a global community dedicated to helping people learn the most important skills of our age: <em>the ability to read, write and participate in the digital world.</em> <Link to={"/" + this.context.intl.locale + "about"} className="more">Learn more</Link></p>
               </Illustration>
             </div>
           </section>

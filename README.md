@@ -78,6 +78,10 @@ Other
 * `img/`: For images
 * `dist/`: Generated site assets goes here. **This folder is gitignored, do not edit files here.**
 
+### Localization
+
+Work in progress, but please read the documentation on how we are doing it for the site [here](./L10N.md).
+
 ### Test
 
 Fully testing the code is accomplished by running `npm test`,
@@ -165,6 +169,7 @@ software works.
 `MAKE_METADATA_URL` | The template source url to load users' Makes metadata. Username should be included in the URL as a variable. e.g., `https://{username}.makes.org/makes.json`
 `WORDPRESS_DOMAIN` | The domain to the wordpress.com site this app retrieves data from. e.g., `helloworld.wordpress.com` (with no protocol),
 `HPKP` | [HTTP Public Key Pinning](https://developer.mozilla.org/en/docs/Web/Security/Public_Key_Pinning) - requires at least two sha256s, space separated. i.e "asdf= qwer="
+`supportedLocales` | enables specific locales, for example: `['en-US', 'id']` will only enable 2 locales. Default value is `*` which will enable all locales under [locales](./locales) directory.
 
 ### Using Environment Variables in Local Development
 
@@ -186,6 +191,12 @@ The current list of feature flags is:
 Name|If set, enables...
 -|-
 `ENABLE_BADGES` | rendering the `/badges` and `/badge/....` routes, and reveals the badge main page as a sidebar navigation option.
+
+## Content Security Policies
+
+If you run into CORS or CSP issues (blocked domains trying to GET or POST, loading external scripts like X-Ray Goggles, etc) then you probably want to make sure that the Content Security Policy is set to clear whatever it is you need cleared.
+
+We handle this in `app.js`, in the `helmet.contentSecurityPolicy` block. Typically you'll care about the `connectSrc` block for remote content fetching, and the `scriptSrc` block for injecting/loading external scripts, although you might have CSP needs outside those two categories: all of the major CSP categories have their own section and should be readily identifiable.
 
 ## Lightweight Dynamic Server (Experimental)
 

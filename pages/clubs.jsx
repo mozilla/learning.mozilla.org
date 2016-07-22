@@ -16,6 +16,7 @@ var ModalAddOrChangeYourClub = require('../components/modal-clubs.jsx');
 var ModalRemoveYourClub = require('../components/modal-clubs-remove.jsx');
 var Illustration = require('../components/illustration.jsx');
 var ImageTag = require('../components/imagetag.jsx');
+var LinkAnchorSwap = require('../components/link-anchor-swap.jsx');
 
 var Intro = (
   <section className="intro intro-after-banner">
@@ -56,7 +57,7 @@ var WhyOrganize = (
         </div>
         <div className="col-sm-6 col-md-6 col-lg-6">
           <p>
-            <strong>You can use Mozilla’s free and educator-tested curriculum.</strong> Our <Link to={"/activities"}>curriculum</Link> is
+            <strong>You can use Mozilla’s free and educator-tested curriculum.</strong> Our <LinkAnchorSwap to={"/activities"}>curriculum</LinkAnchorSwap> is
             free to use and remix.
           </p>
         </div>
@@ -66,7 +67,7 @@ var WhyOrganize = (
           <p>
             <strong>You can embed it in your existing program.</strong> You may already be serving a
             group of learners or running an educational offering. Mozilla Clubs can be a way to
-            embed <Link to="/web-literacy">Web Literacy</Link> into your existing program.
+            embed <LinkAnchorSwap to={"/web-literacy"}>Web Literacy</LinkAnchorSwap> into your existing program.
           </p>
         </div>
       </div>
@@ -161,6 +162,9 @@ var ClubCaptainPledge = (
 );
 
 var ApplyCallout = React.createClass({
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
   propTypes: {
     showAddYourClubModal: React.PropTypes.func.isRequired
   },
@@ -188,7 +192,8 @@ var ClubsPage = React.createClass({
     pageClassName: "clubs"
   },
   contextTypes: {
-    location: React.PropTypes.object
+    location: React.PropTypes.object,
+    intl: React.PropTypes.object
   },
   componentWillMount: function() {
     fixLocation(this.context.location);
@@ -252,7 +257,7 @@ var ClubsPage = React.createClass({
                onDelete={this.handleClubDelete}
                onEdit={this.handleClubEdit}/>
             </div>
-            <Link to={"/clubs/list/"} className="see-full-clubs-list">See the full list</Link>
+            <Link to={"/" + this.context.intl.locale + "/clubs/list/"} className="see-full-clubs-list">See the full list</Link>
           </section>
 
           <section>

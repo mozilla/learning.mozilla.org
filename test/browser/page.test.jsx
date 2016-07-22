@@ -2,6 +2,7 @@ var should = require('should');
 var sinon = window.sinon;
 var React =require('react');
 var ReactDOM = require('react-dom');
+var IntlProvider = require('react-intl').IntlProvider;
 
 var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
@@ -24,7 +25,7 @@ describe("page", function() {
 
   function visitPage(url, cb) {
     match({routes: generator.routes, location: url}, function(error, redirect, props) {
-      handler = TestUtils.renderIntoDocument(<RoutingContext {...props}/>);
+      handler = TestUtils.renderIntoDocument(<IntlProvider><RoutingContext {...props}/></IntlProvider>);
       page = TestUtils.findAllInRenderedTree(handler, function(c) {
         return !!c.showModal;
       })[0];
@@ -48,7 +49,7 @@ describe("page", function() {
   });
 
   it("adds body.modal-open when modal is visible", function(done) {
-    visitPage('/', function() {
+    visitPage('/en-US/', function() {
       document.body.className.should.not.match(/modal-open/);
       page.showModal(FakeModal);
       document.body.className.should.match(/modal-open/);
@@ -59,7 +60,7 @@ describe("page", function() {
   });
 
   it("sets default page title when pageTitle is undefined", function(done) {
-    visitPage('/', function() {
+    visitPage('/en-US/', function() {
       page.componentDidUpdate(page.props, page.state);
       document.title.should.equal("Mozilla Learning");
       done();
@@ -67,7 +68,7 @@ describe("page", function() {
   });
 
   it("sets page title when pageTitle is a string", function(done) {
-    visitPage('/fixme/', function() {
+    visitPage('en-US/fixme/', function() {
       page.componentDidUpdate(page.props, page.state);
       document.title.should.equal("[FIXME] - Mozilla Learning");
       done();

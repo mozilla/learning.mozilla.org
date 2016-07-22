@@ -46,6 +46,9 @@ var HealthcheckMeta = React.createClass({
 });
 
 var HealthcheckPage = React.createClass({
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
   statics: {
     pageClassName: "healthcheck",
     pageTitle: 'Site Health Check',
@@ -57,7 +60,7 @@ var HealthcheckPage = React.createClass({
         <h1>Site Health Check</h1>
         <HealthcheckMeta/>
         <div className="go-back-home">
-          <Link to={"/"}>
+          <Link to={"/" + this.context.intl.locale + "/"}>
             <i className="fa fa-home fa-2x"></i>
             <div><small>Go back to {config.ORIGIN}</small></div>
           </Link>

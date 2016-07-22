@@ -5,6 +5,7 @@ var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var Redirect = ReactRouter.Redirect;
 var IndexRoute  = ReactRouter.IndexRoute;
+var locales = Object.keys(require('../dist/locales.json'));
 
 /**
  * Our base routes
@@ -119,22 +120,43 @@ var redirectElements = Object.keys(redirects).map(function(path) {
 // Else error message will be shown on the page. Note that the API call is made on client side.
 // [NOTE] add <Route path=":wpSlug" component={require('../pages/wp-content.jsx')}/> back
 //        when we are ready to expose "WP pages" on production
-var routes = (
-  <Route path='/' component={require('../components/page.jsx')} >
-    <IndexRoute component={require('../pages/home.jsx')} />
-    {routeElements}
-    {redirectElements}
-    <Route path="web-literacy" component={require('../pages/web-literacy.jsx')}>
-      <Route path=":verb" component={require('../pages/web-literacy.jsx')}>
-        <Route path=":webLitSkill" component={require('../pages/web-literacy.jsx')}/>
+function buildRoutes() {
+  var routes = [];
+  var localeURLs = [];
+  locales.forEach(function(locale) {
+    routes.push(
+      <Route key={locale} path={locale}  component={require('../components/page.jsx')}>
+        <IndexRoute component={require('../pages/home.jsx')} />
+        {routeElements}
+        {redirectElements}
+        <Route path="web-literacy" component={require('../pages/web-literacy.jsx')}>
+          <Route path=":verb" component={require('../pages/web-literacy.jsx')}>
+            <Route path=":webLitSkill" component={require('../pages/web-literacy.jsx')}/>
+          </Route>
+        </Route>
       </Route>
-    </Route>
-  </Route>
-);
+      );
+
+    //Add each locale's routes to the array of urls that the server uses for route matching
+    Object.keys(pages).forEach(function(key) {
+      var newkey = locale + "/" + key;
+      localeURLs.push(newkey);
+    });
+
+  });
+
+  return {
+    routes: routes,
+    urls: localeURLs
+  };
+}
+
+var builtRoutes = buildRoutes();
+
 
 // return all the route information
 module.exports = {
-  URLS: urls,
+  URLS: builtRoutes.urls,
   REDIRECTS: redirects,
-  routes: routes
+  routes: builtRoutes.routes
 };
