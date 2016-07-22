@@ -1,6 +1,7 @@
 var React = require('react');
 var OutboundLink = require('react-ga').OutboundLink;
 var Illustration = require('../../components/illustration.jsx');
+var FormattedMessage = require('react-intl').FormattedMessage;
 
 var ToolsColumn = React.createClass({
   propTypes: {
@@ -26,7 +27,7 @@ var ToolsColumn = React.createClass({
       }
       sampleActivity = (
         <div className="sample-activity">
-          <div className="label-container"><div className="label-tag">Sample Activity</div></div>
+          <div className="label-container"><div className="label-tag"><FormattedMessage id='sample_activity' /></div></div>
           {activityTitle}
         </div>
       );
