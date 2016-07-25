@@ -278,7 +278,7 @@ app.use(function(req, res, next) {
   var parsedRedirect = parsed.redirect;
   // See if we should redirect.
   if (parsedRedirect) {
-    res.redirect(301, "/" + parsedLocale + parsedRedirect + search);
+    res.redirect(307, "/" + parsedLocale + parsedRedirect + search);
   } else {
     next();
   }
