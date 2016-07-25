@@ -127,6 +127,7 @@ if (!fs.existsSync(DIST_DIR)) {
       'https://www.google.com',
       '*.tiles.mapbox.com',
       '*.log.optimizely.com',
+      '*.github.io',
       '*.mywebmaker.org',
       '*.makes.org',
       'bitly.mofoprod.net',
