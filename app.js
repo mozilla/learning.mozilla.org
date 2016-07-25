@@ -144,6 +144,7 @@ if (process.env.ENABLE_PONTOON) {
   securityHeaders.directives.fontSrc.push('https://pontoon.mozilla.org', 'https://mozilla-pontoon-staging.herokuapp.com');
   securityHeaders.directives.styleSrc.push('https://pontoon.mozilla.org', 'https://mozilla-pontoon-staging.herokuapp.com');
   securityHeaders.directives.connectSrc.push('https://pontoon.mozilla.org', 'https://mozilla-pontoon-staging.herokuapp.com');
+  securityHeaders.directives['frame-ancestors'] = ['https://pontoon.mozilla.org', 'https://mozilla-pontoon-staging.herokuapp.com'];
 }
 app.use(helmet.contentSecurityPolicy(securityHeaders));
 
