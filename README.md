@@ -173,6 +173,9 @@ software works.
 `WORDPRESS_DOMAIN` | The domain to the wordpress.com site this app retrieves data from. e.g., `helloworld.wordpress.com` (with no protocol),
 `HPKP` | [HTTP Public Key Pinning](https://developer.mozilla.org/en/docs/Web/Security/Public_Key_Pinning) - requires at least two sha256s, space separated. i.e "asdf= qwer="
 `supportedLocales` | enables specific locales, for example: `['en-US', 'id']` will only enable 2 locales. Default value is `*` which will enable all locales under [locales](./locales) directory.
+`LOGIN_EMULATION` | determines whether or not the teach-api is used for login state management. defaults to false.
+`LOGIN_EMULATION_LOGGEDIN` | determines whether, when login emulation is on, the login state should be logged in or out. defaults to false.
+`LOGIN_EMULATION_USERNAME` | determines the username that is used when login emulation is on and login statis set to logged in. defaults to 'testuser'.
 
 ### Using Environment Variables in Local Development
 
