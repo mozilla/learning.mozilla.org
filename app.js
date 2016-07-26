@@ -153,10 +153,6 @@ app.use(helmet.xssFilter({
   setOnOldIE: true
 }));
 
-app.use(helmet.frameguard({
-  action: 'deny'
-}));
-
 app.use(helmet.hsts({
   maxAge: 1000 * 60 * 60 * 24 * 90
 }));
