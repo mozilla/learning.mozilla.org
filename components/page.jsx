@@ -133,7 +133,7 @@ var Page = React.createClass({
          aria-hidden={!!this.state.modalClass}
          onFocus={this.state.modalClass && this.handleNonModalFocus}>
           <a href="#content" className="sr-only sr-only-focusable skip-to-content">
-            Skip to main content
+            {this.context.intl.formatMessage({id: 'skip_to_main_content'})}
           </a>
 
           {DevRibbon ? <DevRibbon showModal={this.showModal} hideModal={this.hideModal}/> : null}

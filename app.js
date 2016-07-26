@@ -27,7 +27,7 @@ var router;
 var matcher;
 var app = express();
 var locale = "";
-var locales = require('./dist/locales.json')
+var locales = require('./dist/locales.json');
 
 app.disable('x-powered-by');
 
@@ -283,7 +283,7 @@ app.use(function(req, res, next) {
   } else {
     next();
   }
-})
+});
 
 app.use(function(req, res, next) {
   res.status(404).send(notFoundHTML);
