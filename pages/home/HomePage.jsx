@@ -83,20 +83,6 @@ var HomePage = React.createClass({
           </IconButtons>
         </HeroUnit>
 
-        <div className="row full-row promo-banner">
-          <div className="inner-container">
-            <section>
-              <Illustration
-                width={430} height={75}
-                src1x="/img/pages/home/svg/encrypt.svg"
-                alt="">
-                  <p>Your online privacy depends on encryption. Learn more about how encryption works, why it’s essential to a strong Web, and why it’s worth protecting.</p>
-                  <OutboundLink className="external-link" to={config.ENCRYPT_CAMPAIGN_URL} eventLabel={config.ENCRYPT_CAMPAIGN_URL}>Learn more</OutboundLink>
-              </Illustration>
-            </section>
-          </div>
-        </div>
-
         <div className="inner-container">
           <section>
             <div className="about-us">
@@ -108,6 +94,16 @@ var HomePage = React.createClass({
                   <p>We want more people to see themselves as citizens of the web. The Mozilla Learning Network offers programs and a global community dedicated to helping people learn the most important skills of our age: <em>the ability to read, write and participate in the digital world.</em> <Link to={"/" + this.context.intl.locale + "about"} className="more">Learn more</Link></p>
               </Illustration>
             </div>
+          </section>
+          <section>
+            <Illustration
+              width={175}
+              src1x="/img/pages/home/svg/MozFest-2016-Wordmark.svg"
+              alt=""
+              className="promo-banner">
+                <p>The world's leading event to build, debate, and explore the future of our lives online.</p>
+                <OutboundLink className="external-link" to={config.MOZFEST_PROPOSAL_LINK} eventLabel={config.MOZFEST_PROPOSAL_LINK}>Learn more</OutboundLink>
+            </Illustration>
           </section>
           <section>
             <BlogSection/>
