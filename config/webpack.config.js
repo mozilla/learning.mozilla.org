@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var path = require('path');
 
 var production = process.env.NODE_ENV === 'production';
 var IMPORT_ES5_SHIM = 'imports?shim=es5-shim/es5-shim&' +
@@ -31,6 +32,13 @@ module.exports = {
     path: __dirname + '/dist',
     publicPath: '/',
     filename: '[name].bundle.js'
+  },
+  resolve: {
+    alias: {
+      // Resolution is needed because mofo-ui has modules with React dependencies
+      // This forces Webpack to use only learning's react module
+      react: path.resolve(path.join(__dirname, '../node_modules/react'))
+    }
   },
   module: {
     loaders: [

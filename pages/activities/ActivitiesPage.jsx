@@ -9,6 +9,37 @@ var HeroUnit = require('../../components/hero-unit.jsx');
 var HiveLink = require('./HiveLink.jsx');
 var ActivityKit = require('./ActivityKit.jsx');
 
+var RadioFilter = require('mofo-ui').RadioFilter;
+
+console.log(RadioFilter);
+
+var radioOptions = [
+  {
+    value: `featured`,
+    label: `Featured Projects`
+  },
+  {
+    value: `date_updated`,
+    label: `Recently Updated`
+  },
+  {
+    value: `date_created`,
+    label: `Recently Added`
+  },
+  {
+    value: `active`,
+    label: `Most Active`
+  },
+  {
+    value: `contributors`,
+    label: `Most Contributors`
+  }
+];
+
+function handleRadioChange(choice) {
+  console.log(`radioChange: ${choice}`);
+}
+
 var ActivitiesPage = React.createClass({
   statics: {
     pageTitle: 'Teaching Activities',
@@ -24,6 +55,9 @@ var ActivitiesPage = React.createClass({
         </HeroUnit>
         <div className="inner-container activities">
           <section>
+
+            <RadioFilter options={radioOptions} initialChoice={`date_created`} onChange={handleRadioChange}></RadioFilter>
+
             <p>
               Start teaching others how to read, write and participate on the web with these free activities created by teachers, educators and technologists like you. Each featured activity includes step-by-step instructions and has been tested in schools, afterschool programs, libraries and community centers around the globe. Whether learning how to code, understanding why privacy matters, or creating openly-licensed web content, we believe teaching the web should be fun and engaging!
             </p>
@@ -121,7 +155,7 @@ var ActivitiesPage = React.createClass({
               level="Beginner"
               link="https://thimbleprojects.org/mouseorg/49745/"
               developedBy={<div><a href="http://www.mouse.org">MOUSE (Hive NYC member)</a>.</div>}
-              description="Mouse's online and offline activities like Kraken the Code, Tag Tag Revolution and CSS Story Cards explore topics ranging from HTML/CSS to search engine optimization and online identities."/>  
+              description="Mouse's online and offline activities like Kraken the Code, Tag Tag Revolution and CSS Story Cards explore topics ranging from HTML/CSS to search engine optimization and online identities."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-04.jpg"
               src2x="/img/pages/activities/img-activity-04@2x.jpg"
