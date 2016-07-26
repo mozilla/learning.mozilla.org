@@ -1,7 +1,11 @@
 var React = require('react');
 var moment = require('moment');
+var FormattedMessage = require('react-intl').FormattedMessage;
 
 var FeaturedPost = React.createClass({
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
   propTypes: {
     title: React.PropTypes.string.isRequired,
     author: React.PropTypes.string.isRequired,
@@ -32,7 +36,7 @@ var FeaturedPost = React.createClass({
             <p className="excerpt">
               {this.props.contentSnippet}
             </p>
-            <a className="more" href={this.props.link}>Continue reading</a>
+            <a className="more" href={this.props.link}><FormattedMessage id="continue_reading" /></a>
           </div>
           : null
         }

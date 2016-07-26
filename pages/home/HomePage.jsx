@@ -2,6 +2,8 @@ var React = require('react');
 var Link = require('react-router').Link;
 var ga = require('react-ga');
 var OutboundLink = ga.OutboundLink;
+var FormattedMessage = require('react-intl').FormattedMessage;
+var FormattedHTMLMessage = require('react-intl').FormattedHTMLMessage;
 
 var HeroUnit = require('../../components/hero-unit.jsx');
 var Illustration = require('../../components/illustration.jsx');
@@ -60,24 +62,24 @@ var HomePage = React.createClass({
     return (
       <div>
         <HeroUnit>
-          <h1>{this.context.intl.formatMessage({id: 'MLN'})}</h1>
+          <h1><FormattedMessage id="MLN" /></h1>
           <IconButtons>
             <IconButton
               imgSrc="/img/pages/home/svg/icon-newsletter.svg"
-              head="Get Email Updates"
+              head={this.context.intl.formatMessage({id: 'get_email_update'})}
               onClick={this.handleEmailBtnClick}
               className={"newsletter"}
             />
             <IconButton
               link="/activities"
               imgSrc="/img/pages/home/svg/icon-teachanactivity.svg"
-              head="Teach an Activity"
+              head={this.context.intl.formatMessage({id: 'teach_an_activity'})}
               onClick={this.handleTeachBtnClick}
             />
             <IconButton
               link="/clubs"
               imgSrc="/img/pages/home/svg/icon-startamozillaclub.svg"
-              head="Start A Mozilla Club"
+              head={this.context.intl.formatMessage({id: 'start_a_mozilla_club'})}
               onClick={this.handleClubBtnClick}
             />
           </IconButtons>
@@ -90,8 +92,8 @@ var HomePage = React.createClass({
                 height={200} width={200}
                 src1x="/img/pages/home/svg/icon-circle-home.svg"
                 alt="">
-                  <h2>About Us</h2>
-                  <p>We want more people to see themselves as citizens of the web. The Mozilla Learning Network offers programs and a global community dedicated to helping people learn the most important skills of our age: <em>the ability to read, write and participate in the digital world.</em> <Link to={"/" + this.context.intl.locale + "about"} className="more">Learn more</Link></p>
+                  <h2><FormattedMessage id='about_us' /></h2>
+                  <p><FormattedHTMLMessage id='homepage_about_us_message' /> <Link to={"/" + this.context.intl.locale + "/about"} className="more">{this.context.intl.formatMessage({ id: 'learn_more'})}</Link></p>
               </Illustration>
             </div>
           </section>
@@ -101,8 +103,8 @@ var HomePage = React.createClass({
               src1x="/img/pages/home/svg/MozFest-2016-Wordmark.svg"
               alt=""
               className="promo-banner">
-                <p>The world's leading event to build, debate, and explore the future of our lives online.</p>
-                <OutboundLink className="external-link" to={config.MOZFEST_PROPOSAL_LINK} eventLabel={config.MOZFEST_PROPOSAL_LINK}>Learn more</OutboundLink>
+                <p><FormattedMessage id="promo_message" /></p>
+                <OutboundLink className="external-link" to={config.MOZFEST_PROPOSAL_LINK} eventLabel={config.MOZFEST_PROPOSAL_LINK}>{this.context.intl.formatMessage({ id: 'learn_more'})}</OutboundLink>
             </Illustration>
           </section>
           <section>
@@ -112,7 +114,7 @@ var HomePage = React.createClass({
 
         <div className="row full-row quote">
           <section>
-            {CaseStudies}
+            <CaseStudies/>
           </section>
         </div>
 
@@ -122,23 +124,23 @@ var HomePage = React.createClass({
               link={config.TWITTER_LINK}
               imgSrc="/img/pages/about/svg/icon-twitter-blue.svg"
               width={60}
-              head="Follow Us"
-              subhead="Start a conversation on Twitter."
-              highlightedText="Twitter"
+              head={this.context.intl.formatMessage({id: 'follow_us'})}
+              subhead={this.context.intl.formatMessage({id: 'start_conv_on_twitter'})}
+              highlightedText={this.context.intl.formatMessage({id: 'twitter'})}
             />
             <IconLink
               link={"mailto:"+config.TEACH_THE_WEB_EMAIL}
               imgSrc="/img/pages/about/svg/icon-get-help-blue.svg"
-              head="Get Help"
-              subhead="Email us anytime."
-              highlightedText="Email us"
+              head={this.context.intl.formatMessage({id: 'get_help'})}
+              subhead={this.context.intl.formatMessage({id: 'email_us_anytime'})}
+              highlightedText={this.context.intl.formatMessage({id: 'email_us'})}
             />
             <IconLink
               link="https://discourse.webmaker.org/t/if-youre-new-to-the-community-please-introduce-yourself"
               imgSrc="/img/pages/about/svg/icon-connect-blue.svg"
-              head="Say Hello"
-              subhead="Connect on the Discourse forum."
-              highlightedText="Discourse forum"
+              head={this.context.intl.formatMessage({id: 'say_hello'})}
+              subhead={this.context.intl.formatMessage({id: 'connect_on_discourse'})}
+              highlightedText={this.context.intl.formatMessage({id: 'discourse_forum'})}
             />
           </IconLinks>
         </div>
