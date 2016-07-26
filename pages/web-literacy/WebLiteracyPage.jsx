@@ -21,11 +21,11 @@ var Util = require("../../lib/util");
 var convertToRoute = Util.convertToRoute;
 var parseRoute = Util.parseRoute;
 
-function makeLinksFrom21CSkills(skills21C) {
+function makeLinksFrom21CSkills(skills21C, locale) {
   return skills21C.map(function(skill21C, index) {
     return (
       <span key={skill21C} className="comma-separated-links">
-        <a href={"/web-literacy/skills/#" + categories[skill21C].toLowerCase()}>
+        <a href={"/" + locale + "/web-literacy/skills/#" + categories[skill21C].toLowerCase()}>
           {categories[skill21C]}
         </a>
       </span>
@@ -34,6 +34,9 @@ function makeLinksFrom21CSkills(skills21C) {
 }
 
 var Activity = React.createClass({
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
   render: function() {
     return (
       <Illustration
@@ -49,8 +52,8 @@ var Activity = React.createClass({
           <span className="meta-item"><i className="fa fa-clock-o"></i>{this.props.duration}</span>
         </div>
         <p>{this.props.content}</p>
-        <div><strong>Web Literacy Skills:</strong> {makeLinksFromWebLitSkills(this.props.webLitSkills)}</div>
-        <div><strong>21C Skills:</strong> {makeLinksFrom21CSkills(this.props.skills)}</div>
+        <div><strong>Web Literacy Skills:</strong> {makeLinksFromWebLitSkills(this.props.webLitSkills, this.context.intl.locale)}</div>
+        <div><strong>21C Skills:</strong> {makeLinksFrom21CSkills(this.props.skills, this.context.intl.locale)}</div>
       </Illustration>
     );
   }
@@ -184,6 +187,7 @@ var WebLitPage = React.createClass({
     }.bind(this));
   },
   renderTopics: function() {
+    var that = this;
     if (this.state.topic) {
       return null;
     }
@@ -197,7 +201,7 @@ var WebLitPage = React.createClass({
             alt={"weblit-map-icon-" + topic}>
             <h2>{topic}</h2>
             <p>{topicContent[topic].content}</p>
-            <span><strong>Web Literacy Skills:</strong> {makeLinksFromWebLitSkills(Object.keys(weblitdata[topic]))}</span>
+            <span><strong>Web Literacy Skills:</strong> {makeLinksFromWebLitSkills(Object.keys(weblitdata[topic]), that.context.intl.locale)}</span>
           </Illustration>
         </div>
       );
@@ -245,7 +249,7 @@ var WebLitPage = React.createClass({
     );
   },
   onMapToggle: function(labels) {
-    var url = "/web-literacy/";
+    var url = "/" + this.context.intl.locale + "/web-literacy/";
     var verb =  labels[1];
     var webLitSkill = labels[2];
     if (verb) {

@@ -155,6 +155,7 @@ var BadgesPage = React.createClass({
   },
 
   generateBadgeList: function() {
+    var that = this;
     var anonymous = !this.state.teachAPI.getLoginInfo();
 
     if (this.state.badges.length === 0) {
@@ -170,7 +171,7 @@ var BadgesPage = React.createClass({
       var linkUrl = '/badge/' + badge.id + '/' + urlize(badge.title);
       return (
         <div key={badge.id} className="col-md-3">
-          <Link to={ "/" + this.context.intl.locale + linkUrl } className={'badge-icon-link'}>
+          <Link to={ "/" + that.context.intl.locale + linkUrl } className={'badge-icon-link'}>
             <BadgeVerticalIcon badge={badge} anonymous={anonymous} />
           </Link>
         </div>
