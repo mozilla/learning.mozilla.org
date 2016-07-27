@@ -3,6 +3,7 @@ var sinon = window.sinon;
 var React =require('react');
 var ReactDOM = require('react-dom');
 var IntlProvider = require('react-intl').IntlProvider;
+var locales = require('../../dist/locales.json');
 
 var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
@@ -25,7 +26,7 @@ describe("page", function() {
 
   function visitPage(url, cb) {
     match({routes: generator.routes, location: url}, function(error, redirect, props) {
-      handler = TestUtils.renderIntoDocument(<IntlProvider><RoutingContext {...props}/></IntlProvider>);
+      handler = TestUtils.renderIntoDocument(<IntlProvider locale="en-US" messages={locales['en-US']}><RoutingContext {...props}/></IntlProvider>);
       page = TestUtils.findAllInRenderedTree(handler, function(c) {
         return !!c.showModal;
       })[0];
