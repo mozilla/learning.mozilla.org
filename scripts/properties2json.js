@@ -14,14 +14,14 @@ function getListLocales() {
   return new Promise(function(resolve, reject) {
     if (supportedLocales === "*") {
       FS.listDirectoryTree(path.join(process.cwd(), config.src)).then(function(dirTree) {
-        var list = [];
-        dirTree.forEach(function(i) {
-          var that = i.split(config.src + '/');
-          if (that[1]) {
-            list.push(that[1]);
+        var localeList = [];
+        dirTree.forEach(function(localeLocation) {
+          var langcode = localeLocation.split(config.src + path.sep);
+          if (langcode[1]) {
+            localeList.push(langcode[1]);
           }
         });
-        return resolve(list);
+        return resolve(localeList);
       }).catch(function(e) {
         console.log(e);
         reject(e);

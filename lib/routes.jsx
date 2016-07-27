@@ -7,6 +7,14 @@ var Redirect = ReactRouter.Redirect;
 var IndexRoute  = ReactRouter.IndexRoute;
 var locales = Object.keys(require('../dist/locales.json'));
 
+
+// verify we have at least one locale
+if (Object.keys(locales).length === 0) {
+  console.error("No locales were loaded into routes.jsx, no routes can be built!");
+  process.exit(1);
+}
+
+
 /**
  * Our base routes
  */
