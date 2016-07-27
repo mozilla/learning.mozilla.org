@@ -1,10 +1,14 @@
 var React = require('react');
+var FormattedMessage = require('react-intl').FormattedMessage;
 var loadBlogPosts = require('../../lib/blog-feed-loader');
 
 var FeaturedPost = require('./FeaturedPost.jsx');
 var LatestPosts = require('./LatestPosts.jsx');
 
 var BlogSection = React.createClass({
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
   getDefaultProps: function() {
     return {
       loadBlogPosts: loadBlogPosts
@@ -38,7 +42,7 @@ var BlogSection = React.createClass({
       <div className="blog-section">
         <div className="row">
           <div className="col-sm-12 col-md-12 col-lg-12">
-            <h2>On the Blog</h2>
+            <h2><FormattedMessage id="on_the_blog" /></h2>
           </div>
         </div>
         <div className="row">
@@ -47,7 +51,7 @@ var BlogSection = React.createClass({
           </div>
           <div className="col-sm-4 col-md-4 col-lg-4">
             <LatestPosts posts={this.state.latestPosts} />
-            <a className="more" href="https://blog.webmaker.org/tag/teachtheweb/">See all blog posts</a>
+            <a className="more" href="https://blog.webmaker.org/tag/teachtheweb/"><FormattedMessage id="see_all_blog_posts" /></a>
           </div>
         </div>
       </div>
