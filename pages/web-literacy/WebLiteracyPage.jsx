@@ -5,8 +5,6 @@ var Link = ReactRouter.Link;
 
 var Illustration = require('../../components/illustration.jsx');
 
-var webmaps = require('./webmaplisting.jsx');
-
 var CircleTree = require('react-circletree/es5');
 var weblitdataroot = require('./weblitdata');
 var weblitdata = weblitdataroot["WEB LITERACY"];
