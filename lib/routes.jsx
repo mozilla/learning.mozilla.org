@@ -106,8 +106,7 @@ urls = urls.concat([
   'web-literacy/read/evaluate'
 ]);
 
-urls = urls.concat( Object.keys(pages)     );
-urls = urls.concat( Object.keys(redirects) );
+urls = urls.concat(Object.keys(pages));
 // remove duplicates. Just in case.
 urls = urls.filter(function(e,i) { return urls.indexOf(e)===i; });
 
@@ -147,7 +146,7 @@ function buildRoutes() {
       );
 
     //Add each locale's routes to the array of urls that the server uses for route matching
-    Object.keys(pages).forEach(function(key) {
+    urls.forEach(function(key) {
       var newkey = locale + "/" + key;
       localeURLs.push(newkey);
     });
@@ -159,7 +158,6 @@ function buildRoutes() {
     urls: localeURLs
   };
 }
-
 var builtRoutes = buildRoutes();
 
 

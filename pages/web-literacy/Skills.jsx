@@ -6,14 +6,18 @@ var makeLinksFromWebLitSkills = require("./MakeLinksFromWebLitSkills.jsx");
 var WhitePaperLink = require("./WhitePaperLink.jsx");
 
 var Skills21CPage = React.createClass({
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
   statics: {
     pageTitle: '21st Century Skills',
     pageClassName: 'web-literacy-skills-page'
   },
   generateSkillItem: function(skill) {
+    var that = this;
     return Object.keys(skill.topics).map(function(topic) {
       return (
-        <div key={topic}><strong>{topic}:</strong> {makeLinksFromWebLitSkills(skill.topics[topic])}</div>
+        <div key={topic}><strong>{topic}:</strong> {makeLinksFromWebLitSkills(skill.topics[topic], that.context.intl.locale)}</div>
       );
     });
   },

@@ -16,16 +16,19 @@ var React = require('react'),
     Modal = require('../../components/modal.jsx');
 
 var Navigation = React.createClass({
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
   render: function() {
     var prev = this.props.prev;
     var next = this.props.next;
     return (
       <div className="badge-navigation">
-        <a className="previous" href={prev.url}>
+        <a className="previous" href={"/" + this.context.intl.locale + prev.url}>
           <img src={prev.img} />
           <span clasName="label">← {prev.title}</span>
         </a>
-        <a className="next" href={next.url}>
+        <a className="next" href={"/" + this.context.intl.locale + next.url}>
           <span clasName="label">{next.title} →</span>
           <img src={next.img} />
         </a>
@@ -44,7 +47,8 @@ var BadgePage = React.createClass({
   },
 
   contextTypes: {
-    history: React.PropTypes.object
+    history: React.PropTypes.object,
+    intl: React.PropTypes.object
   },
 
   getInitialState: function () {
@@ -169,7 +173,7 @@ var BadgePage = React.createClass({
 
     return (
       <div className="individual-badge">
-        <div> <a href="/badges">← back to credentials</a> </div>
+        <div> <a href={"/" + this.context.intl.locale + "/badges"}>← back to credentials</a> </div>
         <BadgeHorizontalIcon badge={this.state.badge} />
         { content }
         <Divider />
