@@ -104,7 +104,7 @@ var HomePage = React.createClass({
               alt=""
               className="promo-banner">
                 <p><FormattedMessage id="promo_message" /></p>
-                <OutboundLink className="external-link" to={config.MOZFEST_PROPOSAL_LINK} eventLabel={config.MOZFEST_PROPOSAL_LINK}>{this.context.intl.formatMessage({ id: 'learn_more'})}</OutboundLink>
+                <OutboundLink className="external-link" to={config.MOZFEST_SITE_LINK} eventLabel={config.MOZFEST_SITE_LINK}>{this.context.intl.formatMessage({ id: 'learn_more'})}</OutboundLink>
             </Illustration>
           </section>
           <section>
