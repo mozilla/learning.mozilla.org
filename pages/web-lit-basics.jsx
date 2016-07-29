@@ -5,23 +5,6 @@ var OutboundLink = require('react-ga').OutboundLink;
 var Illustration = require('../components/illustration.jsx');
 var ActivitySection = require('../components/activity-section.jsx');
 
-var Intro = (
-  <div>
-    <h1>Web Literacy Basics</h1>
-    <section className="intro">
-      <Illustration
-      height={204} width={204}
-      src1x="/img/pages/web-lit-basics/photo-clubs-curriculum.jpg"
-      src2x="/img/pages/web-lit-basics/photo-clubs-curriculum@2x.jpg"
-      alt="Woman training a young man on a computer">
-        <h2>Learners get familiar with reading, writing and participating on the web in this six-part module.
-        Discover the foundations of the web through production and collaboration.</h2>
-      </Illustration>
-    </section>
-  </div>
-);
-
-
 var curriculumList = [
   {
     title: "Reading the Web",
@@ -103,8 +86,25 @@ var ClubsCurriculum = React.createClass({
     pageClassName: 'web-lit-basics'
   },
 
+
+
   render: function () {
     var blogPostLink = "https://blog.webmaker.org/help-us-get-local-with-web-literacy";
+    var formatMessage = this.context.intl.formatMessage;
+    var Intro = (
+      <div>
+        <h1>{formatMessage({id:"web_lit_basics_title"})}</h1>
+        <section className="intro">
+          <Illustration
+          height={204} width={204}
+          src1x="/img/pages/web-lit-basics/photo-clubs-curriculum.jpg"
+          src2x="/img/pages/web-lit-basics/photo-clubs-curriculum@2x.jpg"
+          alt="Woman training a young man on a computer">
+            <h2>{this.context.intl.formatMessage({id:"web_lit_basics_intro"})}</h2>
+          </Illustration>
+        </section>
+      </div>
+    );
     var WebLitBasics = (
       <section className="row web-lit-basics">
         <div className="col-sm-12">
