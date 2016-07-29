@@ -135,7 +135,7 @@ var ActivitiesPage = React.createClass({
               src2x="/img/pages/activities/img-activity-05@2x.jpg"
               title="Image Seeking for Fantastic Visual Metaphors"
               level="Beginner"
-              link="https://cogdog.makes.org/thimble/LTEyMjQ4NjUyOA==/imageseeking-for-fantastic-visual-metaphors"
+              link="https://thimbleprojects.org/cogdog/89380/"
               developedBy={<div><a href="http://cogdog.info">Alan Levine</a></div>}
               description="In this activity, learners search for photos that communicate ideas and concepts, while also exploring best practices around attribution and openly-licensed content on the web."/>
             <ActivityKit
