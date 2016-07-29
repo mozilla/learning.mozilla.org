@@ -2,6 +2,8 @@ var React = require('react');
 var request = require('superagent');
 var moment = require('moment');
 var urlTemplate = require('url-template');
+var FormattedRelative = require('react-intl').FormattedRelative;
+var FormattedMessage = require('react-intl').FormattedMessage;
 
 var withTeachAPI = require('../hoc/with-teach-api.jsx');
 
@@ -12,7 +14,6 @@ var makesMetadataURL = urlTemplate.parse(config.MAKE_METADATA_URL);
 var Make = React.createClass({
   render: function() {
     var makeTypeClass = "make " + this.props.type;
-    var lastUpdatedFromNow = moment(new Date(this.props.updatedAt)).fromNow();
     var thumbnailStyle = (this.props.thumbnail) ? {"backgroundImage": "url(" + this.props.thumbnail + ")"}
                                                  : {"backgroundImage": "url(/img/pages/me/svg/icon-placeholder.svg)",
                                                     "backgroundSize": "11rem auto"};
@@ -20,7 +21,7 @@ var Make = React.createClass({
       <li className={makeTypeClass}>
         <a target="_blank" href={this.props.url}>
           <div className="meta">
-            <p className="details">Updated {lastUpdatedFromNow}</p>
+            <p className="details"><FormattedMessage id="updated_relative_time" values={{relativeTime: (<FormattedRelative value={this.props.updatedAt} />)}}/></p>
             <p className="title">{this.props.title}</p>
           </div>
           <div className="thumbnail" style={thumbnailStyle}>
@@ -42,6 +43,9 @@ var MakesPage = React.createClass({
       "login:success": "handleApiLoginSuccess",
       "logout": "handleApiLogout"
     }
+  },
+  contextTypes: {
+    intl: React.PropTypes.object
   },
   getInitialState: function() {
     return {
@@ -113,18 +117,19 @@ var MakesPage = React.createClass({
     );
   },
   render: function() {
+    var formatMessage = this.context.intl.formatMessage;
     var pageContent;
     if (!this.state.username) {
-      pageContent = <span>Please sign in.</span>;
+      pageContent = <span>{formatMessage({id: 'please_sign_in'})}</span>;
     } else if (this.state.loadingMakes) {
-      pageContent = <div className="loading-message">Loading projects</div>;
+      pageContent = <div className="loading-message">{formatMessage({id: 'loading_projects'})}</div>;
     }
     else {
       var makes = this.state.makes.reverse().map(this.formMakeJSX);
       pageContent = (
         <div>
-          <p className="context">In the fall of 2015, we retired Popcorn Maker and Appmaker, as well as older versions of Thimble and X-Ray Goggles. Any projects you created with these tools are still accessible below. Projects created with the new X-Ray Goggles, Thimble, or Webmaker are accessible through those respective platforms.</p>
-          <h1>{this.state.username}, these are your projects:</h1>
+          <p className="context">{formatMessage({id: 'makes_projects_context'})}</p>
+          <h1><FormattedMessage id="these_are_your_projects" values={{ username: this.state.username }} /></h1>
           <ul className="makes-list">
             { makes }
           </ul>

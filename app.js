@@ -131,7 +131,7 @@ if (!fs.existsSync(DIST_DIR)) {
       '*.mywebmaker.org',
       '*.makes.org',
       'bitly.mofoprod.net',
-      process.env.TEACH_API_URL || 'https://teach-api.herokuapp.com',
+      process.env.TEACH_API_URL || 'https://teach-api-staging.herokuapp.com',
       url.parse(process.env.NEWSLETTER_MAILINGLIST_URL || 'https://basket-dev.allizom.org').hostname
     ]
   },
