@@ -6,6 +6,14 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [1.0.4][] - 2016-08-02
+### Added
+- Clubs' Guides page containing resource guides used by Mozilla Clubs
+- Localization - The application is now localizable and has been localized in English
+
+### Changed
+- Community call updated to July
+
 ## [1.0.3][] - 2016-07-07
 ### Added
 - Added July 12th Curriculum Workshop details and updated archives.
@@ -14,8 +22,8 @@ to [Semantic Versioning](http://semver.org/).
 **And... things are already on production site but we forgot to mention them in the CHANGELOG**
 
 ### Added
-- Visit https://learning.mozilla.org/codemoji to check out a browser-based 
-  learning tool / game that teaches everyday internet users about ciphers, 
+- Visit https://learning.mozilla.org/codemoji to check out a browser-based
+  learning tool / game that teaches everyday internet users about ciphers,
   the basic building blocks of encryption.
 - Added Offline Icebreakers teaching activity page.
 
@@ -37,9 +45,9 @@ to [Semantic Versioning](http://semver.org/).
 ## [1.0.0][] - 2016-05-11
 ### Added
 - Added Intermediate Web Lit II module.
-- Badges related code has been merged into the codebase! The `ENABLE_BADGES` 
-  flag is currently off. Turning it on renders the `/badges` and 
-  `/badge/....` routes, and reveals the badge main page as a sidebar navigation 
+- Badges related code has been merged into the codebase! The `ENABLE_BADGES`
+  flag is currently off. Turning it on renders the `/badges` and
+  `/badge/....` routes, and reveals the badge main page as a sidebar navigation
   option.
 
 ### Changed
@@ -55,7 +63,7 @@ to [Semantic Versioning](http://semver.org/).
 - Fixed Web Literacy Map data since Synthesize, Share and Connect were
   assgined the wrong 21st century skills.
 - Unified button, label, and link styles across the site.
-- Fixed url-to-react-router-path rewriter so that hitting pages with hash 
+- Fixed url-to-react-router-path rewriter so that hitting pages with hash
   and/or query string in the URL won't result in 404.
 
 ## [0.0.38][] - 2016-04-15
@@ -79,13 +87,13 @@ to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Added attribution on Web Lit Basics I module.
 - Updated link to Mozilla's Web Literacy whitepaper.
-- Converted url values for weblit map to lowercase and replaced spaces 
+- Converted url values for weblit map to lowercase and replaced spaces
   with dashes.
-- The site now has a real server! Pages on https://teach.mozilla.org are 
+- The site now has a real server! Pages on https://teach.mozilla.org are
   served by the server and are no longer static files live on S3.
 - Removed S3 related gulp tasks and files.
 - Both staging the production instances now live on Heroku instead. Auto-
-  deployment to staging and production is triggered by push to `develop` 
+  deployment to staging and production is triggered by push to `develop`
   and `master` branches respectively.
 
 ## [0.0.35][] - 2016-03-24
@@ -94,13 +102,13 @@ to [Semantic Versioning](http://semver.org/).
   use a real server yet.
 
 ### Added
-- Woohooo! It's live now! Check out the interactive web literacy map on 
-  https://teach.mozilla.org/web-literacy and 21st Century Skills on 
+- Woohooo! It's live now! Check out the interactive web literacy map on
+  https://teach.mozilla.org/web-literacy and 21st Century Skills on
   https://teach.mozilla.org/web-literacy/skills
 
 ## [0.0.34][] - 2016-03-22
 ### Changed
-- The site now has a real server! ~~Pages on https://teach.mozilla.org are 
+- The site now has a real server! ~~Pages on https://teach.mozilla.org are
   served by the server and are no longer static files live on S3.~~ (edited on 2016-03-24)
 - Turned off auto push to S3 when the `develop` branch is updated.
 - Updated Mouse logo.
@@ -116,7 +124,7 @@ to [Semantic Versioning](http://semver.org/).
 - Minor text updates to Curriculum Workshop page.
 
 ### Added
-- Added two new modules to /activities, the Mouse module and Intermediate 
+- Added two new modules to /activities, the Mouse module and Intermediate
   Web Literacy module.
 
 ## [0.0.32][] - 2016-03-02
@@ -603,7 +611,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.3...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.4...HEAD
+[1.0.4]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.0...v1.0.1

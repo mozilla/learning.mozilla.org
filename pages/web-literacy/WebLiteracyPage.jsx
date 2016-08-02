@@ -2,6 +2,7 @@ var React = require('react');
 var OutboundLink = require('react-ga').OutboundLink;
 var ReactRouter = require('react-router');
 var Link = ReactRouter.Link;
+var FormattedMessage = require('react-intl').FormattedMessage;
 
 var Illustration = require('../../components/illustration.jsx');
 
@@ -21,20 +22,25 @@ var Util = require("../../lib/util");
 var convertToRoute = Util.convertToRoute;
 var parseRoute = Util.parseRoute;
 
-function makeLinksFrom21CSkills(skills21C) {
+function makeLinksFrom21CSkills(skills21C, locale) {
   return skills21C.map(function(skill21C, index) {
     return (
       <span key={skill21C} className="comma-separated-links">
-        <a href={"/web-literacy/skills/#" + categories[skill21C].toLowerCase()}>
+        <a href={"/" + locale + "/web-literacy/skills/#" + categories[skill21C].toLowerCase()}>
           {categories[skill21C]}
         </a>
       </span>
     );
   });
-} 
+}
 
 var Activity = React.createClass({
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
   render: function() {
+    var formatMessage = this.context.intl.formatMessage;
+
     return (
       <Illustration
         width={200} height={200}
@@ -49,15 +55,18 @@ var Activity = React.createClass({
           <span className="meta-item"><i className="fa fa-clock-o"></i>{this.props.duration}</span>
         </div>
         <p>{this.props.content}</p>
-        <div><strong>Web Literacy Skills:</strong> {makeLinksFromWebLitSkills(this.props.webLitSkills)}</div>
-        <div><strong>21C Skills:</strong> {makeLinksFrom21CSkills(this.props.skills)}</div>
+        <div><strong>{formatMessage({id:"web_lit_skills"})}:</strong> {makeLinksFromWebLitSkills(this.props.webLitSkills, this.context.intl.locale)}</div>
+        <div><strong>{formatMessage({id:"21st_century_skills"})}:</strong> {makeLinksFrom21CSkills(this.props.skills, this.context.intl.locale)}</div>
       </Illustration>
     );
   }
 });
 
 var WebLitPage = React.createClass({
-  contextTypes: { history: React.PropTypes.object },
+  contextTypes: {
+    history: React.PropTypes.object,
+    intl: React.PropTypes.object
+  },
   statics: {
     pageTitle: "Web Literacy",
     pageClassName: "web-literacy"
@@ -150,7 +159,7 @@ var WebLitPage = React.createClass({
     }
     return (
       <div>
-        <h2>Related {this.state.webLitSkill || this.state.topic} Activities</h2>
+        <h2><FormattedMessage id="related_activities" values={{topic: this.state.webLitSkill || this.state.topic}} /></h2>
         {activities}
       </div>
     );
@@ -181,6 +190,8 @@ var WebLitPage = React.createClass({
     }.bind(this));
   },
   renderTopics: function() {
+    var that = this;
+    var formatMessage = this.context.intl.formatMessage;
     if (this.state.topic) {
       return null;
     }
@@ -194,7 +205,7 @@ var WebLitPage = React.createClass({
             alt={"weblit-map-icon-" + topic}>
             <h2>{topic}</h2>
             <p>{topicContent[topic].content}</p>
-            <span><strong>Web Literacy Skills:</strong> {makeLinksFromWebLitSkills(Object.keys(weblitdata[topic]))}</span>
+            <span><strong>{formatMessage({id:"web_lit_skills"})}:</strong> {makeLinksFromWebLitSkills(Object.keys(weblitdata[topic]), that.context.intl.locale)}</span>
           </Illustration>
         </div>
       );
@@ -228,7 +239,7 @@ var WebLitPage = React.createClass({
     }
     return (
       <div className="web-lit-competency">
-        <h3>{this.state.webLitSkill} Competencies</h3>
+        <h3><FormattedMessage id="skill_competencies" values={{skill:this.state.webLitSkill}}/></h3>
         {
           webLitSkillsContent[this.state.webLitSkill].content.map(function(value, index) {
             return (
@@ -242,7 +253,7 @@ var WebLitPage = React.createClass({
     );
   },
   onMapToggle: function(labels) {
-    var url = "/web-literacy/";
+    var url = "/" + this.context.intl.locale + "/web-literacy/";
     var verb =  labels[1];
     var webLitSkill = labels[2];
     if (verb) {
@@ -262,21 +273,21 @@ var WebLitPage = React.createClass({
   },
   render: function() {
     var whitepaperLink = "http://mozilla.github.io/content/web-lit-whitepaper/";
-
+    var formatMessage = this.context.intl.formatMessage;
     var filter = this.state.filter;
+
     return (
       <div>
         <div className="inner-container">
           <section>
-            <h1>Web Literacy</h1>
+            <h1>{formatMessage({id:"web_literacy"})}</h1>
             <p>
-              A framework for entry-level web literacy &amp; 21st Century skills. Explore the map
-              by selecting what you want to learn more about, to see definitions and activities.
+              {formatMessage({id:"web_lit_intro"})}
             </p>
           </section>
           <section className="weblit-nav">
             <div className="c21-skills">
-              <Link to="/web-literacy/skills/"><h3>21st Century Skills</h3></Link>
+              <Link to={"/" + this.context.intl.locale + "/web-literacy/skills/"}><h3>{formatMessage({id:"21st_century_skills"})}</h3></Link>
               <ul>
                 {this.renderCheckboxes()}
               </ul>

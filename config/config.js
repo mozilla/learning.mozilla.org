@@ -31,7 +31,7 @@ exports.HIVE_LEARNING_NETWORKS_URL = 'https://hivelearningnetworks.org';
 exports.IN_STATIC_SITE = IN_STATIC_SITE;
 exports.IN_TEST_SUITE = (typeof describe == 'function');
 exports.LIGHT_BEAM_URL = "https://addons.mozilla.org/firefox/downloads/latest/363974/addon-363974-latest.xpi";
-exports.MAKE_METADATA_URL = process.env.MAKE_METADATA_URL || 'https://{username}.mywebmaker.org/makes.json';
+exports.MAKE_METADATA_URL = process.env.MAKE_METADATA_URL || 'https://{username}.makes.org/makes.json';
 exports.MOZFEST_SITE_LINK = 'https://mozillafestival.org';
 exports.ORIGIN = ORIGIN;
 exports.TEACH_THE_WEB_EMAIL = 'teachtheweb@mozillafoundation.org';

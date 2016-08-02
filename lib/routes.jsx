@@ -5,6 +5,15 @@ var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var Redirect = ReactRouter.Redirect;
 var IndexRoute  = ReactRouter.IndexRoute;
+var locales = Object.keys(require('../dist/locales.json'));
+
+
+// verify we have at least one locale
+if (Object.keys(locales).length === 0) {
+  console.error("No locales were loaded into routes.jsx, no routes can be built!");
+  process.exit(1);
+}
+
 
 /**
  * Our base routes
@@ -29,6 +38,7 @@ var pages = {
   'activities/back-to-school-write-the-web': require('../pages/back-to-school-write-the-web.jsx'),
   'clubs': require('../pages/clubs.jsx'),
   'clubs/list': require('../pages/clubs-list.jsx'),
+  'clubs/guides': require('../pages/clubs-guides/ClubsGuides.jsx'),
   // NOTE: 'codemoji' is reserved. See https://github.com/mozilla/teach.mozilla.org/issues/1798
   'community': require('../pages/community.jsx'),
   'community/curriculum-workshop': require('../pages/curriculum-workshop.jsx'),
@@ -96,8 +106,7 @@ urls = urls.concat([
   'web-literacy/read/evaluate'
 ]);
 
-urls = urls.concat( Object.keys(pages)     );
-urls = urls.concat( Object.keys(redirects) );
+urls = urls.concat(Object.keys(pages));
 // remove duplicates. Just in case.
 urls = urls.filter(function(e,i) { return urls.indexOf(e)===i; });
 
@@ -119,22 +128,42 @@ var redirectElements = Object.keys(redirects).map(function(path) {
 // Else error message will be shown on the page. Note that the API call is made on client side.
 // [NOTE] add <Route path=":wpSlug" component={require('../pages/wp-content.jsx')}/> back
 //        when we are ready to expose "WP pages" on production
-var routes = (
-  <Route path='/' component={require('../components/page.jsx')} >
-    <IndexRoute component={require('../pages/home.jsx')} />
-    {routeElements}
-    {redirectElements}
-    <Route path="web-literacy" component={require('../pages/web-literacy.jsx')}>
-      <Route path=":verb" component={require('../pages/web-literacy.jsx')}>
-        <Route path=":webLitSkill" component={require('../pages/web-literacy.jsx')}/>
+function buildRoutes() {
+  var routes = [];
+  var localeURLs = [];
+  locales.forEach(function(locale) {
+    routes.push(
+      <Route key={locale} path={locale}  component={require('../components/page.jsx')}>
+        <IndexRoute component={require('../pages/home.jsx')} />
+        {routeElements}
+        {redirectElements}
+        <Route path="web-literacy" component={require('../pages/web-literacy.jsx')}>
+          <Route path=":verb" component={require('../pages/web-literacy.jsx')}>
+            <Route path=":webLitSkill" component={require('../pages/web-literacy.jsx')}/>
+          </Route>
+        </Route>
       </Route>
-    </Route>
-  </Route>
-);
+      );
+
+    //Add each locale's routes to the array of urls that the server uses for route matching
+    urls.forEach(function(key) {
+      var newkey = locale + "/" + key;
+      localeURLs.push(newkey);
+    });
+
+  });
+
+  return {
+    routes: routes,
+    urls: localeURLs
+  };
+}
+var builtRoutes = buildRoutes();
+
 
 // return all the route information
 module.exports = {
-  URLS: urls,
+  URLS: builtRoutes.urls,
   REDIRECTS: redirects,
-  routes: routes
+  routes: builtRoutes.routes
 };

@@ -5,76 +5,80 @@ var config = require('../../config/config.js');
 
 var MENU_ENTRIES = [
   {
-    name: "Teaching Activities",
+    name: "teaching_activities",
     to: '/activities',
     icon: "/img/components/sidebar/svg/icon-nav-activities.svg",
     className: "activities",
   },
   {
-    name: "Web Literacy",
+    name: "web_literacy",
     to: "/web-literacy",
     icon: "/img/components/sidebar/svg/icon-nav-weblit.svg",
     className: "web-literacy",
     subItems: [
       {
-        name: "21st Century Skills",
+        name: "21st_century_skills",
         to: '/web-literacy/skills'
       }
     ]
   },
   {
-    name: "Leadership Opportunities",
+    name: "leadership_opportunities",
     to: '/opportunities',
     icon: "/img/components/sidebar/svg/icon-nav-maker.svg",
     className: 'opportunities',
     subItems: [
       {
-        name: "Mozilla Clubs",
+        name: "mozilla_clubs",
         to: '/clubs'
       },
       {
-        name: "Maker Party",
+        name: "guides_and_resources",
+        to: '/clubs/guides'
+      },
+      {
+        name: "maker_party",
         to: '/events'
       },
       {
-        name: "Hive Learning Networks",
+        name: "hive_learning_networks",
         to: config.HIVE_LEARNING_NETWORKS_URL
       },
       {
-        name: "MozFest",
+        name: "mozfest",
         to: config.MOZFEST_SITE_LINK
       },
       {
-        name: "Gigabit Community Fund",
+        name: "gigabit_community_fund",
         to: config.GIGABIT_SITE_LINK
       }
     ]
   },
   {
-    name: "Credentials",
+    name: "credentials",
     to: '/badges',
     icon: "/img/components/sidebar/svg/icon-nav-tools.svg",
     className: "badge-page"
     // FIXME: TODO: we need to give this its own icon
   },
   {
-    name: "Tools",
+    name: "tools",
     to: '/tools',
     icon: "/img/components/sidebar/svg/icon-nav-tools.svg",
     className: "tools-page"
   },
   {
-    name: "Community",
+    name: "community",
     to: "/community",
     icon: "/img/components/sidebar/svg/icon-nav-community.svg",
     className: "community",
     subItems: [
       {
-        name: "Community Call",
+        name: "community_call",
         to: '/community/community-call'
       },
       {
-        name: "Curriculum Workshop",
+        name: "curriculum_workshop",
         to: '/community/curriculum-workshop'
       }
     ]

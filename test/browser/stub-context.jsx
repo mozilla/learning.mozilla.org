@@ -6,6 +6,8 @@ var React =require('react');
 var ReactDOM = require('react-dom');
 var TestUtils = require('react-addons-test-utils');
 var sinon = window.sinon;
+var IntlProvider = require('react-intl').IntlProvider;
+var locales = require('../../dist/locales.json');
 
 var StubRouter = require('./stub-router');
 var StubTeachAPI = require('./stub-teach-api');
@@ -37,7 +39,7 @@ var stubContext = function(Component, props, stubs) {
     },
 
     render: function() {
-      return <Component {...props} ref="unstubbed"/>;
+      return <IntlProvider locale='en-US' messages={locales['en-US']}><Component {...props} ref="unstubbed"/></IntlProvider>;
     }
   });
 };

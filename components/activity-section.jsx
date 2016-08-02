@@ -6,7 +6,11 @@ var ActivitySection = React.createClass({
     title: React.PropTypes.string.isRequired,
     activities: React.PropTypes.array.isRequired
   },
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
   render: function () {
+    var that = this;
     return (
       <section className="activity-section">
         <h2>
@@ -20,7 +24,7 @@ var ActivitySection = React.createClass({
               </div>
             )
           } else {
-            var caption = activity.originalImgSrc ? <a href={activity.originalImgSrc}>{activity.caption || "view original"}</a> : null;
+            var caption = activity.originalImgSrc ? <a href={activity.originalImgSrc}>{activity.caption || that.context.intl.formatMessage({id: "view_original"}) }</a> : null;
             return (
               <div className="activity" key={i}>
                 <Illustration height={122} width={122}

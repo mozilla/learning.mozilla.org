@@ -1,40 +1,17 @@
 var React = require('react');
 var Link = require('react-router').Link;
 var OutboundLink = require('react-ga').OutboundLink;
+var FormattedMessage = require('react-intl').FormattedMessage;
+
 
 var Illustration = require('../components/illustration.jsx');
 var ActivitySection = require('../components/activity-section.jsx');
 
 var config = require('../config/config');
 
-var CurriculumIntro = (
-  <div>
-    <h1>Read, Write, and Participate with Webmaker</h1>
-    <section className="intro">
-      <Illustration
-      height={204} width={204}
-      src1x="/img/pages/webmaker/designing-webmaker.jpg"
-      src2x="/img/pages/webmaker/designing-webmaker@2x.jpg"
-      alt="">
-        <h2>Learn how to set up your mobile device to write, publish, and share stories with the <a href={config.WEBMAKER}>Webmaker App</a> from <a href="https://teach.mozilla.org">Mozilla Learning Networks</a>.</h2>
-      </Illustration>
-    </section>
-  </div>
-);
+var WebmakerActivity = React.createClass({
 
-var LearningObjectives = (
-  <section className="row web-lit-basics">
-    <div className="col-sm-12">
-      <h2>Learning Objectives</h2>
-      <p>
-        Learners will understand how their mobile devices connect to the Web and then learn how to
-        design, write, and publish personal and community stories through the Webmaker Android App.
-      </p>
-    </div>
-  </section>
-);
-
-var curriculumList = [
+curriculumList: [
   {
     title: "Reading the Web",
     activities: [
@@ -96,25 +73,58 @@ var curriculumList = [
       }
     ]
   }
-];
+],
 
-var curriculum = curriculumList.map(function (section) {
-  return (
-    <ActivitySection title={section.title} key={section.title} activities={section.activities} />
-  );
-});
-
-var WebmakerActivity = React.createClass({
+  curriculum: function() {
+    return this.curriculumList.map(function (section) {
+      return (
+        <ActivitySection title={section.title} key={section.title} activities={section.activities} />
+      );
+    });
+  },
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
   statics: {
     pageTitle: 'Read, Write, and Participate with Webmaker',
     pageClassName: 'read-write-participate-with-webmaker'
   },
   render: function () {
+    var formatMessage = this.context.intl.formatMessage;
+    var mlnLink = (<a href="https://learning.mozilla.org">{formatMessage({id:"MLN"})}</a>);
+    var webmakerLink = (<a href={config.WEBMAKER}>{formatMessage({id:"webmaker_app"})}</a>);
+
+    var LearningObjectives = (
+      <section className="row web-lit-basics">
+        <div className="col-sm-12">
+          <h2>{formatMessage({id:"learning_objectives_title"})}</h2>
+          <p>
+            {formatMessage({id:"learning_objectives_description"})}
+          </p>
+        </div>
+      </section>
+    );
+
+    var CurriculumIntro = (
+      <div>
+        <h1>{formatMessage({id: "webmaker_tagline"})}</h1>
+        <section className="intro">
+          <Illustration
+          height={204} width={204}
+          src1x="/img/pages/webmaker/designing-webmaker.jpg"
+          src2x="/img/pages/webmaker/designing-webmaker@2x.jpg"
+          alt="">
+            <h2><FormattedMessage id="webmaker_cta" values={{webmaker_link: webmakerLink, mln_link: mlnLink}}/></h2>
+          </Illustration>
+        </section>
+      </div>
+    );
+
     return (
       <div className="inner-container">
         {CurriculumIntro}
         {LearningObjectives}
-        {curriculum}
+        {this.curriculum()}
       </div>
     );
   }

@@ -24,7 +24,14 @@ function startRunningSite() {
 if (config.IN_STATIC_SITE) {
   ga.initialize(GA_ACCOUNT, { debug: GA_DEBUG === 'on' });
   if (window.ENABLE_JS) {
-    startRunningSite();
+    if (!window.Intl) {
+      require.ensure(['intl'], function(require) {
+        window.Intl = require('intl');
+        startRunningSite();
+      }, "IntlBundle");
+    } else {
+      startRunningSite();
+    }
   } else {
     ga.pageview(window.location.pathname);
     ga.event({

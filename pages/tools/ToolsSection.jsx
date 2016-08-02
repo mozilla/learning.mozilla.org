@@ -3,45 +3,47 @@ var config = require('../../config/config');
 
 var ToolsColumn = require('./ToolsColumn.jsx');
 
-var toolsList = [
-  {
-    name: "X-Ray Goggles",
-    description: "This code inspector lets you view and remix the code of your favorite web pages.",
-    link: config.XRAY_GOGGLES_LINK,
-    src1x: "/img/pages/tools/xray-goggles.png",
-    src2x: "/img/pages/tools/xray-goggles@2x.png",
-    activityTitle: "Hack the News",
-    activityLink: "http://mozilla.github.io/webmaker-curriculum/WebLiteracyBasics-I/session02-hackthenews.html"
-  },
-  {
-    name: "Thimble",
-    description: "This code editor helps you learn HTML and CSS by creating and remixing Web projects.",
-    link: config.THIMBLE,
-    src1x: "/img/pages/tools/thimble.png",
-    src2x: "/img/pages/tools/thimble@2x.png",
-    activityTitle: "Keep Calm and Carry On",
-    activityLink: "https://thimble.mozilla.org/projects/72/remix"
-  },
-  {
-    name: "Webmaker",
-    description: "Webmaker lets you create, discover and share content in your language on your mobile device.",
-    link: "https://webmaker.org",
-    src1x: "/img/pages/tools/svg/webmaker.svg",
-    activityTitle: "Create a Webmaker Project",
-    activityLink: "http://mozilla.github.io/webmaker-curriculum/MobileWeb/create-webmaker-project.html"
-  }
-];
-
-var tools = toolsList.map(function(tool) {
-  return <ToolsColumn {...tool} key={tool.name}/>;
-});
-
 var ToolsSection = React.createClass({
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
+  toolColumns: function() {
+    return [
+      {
+        name: this.context.intl.formatMessage({id: 'x_ray_goggles'}),
+        description: this.context.intl.formatMessage({id: 'tools_page_xray_goggles_desc'}),
+        link: config.XRAY_GOGGLES_LINK,
+        src1x: "/img/pages/tools/xray-goggles.png",
+        src2x: "/img/pages/tools/xray-goggles@2x.png",
+        activityTitle: this.context.intl.formatMessage({id: 'hack_the_news'}),
+        activityLink: "http://mozilla.github.io/webmaker-curriculum/WebLiteracyBasics-I/session02-hackthenews.html"
+      },
+      {
+        name: this.context.intl.formatMessage({id: 'thimble'}),
+        description: this.context.intl.formatMessage({id: 'tools_page_thimble_desc'}),
+        link: config.THIMBLE,
+        src1x: "/img/pages/tools/thimble.png",
+        src2x: "/img/pages/tools/thimble@2x.png",
+        activityTitle: this.context.intl.formatMessage({id: 'keep_calm_and_carry_on'}),
+        activityLink: "https://thimble.mozilla.org/projects/72/remix"
+      },
+      {
+        name: this.context.intl.formatMessage({id: 'webmaker'}),
+        description: this.context.intl.formatMessage({id: 'tools_page_webmaker_desc'}),
+        link: "https://webmaker.org",
+        src1x: "/img/pages/tools/svg/webmaker.svg",
+        activityTitle: this.context.intl.formatMessage({id: 'create_a_webmaker_project'}),
+        activityLink: "http://mozilla.github.io/webmaker-curriculum/MobileWeb/create-webmaker-project.html"
+      }
+    ];
+  },
   render: function() {
     return (
       <section>
         <div className="row">
-          {tools}
+          {this.toolColumns().map(function(tool) {
+            return <ToolsColumn {...tool} key={tool.name}/>;
+          })}
         </div>
       </section>
     )

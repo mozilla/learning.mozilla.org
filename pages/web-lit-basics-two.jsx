@@ -5,21 +5,6 @@ var OutboundLink = require('react-ga').OutboundLink;
 var Illustration = require('../components/illustration.jsx');
 var ActivitySection = require('../components/activity-section.jsx');
 
-var CurriculumIntro = (
-  <div>
-    <h1>Web Literacy Basics II</h1>
-    <section className="intro">
-      <Illustration
-      height={204} width={204}
-      src1x="/img/pages/web-lit-basics-two/intro.jpg"
-      alt=""
-      caption={<a href="https://c2.staticflickr.com/6/5760/22431506387_43e85e71bd.jpg">cc-by-2.0 Mozilla Festival</a>}>
-        <h2>Dive deeper into the basics of composing webpages, designing for accessibility, sharing resources,
-        using online media, and working open.</h2>
-      </Illustration>
-    </section>
-  </div>
-);
 
 var WebLitBasics = (
   <section className="row web-lit-basics">
@@ -135,8 +120,27 @@ var WebLitBasicsTwo = React.createClass({
     pageClassName: 'web-lit-basics-two'
   },
 
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
+
   render: function () {
     var blogPostLink = "https://blog.webmaker.org/help-us-get-local-with-web-literacy";
+    var formatMessage = this.context.intl.formatMessage;
+    var CurriculumIntro = (
+      <div>
+        <h1>{formatMessage({id:"web_lit_basics_2_title"})}</h1>
+        <section className="intro">
+          <Illustration
+          height={204} width={204}
+          src1x="/img/pages/web-lit-basics-two/intro.jpg"
+          alt=""
+          caption={<a href="https://c2.staticflickr.com/6/5760/22431506387_43e85e71bd.jpg">cc-by-2.0 Mozilla Festival</a>}>
+            <h2>{formatMessage({id:"web_lit_basics_2_intro"})}</h2>
+          </Illustration>
+        </section>
+      </div>
+    );
     return (
       <div className="inner-container">
         {CurriculumIntro}

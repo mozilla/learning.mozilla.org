@@ -15,6 +15,7 @@ var PORT = process.env.PORT || 8008;
 var PRODUCTION = (process.env.NODE_ENV === 'production');
 var DIST_DIR = path.join(__dirname, 'dist');
 var CODEMOJI_URL = process.env.CODEMOJI_URL || "https://codemoji.mofostaging.net";
+var localize = require('mofo-localize');
 
 var WpPageChecker = require('./lib/wp-page-checker');
 
@@ -25,6 +26,8 @@ var indexStatic;
 var router;
 var matcher;
 var app = express();
+var locale = "";
+var locales = require('./dist/locales.json');
 
 app.disable('x-powered-by');
 
@@ -84,7 +87,7 @@ if (!fs.existsSync(DIST_DIR)) {
 /**
  * Security Headers
  */
-app.use(helmet.contentSecurityPolicy({
+ var securityHeaders = {
   directives: {
     defaultSrc: [
       'www.youtube.com',
@@ -124,23 +127,30 @@ app.use(helmet.contentSecurityPolicy({
       'https://www.google.com',
       '*.tiles.mapbox.com',
       '*.log.optimizely.com',
+      '*.github.io',
       '*.mywebmaker.org',
       '*.makes.org',
       'bitly.mofoprod.net',
-      process.env.TEACH_API_URL || 'https://teach-api.herokuapp.com',
+      process.env.TEACH_API_URL || 'https://teach-api-staging.herokuapp.com',
       url.parse(process.env.NEWSLETTER_MAILINGLIST_URL || 'https://basket-dev.allizom.org').hostname
     ]
   },
   reportOnly: false,
   browserSniff: false
-}));
+};
+
+if (process.env.ENABLE_PONTOON) {
+  securityHeaders.directives.defaultSrc.push('https://pontoon.mozilla.org', 'https://mozilla-pontoon-staging.herokuapp.com');
+  securityHeaders.directives.scriptSrc.push('https://pontoon.mozilla.org', 'https://mozilla-pontoon-staging.herokuapp.com');
+  securityHeaders.directives.fontSrc.push('https://pontoon.mozilla.org', 'https://mozilla-pontoon-staging.herokuapp.com');
+  securityHeaders.directives.styleSrc.push('https://pontoon.mozilla.org', 'https://mozilla-pontoon-staging.herokuapp.com');
+  securityHeaders.directives.connectSrc.push('https://pontoon.mozilla.org', 'https://mozilla-pontoon-staging.herokuapp.com');
+  securityHeaders.directives['frame-ancestors'] = ['https://pontoon.mozilla.org', 'https://mozilla-pontoon-staging.herokuapp.com'];
+}
+app.use(helmet.contentSecurityPolicy(securityHeaders));
 
 app.use(helmet.xssFilter({
   setOnOldIE: true
-}));
-
-app.use(helmet.frameguard({
-  action: 'deny'
 }));
 
 app.use(helmet.hsts({
@@ -151,7 +161,7 @@ app.use(helmet.ieNoOpen());
 
 app.use(helmet.noSniff());
 
-if (process.env.HPKP) { 
+if (process.env.HPKP) {
   app.use(helmet.hpkp({
     maxAge: 1000 * 60 * 60 * 24 * 90,
     sha256s: process.env.HPKP.split(' '),
@@ -204,6 +214,13 @@ app.use(function(req, res, next) {
 
     // if this belongs to one of the predefined urls, let's generate its associated page
     if ( matcher.match(location) ) {
+      var search = url.parse(req.url).search || "";
+
+      locale = localize.parseLocale(req.headers["accept-language"], location, locales).locale;
+      if (location === "/") {
+        res.redirect(302, location + locale + search);
+        return;
+      }
       return renderComponentPage(location,res);
     }
 
@@ -241,9 +258,28 @@ app.use('/codemoji', function(req, res) {
 });
 
 /**
- * Last chance: is this a static asset?
+ * Is this a static asset?
  */
 app.use(express.static(DIST_DIR));
+
+
+/**
+* Maybe it is a route, but needs the localized path
+*/
+app.use(function(req, res, next) {
+  var location = url.parse(req.url).pathname;
+  var search = url.parse(req.url).search || "";
+  // Get a valid locale from the path and header
+  var parsed = localize.parseLocale(req.headers["accept-language"], location, locales);
+  var parsedLocale = parsed.locale;
+  var parsedRedirect = parsed.redirect;
+  // See if we should redirect.
+  if (parsedRedirect) {
+    res.redirect(307, "/" + parsedLocale + parsedRedirect + search);
+  } else {
+    next();
+  }
+});
 
 app.use(function(req, res, next) {
   res.status(404).send(notFoundHTML);

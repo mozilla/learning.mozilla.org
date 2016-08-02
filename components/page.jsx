@@ -11,6 +11,9 @@ var DevRibbon = (process.env.NODE_ENV === 'production' && process.env.SHOW_DEV_R
 var config = require('../config/config');
 
 var Page = React.createClass({
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
   statics: {
     titleForHandler: function(handler) {
       var title = 'Mozilla Learning';
@@ -114,7 +117,7 @@ var Page = React.createClass({
     // we need the next three lines for server-side rendering:
     var routes = this.props.routes;
     var currentRoute = routes.slice(-1)[0];
-    var currentPath = config.ORIGIN + '/' + (currentRoute.path || '');
+    var currentPath = config.ORIGIN + '/' + this.context.intl.locale + '/' + (currentRoute.path || '');
 
     // but we _actually_ want to rely on this, instead:
     if (typeof window !== 'undefined') {
@@ -130,7 +133,7 @@ var Page = React.createClass({
          aria-hidden={!!this.state.modalClass}
          onFocus={this.state.modalClass && this.handleNonModalFocus}>
           <a href="#content" className="sr-only sr-only-focusable skip-to-content">
-            Skip to main content
+            {this.context.intl.formatMessage({id: 'skip_to_main_content'})}
           </a>
 
           {DevRibbon ? <DevRibbon showModal={this.showModal} hideModal={this.hideModal}/> : null}

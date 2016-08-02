@@ -79,11 +79,36 @@ describe('app', function() {
       .end(done);
   });
 
-  it('reports 404s', function(done) {
-    this.timeout(10000);
-    
+  it('redirects to a locale', function(done) {
+    request(app)
+      .get('/foobar')
+      .expect(function(res) {
+       if(res.headers.location !== "/en-US/foobar") throw new Error("Doesn't redirect to locale");
+      })
+      .end(done);
+  });
+
+  it('preserves query params when forwarding to a locale', function(done) {
+    request(app)
+      .get('/foobar/?key=value&key2=value2')
+      .expect(function(res) {
+       if(res.headers.location !== "/en-US/foobar/?key=value&key2=value2") throw new Error("Doesn't preserve query params");
+      })
+      .end(done);
+  });
+
+  it('redirects to a 404', function(done) {
     request(app)
       .get('/asdfasdfasdf')
+      .redirects(1)
+      .expect(404)
+      .end(done);
+  });
+
+  it('reports 404s without redirecting when given a locale', function(done) {
+    this.timeout(10000);
+    request(app)
+      .get('/en-US/asdfasdfasdf')
       .expect(404)
       .end(done);
   });

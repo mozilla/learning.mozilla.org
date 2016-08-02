@@ -3,6 +3,9 @@ var ImageTag = require('../components/imagetag.jsx');
 var Link = require('react-router').Link;
 
 var Instructions = React.createClass({
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
   propTypes: {
     remixUrl: React.PropTypes.string.isRequired,
     nextActivityTitle: React.PropTypes.string.isRequired,
@@ -30,10 +33,10 @@ var Instructions = React.createClass({
         <h2>Go further</h2>
         <ul>
           <li>
-            <p>Try the next Made with Code activity. Use your new HTML and CSS skills to <Link to={this.props.nextActivityLinkPath}>{this.props.nextActivityTitle}</Link>.</p>
+            <p>Try the next Made with Code activity. Use your new HTML and CSS skills to <Link to={"/" + this.context.intl.locale + this.props.nextActivityLinkPath}>{this.props.nextActivityTitle}</Link>.</p>
           </li>
           <li>
-            <p>The Mozilla Learning Network has lots of other free <Link to="/activities">activities</Link> as well.</p>
+            <p>The Mozilla Learning Network has lots of other free <Link to={"/" + this.context.intl.locale + "/activities"}>activities</Link> as well.</p>
           </li>
         </ul>
 
