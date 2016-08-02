@@ -5,6 +5,8 @@ which uses the format described in
 to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
+
+## [1.0.4][] - 2016-08-02
 ### Added
 - Clubs' Guides page containing resource guides used by Mozilla Clubs
 - Localization - The application is now localizable and has been localized in English
@@ -609,7 +611,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.3...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.4...HEAD
+[1.0.4]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.0...v1.0.1
