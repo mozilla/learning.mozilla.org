@@ -1,6 +1,7 @@
 # Learning.mozilla.org
 
 [![Build Status](https://travis-ci.org/mozilla/learning.mozilla.org.svg)](https://travis-ci.org/mozilla/learning.mozilla.org)
+[![Shipping fast with zenHub](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://zenhub.com)
 
   This is the source code for [learning.mozilla.org](https://learning.mozilla.org), using [learning.mofostaging.net](https://learning.mofostaging.net) as staging server.
 
