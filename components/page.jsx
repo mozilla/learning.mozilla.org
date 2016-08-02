@@ -49,8 +49,8 @@ var Page = React.createClass({
     this.setState({modalClass: modalClass, modalProps: modalProps});
   },
 
-  hideModal: function() {
-    this.setState({modalClass: null, modalProps: null});
+  hideModal: function(cb) {
+    this.setState({modalClass: null, modalProps: null}, cb);
   },
 
   // Accessibility best practices demand that only the elements in a

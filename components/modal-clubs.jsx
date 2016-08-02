@@ -1,6 +1,6 @@
 var React = require('react');
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
-var Select = require('react-select');
+var LocationSelector = require('./LocationSelector.jsx');
 var _ = require('underscore');
 
 var Modal = require('../components/modal.jsx');
@@ -219,35 +219,10 @@ var ModalClubs = React.createClass({
           </fieldset>
           <fieldset>
             <label>Where are you located?</label>
-            <Select
+            <LocationSelector
              disabled={isFormDisabled}
-             placeholder="Type in a city or a country"
-
-             // We need to provide undefined instead of an empty
-             // string in order for the placeholder text to show.
-             value={this.state.location || undefined}
-
-             // Even though we are not using multi={true}, the Select
-             // component seems to split on the default multi delimiter,
-             // which is ",". Since that delimiter appears in every
-             // location string (e.g. "Brooklyn, NY US"), we want to
-             // set it to something that never appears.
-             delimiter="|"
-
-             // We do not want any suggestions auto-loaded until
-             // the user starts typing. Aside from that, though, tests
-             // fail w/ a React Invariant Violation if we do not
-             // disable this feature.
-             autoload={false}
-
-             // The Mapbox geocoding service is automatically filtering
-             // out irrelevant results for us, so show all autocomplete
-             // options. Otherwise the default filtering
-             // algorithm will actually cull out valid options!
-             filterOption={function() { return true; }}
-
-             asyncOptions={Map.getAutocompleteOptions}
-             onChange={this.handleLocationChange} />
+             onChange={this.handleLocationChange}
+            />
           </fieldset>
           <fieldset>
             <label htmlFor={idPrefix + "website"}>What is your Club&lsquo;s website?<span className="optional-text">optional</span></label>

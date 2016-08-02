@@ -4,7 +4,6 @@ var Modal = require('../components/modal.jsx');
 
 var withTeachAPI = require('../hoc/with-teach-api.jsx');
 
-
 var ModalRemoveYourClub = React.createClass({
   // FIXME: what is this mixin used for?
   mixins: [Router.Navigation],
@@ -70,7 +69,7 @@ var ModalRemoveYourClub = React.createClass({
     }
 
     return (
-      <Modal modalTitle="Remove Your Club">
+      <Modal modalTitle="Remove Your Club" hideModal={this.props.hideModal}>
         {content}
       </Modal>
     );

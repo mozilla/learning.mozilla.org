@@ -1,0 +1,22 @@
+.vertical-leader {
+  display: block;
+  position: relative;
+  width: 2px;
+  margin: auto;
+  background: @lightGrey;
+
+  @bsize: 0.5em;
+
+  .bulb {
+    margin: -1px;
+    display: inline-block;
+    width: @bsize;
+    height: @bsize;
+    border-radius: 50%;
+    color: @lightGrey;
+    background: @lightGrey;
+    position: absolute;
+    left: -0.1em;
+    bottom: 0;
+  }
+}
