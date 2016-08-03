@@ -248,7 +248,7 @@ var StepTwo = React.createClass({
           errorElements.push('description');
           errors.push("You need to describe your club.");
         }
-        else if (clubState.description.split(' ') < 50) {
+        else if (clubState.description.split(' ').length < 50) {
           errorElements.push('description');
           errors.push("Please describe your club in 50 or more words.");
         }
