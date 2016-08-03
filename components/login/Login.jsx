@@ -141,9 +141,9 @@ var Login = React.createClass({
     } else {
       content = (
         <div className="login-status-text">
-          <LoginLink loginBaseURL={this.props.teachAPI.baseURL} callbackURL={this.props.currentPath}>{this.context.intl.formatMessage({id: 'sign_in'})}</LoginLink>
+          <LoginLink className={this.props.loginClass} loginBaseURL={this.props.teachAPI.baseURL} callbackURL={this.props.currentPath}>{this.context.intl.formatMessage({id: 'sign_in'})}</LoginLink>
           <span className="or"> {this.context.intl.formatMessage({id: 'or'})} </span>
-          <LoginLink loginBaseURL={this.props.teachAPI.baseURL} callbackURL={this.props.currentPath} action="signup">{this.context.intl.formatMessage({id: 'sign_up'})}</LoginLink>
+          <LoginLink className={this.props.signinClass} loginBaseURL={this.props.teachAPI.baseURL} callbackURL={this.props.currentPath} action="signup">{this.context.intl.formatMessage({id: 'sign_up'})}</LoginLink>
         </div>
       );
     }
