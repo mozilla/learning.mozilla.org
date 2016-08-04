@@ -1,0 +1,137 @@
+.clubs-form {
+
+  .inner-container {
+    width: 80%;
+    margin: auto;
+
+    .learn-more {
+      text-align: center;
+      margin: 2em 0;
+    }
+
+    textarea {
+     resize:vertical;
+    }
+
+    .error:not(.choiceGroup) {
+      box-shadow: 0 0 3px 1px red;
+    }
+
+    label {
+      margin-top: 1rem;
+    }
+
+    .login-request{
+      a[action] {
+        display: block;
+        width: 25rem;
+        margin: auto;
+        text-align: center;
+        &[action=signup] {
+          font-size: 95%;
+          color: @mobileBlue;
+          font-weight: 600;
+        }
+      }
+    }
+
+    .pledge {
+      margin-top: 1.5em;
+      font-size: 90%;
+      a {
+        font-size: inherit;
+        font-weight: 600;
+        color: #16AEE5;
+      }
+    }
+
+    .choiceGroup {
+      margin: 1rem auto;
+
+      & > div {
+        width: 33%;
+        display: inline-block;
+        &.autowidth {
+          width: auto;
+        }
+      }
+
+      &.error {
+        input[type=checkbox],
+        input[type=radio] {
+          box-shadow: 0px 0px 2px 1px #F00;
+        }
+      }
+    }
+
+    .proceed {
+      margin: 2rem;
+      text-align: center;
+
+      .btn {
+        margin: 1rem;
+        height: 2.25em;
+        line-height: 1;
+        padding: 0px 3em;
+
+        &.back {
+          color: @blueSidebarColor;
+          background-color: @paleBlue;
+          box-shadow: 0px 0.4rem 0px #999,
+                      0px 0.1rem 0px rgba(255, 255, 255, 0.5) inset;
+          color: #666;
+
+          &:hover {
+            top: 0.2rem;
+            background-color: @paleBlue;
+            box-shadow: 0px 0.2rem 0px #999,
+                        0px 0.1rem 0px rgba(255, 255, 255, 0.5) inset;
+          }
+        }
+      }
+
+      .progressBar {
+        width: 100%;
+        text-align: center;
+        position: relative;
+
+        margin: 1em 0 3em 0;
+
+        .outer {
+          display: inline-block;
+          height: 10px;
+          background: transparent;
+          border: 1px solid @strokeColor;
+          border-radius: 4px;
+          width: ~"calc(30% - 3em)";
+
+          .inner {
+            height: 10px;
+            background: @lineArtBlue;
+            border-radius: 4px;
+          }
+        }
+      }
+    }
+
+    .alert.alert-danger {
+      margin-top: 1em;
+    }
+  }
+
+  .alert {
+    background: hsl(0, 56%, 97%);
+    color: #b10000;
+    border: none;
+  }
+
+  .Select.error.is-searchable {
+    border-radius: 4px;
+  }
+
+  .login-request {
+    a[action=signin] {
+      font-weight: 600;
+    }
+  }
+}

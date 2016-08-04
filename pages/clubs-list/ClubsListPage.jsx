@@ -50,9 +50,14 @@ var ClubsListPage = React.createClass({
     this.refs.map.focusOnClub(club);
   },
   handleClubDelete: function(url, clubName) {
+    var teachAPI = this.props.teachAPI;
+    var hideModal = this.props.hideModal;
     this.props.showModal(ModalRemoveYourClub, {
       url: url,
-      name: clubName
+      name: clubName,
+      hideModal: function() {
+        teachAPI.updateClubs(hideModal);
+      }
     });
   },
   handleClubEdit: function(url) {

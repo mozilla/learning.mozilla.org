@@ -40,7 +40,9 @@ module.exports = function withTeachAPI(Component) {
           return Component.getClass();
         }
         return Component;
-      }
+      },
+      pageTitle: Component.pageTitle,
+      pageClassName: Component.pageClassName
     },
 
     getInitialState: function() {

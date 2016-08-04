@@ -56,7 +56,8 @@ module.exports = {
       'MAKE_METADATA_URL',
       'WORDPRESS_DOMAIN',
       // feature flags:
-      "ENABLE_BADGES"
+      "ENABLE_BADGES",
+      "ENABLE_PONTOON"
     ])),
     new webpack.optimize.CommonsChunkPlugin('commons',
                                             'commons.bundle.js')
