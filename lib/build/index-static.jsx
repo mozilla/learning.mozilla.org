@@ -6,6 +6,7 @@ var config = require('../../config/config');
 var generator = require('../page-generate.jsx');
 var OptimizelySubdomain = require('../../components/optimizely-subdomain.jsx');
 var Optimizely = require('../../components/optimizely.jsx');
+var Pontoon = require('../../components/pontoon.jsx');
 
 // FIXME: this really needs to come from somewhere, not be a magic variable
 var CSS_FILENAME = "styles.css";
@@ -69,6 +70,7 @@ function generateWithPageHTML(url, options, pageHTML) {
         }}></div>
         <script src="/commons.bundle.js"></script>
         <script src="/app.bundle.js"></script>
+        <Pontoon/>
       </body>
     </html>
   );
