@@ -6,6 +6,11 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 
+## [1.0.5][] - 2016-08-04
+### Added
+- New Clubs Application Form
+- Enable Pontoon
+
 ## [1.0.4][] - 2016-08-02
 ### Added
 - Clubs' Guides page containing resource guides used by Mozilla Clubs
@@ -611,7 +616,8 @@ to [Semantic Versioning](http://semver.org/).
 ### Added
 - This is the initial release, pushed to https://teach.mozilla.org/.
 
-[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.4...HEAD
+[unreleased]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.5...HEAD
+[1.0.5]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.4...v1.0.5
 [1.0.4]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/mozilla/teach.webmaker.org/compare/v1.0.1...v1.0.2
