@@ -1,0 +1,56 @@
+{
+  "name": "learning.mozilla.org",
+  "scripts": {
+  },
+  "env": {
+    "CODEMOJI_URL": {
+      "required": true
+    },
+    "ENABLE_BADGES": {
+      "required": true
+    },
+    "ENABLE_PONTOON": {
+      "required": true
+    },
+    "MAKE_METADATA_URL": {
+      "required": true
+    },
+    "NEWSLETTER_MAILINGLIST_URL": {
+      "required": true
+    },
+    "NODE_ENV": {
+      "required": true
+    },
+    "OPTIMIZELY_ACTIVE": {
+      "required": true
+    },
+    "OPTIMIZELY_ID": {
+      "required": true
+    },
+    "ORIGIN": {
+      "required": true
+    },
+    "SHOW_DEV_RIBBON": {
+      "required": true
+    },
+    "TEACH_API_URL": {
+      "required": true
+    },
+    "WORDPRESS_DOMAIN": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
