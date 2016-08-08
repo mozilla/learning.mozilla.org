@@ -23,7 +23,7 @@ describe('app', function() {
   });
 
   it('returns 200 at all public HTML pages', function(done) {
-    this.timeout(30000);
+    this.timeout(100000);
 
     var redirects = Object.keys(indexStatic.get().REDIRECTS);
     var urls = indexStatic.get().URLS.filter(function(route) {

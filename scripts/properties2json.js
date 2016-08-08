@@ -34,7 +34,7 @@ function getListLocales() {
 
 function writeFile(entries) {
   var dictionary = entries.reduce(function(prevEntry, entry) {
-    prevEntry[entry.locale.replace('_', '-')] = entry.content;
+    prevEntry[entry.locale] = entry.content;
     return prevEntry;
   }, {});
   var publicPath = path.join(process.cwd(), config.dest);
