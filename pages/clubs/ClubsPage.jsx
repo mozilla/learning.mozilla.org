@@ -6,6 +6,7 @@ var Link = require('react-router').Link;
 var withTeachAPI = require('../../hoc/with-teach-api.jsx');
 
 var fixLocation = require('../../lib/fix-location.js');
+var resetreload = require('../../lib/resetreload');
 
 var HeroUnit = require('../../components/hero-unit.jsx');
 var Map = require('../../components/map.jsx');
@@ -201,6 +202,9 @@ var ClubsPage = React.createClass({
       showApplication: false
     };
   },
+  reset: function() {
+    this.setState( this.getInitialState() );
+  },
   componentWillMount: function() {
     fixLocation(this.context.location);
   },
@@ -304,6 +308,7 @@ var ClubsPage = React.createClass({
   },
 
   showApplication: function() {
+    resetreload.shouldResetOnReload(true);
     this.setState({
       showApplication: true
     });
