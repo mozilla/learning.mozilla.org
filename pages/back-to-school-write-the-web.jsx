@@ -76,7 +76,7 @@ var curriculumList = [
         image2x: "/img/pages/back-to-school-write-the-web/img-three-things@2x.png",
         subtitle: "Understanding Web Navigation",
         description: "Learners remix text and HTML to create a multi-page website that highlights their interests.",
-        link: "https://d157rqmxrxj6ey.cloudfront.net/mozillalearning/11288/ "
+        link: "https://thimbleprojects.org/mozillalearning/91246/"
       }
     ]
   }
