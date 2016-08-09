@@ -95,17 +95,12 @@ function run(location, el) {
   history.listen(function(location) {
     ga.pageview(location.pathname);
   });
-  /* L10N comment
-    What we are trying to do here is to check if what's coming in
-    `navigator.language` is supported in our locales list, and if it is
-    we will be using the value there otherwise we will default to
-    what was assigned above.
-  */
+
+  // Get locale from URL, use it to pass messages in to IntlProvider, but not before adding appropriate locale data (see index-static.jsx for how that gets in here)
   currentLocale = window.location.pathname.split('/')[1];
-  messages = locales[currentLocale] || messages;
-  // Load React's data for the current locale, but if it's not available for that specific country, load the general language data
-  addLocaleData(window.ReactIntlLocaleData[currentLocale] || window.ReactIntlLocaleData[currentLocale.split('-')[0]]);
-  /* END */
+  messages = locales[currentLocale];
+  // Keys are languages, not locales, so we just need the first part
+  addLocaleData(window.ReactIntlLocaleData[currentLocale.split('-')[0]]);
 
   ReactDOM.render(
     <IntlProvider locale={currentLocale} messages={messages}>
