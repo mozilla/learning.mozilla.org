@@ -165,7 +165,7 @@ var StepOne = React.createClass({
     }
     if (!clubState.hostReason) {
       errorElements.push('hostReason');
-      errors.push("Your must explain the reason for applying.");
+      errors.push("You must explain the reason for applying.");
     }
     else if (clubState.hostReason && clubState.hostReason.split(' ').length < 45) {
       errorElements.push('hostReason');
