@@ -25,7 +25,7 @@ describe('index-static', function() {
 
   it('should work w/o meta options', function(done) {
     indexStatic.get().generate('/en-US/', {
-      // no options passed
+      locale: 'en-US'
     }, function(err, url, title, html) {
       should(err).equal(null);
       done();
@@ -34,7 +34,7 @@ describe('index-static', function() {
 
   it('should include meta options', function(done) {
     indexStatic.get().generate('/en-US/', {
-      meta: { foo: 'bar' }
+      meta: { foo: 'bar', locale: 'en-US' }
     }, function(err, url, title, html) {
       should(err).equal(null);
       html.should.match(/meta name="foo" content="bar"/);
@@ -44,7 +44,8 @@ describe('index-static', function() {
 
   it('should include page title', function(done) {
     indexStatic.get().generate('/en-US/', {
-      title: 'hello there'
+      title: 'hello there',
+      locale: 'en-US'
     }, function(err, url, title, html) {
       should(err).equal(null);
       html.should.match(/\<title\>hello there\<\/title\>/);
