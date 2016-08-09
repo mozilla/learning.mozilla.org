@@ -193,7 +193,8 @@ var ClubsPage = React.createClass({
     }
   },
   contextTypes: {
-    location: React.PropTypes.object
+    location: React.PropTypes.object,
+    intl: React.PropTypes.object
   },
   getInitialState: function() {
     return {
@@ -269,7 +270,7 @@ var ClubsPage = React.createClass({
                onDelete={this.handleClubDelete}
                onEdit={this.handleClubEdit}/>
             </div>
-            <Link to={"/clubs/list/"} className="see-full-clubs-list">See the full list</Link>
+            <Link to={"/" + this.context.intl.locale + "/clubs/list/"} className="see-full-clubs-list">See the full list</Link>
           </section>
 
           <section>
