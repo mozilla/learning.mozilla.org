@@ -18,10 +18,11 @@ var routes = routeData.routes;
 
 var Page = require('../components/page.jsx');
 
-var IntlProvider = require('react-intl').IntlProvider;
+var ReactIntl = require('react-intl');
+var IntlProvider = ReactIntl.IntlProvider;
+var addLocaleData = ReactIntl.addLocaleData;
 var locales = require('../dist/locales.json');
-var currentLocale = 'en-US';
-var supportedLocale;
+var currentLocale;
 
 /**
  * content for redirect pages
@@ -47,10 +48,11 @@ function generateStaticRedirect(fromURL, toURL, next) {
 }
 
 function createElement(Component, props) {
-  var messages = locales['en-US'];
+  var locale = props.routes[0].path;
+  var messages = locales[locale];
   // make sure you pass all the props in!
   return (
-    <IntlProvider locale='en-US' messages={messages}>
+    <IntlProvider locale={locale} messages={messages}>
       <Component {...props} />
     </IntlProvider>
   );
@@ -100,9 +102,10 @@ function run(location, el) {
     we will be using the value there otherwise we will default to
     what was assigned above.
   */
-  supportedLocale = Object.keys(locales).indexOf(navigator.language) !== -1;
-  currentLocale = supportedLocale ? navigator.language : currentLocale;
+  currentLocale = window.location.pathname.split('/')[1];
   messages = locales[currentLocale] || messages;
+  // Load React's data for the current locale, but if it's not available for that specific country, load the general language data
+  addLocaleData(window.ReactIntlLocaleData[currentLocale] || window.ReactIntlLocaleData[currentLocale.split('-')[0]]);
   /* END */
 
   ReactDOM.render(
