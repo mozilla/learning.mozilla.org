@@ -21,7 +21,6 @@ var Page = require('../components/page.jsx');
 var ReactIntl = require('react-intl');
 var IntlProvider = ReactIntl.IntlProvider;
 var addLocaleData = ReactIntl.addLocaleData;
-var locales = require('../dist/locales.json');
 var currentLocale;
 
 /**
@@ -48,7 +47,7 @@ function generateStaticRedirect(fromURL, toURL, next) {
 }
 
 function createElement(Component, props) {
-  var locale = props.routes[0].path;
+  var locale = this.locale;
   var messages = locales[locale];
   // make sure you pass all the props in!
   return (
@@ -61,7 +60,7 @@ function createElement(Component, props) {
 /**
  * Static function for generating the site as static html files
  */
-function generateStatic(url, next) {
+function generateStatic(url, locale, next) {
   if (url in redirects) {
     return this.generateStaticRedirect(url, redirects[url], next);
   }
@@ -79,7 +78,7 @@ function generateStatic(url, next) {
 
     var Component = renderProps.routes.slice(-1)[0].component;
     var title = Page.titleForHandler(Component);
-    var html = ReactDOMServer.renderToString(<RoutingContext createElement={createElement} {...renderProps} />);
+    var html = ReactDOMServer.renderToString(<RoutingContext locale={locale} createElement={createElement} {...renderProps} />);
 
     next(null, html, { title: title });
   });
