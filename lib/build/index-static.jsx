@@ -2,7 +2,7 @@ var _  = require('underscore');
 var React = require('react');
 var ReactDOMServer = require('react-dom/server');
 var fs = require('fs');
-var Path = require('Path');
+var Path = require('path');
 
 var config = require('../../config/config');
 var generator = require('../page-generate.jsx');
@@ -38,7 +38,7 @@ function generateWithPageHTML(url, options, pageHTML) {
   options = _.defaults(options || {}, {
     meta: {}
   });
-  var locale = url.split('/')[0];
+  var locale = options.locale || 'en-US';
   var localeData = fs.readFileSync(Path.join('node_modules/react-intl/locale-data/' + locale.split('-')[0] + '.js'), 'utf8');
 
   var content = (
@@ -86,7 +86,8 @@ function generateWithPageHTML(url, options, pageHTML) {
 }
 
 function generate(url, options, cb) {
-  generator.generateStatic(url, function(err, html, metadata) {
+  var locale = options.locale || 'en-US';
+  generator.generateStatic(url, locale, function(err, html, metadata) {
     var pageHTML;
 
     if (err) return cb(err);
