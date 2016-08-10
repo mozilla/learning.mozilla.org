@@ -102,7 +102,9 @@ if (!fs.existsSync(DIST_DIR)) {
       'cdn.optimizely.com',
       'https://www.google.com',
       'https://s.ytimg.com',
-      'https://www.mozilla.org'
+      'https://www.mozilla.org',
+      'https://goggles.mofostaging.org',
+      'https://goggles.mozilla.org'
     ],
     fontSrc: [
       '\'self\'',
