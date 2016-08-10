@@ -60,7 +60,7 @@ module.exports = {
       "ENABLE_PONTOON",
 
       "LOGIN_EMULATION",
-      "LOGIN_EMULATION_LOGGEDIN",
+      "LOGIN_EMULATION_LOGGEDOUT",
       "LOGIN_EMULATION_USERNAME"
     ])),
     new webpack.optimize.CommonsChunkPlugin('commons',

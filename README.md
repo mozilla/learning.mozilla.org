@@ -175,7 +175,7 @@ software works.
 `supportedLocales` | enables specific locales, for example: `['en-US', 'id']` will only enable 2 locales. Default value is `*` which will enable all locales under [locales](./locales) directory.
 `LOGIN_EMULATION` | determines whether or not the teach-api is used for login state management. defaults to false.
 `LOGIN_EMULATION_LOGGEDOUT` | determines whether, when login emulation is on, the login state should be logged in or out. defaults to false.
-`LOGIN_EMULATION_USERNAME` | determines the username that is used when login emulation is on and login statis set to logged in. defaults to 'testuser'.
+`LOGIN_EMULATION_USERNAME` | determines the username that is used when login emulation is on and login status is not set to logged out. defaults to 'testuser'.
 
 ### Using Environment Variables in Local Development
 
