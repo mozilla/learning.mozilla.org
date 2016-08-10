@@ -5,6 +5,8 @@ var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
 var ga = require('react-ga');
 
+var resetreload = require('../lib/resetreload');
+
 var Sidebar = require('./sidebar.jsx');
 var Footer = require('./footer.jsx');
 var DevRibbon = (process.env.NODE_ENV === 'production' && process.env.SHOW_DEV_RIBBON !== 'on') ? null : require('./dev-ribbon.jsx');
@@ -67,9 +69,18 @@ var Page = React.createClass({
   // Lifecycle functions
 
   getInitialState: function() {
+    resetreload.bindPage(this);
     return {
       modalClass: null,
       modalProps: null
+    }
+  },
+
+  reset: function() {
+    var child = this.refs.pageContent;
+    var comp = child.getComponent();
+    if (comp && comp.reset) {
+      comp.reset();
     }
   },
 
@@ -145,7 +156,8 @@ var Page = React.createClass({
               React.cloneElement(this.props.children, {
                 showModal: this.showModal,
                 hideModal: this.hideModal,
-                currentPath: currentPath
+                currentPath: currentPath,
+                ref: "pageContent"
               })
             }
             </main>
