@@ -9,7 +9,6 @@ difficulty | CharField (choices)
 duration | CharField (choices)  
 **Skills** | *:*  
 **WebLitSkills** | *:*  
-**Topic** | 1:*  
 **Modules** | *:*  
 **locale** | CharField (choices) (pycountry)  
 translation_of | ‘self’  
@@ -29,11 +28,6 @@ short_name | CharField
 description | TextField  
 **Competencies** | 1:*  
 **Skills** | *:*  
-**Topic** | 1:*  
-
-<pre>Topic</pre>
-name | CharField  
-description | TextField  
 
 <pre>Competencies</pre>
 text | TextField  
