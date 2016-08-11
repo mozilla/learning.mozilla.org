@@ -1,4 +1,27 @@
-.page.clubs {
+.page.clubs-guides {
+
+  // Sidebar color overrides
+
+  .sidebar {
+    background: #335b98;
+
+    .sidebar-menu a:hover {
+      background: #2e5289;
+    }
+
+    .top-level-item.sub-nav-active {
+      background: #2e5289;
+
+      .sidebar-subitems {
+        background-color: #2e5289;
+      }
+
+      a {
+        background: transparent;
+      }
+    }
+  }
+
   .hero-unit {
     background-image: url(/img/pages/clubs/hero-unit.jpg);
 
@@ -10,6 +33,7 @@
       margin-top: 4rem;
     }
   }
+
   h3 {
     font-weight: 300;
     line-height: 1.375;
@@ -111,4 +135,496 @@
   font-size: 1.8rem;
   font-weight: bold;
   margin: 1.5rem 0 5rem 0;
+}
+
+
+.page.clubs-guides {
+  font-size: 18px; //Base font size
+
+  .inner-container {
+    margin: 0;
+    padding: 0 20px;
+  }
+
+  section:not([class]) {
+    margin: 0;
+    padding: 0;
+  }
+
+}
+
+// New Clubs Pages
+
+.center-title {
+  font-size: 2em;
+  line-height: 1.4em;
+  font-weight: 300;
+  margin: 0 0 25px 0;
+  padding: 0;
+  text-align: center;
+}
+
+.center-block {
+  text-align: center;
+  margin: 0 0 50px 0 !important;
+  padding: 0;
+
+  h1 {
+    font-size: 2em;
+    line-height: 1.4em;
+    font-weight: 300;
+    margin: 0 0 10px 0;
+    padding: 0;
+  }
+
+  p {
+    font-size: 1em;
+  }
+}
+
+.mapDiv {
+  margin-bottom: 30px;
+}
+
+// Intro Block Overrides
+.page .inner-container .intro {
+  padding: 0;
+}
+
+.page .inner-container .intro h1 {
+  font-size: 2.2em;
+  line-height: 1.4em;
+  font-weight: 300;
+  margin: 0 0 15px 0;
+  padding: 0;
+}
+
+.page .inner-container .intro p {
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+// Icon List
+
+
+
+.numbered-list-loop(@index) when(@index > 0) {
+
+  li:nth-child(@{index}):before {
+    content: "@{index}";
+  }
+  .numbered-list-loop(@index - 1);
+}
+
+// Numbered List
+
+.numbered-list {
+  .numbered-list-loop(5);
+
+  li {
+    position: relative;
+  }
+
+  li:before {
+    color: #335b98;
+    position: absolute;
+    padding: 3px 11px;
+    border: solid 1px #335b98;
+    position: absolute;
+    left: 33px;
+    border-radius: 50%;
+    top: ~"calc(50% - 18px)";
+  }
+}
+
+@media (max-width: @screen-sm-min) {
+  .icon-list.numbered-list {
+
+    li {
+      padding-left: 0;
+      padding-top: 45px;
+      margin-bottom: 30px;
+    }
+
+    li:before {
+      left: ~"calc(50% - 15px)";
+      top: 0px;
+    }
+  }
+}
+
+
+/* the mixin is called, css outputted and iterations called */
+
+.icon-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 60px 0;
+
+  li {
+    margin-bottom: 25px;
+    padding: 5px 0 5px 120px;
+    font-size: 1em;
+
+    * {
+      font-size: inherit;
+    }
+
+    background-repeat: no-repeat;
+    background-position: 40px center;
+
+    &.icon-airplane {
+      background-image: url(/img/pages/clubs/svg/new-icons/icon-airplane.svg);
+    }
+
+    &.icon-book {
+      background-image: url(/img/pages/clubs/svg/new-icons/icon-book.svg);
+    }
+
+    &.icon-ribbon {
+      background-image: url(/img/pages/clubs/svg/new-icons/icon-ribbon.svg);
+    }
+
+    &.icon-share {
+      background-image: url(/img/pages/clubs/svg/new-icons/icon-ribbon.svg);
+    }
+
+    &.icon-institution {
+      background-image: url(/img/pages/clubs/svg/new-icons/icon-institution.svg);
+    }
+
+    strong {
+      font-weight: 700;
+    }
+  }
+}
+
+@media (max-width: @screen-sm-min) {
+  .icon-list {
+
+    li {
+      padding-left: 0;
+      background-image: none !important;
+      text-align: center;
+    }
+  }
+}
+
+
+// Elements of a Club Columns
+
+.elements-of-club {
+  list-style-type: none;
+  margin: 0 0 50px 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+
+  li {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 0 15px;
+    position: relative;
+  }
+
+  h1 {
+    font-size: 1.7em;
+    font-weight: 300;
+    margin: 28px 0 15px 0;
+  }
+
+  .image {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    background-position: center;
+    background-size: cover;
+    border-radius: 4px;
+
+    &.clubs-members {
+      background-image: url(/img/pages/clubs/club-elements/members.png);
+    }
+
+    &.clubs-venue {
+      background-image: url(/img/pages/clubs/club-elements/venue.png);
+    }
+
+    &.clubs-plan {
+      background-image: url(/img/pages/clubs/club-elements/plan.png);
+    }
+  }
+
+  p {
+    line-height: 1.4em;
+    margin-bottom: 30px;
+
+    * {
+      line-height: inherit;
+    }
+  }
+
+  .secondary-button {
+    margin-top: auto;
+  }
+}
+
+
+// Secondary button (with border)
+
+.secondary-button {
+  color: #337ab7;
+  border: solid 1px #337ab7;
+  border-radius: 4px;
+  padding: 10px 30px;
+  margin: 10px auto;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: .9em;
+  font-weight: 700;
+  display: block;
+  transition: opacity .1s ease-out;
+
+  &:active {
+    text-decoration: none;
+    color: #337ab7;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: #337ab7;
+    opacity: .7;
+  }
+}
+
+
+
+// Featured Updates
+
+.featured-updates {
+  list-style-type: none;
+  padding: 0;
+  font-size: .9em;
+  margin: 0 -10px 50px -10px;
+  display: flex;
+
+  .box {
+    padding: 30px 15px;
+    border: solid 1px #d0d0d0;
+    border-radius: 5px;
+    border-bottom: solid 3px #99accb;
+    margin: 0 10px;
+    height: 100%;
+  }
+
+  li {
+    padding: 0;
+    flex: 1;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 1.125em;
+
+    a {
+      color: #337ab7;
+      font-size: 1.5em;
+      font-weight: 300;
+      transition: opacity .1s ease-out;
+
+      &:hover {
+        text-decoration: none;
+        opacity: .6;
+      }
+    }
+  }
+
+  h3 {
+    margin: 0;
+    padding: 0;
+    font-size: .9em;
+    text-transform: uppercase;
+    color: #959596;
+  }
+
+  p {
+    font-size: 1em;
+    line-height: 1.3em;
+    opacity: .8;
+  }
+
+}
+
+@media (max-width: @screen-sm-min) {
+  .featured-updates {
+    display: block;
+
+    .box {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+// Single button on it's own
+
+.single-button {
+  margin: 30px 0;
+  text-align: center;
+
+  .btn {
+    display: inline-block;
+  }
+}
+
+// Two column feature box
+
+.two-col-feature {
+  margin: 20px 0 50px 0;
+
+  h1 {
+    font-size: 1.45em;
+    font-weight: 300;
+    margin: 0 0 10px 0;
+  }
+
+  .image-column {
+    text-align: center;
+    padding-left: 0;
+
+    .image {
+      height: 250px;
+      width: 100%;
+      background-image: url(/img/pages/clubs/club-elements/running.jpg);
+      border-radius: 5px;
+      border-radius: 5px;
+      background-size: cover;
+    }
+  }
+
+  .secondary-button {
+    display: inline-block;
+  }
+}
+
+@media (max-width: @screen-sm-min) {
+  .two-col-feature {
+    text-align: center;
+
+    .image-column {
+      display: none
+    }
+  }
+}
+
+
+// Centered Actions
+// Three columsn with centered content and images
+
+.centered-actions {
+  padding: 0;
+
+  a {
+    text-align: center;
+    color: #777;
+    display: block;
+    cursor: pointer;
+
+    &:hover .icon {
+      transform: scale(1.07);
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .icon {
+    width: 100%;
+    height: 50px;
+    transition: transform .2s ease-in-out;
+    margin: 0 auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &.icon-twitter {
+      background-image: url(/img/pages/clubs/svg/large/icon-twitter.svg);
+    }
+
+    &.icon-connect {
+      background-image: url(/img/pages/clubs/svg/large/icon-connect.svg);
+    }
+
+    &.icon-discourse {
+      background-image: url(/img/pages/clubs/svg/large/icon-discourse.svg);
+    }
+  }
+
+  h1 {
+    font-weight: 300;
+    font-size: 1.4em;
+  }
+
+  p {
+    font-size: .8em;
+    line-height: 1.4em;
+  }
+}
+
+@media (max-width: @screen-sm-min) {
+  .centered-actions {
+    a {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+
+
+// Cool Horizontal Rule with a little square
+
+hr.square-divider {
+  position: relative;
+  border-top: solid 2px #d7d7d7;
+  margin: 60px 0;
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: solid 2px #d7d7d7;
+    top: -11px;
+    left: ~"calc(50% - 8px)";
+    background: white;
+    transform: rotate(45deg);
+  }
+}
+
+.middle-button {
+  text-align: center;
+  a {
+    display: inline-block;
+  }
+}
+
+
+.mui-thumb-carousel {
+  margin-bottom: 50px;
+}
+
+
+//Override for intro-after-banner
+
+
+@media (max-width: @screen-sm-min) {
+  .intro-after-banner {
+    text-align: center;
+
+    .image-container {
+      display: none;
+    }
+  }
 }

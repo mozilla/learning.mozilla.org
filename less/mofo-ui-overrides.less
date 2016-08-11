@@ -1,0 +1,84 @@
+.mui-tab-switcher {
+  padding-bottom: 50px;
+  position: relative;
+  padding-top: 30px;
+
+  .panel {
+    box-shadow: none;
+  }
+
+  .btn, .btn:active, .btn:hover {
+    box-shadow: none;
+    top: 0;
+  }
+
+  .tabs {
+    position: relative;
+    top: -80px;
+    height: 0;
+
+    .btn {
+      padding: 12px 10px;
+      height: 50px;
+      font-size: 1.1em;
+      border-radius: 4px 4px 0 0;
+      background: rgba(51,91,152,.9);
+      margin: 0 15px;
+      min-width: 0px;
+
+      .icon {
+        height: 30px;
+      }
+
+      span {
+        display: block;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      &.active {
+        background: white;
+      }
+    }
+  }
+}
+
+.mui-thumb-carousel {
+  .quotes {
+    .active {
+      padding: 30px 40px;
+    }
+
+    .caption {
+      text-align: left;
+      position: relative;
+      padding: 0;
+
+      &:before, &:after {
+        position: absolute;
+        font-weight: 700;
+        font-size: 50px;
+      }
+
+      &:before {
+        top: 0px;
+        content: "“";
+        left: -35px;
+      }
+
+      &:after {
+        content: "”";
+        bottom: -20px;
+        right: -20px;
+      }
+    }
+
+    .attribution {
+      font-weight: 700;
+      text-align: right;
+      padding-right: 30px;
+      margin-top: 25px;
+    }
+  }
+}

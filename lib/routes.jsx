@@ -36,9 +36,8 @@ var pages = {
   'activities/web-lit-basics-two': require('../pages/web-lit-basics-two.jsx'),
   'activities/webmaker': require('../pages/webmaker.jsx'),
   'activities/back-to-school-write-the-web': require('../pages/back-to-school-write-the-web.jsx'),
-  'clubs': require('../pages/clubs.jsx'),
+  'clubs': require('../pages/clubs/index.jsx'),
   'clubs/list': require('../pages/clubs-list.jsx'),
-  'clubs/guides': require('../pages/clubs-guides/ClubsGuides.jsx'),
   // NOTE: 'codemoji' is reserved. See https://github.com/mozilla/teach.mozilla.org/issues/1798
   'community': require('../pages/community.jsx'),
   'community/curriculum-workshop': require('../pages/curriculum-workshop.jsx'),

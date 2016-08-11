@@ -7,7 +7,7 @@ var TestUtils = require('react-addons-test-utils');
 var StubTeachAPI = require('./stub-teach-api');
 var StubRouter = require('./stub-router');
 var stubContext = require('./stub-context.jsx');
-var ClubsPage = require('../../pages/clubs.jsx');
+var ClubsPage = require('../../pages/clubs/About.jsx');
 
 describe("Clubs", function() {
   var clubsPage, teachAPI, xhr;
