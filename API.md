@@ -10,7 +10,7 @@ duration | CharField (choices)
 **Skills** | *:*  
 **WebLitSkills** | *:*  
 **Topic** | 1:*  
-**LessonPlan** | *:*  
+**Modules** | *:*  
 **locale** | CharField (choices) (pycountry)  
 translation_of | ‘self’  
 
@@ -38,7 +38,7 @@ description | TextField
 <pre>Competencies</pre>
 text | TextField  
 
-<pre>LessonPlan</pre>
+<pre>Modules</pre>
 title | CharField  
 description | TextField  
 short_description | TextField  
@@ -46,4 +46,5 @@ learning_objectives | TextField
 image_url | UrlField  
 image_retina_url | UrlField  
 level | CharField (choices)  
-developed_by | TextField  
+author | CharField
+author_link | CharField
