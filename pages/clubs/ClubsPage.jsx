@@ -6,6 +6,7 @@ var Link = require('react-router').Link;
 var withTeachAPI = require('../../hoc/with-teach-api.jsx');
 
 var fixLocation = require('../../lib/fix-location.js');
+var resetreload = require('../../lib/resetreload');
 
 var HeroUnit = require('../../components/hero-unit.jsx');
 var Map = require('../../components/map.jsx');
@@ -193,12 +194,16 @@ var ClubsPage = React.createClass({
     }
   },
   contextTypes: {
-    location: React.PropTypes.object
+    location: React.PropTypes.object,
+    intl: React.PropTypes.object
   },
   getInitialState: function() {
     return {
       showApplication: false
     };
+  },
+  reset: function() {
+    this.setState( this.getInitialState() );
   },
   componentWillMount: function() {
     fixLocation(this.context.location);
@@ -269,7 +274,7 @@ var ClubsPage = React.createClass({
                onDelete={this.handleClubDelete}
                onEdit={this.handleClubEdit}/>
             </div>
-            <Link to={"/clubs/list/"} className="see-full-clubs-list">See the full list</Link>
+            <Link to={"/" + this.context.intl.locale + "/clubs/list/"} className="see-full-clubs-list">See the full list</Link>
           </section>
 
           <section>
@@ -303,6 +308,7 @@ var ClubsPage = React.createClass({
   },
 
   showApplication: function() {
+    resetreload.shouldResetOnReload(true);
     this.setState({
       showApplication: true
     });

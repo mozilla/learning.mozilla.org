@@ -23,7 +23,7 @@ describe('app', function() {
   });
 
   it('returns 200 at all public HTML pages', function(done) {
-    this.timeout(10000);
+    this.timeout(100000);
 
     var redirects = Object.keys(indexStatic.get().REDIRECTS);
     var urls = indexStatic.get().URLS.filter(function(route) {
@@ -82,6 +82,7 @@ describe('app', function() {
   it('redirects to a locale', function(done) {
     request(app)
       .get('/foobar')
+      .set('Accept-Language', 'en-US')
       .expect(function(res) {
        if(res.headers.location !== "/en-US/foobar") throw new Error("Doesn't redirect to locale");
       })
@@ -91,6 +92,7 @@ describe('app', function() {
   it('preserves query params when forwarding to a locale', function(done) {
     request(app)
       .get('/foobar/?key=value&key2=value2')
+      .set('Accept-Language', 'en-US')
       .expect(function(res) {
        if(res.headers.location !== "/en-US/foobar/?key=value&key2=value2") throw new Error("Doesn't preserve query params");
       })

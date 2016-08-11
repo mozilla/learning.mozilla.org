@@ -200,6 +200,7 @@ app.use(function(req, res, next) {
   var routes = indexStatic.routes;
   var location = urlToRoutePath(req.url);
   var urls = indexStatic.URLS;
+  var lang;
 
   if (!matcher) {
     matcher = routington();
@@ -221,7 +222,9 @@ app.use(function(req, res, next) {
         res.redirect(302, location + locale + search);
         return;
       }
-      return renderComponentPage(location,res);
+
+      lang = location.split('/')[0];
+      return renderComponentPage(location, res, lang);
     }
 
     // if neither of those, this is wordpress content
@@ -238,8 +241,8 @@ app.use(function(req, res, next) {
   });
 });
 
-function renderComponentPage(location, res) {
-  indexStatic.generate(location, {}, function(err, location, title, html) {
+function renderComponentPage(location, res, locale) {
+  indexStatic.generate(location, {locale: locale}, function(err, location, title, html) {
     if (err) {
       next(err);
     }
