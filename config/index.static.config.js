@@ -20,7 +20,7 @@ module.exports = function(entry, outputDir, outputFilename) {
     },
     module: {
       loaders: [
-        { test: /\.jsx$/, loader: 'jsx-loader' },
+        { test: /\.jsx$/, loader: 'babel', query: { presets: ['es2015', 'react'] }},
         { test: /\.json$/, loader: 'json-loader' }
       ]
     },
