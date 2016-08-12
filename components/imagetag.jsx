@@ -9,8 +9,8 @@ var ImageDimension = React.PropTypes.oneOfType([
 
 var ImageTag = React.createClass({
   propTypes: {
-    width: ImageDimension.isRequired,
-    height: ImageDimension.isRequired,
+    width: ImageDimension,
+    height: ImageDimension,
     alt: React.PropTypes.string.isRequired,
     src1x: React.PropTypes.string.isRequired,
     src2x: React.PropTypes.string,

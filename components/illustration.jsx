@@ -8,8 +8,8 @@ var ImageDimension = React.PropTypes.oneOfType([
 
 var Illustration = React.createClass({
   propTypes: {
-    width: ImageDimension.isRequired,
-    height: ImageDimension.isRequired,
+    width: ImageDimension,
+    height: ImageDimension,
     src1x: React.PropTypes.string.isRequired,
     src2x: React.PropTypes.string,
     alt: React.PropTypes.string.isRequired,
