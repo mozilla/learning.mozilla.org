@@ -46,7 +46,7 @@ var CurriculumWorkshop = React.createClass({
           <h3>Workshop Video Stream</h3>
 
           <div className="video-wrapper">
-            <iframe width="560" height="315" src="//www.youtube.com/embed/mo-WQmOuDN4" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="//www.youtube.com/embed/mo-WQmOuDN4" frameBorder="0" allowFullScreen></iframe>
           </div>
           <h4>
             Open Agenda
