@@ -18,7 +18,7 @@ var StepThree = React.createClass({
       <div className={className}>
         <VerticalLeader height="6em"/>
 
-        <p className="learn-more">To learn more about Mozilla Clubs, read the <a href="http://mozilla.github.io/learning-networks/clubs/">Fact Sheet</a>.</p>
+        <p className="learn-more">To learn more about Mozilla Clubs, read the <a href="http://mozilla.github.io/learning-networks/clubs/facts">Fact Sheet</a>.</p>
 
         <Divider/>
 
