@@ -10,7 +10,8 @@ module.exports = function(gulp) {
     'copy-images',
     'copy-bootstrap',
     'copy-fontawesome',
-    'copy-tabzilla'
+    'copy-tabzilla',
+    'copy-mofo-ui'
   ]);
 
   gulp.task('copy-test-dirs', function() {
@@ -54,6 +55,12 @@ module.exports = function(gulp) {
     return gulp.src(['node_modules/mozilla-tabzilla/css/tabzilla.css', 'node_modules/mozilla-tabzilla/media/img/**'], {
       base: 'node_modules/font-awesome'
     }).pipe(gulp.dest('./dist/vendor/font-awesome'));
+  });
+
+  gulp.task('copy-mofo-ui', function () {
+    return gulp.src(['node_modules/mofo-ui/dist/mofo-ui.css'], {
+      base: 'node_modules/mofo-ui/dist'
+    }).pipe(gulp.dest('./dist/vendor/mofo-ui'));
   });
 
 };
