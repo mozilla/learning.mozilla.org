@@ -91,9 +91,20 @@ var ClubForm = React.createClass({
         <button key={'back'} className="back btn" onClick={this.prevStep}>Back</button>
       );
     }
+
+    var buttonClass = 'btn'
+    var buttonLabel = 'Next';
+    if (this.state.currentStep === 1) {
+      buttonLabel = "Submit";
+    }
+    if (this.state.submitted) {
+      buttonClass += ' submitting';
+      buttonLabel = 'Submitting...';
+    }
     buttons.push(
-      <button key={'continue'} className="btn" onClick={this.nextStep}>{this.state.currentStep===1 ? 'Submit' : 'Next'}</button>
+      <button key={'continue'} className={buttonClass} onClick={this.nextStep}>{buttonLabel}</button>
     );
+
     return (
       <div key="buttons" className="proceed">
         <div>{buttons}</div>
@@ -121,7 +132,7 @@ var ClubForm = React.createClass({
   nextStep: function() {
     var refname = 'step' + (this.state.currentStep+1)
     var curRef = this.refs[refname];
-    var validates = curRef.validates();
+    var validates = true; //curRef.validates();
     if (validates) {
       var nextStep = Math.min(this.state.currentStep + 1, 2);
       var goToNext = function() {
@@ -147,12 +158,15 @@ var ClubForm = React.createClass({
     // send to Teach-API and wait for response via the callback
     var networkHandler = this.handleNetworkResult;
     this.setState({
+      submitted: true,
       step: this.STEP_WAIT_FOR_NETWORK,
       networkError: false,
     }, function() {
-      teachAPI.addClub(clubState, function(err, data) {
-        networkHandler(err, data, next)
-      });
+
+      //teachAPI.addClub(clubState, function(err, data) {
+      //  networkHandler(err, data, next)
+      //});
+      
     });
   },
 
