@@ -28,40 +28,37 @@ var CommunityCallPage = React.createClass({
 
           <section className="callout-box">
             <h2>Upcoming Call</h2>
-            <p className="date">July 28, 9am PT / 12pm ET / 4pm UTC</p>
-            <h1>Brokering Learning</h1>
+            <p className="date">September (date and time TBD)</p>
+            <h1>Youth Activism</h1>
             <p className="description">
-              Representing libraries, game education organizations, Mozilla Club leads and Mozilla staff, guests include: Hive Cascadia (Portland, Oregon, USA), Hive Toronto (Canada), Tina Verbo from the Mozilla Philippines community.
+              
             </p>
           </section>
 
           <p>
-            Learning has the potential to make global impact, especially when it starts local. During this month’s call, we’ll discuss how to develop successful learning opportunities that go beyond local borders. What is the recipe for small and large organizations to move their projects beyond city limits? We’ll discuss developing city-wide learning projects, including successes and challenges, and how they connect to the global Mozilla Learning networks for broader impact.
+            What is the best way to engage young people in current events and civic discussion? Join us as we rally around our youth to encourage their voices to be heard in relevant local, national, and global conversations, while also promoting web literacy and 21st Century Skills.
           </p>
 
-          <p>
-            Have an idea on how to scale a project globally? Ask questions, share ideas and feedback with us live through the embedded agenda and chat on the 27th!
-          </p>
 
           <h3>Workshop Video Stream</h3>
 
           <div className="video-wrapper">
-            <iframe width="560" height="315" src="//www.youtube.com/embed/Elr7leEmfcs" frameBorder="0" allowFullScreen></iframe>
+            <iframe width="560" height="315" src="//www.youtube.com/embed/jqxxkbLHYfw" frameBorder="0" allowFullScreen></iframe>
           </div>
 
           <h4>
             Open Agenda
-            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/mozcommunitycallJuly16">
+            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/mozcommunitycallsept16">
             </a>
           </h4>
 
-          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/mozcommunitycallJuly16"></iframe>
+          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/mozcommunitycallsept16"></iframe>
 
           <h2>Upcoming Calls</h2>
 
           <ul className="upcoming-workshops">
             <li>
-              <p className="date">August TBD</p>
+              <p className="date">October TBD</p>
               <h2>Theme: TBD</h2>
             </li>
           </ul>
@@ -69,6 +66,16 @@ var CommunityCallPage = React.createClass({
           <h2>Past Calls</h2>
 
           <ul className="past-workshops">
+            <li>
+              <p className="date">July 28, 2016</p>
+              <h2>Brokering Learning</h2>
+              <p>
+                Learning has the potential to make global impact, especially when it starts local. During this month’s call, we’ll discuss how to develop successful learning opportunities that go beyond local borders. What is the recipe for small and large organizations to move their projects beyond city limits? We’ll discuss developing city-wide learning projects, including successes and challenges, and how they connect to the global Mozilla Learning networks for broader impact.
+              </p>
+              <p className="watch-archive">
+                <LinkAnchorSwap to="/community/community-call/july-28-2016/">Watch the Replay</LinkAnchorSwap>
+              </p>
+            </li>
             <li>
               <p className="date">June 29, 2016</p>
               <h2>Learning and Making</h2>
