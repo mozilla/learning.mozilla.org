@@ -28,6 +28,14 @@ var ActivitiesPage = React.createClass({
               Start teaching others how to read, write and participate on the web with these free activities created by teachers, educators and technologists like you. Each featured activity includes step-by-step instructions and has been tested in schools, afterschool programs, libraries and community centers around the globe. Whether learning how to code, understanding why privacy matters, or creating openly-licensed web content, we believe teaching the web should be fun and engaging!
             </p>
             <ActivityKit
+              src1x="/img/pages/2nextprez/government-building.jpg"
+              caption={<a href="https://c2.staticflickr.com/8/7071/7099628023_fbe58682da_k.jpg">CC-BY 2.0 angela n</a>}
+              title="Using the Web to Write Letters to the Next President"
+              level="Beginner"
+              link="/activities/next-prez/"
+              developedBy={<div><a href="https://learning.mozilla.org">Mozilla</a>, the <a href="https://nwp.org">National Writing Project</a>, and <a href="https://hypothes.is">Hypothesi.is</a>.</div>}
+              description="Use Thimble to tell the next President of the United States what issues matter to you most. Create and then submit your own online letters, memes, quotes, and campaign posters as part of the National Writing Project’s Letters to the Next President 2.0 campaign."/>
+            <ActivityKit
               src1x="/img/pages/activities/img-activity-curriculum.png"
               src2x="/img/pages/activities/img-activity-curriculum@2x.png"
               title="Web Literacy Basics"
