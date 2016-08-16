@@ -1,16 +1,16 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var TimeoutTransitionGroup = require('../components/timeout-transition-group.jsx');
-var Router = require('react-router');
+var React = require(`react`);
+var ReactDOM = require(`react-dom`);
+var TimeoutTransitionGroup = require(`../components/timeout-transition-group.jsx`);
+var Router = require(`react-router`);
 var RouteHandler = Router.RouteHandler;
-var ga = require('react-ga');
+var ga = require(`react-ga`);
 
-var resetreload = require('../lib/resetreload');
+var resetreload = require(`../lib/resetreload`);
 
-var Sidebar = require('./sidebar.jsx');
-var Footer = require('./footer.jsx');
-var DevRibbon = (process.env.NODE_ENV === 'production' && process.env.SHOW_DEV_RIBBON !== 'on') ? null : require('./dev-ribbon.jsx');
-var config = require('../config/config');
+var Sidebar = require(`./sidebar.jsx`);
+var Footer = require(`./footer.jsx`);
+var DevRibbon = (process.env.NODE_ENV === `production` && process.env.SHOW_DEV_RIBBON !== `on`) ? null : require(`./dev-ribbon.jsx`);
+var config = require(`../config/config`);
 
 var Page = React.createClass({
   contextTypes: {
@@ -18,9 +18,9 @@ var Page = React.createClass({
   },
   statics: {
     titleForHandler: function(handler) {
-      var title = 'Mozilla Learning';
+      var title = `Mozilla Learning`;
       if (handler.pageTitle) {
-        title = handler.pageTitle + ' - ' + title;
+        title = handler.pageTitle + ` - ` + title;
       }
       return title;
     }
@@ -42,7 +42,7 @@ var Page = React.createClass({
 
   getCurrentClassName: function() {
     var handler = this.getCurrentPageHandler();
-    var className = handler.pageClassName || '';
+    var className = handler.pageClassName || ``;
     return className;
   },
 
@@ -56,11 +56,11 @@ var Page = React.createClass({
   },
 
   // Accessibility best practices demand that only the elements in a
-  // modal be focusable while it's being displayed, so we'll enforce
+  // modal be focusable while it`s being displayed, so we`ll enforce
   // that here.
   handleNonModalFocus: function(e) {
     var firstFocusableEl = ReactDOM.findDOMNode(this.refs.modalHolder)
-      .querySelector('a, button, input, textarea');
+      .querySelector(`a, button, input, textarea`);
     if (firstFocusableEl) {
       firstFocusableEl.focus();
     }
@@ -96,9 +96,9 @@ var Page = React.createClass({
 
   componentDidUpdate: function(prevProps, prevState) {
     if (this.state.modalClass && !prevState.modalClass) {
-      document.body.classList.add('modal-open');
+      document.body.classList.add(`modal-open`);
     } else if (!this.state.modalClass && prevState.modalClass) {
-      document.body.classList.remove('modal-open');
+      document.body.classList.remove(`modal-open`);
     }
     this.bindTitle();
   },
@@ -128,10 +128,10 @@ var Page = React.createClass({
     // we need the next three lines for server-side rendering:
     var routes = this.props.routes;
     var currentRoute = routes.slice(-1)[0];
-    var currentPath = config.ORIGIN + '/' + this.context.intl.locale + '/' + (currentRoute.path || '');
+    var currentPath = config.ORIGIN + `/` + this.context.intl.locale + `/` + (currentRoute.path || ``);
 
     // but we _actually_ want to rely on this, instead:
-    if (typeof window !== 'undefined') {
+    if (typeof window !== `undefined`) {
       currentPath = config.ORIGIN + window.location.pathname;
     }
 
@@ -144,7 +144,7 @@ var Page = React.createClass({
          aria-hidden={!!this.state.modalClass}
          onFocus={this.state.modalClass && this.handleNonModalFocus}>
           <a href="#content" className="sr-only sr-only-focusable skip-to-content">
-            {this.context.intl.formatMessage({id: 'skip_to_main_content'})}
+            {this.context.intl.formatMessage({id: `skip_to_main_content`})}
           </a>
 
           {DevRibbon ? <DevRibbon showModal={this.showModal} hideModal={this.hideModal}/> : null}

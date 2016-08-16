@@ -99,8 +99,8 @@ function run(location, el) {
   });
 
   // Get locale from URL, use it to pass messages in to IntlProvider, but not before adding appropriate locale data (see index-static.jsx for how that gets in here)
-  currentLocale = window.location.pathname.split('/')[1];
-  messages = assign({}, locales["en-US"], locales[currentLocale]);
+  var currentLocale = window.location.pathname.split('/')[1];
+  var messages = assign({}, locales["en-US"], locales[currentLocale]);
   // Keys are languages, not locales, so we just need the first part
   addLocaleData(window.ReactIntlLocaleData[currentLocale.split('-')[0]]);
 

@@ -34,7 +34,7 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.jsx$/, loader: 'jsx-loader' },
+      { test: /\.jsx$/, loader: 'babel', query: { presets: ['es2015', 'react'] }},
       // https://github.com/webpack/webpack/issues/558#issuecomment-60889168
       { test: require.resolve('react'), loader: IMPORT_ES5_SHIM },
       { test: require.resolve('react/addons'), loader: IMPORT_ES5_SHIM },
