@@ -6,7 +6,7 @@
   This is the source code for [learning.mozilla.org](https://learning.mozilla.org), using [learning.mofostaging.net](https://learning.mofostaging.net) as staging server.
 
 **For a summary of the most recent changes to the project, please
-see [`CHANGELOG.md`][changelog]. It's awesome.**
+see [`CHANGELOG.md`][./changelog]. It's awesome.**
 
 # Overview
 
