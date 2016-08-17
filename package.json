@@ -37,7 +37,7 @@
     "start:server": "npm run webpack:server -- --watch",
     "test": "run-s prep test:*",
     "test:lint": "npm run lint",
-    "test:mocha": "mocha",
+    "test:mocha": "mocha --compilers js:babel-core/register",
     "test:spider": "node spider",
     "webpack:client": "webpack --config ./config/webpack/webpack.client.config.js --progress --colors",
     "webpack:server": "webpack --config ./config/webpack/webpack.server.config.js --progress --colors"
@@ -117,12 +117,14 @@
     "webpack-stream": "^3.1.0"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "jsdom": "^9.4.5",
     "marked": "^0.3.3",
     "mocha": "^3.0.2",
     "open": "0.0.5",
     "should": "^11.1.0",
     "simplecrawler": "^0.5.2",
+    "sinon": "^1.17.6",
     "supertest": "^1.0.1",
     "webpack-dev-server": "^1.15.0"
   },

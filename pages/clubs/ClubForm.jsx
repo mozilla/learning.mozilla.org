@@ -6,18 +6,17 @@ var Login = require('../../components/login');
 var withTeachAPI = require('../../hoc/with-teach-api.jsx');
 
 var ProgressBar = require('./ProgressBar.jsx');
-var StepOne = require('./StepOne.jsx');
-var StepTwo = require('./StepTwo.jsx');
-var StepThree = require('./StepThree.jsx');
 
-var STEP_AUTH = 1;
-var STEP_FORM = 2;
-var STEP_WAIT_FOR_NETWORK = 4;
-var STEP_SHOW_RESULT = 16;
+var Form = require('./form/builder/Form.jsx');
+var MultiPageForm = require('./form/builder/MultiPageForm.jsx');
+var SubmitConfirmation = require('./form/SubmitConfirmation.jsx');
 
+var STEP_SENDING_RESULTS = 1;
+var STEP_SHOW_RESULT = 2;
 
 var ClubForm = React.createClass({
   getInitialState: function() {
+    this.clubData = {};
     return {
       progress: 0,
       currentStep: 0,
@@ -62,12 +61,45 @@ var ClubForm = React.createClass({
   },
 
   renderSteps: function() {
-    return [
-      <StepOne key="step1" ref="step1" onChange={this.updateProgress} hidden={this.state.currentStep !== 0 }/>,
-      <StepTwo key="step2" ref="step2" onChange={this.updateProgress} hidden={this.state.currentStep !== 1 }/>,
-      <StepThree key="step3" ref="step3" hidden={this.state.currentStep !== 2 }/>,
-      this.generateButtons()
-    ];
+    if (this.state.step === STEP_SHOW_RESULT) {
+      return <SubmitConfirmation />;
+    }
+
+    var step1 = require('./form/data/step-one');
+    var intent = require('./form/data/intent');
+    var step2generator = require('./form/data/step-two');
+    var step2 = {};
+
+    /*
+      This is a form in two "parts", with the
+      first part being a regular old fieldset
+      that needs to be filled out before the
+      user can move on to the next part, and
+      the second part is a "controlled" form,
+      meaning that the user needs to first
+      fill in one or more fields before they
+      are shown the rest of the form. In our
+      case they need to fill in their intent
+      before we should them the fields for
+      either signing up for a new club, or
+      signing up their existing club into the
+      Mozilla clubs program.
+    */
+
+    step2[intent.start] = step2generator.getStartFields();
+    step2[intent.integrate] = step2generator.getIntegrateFields();
+
+    return (
+      <MultiPageForm
+        submitting={this.state.submitting}
+        formdata={[
+          step1,
+          [ intent.fields, step2 ],
+        ]}
+        onProgress={this.updateProgress}
+        onSubmit={this.submitForm}
+      />
+    );
   },
 
   renderLoginRequest: function() {
@@ -83,134 +115,64 @@ var ClubForm = React.createClass({
     );
   },
 
-  generateButtons: function() {
-    if (this.state.currentStep === 2) {
-      return null;
-    }
-
-    var buttons = [];
-
-    if (this.state.currentStep > 0) {
-      buttons.push(
-        <button key={'back'} className="back btn" disabled={this.state.submitting} onClick={!this.state.submitting && this.prevStep}>Back</button>
-      );
-    }
-
-    var buttonClass = 'btn';
-    var buttonLabel = 'Next';
-
-    if (this.state.currentStep === 1) {
-      buttonLabel = "Submit";
-    }
-    if (this.state.submitting) {
-      buttonClass += ' submitting';
-      buttonLabel = 'Submitting...';
-    }
-
-    buttons.push(
-      <button key={'continue'} className={buttonClass} disabled={this.state.submitting} onClick={!this.state.submitting && this.nextStep}>{buttonLabel}</button>
-    );
-
-    return (
-      <div key="buttons" className="proceed">
-        <div>{buttons}</div>
-        { (this.state.currentStep < 2) ? <ProgressBar value={this.state.progress}/> : null }
-      </div>
-    );
+  updateProgress: function(progress) {
+    // we do not currently render the progress
   },
 
-  updateProgress: function() {
-    var r1 = this.refs.step1;
-    var r2 = this.refs.step2;
-
-    if (!r1 || !r2) {
-      return 0;
-    }
-
-    var total = r1.getTotal() + r2.getTotal();
-    var filled = r1.getFilled() + r2.getFilled();
-    var percent = (100*filled/total) | 0;
-
-    this.setState({ progress: percent });
-  },
-
-  prevStep: function() {
-    this.setState({
-      currentStep: Math.max(this.state.currentStep - 1, 0)
-    });
-  },
-
-  nextStep: function() {
-    var refname = 'step' + (this.state.currentStep+1);
-    var curRef = this.refs[refname];
-    var validates = curRef.validates();
-
-    if (validates) {
-      var nextStep = Math.min(this.state.currentStep + 1, 2);
-      var goToNext = function() {
-        this.setState({ currentStep: nextStep });
-      }.bind(this);
-
-      if (this.state.currentStep === 1) {
-        this.submitForm(goToNext);
-      } else {
-        goToNext();
-      }
-    }
-  },
-
-  submitForm: function(next) {
+  submitForm: function(formData) {
     var teachAPI = this.props.teachAPI;
+    var clubState = formData;
 
-    // new form data as object
-
-    var clubState = this.getClubData();
+    // Massage the form data a little so that it matches the
+    // model that we use in the TeachAPI.
 
     clubState.longitude = clubState.location.longitude;
     clubState.latitude = clubState.location.latitude;
     clubState.location = clubState.location.location;
 
-    // send to Teach-API and wait for response via the callback
-    var networkHandler = this.handleNetworkResult;
+    var freq = clubState.frequency;
+
+    if (freq === 'Other') { freq = clubState.frequencyOther; }
+
+    clubState.frequency = freq;
+
+    var age = clubState.ageRange.join(', ');
+
+    if (clubState.ageRange.indexOf('Other')) {
+      age = age.replace('Other', 'Other: ' + clubState.ageRangeOther);
+    }
+
+    clubState.age_range = age;
+
+    clubState.club_size = clubState.clubSize;
+    clubState.member_occupation = clubState.audienceType;
+    clubState.club_topics = clubState.meetingSubjects;
+
+    console.log(clubState);
 
     this.setState({
       submitting: true,
-      step: this.STEP_WAIT_FOR_NETWORK,
       networkError: false,
-    }, function() {
-      teachAPI.addClub(clubState, function(err, data) {
-        networkHandler(err, data, next);
+      step: STEP_SENDING_RESULTS
+    }, () => {
+      teachAPI.addClub(clubState, (err, data) => {
+        if (err) {
+          this.setState({
+            submitting: false,
+            networkError: !!err,
+            result: err ? null : data
+          });
+        } else {
+          this.setState({
+            submitting: false,
+            step: STEP_SHOW_RESULT,
+            result: data
+          });
+        }
       });
     });
-  },
-
-  handleNetworkResult: function(err, data, next) {
-    if (err) {
-      // FIXME: TODO: we can deal with this more gracefully
-      console.log("handleNetworkResult", err, data);
-    }
-
-    this.setState({
-      networkError: !!err,
-      step: err ? this.STEP_FORM : this.STEP_SHOW_RESULT,
-      result: err ? null : data
-    }, function() {
-      if (!err) {
-        next();
-      }
-    });
-  },
-
-  getClubData: function() {
-    var r1 = this.refs.step1;
-    var r2 = this.refs.step2;
-
-    if (!r1 || !r2) {
-      return 0;
-    }
-
-    return Object.assign({}, r1.getClubData(), r2.getClubData());
   }
 });
+
 
 module.exports = withTeachAPI(ClubForm);
