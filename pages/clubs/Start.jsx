@@ -8,7 +8,6 @@ var Start = React.createClass({
     intl: React.PropTypes.object
   },
   render: function () {
-
     var carouselData = [{
       image: '/img/pages/clubs/club-captains/isisipho.png',
       caption: this.context.intl.formatMessage({id: 'captain_quote_isisipho_message'}),

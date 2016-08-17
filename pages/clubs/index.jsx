@@ -18,6 +18,9 @@ var ClubsGuides = React.createClass({
     pageClassName: 'clubs-guides',
     pageTitle: 'Clubs Guides & Resources'
   },
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
   showApplication: function(){
     this.setState({
       showApplication: true
@@ -34,6 +37,9 @@ var ClubsGuides = React.createClass({
         <HeroUnit>
           <h1>Mozilla Clubs</h1>
           <h2>Local groups that read, write, and participate on the web</h2>
+          <div className="single-button hero-button">
+            <a className="btn" onClick={this.showApplication} href="#">{this.context.intl.formatMessage({id: 'apply_to_be_captain_link'})}</a>
+          </div>
         </HeroUnit>
         <div className="inner-container">
           <TabSwitcher initialTab={'about'}>
