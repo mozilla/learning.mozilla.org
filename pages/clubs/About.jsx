@@ -98,8 +98,8 @@ var ElementsOfClub = React.createClass({
          </li>
          <li>
            <div className="image clubs-plan"></div>
-           <h1>{this.context.intl.formatMessage({id: 'recruit_memebers_title'})}</h1>
-           <p>{this.context.intl.formatMessage({id: 'recruit_memebers_message'})}</p>
+           <h1>{this.context.intl.formatMessage({id: 'develop_plan_title'})}</h1>
+           <p>{this.context.intl.formatMessage({id: 'develop_plan_message'})}</p>
            <a className="secondary-button" href="https://iteachtheweb.files.wordpress.com/2015/11/typical-session1.pdf">{this.context.intl.formatMessage({id: 'see_example_link'})}</a>
          </li>
        </ul>
