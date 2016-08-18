@@ -15,7 +15,6 @@ var Footer = React.createClass({
       <footer role="contentinfo" className={this.props.className}>
         <ul>
           <div>
-            <li><Link to={"/" + this.context.intl.locale + "/about"}><FormattedMessage id='about' defaultMessage="About" /></Link></li>
             <li><OutboundLink to={config.HIVE_LEARNING_NETWORKS_URL} eventLabel={config.HIVE_LEARNING_NETWORKS_URL}><FormattedMessage id='hive' defaultMessage="Hive" /></OutboundLink></li>
             <li><a href={config.TWITTER_LINK}><FormattedMessage id='twitter' defaultMessage="Twitter" /></a></li>
           </div>

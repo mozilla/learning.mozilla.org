@@ -33,8 +33,8 @@ footer {
   li {
     display: inline-block;
   }
-  li:not(:nth-child(3n+3)) {
-    &:after {
+  li + li {
+    &:before {
       content: "|";
       display: inline-block;
       color: rgba(255, 255, 255, 0.4);
