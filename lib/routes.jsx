@@ -19,7 +19,6 @@ if (Object.keys(locales).length === 0) {
  * Our base routes
  */
 var pages = {
-  'about': require('../pages/about.jsx'),
   'activities': require('../pages/activities.jsx'),
   'activities/intermediate-web-lit': require('../pages/intermediate-web-lit.jsx'),
   'activities/intermediate-web-lit-two': require('../pages/intermediate-web-lit-two.jsx'),
