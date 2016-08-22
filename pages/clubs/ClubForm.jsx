@@ -134,7 +134,7 @@ var ClubForm = React.createClass({
   nextStep: function() {
     var refname = 'step' + (this.state.currentStep+1)
     var curRef = this.refs[refname];
-    var validates = true; //curRef.validates();
+    var validates = curRef.validates();
     if (validates) {
       var nextStep = Math.min(this.state.currentStep + 1, 2);
       var goToNext = function() {
