@@ -47,8 +47,13 @@ var Page = React.createClass({
   getCurrentClassName: function() {
     var handler = this.getCurrentPageHandler(),
         className = handler.pageClassName || ``;
-
     return className;
+  },
+
+  getSidebarVisibilityClassName: function() {
+    if(this.context.intl.locale !== `en-US`){
+      return `sidebar-hidden`;
+    }
   },
 
   showModal: function(modalClass, modalProps) {
@@ -142,8 +147,8 @@ var Page = React.createClass({
       currentPath = config.ORIGIN + window.location.pathname;
     }
 
-    var pageClassName = this.getCurrentClassName(),
-        className = "page container-fluid " + pageClassName;
+    var pageClassName = `${this.getCurrentClassName()} ${this.getSidebarVisibilityClassName()}`;
+    var className = "page container-fluid " + pageClassName;
 
     return (
       <div>
