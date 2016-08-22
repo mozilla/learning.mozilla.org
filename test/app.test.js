@@ -4,6 +4,7 @@ var should = require('should');
 var request = require('supertest');
 
 var indexStatic = require('./index-static-singleton');
+var indexRebuildTimeout = indexStatic.indexRebuildTimeout;
 var app = require('../app');
 
 describe('app', function() {
@@ -23,12 +24,23 @@ describe('app', function() {
   });
 
   it('returns 200 at all public HTML pages', function(done) {
-    this.timeout(100000);
+    this.timeout(indexRebuildTimeout);
 
     var redirects = Object.keys(indexStatic.get().REDIRECTS);
-    var urls = indexStatic.get().URLS.filter(function(route) {
+    var urls = indexStatic.get().URLS;
+
+    // remove all locales except for en-US
+    urls = urls.filter(function(route) {
+      return route.indexOf('en-US') !== -1;
+    });
+
+    // remove any redirects
+    urls = urls.filter(function(route) {
       return redirects.indexOf(route) === -1;
-    }).map(function(url) {
+    })
+
+    // ensure leading and trailing slash, except for the root route
+    urls = urls.map(function(url) {
       if (url === '/') return '/';
       return '/' + url + '/';
     });
@@ -55,7 +67,7 @@ describe('app', function() {
   });
 
   it('serves static files', function(done) {
-    this.timeout(10000);
+    this.timeout(indexRebuildTimeout);
 
     var filename = path.join(app.DIST_DIR, 'hi.txt');
     var str = 'hi ' + Date.now();
@@ -108,7 +120,7 @@ describe('app', function() {
   });
 
   it('reports 404s without redirecting when given a locale', function(done) {
-    this.timeout(10000);
+    this.timeout(indexRebuildTimeout);
     request(app)
       .get('/en-US/asdfasdfasdf')
       .expect(404)
