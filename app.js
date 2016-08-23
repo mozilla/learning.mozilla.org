@@ -103,7 +103,7 @@ if (!fs.existsSync(DIST_DIR)) {
       'https://www.google.com',
       'https://s.ytimg.com',
       'https://www.mozilla.org',
-      'https://goggles.mofostaging.org',
+      'https://goggles.mofostaging.net',
       'https://goggles.mozilla.org'
     ],
     fontSrc: [
