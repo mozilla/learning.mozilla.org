@@ -18,7 +18,7 @@
   "scripts": {
     "app": "npm run l10n && gulp app",
     "build": "gulp",
-    "l10n": "pontoon-to-json",
+    "l10n": "node pontoon-test.js",
     "cleanup": "rm -rf dist && npm run l10n",
     "preapp": "npm run cleanup",
     "prebuild": "npm run cleanup",
@@ -82,6 +82,8 @@
     "mozilla-tabzilla": "^0.5.1",
     "object-assign": "^4.1.0",
     "pontoon-to-json": "^1.0.0",
+    "properties-parser": "0.3.1",
+    "q-io": "1.13.2",
     "react": "^0.14.0",
     "react-addons-linked-state-mixin": "^0.14.3",
     "react-addons-pure-render-mixin": "^0.14.3",

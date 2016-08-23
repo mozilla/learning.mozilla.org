@@ -1,6 +1,8 @@
 var indexStaticWatcher = require('../lib/build/index-static-watcher').create();
 
 var indexStatic;
+var indexRebuildTimeout = 60000;
+
 
 exports.get = function() {
   if (!indexStatic) {
@@ -10,10 +12,12 @@ exports.get = function() {
 };
 
 exports.build = function(done) {
-  this.timeout(60000);
+  this.timeout(indexRebuildTimeout);
   indexStaticWatcher.build(function(err, newIndexStatic) {
     if (err) return done(err);
     indexStatic = newIndexStatic;
     done();
   });
 };
+
+exports.indexRebuildTimeout = indexRebuildTimeout;
