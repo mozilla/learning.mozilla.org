@@ -16,7 +16,7 @@ var ModalEmail = React.createClass({
             <h3><FormattedMessage id='get_email_update' /></h3>
             <EmailSignupForm idPrefix="email-form-" sourceUrl={this.props.sourceUrl} />
           </Modal>
-        )
+        );
     }
 });
 

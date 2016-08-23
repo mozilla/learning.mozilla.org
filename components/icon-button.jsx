@@ -19,13 +19,13 @@ var LinkSwap = React.createClass({
         <Link to={"/" + this.context.intl.locale + this.props.link} {...otherProps}>
           {this.props.children}
         </Link>
-      )
+      );
     }
     return (
       <a href={this.props.href} {...otherProps}>
         {this.props.children}
       </a>
-    )
+    );
   }
 });
 

@@ -667,7 +667,7 @@
 
     return Formatio.prototype;
 });
-!function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.lolex=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+!function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.lolex=e();}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f;}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e);},l,l.exports,e,t,n,r);}return n[o].exports;}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s;})({1:[function(require,module,exports){
 (function (global){
 /*jslint eqeqeq: false, plusplus: false, evil: true, onevar: false, browser: true, forin: false*/
 /*global global*/
@@ -993,7 +993,7 @@ var createClock = exports.createClock = function (now) {
         // in Node, timerId is an object with .ref()/.unref(), and
         // its .id field is the actual timer id.
         if (typeof timerId === "object") {
-            timerId = timerId.id
+            timerId = timerId.id;
         }
         if (timerId in clock.timers) {
             delete clock.timers[timerId];
@@ -1091,8 +1091,8 @@ exports.install = function install(target, now, toFake) {
     return clock;
 };
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}]},{},[1])(1)
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {});
+},{}]},{},[1])(1);
 });
   })();
   var define;
@@ -1106,7 +1106,6 @@ exports.install = function install(target, now, toFake) {
  */
 
 var sinon = (function () {
-"use strict";
 
     var sinon;
     var isNode = typeof module !== "undefined" && module.exports && typeof require === "function";
@@ -1519,7 +1518,7 @@ var sinon = (function () {
                     return "8";
                 },
                 unique: function () {
-                    return "9"
+                    return "9";
                 }
             };
 
@@ -1986,7 +1985,7 @@ var sinon = (function () {
         }
 
         if (formatio) {
-            formatter = getFormatioFormatter()
+            formatter = getFormatioFormatter();
         } else if (isNode) {
             formatter = getNodeFormatter();
         } else {
@@ -4089,7 +4088,7 @@ if (typeof sinon == "undefined") {
         // wrap realSetTimeout with something we can stub in tests
         logError.setTimeout = function (func, timeout) {
             realSetTimeout(func, timeout);
-        }
+        };
 
         var exports = {};
         exports.log = sinon.log = log;
@@ -4208,11 +4207,11 @@ if (typeof sinon == "undefined") {
                     break;
                 case FakeXDomainRequest.DONE:
                     if (this.isTimeout) {
-                        eventName = "ontimeout"
+                        eventName = "ontimeout";
                     } else if (this.errorFlag || (this.status < 200 || this.status > 299)) {
                         eventName = "onerror";
                     } else {
-                        eventName = "onload"
+                        eventName = "onload";
                     }
                     break;
                 }
@@ -4365,7 +4364,7 @@ if (typeof sinon == "undefined") {
     sinonXhr.supportsActiveX = typeof sinonXhr.GlobalActiveXObject != "undefined";
     sinonXhr.supportsXHR = typeof sinonXhr.GlobalXMLHttpRequest != "undefined";
     sinonXhr.workingXHR = sinonXhr.supportsXHR ? sinonXhr.GlobalXMLHttpRequest : sinonXhr.supportsActiveX
-                                     ? function () { return new sinonXhr.GlobalActiveXObject("MSXML2.XMLHTTP.3.0") } : false;
+                                     ? function () { return new sinonXhr.GlobalActiveXObject("MSXML2.XMLHTTP.3.0"); } : false;
     sinonXhr.supportsCORS = sinonXhr.supportsXHR && "withCredentials" in (new sinonXhr.GlobalXMLHttpRequest());
 
     /*jsl:ignore*/
@@ -4434,7 +4433,7 @@ if (typeof sinon == "undefined") {
             load: [],
             abort: [],
             error: []
-        }
+        };
     }
 
     UploadProgress.prototype.addEventListener = function addEventListener(event, listener) {
@@ -4514,7 +4513,7 @@ if (typeof sinon == "undefined") {
 
     FakeXMLHttpRequest.filters = [];
     FakeXMLHttpRequest.addFilter = function addFilter(fn) {
-        this.filters.push(fn)
+        this.filters.push(fn);
     };
     var IE6Re = /MSIE 6/;
     FakeXMLHttpRequest.defake = function defake(fakeXhr, xhrArgs) {
@@ -4538,7 +4537,7 @@ if (typeof sinon == "undefined") {
         var copyAttrs = function (args) {
             each(args, function (attr) {
                 try {
-                    fakeXhr[attr] = xhr[attr]
+                    fakeXhr[attr] = xhr[attr];
                 } catch (e) {
                     if (!IE6Re.test(navigator.userAgent)) {
                         throw e;
@@ -4686,7 +4685,7 @@ if (typeof sinon == "undefined") {
                 if (FakeXMLHttpRequest.useFilters === true) {
                     var xhrArgs = arguments;
                     var defake = some(FakeXMLHttpRequest.filters, function (filter) {
-                        return filter.apply(this, xhrArgs)
+                        return filter.apply(this, xhrArgs);
                     });
                     if (defake) {
                         return FakeXMLHttpRequest.defake(this, arguments);
@@ -5828,7 +5827,7 @@ if (typeof sinon == "undefined") {
                         "expected value to match",
                         "    expected = " + sinon.format(expectation),
                         "    actual = " + sinon.format(actual)
-                    ]
+                    ];
                     failAssertion(this, formatted.join("\n"));
                 }
             }

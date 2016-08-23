@@ -24,7 +24,7 @@ var BlogSection = React.createClass({
         link: ""
       },
       latestPosts: []
-    }
+    };
   },
   componentDidMount: function() {
     this.props.loadBlogPosts(function(data) {

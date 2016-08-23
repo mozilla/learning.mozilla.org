@@ -63,7 +63,7 @@ var Badge = React.createClass({
         </div>
         { statusElement }
       </div>
-    )
+    );
   }
 });
 

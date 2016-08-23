@@ -73,7 +73,7 @@ var Page = React.createClass({
     return {
       modalClass: null,
       modalProps: null
-    }
+    };
   },
 
   reset: function() {

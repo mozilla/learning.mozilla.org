@@ -8,7 +8,7 @@ var server = require('./server').create();
 server.listen(0, function() {
   var baseURL = 'http://localhost:' + server.address().port;
   var mochaPhantomPath = path.join(ROOT_DIR, 'node_modules', 'mocha-phantomjs', 'bin', 'mocha-phantomjs');
-  var cmd = process.execPath
+  var cmd = process.execPath;
   var args = [mochaPhantomPath, baseURL + '/test/'];
   var env = { stdio: [0, 1, 2] };
   var mochaPhantom = require('child_process').spawn(cmd, args, env);

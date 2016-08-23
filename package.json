@@ -17,9 +17,11 @@
   },
   "scripts": {
     "app": "npm run l10n && gulp app",
-    "build": "gulp",
-    "l10n": "pontoon-to-json",
+    "build": "npm run lint && gulp",
     "cleanup": "rm -rf dist && npm run l10n",
+    "l10n": "pontoon-to-json",
+    "lint": "eslint --ext .js --ext .jsx .",
+    "lint:fix": "npm run lint -- --fix",
     "preapp": "npm run cleanup",
     "prebuild": "npm run cleanup",
     "presmoketest": "npm run cleanup",
@@ -28,7 +30,7 @@
     "postinstall": "npm run l10n && gulp postinstall",
     "smoketest": "gulp smoketest",
     "start": "npm run app",
-    "test": "gulp smoketest && npm run test:mocha && npm run test:browser && gulp lint-test",
+    "test": "npm run lint && gulp smoketest && npm run test:mocha && npm run test:browser",
     "test:browser": "node test/browser/run-in-phantom.js",
     "test:mocha": "mocha test/*.test.js",
     "watch": "gulp watch"
@@ -76,7 +78,7 @@
     "minimist": "^1.2.0",
     "mocha": "^2.1.0",
     "mofo-localize": "^0.1.1",
-    "mofo-style": "^1.0.1",
+    "mofo-style": "^2.4.0",
     "mofo-ui": "1.5.1",
     "moment": "^2.10.3",
     "mozilla-tabzilla": "^0.5.1",
@@ -110,6 +112,7 @@
     "webpack-stream": "^3.1.0"
   },
   "devDependencies": {
+    "eslint": "^3.3.1",
     "marked": "^0.3.3",
     "mocha-phantomjs": "^4.0.1",
     "open": "0.0.5",

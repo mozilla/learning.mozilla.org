@@ -11,7 +11,7 @@ var BadgeHorizontalIcon = React.createClass({
         <h2>{ this.props.badge.title }</h2>
         <div>{ this.props.badge.description }</div>
       </div>
-    )
+    );
   }
 });
 

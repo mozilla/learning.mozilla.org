@@ -7,7 +7,7 @@ var HealthcheckMeta = React.createClass({
   getInitialState: function() {
     return {
       rev: ""
-    }
+    };
   },
   componentDidMount: function() {
     this.setState({ rev: document.querySelector('meta[name="git-rev"]').getAttribute('content') });

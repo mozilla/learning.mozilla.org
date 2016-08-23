@@ -35,7 +35,7 @@ var Intro = React.createClass({
           <p>{this.context.intl.formatMessage({id: 'what_are_clubs_message'})}</p>
         </Illustration>
       </section>
-    )
+    );
   }
 });
 
@@ -66,7 +66,7 @@ var WhyOrganize = React.createClass({
          </li>
        </ul>
      </section>
-    )
+    );
   }
 });
 
@@ -104,7 +104,7 @@ var ElementsOfClub = React.createClass({
          </li>
        </ul>
       </section>
-    )
+    );
   }
 });
 
@@ -141,7 +141,7 @@ var FeaturedUpdates = React.createClass({
           </li>
         </ul>
       </section>
-    )
+    );
   }
 });
 

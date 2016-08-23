@@ -58,7 +58,7 @@ describe("HomePage.ModalEmail", function() {
     if (modal) {
       stubContext.unmount(modal);
     }
-  })
+  });
 
   it("renders", function() {
     ReactDOM.findDOMNode(modal).textContent.should.match(/Get Email Updates/i);

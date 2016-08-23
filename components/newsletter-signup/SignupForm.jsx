@@ -71,7 +71,7 @@ var SignupForm = React.createClass({
   },
   render: function() {
     var idPrefix = this.props.idPrefix;
-    var privacy_policy_link = <a href="https://www.mozilla.org/privacy/websites/"><FormattedMessage id="privacy_policy" defaultMessage="privacy policy"/></a>
+    var privacy_policy_link = <a href="https://www.mozilla.org/privacy/websites/"><FormattedMessage id="privacy_policy" defaultMessage="privacy policy"/></a>;
     return (
       <form className="mailinglist-signup" action={process.env.NEWSLETTER_MAILINGLIST_URL} method="POST" onSubmit={this.handleSubmit}>
         <fieldset>
@@ -91,7 +91,7 @@ var SignupForm = React.createClass({
         </fieldset>
         <input type="submit" value={this.context.intl.formatMessage({id: 'sign_up'})} className="btn center-block" />
       </form>
-    )
+    );
   }
 });
 
