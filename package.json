@@ -20,12 +20,10 @@
     "build": "npm run prep && gulp",
     "cleanup": "rm -rf dist && npm run l10n",
     "l10n": "pontoon-to-json",
-
     "less": "lessc less/index.less dist/styles.css --source-map=dist/styles.css.map --clean-css=\"--s0\"",
     "lint": "eslint --ext .js --ext .jsx .",
     "lint:fix": "npm run lint -- --fix",
-    "prep": "npm run cleanup && npm run lint && npm run less",
-
+    "prep": "npm run cleanup && npm run lint && npm run less && npm run webpack",
     "preapp": "npm run cleanup",
     "prebuild": "npm run cleanup",
     "presmoketest": "npm run cleanup",
@@ -37,7 +35,9 @@
     "test": "npm run prep && gulp smoketest && npm run test:mocha && npm run test:browser",
     "test:browser": "node test/browser/run-in-phantom.js",
     "test:mocha": "mocha test/*.test.js",
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+    "webpack": "webpack --config ./config/webpack.config.js --progress --colors",
+    "webpack:dev": "webpack-dev-server --config ./config/webpack.config.js --progress --colors --watch"
   },
   "dependencies": {
     "babel-cli": "^6.11.4",
@@ -118,7 +118,8 @@
     "mocha-phantomjs": "^4.0.1",
     "open": "0.0.5",
     "simplecrawler": "^0.5.2",
-    "supertest": "^1.0.1"
+    "supertest": "^1.0.1",
+    "webpack-dev-server": "^1.15.0"
   },
   "private": true
 }

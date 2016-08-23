@@ -9,11 +9,7 @@ var WATCH_DELAY = require('./shared/watch.delay.js');
 
 module.exports = function(gulp) {
 
-  gulp.task('app', _.without(MINIMAL_BUILD_TASKS, 'webpack').concat([
-    'watch-webpack',
-    'watch-static-files',
-    'watch-non-reloadable-files'
-  ]), function() {
+  gulp.task('app', MINIMAL_BUILD_TASKS, function() {
     developerHelp();
 
     indexStaticWatcher.watch(WATCH_DELAY, function(newIndexStatic) {
