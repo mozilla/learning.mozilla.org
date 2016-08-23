@@ -31,7 +31,9 @@
     "test": "gulp smoketest && npm run test:mocha && npm run test:browser && gulp lint-test",
     "test:browser": "node test/browser/run-in-phantom.js",
     "test:mocha": "mocha test/*.test.js",
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+
+    "start:prod": "npm run build -- --deploy && node app.js"
   },
   "dependencies": {
     "babel-cli": "^6.11.4",
