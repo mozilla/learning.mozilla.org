@@ -16,12 +16,16 @@
     "node": "^4.4.1"
   },
   "scripts": {
-    "app": "npm run l10n && gulp app",
-    "build": "npm run lint && gulp",
+    "app": "npm run prep && npm run l10n && gulp app",
+    "build": "npm run prep && gulp",
     "cleanup": "rm -rf dist && npm run l10n",
     "l10n": "pontoon-to-json",
+
+    "less": "lessc less/index.less dist/styles.css --source-map=dist/styles.css.map --clean-css=\"--s0\"",
     "lint": "eslint --ext .js --ext .jsx .",
     "lint:fix": "npm run lint -- --fix",
+    "prep": "npm run cleanup && npm run lint && npm run less",
+
     "preapp": "npm run cleanup",
     "prebuild": "npm run cleanup",
     "presmoketest": "npm run cleanup",
@@ -30,7 +34,7 @@
     "postinstall": "npm run l10n && gulp postinstall",
     "smoketest": "gulp smoketest",
     "start": "npm run app",
-    "test": "npm run lint && gulp smoketest && npm run test:mocha && npm run test:browser",
+    "test": "npm run prep && gulp smoketest && npm run test:mocha && npm run test:browser",
     "test:browser": "node test/browser/run-in-phantom.js",
     "test:mocha": "mocha test/*.test.js",
     "watch": "gulp watch"
@@ -53,9 +57,6 @@
     "gulp-autoprefixer": "^3.1.0",
     "gulp-gzip": "^1.0.0",
     "gulp-if": "^2.0.0",
-    "gulp-jscs": "^3.0.2",
-    "gulp-jshint": "^2.0.0",
-    "gulp-less": "^3.0.1",
     "gulp-minify-css": "^1.0.0",
     "gulp-plumber": "^1.0.1",
     "gulp-rename": "^1.2.0",
@@ -68,9 +69,7 @@
     "imports-loader": "^0.6.3",
     "intl": "^1.2.4",
     "intl-locales-supported": "^1.0.0",
-    "jshint": "^2.8.0",
     "json-loader": "^0.5.1",
-    "jsx-loader": "^0.13.2",
     "leaflet.markercluster": "^0.4.0",
     "mapbox.js": "^2.1.5",
     "merge-stream": "^1.0.0",
@@ -113,6 +112,8 @@
   },
   "devDependencies": {
     "eslint": "^3.3.1",
+    "less": "^2.7.1",
+    "less-plugin-clean-css": "^1.5.1",
     "marked": "^0.3.3",
     "mocha-phantomjs": "^4.0.1",
     "open": "0.0.5",
