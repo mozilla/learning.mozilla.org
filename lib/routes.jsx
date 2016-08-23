@@ -20,6 +20,7 @@ if (Object.keys(locales).length === 0) {
  */
 var pages = {
   'activities': require('../pages/activities.jsx'),
+  'activities/next-prez': require('../pages/next-prez.jsx'),
   'activities/intermediate-web-lit': require('../pages/intermediate-web-lit.jsx'),
   'activities/intermediate-web-lit-two': require('../pages/intermediate-web-lit-two.jsx'),
   'activities/madewithcode': require('../pages/madewithcode.jsx'),
