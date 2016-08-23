@@ -63,6 +63,7 @@ module.exports = {
       "LOGIN_EMULATION_LOGGEDOUT",
       "LOGIN_EMULATION_USERNAME"
     ])),
+    
     new webpack.optimize.CommonsChunkPlugin('commons',
                                             'commons.bundle.js')
   ].concat(
