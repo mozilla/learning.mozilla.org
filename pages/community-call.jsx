@@ -61,7 +61,7 @@ var CommunityCallPage = React.createClass({
               <p className="date">October 13, 2016</p>
               <h2>Ada Lovelace Day</h2>
               <p>
-                Join the Mozilla Learning and Mozilla Science teams to celebrate Ada Lovelace Day and women around the globe who are making a difference in science, web literacy and beyond.
+                Join the Mozilla Learning and Mozilla Science teams to celebrate <LinkAnchorSwap to="http://findingada.com">Ada Lovelace Day</LinkAnchorSwap> and women around the globe who are making a difference in science, web literacy and beyond.
               </p>  
             </li>
           </ul>
