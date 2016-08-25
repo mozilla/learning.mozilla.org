@@ -67,7 +67,7 @@ var curriculumList = [
         originalImgSrc: "http://res.freestockphotos.biz/pictures/9/9201-blurred-colored-lights-pv.jpg",
         caption: "CC0, Petr Kratochvil",
         subtitle: "Coding/Scripting, Composing, Design",
-        description: "Learners will search for webfonts to include in a webpage, matching the mood, purpose, tone and voice of the page while learning about <strong>coding</strong>, <strong>composing</strong>, and <strong>design</strong>.",
+        description: "Learners will position, size, and color circular div elements while learning about <strong>coding</strong>, <strong>composing</strong>, and <strong>design</strong>.",
         link: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/intermediate-web-lit-css-one-migrated/session03-css-circles.html"
       },
       {
@@ -76,7 +76,7 @@ var curriculumList = [
         originalImgSrc: "http://chadsansing.github.io/curriculum-testing/intermediate-web-lit-two/blocks.png",
         caption: "CC0, Counseling",
         subtitle: "Coding/Scripting, Composing, Design",
-        description: "Learners will search for webfonts to include in a webpage, matching the mood, purpose, tone and voice of the page while learning about <strong>coding</strong>, <strong>composing</strong>, and <strong>design</strong>.",
+        description: "Learners will position, size, and color rectangular div elements while learning about the “box model” and web literacy skills like <strong>coding</strong>, <strong>composing</strong>, and <strong>design</strong>.",
         link: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/intermediate-web-lit-css-one-migrated/session04-css-building-blocks.html"
       },
       {
