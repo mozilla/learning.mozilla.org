@@ -195,7 +195,7 @@ var StepTwo = React.createClass({
       }
 
       <fieldset>
-        <div className="pledge"><input className={this.error('pledgeAgreement')} type="checkbox" checked={this.state.pledgeAgreement} onChange={this.updatePledgeAgreement}/> I agree to the <a target="_blank" href="http://soapdog.github.io/your-first-month-as-a-club-captain-guide/#mozilla-club-captain-pledge">Mozilla Club Captain Pledge</a>.</div>
+        <div className="pledge"><input className={this.error('pledgeAgreement')} type="checkbox" checked={this.state.pledgeAgreement} onChange={this.updatePledgeAgreement}/> I agree to the <a target="_blank" href="http://mozilla.github.io/learning-networks/clubs/pledge/#introduction">Mozilla Club Captain Pledge</a>.</div>
       </fieldset>
 
       { this.renderValidationErrors() }
