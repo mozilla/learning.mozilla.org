@@ -20,7 +20,7 @@ var IconLinks = React.createClass({
                       "col-sm-4 col-md-4 col-lg-4";
             return(
               <div className={classes} key={i}>{link}</div>
-            )
+            );
           })
         }
       </div>

@@ -17,4 +17,4 @@ exports.ensureLabelLinkage = function (component, id) {
 
   if (label.textContent.trim() == 0)
     throw new Error('empty label found for id ' + id);
-}
+};

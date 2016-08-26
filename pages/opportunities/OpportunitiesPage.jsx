@@ -17,7 +17,7 @@ var OpportunitiesPage = React.createClass({
   render: function(){
     var formatMessage = this.context.intl.formatMessage;
     var twitterHandle = config.TWITTER_HANDLE;
-    var ourTwitterHandle = formatMessage({id: 'ourTwitterHandle'}, {twitterHandle: twitterHandle})
+    var ourTwitterHandle = formatMessage({id: 'ourTwitterHandle'}, {twitterHandle: twitterHandle});
     return (
       <div>
         <HeroUnit>

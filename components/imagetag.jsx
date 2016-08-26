@@ -31,7 +31,7 @@ var ImageTag = React.createClass({
     var content = image;
     if (this.props.link) {
       if (this.props.externalLink) {
-        content = <OutboundLink to={this.props.link} eventLabel={this.props.link}>{ image }</OutboundLink>
+        content = <OutboundLink to={this.props.link} eventLabel={this.props.link}>{ image }</OutboundLink>;
       } else {
         content = <a href={this.props.link}>{ image }</a>;
       }

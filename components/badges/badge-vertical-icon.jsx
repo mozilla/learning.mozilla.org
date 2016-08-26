@@ -16,7 +16,7 @@ var BadgeVerticalIcon = React.createClass({
           }
         </div>
       </div>
-    )
+    );
   }
 });
 

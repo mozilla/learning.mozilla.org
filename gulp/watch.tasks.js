@@ -5,7 +5,6 @@ var config = require('../config/config');
 var developerHelp = require('../lib/build/developer-help');
 var gutil = require('gulp-util');
 var IMG_FILE_TYPES = require('./shared/image.file.types.js');
-var LESS_FILES = require('./shared/less.files.js');
 var staticServer = require('../test/browser/server');
 var WATCH_DELAY = require('./shared/watch.delay.js');
 
@@ -57,7 +56,6 @@ module.exports = function(gulp) {
         .pipe(gulp.dest('./dist'));
     });
 
-    gulp.watch(LESS_FILES, ['less']);
 
     staticServer.create().listen(config.DEV_SERVER_PORT, function() {
       gutil.log('Server defined by [test/browser/server.js] listening at ' +

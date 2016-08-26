@@ -44,7 +44,7 @@ var partiesList =  [
 var parties = partiesList.map(function(party) {
   return(
     <MakerPartyExample {...party} key={party.title} />
-  )
+  );
 });
 
 module.exports = <div>{parties}</div>;

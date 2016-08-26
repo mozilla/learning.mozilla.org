@@ -37,7 +37,7 @@ describe('app', function() {
     // remove any redirects
     urls = urls.filter(function(route) {
       return redirects.indexOf(route) === -1;
-    })
+    });
 
     // ensure leading and trailing slash, except for the root route
     urls = urls.map(function(url) {

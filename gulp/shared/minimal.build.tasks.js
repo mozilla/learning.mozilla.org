@@ -1,1 +1,1 @@
-module.exports = ['copy-static-files', 'less', 'webpack'];
+module.exports = ['copy-static-files', 'webpack'];

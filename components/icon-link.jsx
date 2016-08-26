@@ -34,7 +34,7 @@ var Subhead = React.createClass({
       <div className="subhead">{content}</div>
     );
   }
-})
+});
 
 
 var IconLink = React.createClass({
