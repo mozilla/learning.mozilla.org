@@ -32,7 +32,7 @@ var RequirementsList = React.createClass({
         var icon = this.props.icon ? this.props.icon : 'fa fa-check';
         var listItems = this.props.list.map(function(item, position) {
             if (item){
-                return <RequirementRow key={position + '-' + item} icon={icon} text={item} />
+                return <RequirementRow key={position + '-' + item} icon={icon} text={item} />;
             }
             return null;
         });

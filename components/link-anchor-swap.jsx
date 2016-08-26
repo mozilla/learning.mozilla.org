@@ -14,9 +14,9 @@ var LinkAnchorSwap = React.createClass({
   render: function() {
     var linkedContent = this.props.children || this.props.name;
     if (this.isExternalLink()) {
-      return <OutboundLink {...this.props} eventLabel={this.props.to}>{linkedContent}</OutboundLink>
+      return <OutboundLink {...this.props} eventLabel={this.props.to}>{linkedContent}</OutboundLink>;
     }
-    return <Link {...this.props} to={this.getLocalizedTo()} onClick={this.handleClick}>{linkedContent}</Link>
+    return <Link {...this.props} to={this.getLocalizedTo()} onClick={this.handleClick}>{linkedContent}</Link>;
   },
 
   isExternalLink: function() {
@@ -32,7 +32,7 @@ var LinkAnchorSwap = React.createClass({
 
   // preprocess a <link> click
   handleClick: function(e) {
-    this.checkForReset(e)
+    this.checkForReset(e);
     this.scrollToTop();
   },
 

@@ -55,25 +55,6 @@ var urlToRoutePath = function(loc) {
   return loc;
 };
 
-var startProdApp = function() {
-  console.log([
-    'Production mode enabled. Note that "npm install" is assumed to',
-    'have recently been run with NODE_ENV="production". If this is not',
-    'the case, some or all static assets may be out of date.'
-  ].join('\n'));
-  indexStaticWatcher.build(function(err, newIndexStatic) {
-    if (err) {
-      throw err;
-    }
-
-    console.log('Built server-side bundle.');
-    updateIndexStatic(newIndexStatic);
-    app.listen(PORT, function() {
-      console.log('Listening on port', PORT);
-    });
-  });
-};
-
 var updateIndexStatic = function(newIndexStatic) {
   indexStatic = newIndexStatic;
   router = indexStatic ? React.createElement(Router, {routes: indexStatic.routes}) : null;
@@ -292,16 +273,27 @@ app.DIST_DIR = DIST_DIR;
 app.updateIndexStatic = updateIndexStatic;
 module.exports = app;
 
+// FIXME: TODO: clean up the whole indexStatic mess
+var startProdApp = function() {
+  console.log([
+    'Production mode enabled. Note that "npm install" is assumed to',
+    'have recently been run with NODE_ENV="production". If this is not',
+    'the case, some or all static assets may be out of date.'
+  ].join('\n'));
+  indexStaticWatcher.build(function(err, newIndexStatic) {
+    if (err) {
+      throw err;
+    }
+
+    console.log('Built server-side bundle.');
+    updateIndexStatic(newIndexStatic);
+    app.listen(PORT, function() {
+      console.log('Listening on port', PORT);
+    });
+  });
+};
+
 if (!module.parent) {
   console.log('Initializing server.');
-
-  if (PRODUCTION) {
-    startProdApp();
-  } else {
-    console.log([
-      'This server can only be run as a script when NODE_ENV="production".',
-      'To run it in development mode, please use "npm run app".'
-    ].join('\n'));
-    process.exit(1);
-  }
+  startProdApp();
 }

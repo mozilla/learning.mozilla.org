@@ -74,7 +74,7 @@ var CredlyLinkForm = React.createClass({
 
         <input type="submit" disabled={!enabled} className="btn btn-awsm center-block" onClick={this.handleSubmit} value="Link accounts"/>
       </div>
-    )
+    );
   }
 });
 

@@ -4,7 +4,7 @@ var Running = React.createClass({
   getInitialState: function(){
     return {
       guides : []
-    }
+    };
   },
   contextTypes: {
     intl: React.PropTypes.object

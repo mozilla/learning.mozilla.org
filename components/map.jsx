@@ -376,7 +376,7 @@ var Map = React.createClass({
       <div className={className}>
         <div ref="map"></div>
       </div>
-    )
+    );
   }
 });
 

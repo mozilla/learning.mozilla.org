@@ -93,7 +93,7 @@ var ClubForm = React.createClass({
       );
     }
 
-    var buttonClass = 'btn'
+    var buttonClass = 'btn';
     var buttonLabel = 'Next';
     if (this.state.currentStep === 1) {
       buttonLabel = "Submit";
@@ -132,7 +132,7 @@ var ClubForm = React.createClass({
   },
 
   nextStep: function() {
-    var refname = 'step' + (this.state.currentStep+1)
+    var refname = 'step' + (this.state.currentStep+1);
     var curRef = this.refs[refname];
     var validates = curRef.validates();
     if (validates) {
@@ -166,7 +166,7 @@ var ClubForm = React.createClass({
       networkError: false,
     }, function() {
       teachAPI.addClub(clubState, function(err, data) {
-       networkHandler(err, data, next)
+       networkHandler(err, data, next);
       });
     });
   },

@@ -25,7 +25,7 @@ var Intro = React.createClass({
           </Illustration>
         </section>
       </div>
-    )
+    );
   }
 });
 
@@ -47,7 +47,7 @@ var OurFocus = React.createClass({
           </ul>
         </Illustration>
       </section>
-    )
+    );
   }
 });
 
@@ -64,7 +64,7 @@ var OurGoal = React.createClass({
       </p>
       <div className="horizontal-divider"></div>
     </section>
-    )
+    );
   }
 });
 
@@ -98,7 +98,7 @@ var IconLinksSets = React.createClass({
           highlightedText={this.context.intl.formatMessage({id: 'discourse_forum'})}
         />
       </IconLinks>
-    )
+    );
   }
 });
 
