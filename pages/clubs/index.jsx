@@ -12,7 +12,7 @@ var ClubsGuides = React.createClass({
   getInitialState: function(){
     return {
       showApplication: false
-    }
+    };
   },
   statics: {
     pageClassName: 'clubs-guides',
@@ -30,7 +30,7 @@ var ClubsGuides = React.createClass({
     if(this.state.showApplication) {
       return (
         <ClubForm currentPath={this.props.currentPath}></ClubForm>
-      )
+      );
     }
     return (
       <div>

@@ -46,7 +46,7 @@ var ToolsSection = React.createClass({
           })}
         </div>
       </section>
-    )
+    );
   }
 });
 

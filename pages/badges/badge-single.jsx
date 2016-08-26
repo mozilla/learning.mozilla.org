@@ -1,5 +1,3 @@
-'use strict';
-
 var React = require('react'),
     Link = require('react-router').Link,
     LoginLink = require('../../components/login/LoginLink.jsx'),
@@ -331,7 +329,7 @@ var BadgePage = React.createClass({
             {
               (this.state.evidenceFiles && this.state.evidenceFiles.length > 0) ?
               this.state.evidenceFiles.map(function(e) {
-                return <span className="attached">{e.name} <span className="fa fa-times" onClick={removeAttachment(e.name)}/></span>
+                return <span className="attached">{e.name} <span className="fa fa-times" onClick={removeAttachment(e.name)}/></span>;
               }) : null
             }
           </fieldset>

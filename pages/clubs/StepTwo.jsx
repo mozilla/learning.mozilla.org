@@ -10,7 +10,7 @@ var startlabels = {
   clubSize: "What is the size of your club?",
   audienceType: "What occupations will your audience have?",
   meetingSubjects: "What topics/subjects will you teach?"
-}
+};
 
 var integrateLabels = {
   clubName: "Name of your existing program",
@@ -21,7 +21,7 @@ var integrateLabels = {
   clubSize: "What is the size of your club?",
   audienceType: "What occupations does your audience have?",
   meetingSubjects: "What topics/subjects do you teach?"
-}
+};
 
 var labels = {
   start: startlabels,
@@ -39,7 +39,7 @@ var progressFields = [
   "audienceType",
   "meetingSubjects",
   "pledgeAgreement"
-]
+];
 
 var StepTwo = React.createClass({
   getInitialState: function() {
