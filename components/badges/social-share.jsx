@@ -10,7 +10,7 @@ var SocialShareButton = React.createClass({
       <button type="button" className={"btn icon-only btn-social " + this.props.networkType } onClick={this.handleClick}>
         <span className={this.props.iconClassName} />
       </button>
-    )
+    );
   },
   handleClick: function(evt) {
     alert("this button does not do anything quite yet.");
@@ -29,7 +29,7 @@ var SocialShare = React.createClass({
   render : function () {
     var networks = SocialShare.SOCIAL_NETWORKS;
     var buttons = Object.keys(networks).map(function(network) {
-      return <SocialShareButton key={network} networkType={network} iconClassName={networks[network]} />
+      return <SocialShareButton key={network} networkType={network} iconClassName={networks[network]} />;
     });
     return <div className="social-share-wrapper">{ buttons }</div>;
   }

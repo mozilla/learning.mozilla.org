@@ -40,7 +40,7 @@ describe("Newsletter Signup Form", function() {
 
   afterEach(function() {
     stubContext.unmount(signupForm);
-  })
+  });
 
   it("has valid labels", function() {
     Util.ensureLabelLinkage(signupForm, signupFormIdPrefix + 'email');

@@ -70,7 +70,7 @@ describe("ClubsListPage.ClubLists", function() {
   });
 
   it("properly separates user's clubs from other clubs", function() {
-    var lists = renderLists({username: 'foo'})
+    var lists = renderLists({username: 'foo'});
     lists.state.userClubs.should.eql([clubs[0]]);
     lists.state.otherClubs.should.eql([clubs[1]]);
   });

@@ -28,7 +28,7 @@ module.exports = {
   devtool: production ? process.env.WEBPACK_DEVTOOL || 'source-map'
                       : process.env.WEBPACK_DEVTOOL || 'eval',
   output: {
-    path: __dirname + '/dist',
+    path: __dirname + '/../dist',
     publicPath: '/',
     filename: '[name].bundle.js'
   },
@@ -63,8 +63,7 @@ module.exports = {
       "LOGIN_EMULATION_LOGGEDOUT",
       "LOGIN_EMULATION_USERNAME"
     ])),
-    new webpack.optimize.CommonsChunkPlugin('commons',
-                                            'commons.bundle.js')
+    new webpack.optimize.CommonsChunkPlugin('commons', 'commons.bundle.js')
   ].concat(
     production ? [
       new webpack.optimize.UglifyJsPlugin({

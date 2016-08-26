@@ -22,7 +22,7 @@ var ActivitySection = React.createClass({
               <div key={i}>
                 <p>{activity.placeholderText}</p>
               </div>
-            )
+            );
           } else {
             var caption = activity.originalImgSrc ? <a href={activity.originalImgSrc}>{activity.caption || that.context.intl.formatMessage({id: "view_original"}) }</a> : null;
             return (
@@ -45,7 +45,7 @@ var ActivitySection = React.createClass({
                   </div>
                 </Illustration>
               </div>
-            )
+            );
           }
         })}
       </section>

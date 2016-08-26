@@ -32,7 +32,7 @@ var communityList = [
 ];
 
 var communities = communityList.map(function(community) {
-  return <VerticalCard {...community} key={community.header} />
+  return <VerticalCard {...community} key={community.header} />;
 });
 
 var CommunityPage = React.createClass({

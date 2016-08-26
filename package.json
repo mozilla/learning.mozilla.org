@@ -16,10 +16,14 @@
     "node": "^4.4.1"
   },
   "scripts": {
-    "app": "npm run l10n && gulp app",
-    "build": "gulp",
-    "l10n": "pontoon-to-json",
+    "app": "npm run prep && npm run l10n && gulp app",
+    "build": "npm run prep && gulp",
     "cleanup": "rm -rf dist && npm run l10n",
+    "l10n": "pontoon-to-json",
+    "less": "lessc less/index.less dist/styles.css --source-map=dist/styles.css.map --clean-css=\"--s0\"",
+    "lint": "eslint --ext .js --ext .jsx .",
+    "lint:fix": "npm run lint -- --fix",
+    "prep": "npm run cleanup && npm run lint && npm run less && npm run webpack",
     "preapp": "npm run cleanup",
     "prebuild": "npm run cleanup",
     "presmoketest": "npm run cleanup",
@@ -28,10 +32,12 @@
     "postinstall": "npm run l10n && gulp postinstall",
     "smoketest": "gulp smoketest",
     "start": "npm run app",
-    "test": "gulp smoketest && npm run test:mocha && npm run test:browser && gulp lint-test",
+    "test": "npm run prep && gulp smoketest && npm run test:mocha && npm run test:browser",
     "test:browser": "node test/browser/run-in-phantom.js",
     "test:mocha": "mocha test/*.test.js",
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+    "webpack": "webpack --config ./config/webpack.config.js --progress --colors",
+    "webpack:dev": "webpack-dev-server --config ./config/webpack.config.js --progress --colors --watch"
   },
   "dependencies": {
     "babel-cli": "^6.11.4",
@@ -51,9 +57,6 @@
     "gulp-autoprefixer": "^3.1.0",
     "gulp-gzip": "^1.0.0",
     "gulp-if": "^2.0.0",
-    "gulp-jscs": "^3.0.2",
-    "gulp-jshint": "^2.0.0",
-    "gulp-less": "^3.0.1",
     "gulp-minify-css": "^1.0.0",
     "gulp-plumber": "^1.0.1",
     "gulp-rename": "^1.2.0",
@@ -66,9 +69,7 @@
     "imports-loader": "^0.6.3",
     "intl": "^1.2.4",
     "intl-locales-supported": "^1.0.0",
-    "jshint": "^2.8.0",
     "json-loader": "^0.5.1",
-    "jsx-loader": "^0.13.2",
     "leaflet.markercluster": "^0.4.0",
     "mapbox.js": "^2.1.5",
     "merge-stream": "^1.0.0",
@@ -76,7 +77,7 @@
     "minimist": "^1.2.0",
     "mocha": "^2.1.0",
     "mofo-localize": "^0.1.1",
-    "mofo-style": "^1.0.1",
+    "mofo-style": "^2.4.0",
     "mofo-ui": "1.5.1",
     "moment": "^2.10.3",
     "mozilla-tabzilla": "^0.5.1",
@@ -110,11 +111,15 @@
     "webpack-stream": "^3.1.0"
   },
   "devDependencies": {
+    "eslint": "^3.3.1",
+    "less": "^2.7.1",
+    "less-plugin-clean-css": "^1.5.1",
     "marked": "^0.3.3",
     "mocha-phantomjs": "^4.0.1",
     "open": "0.0.5",
     "simplecrawler": "^0.5.2",
-    "supertest": "^1.0.1"
+    "supertest": "^1.0.1",
+    "webpack-dev-server": "^1.15.0"
   },
   "private": true
 }
