@@ -1,45 +1,47 @@
+/**
+ * This is the server library entry point, packed
+ * by ./config/webpack/webpack.server.config.js
+ *
+ * It exposes the generation function that can turn
+ * generate static HTML for any route that maps to
+ * an app page in our code.
+ *
+ * The resulting bundle is used in ./app.js for
+ * static markup generation that looks like the
+ * page requested, which then also makes sure to
+ * load the client bundle so that the app can 
+ * run everything client-side from there on.
+ */
+
 var _  = require('underscore');
 var React = require('react');
 var ReactDOMServer = require('react-dom/server');
-var fs = require('fs');
-var Path = require('path');
+var ReactIntl = require('react-intl');
 
-var config = require('../../config/config');
-var generator = require('../page-generate.jsx');
+var featureDetect = require('../feature-detect');
+var generator = require('../page-generator.jsx');
+
+var Pontoon = require('../../components/pontoon.jsx');
 var OptimizelySubdomain = require('../../components/optimizely-subdomain.jsx');
 var Optimizely = require('../../components/optimizely.jsx');
-var ReactIntl = require('react-intl');
-var Pontoon = require('../../components/pontoon.jsx');
+
+// env vars and the like
+var config = require('../../config/config');
 
 // FIXME: this really needs to come from somewhere, not be a magic variable
 var CSS_FILENAME = "styles.css";
 
-// This isn't actually called in node, it's stringified and plopped in
-// a script tag in the page header. It's basically an extremely simple
-// stand-in for Modernizr, but if it becomes more complex we should think
-// about actually migrating to that library.
-//
-// Modernizr code borrowed:
-//
-// * cors (needed to reach teach-api)
-function featureDetect() {
-  var safeMode = /[?&]safemode=on/i.test(window.location.search);
-  var cors = 'XMLHttpRequest' in window && 'withCredentials' in new XMLHttpRequest();
-
-  if (!safeMode && cors) {
-    document.documentElement.setAttribute('class', '');
-    window.ENABLE_JS = true;
-  } else {
-    window.ENABLE_JS = false;
-  }
-}
-
+/**
+ * Generate a full HTML5 page with doctype, by injecting
+ * its React page code into a standardized HTML skeleton. 
+ */
 function generateWithPageHTML(url, options, pageHTML) {
   options = _.defaults(options || {}, {
     meta: {}
   });
+  
   var locale = options.locale || 'en-US';
-  var localeData = fs.readFileSync(Path.join('node_modules/react-intl/locale-data/' + locale.split('-')[0] + '.js'), 'utf8');
+  var langCode = locale.split('-')[0];
 
   var content = (
     <html className="no-js" lang="en">
@@ -58,7 +60,7 @@ function generateWithPageHTML(url, options, pageHTML) {
         <link rel="stylesheet" href="/vendor/mozilla-tabzilla/css/tabzilla.css" />
         <link rel="stylesheet" href="/vendor/mofo-ui/mofo-ui.css" />
         <link rel="stylesheet" href={'/' + CSS_FILENAME}/>
-        <script dangerouslySetInnerHTML={{__html: localeData}}></script>
+        <script src={"/vendor/react-intl/locale-data/" + langCode + ".js"}/>
         <OptimizelySubdomain />
         <Optimizely />
         <script dangerouslySetInnerHTML={{
@@ -74,9 +76,9 @@ function generateWithPageHTML(url, options, pageHTML) {
         <div id="tabzilla"><a href="https://www.mozilla.org/">Mozilla</a></div>
         <div id="page-holder" dangerouslySetInnerHTML={{
           __html: pageHTML
-        }}></div>
+        }}/>
         <script src="/commons.bundle.js"></script>
-        <script src="/app.bundle.js"></script>
+        <script src="/client.bundle.js"></script>
         <Pontoon/>
       </body>
     </html>
@@ -86,26 +88,29 @@ function generateWithPageHTML(url, options, pageHTML) {
   return '<!DOCTYPE html>' + htmlString;
 }
 
-function generate(url, options, cb) {
-  var locale = options.locale || 'en-US';
-  generator.generateStatic(url, locale, function(err, html, metadata) {
-    var pageHTML;
-
-    if (err) return cb(err);
-    try {
-      options = _.extend({ title: metadata.title }, options);
-      pageHTML = generateWithPageHTML(url, options, html);
-    } catch(e) {
-      err = e;
-    }
-    cb(err, url, metadata.title, pageHTML);
-  });
-};
 
 module.exports = {
-  generate: generate,
   CSS_FILENAME: CSS_FILENAME,
   URLS: generator.URLS,
   REDIRECTS: generator.REDIRECTS,
-  routes: generator.routes
+  routes: generator.routes,
+
+  /**
+   * generate static page HTML for a specific app route URL
+   */
+  generate: function generate(url, options, cb) {
+    var locale = options.locale || 'en-US';
+    generator.generateStatic(url, locale, function(err, html, metadata) {
+      var pageHTML;
+
+      if (err) return cb(err);
+      try {
+        options = _.extend({ title: metadata.title }, options);
+        pageHTML = generateWithPageHTML(url, options, html);
+      } catch(e) {
+        err = e;
+      }
+      cb(err, url, metadata.title, pageHTML);
+    });
+  }
 };

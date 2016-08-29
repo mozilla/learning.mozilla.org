@@ -10,7 +10,6 @@ var Router = ReactRouter.Router;
 var match = ReactRouter.match;
 var routington = require('routington');
 
-var indexStaticWatcher = require('./lib/build/index-static-watcher').create();
 var PORT = process.env.PORT || 8008;
 var PRODUCTION = (process.env.NODE_ENV === 'production');
 var DIST_DIR = path.join(__dirname, 'dist');
@@ -22,9 +21,21 @@ var WpPageChecker = require('./lib/wp-page-checker');
 var habitat = require('habitat');
 habitat.load('.env');
 
-var indexStatic;
-var router;
+// the static HTML generator
+var serverBundle = require('./build/server.library');
+var router = React.createElement(Router, {routes: serverBundle.routes});
 var matcher;
+
+if (process.env.NODE_ENV !== 'production') {
+  var requireUncached = require('require-uncached');
+  var chokidar = require('chokidar');
+  // reload our index and router if there's a change to the static site generator code
+  chokidar.watch('./build').on('all', function(event, path) {
+    serverBundle = requireUncached('./build/server.library');
+    router = React.createElement(Router, {routes: serverBundle.routes});
+  });
+}
+
 var app = express();
 var locale = "";
 var locales = require('./dist/locales.json');
@@ -41,7 +52,10 @@ var notFoundHTML = [
   '</body></html>'
 ].join('');
 
-var urlToRoutePath = function(loc) {
+/**
+ * convert a site URL to a Router "path" value
+ */
+function urlToRoutePath(loc) {
   // For router-resolution, we don't want hashes...
   var pos = loc.indexOf('#');
   if (pos > -1) { loc = loc.substring(0,pos); }
@@ -55,29 +69,17 @@ var urlToRoutePath = function(loc) {
   return loc;
 };
 
-var startProdApp = function() {
-  console.log([
-    'Production mode enabled. Note that "npm install" is assumed to',
-    'have recently been run with NODE_ENV="production". If this is not',
-    'the case, some or all static assets may be out of date.'
-  ].join('\n'));
-  indexStaticWatcher.build(function(err, newIndexStatic) {
+/**
+ * generate a URL's static HTML 
+ */
+function renderComponentPage(location, res, locale) {
+  serverBundle.generate(location, {locale: locale}, function(err, location, title, html) {
     if (err) {
-      throw err;
+      next(err);
     }
-
-    console.log('Built server-side bundle.');
-    updateIndexStatic(newIndexStatic);
-    app.listen(PORT, function() {
-      console.log('Listening on port', PORT);
-    });
+    res.type('html').send(html);
   });
-};
-
-var updateIndexStatic = function(newIndexStatic) {
-  indexStatic = newIndexStatic;
-  router = indexStatic ? React.createElement(Router, {routes: indexStatic.routes}) : null;
-};
+}
 
 // make sure the dir we'll be using for static hosting exists.
 if (!fs.existsSync(DIST_DIR)) {
@@ -187,19 +189,19 @@ app.use(function(req, res, next) {
  */
 app.use(function(req, res, next) {
   var url = urlToRoutePath(req.path);
-  if (!indexStatic.REDIRECTS[url]) {
+  if (!serverBundle.REDIRECTS[url]) {
     return next();
   }
-  res.redirect('/' + indexStatic.REDIRECTS[url] + '/');
+  res.redirect('/' + serverBundle.REDIRECTS[url] + '/');
 });
 
 /**
  * If it's not a redirect, is it a component page?
  */
 app.use(function(req, res, next) {
-  var routes = indexStatic.routes;
+  var routes = serverBundle.routes;
   var location = urlToRoutePath(req.url);
-  var urls = indexStatic.URLS;
+  var urls = serverBundle.URLS;
   var lang;
 
   if (!matcher) {
@@ -241,15 +243,6 @@ app.use(function(req, res, next) {
   });
 });
 
-function renderComponentPage(location, res, locale) {
-  indexStatic.generate(location, {locale: locale}, function(err, location, title, html) {
-    if (err) {
-      next(err);
-    }
-    res.type('html').send(html);
-  });
-}
-
 /**
  * codemoji redirect - https://github.com/mozilla/codemoji
  */
@@ -289,19 +282,17 @@ app.use(function(req, res, next) {
 });
 
 app.DIST_DIR = DIST_DIR;
-app.updateIndexStatic = updateIndexStatic;
+
+var startProdApp = function() {
+  app.listen(PORT, function() {
+    console.log('Listening on port', PORT);
+  });
+};
+
 module.exports = app;
 
 if (!module.parent) {
   console.log('Initializing server.');
-
-  if (PRODUCTION) {
-    startProdApp();
-  } else {
-    console.log([
-      'This server can only be run as a script when NODE_ENV="production".',
-      'To run it in development mode, please use "npm run app".'
-    ].join('\n'));
-    process.exit(1);
-  }
+  startProdApp();
 }
+

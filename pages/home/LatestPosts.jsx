@@ -17,7 +17,7 @@ var LatestPosts = React.createClass({
                   <span>{moment(new Date(post.publishedDate)).format("MMM D, YYYY")}</span>
                 </time>
               </li>
-            )
+            );
           })
         }
       </ul>

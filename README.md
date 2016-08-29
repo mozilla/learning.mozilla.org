@@ -13,15 +13,12 @@ see [`CHANGELOG.md`][changelog]. It's awesome.**
 
 This software consists of two major parts:
 
-* A **static site generator** that creates a number of
-  `index.html` files in various directories which can be viewed
-  in any browser, including ones that don't support JavaScript.
-* Client-side JavaScript code that **progressively enhances**
-  the user experience based on browser capabilities.
-
-It should be noted that, based on the
-[product roadmap][roadmap], the static site generator
-may eventually evolve into becoming a dynamic server.
+* A Server-side Node.js library that is used by app.js to
+  generate static page HTML for pages bound to specific URLs.
+* Client-side JavaScript code that runs the site as an app
+  in the user's browser, taking care of (virtual) routing 
+  and page loads after the initial server response for the
+  URL the user first started using our site on.
 
 # Get started
 
@@ -36,7 +33,7 @@ In order to contribute to this project, you'll need to **create your own fork** 
 Clone from your own fork or from the original:
 
 ```
-git clone git@github.com:mozilla/learning.mozilla.org.git
+git clone https://github.com/mozilla/learning.mozilla.org.git
 cd learning.mozilla.org
 ```
 
@@ -49,7 +46,15 @@ $> npm install
 $> npm start
 ```
 
-This will start a webserver for you at `http://localhost:8008`, and run a `watch` process so that your front-end assets will be regenerated as you make changes.
+The first command installs all the dependencies for Node.js to do
+its thing, and the second command runs a compile for the server
+and client code, while also starting a local server on [http://localhost:8008](http://localhost:8008)`,
+with the compiles running in `watch` mode, so that any changes you make
+to files result in the updated code getting bundled in.
+
+Note that this is not the same as hot-reloading: you still need to
+manuall reload your browser window/tab to see the effects of your
+code updates.
 
 ### A note about source maps
 
@@ -67,7 +72,7 @@ whatever part of the codebase you need to change.
 ### Directory and naming conventions
 
 JS
-* `lib/`: Non-react modules, as well as entry-point modules like `main.jsx` and `routes.jsx`
+* `lib/`: Non-react modules, as well as entry-point modules for the client and server bundles.
 * `components/`: Re-usable react components that can be used throughout the site
 * `pages/`: React "page" components, i.e. top-level pages required by `lib/router`
 * `hoc/`: React higher-order components
@@ -76,10 +81,8 @@ Less
 * `less/`: This is where you should add styles. `common.less` is the entry-point.
 
 Other
-* `gulp/`: build tasks used for running the site, as well as testing
-* `build/`: used as a staging area when the site gets built
-* `test/`: For js tests, manual tests
 * `img/`: For images
+* `build/`: used as a staging area for the server bundle **This folder is gitignored, do not edit files here.**
 * `dist/`: Generated site assets goes here. **This folder is gitignored, do not edit files here.**
 
 ### Localization
@@ -88,66 +91,7 @@ Work in progress, but please read the documentation on how we are doing it for t
 
 ### Test
 
-Fully testing the code is accomplished by running `npm test`,
-which exercises a number of different aspects of the
-codebase described below.
-
-#### Static Site Generation (Smoke Test)
-
-This generates a full static site and
-ensures that **no React warnings are raised**.
-
-Individually running *only* the smoke test can be accomplished
-via `npm run smoketest`.
-
-#### Unit Tests
-
-Unit tests are spread across two different testing
-environments.
-
-Both environments use the [mocha][] test runner and [should][]
-for assertions.
-
-##### Node Tests
-
-These tests generally exercise the code of the static site generator
-and are located in the `test` directory.
-
-Each test file should end with `.test.js` and will be automatically
-discovered by the test runner.
-
-Individually running *only* the node unit tests can be accomplished
-via `node_modules/.bin/mocha test/*.test.js`. For more options,
-see the documentation for [mocha (1)][].
-
-##### Browser Tests
-
-These tests exercise the code that runs in the user's browser. They're
-located in the `test/browser` directory.
-
-Each test file should end with `.test.js` or `.test.jsx` and will be
-automatically discovered by the test runner.
-
-Individually running *only* the browser unit tests can be accomplished
-by first running `npm start` and then visiting http://localhost:8008/test/
-in your browser.
-
-#### Manual Tests
-
-For detailed information about manual testing, see the
-[Manual Testing][] section of `CONTRIBUTING.md`.
-
-## Generating A Static Site
-
-Run `npm run build` to generate a static site in `dist/` that
-doesn't *require* any client-side JavaScript. This static
-site also uses `history.pushState` for navigation if the browser
-supports it.
-
-For reference, a recent static build of the site can be found at
-[teach.mofostaging.net][].
-
-See the **Environment Variables** section below for more details.
+The code currently only comes with linting, which runs automatically as part of the webpack compile.
 
 ## Environment Variables
 
@@ -205,26 +149,6 @@ If you run into CORS or CSP issues (blocked domains trying to GET or POST, loadi
 
 We handle this in `app.js`, in the `helmet.contentSecurityPolicy` block. Typically you'll care about the `connectSrc` block for remote content fetching, and the `scriptSrc` block for injecting/loading external scripts, although you might have CSP needs outside those two categories: all of the major CSP categories have their own section and should be readily identifiable.
 
-## Lightweight Dynamic Server (Experimental)
-
-The site can also be served through a lightweight server which
-dynamically generates requested HTML files. This feature is currently
-experimental. For more information on the rationale behind it, see
-[#585][].
-
-To run the server in development mode, use `npm run app`. The
-server-side page rendering code will be dynamically updated as
-relevant files are changed.
-
-For production deployment, you will need to:
-
-1. Set `NODE_ENV=production` and other relevant environment variables
-   and then re-run `npm install`. This will build all static assets
-   that won't change during production.
-
-2. Run `node app.js`.
-
-The server is also designed to be easily deployable on Heroku.
 
 ## References
 
