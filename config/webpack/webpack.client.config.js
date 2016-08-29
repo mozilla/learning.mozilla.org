@@ -10,6 +10,16 @@ var production = process.env.NODE_ENV === 'production';
 var habitat = require('habitat');
 habitat.load('.env');
 
+function importEnvVars(keys) {
+  var result = {};
+  keys.forEach(function(key) {
+    if (typeof (process.env[key]) === 'string') {
+      result['process.env.' + key] = JSON.stringify(process.env[key]);
+    }
+  });
+  return result;
+}
+
 var webpackConfig = {
   entry: {
     client: __dirname + '/../../lib/build/client.bundle.jsx'
@@ -28,6 +38,27 @@ var webpackConfig = {
     ]
   },
   plugins: [
+    new webpack.DefinePlugin(importEnvVars([
+      'LESS_AUTOPREFIXER',
+      'SHOW_DEV_RIBBON',
+      'NODE_ENV',
+      'TEACH_API_URL',
+      'GA_ACCOUNT',
+      'MAPBOX_ACCESS_TOKEN',
+      'MAPBOX_MAP_ID',
+      'NEWSLETTER_MAILINGLIST_URL',
+      'OPTIMIZELY_ID',
+      'OPTIMIZELY_ACTIVE',
+      'MAKE_METADATA_URL',
+      'WORDPRESS_DOMAIN',
+      // feature flags:
+      "ENABLE_BADGES",
+      "ENABLE_PONTOON",
+
+      "LOGIN_EMULATION",
+      "LOGIN_EMULATION_LOGGEDOUT",
+      "LOGIN_EMULATION_USERNAME"
+    ])),
     new webpack.optimize.CommonsChunkPlugin('commons', 'commons.bundle.js')
   ].concat(
     production ? [
