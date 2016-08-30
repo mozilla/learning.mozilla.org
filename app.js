@@ -1,3 +1,6 @@
+var habitat = require('habitat');
+habitat.load('.env');
+
 var path = require('path');
 var fs = require('fs');
 var express = require('express');
@@ -16,10 +19,11 @@ var DIST_DIR = path.join(__dirname, 'dist');
 var CODEMOJI_URL = process.env.CODEMOJI_URL || "https://codemoji.mofostaging.net";
 var localize = require('mofo-localize');
 
+var urlToRoutePath = require('./server/url-to-route-path');
+var renderComponentPage = require('./server/render-component-page');
 var WpPageChecker = require('./lib/wp-page-checker');
-
-var habitat = require('habitat');
-habitat.load('.env');
+var locales = require(path.join(DIST_DIR, 'locales.json'));
+var locale = "";
 
 // the static HTML generator
 var serverBundle = require('./build/server.library');
@@ -36,119 +40,15 @@ if (process.env.NODE_ENV !== 'production') {
   });
 }
 
-var app = express();
-var locale = "";
-var locales = require('./dist/locales.json');
 
+var app = express();
+
+/**
+ * Several app security settings
+ */
 app.disable('x-powered-by');
 
-var notFoundHTML = [
-  '<!doctype html>',
-  '<html><head>',
-  '<meta charset="utf-8">',
-  '<title>404 - Page not found</title>',
-  '</head><body>',
-  '<p>404 - Page not found</p>',
-  '</body></html>'
-].join('');
-
-/**
- * convert a site URL to a Router "path" value
- */
-function urlToRoutePath(loc) {
-  // For router-resolution, we don't want hashes...
-  var pos = loc.indexOf('#');
-  if (pos > -1) { loc = loc.substring(0,pos); }
-  // And we don't want query strings, either...
-  pos = loc.indexOf('?');
-  if (pos > -1) { loc = loc.substring(0,pos); }
-  // If this is not the site root, we need to remove the leading slash.
-  if (loc !== '/') {
-    loc = loc.replace(/^\//, '').replace(/\/$/, '');
-  }
-  return loc;
-};
-
-/**
- * generate a URL's static HTML 
- */
-function renderComponentPage(location, res, locale) {
-  serverBundle.generate(location, {locale: locale}, function(err, location, title, html) {
-    if (err) {
-      next(err);
-    }
-    res.type('html').send(html);
-  });
-}
-
-// make sure the dir we'll be using for static hosting exists.
-if (!fs.existsSync(DIST_DIR)) {
-  fs.mkdirSync(DIST_DIR);
-}
-
-/**
- * Security Headers
- */
- var securityHeaders = {
-  directives: {
-    defaultSrc: [
-      'www.youtube.com',
-      'https://public.etherpad-mozilla.org'
-    ],
-    scriptSrc: [
-      '\'self\'',
-      '\'unsafe-inline\'',
-      '\'unsafe-eval\'',
-      'data:',
-      'www.google-analytics.com',
-      'cdn.optimizely.com',
-      'https://www.google.com',
-      'https://s.ytimg.com',
-      'https://www.mozilla.org'
-    ],
-    fontSrc: [
-      '\'self\'',
-      'fonts.googleapis.com',
-      'fonts.gstatic.com'
-    ],
-    styleSrc: [
-      '\'self\'',
-      '\'unsafe-inline\'',
-      'https://www.google.com',
-      'fonts.googleapis.com',
-      'https://api.tiles.mapbox.com',
-      'https://s.ytimg.com'
-    ],
-    imgSrc: [
-      '\'self\'',
-      '\'unsafe-inline\'',
-      '*'
-    ],
-    connectSrc: [
-      '\'self\'',
-      'https://www.google.com',
-      '*.tiles.mapbox.com',
-      '*.log.optimizely.com',
-      '*.github.io',
-      '*.mywebmaker.org',
-      '*.makes.org',
-      'bitly.mofoprod.net',
-      process.env.TEACH_API_URL || 'https://teach-api-staging.herokuapp.com',
-      url.parse(process.env.NEWSLETTER_MAILINGLIST_URL || 'https://basket-dev.allizom.org').hostname
-    ]
-  },
-  reportOnly: false,
-  browserSniff: false
-};
-
-if (process.env.ENABLE_PONTOON) {
-  securityHeaders.directives.defaultSrc.push('https://pontoon.mozilla.org', 'https://mozilla-pontoon-staging.herokuapp.com');
-  securityHeaders.directives.scriptSrc.push('https://pontoon.mozilla.org', 'https://mozilla-pontoon-staging.herokuapp.com');
-  securityHeaders.directives.fontSrc.push('https://pontoon.mozilla.org', 'https://mozilla-pontoon-staging.herokuapp.com');
-  securityHeaders.directives.styleSrc.push('https://pontoon.mozilla.org', 'https://mozilla-pontoon-staging.herokuapp.com');
-  securityHeaders.directives.connectSrc.push('https://pontoon.mozilla.org', 'https://mozilla-pontoon-staging.herokuapp.com');
-  securityHeaders.directives['frame-ancestors'] = ['https://pontoon.mozilla.org', 'https://mozilla-pontoon-staging.herokuapp.com'];
-}
+var securityHeaders = require('./server/security-headers');
 app.use(helmet.contentSecurityPolicy(securityHeaders));
 
 app.use(helmet.xssFilter({
@@ -226,7 +126,7 @@ app.use(function(req, res, next) {
       }
 
       lang = location.split('/')[0];
-      return renderComponentPage(location, res, lang);
+      return renderComponentPage(serverBundle, location, res, lang);
     }
 
     // if neither of those, this is wordpress content
@@ -237,7 +137,7 @@ app.use(function(req, res, next) {
           return next();
         }
         // WP page exists, let's load the WordPress content through a component page
-        return renderComponentPage(location,res);
+        return renderComponentPage(serverBundle, location, res);
       });
     }
   });
@@ -258,7 +158,6 @@ app.use('/codemoji', function(req, res) {
  */
 app.use(express.static(DIST_DIR));
 
-
 /**
 * Maybe it is a route, but needs the localized path
 */
@@ -277,22 +176,21 @@ app.use(function(req, res, next) {
   }
 });
 
-app.use(function(req, res, next) {
-  res.status(404).send(notFoundHTML);
-});
-
-app.DIST_DIR = DIST_DIR;
+app.use(require('./server/404'));
 
 var startProdApp = function() {
   app.listen(PORT, function() {
-    console.log('Listening on port', PORT);
+    console.log('\n\n==================================================');
+    console.log('=                                                =');
+    console.log('=         Server listening on port', PORT, '         =');
+    console.log('=                                                =');
+    console.log('==================================================\n');
   });
 };
 
+app.startProdApp = startProdApp;
+
 module.exports = app;
 
-if (!module.parent) {
-  console.log('Initializing server.');
-  startProdApp();
-}
-
+// Auto-start only if this was not a require() call for app.js
+if (!module.parent) { startProdApp(); }
