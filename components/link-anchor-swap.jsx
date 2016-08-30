@@ -39,6 +39,8 @@ var LinkAnchorSwap = React.createClass({
   /**
    * We use <Link> for internal links in the app, but <Link> won't reload a page if
    * that's the page we're already on, so we FORCE it to reset the <Page> instead.
+   * @param {event} e the event that triggered this reset check
+   * @returns {undefined}
    */
   checkForReset: function(e) {
     if (typeof window !== "undefined" ) {

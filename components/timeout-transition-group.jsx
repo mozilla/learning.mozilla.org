@@ -93,6 +93,9 @@ function animationSupported() {
 /**
  * Functions for element class management to replace dependency on jQuery
  * addClass, removeClass and hasClass
+ * @param {HTMLelement} element the HTML element to add a CSS class to
+ * @param {string} className the CSS class to add to this HTML element
+ * @return {HTMLelement} element the HTML element whose CSS classes got ammended
  */
 function addClass(element, className) {
     if (element.classList) {

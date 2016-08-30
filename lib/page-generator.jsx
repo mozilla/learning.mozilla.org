@@ -43,6 +43,10 @@ module.exports = {
 
   /**
    * Static function for resolving redirects for site content
+   * @param {string} fromURL a request URL
+   * @param {string} toURL the target URL
+   * @param {function} next the next function in the chain
+   * @returns {undefined}
    */  
   generateStaticRedirect: function generateStaticRedirect(fromURL, toURL, next) {
     match({ routes: routeData.routes, location: fromURL }, function(error, redirectLocation, renderProps) {
@@ -58,6 +62,10 @@ module.exports = {
 
   /**
    * Static function for generating the site as static html files
+   * @param {string} url the URL for the requested page
+   * @param {string} locale the locale/language to generate te page for
+   * @param {function} next the next function in the chain
+   * @returns {undefined}
    */
   generateStatic: function generateStatic(url, locale, next) {
     if (url in routeData.REDIRECTS) {
@@ -83,14 +91,17 @@ module.exports = {
 
   /**
    * Static wrapper function for GA events
+   * @param {object} historyHandler either Router.HistoryLocation or Router.RefreshLocation
+   * @param {HTMLelement} targetElement the HTML element to render the 
+   * @returns {undefined}
    */
-  run: function run(location, el) {
+  run: function run(historyHandler, targetElement) {
     var createBrowserHistory = require('history/lib/createBrowserHistory');
     var history = createBrowserHistory();
 
     // emit a GA page view event on location changes
-    history.listen(function(location) {
-      ga.pageview(location.pathname);
+    history.listen(function(historyHandler) {
+      ga.pageview(historyHandler.pathname);
     });
 
     // Get locale from URL, use it to pass messages in to IntlProvider,
@@ -105,7 +116,7 @@ module.exports = {
     ReactDOM.render(
       <IntlProvider locale={currentLocale} messages={messages}>
         <Router history={history}>{routeData.routes}</Router>
-      </IntlProvider>, el
+      </IntlProvider>, targetElement
     );
   }
 };
