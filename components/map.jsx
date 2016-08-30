@@ -49,31 +49,6 @@ function geoJSONit(data) {
   return _.values(places);
 }
 
-// Note that the MarkerPopup classes will always be rendered to static
-// markup, so they can't have any dynamic functionality.
-//
-// Furthermore, because they aren't "live" React elements, events
-// dispatched from the popup will need to be processed when they bubble
-// up to the parent map component.
-var MarkerPopup = React.createClass({
-  propTypes: {
-    clubs: React.PropTypes.array.isRequired,
-    username: React.PropTypes.string
-  },
-  render: function() {
-    return (
-      <ul className="popup-clubs-list colored-list">
-        {this.props.clubs.map(function(club, i) {
-          return React.createElement(MarkerPopupClub, _.extend({
-            key: i,
-            isOwned: club.owner === this.props.username
-          }, club));
-        }, this)}
-      </ul>
-    );
-  }
-});
-
 var ClubStatusLabel = React.createClass({
   propTypes: {
     status: React.PropTypes.oneOf([
@@ -154,6 +129,31 @@ var MarkerPopupClub = React.createClass({
         {website}
         {actions}
       </li>
+    );
+  }
+});
+
+// Note that the MarkerPopup classes will always be rendered to static
+// markup, so they can't have any dynamic functionality.
+//
+// Furthermore, because they aren't "live" React elements, events
+// dispatched from the popup will need to be processed when they bubble
+// up to the parent map component.
+var MarkerPopup = React.createClass({
+  propTypes: {
+    clubs: React.PropTypes.array.isRequired,
+    username: React.PropTypes.string
+  },
+  render: function() {
+    return (
+      <ul className="popup-clubs-list colored-list">
+        {this.props.clubs.map(function(club, i) {
+          return React.createElement(MarkerPopupClub, _.extend({
+            key: i,
+            isOwned: club.owner === this.props.username
+          }, club));
+        }, this)}
+      </ul>
     );
   }
 });

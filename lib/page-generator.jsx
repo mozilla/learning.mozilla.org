@@ -14,7 +14,6 @@ var locales = require('../dist/locales.json');
 var ReactIntl = require('react-intl');
 var IntlProvider = ReactIntl.IntlProvider;
 var addLocaleData = ReactIntl.addLocaleData;
-var currentLocale;
 
 var ga = require('react-ga');
 var assign = require('object-assign');
@@ -22,7 +21,7 @@ var assign = require('object-assign');
 // utility function: create element wrapped in React localisation
 function createElement(Component, props) {
   var locale = this.locale;
-  var messages =  assign({}, locales["en-US"], locales[locale]);
+  var messages = assign({}, locales["en-US"], locales[locale]);
   // make sure you pass all the props in!
   return (
     <IntlProvider locale={locale} messages={messages}>
@@ -51,7 +50,7 @@ module.exports = {
   generateStaticRedirect: function generateStaticRedirect(fromURL, toURL, next) {
     match({ routes: routeData.routes, location: fromURL }, function(error, redirectLocation, renderProps) {
       if (error) {
-        return next(new Error("Error in redirect from '" + fromURL +  "' to '" + toURL +  "'"));
+        return next(new Error("Error in redirect from '" + fromURL + "' to '" + toURL + "'"));
       }
       var redirectHTML = (<p>The URL of this page has changed to <a href={toURL}>{toURL}</a>.</p>);
       var html = ReactDOMServer.renderToStaticMarkup(redirectHTML);
@@ -74,7 +73,7 @@ module.exports = {
 
     match({ routes: routeData.routes, location: url }, function(error, redirectLocation, renderProps) {
       if (error) {
-        return next(new Error("Error on route '" + url +  "'"));
+        return next(new Error("Error on route '" + url + "'"));
       }
 
       if (!renderProps) {
@@ -91,11 +90,11 @@ module.exports = {
 
   /**
    * Static wrapper function for GA events
-   * @param {object} historyHandler either Router.HistoryLocation or Router.RefreshLocation
+   * @param {object} __seemingly_unused_variable__ either Router.HistoryLocation or Router.RefreshLocation, no idea what it's used for...
    * @param {HTMLelement} targetElement the HTML element to render the 
    * @returns {undefined}
    */
-  run: function run(historyHandler, targetElement) {
+  run: function run(__seemingly_unused_variable__, targetElement) {
     var createBrowserHistory = require('history/lib/createBrowserHistory');
     var history = createBrowserHistory();
 

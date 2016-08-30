@@ -124,7 +124,7 @@ var BadgePage = React.createClass({
     }
 
     // FIXME: these need to be constants on the badgeAPI, probably
-    status = Badge.eligible;
+    var status = Badge.eligible;
     if (data.earned) { status = Badge.achieved; }
     if (data.pending) { status = Badge.pending; }
 
@@ -365,9 +365,9 @@ var BadgePage = React.createClass({
     Array.from(files).forEach(function(file) {
       var reader = new FileReader();
       reader.onload = (function(f) {
-        return function(evt) {
+        return function(e) {
           var name = escape(f.name);
-          var data = evt.target.result;
+          var data = e.target.result;
           if (data) {
             // FIXME: TODO: There is a 20MB limit on file uploads whch
             //              I doubt we'll run into, but _might_ be an issue

@@ -120,7 +120,7 @@ var WebLitPage = React.createClass({
     });
   },
   hasCategory: function(cat, selectedVerb, selectedWebLitSkill) {
-    var cat = categories[cat];
+    cat = categories[cat];
 
     if (!selectedVerb) {
       return true;
@@ -252,7 +252,7 @@ var WebLitPage = React.createClass({
   },
   onMapToggle: function(labels) {
     var url = "/" + this.context.intl.locale + "/web-literacy/";
-    var verb =  labels[1];
+    var verb = labels[1];
     var webLitSkill = labels[2];
     if (verb) {
       url += convertToRoute(verb) + "/";

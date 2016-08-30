@@ -90,6 +90,14 @@ function animationSupported() {
     return endEvents.length !== 0;
 }
 
+function hasClass(element, className) {
+    if (element.classList) {
+        return element.classList.contains(className);
+    } else {
+        return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1;
+    }
+}
+
 /**
  * Functions for element class management to replace dependency on jQuery
  * addClass, removeClass and hasClass
@@ -105,6 +113,7 @@ function addClass(element, className) {
     }
     return element;
 }
+
 function removeClass(element, className) {
     if (hasClass(className)) {
         if (element.classList) {
@@ -116,13 +125,7 @@ function removeClass(element, className) {
     }
     return element;
 }
-function hasClass(element, className) {
-    if (element.classList) {
-        return element.classList.contains(className);
-    } else {
-        return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1;
-    }
-}
+
 
 var TimeoutTransitionGroupChild = React.createClass({
     transition: function(animationType, finishCallback) {

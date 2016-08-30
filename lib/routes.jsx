@@ -4,7 +4,7 @@ var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var Redirect = ReactRouter.Redirect;
-var IndexRoute  = ReactRouter.IndexRoute;
+var IndexRoute = ReactRouter.IndexRoute;
 var locales = Object.keys(require('../dist/locales.json'));
 
 
@@ -134,7 +134,7 @@ function buildRoutes() {
   var localeURLs = [];
   locales.forEach(function(locale) {
     routes.push(
-      <Route key={locale} path={locale}  component={require('../components/page.jsx')}>
+      <Route key={locale} path={locale} component={require('../components/page.jsx')}>
         <IndexRoute component={require('../pages/home.jsx')} />
         {routeElements}
         {redirectElements}

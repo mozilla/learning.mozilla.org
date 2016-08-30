@@ -34,7 +34,7 @@ if (process.env.NODE_ENV !== 'production') {
   var requireUncached = require('require-uncached');
   var chokidar = require('chokidar');
   // reload our index and router if there's a change to the static site generator code
-  chokidar.watch('./build').on('all', function(event, path) {
+  chokidar.watch('./build').on('all', function(_event, _path) {
     serverBundle = requireUncached('./build/server.library');
     router = React.createElement(Router, {routes: serverBundle.routes});
   });
@@ -88,11 +88,11 @@ app.use(function(req, res, next) {
  * If we have a router, check if we're dealing with a redirect.
  */
 app.use(function(req, res, next) {
-  var url = urlToRoutePath(req.path);
-  if (!serverBundle.REDIRECTS[url]) {
+  var routePath = urlToRoutePath(req.path);
+  if (!serverBundle.REDIRECTS[routePath]) {
     return next();
   }
-  res.redirect('/' + serverBundle.REDIRECTS[url] + '/');
+  res.redirect('/' + serverBundle.REDIRECTS[routePath] + '/');
 });
 
 /**

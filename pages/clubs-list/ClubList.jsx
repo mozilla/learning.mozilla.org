@@ -22,11 +22,11 @@ var ClubList = React.createClass({
       <div className={colClass} key={key}>
         <ul className="list-unstyled colored-list">
           {clubs.map(function(club, i) {
-            return  <ClubListItem key={i} club={club}
-                                  username={this.props.username}
-                                  onEdit={this.props.onEdit}
-                                  onDelete={this.props.onDelete}
-                                  onZoomToLocation={this.props.onZoomToLocation} />;
+            return <ClubListItem key={i} club={club}
+                                 username={this.props.username}
+                                 onEdit={this.props.onEdit}
+                                 onDelete={this.props.onDelete}
+                                 onZoomToLocation={this.props.onZoomToLocation} />;
           }, this)}
         </ul>
       </div>

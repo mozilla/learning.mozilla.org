@@ -27,21 +27,21 @@ var Tabulator = React.createClass({
             function onClick(e) {
               tabulator.showTab("tab-" + key);
             }
-            var className = "tabulator-head col-xs-3 col-sm-3 col-md-3 col-lg-3";
-            className += " tab-" + key;
+            var innerClassName = "tabulator-head col-xs-3 col-sm-3 col-md-3 col-lg-3";
+            innerClassName += " tab-" + key;
             return (
-              <div onClick={onClick} className={className} key={key}>{section.head}</div>
+              <div onClick={onClick} className={innerClassName} key={key}>{section.head}</div>
             );
           })}
         </div>
 
         {this.props.tabs.map(function (section, idx) {
           var key = "tab-"+idx;
-          var className = "tabulator-content-container " + key;
+          var innerClassName = "tabulator-content-container " + key;
           return (
             <div key={key}>
               <div className="tabulator-head-no-js">{section.head}</div>
-              <div className={className}>
+              <div className={innerClassName}>
                 <div className="tabulator-content">
                   {section.content}
                 </div>

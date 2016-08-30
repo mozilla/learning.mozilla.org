@@ -63,8 +63,8 @@ var ClubForm = React.createClass({
 
   renderSteps: function() {
     return [
-      <StepOne   key="step1" ref="step1" onChange={this.updateProgress} hidden={this.state.currentStep !== 0 }/>,
-      <StepTwo   key="step2" ref="step2" onChange={this.updateProgress} hidden={this.state.currentStep !== 1 }/>,
+      <StepOne key="step1" ref="step1" onChange={this.updateProgress} hidden={this.state.currentStep !== 0 }/>,
+      <StepTwo key="step2" ref="step2" onChange={this.updateProgress} hidden={this.state.currentStep !== 1 }/>,
       <StepThree key="step3" ref="step3" hidden={this.state.currentStep !== 2 }/>,
       this.generateButtons()
     ];

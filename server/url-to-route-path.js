@@ -1,5 +1,7 @@
 /**
  * convert a site URL to a Router "path" value
+ * @param {string} loc the URL location to rewrite to a Router path
+ * @returns {string} a router path
  */
 module.exports = function urlToRoutePath(loc) {
   // For router-resolution, we don't want hashes...

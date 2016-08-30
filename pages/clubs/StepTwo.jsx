@@ -133,7 +133,7 @@ var StepTwo = React.createClass({
             <div><input type="radio" name="frequency" value="other" checked={this.state.frequency === 'other'} onChange={this.updateFrequency}/> Other</div>
           </div>
         </div>
-        <input type="text"  hidden={this.state.frequency !== 'other'} value={this.state.frequencyOther} placeholder='If "other", please explain' onChange={this.updateFrequencyOther}/>
+        <input type="text" hidden={this.state.frequency !== 'other'} value={this.state.frequencyOther} placeholder='If "other", please explain' onChange={this.updateFrequencyOther}/>
       </fieldset>
 
       <fieldset>
@@ -148,7 +148,7 @@ var StepTwo = React.createClass({
             <div><input type="checkbox" value="36-60" checked={this.state.ageRange.indexOf("36-60") > -1} onChange={this.updateAgeRange}/> 35-60 years old</div>
           </div>
           <div className="col">
-            <div><input type="checkbox" value="61-older"   checked={this.state.ageRange.indexOf("61-older"  ) > -1} onChange={this.updateAgeRange}/> 61 years or older</div>
+            <div><input type="checkbox" value="61-older" checked={this.state.ageRange.indexOf("61-older") > -1} onChange={this.updateAgeRange}/> 61 years or older</div>
             <div><input type="checkbox" value="other" checked={this.state.ageRange.indexOf("other") > -1} onChange={this.updateAgeRange}/> other</div>
           </div>
         </div>
@@ -159,12 +159,12 @@ var StepTwo = React.createClass({
         <label>{ labels[this.state.intent].clubSize }</label>
         <div className={"choiceGroup " + this.error('clubSize')}>
           <div className="col">
-            <div><input type="radio" name="clubSize" value="1-5"   checked={this.state.clubSize === '1-5'} onChange={this.updateClubSize}/> 1-5 members</div>
-            <div><input type="radio" name="clubSize" value="6-15"  checked={this.state.clubSize === '6-15'} onChange={this.updateClubSize}/> 6-15 members</div>
+            <div><input type="radio" name="clubSize" value="1-5" checked={this.state.clubSize === '1-5'} onChange={this.updateClubSize}/> 1-5 members</div>
+            <div><input type="radio" name="clubSize" value="6-15" checked={this.state.clubSize === '6-15'} onChange={this.updateClubSize}/> 6-15 members</div>
           </div>
           <div className="col">
             <div><input type="radio" name="clubSize" value="16-30" checked={this.state.clubSize === '16-30'} onChange={this.updateClubSize}/> 16-30 members</div>
-            <div><input type="radio" name="clubSize" value="31+"   checked={this.state.clubSize === '31+'} onChange={this.updateClubSize}/> 31 or more members</div>
+            <div><input type="radio" name="clubSize" value="31+" checked={this.state.clubSize === '31+'} onChange={this.updateClubSize}/> 31 or more members</div>
           </div>
         </div>
       </fieldset>

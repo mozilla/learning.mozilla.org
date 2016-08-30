@@ -1,7 +1,13 @@
-var React     = require('react'),
-    classnames  = require('classnames'),
-    ImageTag  = require('../imagetag.jsx');
+var React = require('react'),
+    classnames = require('classnames'),
+    ImageTag = require('../imagetag.jsx');
 
+var statusIcons = {
+  available: 'fa-thumbs-up',
+  pending : 'fa-clock-o',
+  achieved: 'fa-check',
+  eligible: 'fa-pencil'
+};
 
 var getStatus = function(statusVal) {
   if (statusVal === undefined) {
@@ -10,7 +16,7 @@ var getStatus = function(statusVal) {
     statusVal = statusVal.toLowerCase();
   }
 
-  var statusClasses = classnames('fa', 'fa-fw', Badge.statusIcons[statusVal]);
+  var statusClasses = classnames('fa', 'fa-fw', statusIcons[statusVal]);
   var statusIcon = <i className={statusClasses} />;
   var classNames = classnames('label', 'label-default', statusVal);
 
@@ -23,19 +29,13 @@ var getStatus = function(statusVal) {
   );
 };
 
-
 var Badge = React.createClass({
   statics: {
     available: 'available',
     pending : 'pending',
     achieved: 'achieved',
     eligible: 'eligible',
-    statusIcons: {
-      available: 'fa-thumbs-up',
-      pending : 'fa-clock-o',
-      achieved: 'fa-check',
-      eligible: 'fa-pencil'
-    }
+    statusIcons: statusIcons
   },
 
   propTypes: {
@@ -51,7 +51,6 @@ var Badge = React.createClass({
     }
 
     var title = badge.title,
-        status = badge.status,
         icon = badge.icon,
         icon2x = badge.icon2x,
         status = badge.status;
