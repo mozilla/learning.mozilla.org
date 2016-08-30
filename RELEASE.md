@@ -1,7 +1,7 @@
 ## Release Process
 
 This documents the process for issuing and deploying a new
-release for teach.mozilla.org.
+release for learning.mozilla.org.
 
 It assumes the following:
 
@@ -36,7 +36,7 @@ After running this `changelog release` command, run through the following steps:
 
     ```
     git checkout -b v0.0.4-rc develop
-    git push -u https://github.com/toolness/teach.mozilla.org.git v0.0.4-rc
+    git push -u https://github.com/toolness/learning.mozilla.org.git v0.0.4-rc
     ```
 
 3.  [Issue a PR][pr] to merge your branch into `master` titled
@@ -83,19 +83,19 @@ After running this `changelog release` command, run through the following steps:
 
     ```
     git tag -a v0.0.4 -F tag-message-v0.0.4.txt
-    git push https://github.com/mozilla/teach.mozilla.org.git v0.0.4   
+    git push https://github.com/mozilla/learning.mozilla.org.git v0.0.4   
     ```
 
 10. Merge `v0.0.4-rc` into `develop` on the official repository:
 
     ```
     git checkout develop
-    git pull https://github.com/mozilla/teach.mozilla.org.git develop
+    git pull https://github.com/mozilla/learning.mozilla.org.git develop
     git merge v0.0.4-rc
-    git push https://github.com/mozilla/teach.mozilla.org.git develop
+    git push https://github.com/mozilla/learning.mozilla.org.git develop
     ```
 
 Hooray, you're done!
 
-[unreleased]: https://github.com/mozilla/teach.mozilla.org/blob/develop/CHANGELOG.md#unreleased
-[pr]: https://github.com/mozilla/teach.mozilla.org/compare/master...toolness:v0.0.4-rc
+[unreleased]: https://github.com/mozilla/learning.mozilla.org/blob/develop/CHANGELOG.md#unreleased
+[pr]: https://github.com/mozilla/learning.mozilla.org/compare/master...toolness:v0.0.4-rc

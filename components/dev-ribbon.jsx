@@ -91,7 +91,7 @@ var DevModal = React.createClass({
         <a href="http://invis.io/9G2DK7SR2" target="_blank" className="btn btn-block">
           <span className="glyphicon glyphicon glyphicon-plane"/> Site Map
         </a>
-        <a href="https://github.com/mozilla/teach.mozilla.org/issues" target="_blank" className="btn btn-block">
+        <a href="https://github.com/mozilla/learning.mozilla.org/issues" target="_blank" className="btn btn-block">
           <span className="glyphicon glyphicon glyphicon-exclamation-sign"/> File An Issue on GitHub
         </a>
         <a href={TeachAPI.getDefaultURL()} target="_blank" className="btn btn-block">
@@ -106,7 +106,7 @@ var DevModal = React.createClass({
 
         <br/>
         <p><small>
-          For hints on manual testing and more, please see the <a href="https://github.com/mozilla/teach.mozilla.org/blob/develop/CONTRIBUTING.md">Contribution Guidelines</a>.
+          For hints on manual testing and more, please see the <a href="https://github.com/mozilla/learning.mozilla.org/blob/develop/CONTRIBUTING.md">Contribution Guidelines</a>.
         </small></p>
       </Modal>
     );

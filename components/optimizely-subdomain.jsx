@@ -1,7 +1,7 @@
 var React = require('react');
 
 var optimizelyActive = process.env.OPTIMIZELY_ACTIVE === 'yes';
-var cookieDomain = process.env.FULL_SUBDOMAIN_FOR_COOKIE || 'teach.mozilla.org';
+var cookieDomain = process.env.FULL_SUBDOMAIN_FOR_COOKIE || 'learning.mozilla.org';
 
 var OptimizelySubdomain = React.createClass({
   cookieScript: function() { 
