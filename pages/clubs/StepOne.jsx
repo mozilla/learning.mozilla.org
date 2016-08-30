@@ -132,12 +132,12 @@ var StepOne = React.createClass({
     };
 
     if (this.state.coordinatorName) {
-      data['regional_coordinator'] = this.state.coordinatorName;
+      data.regional_coordinator = this.state.coordinatorName;
     }
 
     var how = this.state.howDidYouHear;
     if (how === "other") { how = this.state.howDidYouActuallyHear; }
-    data['how_they_heard'] = how;
+    data.how_they_heard = how;
 
     return data;
   },
