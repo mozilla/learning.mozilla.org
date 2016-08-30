@@ -51,7 +51,9 @@ var Skills21CPage = React.createClass({
     });
   },
   generateCompetencies: function(competencies) {
-    if (!competencies) return null;
+    if (!competencies) {
+      return null;
+    }
     return competencies.map(function(competency) {
       if (competency.name) {
         return (

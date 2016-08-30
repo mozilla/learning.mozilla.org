@@ -180,13 +180,17 @@ var StepOne = React.createClass({
   },
 
   error: function(field) {
-    if (!this.state.errorElements) return null;
+    if (!this.state.errorElements) {
+      return null;
+    }
     var error = this.state.errorElements.indexOf(field) > -1;
     return error ? "error" : '';
   },
 
   renderValidationErrors: function() {
-    if (!this.state.errors || this.state.errors.length === 0) return null;
+    if (!this.state.errors || this.state.errors.length === 0) {
+      return null;
+    }
     return (
       <div className="alert alert-danger">
         <p>Unfortunately, your application has some problems:</p>

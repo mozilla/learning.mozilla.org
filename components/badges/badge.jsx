@@ -46,7 +46,9 @@ var Badge = React.createClass({
     var badge = this.props.badge;
 
     // FIXME:TODO: how is this even possible?
-    if(!badge) return null;
+    if(!badge) {
+      return null;
+    }
 
     var title = badge.title,
         status = badge.status,

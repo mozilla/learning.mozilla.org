@@ -26,7 +26,9 @@ var Running = React.createClass({
       if(httpRequest.readyState === 4) {
         if(httpRequest.status === 200) {
           var data = JSON.parse(httpRequest.responseText);
-          if (typeof callback === "function") callback(data);
+          if (typeof callback === "function") {
+            callback(data);
+          }
         }
       }
     };

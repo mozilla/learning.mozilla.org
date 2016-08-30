@@ -45,7 +45,9 @@ var BadgesPage = React.createClass({
 
     // we're also interested in whether this user is credly-authenticated
     badgeAPI.hasAccess(this.toggleAccess, function(err, data) {
-      if (err) return console.error("not logged into credly");
+      if (err) {
+        return console.error("not logged into credly");
+      }
     });
   },
 
@@ -139,7 +141,9 @@ var BadgesPage = React.createClass({
   },
 
   formLoginBlock: function() {
-    if (this.state.teachAPI.getLoginInfo() !== null) return null;
+    if (this.state.teachAPI.getLoginInfo() !== null) {
+      return null;
+    }
 
     return (
       <div className="signinblock">

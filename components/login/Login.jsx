@@ -88,8 +88,9 @@ var Login = React.createClass({
   },
   renderAdminLink: function() {
     var adminURL = this.props.teachAPI.getAdminURL();
-
-    if (!adminURL) return null;
+    if (!adminURL) {
+      return null;
+    }
     return (
       <div>
         <span className="fa fa-wrench"></span>

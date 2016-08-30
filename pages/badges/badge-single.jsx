@@ -89,7 +89,9 @@ var BadgePage = React.createClass({
 
     // we're also interested in whether this user is credly-authenticated
     this.state.badgeAPI.hasAccess(this.toggleAccess, function(err, data) {
-      if (err) return console.error("not logged into credly");
+      if (err) {
+        return console.error("not logged into credly");
+      }
     });
   },
 

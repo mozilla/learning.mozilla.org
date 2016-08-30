@@ -84,7 +84,9 @@ var ClubForm = React.createClass({
   },
 
   generateButtons: function() {
-    if (this.state.currentStep === 2) return null;
+    if (this.state.currentStep === 2) {
+      return null;
+    }
 
     var buttons = [];
     if (this.state.currentStep > 0) {
@@ -118,7 +120,9 @@ var ClubForm = React.createClass({
   updateProgress: function() {
     var r1 = this.refs.step1;
     var r2 = this.refs.step2;
-    if (!r1 || !r2) return 0;
+    if (!r1 || !r2) {
+      return 0;
+    }
     var total = r1.getTotal() + r2.getTotal();
     var filled = r1.getFilled() + r2.getFilled();
     var percent = (100*filled/total) | 0;
@@ -182,14 +186,18 @@ var ClubForm = React.createClass({
       step: err ? this.STEP_FORM : this.STEP_SHOW_RESULT,
       result: err ? null : data
     }, function() {
-      if (!err) next();
+      if (!err) {
+        next();
+      }
     });
   },
 
   getClubData: function() {
     var r1 = this.refs.step1;
     var r2 = this.refs.step2;
-    if (!r1 || !r2) return 0;
+    if (!r1 || !r2) {
+      return 0;
+    }
     return Object.assign({}, r1.getClubData(), r2.getClubData());
   }
 });

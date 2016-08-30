@@ -8,6 +8,9 @@
   },
   "rules" : {
     "valid-jsdoc": [1],
+
+    "curly": [2],
+
     "semi": [2, "always"],
     "strict": [2, "global"]
   },
