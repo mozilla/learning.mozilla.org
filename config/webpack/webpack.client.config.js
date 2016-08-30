@@ -33,8 +33,19 @@ var webpackConfig = {
   },
   module: {
     loaders: [
-      { test: /\.jsx?$/, loaders:   ['babel', 'eslint'], exclude: /node_modules/ },
-      { test: /\.json$/, loader: 'json-loader' }
+      {
+        test: /\.jsx?$/,
+        loaders: [
+          'babel',
+          'eslint',
+          __dirname + '/../../config/webpack/env-var-validator.js'
+        ],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
+      }
     ]
   },
   plugins: [

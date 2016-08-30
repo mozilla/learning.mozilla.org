@@ -29,15 +29,15 @@
     "lint:fix": "eslint --ext .js --ext .jsx --fix .",
     "lint:server": "eslint --ext .js app.js ./server",
     "postinstall": "npm run prep",
-    "prep": "run-s cleanup copy-static-files less l10n webpack:static webpack",
+    "prep": "run-s cleanup copy-static-files less l10n webpack:server webpack:client",
     "start": "run-s webpack:* && run-p start:*",
+    "start:app": "node app",
     "start:less": "chokidar-cmd -c 'npm run less' -t less",
-    "start:app": "npm run webpack -- --watch",
-    "start:static": "npm run webpack:static -- --watch",
-    "start:server": "node app",
+    "start:client": "npm run webpack:client -- --watch",
+    "start:server": "npm run webpack:server -- --watch",
     "test": "run-s prep lint:server",
-    "webpack": "webpack --config ./config/webpack/webpack.client.config.js --progress --colors",
-    "webpack:static": "webpack --config ./config/webpack/webpack.server.config.js --progress --colors"
+    "webpack:client": "webpack --config ./config/webpack/webpack.client.config.js --progress --colors",
+    "webpack:server": "webpack --config ./config/webpack/webpack.server.config.js --progress --colors"
   },
   "babel": {
     "presets": [
@@ -52,7 +52,7 @@
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-react": "^6.11.1",
     "bootstrap": "^3.3.4",
-    "chalk": "^1.1.1",
+    "chalk": "^1.1.3",
     "chokidar": "^1.6.0",
     "chokidar-cmd": "^1.2.1",
     "classnames": "^2.2.1",
