@@ -111,8 +111,11 @@ var StepOne = React.createClass({
   },
   updateName: function(evt) { this.setStateAsChange({ name: evt.target.value }); },
   updateLocation: function(locationdata) {
-    try { locationdata = JSON.parse(locationdata); }
-    catch (e) { locationdata = { location: null, latitude: null, longitude: null }; }
+    try {
+      locationdata = JSON.parse(locationdata);
+    } catch (e) {
+      locationdata = { location: null, latitude: null, longitude: null };
+    }
     this.setStateAsChange({ location: locationdata });
   },
   updateOccupation: function(evt) { this.setStateAsChange({ occupation: evt.target.value }); },
@@ -166,8 +169,7 @@ var StepOne = React.createClass({
     if (!clubState.hostReason) {
       errorElements.push('hostReason');
       errors.push("You must explain the reason for applying.");
-    }
-    else if (clubState.hostReason && clubState.hostReason.split(' ').length < 45) {
+    } else if (clubState.hostReason && clubState.hostReason.split(' ').length < 45) {
       errorElements.push('hostReason');
       errors.push("Please explain the reason for applying in 50 words or more.");
     }

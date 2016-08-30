@@ -12,8 +12,8 @@ var SubItems = React.createClass({
         <li key={item.name}>
           <LinkAnchorSwap name={that.context.intl.formatMessage({id: item.name})} to={item.to} activeClassName="active" />
         </li>
-      );}
-    );
+      );
+    });
     return (
       <ul className="sidebar-subitems">
         {items}

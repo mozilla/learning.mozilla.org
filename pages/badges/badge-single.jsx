@@ -155,17 +155,13 @@ var BadgePage = React.createClass({
     // what to render in the following cascade:
     if (!this.state.badge.id) {
       content = this.renderLoadingView();
-    }
-    else if (!user) {
+    } else if (!user) {
       content = this.renderAnonymousView();
-    }
-    else if (!this.state.hasAccess) {
+    } else if (!this.state.hasAccess) {
       content = this.renderNeedCredlyLinked();
-    }
-    else if (this.state.badge.status === Badge.achieved) {
+    } else if (this.state.badge.status === Badge.achieved) {
       content = this.renderAchieved();
-    }
-    else if (this.state.badge.status === Badge.pending) {
+    } else if (this.state.badge.status === Badge.pending) {
       content = this.renderPending();
     } else {
       content = this.renderEligible();

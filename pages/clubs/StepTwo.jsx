@@ -237,9 +237,7 @@ var StepTwo = React.createClass({
       if (!clubState.intent) {
         errorElements.push('intent');
         errors.push("You need to fill in this part of the application.");
-      }
-
-      else {
+      } else {
         if (!clubState.clubName) {
           errorElements.push('clubName');
           errors.push("You need to fill in the name of your club.");
@@ -247,8 +245,7 @@ var StepTwo = React.createClass({
         if (!clubState.description) {
           errorElements.push('description');
           errors.push("You need to describe your club.");
-        }
-        else if (clubState.description.split(' ').length < 50) {
+        } else if (clubState.description.split(' ').length < 50) {
           errorElements.push('description');
           errors.push("Please describe your club in 50 or more words.");
         }
@@ -280,7 +277,6 @@ var StepTwo = React.createClass({
           errorElements.push('pledgeAgreement');
           errors.push("You must agree to the Club Captain Pledge before you can submit this application.");
         }
-
         if (clubState.website && !this.isValidURL(clubState.website)) {
           errorElements.push('website');
           errors.push("When filling in the optional website field, please use the website's full URL.");

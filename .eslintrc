@@ -37,6 +37,8 @@
     "no-shadow": [2],
     "no-use-before-define": [2],
 
+    "block-spacing": [2, "always"],
+    "brace-style": [2, "1tbs", allowSingleLine: true],
     "semi": [2, "always"]
   },
   "extends": [

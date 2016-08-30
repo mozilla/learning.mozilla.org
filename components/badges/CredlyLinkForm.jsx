@@ -31,8 +31,7 @@ var CredlyLinkForm = React.createClass({
           addendum: <p>Our attempt to link to your account has failed. Please make sure you used the correct email and password, and try again.</p>
         });
         return false;
-      }
-      else {
+      } else {
         component.setState(component.getInitialState());
         component.props.hideModal();
         return true;

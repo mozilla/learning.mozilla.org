@@ -123,8 +123,7 @@ var MakesPage = React.createClass({
       pageContent = <span>{formatMessage({id: 'please_sign_in'})}</span>;
     } else if (this.state.loadingMakes) {
       pageContent = <div className="loading-message">{formatMessage({id: 'loading_projects'})}</div>;
-    }
-    else {
+    } else {
       var makes = this.state.makes.reverse().map(this.formMakeJSX);
       pageContent = (
         <div>

@@ -127,10 +127,8 @@ app.use(function(req, res, next) {
 
       lang = location.split('/')[0];
       return renderComponentPage(serverBundle, location, res, lang);
-    }
-
-    // if neither of those, this is wordpress content
-    else {
+    } else {
+      // if neither of those, this is wordpress content...
       // check to see a page with this slug exists on the WordPress site
       WpPageChecker(location, function(error, wpContent) {
         if ( error ) {
