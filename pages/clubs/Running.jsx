@@ -14,7 +14,7 @@ var Running = React.createClass({
       var categoryLabel = data[i].category.toLowerCase();
       categoryLabel = "guide_category_" + categoryLabel.split(' ').join('_');
       var localizedCategory = this.context.intl.formatMessage({id: categoryLabel});
-      if(localizedCategory != categoryLabel){
+      if(localizedCategory !== categoryLabel){
         data[i].category = localizedCategory;
       }
     }

@@ -66,7 +66,7 @@ var MarkerPopup = React.createClass({
         {this.props.clubs.map(function(club, i) {
           return React.createElement(MarkerPopupClub, _.extend({
             key: i,
-            isOwned: club.owner == this.props.username
+            isOwned: club.owner === this.props.username
           }, club));
         }, this)}
       </ul>
@@ -349,9 +349,9 @@ var Map = React.createClass({
       return;
     }
 
-    if (action == 'delete') {
+    if (action === 'delete') {
       this.props.onDelete(url, targetEl.getAttribute('data-club-name'));
-    } else if (action == 'edit') {
+    } else if (action === 'edit') {
       this.props.onEdit(url);
     } else {
       console.warn('unknown action: ' + action);

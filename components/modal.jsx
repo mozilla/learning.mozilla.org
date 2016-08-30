@@ -21,7 +21,7 @@ var Modal = React.createClass({
     }
   },
   handleKeyDown: function(e) {
-    if (e.which == 27) {
+    if (e.which === 27) {
       this.props.hideModal();
     }
   },

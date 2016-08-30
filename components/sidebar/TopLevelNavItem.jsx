@@ -18,7 +18,7 @@ var TopLevelNavItem = React.createClass({
     // TODO: there seems to be no way to do this without interacting with DOM.
     // Please feel free to polish this function if you find a better solution :)
     var subNavActive = ReactDOM.findDOMNode(this).querySelectorAll('a.active').length > 0;
-    if ( this.state.activeSubNav != subNavActive) {
+    if (this.state.activeSubNav !== subNavActive) {
       this.setState({
         activeSubNav: subNavActive
       });

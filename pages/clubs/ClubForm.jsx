@@ -144,7 +144,7 @@ var ClubForm = React.createClass({
       var goToNext = function() {
         this.setState({ currentStep: nextStep });
       }.bind(this);
-      if (this.state.currentStep == 1) {
+      if (this.state.currentStep === 1) {
         this.submitForm(goToNext);
       } else {
         goToNext();

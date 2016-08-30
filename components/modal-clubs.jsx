@@ -281,12 +281,12 @@ var ModalClubs = React.createClass({
     var action = isAdd ? "add" : "change";
     var modalTitle = isAdd ? "Get matched with a Regional Coordinator" : "Change Your Club";
 
-    if (this.state.step == this.STEP_AUTH) {
+    if (this.state.step === this.STEP_AUTH) {
       content = this.generateAuthHTML(action);
-    } else if (this.state.step == this.STEP_FORM || this.state.step == this.STEP_WAIT_FOR_NETWORK) {
-      isFormDisabled = (this.state.step == this.STEP_WAIT_FOR_NETWORK);
+    } else if (this.state.step === this.STEP_FORM || this.state.step === this.STEP_WAIT_FOR_NETWORK) {
+      isFormDisabled = (this.state.step === this.STEP_WAIT_FOR_NETWORK);
       content = this.generateFormHTML(isAdd, action, isFormDisabled, modalTitle);
-    } else if (this.state.step == this.STEP_SHOW_RESULT) {
+    } else if (this.state.step === this.STEP_SHOW_RESULT) {
       content = this.generateResultHTML(isAdd);
     }
 
