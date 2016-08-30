@@ -30,8 +30,7 @@ var MadeWithCodeMeme = createVariant({
   steps: [
     <div>
       <p><strong>Click the “REMIX” button.</strong> This will open Thimble. You’ll see a simple meme we created to get you started.</p>
-    </div>
-    ,
+    </div>,
     <div>
       <p><strong>Follow the steps in the tutorial.</strong> The tutorial will walk you through how to make changes to the code.</p>
     </div>

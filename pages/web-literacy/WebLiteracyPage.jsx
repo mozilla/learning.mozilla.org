@@ -188,7 +188,7 @@ var WebLitPage = React.createClass({
     }.bind(this));
   },
   renderTopics: function() {
-    var that = this;
+    var self = this;
     var formatMessage = this.context.intl.formatMessage;
     if (this.state.topic) {
       return null;
@@ -203,7 +203,7 @@ var WebLitPage = React.createClass({
             alt={"weblit-map-icon-" + topic}>
             <h2>{topic}</h2>
             <p>{topicContent[topic].content}</p>
-            <span><strong>{formatMessage({id:"web_lit_skills"})}:</strong> {makeLinksFromWebLitSkills(Object.keys(weblitdata[topic]), that.context.intl.locale)}</span>
+            <span><strong>{formatMessage({id:"web_lit_skills"})}:</strong> {makeLinksFromWebLitSkills(Object.keys(weblitdata[topic]), self.context.intl.locale)}</span>
           </Illustration>
         </div>
       );

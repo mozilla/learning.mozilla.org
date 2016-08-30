@@ -355,7 +355,7 @@ var BadgePage = React.createClass({
   },
 
   handleFiles: function(evt) {
-    var component = this;
+    var self = this;
     var files = evt.target.files;
     var attachments = [];
     Array.from(files).forEach(function(file) {
@@ -373,7 +373,7 @@ var BadgePage = React.createClass({
           }
 
           if(attachments.length === files.length) {
-            component.setState({
+            self.setState({
               evidenceFiles: attachments
             });
           }
@@ -384,9 +384,9 @@ var BadgePage = React.createClass({
   },
 
   removeAttachment: function(name) {
-    var component = this;
+    var self = this;
     return function() {
-      var files = component.state.evidenceFiles;
+      var files = self.state.evidenceFiles;
       var pos = -1;
       files.forEach(function(file, idx) {
         if (file.name === name) {
@@ -395,7 +395,7 @@ var BadgePage = React.createClass({
       });
       if (pos > -1) {
         files.splice(pos, 1);
-        component.setState({
+        self.setState({
           evidenceFiles: files
         });
       }
@@ -459,10 +459,10 @@ var BadgePage = React.createClass({
   linkAccounts: function(email, password, handleLinkResult) {
     // tell the badgeAPI to set up an access token for this user using their
     // supplied email and password, which we will then immediately forget again.
-    var component = this;
+    var self = this;
     this.state.badgeAPI.ensureLogin(email, password, function(err, result) {
       if (handleLinkResult(err, result)) {
-        component.reloadPage();
+        self.reloadPage();
       }
     });
   },

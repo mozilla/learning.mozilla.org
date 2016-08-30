@@ -14,10 +14,10 @@ var Skills21CPage = React.createClass({
     pageClassName: 'web-literacy-skills-page'
   },
   generateSkillItem: function(skill) {
-    var that = this;
+    var self = this;
     return Object.keys(skill.topics).map(function(topic) {
       return (
-        <div key={topic}><strong>{topic}:</strong> {makeLinksFromWebLitSkills(skill.topics[topic], that.context.intl.locale)}</div>
+        <div key={topic}><strong>{topic}:</strong> {makeLinksFromWebLitSkills(skill.topics[topic], self.context.intl.locale)}</div>
       );
     });
   },

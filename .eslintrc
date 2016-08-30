@@ -39,6 +39,9 @@
 
     "block-spacing": [2, "always"],
     "brace-style": [2, "1tbs", allowSingleLine: true],
+    "comma-style": [2, "last"],
+    "consistent-this": [2, "self"],
+    "eol-last": [2],
     "semi": [2, "always"]
   },
   "extends": [

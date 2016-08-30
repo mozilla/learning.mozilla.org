@@ -31,8 +31,7 @@ var MadeWithCodeFirstWebPage = createVariant({
   steps: [
     <div>
       <p><strong>Click the “REMIX” button.</strong> This will open Thimble. You’ll see a simple web page we created to get you started. The code is on one side, the page preview is on the other.</p>
-    </div>
-    ,
+    </div>,
     <div>
       <p><strong>Follow the steps.</strong> The tutorial will walk you through how to make changes to the code.</p>
     </div>

@@ -15,7 +15,7 @@ var Tabulator = React.createClass({
     });
   },
   render: function() {
-    var tabulator = this;
+    var self = this;
     var className = "tabulator";
     if (this.state.activeClass) {
       className += " " + this.state.activeClass;
@@ -25,7 +25,7 @@ var Tabulator = React.createClass({
         <div className="tabulator-head-container">
           {this.props.tabs.map(function (section, key) {
             function onClick(e) {
-              tabulator.showTab("tab-" + key);
+              self.showTab("tab-" + key);
             }
             var innerClassName = "tabulator-head col-xs-3 col-sm-3 col-md-3 col-lg-3";
             innerClassName += " tab-" + key;
