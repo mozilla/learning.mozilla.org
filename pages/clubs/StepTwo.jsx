@@ -331,7 +331,7 @@ var StepTwo = React.createClass({
     if (freq === 'other') { freq = this.state.frequencyOther; }
     var age = this.state.ageRange.join(', ');
     if (this.state.ageRange.indexOf('other')) {
-     age = age.replace('other', 'other: ' + this.state.ageRangeOther);
+      age = age.replace('other', 'other: ' + this.state.ageRangeOther);
     }
 
     var data = {

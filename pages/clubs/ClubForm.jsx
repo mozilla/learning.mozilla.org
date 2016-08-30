@@ -170,7 +170,7 @@ var ClubForm = React.createClass({
       networkError: false,
     }, function() {
       teachAPI.addClub(clubState, function(err, data) {
-       networkHandler(err, data, next);
+        networkHandler(err, data, next);
       });
     });
   },

@@ -8,9 +8,9 @@ var ThankYouModal = React.createClass({
   },
   render: function() {
   // we can't preset the message sharing on Facebook
-  var facebookShare = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent("https://learning.mozilla.org");
-  var twitterShareMessage = this.context.intl.formatMessage({id: 'twitter_share_message'}, {learningURL: "https://learning.mozilla.org" });
-  var twitterShare = "https://twitter.com/home?status=" + encodeURIComponent(twitterShareMessage);
+    var facebookShare = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent("https://learning.mozilla.org");
+    var twitterShareMessage = this.context.intl.formatMessage({id: 'twitter_share_message'}, {learningURL: "https://learning.mozilla.org" });
+    var twitterShare = "https://twitter.com/home?status=" + encodeURIComponent(twitterShareMessage);
     return (
       <Modal modalTitle={this.context.intl.formatMessage({id: 'thanks_for_your_interest'})} className="modal-signup" hideModal={this.props.hideModal}>
         <p><FormattedMessage id='thank_you_modal_message' /></p>

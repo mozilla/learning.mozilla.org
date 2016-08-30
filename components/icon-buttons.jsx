@@ -7,10 +7,10 @@ var IconButtons = React.createClass({
         <section className="row">
           {
              React.Children.map(this.props.children, function(iconButton){
-              return(
+               return(
                 <div className="col-sm-4 col-md-4 col-lg-4">{iconButton}</div>
               );
-            })
+             })
           }
         </section>
       </div>
