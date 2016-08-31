@@ -121,6 +121,8 @@ software works.
 `LOGIN_EMULATION` | determines whether or not the teach-api is used for login state management. defaults to false.
 `LOGIN_EMULATION_LOGGEDOUT` | determines whether, when login emulation is on, the login state should be logged in or out. defaults to false.
 `LOGIN_EMULATION_USERNAME` | determines the username that is used when login emulation is on and login status is not set to logged out. defaults to 'testuser'.
+`FULL_SUBDOMAIN_FOR_COOKIE` | A domain string, used by Optimizely to determine cookie domain that is used by Optimizely. defaults to 'learning.mozilla.org'
+`ENABLE_PONTOON` | set this to `on` to inject the Pontoon client-side localization script.
 
 ### Using Environment Variables in Local Development
 
