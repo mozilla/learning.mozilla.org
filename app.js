@@ -111,6 +111,12 @@ app.use(function(req, res, next) {
   }
 
   match({ routes: routes, location: location}, function resolveRoute(err, redirect, props) {
+
+    // React router based redirect? (routes.jsx)
+    if(redirect) {
+      res.redirect(redirect.pathname);
+    }
+
     // is this even a component?
     if ( !props ) {
       return next();
