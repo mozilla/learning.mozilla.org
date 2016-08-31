@@ -9,6 +9,7 @@ var webpack = require('webpack');
 
 var webpackConfig = {
   entry: __dirname + '/../../lib/build/server.library.jsx',
+  devtool: 'source-map',
   target: 'node',
   externals: function(context, request, callback) {
     // bundle in relative script requires.
@@ -36,6 +37,9 @@ var webpackConfig = {
       }
     ]
   },
+  plugins: [
+    new webpack.BannerPlugin('require("source-map-support").install();', { raw: true, entryOnly: false })    
+  ],
   output: {
     library: 'true',
     libraryTarget: 'commonjs2',
