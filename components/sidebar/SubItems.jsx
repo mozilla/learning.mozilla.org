@@ -14,6 +14,7 @@ var SubItems = React.createClass({
         </li>
       );
     });
+
     return (
       <ul className="sidebar-subitems">
         {items}

@@ -1,6 +1,6 @@
-var React = require('react');
-var ga = require('react-ga');
-var OutboundLink = ga.OutboundLink;
+var React = require('react'),
+    ga = require('react-ga'),
+    OutboundLink = ga.OutboundLink;
 
 var ImageDimension = React.PropTypes.oneOfType([
   React.PropTypes.string, // Vector images may contain units
@@ -29,6 +29,7 @@ var ImageTag = React.createClass({
                      className={this.props.link ? "image-link" : null} />;
 
     var content = image;
+
     if (this.props.link) {
       if (this.props.externalLink) {
         content = <OutboundLink to={this.props.link} eventLabel={this.props.link}>{ image }</OutboundLink>;

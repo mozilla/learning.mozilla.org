@@ -15,13 +15,16 @@ var ToolsColumn = React.createClass({
   },
   render: function() {
     var ifExternalLink = false;
+
     if(!!this.props.activityLink) {
       ifExternalLink = (this.props.activityLink.substr(0,4) === "http" || this.props.activityLink.substr(0,2) === "//");
     }
 
     var sampleActivity = null;
+
     if (this.props.activityTitle && this.props.activityLink) {
       var activityTitle = <a href={this.props.activityLink}>{this.props.activityTitle}</a>;
+
       if (ifExternalLink) {
         activityTitle = <OutboundLink to={this.props.activityLink} eventLabel={this.props.activityLink}>{this.props.activityTitle}</OutboundLink>;
       }
@@ -32,6 +35,7 @@ var ToolsColumn = React.createClass({
         </div>
       );
     }
+
     return (
       <div className="col-sm-4 col-md-4 col-lg-4 tools-col">
         <Illustration

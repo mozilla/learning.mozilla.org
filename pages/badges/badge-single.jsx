@@ -20,6 +20,7 @@ var Navigation = React.createClass({
   render: function() {
     var prev = this.props.prev;
     var next = this.props.next;
+
     return (
       <div className="badge-navigation">
         <a className="previous" href={"/" + this.context.intl.locale + prev.url}>
@@ -52,6 +53,7 @@ var BadgePage = React.createClass({
   getInitialState: function () {
     var teachAPI = this.props.teachAPI || new TeachAPI();
     var badgeAPI = new BadgesAPI({ teachAPI: teachAPI });
+
     return {
       hasAccess: false,
       showLinkModal: false,
@@ -106,6 +108,7 @@ var BadgePage = React.createClass({
     var bdata = data.badge;
 
     var prev = false;
+
     if (data.prev) {
       prev = {
         title: data.prev.title,
@@ -115,6 +118,7 @@ var BadgePage = React.createClass({
     }
 
     var next = false;
+
     if (data.next) {
       next = {
         title: data.next.title,
@@ -125,6 +129,7 @@ var BadgePage = React.createClass({
 
     // FIXME: these need to be constants on the badgeAPI, probably
     var status = Badge.eligible;
+
     if (data.earned) { status = Badge.achieved; }
     if (data.pending) { status = Badge.pending; }
 
@@ -191,6 +196,7 @@ var BadgePage = React.createClass({
   renderNeedCredlyLinked: function() {
     // FIXME: TODO: finish this up.
     var modal = null;
+
     if (this.state.showLinkModal) {
       modal = (
         <Modal modalTitle="" className="modal-credly folded" hideModal={this.hideLinkModal}>
@@ -204,8 +210,10 @@ var BadgePage = React.createClass({
         </Modal>
       );
     }
+
     var badgeCriteria = this.formBadgeCriteria(this.state.badge.criteria);
     var username = this.state.teachAPI.getUsername();
+
     return (
       <div className="credly-link">
         { badgeCriteria }
@@ -229,6 +237,7 @@ var BadgePage = React.createClass({
   renderAchieved: function() {
     var badgeCriteria = this.formBadgeCriteria(this.state.badge.criteria);
     var share = null; //<SocialShare />
+
     // FIXME: TODO: retrieve the information on when/how this badge was earned.
     //              ... IF we use this information at all.
     return (
@@ -270,6 +279,7 @@ var BadgePage = React.createClass({
 
   renderEligible: function() {
     var badgeCriteria = this.formBadgeCriteria(this.state.badge.criteria);
+
     return (
       <div className="badge-available">
         { badgeCriteria }
@@ -358,12 +368,15 @@ var BadgePage = React.createClass({
     var self = this;
     var files = evt.target.files;
     var attachments = [];
+
     Array.from(files).forEach(function(file) {
       var reader = new FileReader();
+
       reader.onload = (function(f) {
         return function(e) {
           var name = escape(f.name);
           var data = e.target.result;
+
           if (data) {
             // FIXME: TODO: There is a 20MB limit on file uploads whch
             //              I doubt we'll run into, but _might_ be an issue
@@ -385,9 +398,11 @@ var BadgePage = React.createClass({
 
   removeAttachment: function(name) {
     var self = this;
+
     return function() {
       var files = self.state.evidenceFiles;
       var pos = -1;
+
       files.forEach(function(file, idx) {
         if (file.name === name) {
           pos = idx;
@@ -460,6 +475,7 @@ var BadgePage = React.createClass({
     // tell the badgeAPI to set up an access token for this user using their
     // supplied email and password, which we will then immediately forget again.
     var self = this;
+    
     this.state.badgeAPI.ensureLogin(email, password, function(err, result) {
       if (handleLinkResult(err, result)) {
         self.reloadPage();

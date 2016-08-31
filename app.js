@@ -1,29 +1,27 @@
 var habitat = require('habitat');
+
 habitat.load('.env');
 
-var path = require('path');
-var fs = require('fs');
-var express = require('express');
-var helmet = require('helmet');
-var url = require('url');
-
-var React = require('react');
-var ReactRouter = require('react-router');
-var Router = ReactRouter.Router;
-var match = ReactRouter.match;
-var routington = require('routington');
-
-var PORT = process.env.PORT || 8008;
-var PRODUCTION = (process.env.NODE_ENV === 'production');
-var DIST_DIR = path.join(__dirname, 'dist');
-var CODEMOJI_URL = process.env.CODEMOJI_URL || "https://codemoji.mofostaging.net";
-var localize = require('mofo-localize');
-
-var urlToRoutePath = require('./server/url-to-route-path');
-var renderComponentPage = require('./server/render-component-page');
-var WpPageChecker = require('./lib/wp-page-checker');
-var locales = require(path.join(DIST_DIR, 'locales.json'));
-var locale = "";
+var path = require('path'),
+    fs = require('fs'),
+    express = require('express'),
+    helmet = require('helmet'),
+    url = require('url'),
+    React = require('react'),
+    ReactRouter = require('react-router'),
+    Router = ReactRouter.Router,
+    match = ReactRouter.match,
+    routington = require('routington'),
+    PORT = process.env.PORT || 8008,
+    PRODUCTION = (process.env.NODE_ENV === 'production'),
+    DIST_DIR = path.join(__dirname, 'dist'),
+    CODEMOJI_URL = process.env.CODEMOJI_URL || "https://codemoji.mofostaging.net",
+    localize = require('mofo-localize'),
+    urlToRoutePath = require('./server/url-to-route-path'),
+    renderComponentPage = require('./server/render-component-page'),
+    WpPageChecker = require('./lib/wp-page-checker'),
+    locales = require(path.join(DIST_DIR, 'locales.json')),
+    locale = "";
 
 // the static HTML generator
 var serverBundle = require('./build/server.library');
@@ -31,8 +29,9 @@ var router = React.createElement(Router, {routes: serverBundle.routes});
 var matcher;
 
 if (process.env.NODE_ENV !== 'production') {
-  var requireUncached = require('require-uncached');
-  var chokidar = require('chokidar');
+  var requireUncached = require('require-uncached'),
+      chokidar = require('chokidar');
+
   // reload our index and router if there's a change to the static site generator code
   chokidar.watch('./build').on('all', function(_event, _path) {
     serverBundle = requireUncached('./build/server.library');
@@ -49,6 +48,7 @@ var app = express();
 app.disable('x-powered-by');
 
 var securityHeaders = require('./server/security-headers');
+
 app.use(helmet.contentSecurityPolicy(securityHeaders));
 
 app.use(helmet.xssFilter({
@@ -89,6 +89,7 @@ app.use(function(req, res, next) {
  */
 app.use(function(req, res, next) {
   var routePath = urlToRoutePath(req.path);
+
   if (!serverBundle.REDIRECTS[routePath]) {
     return next();
   }
@@ -99,10 +100,10 @@ app.use(function(req, res, next) {
  * If it's not a redirect, is it a component page?
  */
 app.use(function(req, res, next) {
-  var routes = serverBundle.routes;
-  var location = urlToRoutePath(req.url);
-  var urls = serverBundle.URLS;
-  var lang;
+  var routes = serverBundle.routes,
+      location = urlToRoutePath(req.url),
+      urls = serverBundle.URLS,
+      lang;
 
   if (!matcher) {
     matcher = routington();
@@ -146,6 +147,7 @@ app.use(function(req, res, next) {
  */
 app.use('/codemoji', function(req, res) {
   var location = url.parse(CODEMOJI_URL);
+
   location.pathname = req.path;
   location.query = req.query;
   res.redirect(307, url.format(location));
@@ -160,12 +162,12 @@ app.use(express.static(DIST_DIR));
 * Maybe it is a route, but needs the localized path
 */
 app.use(function(req, res, next) {
-  var location = url.parse(req.url).pathname;
-  var search = url.parse(req.url).search || "";
-  // Get a valid locale from the path and header
-  var parsed = localize.parseLocale(req.headers["accept-language"], location, locales);
-  var parsedLocale = parsed.locale;
-  var parsedRedirect = parsed.redirect;
+  var location = url.parse(req.url).pathname,
+      search = url.parse(req.url).search || "",
+      parsed = localize.parseLocale(req.headers["accept-language"], location, locales),
+      parsedLocale = parsed.locale,
+      parsedRedirect = parsed.redirect;
+
   // See if we should redirect.
   if (parsedRedirect) {
     res.redirect(307, "/" + parsedLocale + parsedRedirect + search);

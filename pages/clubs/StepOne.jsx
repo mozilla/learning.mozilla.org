@@ -32,6 +32,7 @@ var StepOne = React.createClass({
   getFilled: function() {
     var state = this.state;
     var optional = this.optional;
+
     // get the number of required fields that have a value filled in.
     return progressFields.reduce(function(a,b) {
       b = state[b];
@@ -54,6 +55,7 @@ var StepOne = React.createClass({
 
   render: function() {
     var className = "step1" + (this.props.hidden ? " hidden" : "");
+
     return (
       <div className={className}>
         <fieldset>
@@ -139,6 +141,7 @@ var StepOne = React.createClass({
     }
 
     var how = this.state.howDidYouHear;
+
     if (how === "other") { how = this.state.howDidYouActuallyHear; }
     data.how_they_heard = how;
 
@@ -185,7 +188,9 @@ var StepOne = React.createClass({
     if (!this.state.errorElements) {
       return null;
     }
+    
     var error = this.state.errorElements.indexOf(field) > -1;
+    
     return error ? "error" : '';
   },
 

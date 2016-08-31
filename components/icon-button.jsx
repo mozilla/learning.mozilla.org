@@ -13,6 +13,7 @@ var LinkSwap = React.createClass({
   },
   render: function() {
     var otherProps = _.extend(_.omit(this.props, "link", "href"), { className: "btn" });
+
     // Swap out Link or a simple anchor depending on the props we have.
     if (this.props.link) {
       return (

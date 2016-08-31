@@ -67,6 +67,7 @@ var StepTwo = React.createClass({
   getFilled: function() {
     var state = this.state;
     var optional = this.optional;
+
     return progressFields.reduce(function(a,b) {
       b = state[b];
       b = b===null? 0 : b===false? 0 : b.length===0 ? 0 : optional.indexOf(b)>-1 ? 0 : 1;
@@ -85,6 +86,7 @@ var StepTwo = React.createClass({
 
   render: function() {
     var className = "step2" + (this.props.hidden ? " hidden" : "");
+
     return (
       <div className={className}>
         <fieldset>
@@ -214,7 +216,9 @@ var StepTwo = React.createClass({
     var val = evt.target.value;
     var ar = this.state.ageRange;
     var pos = ar.indexOf(val);
+
     if (pos > -1) { ar.splice(pos,1); } else { ar.push(val); }
+
     this.setStateAsChange({ ageRange: ar });
   },
   updateAgeRangeOther: function(evt) { this.setStateAsChange({ ageRangeOther: evt.target.value }); },
@@ -233,7 +237,6 @@ var StepTwo = React.createClass({
     var errors = [];
 
     if (!clearValidate) {
-
       if (!clubState.intent) {
         errorElements.push('intent');
         errors.push("You need to fill in this part of the application.");
@@ -294,10 +297,13 @@ var StepTwo = React.createClass({
     }
     if (typeof document !== "undefined") {
       var a = document.createElement("a");
+
       a.href = url;
+
       if (!a.pathname) {
         return false;
       }
+
       return a.hostname.indexOf('.') > -1;
     }
   },
@@ -306,7 +312,9 @@ var StepTwo = React.createClass({
     if (!this.state.errorElements) {
       return null;
     }
+
     var error = this.state.errorElements.indexOf(field) > -1;
+
     return error ? "error" : '';
   },
 
@@ -328,8 +336,11 @@ var StepTwo = React.createClass({
 
   getClubData: function() {
     var freq = this.state.frequency;
+
     if (freq === 'other') { freq = this.state.frequencyOther; }
+
     var age = this.state.ageRange.join(', ');
+
     if (this.state.ageRange.indexOf('other')) {
       age = age.replace('other', 'other: ' + this.state.ageRangeOther);
     }

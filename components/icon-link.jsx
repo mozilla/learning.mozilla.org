@@ -12,10 +12,13 @@ var LinkSwap = React.createClass({
   },
   render: function() {
     var link = this.props.link;
+
     if (!link) {
       return this.props.children;
     }
+
     var ifExternalLink = (link.substr(0,4).toLowerCase() === "http") || (link.substr(0,7).toLowerCase() === "mailto:");
+
     return (
       ifExternalLink ? <OutboundLink to={this.props.link} eventLabel={this.props.link} className="external-link">{this.props.children}</OutboundLink> :
                        <Link to={"/" + this.context.intl.locale + this.props.link} ref={this.props.key}>{this.props.children}</Link>
@@ -25,16 +28,15 @@ var LinkSwap = React.createClass({
 
 var Subhead = React.createClass({
   render: function() {
-    var highlightedText = this.props.highlightedText || null;
-    var textArray = this.props.bodyText.split(highlightedText);
-    var content = <p>
+    var highlightedText = this.props.highlightedText || null,
+        textArray = this.props.bodyText.split(highlightedText),
+        content = <p>
                     {textArray[0]}
                     <strong>{highlightedText}</strong>
                     {textArray[1]}
                   </p>;
-    return(
-      <div className="subhead">{content}</div>
-    );
+
+    return <div className="subhead">{content}</div>;
   }
 });
 

@@ -27,10 +27,11 @@ var SocialShare = React.createClass({
   },
 
   render : function () {
-    var networks = SocialShare.SOCIAL_NETWORKS;
-    var buttons = Object.keys(networks).map(function(network) {
-      return <SocialShareButton key={network} networkType={network} iconClassName={networks[network]} />;
-    });
+    var networks = SocialShare.SOCIAL_NETWORKS,
+        buttons = Object.keys(networks).map(function(network) {
+          return <SocialShareButton key={network} networkType={network} iconClassName={networks[network]} />;
+        });
+
     return <div className="social-share-wrapper">{ buttons }</div>;
   }
 });

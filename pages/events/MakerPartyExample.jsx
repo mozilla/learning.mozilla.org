@@ -4,7 +4,9 @@ var Illustration = require('../../components/illustration.jsx');
 var MakerPartyExample = React.createClass({
   render: function() {
     var host = this.props.host.link ? <a href={this.props.host.link}>{this.props.host.name}</a> : this.props.host.name;
+
     host = this.props.host.description ? <span>{host}, {this.props.host.description}</span> : host;
+
     return (
       <div className="activity-kit">
         <Illustration

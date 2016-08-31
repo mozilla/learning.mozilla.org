@@ -89,6 +89,7 @@ var ClubForm = React.createClass({
     }
 
     var buttons = [];
+
     if (this.state.currentStep > 0) {
       buttons.push(
         <button key={'back'} className="back btn" disabled={this.state.submitting} onClick={!this.state.submitting && this.prevStep}>Back</button>
@@ -97,6 +98,7 @@ var ClubForm = React.createClass({
 
     var buttonClass = 'btn';
     var buttonLabel = 'Next';
+
     if (this.state.currentStep === 1) {
       buttonLabel = "Submit";
     }
@@ -120,12 +122,15 @@ var ClubForm = React.createClass({
   updateProgress: function() {
     var r1 = this.refs.step1;
     var r2 = this.refs.step2;
+
     if (!r1 || !r2) {
       return 0;
     }
+
     var total = r1.getTotal() + r2.getTotal();
     var filled = r1.getFilled() + r2.getFilled();
     var percent = (100*filled/total) | 0;
+
     this.setState({ progress: percent });
   },
 
@@ -139,11 +144,13 @@ var ClubForm = React.createClass({
     var refname = 'step' + (this.state.currentStep+1);
     var curRef = this.refs[refname];
     var validates = curRef.validates();
+
     if (validates) {
       var nextStep = Math.min(this.state.currentStep + 1, 2);
       var goToNext = function() {
         this.setState({ currentStep: nextStep });
       }.bind(this);
+
       if (this.state.currentStep === 1) {
         this.submitForm(goToNext);
       } else {
@@ -158,12 +165,14 @@ var ClubForm = React.createClass({
     // new form data as object
 
     var clubState = this.getClubData();
+
     clubState.longitude = clubState.location.longitude;
     clubState.latitude = clubState.location.latitude;
     clubState.location = clubState.location.location;
 
     // send to Teach-API and wait for response via the callback
     var networkHandler = this.handleNetworkResult;
+
     this.setState({
       submitting: true,
       step: this.STEP_WAIT_FOR_NETWORK,
@@ -195,9 +204,11 @@ var ClubForm = React.createClass({
   getClubData: function() {
     var r1 = this.refs.step1;
     var r2 = this.refs.step2;
+
     if (!r1 || !r2) {
       return 0;
     }
+    
     return Object.assign({}, r1.getClubData(), r2.getClubData());
   }
 });

@@ -17,9 +17,10 @@ var Illustration = React.createClass({
     externalLink: React.PropTypes.bool,
     caption: React.PropTypes.object
   },
+
   render: function() {
-    var classes = this.props.className ? ("illustration " + this.props.className) : "illustration";
-    var image = <ImageTag width={this.props.width}
+    var classes = this.props.className ? ("illustration " + this.props.className) : "illustration",
+        image = <ImageTag width={this.props.width}
                           height={this.props.height}
                           src1x={this.props.src1x}
                           src2x={this.props.src2x}
@@ -27,6 +28,7 @@ var Illustration = React.createClass({
                           caption={this.props.caption}
                           link={this.props.link}
                           externalLink={this.props.externalLink}/>;
+
     return (
       <div className={classes}>
         <div className="image-container">{image}</div>

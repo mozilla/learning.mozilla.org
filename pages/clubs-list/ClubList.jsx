@@ -18,6 +18,7 @@ var ClubList = React.createClass({
   },
   renderColumn: function(key, clubs) {
     var colClass = 'col-xs-' + (this.GRID_COLUMNS_PER_ROW / this.COLUMNS);
+    
     return (
       <div className={colClass} key={key}>
         <ul className="list-unstyled colored-list">

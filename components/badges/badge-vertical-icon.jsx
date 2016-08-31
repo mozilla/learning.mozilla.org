@@ -4,6 +4,7 @@ var React = require('react'),
 var BadgeVerticalIcon = React.createClass({
   render: function() {
     var badge = this.props.badge;
+
     return (
       <div className='badge-vertical-icon'>
         <Badge badge={badge} anonymous={this.props.anonymous}/>

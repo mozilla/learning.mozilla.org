@@ -75,13 +75,13 @@ var endEvents = [];
   for (var baseEventName in EVENT_NAME_MAP) {
     if (EVENT_NAME_MAP.hasOwnProperty(baseEventName)) {
       var baseEvents = EVENT_NAME_MAP[baseEventName];
+
       for (var styleName in baseEvents) {
         if (styleName in style) {
           endEvents.push(baseEvents[styleName]);
           break;
         }
       }
-
     }
   }
 })();

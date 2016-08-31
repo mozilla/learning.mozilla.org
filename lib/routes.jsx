@@ -68,6 +68,7 @@ var pages = {
 // badges are behind a feature flag until finalized
 if (process.env.ENABLE_BADGES) {
   var objectAssign = require('object-assign');
+
   pages = objectAssign(pages, {
     'badges': require('../pages/badges/badges.jsx'),
     'badge/:id': require('../pages/badges/badge-single.jsx'),
@@ -86,6 +87,7 @@ var redirects = {
 
 // aggregate all paths used in the app
 var urls = ['/'];
+
 urls = urls.concat([
   'web-literacy',
   'web-literacy/participate',
@@ -132,6 +134,7 @@ var redirectElements = Object.keys(redirects).map(function(path) {
 function buildRoutes() {
   var routes = [];
   var localeURLs = [];
+
   locales.forEach(function(locale) {
     routes.push(
       <Route key={locale} path={locale} component={require('../components/page.jsx')}>
@@ -149,6 +152,7 @@ function buildRoutes() {
     //Add each locale's routes to the array of urls that the server uses for route matching
     urls.forEach(function(key) {
       var newkey = locale + "/" + key;
+      
       localeURLs.push(newkey);
     });
 
@@ -159,8 +163,8 @@ function buildRoutes() {
     urls: localeURLs
   };
 }
-var builtRoutes = buildRoutes();
 
+var builtRoutes = buildRoutes();
 
 // return all the route information
 module.exports = {

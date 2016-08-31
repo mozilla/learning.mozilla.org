@@ -22,6 +22,7 @@ var assign = require('object-assign');
 function createElement(Component, props) {
   var locale = this.locale;
   var messages = assign({}, locales["en-US"], locales[locale]);
+
   // make sure you pass all the props in!
   return (
     <IntlProvider locale={locale} messages={messages}>
@@ -52,8 +53,10 @@ module.exports = {
       if (error) {
         return next(new Error("Error in redirect from '" + fromURL + "' to '" + toURL + "'"));
       }
+
       var redirectHTML = (<p>The URL of this page has changed to <a href={toURL}>{toURL}</a>.</p>);
       var html = ReactDOMServer.renderToStaticMarkup(redirectHTML);
+
       next(null, html, { title: "Redirect to " + toURL });
     });
   },
@@ -83,6 +86,7 @@ module.exports = {
       var Component = renderProps.routes.slice(-1)[0].component;
       var title = Page.titleForHandler(Component);
       var html = ReactDOMServer.renderToString(<RoutingContext locale={locale} createElement={createElement} {...renderProps} />);
+
       next(null, html, { title: title });
     });
   },

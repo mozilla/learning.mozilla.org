@@ -12,8 +12,11 @@ var Running = React.createClass({
   setData : function(data){
     for(var i = 0; i < data.length; i++){
       var categoryLabel = data[i].category.toLowerCase();
+
       categoryLabel = "guide_category_" + categoryLabel.split(' ').join('_');
+      
       var localizedCategory = this.context.intl.formatMessage({id: categoryLabel});
+      
       if(localizedCategory !== categoryLabel){
         data[i].category = localizedCategory;
       }
@@ -22,10 +25,12 @@ var Running = React.createClass({
   },
   fetchJSON : function(path,callback){
     var httpRequest = new XMLHttpRequest();
+    
     httpRequest.onreadystatechange = function() {
       if(httpRequest.readyState === 4) {
         if(httpRequest.status === 200) {
           var data = JSON.parse(httpRequest.responseText);
+
           if (typeof callback === "function") {
             callback(data);
           }
@@ -70,6 +75,7 @@ var Running = React.createClass({
         </section>
       );
     });
+
     return categories;
   },
   render: function () {

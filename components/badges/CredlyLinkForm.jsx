@@ -17,12 +17,15 @@ var CredlyLinkForm = React.createClass({
   handleSubmit: function(e) {
     // Get the values, and then immediately forget them so
     // they don't hang around in this component's state.
-    var email = this.state.email;
-    var password = this.state.password;
+    var email = this.state.email,
+        password = this.state.password;
+
     this.setState({
       pending: true
     });
+
     var self = this;
+
     this.props.linkAccounts(email, password, function(err, result) {
       if (err) {
         self.setState({
@@ -51,6 +54,7 @@ var CredlyLinkForm = React.createClass({
 
   render: function() {
     var enabled = (!this.state.pending && this.state.email && this.state.password);
+
     return (
       <div>
         { this.state.addendum ? this.state.addendum : null}

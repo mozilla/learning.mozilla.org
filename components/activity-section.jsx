@@ -11,6 +11,7 @@ var ActivitySection = React.createClass({
   },
   render: function () {
     var self = this;
+    
     return (
       <section className="activity-section">
         <h2>
@@ -25,6 +26,7 @@ var ActivitySection = React.createClass({
             );
           } else {
             var caption = activity.originalImgSrc ? <a href={activity.originalImgSrc}>{activity.caption || self.context.intl.formatMessage({id: "view_original"}) }</a> : null;
+
             return (
               <div className="activity" key={i}>
                 <Illustration height={122} width={122}

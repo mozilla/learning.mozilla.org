@@ -15,6 +15,7 @@ var BadgesPage = React.createClass({
   contextTypes: {
     intl: React.PropTypes.object
   },
+  
   statics: {
     pageTitle: 'Badges',
     pageClassName: 'badges'
@@ -38,6 +39,7 @@ var BadgesPage = React.createClass({
 
   componentDidMount: function () {
     var badgeAPI = new BadgesAPI({ teachAPI: this.state.teachAPI });
+
     this.setState({ badgeAPI: badgeAPI });
 
     // steo 1: retrieve the list of all available MLN badges
@@ -173,6 +175,7 @@ var BadgesPage = React.createClass({
 
     return this.state.badges.map(function (badge) {
       var linkUrl = '/badge/' + badge.id + '/' + urlize(badge.title);
+
       return (
         <div key={badge.id} className="col-md-3">
           <Link to={ "/" + self.context.intl.locale + linkUrl } className={'badge-icon-link'}>
@@ -182,6 +185,6 @@ var BadgesPage = React.createClass({
       );
     });
   }
-
 });
+
 module.exports = BadgesPage;

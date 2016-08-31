@@ -14,6 +14,7 @@ var config = require('../../config/config');
 var StepThree = React.createClass({
   render: function() {
     var className = "step3" + (this.props.hidden ? " hidden" : "");
+
     return (
       <div className={className}>
         <VerticalLeader height="6em"/>

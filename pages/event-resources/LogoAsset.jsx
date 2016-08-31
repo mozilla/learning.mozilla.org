@@ -13,6 +13,7 @@ var LogoAsset = React.createClass({
   },
   render: function() {
     var classes = "logo-asset-hover";
+
     if (this.state.hasKeyboardFocus) { classes += " has-keyboard-focus"; }
     return (
       <div className="logo-asset-container col-sm-4 col-md-4 col-lg-3">

@@ -15,6 +15,7 @@ var Skills21CPage = React.createClass({
   },
   generateSkillItem: function(skill) {
     var self = this;
+
     return Object.keys(skill.topics).map(function(topic) {
       return (
         <div key={topic}><strong>{topic}:</strong> {makeLinksFromWebLitSkills(skill.topics[topic], self.context.intl.locale)}</div>
@@ -24,6 +25,7 @@ var Skills21CPage = React.createClass({
   generateSkills: function() {
     return skills.map(function(skill) {
       var formatMessage = this.context.intl.formatMessage;
+
       return (
         <Illustration
           width={150} height={150}
@@ -88,4 +90,5 @@ var Skills21CPage = React.createClass({
     );
   }
 });
+
 module.exports = Skills21CPage;

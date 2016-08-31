@@ -15,6 +15,7 @@ var FeaturedPost = React.createClass({
   },
   render: function() {
     var parsedMomentDate = this.props.publishedDate ? moment(new Date(this.props.publishedDate)) : null;
+
     return(
       <div className="featured-post">
         { parsedMomentDate ?

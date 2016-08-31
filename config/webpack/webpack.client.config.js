@@ -6,12 +6,13 @@
 
 var webpack = require('webpack');
 var production = process.env.NODE_ENV === 'production';
-
 var habitat = require('habitat');
+
 habitat.load('.env');
 
 function importEnvVars(keys) {
   var result = {};
+
   keys.forEach(function(key) {
     if (typeof (process.env[key]) === 'string') {
       result['process.env.' + key] = JSON.stringify(process.env[key]);

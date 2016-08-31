@@ -12,10 +12,11 @@ var LogoutLink = React.createClass({
     callbackURL: React.PropTypes.string
   },
   render: function() {
-    var callbackURL = this.props.callbackURL;
-    var loginBaseURL = this.props.loginBaseURL;
-    var href = loginBaseURL + '/auth/oauth2/logout?callback=' + encodeURIComponent(callbackURL);
-    var props = _.extend({}, this.props, { to: href, eventLabel: href });
+    var callbackURL = this.props.callbackURL,
+        loginBaseURL = this.props.loginBaseURL,
+        href = loginBaseURL + '/auth/oauth2/logout?callback=' + encodeURIComponent(callbackURL),
+        props = _.extend({}, this.props, { to: href, eventLabel: href });
+
     return <OutboundLink {...props}>{this.props.children}</OutboundLink>;
   }
 });

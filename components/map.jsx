@@ -197,6 +197,7 @@ var Map = React.createClass({
       var url = '//api.tiles.mapbox.com/v4/geocode/mapbox.places/' +
                 encodeURIComponent(input) +
                 '.json?access_token=' + accessToken;
+
       if (!input) {
         return process.nextTick(function() {
           callback(null, {
@@ -204,16 +205,19 @@ var Map = React.createClass({
           });
         });
       }
+
       request('get', url)
         .accept('json')
         .end(function(err, res) {
           if (err) {
             return callback(err);
           }
+
           // Mapbox sets its content-type to 'application/vnd.geo+json',
           // which superagent doesn't think is JSON, so we'll parse the
           // JSON ourselves.
           var features = JSON.parse(res.text).features;
+
           callback(null, {
             options: Map.simplifyMapboxGeoJSON(features).map(function(info) {
               return {
@@ -232,10 +236,12 @@ var Map = React.createClass({
   },
   installStylesheets: function() {
     var head = document.getElementsByTagName('head')[0];
+
     this.props.stylesheets.filter(function(url) {
       return !document.querySelector('link[href="' + url + '"]');
     }).forEach(function(url) {
       var link = document.createElement('link');
+
       link.setAttribute('href', url);
       link.setAttribute('rel', 'stylesheet');
       head.appendChild(link);
@@ -243,7 +249,9 @@ var Map = React.createClass({
   },
   componentDidMount: function() {
     var self = this;
+
     this.installStylesheets();
+
     require([
       // These will automatically attach to the window object.
       'mapbox.js',
@@ -270,9 +278,9 @@ var Map = React.createClass({
     });
 
     this.map.on('layeradd', function(e) {
-      var html;
-      var marker = e.layer;
-      var feature = marker.feature;
+      var html,
+          marker = e.layer,
+          feature = marker.feature;
 
       // we have to check if this is a feature or marker-cluster.
       if (feature) {
@@ -341,9 +349,9 @@ var Map = React.createClass({
     }
   },
   handleClick: function(e) {
-    var targetEl = e.target;
-    var action = targetEl.getAttribute('data-club-action');
-    var url = targetEl.getAttribute('data-club-url');
+    var targetEl = e.target,
+        action = targetEl.getAttribute('data-club-action'),
+        url = targetEl.getAttribute('data-club-url');
 
     if (!action) {
       return;
@@ -359,6 +367,7 @@ var Map = React.createClass({
   },
   focusOnClub: function(club) {
     var latLng = L.latLng(club.latitude, club.longitude);
+
     this.map.setView(latLng, 5, {
       pan: {
         animate: true,
@@ -372,6 +381,7 @@ var Map = React.createClass({
   render: function() {
     var className = "map " + this.props.className +
                     (this.state.focused ? " map-focused" : "");
+
     return (
       <div className={className}>
         <div ref="map"></div>

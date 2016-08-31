@@ -19,30 +19,35 @@ var Page = React.createClass({
   statics: {
     titleForHandler: function(handler) {
       var title = `Mozilla Learning`;
+
       if (handler.pageTitle) {
         title = handler.pageTitle + ` - ` + title;
       }
+
       return title;
     }
   },
 
   // Utility functions
   getCurrentPageHandler: function() {
-    var routes = this.props.routes;
-    var route = routes.slice(-1)[0];
-    var Component = route.component;
+    var routes = this.props.routes,
+        route = routes.slice(-1)[0],
+        Component = route.component;
+
     return Component;
   },
 
   getCurrentTitle: function() {
-    var handler = this.getCurrentPageHandler();
-    var title = Page.titleForHandler(handler);
+    var handler = this.getCurrentPageHandler(),
+        title = Page.titleForHandler(handler);
+
     return title;
   },
 
   getCurrentClassName: function() {
-    var handler = this.getCurrentPageHandler();
-    var className = handler.pageClassName || ``;
+    var handler = this.getCurrentPageHandler(),
+        className = handler.pageClassName || ``;
+
     return className;
   },
 
@@ -61,6 +66,7 @@ var Page = React.createClass({
   handleNonModalFocus: function(e) {
     var firstFocusableEl = ReactDOM.findDOMNode(this.refs.modalHolder)
       .querySelector(`a, button, input, textarea`);
+
     if (firstFocusableEl) {
       firstFocusableEl.focus();
     }
@@ -77,8 +83,9 @@ var Page = React.createClass({
   },
 
   reset: function() {
-    var child = this.refs.pageContent;
-    var comp = child.getComponent();
+    var child = this.refs.pageContent,
+        comp = child.getComponent();
+
     if (comp && comp.reset) {
       comp.reset();
     }
@@ -126,17 +133,17 @@ var Page = React.createClass({
 
   render: function() {
     // we need the next three lines for server-side rendering:
-    var routes = this.props.routes;
-    var currentRoute = routes.slice(-1)[0];
-    var currentPath = config.ORIGIN + `/` + this.context.intl.locale + `/` + (currentRoute.path || ``);
+    var routes = this.props.routes,
+        currentRoute = routes.slice(-1)[0],
+        currentPath = config.ORIGIN + `/` + this.context.intl.locale + `/` + (currentRoute.path || ``);
 
     // but we _actually_ want to rely on this, instead:
     if (typeof window !== `undefined`) {
       currentPath = config.ORIGIN + window.location.pathname;
     }
 
-    var pageClassName = this.getCurrentClassName();
-    var className = "page container-fluid " + pageClassName;
+    var pageClassName = this.getCurrentClassName(),
+        className = "page container-fluid " + pageClassName;
 
     return (
       <div>

@@ -22,6 +22,7 @@ var HealthcheckMeta = React.createClass({
                       </a>
                     </code>
                   </span>;
+
     return (
       <div>
         <span>This is a {process.env.NODE_ENV || 'development'} version of the <a href="https://github.com/mozilla/teach.mozilla.org" target="_blank">Teach Site</a> </span>
