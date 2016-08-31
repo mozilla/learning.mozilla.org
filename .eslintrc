@@ -48,7 +48,9 @@
     "no-lonely-if": [2],
     "no-trailing-spaces": [2],
     "no-unneeded-ternary": [2],
-    "semi": [2, "always"]
+    "spaced-comment": [2, "always"],
+    "semi": [2, "always"],
+
   },
   "extends": [
     // "./node_modules/mofo-style/.eslintrc.yaml"

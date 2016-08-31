@@ -236,7 +236,7 @@ var BadgePage = React.createClass({
 
   renderAchieved: function() {
     var badgeCriteria = this.formBadgeCriteria(this.state.badge.criteria);
-    var share = null; //<SocialShare />
+    var share = null; // <SocialShare />
 
     // FIXME: TODO: retrieve the information on when/how this badge was earned.
     //              ... IF we use this information at all.
@@ -258,7 +258,7 @@ var BadgePage = React.createClass({
 
   renderPending: function() {
     var badgeCriteria = this.formBadgeCriteria(this.state.badge.criteria);
-    var share = null; //<SocialShare />
+    var share = null; // <SocialShare />
 
     return (
       <div className="badge-pending">
