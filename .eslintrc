@@ -50,7 +50,7 @@
     "no-unneeded-ternary": [2],
     "spaced-comment": [2, "always"],
     "semi": [2, "always"],
-
+    "wrap-regex": [2]
   },
   "extends": [
     // "./node_modules/mofo-style/.eslintrc.yaml"

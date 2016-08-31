@@ -14,7 +14,7 @@ var withTeachAPI = require('../hoc/with-teach-api.jsx');
 var normalizeClub = function(clubState) {
   var state = _.extend({}, clubState);
 
-  if (state.website && !/^https?:\/\//.test(state.website)) {
+  if (state.website && !(/^https?:\/\//).test(state.website)) {
     state.website = 'http://' + state.website;
   }
 
@@ -33,7 +33,7 @@ var validateClub = function(clubState) {
   if (!clubState.location) {
     errors.push("You must provide a location for your club.");
   }
-  if (clubState.website && !/\./.test(clubState.website)) {
+  if (clubState.website && !(/\./).test(clubState.website)) {
     errors.push("Your club's website must be a valid URL.");
   }
 
