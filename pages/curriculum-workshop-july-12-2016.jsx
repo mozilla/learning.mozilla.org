@@ -38,7 +38,7 @@ var CurriculumWorkshop = React.createClass({
           <p>
            Join co-hosts Amira Dhalla and Chad Sansing to talk about brokering web literacy learning around the world. How do you connect youth with opportunities to learn about the web and use it in their daily lives?  Invited guests Mmaki Jantjies, Arkodyuti Saha, and friends will talk shop about brokering, network-building, and earning the trust of local communities and youth interested in the web.
           </p>
-          
+
           <p>
             You can also join the discussion on <LinkAnchorSwap to="https://discourse.webmaker.org/c/mozilla-curriculum-workshop">our community forum</LinkAnchorSwap> or <LinkAnchorSwap to="https://github.com/MozillaFoundation/curriculum-workshop">GitHub</LinkAnchorSwap>.
           </p>

@@ -76,7 +76,7 @@ var ClubsListPage = React.createClass({
     var teachAPI = this.props.teachAPI;
     var clubs = teachAPI.getClubs();
     var username = teachAPI.getUsername();
-    
+
     return (
       <div>
         <HeroUnit>

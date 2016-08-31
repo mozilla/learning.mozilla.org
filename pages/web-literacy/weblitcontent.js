@@ -18,7 +18,7 @@ module.exports = {
       topic: "Write",
       quote: "Creating mental and physical representations of digital content focused on accessibility and approachability.",
       content: [
-        "Organizing visual aesthetics and user experiences by using mockups, wireframes or pencil sketches/maps of digital content to be built.", 
+        "Organizing visual aesthetics and user experiences by using mockups, wireframes or pencil sketches/maps of digital content to be built.",
         "Arranging digital content visually to provide audience with cues for organization of the content.",
         "Communicating the purpose of the presentation using text, multimedia, links, and other content for readers.",
         "Using a visual schematic (e.g., graph, site map) to organize the structure and content of digital work to communicate the purpose and content to the audience.",

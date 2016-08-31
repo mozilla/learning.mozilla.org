@@ -15,7 +15,7 @@ var BadgesPage = React.createClass({
   contextTypes: {
     intl: React.PropTypes.object
   },
-  
+
   statics: {
     pageTitle: 'Badges',
     pageClassName: 'badges'

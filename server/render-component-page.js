@@ -1,8 +1,8 @@
 /**
- * generate a URL's static HTML 
+ * generate a URL's static HTML
  * @param {object} generator the server page generator
  * @param {string} location the URL for this request
- * @param {object} res express.js response object 
+ * @param {object} res express.js response object
  * @param {string} locale the locale/language for this page
  * @returns {undefined}
  */

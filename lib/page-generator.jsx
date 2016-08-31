@@ -47,7 +47,7 @@ module.exports = {
    * @param {string} toURL the target URL
    * @param {function} next the next function in the chain
    * @returns {undefined}
-   */  
+   */
   generateStaticRedirect: function generateStaticRedirect(fromURL, toURL, next) {
     match({ routes: routeData.routes, location: fromURL }, function(error, redirectLocation, renderProps) {
       if (error) {
@@ -95,7 +95,7 @@ module.exports = {
   /**
    * Static wrapper function for GA events
    * @param {object} __seemingly_unused_variable__ either Router.HistoryLocation or Router.RefreshLocation, no idea what it's used for...
-   * @param {HTMLelement} targetElement the HTML element to render the 
+   * @param {HTMLelement} targetElement the HTML element to render the
    * @returns {undefined}
    */
   run: function run(__seemingly_unused_variable__, targetElement) {
@@ -112,7 +112,7 @@ module.exports = {
     // (see ./lib/build/server-library.jsx for how that gets in here)
     var currentLocale = window.location.pathname.split('/')[1];
     var messages = assign({}, locales["en-US"], locales[currentLocale]);
-    
+
     // Keys are languages, not locales, so we just need the first part
     addLocaleData(window.ReactIntlLocaleData[currentLocale.split('-')[0]]);
 

@@ -152,7 +152,7 @@ function buildRoutes() {
     //Add each locale's routes to the array of urls that the server uses for route matching
     urls.forEach(function(key) {
       var newkey = locale + "/" + key;
-      
+
       localeURLs.push(newkey);
     });
 

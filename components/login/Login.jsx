@@ -28,7 +28,7 @@ var Login = React.createClass({
   componentDidMount: function() {
     var self = this,
         teachAPI = this.props.teachAPI;
-    
+
     // Send this off on its own tick, to prevent thread-blocking.
     setTimeout(function() {
       teachAPI.checkLoginStatus(function() {

@@ -144,7 +144,7 @@ var WebLitPage = React.createClass({
   },
   renderActivities: function() {
     var activities = [];
-    
+
     activitydata.forEach(function(activity, index) {
       if ((this.hasWebLitSkillIn(activity.webLitSkills) || this.hasMatchingWebLitSkillIn(activity.webLitSkills)) && this.hasMatching21CSkillIn(activity.skills)) {
         activity.src1x = activity.imgSrc1x;
@@ -164,7 +164,7 @@ var WebLitPage = React.createClass({
     if (!activities.length) {
       return null;
     }
-    
+
     return (
       <div>
         <h2><FormattedMessage id="related_activities" values={{topic: this.state.webLitSkill || this.state.topic}} /></h2>

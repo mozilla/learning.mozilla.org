@@ -475,7 +475,7 @@ var BadgePage = React.createClass({
     // tell the badgeAPI to set up an access token for this user using their
     // supplied email and password, which we will then immediately forget again.
     var self = this;
-    
+
     this.state.badgeAPI.ensureLogin(email, password, function(err, result) {
       if (handleLinkResult(err, result)) {
         self.reloadPage();

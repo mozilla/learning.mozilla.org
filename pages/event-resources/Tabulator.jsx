@@ -43,7 +43,7 @@ var Tabulator = React.createClass({
         {this.props.tabs.map(function (section, idx) {
           var key = "tab-"+idx;
           var innerClassName = "tabulator-content-container " + key;
-          
+
           return (
             <div key={key}>
               <div className="tabulator-head-no-js">{section.head}</div>

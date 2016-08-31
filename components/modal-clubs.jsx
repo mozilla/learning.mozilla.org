@@ -197,7 +197,7 @@ var ModalClubs = React.createClass({
   generateFormHTML: function(isAdd, action, isFormDisabled, modalTitle) {
     var idPrefix = this.props.idPrefix,
         value = isAdd ? "Apply" : modalTitle;
-    
+
     if (isFormDisabled) {
       value = isAdd ? "Submitting Your Club Application..." : "Changing Your Club...";
     }

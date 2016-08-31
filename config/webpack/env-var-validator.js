@@ -16,6 +16,7 @@ var habitatMatcher = new RegExp('env\\.get\\([\'"`]' + basePattern, 'g');
 // for matching more than just the base SNAKE_CASE pattern
 function findSnakeCases(input, matcher) {
   var terms = [];
+
   matcher = matcher || plainMatcher;
   input.replace(matcher, function(a, b) { terms.push(b); });
   return terms;
@@ -23,6 +24,7 @@ function findSnakeCases(input, matcher) {
 
 var knownDocumented = {};
 var README = fs.readFileSync('./README.md').toString();
+
 findSnakeCases(README).forEach(function(varname) {
   knownDocumented[varname] = true;
 });
@@ -31,12 +33,14 @@ findSnakeCases(README).forEach(function(varname) {
 function checkDocumentation(varname) {
   if (!knownDocumented[varname]) {
     console.warn('\n', chalk.yellow.bold('Found undocumented environment variable:'), chalk.red.bold(varname), '\n');
-  } 
+  }
 }
 
 /**
  * A simple synchronouse webpack loader, checking for process.env as well
  * as habitat-style env.get(...) patterns for environment variable mentions.
+ * @param {string} source The source file passed in by webpack
+ * @returns {string} the same source as was passed as input
  */
 module.exports = function findUndocumentedEnvironmentVariables(source) {
   this.cacheable();

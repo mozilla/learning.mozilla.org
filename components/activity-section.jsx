@@ -11,7 +11,7 @@ var ActivitySection = React.createClass({
   },
   render: function () {
     var self = this;
-    
+
     return (
       <section className="activity-section">
         <h2>
