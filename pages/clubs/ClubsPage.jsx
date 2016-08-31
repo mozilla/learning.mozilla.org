@@ -235,6 +235,7 @@ var ClubsPage = React.createClass({
     var club = _.findWhere(this.props.teachAPI.getClubs(), {
       url: url
     });
+
     this.props.showModal(ModalAddOrChangeYourClub, {
       club: club,
       onSuccess: this.handleZoomToClub,

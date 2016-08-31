@@ -3,13 +3,15 @@ var React = require('react');
 var IconLinks = React.createClass({
   componentDidMount: function() {
     var numChild = this.props.children.length;
+
     if (process.env.NODE_ENV !== 'PRODUCTION' && (numChild !== 2 && numChild !== 3) ) {
       console.error("We should only have 2 or 3 icons in a IconLinks. Otherwise please assign different classes to wrap around <IconLink> component.");
     }
   },
   render: function() {
-    var links = Array.isArray(this.props.children) ? this.props.children : [this.props.children];
-    var classes;
+    var links = Array.isArray(this.props.children) ? this.props.children : [this.props.children],
+        classes;
+
     return (
       <div className="row icon-links">
         {

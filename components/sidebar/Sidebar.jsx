@@ -25,6 +25,7 @@ var Sidebar = React.createClass({
   render: function() {
     var toggleClass = "glyphicon glyphicon-menu-hamburger hidden-lg hidden-md";
     var showCollapsibleContent = this.state.showCollapsibleContent ? "collapsible-content" : "collapsed collapsible-content";
+
     return (
       <div className="sidebar col-md-3" role="navigation">
         <div className="sidebar-header">

@@ -12,12 +12,11 @@ var webpackConfig = {
   devtool: 'source-map',
   target: 'node',
   externals: function(context, request, callback) {
-    // bundle in relative script requires.
-    if (request[0] == '.' || request == webpackConfig.entry) {
+    if (request[0] === '.' || request === webpackConfig.entry) {
+      // bundle in relative script requires.
       callback();
-    }
-    // non-relative modules should rely on plain Node.js require().
-    else {
+    } else {
+      // non-relative modules should rely on plain Node.js require().
       callback(null, 'commonjs ' + request);
     }
   },

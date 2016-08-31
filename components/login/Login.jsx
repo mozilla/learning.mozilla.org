@@ -6,7 +6,6 @@ var OutboundLink = require('react-ga').OutboundLink;
 var PureRenderMixin = require('react-addons-pure-render-mixin');
 var FormattedMessage = require('react-intl').FormattedMessage;
 var FormattedHTMLMessage = require('react-intl').FormattedHTMLMessage;
-
 var withTeachAPI = require('../../hoc/with-teach-api.jsx');
 
 var config = require('../../config/config');
@@ -27,12 +26,13 @@ var Login = React.createClass({
     }
   },
   componentDidMount: function() {
-    var component = this;
-    var teachAPI = this.props.teachAPI;
+    var self = this,
+        teachAPI = this.props.teachAPI;
+    
     // Send this off on its own tick, to prevent thread-blocking.
     setTimeout(function() {
       teachAPI.checkLoginStatus(function() {
-        component.setState({
+        self.setState({
           username: teachAPI.getUsername()
         });
       });
@@ -89,7 +89,10 @@ var Login = React.createClass({
   renderAdminLink: function() {
     var adminURL = this.props.teachAPI.getAdminURL();
 
-    if (!adminURL) return null;
+    if (!adminURL) {
+      return null;
+    }
+
     return (
       <div>
         <span className="fa fa-wrench"></span>

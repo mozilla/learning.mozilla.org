@@ -1,5 +1,5 @@
 var React = require('react'),
-  Badge = require('./badge.jsx');
+    Badge = require('./badge.jsx');
 
 var BadgeHorizontalIcon = React.createClass({
   propTypes: { badge: React.PropTypes.object.isRequired },

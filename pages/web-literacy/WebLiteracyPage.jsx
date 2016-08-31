@@ -72,6 +72,7 @@ var WebLitPage = React.createClass({
   updateMapNavState: function() {
     var topic = parseRoute(this.props.params.verb);
     var webLitSkill = parseRoute(this.props.params.webLitSkill);
+
     if (this.state.topic !== topic || this.state.webLitSkill !== webLitSkill) {
       this.setState({
         topic: topic,
@@ -87,9 +88,11 @@ var WebLitPage = React.createClass({
   },
   getInitialState: function() {
     var filter = {};
+
     Object.keys(categories).map(function(cat) {
       filter[categories[cat]] = false;
     });
+
     return {
       topic: "",
       webLitSkill: "",
@@ -98,16 +101,20 @@ var WebLitPage = React.createClass({
   },
   hasWebLitSkillIn: function(webLitSkills) {
     var webLitSkill = this.state.webLitSkill;
+
     if (webLitSkill && webLitSkills.indexOf(webLitSkill) !== -1) {
       return true;
     }
   },
   hasMatchingWebLitSkillIn: function(webLitSkills) {
     var selectedTopic = this.state.topic;
+
     if (!selectedTopic || this.state.webLitSkill) {
       return false;
     }
+
     var topicWebLitSkills = Object.keys(weblitdata[selectedTopic]);
+
     return webLitSkills.some(function(webLitSkill) {
       return topicWebLitSkills.indexOf(webLitSkill) !== -1;
     });
@@ -115,12 +122,13 @@ var WebLitPage = React.createClass({
   hasMatching21CSkillIn: function(skills21C) {
     var state = this.state;
     var hasCategory = this.hasCategory;
+
     return skills21C.some(function(skill21C) {
       return !state.filter[categories[skill21C]] && hasCategory(skill21C, state.topic, state.webLitSkill);
     });
   },
   hasCategory: function(cat, selectedVerb, selectedWebLitSkill) {
-    var cat = categories[cat];
+    cat = categories[cat];
 
     if (!selectedVerb) {
       return true;
@@ -136,6 +144,7 @@ var WebLitPage = React.createClass({
   },
   renderActivities: function() {
     var activities = [];
+    
     activitydata.forEach(function(activity, index) {
       if ((this.hasWebLitSkillIn(activity.webLitSkills) || this.hasMatchingWebLitSkillIn(activity.webLitSkills)) && this.hasMatching21CSkillIn(activity.skills)) {
         activity.src1x = activity.imgSrc1x;
@@ -155,6 +164,7 @@ var WebLitPage = React.createClass({
     if (!activities.length) {
       return null;
     }
+    
     return (
       <div>
         <h2><FormattedMessage id="related_activities" values={{topic: this.state.webLitSkill || this.state.topic}} /></h2>
@@ -166,10 +176,12 @@ var WebLitPage = React.createClass({
     return Object.keys(categories).map(function(cat) {
       var className = cat;
       var checked = false;
+
       if (this.hasCategory(cat, this.state.topic, this.state.webLitSkill)) {
         className += " active-skill";
         checked = !this.state.filter[categories[cat]];
       }
+
       return (
         <li className={className} key={cat}>
           <span className="custom-checkbox-container">
@@ -188,11 +200,13 @@ var WebLitPage = React.createClass({
     }.bind(this));
   },
   renderTopics: function() {
-    var that = this;
+    var self = this;
     var formatMessage = this.context.intl.formatMessage;
+
     if (this.state.topic) {
       return null;
     }
+
     return Object.keys(weblitdata).map(function(topic) {
       return (
         <div key={topic}>
@@ -203,7 +217,7 @@ var WebLitPage = React.createClass({
             alt={"weblit-map-icon-" + topic}>
             <h2>{topic}</h2>
             <p>{topicContent[topic].content}</p>
-            <span><strong>{formatMessage({id:"web_lit_skills"})}:</strong> {makeLinksFromWebLitSkills(Object.keys(weblitdata[topic]), that.context.intl.locale)}</span>
+            <span><strong>{formatMessage({id:"web_lit_skills"})}:</strong> {makeLinksFromWebLitSkills(Object.keys(weblitdata[topic]), self.context.intl.locale)}</span>
           </Illustration>
         </div>
       );
@@ -252,20 +266,23 @@ var WebLitPage = React.createClass({
   },
   onMapToggle: function(labels) {
     var url = "/" + this.context.intl.locale + "/web-literacy/";
-    var verb =  labels[1];
+    var verb = labels[1];
     var webLitSkill = labels[2];
+
     if (verb) {
       url += convertToRoute(verb) + "/";
       if (webLitSkill) {
         url += convertToRoute(webLitSkill) + "/";
       }
     }
+
     this.context.history.push({
       pathname: url
     });
   },
   skillCheckboxUpdated: function(checkbox, checked) {
     var filter = this.state.filter;
+
     filter[checkbox] = !checked;
     this.setState({ filter: filter });
   },

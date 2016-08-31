@@ -6,14 +6,15 @@ var SubItems = React.createClass({
     intl: React.PropTypes.object
   },
   render: function() {
-    var that = this;
+    var self = this;
     var items = this.props.subItems.map(function (item, key) {
       return (
         <li key={item.name}>
-          <LinkAnchorSwap name={that.context.intl.formatMessage({id: item.name})} to={item.to} activeClassName="active" />
+          <LinkAnchorSwap name={self.context.intl.formatMessage({id: item.name})} to={item.to} activeClassName="active" />
         </li>
-      );}
-    );
+      );
+    });
+
     return (
       <ul className="sidebar-subitems">
         {items}

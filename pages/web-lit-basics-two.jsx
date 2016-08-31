@@ -141,6 +141,7 @@ var WebLitBasicsTwo = React.createClass({
         </section>
       </div>
     );
+
     return (
       <div className="inner-container">
         {CurriculumIntro}

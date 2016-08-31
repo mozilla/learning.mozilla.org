@@ -14,7 +14,6 @@ var locales = require('../dist/locales.json');
 var ReactIntl = require('react-intl');
 var IntlProvider = ReactIntl.IntlProvider;
 var addLocaleData = ReactIntl.addLocaleData;
-var currentLocale;
 
 var ga = require('react-ga');
 var assign = require('object-assign');
@@ -22,7 +21,8 @@ var assign = require('object-assign');
 // utility function: create element wrapped in React localisation
 function createElement(Component, props) {
   var locale = this.locale;
-  var messages =  assign({}, locales["en-US"], locales[locale]);
+  var messages = assign({}, locales["en-US"], locales[locale]);
+
   // make sure you pass all the props in!
   return (
     <IntlProvider locale={locale} messages={messages}>
@@ -43,14 +43,20 @@ module.exports = {
 
   /**
    * Static function for resolving redirects for site content
+   * @param {string} fromURL a request URL
+   * @param {string} toURL the target URL
+   * @param {function} next the next function in the chain
+   * @returns {undefined}
    */  
   generateStaticRedirect: function generateStaticRedirect(fromURL, toURL, next) {
     match({ routes: routeData.routes, location: fromURL }, function(error, redirectLocation, renderProps) {
       if (error) {
-        return next(new Error("Error in redirect from '" + fromURL +  "' to '" + toURL +  "'"));
+        return next(new Error("Error in redirect from '" + fromURL + "' to '" + toURL + "'"));
       }
+
       var redirectHTML = (<p>The URL of this page has changed to <a href={toURL}>{toURL}</a>.</p>);
       var html = ReactDOMServer.renderToStaticMarkup(redirectHTML);
+
       next(null, html, { title: "Redirect to " + toURL });
     });
   },
@@ -58,6 +64,10 @@ module.exports = {
 
   /**
    * Static function for generating the site as static html files
+   * @param {string} url the URL for the requested page
+   * @param {string} locale the locale/language to generate te page for
+   * @param {function} next the next function in the chain
+   * @returns {undefined}
    */
   generateStatic: function generateStatic(url, locale, next) {
     if (url in routeData.REDIRECTS) {
@@ -66,7 +76,7 @@ module.exports = {
 
     match({ routes: routeData.routes, location: url }, function(error, redirectLocation, renderProps) {
       if (error) {
-        return next(new Error("Error on route '" + url +  "'"));
+        return next(new Error("Error on route '" + url + "'"));
       }
 
       if (!renderProps) {
@@ -76,6 +86,7 @@ module.exports = {
       var Component = renderProps.routes.slice(-1)[0].component;
       var title = Page.titleForHandler(Component);
       var html = ReactDOMServer.renderToString(<RoutingContext locale={locale} createElement={createElement} {...renderProps} />);
+
       next(null, html, { title: title });
     });
   },
@@ -83,14 +94,17 @@ module.exports = {
 
   /**
    * Static wrapper function for GA events
+   * @param {object} __seemingly_unused_variable__ either Router.HistoryLocation or Router.RefreshLocation, no idea what it's used for...
+   * @param {HTMLelement} targetElement the HTML element to render the 
+   * @returns {undefined}
    */
-  run: function run(location, el) {
+  run: function run(__seemingly_unused_variable__, targetElement) {
     var createBrowserHistory = require('history/lib/createBrowserHistory');
     var history = createBrowserHistory();
 
     // emit a GA page view event on location changes
-    history.listen(function(location) {
-      ga.pageview(location.pathname);
+    history.listen(function(historyHandler) {
+      ga.pageview(historyHandler.pathname);
     });
 
     // Get locale from URL, use it to pass messages in to IntlProvider,
@@ -105,7 +119,7 @@ module.exports = {
     ReactDOM.render(
       <IntlProvider locale={currentLocale} messages={messages}>
         <Router history={history}>{routeData.routes}</Router>
-      </IntlProvider>, el
+      </IntlProvider>, targetElement
     );
   }
 };

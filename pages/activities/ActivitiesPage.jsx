@@ -16,6 +16,7 @@ var ActivitiesPage = React.createClass({
   },
   render: function() {
     var linkCurriculumQueue = "http://mozilla.github.io/webmaker-curriculum/index.html";
+
     return (
       <div>
         <HeroUnit>

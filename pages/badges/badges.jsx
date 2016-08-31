@@ -15,6 +15,7 @@ var BadgesPage = React.createClass({
   contextTypes: {
     intl: React.PropTypes.object
   },
+  
   statics: {
     pageTitle: 'Badges',
     pageClassName: 'badges'
@@ -38,6 +39,7 @@ var BadgesPage = React.createClass({
 
   componentDidMount: function () {
     var badgeAPI = new BadgesAPI({ teachAPI: this.state.teachAPI });
+
     this.setState({ badgeAPI: badgeAPI });
 
     // steo 1: retrieve the list of all available MLN badges
@@ -45,7 +47,9 @@ var BadgesPage = React.createClass({
 
     // we're also interested in whether this user is credly-authenticated
     badgeAPI.hasAccess(this.toggleAccess, function(err, data) {
-      if (err) return console.error("not logged into credly");
+      if (err) {
+        return console.error("not logged into credly");
+      }
     });
   },
 
@@ -139,7 +143,9 @@ var BadgesPage = React.createClass({
   },
 
   formLoginBlock: function() {
-    if (this.state.teachAPI.getLoginInfo() !== null) return null;
+    if (this.state.teachAPI.getLoginInfo() !== null) {
+      return null;
+    }
 
     return (
       <div className="signinblock">
@@ -155,7 +161,7 @@ var BadgesPage = React.createClass({
   },
 
   generateBadgeList: function() {
-    var that = this;
+    var self = this;
     var anonymous = !this.state.teachAPI.getLoginInfo();
 
     if (this.state.badges.length === 0) {
@@ -169,15 +175,16 @@ var BadgesPage = React.createClass({
 
     return this.state.badges.map(function (badge) {
       var linkUrl = '/badge/' + badge.id + '/' + urlize(badge.title);
+
       return (
         <div key={badge.id} className="col-md-3">
-          <Link to={ "/" + that.context.intl.locale + linkUrl } className={'badge-icon-link'}>
+          <Link to={ "/" + self.context.intl.locale + linkUrl } className={'badge-icon-link'}>
             <BadgeVerticalIcon badge={badge} anonymous={anonymous} />
           </Link>
         </div>
       );
     });
   }
-
 });
+
 module.exports = BadgesPage;

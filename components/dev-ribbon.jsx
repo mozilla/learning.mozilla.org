@@ -1,11 +1,10 @@
-var urlResolve = require('url').resolve;
-var urlParse = require('url').parse;
-var React = require('react');
-
-var Modal = require('../components/modal.jsx');
-var Healthcheck = require('../pages/healthcheck.jsx');
-var TeachAPI = require('../lib/teach-api');
-var packageJSON = require('../package.json');
+var urlResolve = require('url').resolve,
+    urlParse = require('url').parse,
+    React = require('react'),
+    Modal = require('../components/modal.jsx'),
+    Healthcheck = require('../pages/healthcheck.jsx'),
+    TeachAPI = require('../lib/teach-api'),
+    packageJSON = require('../package.json');
 
 var ICON_IMG_STYLE = { width: '1em', height: '1em' };
 
@@ -17,6 +16,7 @@ var PRIVATE_HOSTNAME_REGEX = /^(localhost)$/;
 var DiagnosticToolMixin = {
   getAbsoluteURL: function() {
     var origin = window.location.protocol + '//' + window.location.host;
+
     return urlResolve(origin, this.props.url || window.location.href);
   },
   handleClick: function(e) {
@@ -30,6 +30,7 @@ var DiagnosticToolMixin = {
         "allow you to expose your local server to the internet so you " +
         "can use " + this.constructor.toolName + "."
       );
+
       e.preventDefault();
       if (ok) {
         window.open('https://ngrok.com/');

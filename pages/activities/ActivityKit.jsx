@@ -10,6 +10,7 @@ var ActivityKit = React.createClass({
     var ifExternalLink = !!this.props.link ? (this.props.link.substr(0,4) === "http" || this.props.link.substr(0,2) === "//") : false;
     var title = ifExternalLink ? <OutboundLink to={this.props.link} eventLabel={this.props.link}>{this.props.title}</OutboundLink>
                                : <a href={this.props.link}>{this.props.title}</a>;
+
     return (
       <div className="activity-kit">
         <Illustration

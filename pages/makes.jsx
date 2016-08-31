@@ -17,6 +17,7 @@ var Make = React.createClass({
     var thumbnailStyle = (this.props.thumbnail) ? {"backgroundImage": "url(" + this.props.thumbnail + ")"}
                                                  : {"backgroundImage": "url(/img/pages/me/svg/icon-placeholder.svg)",
                                                     "backgroundSize": "11rem auto"};
+
     return (
       <li className={makeTypeClass}>
         <a target="_blank" href={this.props.url}>
@@ -77,6 +78,7 @@ var MakesPage = React.createClass({
   },
   loadMakes: function() {
     var url = makesMetadataURL.expand({username: this.state.username});
+
     this.setState({
       loadingMakes: true
     });
@@ -119,13 +121,14 @@ var MakesPage = React.createClass({
   render: function() {
     var formatMessage = this.context.intl.formatMessage;
     var pageContent;
+
     if (!this.state.username) {
       pageContent = <span>{formatMessage({id: 'please_sign_in'})}</span>;
     } else if (this.state.loadingMakes) {
       pageContent = <div className="loading-message">{formatMessage({id: 'loading_projects'})}</div>;
-    }
-    else {
+    } else {
       var makes = this.state.makes.reverse().map(this.formMakeJSX);
+
       pageContent = (
         <div>
           <p className="context">{formatMessage({id: 'makes_projects_context'})}</p>

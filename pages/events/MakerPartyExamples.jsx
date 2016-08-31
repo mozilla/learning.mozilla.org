@@ -1,7 +1,7 @@
 var React = require('react');
 var MakerPartyExample = require('./MakerPartyExample.jsx');
 
-var partiesList =  [
+var partiesList = [
   {
     title: "Net Neutrality Maker Party",
     host: {

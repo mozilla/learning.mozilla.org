@@ -13,16 +13,19 @@ var LinkAnchorSwap = React.createClass({
 
   render: function() {
     var linkedContent = this.props.children || this.props.name;
+
     if (this.isExternalLink()) {
       return <OutboundLink {...this.props} eventLabel={this.props.to}>{linkedContent}</OutboundLink>;
     }
+
     return <Link {...this.props} to={this.getLocalizedTo()} onClick={this.handleClick}>{linkedContent}</Link>;
   },
 
   isExternalLink: function() {
-    var link = this.props.to;    
-    var weblink = (link.substr(0,4).toLowerCase() === "http");
-    var maillink = (link.substr(0,7).toLowerCase() === "mailto:");
+    var link = this.props.to,
+        weblink = (link.substr(0,4).toLowerCase() === "http"),
+        maillink = (link.substr(0,7).toLowerCase() === "mailto:");
+
     return weblink || maillink;
   },
 
@@ -39,10 +42,13 @@ var LinkAnchorSwap = React.createClass({
   /**
    * We use <Link> for internal links in the app, but <Link> won't reload a page if
    * that's the page we're already on, so we FORCE it to reset the <Page> instead.
+   * @param {event} e the event that triggered this reset check
+   * @returns {undefined}
    */
   checkForReset: function(e) {
     if (typeof window !== "undefined" ) {
       var curloc = (window.location.pathname === this.getLocalizedTo());
+
       if (curloc && resetreload.shouldResetOnReload()) {
         e.preventDefault();
         resetreload.reset();

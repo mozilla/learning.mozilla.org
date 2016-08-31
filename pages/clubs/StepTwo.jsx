@@ -67,6 +67,7 @@ var StepTwo = React.createClass({
   getFilled: function() {
     var state = this.state;
     var optional = this.optional;
+
     return progressFields.reduce(function(a,b) {
       b = state[b];
       b = b===null? 0 : b===false? 0 : b.length===0 ? 0 : optional.indexOf(b)>-1 ? 0 : 1;
@@ -85,6 +86,7 @@ var StepTwo = React.createClass({
 
   render: function() {
     var className = "step2" + (this.props.hidden ? " hidden" : "");
+
     return (
       <div className={className}>
         <fieldset>
@@ -133,7 +135,7 @@ var StepTwo = React.createClass({
             <div><input type="radio" name="frequency" value="other" checked={this.state.frequency === 'other'} onChange={this.updateFrequency}/> Other</div>
           </div>
         </div>
-        <input type="text"  hidden={this.state.frequency !== 'other'} value={this.state.frequencyOther} placeholder='If "other", please explain' onChange={this.updateFrequencyOther}/>
+        <input type="text" hidden={this.state.frequency !== 'other'} value={this.state.frequencyOther} placeholder='If "other", please explain' onChange={this.updateFrequencyOther}/>
       </fieldset>
 
       <fieldset>
@@ -148,7 +150,7 @@ var StepTwo = React.createClass({
             <div><input type="checkbox" value="36-60" checked={this.state.ageRange.indexOf("36-60") > -1} onChange={this.updateAgeRange}/> 35-60 years old</div>
           </div>
           <div className="col">
-            <div><input type="checkbox" value="61-older"   checked={this.state.ageRange.indexOf("61-older"  ) > -1} onChange={this.updateAgeRange}/> 61 years or older</div>
+            <div><input type="checkbox" value="61-older" checked={this.state.ageRange.indexOf("61-older") > -1} onChange={this.updateAgeRange}/> 61 years or older</div>
             <div><input type="checkbox" value="other" checked={this.state.ageRange.indexOf("other") > -1} onChange={this.updateAgeRange}/> other</div>
           </div>
         </div>
@@ -159,12 +161,12 @@ var StepTwo = React.createClass({
         <label>{ labels[this.state.intent].clubSize }</label>
         <div className={"choiceGroup " + this.error('clubSize')}>
           <div className="col">
-            <div><input type="radio" name="clubSize" value="1-5"   checked={this.state.clubSize === '1-5'} onChange={this.updateClubSize}/> 1-5 members</div>
-            <div><input type="radio" name="clubSize" value="6-15"  checked={this.state.clubSize === '6-15'} onChange={this.updateClubSize}/> 6-15 members</div>
+            <div><input type="radio" name="clubSize" value="1-5" checked={this.state.clubSize === '1-5'} onChange={this.updateClubSize}/> 1-5 members</div>
+            <div><input type="radio" name="clubSize" value="6-15" checked={this.state.clubSize === '6-15'} onChange={this.updateClubSize}/> 6-15 members</div>
           </div>
           <div className="col">
             <div><input type="radio" name="clubSize" value="16-30" checked={this.state.clubSize === '16-30'} onChange={this.updateClubSize}/> 16-30 members</div>
-            <div><input type="radio" name="clubSize" value="31+"   checked={this.state.clubSize === '31+'} onChange={this.updateClubSize}/> 31 or more members</div>
+            <div><input type="radio" name="clubSize" value="31+" checked={this.state.clubSize === '31+'} onChange={this.updateClubSize}/> 31 or more members</div>
           </div>
         </div>
       </fieldset>
@@ -214,7 +216,9 @@ var StepTwo = React.createClass({
     var val = evt.target.value;
     var ar = this.state.ageRange;
     var pos = ar.indexOf(val);
+
     if (pos > -1) { ar.splice(pos,1); } else { ar.push(val); }
+
     this.setStateAsChange({ ageRange: ar });
   },
   updateAgeRangeOther: function(evt) { this.setStateAsChange({ ageRangeOther: evt.target.value }); },
@@ -233,13 +237,10 @@ var StepTwo = React.createClass({
     var errors = [];
 
     if (!clearValidate) {
-
       if (!clubState.intent) {
         errorElements.push('intent');
         errors.push("You need to fill in this part of the application.");
-      }
-
-      else {
+      } else {
         if (!clubState.clubName) {
           errorElements.push('clubName');
           errors.push("You need to fill in the name of your club.");
@@ -247,8 +248,7 @@ var StepTwo = React.createClass({
         if (!clubState.description) {
           errorElements.push('description');
           errors.push("You need to describe your club.");
-        }
-        else if (clubState.description.split(' ').length < 50) {
+        } else if (clubState.description.split(' ').length < 50) {
           errorElements.push('description');
           errors.push("Please describe your club in 50 or more words.");
         }
@@ -280,7 +280,6 @@ var StepTwo = React.createClass({
           errorElements.push('pledgeAgreement');
           errors.push("You must agree to the Club Captain Pledge before you can submit this application.");
         }
-
         if (clubState.website && !this.isValidURL(clubState.website)) {
           errorElements.push('website');
           errors.push("When filling in the optional website field, please use the website's full URL.");
@@ -293,23 +292,36 @@ var StepTwo = React.createClass({
   },
 
   isValidURL: function(url) {
-    if (url.indexOf("http") !== 0) return false;
+    if (url.indexOf("http") !== 0) {
+      return false;
+    }
     if (typeof document !== "undefined") {
       var a = document.createElement("a");
+
       a.href = url;
-      if (!a.pathname) return false;
+
+      if (!a.pathname) {
+        return false;
+      }
+
       return a.hostname.indexOf('.') > -1;
     }
   },
 
   error: function(field) {
-    if (!this.state.errorElements) return null;
+    if (!this.state.errorElements) {
+      return null;
+    }
+
     var error = this.state.errorElements.indexOf(field) > -1;
+
     return error ? "error" : '';
   },
 
   renderValidationErrors: function() {
-    if (!this.state.errors || this.state.errors.length === 0) return null;
+    if (!this.state.errors || this.state.errors.length === 0) {
+      return null;
+    }
     return (
       <div className="alert alert-danger">
         <p>Unfortunately, your application has some problems:</p>
@@ -324,10 +336,13 @@ var StepTwo = React.createClass({
 
   getClubData: function() {
     var freq = this.state.frequency;
+
     if (freq === 'other') { freq = this.state.frequencyOther; }
+
     var age = this.state.ageRange.join(', ');
+
     if (this.state.ageRange.indexOf('other')) {
-     age = age.replace('other', 'other: ' + this.state.ageRangeOther);
+      age = age.replace('other', 'other: ' + this.state.ageRangeOther);
     }
 
     var data = {

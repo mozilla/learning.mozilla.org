@@ -13,9 +13,11 @@ var withTeachAPI = require('../hoc/with-teach-api.jsx');
 
 var normalizeClub = function(clubState) {
   var state = _.extend({}, clubState);
+
   if (state.website && !/^https?:\/\//.test(state.website)) {
     state.website = 'http://' + state.website;
   }
+
   return state;
 };
 
@@ -78,12 +80,14 @@ var ModalClubs = React.createClass({
       latitude: null,
       longitude: null
     };
+
     if (this.props.club) {
       _.extend(clubState, _.pick(this.props.club,
         'name', 'website', 'description', 'location', 'latitude',
         'longitude'
       ));
     }
+
     return _.extend(clubState, {
       step: this.getStepForAuthState(!!this.props.teachAPI.getUsername()),
       hasReadFactSheet: false,
@@ -178,6 +182,7 @@ var ModalClubs = React.createClass({
 
   generateAuthHTML: function(action) {
     var loginURL = this.props.teachAPI.baseURL;
+
     return (
       <div>
         <p>Before you can {action} your club, you need to log in.</p>
@@ -190,11 +195,13 @@ var ModalClubs = React.createClass({
   },
 
   generateFormHTML: function(isAdd, action, isFormDisabled, modalTitle) {
-    var idPrefix = this.props.idPrefix;
-    var value = isAdd ? "Apply" : modalTitle;
+    var idPrefix = this.props.idPrefix,
+        value = isAdd ? "Apply" : modalTitle;
+    
     if (isFormDisabled) {
       value = isAdd ? "Submitting Your Club Application..." : "Changing Your Club...";
     }
+
     return (
       <div>
         {this.state.networkError
@@ -276,17 +283,17 @@ var ModalClubs = React.createClass({
   },
 
   render: function() {
-    var content, isFormDisabled;
-    var isAdd = !this.props.club;
-    var action = isAdd ? "add" : "change";
-    var modalTitle = isAdd ? "Get matched with a Regional Coordinator" : "Change Your Club";
+    var content, isFormDisabled,
+        isAdd = !this.props.club,
+        action = isAdd ? "add" : "change",
+        modalTitle = isAdd ? "Get matched with a Regional Coordinator" : "Change Your Club";
 
-    if (this.state.step == this.STEP_AUTH) {
+    if (this.state.step === this.STEP_AUTH) {
       content = this.generateAuthHTML(action);
-    } else if (this.state.step == this.STEP_FORM || this.state.step == this.STEP_WAIT_FOR_NETWORK) {
-      isFormDisabled = (this.state.step == this.STEP_WAIT_FOR_NETWORK);
+    } else if (this.state.step === this.STEP_FORM || this.state.step === this.STEP_WAIT_FOR_NETWORK) {
+      isFormDisabled = (this.state.step === this.STEP_WAIT_FOR_NETWORK);
       content = this.generateFormHTML(isAdd, action, isFormDisabled, modalTitle);
-    } else if (this.state.step == this.STEP_SHOW_RESULT) {
+    } else if (this.state.step === this.STEP_SHOW_RESULT) {
       content = this.generateResultHTML(isAdd);
     }
 

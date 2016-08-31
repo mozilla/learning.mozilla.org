@@ -53,9 +53,11 @@ module.exports = function withTeachAPI(Component) {
 
     getComponent: function() {
       var component = this.refs.component;
+
       if (component.getComponent) {
         return component.getComponent();
       }
+
       return component;
     },
 

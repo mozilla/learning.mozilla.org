@@ -32,6 +32,7 @@ var StepOne = React.createClass({
   getFilled: function() {
     var state = this.state;
     var optional = this.optional;
+
     // get the number of required fields that have a value filled in.
     return progressFields.reduce(function(a,b) {
       b = state[b];
@@ -54,6 +55,7 @@ var StepOne = React.createClass({
 
   render: function() {
     var className = "step1" + (this.props.hidden ? " hidden" : "");
+
     return (
       <div className={className}>
         <fieldset>
@@ -111,8 +113,11 @@ var StepOne = React.createClass({
   },
   updateName: function(evt) { this.setStateAsChange({ name: evt.target.value }); },
   updateLocation: function(locationdata) {
-    try { locationdata = JSON.parse(locationdata); }
-    catch (e) { locationdata = { location: null, latitude: null, longitude: null }; }
+    try {
+      locationdata = JSON.parse(locationdata);
+    } catch (e) {
+      locationdata = { location: null, latitude: null, longitude: null };
+    }
     this.setStateAsChange({ location: locationdata });
   },
   updateOccupation: function(evt) { this.setStateAsChange({ occupation: evt.target.value }); },
@@ -132,12 +137,13 @@ var StepOne = React.createClass({
     };
 
     if (this.state.coordinatorName) {
-      data['regional_coordinator'] = this.state.coordinatorName;
+      data.regional_coordinator = this.state.coordinatorName;
     }
 
     var how = this.state.howDidYouHear;
+
     if (how === "other") { how = this.state.howDidYouActuallyHear; }
-    data['how_they_heard'] = how;
+    data.how_they_heard = how;
 
     return data;
   },
@@ -166,8 +172,7 @@ var StepOne = React.createClass({
     if (!clubState.hostReason) {
       errorElements.push('hostReason');
       errors.push("You must explain the reason for applying.");
-    }
-    else if (clubState.hostReason && clubState.hostReason.split(' ').length < 45) {
+    } else if (clubState.hostReason && clubState.hostReason.split(' ').length < 45) {
       errorElements.push('hostReason');
       errors.push("Please explain the reason for applying in 50 words or more.");
     }
@@ -180,13 +185,19 @@ var StepOne = React.createClass({
   },
 
   error: function(field) {
-    if (!this.state.errorElements) return null;
+    if (!this.state.errorElements) {
+      return null;
+    }
+    
     var error = this.state.errorElements.indexOf(field) > -1;
+    
     return error ? "error" : '';
   },
 
   renderValidationErrors: function() {
-    if (!this.state.errors || this.state.errors.length === 0) return null;
+    if (!this.state.errors || this.state.errors.length === 0) {
+      return null;
+    }
     return (
       <div className="alert alert-danger">
         <p>Unfortunately, your application has some problems:</p>

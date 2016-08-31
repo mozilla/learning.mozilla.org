@@ -14,16 +14,18 @@ var Skills21CPage = React.createClass({
     pageClassName: 'web-literacy-skills-page'
   },
   generateSkillItem: function(skill) {
-    var that = this;
+    var self = this;
+
     return Object.keys(skill.topics).map(function(topic) {
       return (
-        <div key={topic}><strong>{topic}:</strong> {makeLinksFromWebLitSkills(skill.topics[topic], that.context.intl.locale)}</div>
+        <div key={topic}><strong>{topic}:</strong> {makeLinksFromWebLitSkills(skill.topics[topic], self.context.intl.locale)}</div>
       );
     });
   },
   generateSkills: function() {
     return skills.map(function(skill) {
       var formatMessage = this.context.intl.formatMessage;
+
       return (
         <Illustration
           width={150} height={150}
@@ -51,7 +53,9 @@ var Skills21CPage = React.createClass({
     });
   },
   generateCompetencies: function(competencies) {
-    if (!competencies) return null;
+    if (!competencies) {
+      return null;
+    }
     return competencies.map(function(competency) {
       if (competency.name) {
         return (
@@ -86,4 +90,5 @@ var Skills21CPage = React.createClass({
     );
   }
 });
+
 module.exports = Skills21CPage;
