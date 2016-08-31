@@ -45,6 +45,7 @@
     "indent": [2, 2, {"VariableDeclarator": { "var": 2, "let": 2, "const": 3}}],
     "linebreak-style": [2, "unix"],
     "newline-after-var": [2],
+    "no-lonely-if": [2],
     "semi": [2, "always"]
   },
   "extends": [
