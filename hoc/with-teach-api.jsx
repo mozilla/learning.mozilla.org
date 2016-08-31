@@ -1,6 +1,6 @@
 // This is a Higher Order Component that can wrap any Component such that
 // it receives a teachAPI property for communicating with the teach-api
-// server that runs in conjunction with the teach.mozilla.org site.
+// server that runs in conjunction with the learning.mozilla.org site.
 //
 // Its use is straight-forward:
 //

@@ -43,7 +43,7 @@ var curriculumList = [
       {
         title: "Project Playlist",
         image1x: "/img/pages/web-lit-basics-two/project-playlist.png",
-        originalImgSrc: "https://teach.mozilla.org",
+        originalImgSrc: "https://learning.mozilla.org",
         caption: "CC-BY MLN",
         subtitle: "Understanding Composing",
         description: "Learners will build a playlist of songs from the Open Web, learning <strong>composing and remixing</strong>.",
@@ -61,7 +61,7 @@ var curriculumList = [
       {
         title: "Pixel Portrait",
         image1x: "/img/pages/web-lit-basics-two/pixel-portrait.png",
-        originalImgSrc: "https://teach.mozilla.org",
+        originalImgSrc: "https://learning.mozilla.org",
         caption: "CC-BY MLN",
         subtitle: "Understanding Composing",
         description: "Learners will create their own pixel art, import it into an online code editor, and then insert it into a webpage, learning <strong>composing</strong>.",
@@ -70,7 +70,7 @@ var curriculumList = [
       {
         title: "#allthestickerz",
         image1x: "/img/pages/web-lit-basics-two/allthestickerz.png",
-        originalImgSrc: "https://teach.mozilla.org",
+        originalImgSrc: "https://learning.mozilla.org",
         caption: "CC-BY MLN",
         subtitle: "Understanding Sharing",
         description: "Learners will create pixel art online/digital stickers, publish them for others, and use them to annotate and remix the Web, learning <strong>community participation, composing, open practices, remix, and sharing</strong>.",
