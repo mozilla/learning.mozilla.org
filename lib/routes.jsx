@@ -74,7 +74,7 @@ if (process.env.ENABLE_BADGES) {
     'badge/:id': require('../pages/badges/badge-single.jsx'),
     'badge/:id/:slug': require('../pages/badges/badge-single.jsx')
   });
-};
+}
 
 /**
  * Redirects from old URLs to new URLs
