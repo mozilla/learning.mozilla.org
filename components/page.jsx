@@ -47,6 +47,7 @@ var Page = React.createClass({
   getCurrentClassName: function() {
     var handler = this.getCurrentPageHandler(),
         className = handler.pageClassName || ``;
+
     return className;
   },
 

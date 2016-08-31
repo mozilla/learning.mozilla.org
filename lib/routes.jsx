@@ -2,6 +2,7 @@ var React = require('react');
 
 var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
+var IndexRedirect = ReactRouter.IndexRedirect;
 var Route = ReactRouter.Route;
 var Redirect = ReactRouter.Redirect;
 var IndexRoute = ReactRouter.IndexRoute;
@@ -163,6 +164,7 @@ function buildRoutes() {
     localeURLs.push(`${locale}/events`);
     routes.push(
       <Route key={locale} path={locale} component={require('../components/page.jsx')}>
+        <IndexRedirect to="/" />
         <Route path="events" component={require('../pages/events.jsx')} />
       </Route>
     );
