@@ -112,6 +112,7 @@ app.use(function(req, res, next) {
 
   match({ routes: routes, location: location}, function resolveRoute(err, redirect, props) {
     // is this even a component?
+    console.log(location);
     if ( !props ) {
       return next();
     }
@@ -120,6 +121,7 @@ app.use(function(req, res, next) {
     if ( matcher.match(location) ) {
       var search = url.parse(req.url).search || "";
 
+      console.log("parsing locale");
       locale = localize.parseLocale(req.headers["accept-language"], location, locales).locale;
       if (location === "/") {
         res.redirect(302, location + locale + search);

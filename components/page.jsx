@@ -143,6 +143,7 @@ var Page = React.createClass({
         currentRoute = routes.slice(-1)[0],
         currentPath = config.ORIGIN + `/` + this.context.intl.locale + `/` + (currentRoute.path || ``);
 
+    console.log(this.context.intl.locale);
     // but we _actually_ want to rely on this, instead:
     if (typeof window !== `undefined`) {
       currentPath = config.ORIGIN + window.location.pathname;

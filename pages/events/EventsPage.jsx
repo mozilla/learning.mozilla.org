@@ -23,7 +23,7 @@ var EventsPage = React.createClass({
     return (
       <div>
         <HeroUnit>
-          <h1>Host a Maker Party</h1>
+          <h1>{this.context.intl.formatMessage({id: 'host_a_party'})}</h1>
           <h2>Host a one-time event or workshop</h2>
         </HeroUnit>
 
