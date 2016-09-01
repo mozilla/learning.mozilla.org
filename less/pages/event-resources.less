@@ -42,6 +42,27 @@ html.no-js {
       color: @darkBlueSidebarColor;
     }
   }
+  ol {
+    counter-reset: li; /* Initiate a counter */
+    padding-left: 0;
+    li {
+      padding: 10px 0;
+      list-style:none; /* Disable the normal item numbering */
+      &:before {
+	      content: counter(li); /* Use the counter as content */
+	      counter-increment: li; /* Increment the counter by 1 */
+        padding: 0;
+        margin: 0 33px;
+        border: solid 0.5px #000;
+        border-radius: 50%;
+        height: 33px;
+        width: 33px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
   .event-item {
     @media screen and (min-width: @screen-sm-min) {
       display: flex;
