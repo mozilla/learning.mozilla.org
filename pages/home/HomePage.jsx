@@ -93,7 +93,7 @@ var HomePage = React.createClass({
                 src1x="/img/pages/home/svg/icon-circle-home.svg"
                 alt="">
                   <h2><FormattedMessage id='about_us' /></h2>
-                  <p><FormattedHTMLMessage id='homepage_about_us_message' /> <Link to={"/" + this.context.intl.locale + "/about"} className="more">{this.context.intl.formatMessage({ id: 'learn_more'})}</Link></p>
+                  <p><FormattedHTMLMessage id='homepage_about_us_message' /></p>
               </Illustration>
             </div>
           </section>
