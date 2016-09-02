@@ -178,11 +178,14 @@ app.use(function(req, res, next) {
 
 app.use(require('./server/404'));
 
+app.READY_STRING = "Server listening on port";
+app.PORT = PORT;
+
 var startProdApp = function() {
   app.listen(PORT, function() {
     console.log('\n\n==================================================');
     console.log('=                                                =');
-    console.log('=         Server listening on port', PORT, '         =');
+    console.log('=         ', app.READY_STRING, PORT, '        =');
     console.log('=                                                =');
     console.log('==================================================\n');
   });
