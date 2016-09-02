@@ -2,7 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 var startlabels = {
-  clubName: "Name your club",
+  name: "Name your club",
   description: "Description for your club",
   meetingVenue: "Where will you meet",
   frequency: "How often will you meet?",
@@ -13,7 +13,7 @@ var startlabels = {
 };
 
 var integrateLabels = {
-  clubName: "Name of your existing program",
+  name: "Name of your existing program",
   description: "Description for your existing program",
   meetingVenue: "Where do you meet",
   frequency: "How often do you meet?",
@@ -30,7 +30,7 @@ var labels = {
 
 var progressFields = [
   "intent",
-  "clubName",
+  "name",
   "description",
   "meetingVenue",
   "frequency",
@@ -46,7 +46,7 @@ var StepTwo = React.createClass({
     this.optional = ['affiliation'];
     return {
       intent: null,
-      clubName: null,
+      name: null,
       description: null,
       meetingVenue: null,
       frequency: null,
@@ -109,8 +109,8 @@ var StepTwo = React.createClass({
 
     return <div>
       <fieldset>
-        <label>{ labels[this.state.intent].clubName }</label>
-        <input className={this.error('clubName')} type="text" value={this.state.clubName} onChange={this.updateClubName} placeholder=""/>
+        <label>{ labels[this.state.intent].name }</label>
+        <input className={this.error('name')} type="text" value={this.state.name} onChange={this.updateClubName} placeholder=""/>
       </fieldset>
 
       <fieldset>
@@ -205,7 +205,7 @@ var StepTwo = React.createClass({
   },
 
   updateIntent: function(evt) { this.setStateAsChange({ intent: evt.target.value, errors: []}, true); },
-  updateClubName: function(evt) { this.setStateAsChange({ clubName: evt.target.value }); },
+  updateClubName: function(evt) { this.setStateAsChange({ name: evt.target.value }); },
   updateDescription: function(evt) { this.setStateAsChange({ description: evt.target.value }); },
   updateMeetingVenue: function(evt) { this.setStateAsChange({ meetingVenue: evt.target.value }); },
 
@@ -347,7 +347,7 @@ var StepTwo = React.createClass({
 
     var data = {
       intent: this.state.intent,
-      clubName: this.state.clubName,
+      name: this.state.name,
       description: this.state.description,
       venue: this.state.meetingVenue,
       frequency: freq,
