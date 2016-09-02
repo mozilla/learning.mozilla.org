@@ -156,6 +156,13 @@ var ActivitiesPage = React.createClass({
               developedBy={<div><a href="http://hivemanchester.net/">Hive Manchester</a></div>}
               description="Learners get familiar with writing Javascript in this fun, five-part module. Together we discover the foundations of the text coding by being creative and making our own web pages."/>
             <ActivityKit
+              src1x="/img/pages/activities/minecraft.png"
+              title="Minecraft: Redesign A Public Space"
+              level="Beginner"
+              link="https://thimbleprojects.org/ginagrant/95757/#overview"
+              developedBy={<div><a href="https://twitter.com/GinaGrant20">Gina Grant</a> and <a href="https://twitter.com/edgeq_">Edge Quintanilla</a></div>}  
+              description="Teach students how they might use design thinking to foster civic engagement, self-efficacy and agency using the wildly popular video game, Minecraft. You’ll need to create Discover Design and Minecraft Education Edition accounts for your learners."/>
+            <ActivityKit
               src1x="/img/pages/activities/img-activity-09.jpg"
               src2x="/img/pages/activities/img-activity-09@2x.jpg"
               title="Minecraft a Flavor of Java"
