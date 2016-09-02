@@ -20,7 +20,8 @@ var path = require('path'),
     urlToRoutePath = require('./server/url-to-route-path'),
     renderComponentPage = require('./server/render-component-page'),
     WpPageChecker = require('./lib/wp-page-checker'),
-    locales = require(path.join(DIST_DIR, 'locales.json')),
+    config = require('./config/config'),
+    SUPPORTED_LOCALES = config.SUPPORTED_LOCALES,
     locale = "";
 
 // the static HTML generator
@@ -114,7 +115,7 @@ app.use(function(req, res, next) {
 
     // React router based redirect? (routes.jsx)
     if(redirect) {
-      res.redirect(redirect.pathname);
+      return res.redirect(redirect.pathname);
     }
 
     // is this even a component?
@@ -126,7 +127,7 @@ app.use(function(req, res, next) {
     if ( matcher.match(location) ) {
       var search = url.parse(req.url).search || "";
 
-      locale = localize.parseLocale(req.headers["accept-language"], location, locales).locale;
+      locale = localize.parseLocale(req.headers["accept-language"], location, SUPPORTED_LOCALES).locale;
       if (location === "/") {
         res.redirect(302, location + locale + search);
         return;
@@ -170,7 +171,7 @@ app.use(express.static(DIST_DIR));
 app.use(function(req, res, next) {
   var location = url.parse(req.url).pathname,
       search = url.parse(req.url).search || "",
-      parsed = localize.parseLocale(req.headers["accept-language"], location, locales),
+      parsed = localize.parseLocale(req.headers["accept-language"], location, SUPPORTED_LOCALES),
       parsedLocale = parsed.locale,
       parsedRedirect = parsed.redirect;
 

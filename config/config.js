@@ -5,6 +5,7 @@ var ENABLE_PUSHSTATE = (IN_STATIC_SITE &&
                         window.history.replaceState);
 var DEV_SERVER_PORT = 8008;
 var ORIGIN;
+var locales = require('../dist/locales.json');
 
 if (IN_STATIC_SITE) {
   ORIGIN = window.location.protocol + '//' + window.location.host;
@@ -41,3 +42,6 @@ exports.TWITTER_LINK = 'https://twitter.com/MozLearn';
 exports.WEBMAKER = 'https://webmaker.org';
 exports.WORDPRESS_DOMAIN = process.env.WORDPRESS_DOMAIN || '';
 exports.XRAY_GOGGLES_LINK = 'https://goggles.mozilla.org/';
+exports.MAKER_PARTY_LOCALES = ['de', 'fr', 'es', 'pl', 'it', 'nl', 'cs', 'bg'];
+// Since l10n task generates json with incomplete locales, we don't want to use its keys for supported locales. But we should check against it to be safe.
+exports.SUPPORTED_LOCALES = ['en-US'].filter(supportedLocale => Object.keys(locales).indexOf(supportedLocale) > -1);

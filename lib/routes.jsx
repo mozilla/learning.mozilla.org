@@ -6,14 +6,13 @@ var IndexRedirect = ReactRouter.IndexRedirect;
 var Route = ReactRouter.Route;
 var Redirect = ReactRouter.Redirect;
 var IndexRoute = ReactRouter.IndexRoute;
-var locales = Object.keys(require('../dist/locales.json'));
-//Safety check
-var SUPPORTED_LOCALES = ['en-US'].filter(supportedLocale => locales.indexOf(supportedLocale) > -1);
-var MAKER_PARTY_LOCALES = ['de', 'fr', 'es', 'pl', 'it', 'nl', 'cs', 'bg'];
+var config = require('../config/config');
+var SUPPORTED_LOCALES = config.SUPPORTED_LOCALES;
+var MAKER_PARTY_LOCALES = config.MAKER_PARTY_LOCALES;
 
 
 // verify we have at least one locale
-if (Object.keys(locales).length === 0) {
+if (SUPPORTED_LOCALES.length === 0) {
   console.error("No locales were loaded into routes.jsx, no routes can be built!");
   process.exit(1);
 }
@@ -163,11 +162,13 @@ function buildRoutes() {
   });
 
   MAKER_PARTY_LOCALES.forEach((locale) => {
-    localeURLs.push(`${locale}`, `${locale}/events`);
+    localeURLs.push(`${locale}`, `${locale}/events`, `${locale}/events/resources`);
     routes.push(
       <Route key={locale} path={locale} component={require('../components/page.jsx')}>
 	<IndexRedirect to="/" />
-	<Route path="events" component={require('../pages/events.jsx')} />
+	<Route path="events" component={require('../pages/events.jsx')}>
+	  <Route path="resources" component={require('../pages/event-resources.jsx')} />
+	</Route>
       </Route>
     );
   });
