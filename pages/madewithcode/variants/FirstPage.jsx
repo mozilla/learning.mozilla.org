@@ -39,7 +39,7 @@ var MadeWithCodeFirstWebPage = createVariant({
   // FIXME: these next two values should come from some master "activities" list, where
   //        this component can ask for what the "next" values are, without knowing anything else.
   nextTitle: "make a meme",
-  linkPath: "../madewithcode-meme"
+  linkPath: "/activities/madewithcode-meme"
 });
 
 module.exports = MadeWithCodeFirstWebPage;

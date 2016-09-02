@@ -38,6 +38,7 @@
     "test": "run-s prep test:*",
     "test:lint": "npm run lint:server",
     "test:mocha": "mocha",
+    "test:spider": "node spider",
     "webpack:client": "webpack --config ./config/webpack/webpack.client.config.js --progress --colors",
     "webpack:server": "webpack --config ./config/webpack/webpack.server.config.js --progress --colors"
   },
