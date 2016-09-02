@@ -185,7 +185,7 @@ var StepTwo = React.createClass({
         <label>Affiliated institution or oganization</label> (optional)
         <input type="text" value={this.state.affiliation} onChange={this.updateAffiliation} placeholder="Name of the school, library, organization, etc..."/>
       </fieldset>
-      
+
       {
         this.state.intent === 'integrate' ?
           <fieldset>

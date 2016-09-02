@@ -3,7 +3,14 @@
     "ecmaVersion": 6,
     "sourceType": "module",
     "ecmaFeatures": {
-      "jsx": true
+        "jsx": true,
+        "arrowFunctions": true,
+        "blockBindings": true,
+        "defaultParams": true,
+        "destructuring": true,
+        "forOf": true,
+        "spread": true,
+        "templateStrings": true
     },
   },
   "rules" : {
@@ -45,10 +52,21 @@
     "indent": [2, 2, {"VariableDeclarator": { "var": 2, "let": 2, "const": 3}}],
     "linebreak-style": [2, "unix"],
     "newline-after-var": [2],
-    "semi": [2, "always"]
+    "no-lonely-if": [2],
+    "no-trailing-spaces": [2],
+    "no-unneeded-ternary": [2],
+    "spaced-comment": [2, "always"],
+    //"quotes": [2, "backtick"],
+    "semi": [2, "always"],
+    "wrap-regex": [2],
+
+    //"prefer-arrow-callback": [1]
+    "no-console": [0]
+
   },
   "extends": [
     // "./node_modules/mofo-style/.eslintrc.yaml"
+    //"eslint:recommended"
   ],
   "env": {
     "browser": true,

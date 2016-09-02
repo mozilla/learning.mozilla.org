@@ -74,7 +74,7 @@ if (process.env.ENABLE_BADGES) {
     'badge/:id': require('../pages/badges/badge-single.jsx'),
     'badge/:id/:slug': require('../pages/badges/badge-single.jsx')
   });
-};
+}
 
 /**
  * Redirects from old URLs to new URLs
@@ -149,10 +149,10 @@ function buildRoutes() {
       </Route>
       );
 
-    //Add each locale's routes to the array of urls that the server uses for route matching
+    // Add each locale's routes to the array of urls that the server uses for route matching
     urls.forEach(function(key) {
       var newkey = locale + "/" + key;
-      
+
       localeURLs.push(newkey);
     });
 

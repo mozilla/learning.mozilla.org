@@ -144,15 +144,12 @@ var TimeoutTransitionGroupChild = React.createClass({
 
     if (!animationSupported()) {
       endListener();
-    } else {
-      if (animationType === "enter") {
-        this.animationTimeout = setTimeout(endListener,
-                                                   this.props.enterTimeout);
-      } else if (animationType === "leave") {
-        this.animationTimeout = setTimeout(endListener,
-                                                   this.props.leaveTimeout);
-      }
+    } else if (animationType === "enter") {
+      this.animationTimeout = setTimeout(endListener, this.props.enterTimeout);
+    } else if (animationType === "leave") {
+      this.animationTimeout = setTimeout(endListener, this.props.leaveTimeout);
     }
+
 
     addClass(node, className);
 

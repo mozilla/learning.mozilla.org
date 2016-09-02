@@ -1,2 +1,2 @@
-//TODO clean up indirection
+// TODO clean up indirection
 module.exports = require('./WebLiteracyPage.jsx');

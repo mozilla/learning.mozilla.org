@@ -4,7 +4,7 @@ var NotFoundMessage = require('../components/not-found.jsx');
 
 var config = require('../config/config');
 
-var WpContent = function(props) { 
+var WpContent = function(props) {
   return (
     <div className="wp-content-wrapper">
       <div className="inner-container">

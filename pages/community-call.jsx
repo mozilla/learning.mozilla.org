@@ -31,7 +31,7 @@ var CommunityCallPage = React.createClass({
             <p className="date">September (date and time TBD)</p>
             <h1>Youth Activism</h1>
             <p className="description">
-              
+
             </p>
           </section>
 
@@ -62,7 +62,7 @@ var CommunityCallPage = React.createClass({
               <h2>Ada Lovelace Day</h2>
               <p>
                 Join the Mozilla Learning and Mozilla Science teams to celebrate <LinkAnchorSwap to="http://findingada.com">Ada Lovelace Day</LinkAnchorSwap> and women around the globe who are making a difference in science, web literacy and beyond.
-              </p>  
+              </p>
             </li>
           </ul>
 

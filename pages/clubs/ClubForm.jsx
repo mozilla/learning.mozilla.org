@@ -208,7 +208,7 @@ var ClubForm = React.createClass({
     if (!r1 || !r2) {
       return 0;
     }
-    
+
     return Object.assign({}, r1.getClubData(), r2.getClubData());
   }
 });

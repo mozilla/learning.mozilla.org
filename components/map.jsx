@@ -177,10 +177,10 @@ var Map = React.createClass({
     },
     simplifyMapboxGeoJSON: function(features) {
       return features.filter(function(feature) {
-        return /^place/.test(feature.id);
+        return (/^place/).test(feature.id);
       }).map(function(feature) {
         var context = feature.context.filter(function(item) {
-          return /^(region|country)/.test(item.id);
+          return (/^(region|country)/).test(item.id);
         }).map(function(item) {
           return item.text;
         });

@@ -130,7 +130,7 @@ var ActivitiesPage = React.createClass({
               level="Beginner"
               link="https://thimbleprojects.org/mouseorg/49745/"
               developedBy={<div><a href="http://www.mouse.org">MOUSE (Hive NYC member)</a>.</div>}
-              description="Mouse's online and offline activities like Kraken the Code, Tag Tag Revolution and CSS Story Cards explore topics ranging from HTML/CSS to search engine optimization and online identities."/>  
+              description="Mouse's online and offline activities like Kraken the Code, Tag Tag Revolution and CSS Story Cards explore topics ranging from HTML/CSS to search engine optimization and online identities."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-04.jpg"
               src2x="/img/pages/activities/img-activity-04@2x.jpg"

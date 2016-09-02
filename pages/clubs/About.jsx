@@ -198,7 +198,7 @@ var ClubsPage = React.createClass({
     var teachAPI = this.props.teachAPI;
     var clubs = teachAPI.getClubs();
     var username = teachAPI.getUsername();
-    
+
     return (
       <div>
         <div className="inner-container">

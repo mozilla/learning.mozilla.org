@@ -37,7 +37,7 @@ var webpackConfig = {
     ]
   },
   plugins: [
-    new webpack.BannerPlugin('require("source-map-support").install();', { raw: true, entryOnly: false })    
+    new webpack.BannerPlugin('require("source-map-support").install();', { raw: true, entryOnly: false })
   ],
   output: {
     library: 'true',
