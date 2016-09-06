@@ -21,7 +21,7 @@ var securityHeaders = {
       'https://s.ytimg.com',
       'https://www.mozilla.org',
       'https://goggles.mofostaging.net',
-      'https://goggles.mozilla.org'      
+      'https://goggles.mozilla.org'
     ],
     fontSrc: [
       '\'self\'',
@@ -54,7 +54,7 @@ var securityHeaders = {
       process.env.TEACH_API_URL || 'https://teach-api-staging.herokuapp.com',
       url.parse(process.env.NEWSLETTER_MAILINGLIST_URL || 'https://basket-dev.allizom.org').hostname,
       'https://goggles.mofostaging.net',
-      'https://goggles.mozilla.org'          
+      'https://goggles.mozilla.org'
     ]
   },
   reportOnly: false,
