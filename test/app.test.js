@@ -15,6 +15,7 @@ describe('App.js server testing', function() {
   before(function(done) {
     // fire up the server in a separate process!
     var spawn = require('child_process').spawn;
+
     server = spawn('node', ['app']);
     server.stdout.on('data', (data) => {
       data = data.toString();
@@ -36,13 +37,15 @@ describe('App.js server testing', function() {
     it('should fetch the base en-US route with the correct title from /en-US/', function(done) {
       request
       .get(serveraddress + locale + '/')
-      .end(function(err, res){
+      .end(function(_err, res){
         var dom = jsdom.env(res.text, function (err, window) {
           if (err) {
             throw new Error(err);
           }
+
           var document = window.document;
           var title = document.title;
+
           title.should.be.type('string');
           title.should.equal('Mozilla Learning');
           done();
@@ -53,13 +56,16 @@ describe('App.js server testing', function() {
     it('should have an /en-US/healthcheck route', function(done) {
       request
       .get(serveraddress + locale + '/healthcheck')
-      .end(function(err, res){
+      .end(function(_err, res){
         var dom = jsdom.env(res.text, function (err, window) {
+
           if (err) {
             throw new Error(err);
           }
+
           var document = window.document;
           var title = document.title;
+
           title.should.containEql('Site Health Check');
           done();
         });

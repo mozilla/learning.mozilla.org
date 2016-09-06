@@ -19,12 +19,20 @@ var seen = {};
 // tracks whether we should report success or failure for npm test purposes.
 var failed = false;
 
+// appease ESLint by preassigning these.
+var getPageLinks = resolvePageLinks = () => undefined;
+
 /**
  * Run through a page for all its link elements, map them to href attributes,
  * filter out any links already seen or already pending for crawling, and
  * add the remainder to the "to be crawled" list. Then recurse.
+ * @param {string} htmlCode the HTML code associated with a specific page
+ * @param {function} onFinish the callback to trigger once we're done crawling
+ * @param {url} siteurl the URL for the page we're currently looking at
+ * @param {url} from the page that we navigated from to get to the current page
+ * @returns {undefined}
  */
-function resolvePageLinks(htmlCode, onFinish, siteurl, from) {
+resolvePageLinks = function(htmlCode, onFinish, siteurl, from) {
   var dom = jsdom.env(htmlCode, function (err, window) {
     // If this is an unknown not-http-status-related error, treat as error.
     if (err) {
@@ -41,13 +49,13 @@ function resolvePageLinks(htmlCode, onFinish, siteurl, from) {
     var document = window.document;
     var links = document.querySelectorAll('a');
     var linkArray = Array.from(links).map(a => a.href);
-    var newLinks = linkArray.filter(url => (!!url && url.indexOf(':')===-1 && seen[url] !== true && resolve.indexOf(url) === -1));
-    newLinks.forEach(url => resolve.push(url));
+    var newLinks = linkArray.filter(nexturl => (!!nexturl && nexturl.indexOf(':')===-1 && seen[nexturl] !== true && resolve.indexOf(nexturl) === -1));
 
     // recurse with the updated to-resolve list
+    newLinks.forEach(nexturl => resolve.push(nexturl));
     getPageLinks(onFinish, siteurl);
-  });  
-}
+  });
+};
 
 /**
  * Get the set of <a> elements on a page, extract the 'href'
@@ -55,8 +63,12 @@ function resolvePageLinks(htmlCode, onFinish, siteurl, from) {
  * and add the current page url to the "seen" list.
  *
  * Do this recursively until we run out of new URLs to visit.
+ *
+ * @param {function} onFinish the callback to trigger once we're done crawling
+ * @param {url} from the page that we navigated from to get to the current page
+ * @returns {undefined}
  */
-function getPageLinks(onFinish, from) {
+getPageLinks = function(onFinish, from) {
   if (resolve.length === 0) { onFinish(); }
 
   // make sure we respect "./abc" and "../abc" url patterns
@@ -73,7 +85,7 @@ function getPageLinks(onFinish, from) {
     failed = true;
     return getPageLinks(onFinish, from);
   }
-  
+
   // If there is no local information that's not necessarily an error
   // as the server should be able to look up the en-US resource anyway
   // due to the presence of http accept languages in the request header.
@@ -81,7 +93,7 @@ function getPageLinks(onFinish, from) {
     console.error(
       chalk.red.bold("WARNING: no locale found for"),
       chalk.yellow.bold(siteurl),
-      chalk.red.bold("linked from"), 
+      chalk.red.bold("linked from"),
       chalk.yellow.bold(from)
     );
     failed = failed || failOnMissingLocale;
@@ -113,12 +125,13 @@ function getPageLinks(onFinish, from) {
     // find links and recurse
     resolvePageLinks(res.text, onFinish, siteurl, from);
   });
-}
+};
 
 // MAIN SCRIPT ENTRY POINT:
 
 console.log("Starting server process...");
 var spawn = require('child_process').spawn;
+
 server = spawn('node', ['app']);
 server.on('close', () => { console.log("CLOSE"); server.kill(); process.exit(1); });
 server.on('exit', () => { console.log("EXIT"); server.kill(); process.exit(1); });
