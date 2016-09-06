@@ -42,9 +42,9 @@ var CurriculumWorkshop = React.createClass({
 
           <h3>Workshop Video Stream</h3>
 
-          <div className="video-wrapper">
-            <iframe width="560" height="315" src="//www.youtube.com/embed/wmbYaGYJplE" frameBorder="0" allowFullScreen></iframe>
-          </div>
+          <p>
+            We have moved to YouTube Live this month! Watch the live stream on our <a href="https://www.youtube.com/channel/UC64W_SqCxhcTUwVpuSQWjEg">YouTube Channel</a>. You can still participate with us on the etherpad below during the call.
+          </p>
           <h4>
             Open Agenda
             <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/curriculum-workshop-september-13-2016">

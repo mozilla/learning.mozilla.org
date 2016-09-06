@@ -42,9 +42,9 @@ var CommunityCallPage = React.createClass({
 
           <h3>Workshop Video Stream</h3>
 
-          <div className="video-wrapper">
-            <iframe width="560" height="315" src="//www.youtube.com/embed/jqxxkbLHYfw" frameBorder="0" allowFullScreen></iframe>
-          </div>
+          <p>
+            We have moved to YouTube Live this month! Watch the live stream on our <a href="https://www.youtube.com/channel/UC64W_SqCxhcTUwVpuSQWjEg">YouTube Channel</a>. You can still participate with us on the etherpad below during the call.
+          </p>
 
           <h4>
             Open Agenda
