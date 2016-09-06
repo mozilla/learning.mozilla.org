@@ -38,6 +38,8 @@ describe('App.js server testing', function() {
       request
       .get(serveraddress + locale + '/')
       .end(function(_err, res){
+        res.status.should.equal(200);
+
         var dom = jsdom.env(res.text, function (err, window) {
           if (err) {
             throw new Error(err);
@@ -57,6 +59,8 @@ describe('App.js server testing', function() {
       request
       .get(serveraddress + locale + '/healthcheck')
       .end(function(_err, res){
+        res.status.should.equal(200);
+
         var dom = jsdom.env(res.text, function (err, window) {
 
           if (err) {
