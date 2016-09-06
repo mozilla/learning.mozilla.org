@@ -110,7 +110,7 @@ var StepTwo = React.createClass({
     return <div>
       <fieldset>
         <label>{ labels[this.state.intent].name }</label>
-        <input className={this.error('name')} type="text" value={this.state.name} onChange={this.updateClubName} placeholder=""/>
+        <input className={this.error('name')} type="text" value={this.state.name} onChange={this.updateName} placeholder=""/>
       </fieldset>
 
       <fieldset>
@@ -205,7 +205,7 @@ var StepTwo = React.createClass({
   },
 
   updateIntent: function(evt) { this.setStateAsChange({ intent: evt.target.value, errors: []}, true); },
-  updateClubName: function(evt) { this.setStateAsChange({ name: evt.target.value }); },
+  updateName: function(evt) { this.setStateAsChange({ name: evt.target.value }); },
   updateDescription: function(evt) { this.setStateAsChange({ description: evt.target.value }); },
   updateMeetingVenue: function(evt) { this.setStateAsChange({ meetingVenue: evt.target.value }); },
 
@@ -241,8 +241,8 @@ var StepTwo = React.createClass({
         errorElements.push('intent');
         errors.push("You need to fill in this part of the application.");
       } else {
-        if (!clubState.clubName) {
-          errorElements.push('clubName');
+        if (!clubState.name) {
+          errorElements.push('name');
           errors.push("You need to fill in the name of your club.");
         }
         if (!clubState.description) {
