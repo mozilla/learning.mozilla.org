@@ -19,7 +19,9 @@ var securityHeaders = {
       'cdn.optimizely.com',
       'https://www.google.com',
       'https://s.ytimg.com',
-      'https://www.mozilla.org'
+      'https://www.mozilla.org',
+      'https://goggles.mofostaging.net',
+      'https://goggles.mozilla.org'
     ],
     fontSrc: [
       '\'self\'',
@@ -37,6 +39,7 @@ var securityHeaders = {
     imgSrc: [
       '\'self\'',
       '\'unsafe-inline\'',
+      'data:',
       '*'
     ],
     connectSrc: [
@@ -49,7 +52,9 @@ var securityHeaders = {
       '*.makes.org',
       'bitly.mofoprod.net',
       process.env.TEACH_API_URL || 'https://teach-api-staging.herokuapp.com',
-      url.parse(process.env.NEWSLETTER_MAILINGLIST_URL || 'https://basket-dev.allizom.org').hostname
+      url.parse(process.env.NEWSLETTER_MAILINGLIST_URL || 'https://basket-dev.allizom.org').hostname,
+      'https://goggles.mofostaging.net',
+      'https://goggles.mozilla.org'
     ]
   },
   reportOnly: false,
