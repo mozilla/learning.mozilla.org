@@ -22,6 +22,7 @@ var path = require('path'),
     WpPageChecker = require('./lib/wp-page-checker'),
     config = require('./config/config'),
     SUPPORTED_LOCALES = config.SUPPORTED_LOCALES,
+    MAKER_PARTY_LOCALES = config.MAKER_PARTY_LOCALES,
     locale = "";
 
 // the static HTML generator
@@ -170,8 +171,10 @@ app.use(express.static(DIST_DIR));
 */
 app.use(function(req, res, next) {
   var location = url.parse(req.url).pathname,
+      // Useful locales changes if we're on maker party pages
+      supportedLocales = location.match(/\/events(\/resources)?$/) ? SUPPORTED_LOCALES.concat(MAKER_PARTY_LOCALES) : SUPPORTED_LOCALES,
       search = url.parse(req.url).search || "",
-      parsed = localize.parseLocale(req.headers["accept-language"], location, SUPPORTED_LOCALES),
+      parsed = localize.parseLocale(req.headers["accept-language"], location, supportedLocales),
       parsedLocale = parsed.locale,
       parsedRedirect = parsed.redirect;
 
