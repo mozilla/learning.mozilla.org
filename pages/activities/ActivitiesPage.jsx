@@ -160,7 +160,7 @@ var ActivitiesPage = React.createClass({
               title="Minecraft: Redesign A Public Space"
               level="Beginner"
               link="https://thimbleprojects.org/ginagrant/95757/#overview"
-              developedBy={<div><a href="https://twitter.com/GinaGrant20">Gina Grant</a> and <a href="https://twitter.com/edgeq_">Edge Quintanilla</a></div>}  
+              developedBy={<div><a href="https://twitter.com/GinaGrant20">Gina Grant</a> and <a href="https://twitter.com/edgeq_">Edge Quintanilla</a></div>}
               description="Teach students how they might use design thinking to foster civic engagement, self-efficacy and agency using the wildly popular video game, Minecraft. You’ll need to create Discover Design and Minecraft Education Edition accounts for your learners."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-09.jpg"
