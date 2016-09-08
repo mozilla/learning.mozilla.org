@@ -43,40 +43,40 @@ var Running = React.createClass({
   componentDidMount: function() {
     this.fetchJSON("https://mozilla.github.io/learning-networks/clubs/clubs-resources.json",this.setData);
   },
-  getLinks : function(){
-    var categories = this.state.guides.map(function(category){
-      var guideLinks = category.guides.map(function(guide){
-
-        if(guide.translations && guide.translations.length > 0){
-          var translationLinks = guide.translations.map(function(translation){
-            return (
-              <li>
-                <a href={ translation.url }>{ translation.title }</a>
-                <span className="language"> ({ translation.language })</span>
-              </li>
-            );
-          });
-        }
-
+  getLinkForGuide: function(guide) {
+    if(guide.translations && guide.translations.length > 0){
+      var translationLinks = guide.translations.map(function(translation){
         return (
-          <li>
-            <a href={guide.url}>{ guide.title }</a>
-            { translationLinks ? <ul className="translations">{ translationLinks }</ul> : "" }
+          <li key={translation.title}>
+            <a href={ translation.url }>{ translation.title }</a>
+            <span className="language"> ({ translation.language })</span>
           </li>
         );
       });
+    }
 
-      return (
-        <section className="resourceCategory">
-          <h3> { category.category } </h3>
-          <ul>
-            { guideLinks }
-          </ul>
-        </section>
-      );
-    });
+    return (
+      <li key={guide.title}>
+        <a href={guide.url}>{ guide.title }</a>
+        { translationLinks ? <ul className="translations">{ translationLinks }</ul> : "" }
+      </li>
+    );
+  },
+  getGuideLinks: function(category) {
+    var guideLinks = category.guides.map(this.getLinkForGuide);
+    var cat = category.category;
 
-    return categories;
+    return (
+      <section className="resourceCategory" key={cat}>
+        <h3> { cat } </h3>
+        <ul>
+          { guideLinks }
+        </ul>
+      </section>
+    );
+  },
+  getGuideList: function() {
+    return this.state.guides.map(this.getGuideLinks);
   },
   render: function () {
     return (
@@ -96,7 +96,7 @@ var Running = React.createClass({
         <h1 className="center-title">{this.context.intl.formatMessage({id: 'club_guides_title'})}</h1>
 
         <div className="guideList">
-          { this.getLinks() }
+          { this.getGuideList() }
         </div>
 
         <hr className="square-divider" />
