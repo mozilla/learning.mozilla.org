@@ -22,6 +22,7 @@ var SectionList = React.createClass({
         header: formatMessage({id: 'get_your_feet_wet'}),
         description: formatMessage({id: 'get_your_feet_wet_message'}),
         subSections: [
+          /*
           {
             header: formatMessage({id: 'become_makerparty_host'}),
             imgSrc: '/img/pages/opportunities/svg/logo-makerparty.svg',
@@ -31,6 +32,7 @@ var SectionList = React.createClass({
                 <p><LinkAnchorSwap to={"/events"}>{formatMessage({id: 'become_makerparty_host_link'})}</LinkAnchorSwap></p>
               </div>)
           },
+          */
           {
             header: formatMessage({id: 'become_mozfest_volunteer'}),
             imgSrc: '/img/pages/opportunities/svg/logo-mozfest.svg',
