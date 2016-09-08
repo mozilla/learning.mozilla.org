@@ -36,7 +36,7 @@ var ClubListItem = React.createClass({
         <h4>{clubName} <Map.ClubStatusLabel showApproved={isOwned} status={club.status}/></h4>
         <p><span className="club-location" onClick={this.handleLocationClick}><span className="glyphicon glyphicon-map-marker"/> {club.location.split(',')[0]}</span></p>
         <p>{club.description}</p>
-        <p><small>Led by {club.owner}</small></p>
+        <p><small>Led by {club.full_name || club.owner}</small></p>
         {ownerControls}
       </li>
     );

@@ -4,7 +4,7 @@ var LocationSelector = require('../../components/LocationSelector.jsx');
 var Select = require('react-select');
 
 var progressFields = [
-  "name",
+  "fullName",
   "location",
   "occupation",
   "regionalCoordinator",
@@ -16,7 +16,7 @@ var StepOne = React.createClass({
   getInitialState: function() {
     this.optional = [];
     return {
-      name: null,
+      fullName: null,
       location: null,
       occupation: null,
       regionalCoordinator: null,
@@ -60,7 +60,7 @@ var StepOne = React.createClass({
       <div className={className}>
         <fieldset>
           <label>Name</label>
-          <input className={this.error('name')} type="text" value={this.state.name} onChange={this.updateName} placeholder="Your full name"/>
+          <input className={this.error('fullName')} type="text" value={this.state.fullName} onChange={this.updateFullName} placeholder="Your full name"/>
         </fieldset>
 
         <fieldset>
@@ -111,7 +111,7 @@ var StepOne = React.createClass({
       </div>
     );
   },
-  updateName: function(evt) { this.setStateAsChange({ name: evt.target.value }); },
+  updateFullName: function(evt) { this.setStateAsChange({ fullName: evt.target.value }); },
   updateLocation: function(locationdata) {
     try {
       locationdata = JSON.parse(locationdata);
@@ -129,7 +129,7 @@ var StepOne = React.createClass({
 
   getClubData: function() {
     var data = {
-      name: this.state.name,
+      'full_name': this.state.fullName,
       location: this.state.location,
       occupation: this.state.occupation,
       'regional_coordinator': this.state.regionalCoordinator,
@@ -153,9 +153,9 @@ var StepOne = React.createClass({
     var errorElements = [];
     var errors = [];
 
-    if (!clubState.name) {
-      errorElements.push('name');
-      errors.push("You must provide a name for your club.");
+    if (!clubState.fullName) {
+      errorElements.push('fullName');
+      errors.push("You must provide your name.");
     }
     if (!clubState.location) {
       errorElements.push('location');
