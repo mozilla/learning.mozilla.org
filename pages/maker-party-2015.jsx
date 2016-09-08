@@ -120,4 +120,3 @@ var MakerParty2015Page = React.createClass({
 });
 
 module.exports = MakerParty2015Page;
-
