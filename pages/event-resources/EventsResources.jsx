@@ -6,10 +6,10 @@ var Illustration = require('../../components/illustration.jsx');
 
 var EventsHeader = require('../../components/events/events-header.jsx');
 var EventsNav = require('../../components/events/events-nav.jsx');
-
 var LogoAsset = require('./LogoAsset.jsx');
-
 var LogoAssetLink = require('./LogoAssetLink.jsx');
+
+import { FormattedHTMLMessage } from 'react-intl';
 
 var EventsResources = React.createClass({
   contextTypes: {
@@ -95,6 +95,32 @@ var EventsResources = React.createClass({
                 {this.context.intl.formatMessage({id: 'maker_party_activity_4_body'})}
               </p>
             </Illustration>
+            <Illustration
+            height={183} width={250}
+            src1x="/img/pages/events/dont-break.png"
+            src2x="/img/pages/events/dont-break_2x.png"
+            alt="Maker Party logo"
+            >
+              <a href="#">
+                {this.context.intl.formatMessage({id: 'maker_party_activity_5_title'})}
+              </a>
+              <p>
+                {this.context.intl.formatMessage({id: 'maker_party_activity_5_body'})}
+              </p>
+            </Illustration>
+            <Illustration
+            height={183} width={250}
+            src1x="/img/pages/events/dont-break.png"
+            src2x="/img/pages/events/dont-break_2x.png"
+            alt="Maker Party logo"
+            >
+              <a href="#">
+                {this.context.intl.formatMessage({id: 'maker_party_activity_6_title'})}
+              </a>
+              <p>
+                {this.context.intl.formatMessage({id: 'maker_party_activity_6_body'})}
+              </p>
+            </Illustration>
           </section>
 
           <section>
@@ -135,7 +161,7 @@ var EventsResources = React.createClass({
             <p>
               {this.context.intl.formatMessage({id: 'maker_party_logo_and_assets'})}
             </p>
-
+            <FormattedHTMLMessage id="trademark"/>
             <div className="row">
               <LogoAsset head={this.context.intl.formatMessage({id: 'maker_party_logo'})}
               alt="Maker Party Logo Image"
@@ -220,8 +246,11 @@ var EventsResources = React.createClass({
             <section>
               <div>
                 <h3 className="text-center">
-                  {this.context.intl.formatMessage({id: 'become_maker_party_partner'})}
+                  {this.context.intl.formatMessage({id: 'become_maker_party_partner_resources'})}
                 </h3>
+                <p className="text-center">
+                  {this.context.intl.formatMessage({id: 'become_maker_party_partner_resources_paragraph'})}
+                </p>
                 <div className="row">
                   <div className="col-sm-4 col-md-4 col-lg-4">
                     <h4>
@@ -249,7 +278,7 @@ var EventsResources = React.createClass({
                   </div>
                 </div>
                 <div className="text-center">
-                  <a href="#" className="btn">
+                  <a href="#" className="secondary-button">
                     {this.context.intl.formatMessage({id: 'partner_with_us'})}
                   </a>
                 </div>

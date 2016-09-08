@@ -37,10 +37,10 @@ var EventsPage = React.createClass({
                 {this.context.intl.formatMessage({id: 'maker_party_paragraph_1'})}
               </p>
               <p>
-                {this.context.intl.formatMessage({id: 'maker_party_paragraph_2'})}
+                {this.context.intl.formatMessage({id: 'maker_party_paragraph_1b'})}
               </p>
               <p>
-                {this.context.intl.formatMessage({id: 'maker_party_paragraph_3'})}
+                {this.context.intl.formatMessage({id: 'maker_party_paragraph_2'})}
               </p>
             </Illustration>
           </section>
@@ -60,10 +60,13 @@ var EventsPage = React.createClass({
               <p>
                 {this.context.intl.formatMessage({id: 'maker_party_testimonial_1'})}
               </p>
-              <p>
-                {this.context.intl.formatMessage({id: 'maker_party_testimonial_2'})}
-              </p>
             </Illustration>
+
+            <div className="text-center">
+              <a href="#" className="btn">
+                {this.context.intl.formatMessage({id: 'get_started'})}
+              </a>
+            </div>
           </section>
 
           <div className="row full-row quote">
@@ -72,9 +75,11 @@ var EventsPage = React.createClass({
                 <p>
                   {this.context.intl.formatMessage({id: 'maker_party_blockquote'})}
                 </p>
-                <a href="#" className="btn">
-                  {this.context.intl.formatMessage({id: 'learn_more'})}
-                </a>
+                <div>
+                  <a href="#" className="secondary-button">
+                    {this.context.intl.formatMessage({id: 'sign_petition'})}
+                  </a>
+                </div>
               </div>
             </section>
           </div>
