@@ -4,7 +4,7 @@ var LocationSelector = require('../../components/LocationSelector.jsx');
 var Select = require('react-select');
 
 var progressFields = [
-  "fullname",
+  "fullName",
   "location",
   "occupation",
   "regionalCoordinator",
@@ -16,7 +16,7 @@ var StepOne = React.createClass({
   getInitialState: function() {
     this.optional = [];
     return {
-      fullname: null,
+      fullName: null,
       location: null,
       occupation: null,
       regionalCoordinator: null,
@@ -60,7 +60,7 @@ var StepOne = React.createClass({
       <div className={className}>
         <fieldset>
           <label>Name</label>
-          <input className={this.error('fullname')} type="text" value={this.state.fullname} onChange={this.updateFullName} placeholder="Your full name"/>
+          <input className={this.error('fullName')} type="text" value={this.state.fullName} onChange={this.updateFullName} placeholder="Your full name"/>
         </fieldset>
 
         <fieldset>
@@ -111,7 +111,7 @@ var StepOne = React.createClass({
       </div>
     );
   },
-  updateFullName: function(evt) { this.setStateAsChange({ fullname: evt.target.value }); },
+  updateFullName: function(evt) { this.setStateAsChange({ fullName: evt.target.value }); },
   updateLocation: function(locationdata) {
     try {
       locationdata = JSON.parse(locationdata);
@@ -129,7 +129,7 @@ var StepOne = React.createClass({
 
   getClubData: function() {
     var data = {
-      fullname: this.state.fullname,
+      'full_name': this.state.fullName,
       location: this.state.location,
       occupation: this.state.occupation,
       'regional_coordinator': this.state.regionalCoordinator,
@@ -153,8 +153,8 @@ var StepOne = React.createClass({
     var errorElements = [];
     var errors = [];
 
-    if (!clubState.fullname) {
-      errorElements.push('fullname');
+    if (!clubState.fullName) {
+      errorElements.push('fullName');
       errors.push("You must provide your name.");
     }
     if (!clubState.location) {
