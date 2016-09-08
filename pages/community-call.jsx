@@ -28,7 +28,7 @@ var CommunityCallPage = React.createClass({
 
           <section className="callout-box">
             <h2>Upcoming Call</h2>
-            <p className="date">September (date and time TBD)</p>
+            <p className="date">September 20th - 10am PT, 1pm ET, 5pm UTC</p>
             <h1>Youth Activism</h1>
             <p className="description">
 
