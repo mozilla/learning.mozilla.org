@@ -35,24 +35,13 @@ if (config.IN_STATIC_SITE) {
   }
 
   // Start running the site client-side if JS is available
-  if (window.ENABLE_JS) {
-    if (!window.Intl) {
-      require.ensure(['intl'], function(require) {
-        window.Intl = require('intl');
-        startRunningSite();
-      }, "IntlBundle");
-    } else {
+  if (!window.Intl) {
+    require.ensure(['intl'], function(require) {
+      window.Intl = require('intl');
       startRunningSite();
-    }
-  }
-
-  else if (GA_ACCOUNT) {
-    ga.pageview(window.location.pathname);
-    ga.event({
-      category: 'JavaScript',
-      action: 'JS Disabled',
-      nonInteraction: true
-    });
+    }, "IntlBundle");
+  } else {
+    startRunningSite();
   }
 }
 

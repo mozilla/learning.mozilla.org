@@ -18,7 +18,6 @@ var React = require('react');
 var ReactDOMServer = require('react-dom/server');
 var ReactIntl = require('react-intl');
 
-var featureDetect = require('../feature-detect');
 var generator = require('../page-generator.jsx');
 
 var Pontoon = require('../../components/pontoon.jsx');
@@ -63,16 +62,9 @@ function generateWithPageHTML(url, options, pageHTML) {
         <script src={"/vendor/react-intl/locale-data/" + langCode + ".js"}/>
         <OptimizelySubdomain />
         <Optimizely />
-        <script dangerouslySetInnerHTML={{
-          __html: "(" + featureDetect.toString() + ")();"
-        }}></script>
         <title>{options.title}</title>
       </head>
       <body>
-        <div className="no-js-warning">
-          Please <a href="https://browser-update.org/update.html">update your browser</a> or
-          enable JavaScript to access this website{"'"}s full functionality.
-        </div>
         <div id="tabzilla"><a href="https://www.mozilla.org/">Mozilla</a></div>
         <div id="page-holder" dangerouslySetInnerHTML={{
           __html: pageHTML
