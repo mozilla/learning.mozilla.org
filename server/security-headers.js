@@ -8,7 +8,9 @@ var securityHeaders = {
   directives: {
     defaultSrc: [
       'www.youtube.com',
-      'https://public.etherpad-mozilla.org'
+      'https://public.etherpad-mozilla.org',
+      'https://goggles.mofostaging.net',
+      'https://goggles.mozilla.org'
     ],
     scriptSrc: [
       '\'self\'',
@@ -34,7 +36,9 @@ var securityHeaders = {
       'https://www.google.com',
       'fonts.googleapis.com',
       'https://api.tiles.mapbox.com',
-      'https://s.ytimg.com'
+      'https://s.ytimg.com',
+      'https://goggles.mofostaging.net',
+      'https://goggles.mozilla.org'
     ],
     imgSrc: [
       '\'self\'',
