@@ -30,7 +30,7 @@
     "lint:fix": "npm run lint -- --fix",
     "postinstall": "npm run prep",
     "prep": "run-s cleanup copy-static-files less l10n webpack:server webpack:client",
-    "start": "run-s l10n webpack:* && run-p start:*",
+    "start": "run-s prep l10n && run-p start:*",
     "start:app": "node app",
     "start:less": "chokidar-cmd -c 'npm run less' -t less",
     "start:client": "npm run webpack:client -- --watch",
