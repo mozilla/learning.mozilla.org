@@ -27,7 +27,7 @@ var EventsPage = React.createClass({
           <h2>Host a one-time event or workshop</h2>
         </HeroUnit>
 
-        <div className="inner-container container">
+        <div className="inner-container">
           <section className="join-global-movement">
             <Illustration
             height={183} width={156}
@@ -49,7 +49,7 @@ var EventsPage = React.createClass({
           </div>
         </div>
 
-        <div className="inner-container container">
+        <div className="inner-container">
           <section>
             <Illustration
               height={244} width={244}
