@@ -11,10 +11,12 @@ var ModalRemoveYourClub = require('../../components/modal-clubs-remove.jsx');
 var IconLinks = require('../../components/icon-links.jsx');
 var IconLink = require('../../components/icon-link.jsx');
 
+var ClubForm = require('../clubs/ClubForm.jsx');
 var ClubList = require('./ClubList.jsx');
 var ClubLists = require('./ClubLists.jsx');
 
 var fixLocation = require('../../lib/fix-location.js');
+var resetreload = require('../../lib/resetreload');
 
 var ClubsListPage = React.createClass({
   statics: {
@@ -30,6 +32,11 @@ var ClubsListPage = React.createClass({
   contextTypes: {
     location: React.PropTypes.object
   },
+  getInitialState: function() {
+    return {
+      showApplication: false
+    };
+  },
   componentWillMount: function() {
     fixLocation(this.context.location);
   },
@@ -38,12 +45,6 @@ var ClubsListPage = React.createClass({
     if (this.context.location.search.modal === "add") {
       this.showAddYourClubModal();
     }
-  },
-  showAddYourClubModal: function() {
-    this.props.showModal(ModalAddOrChangeYourClub, {
-      onSuccess: this.handleZoomToClub,
-      hideModal: this.props.hideModal
-    });
   },
   handleZoomToClub: function(club) {
     ReactDOM.findDOMNode(this.refs.map).scrollIntoView();
@@ -77,13 +78,19 @@ var ClubsListPage = React.createClass({
     var clubs = teachAPI.getClubs();
     var username = teachAPI.getUsername();
 
+
+    if (this.state.showApplication) {
+      return <ClubForm currentPath={this.props.currentPath}/>;
+    }
+
     return (
       <div>
         <HeroUnit>
           <h1>Mozilla Clubs</h1>
           <h2>Local groups teaching the Web around the world</h2>
-          <div><a className="btn" onClick={this.showAddYourClubModal}>Apply to be a Club Captain</a></div>
+          <div><span className="btn" onClick={this.showApplication}>Apply to be a Club Captain</span></div>
         </HeroUnit>
+
         <div className="inner-container">
           <section>
             <h2>Where in the World are Mozilla Clubs?</h2>
@@ -128,6 +135,13 @@ var ClubsListPage = React.createClass({
         </div>
       </div>
     );
+  },
+
+  showApplication: function() {
+    resetreload.shouldResetOnReload(true);
+    this.setState({
+      showApplication: true
+    });
   }
 });
 
