@@ -165,10 +165,9 @@ function buildRoutes() {
     localeURLs.push(`${locale}`, `${locale}/events`, `${locale}/events/resources`);
     routes.push(
       <Route key={locale} path={locale} component={require('../components/page.jsx')}>
-	<IndexRedirect to="/" />
-	<Route path="events" component={require('../pages/events.jsx')}>
-	  <Route path="resources" component={require('../pages/event-resources.jsx')} />
-	</Route>
+        <IndexRedirect to="/" />
+        <Route path="events" component={require('../pages/events.jsx')} />
+        <Route path="events/resources" component={require('../pages/event-resources.jsx')} />
       </Route>
     );
   });
