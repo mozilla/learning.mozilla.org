@@ -14,6 +14,16 @@ a.skip-to-content:focus {
   outline: none;
 }
 
+.sidebar-hidden {
+  .content {
+    width: 100%;
+    margin-left: 0;
+  }
+  .sidebar {
+    display: none;
+  }
+}
+
 .page {
   &.container-fluid {
     @media (min-width: @screen-md-min) {

@@ -20,7 +20,9 @@ var path = require('path'),
     urlToRoutePath = require('./server/url-to-route-path'),
     renderComponentPage = require('./server/render-component-page'),
     WpPageChecker = require('./lib/wp-page-checker'),
-    locales = require(path.join(DIST_DIR, 'locales.json')),
+    config = require('./config/config'),
+    SUPPORTED_LOCALES = config.SUPPORTED_LOCALES,
+    MAKER_PARTY_LOCALES = config.MAKER_PARTY_LOCALES,
     locale = "";
 
 // the static HTML generator
@@ -111,6 +113,12 @@ app.use(function(req, res, next) {
   }
 
   match({ routes: routes, location: location}, function resolveRoute(err, redirect, props) {
+
+    // React router based redirect? (routes.jsx)
+    if(redirect) {
+      return res.redirect(redirect.pathname);
+    }
+
     // is this even a component?
     if ( !props ) {
       return next();
@@ -120,7 +128,7 @@ app.use(function(req, res, next) {
     if ( matcher.match(location) ) {
       var search = url.parse(req.url).search || "";
 
-      locale = localize.parseLocale(req.headers["accept-language"], location, locales).locale;
+      locale = localize.parseLocale(req.headers["accept-language"], location, SUPPORTED_LOCALES).locale;
       if (location === "/") {
         res.redirect(302, location + locale + search);
         return;
@@ -163,8 +171,10 @@ app.use(express.static(DIST_DIR));
 */
 app.use(function(req, res, next) {
   var location = url.parse(req.url).pathname,
+      // Useful locales changes if we're on maker party pages
+      supportedLocales = location.match(/\/events(\/resources)?$/) ? SUPPORTED_LOCALES.concat(MAKER_PARTY_LOCALES) : SUPPORTED_LOCALES,
       search = url.parse(req.url).search || "",
-      parsed = localize.parseLocale(req.headers["accept-language"], location, locales),
+      parsed = localize.parseLocale(req.headers["accept-language"], location, supportedLocales),
       parsedLocale = parsed.locale,
       parsedRedirect = parsed.redirect;
 

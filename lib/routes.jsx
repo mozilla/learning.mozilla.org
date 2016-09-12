@@ -2,14 +2,17 @@ var React = require('react');
 
 var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
+var IndexRedirect = ReactRouter.IndexRedirect;
 var Route = ReactRouter.Route;
 var Redirect = ReactRouter.Redirect;
 var IndexRoute = ReactRouter.IndexRoute;
-var locales = Object.keys(require('../dist/locales.json'));
+var config = require('../config/config');
+var SUPPORTED_LOCALES = config.SUPPORTED_LOCALES;
+var MAKER_PARTY_LOCALES = config.MAKER_PARTY_LOCALES;
 
 
 // verify we have at least one locale
-if (Object.keys(locales).length === 0) {
+if (SUPPORTED_LOCALES.length === 0) {
   console.error("No locales were loaded into routes.jsx, no routes can be built!");
   process.exit(1);
 }
@@ -75,7 +78,7 @@ if (process.env.ENABLE_BADGES) {
     'badge/:id': require('../pages/badges/badge-single.jsx'),
     'badge/:id/:slug': require('../pages/badges/badge-single.jsx')
   });
-}
+};
 
 /**
  * Redirects from old URLs to new URLs
@@ -119,6 +122,7 @@ var routeElements = Object.keys(pages).map(function(path) {
   return <Route path={path} component={pages[path]} key={path}/>;
 });
 
+
 // <Redirect> elements
 var redirectElements = Object.keys(redirects).map(function(path) {
   return <Redirect from={path} to={redirects[path]} key={path} />;
@@ -136,7 +140,7 @@ function buildRoutes() {
   var routes = [];
   var localeURLs = [];
 
-  locales.forEach(function(locale) {
+  SUPPORTED_LOCALES.forEach(function(locale) {
     routes.push(
       <Route key={locale} path={locale} component={require('../components/page.jsx')}>
         <IndexRoute component={require('../pages/home.jsx')} />
@@ -156,7 +160,17 @@ function buildRoutes() {
 
       localeURLs.push(newkey);
     });
+  });
 
+  MAKER_PARTY_LOCALES.forEach((locale) => {
+    localeURLs.push(`${locale}`, `${locale}/events`, `${locale}/events/resources`);
+    routes.push(
+      <Route key={locale} path={locale} component={require('../components/page.jsx')}>
+        <IndexRedirect to="/" />
+        <Route path="events" component={require('../pages/events.jsx')} />
+        <Route path="events/resources" component={require('../pages/event-resources.jsx')} />
+      </Route>
+    );
   });
 
   return {

@@ -11,6 +11,7 @@ var Sidebar = require(`./sidebar.jsx`);
 var Footer = require(`./footer.jsx`);
 var DevRibbon = (process.env.NODE_ENV === `production` && process.env.SHOW_DEV_RIBBON !== `on`) ? null : require(`./dev-ribbon.jsx`);
 var config = require(`../config/config`);
+var SUPPORTED_LOCALES = config.SUPPORTED_LOCALES;
 
 var Page = React.createClass({
   contextTypes: {
@@ -49,6 +50,12 @@ var Page = React.createClass({
         className = handler.pageClassName || ``;
 
     return className;
+  },
+
+  getSidebarVisibilityClassName: function() {
+    if(SUPPORTED_LOCALES.indexOf(this.context.intl.locale) === -1){
+      return `sidebar-hidden`;
+    }
   },
 
   showModal: function(modalClass, modalProps) {
@@ -142,8 +149,8 @@ var Page = React.createClass({
       currentPath = config.ORIGIN + window.location.pathname;
     }
 
-    var pageClassName = this.getCurrentClassName(),
-        className = "page container-fluid " + pageClassName;
+    var pageClassName = `${this.getCurrentClassName()} ${this.getSidebarVisibilityClassName()}`;
+    var className = "page container-fluid " + pageClassName;
 
     return (
       <div>

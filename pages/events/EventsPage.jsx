@@ -22,7 +22,7 @@ var EventsPage = React.createClass({
         <EventsHeader/>
         <EventsNav/>
 
-        <div className="inner-container">
+        <div className="inner-container container">
           <section className="join-global-movement">
             <Illustration
             height={280} width={238}
@@ -46,7 +46,7 @@ var EventsPage = React.createClass({
           </section>
         </div>
 
-        <div className="inner-container">
+        <div className="inner-container container">
           <section>
             <Illustration
               height={244} width={244}
