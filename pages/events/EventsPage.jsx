@@ -76,7 +76,7 @@ var EventsPage = React.createClass({
                   {this.context.intl.formatMessage({id: 'maker_party_blockquote'})}
                 </p>
                 <div>
-                  <a href="#" className="secondary-button">
+                  <a href="https://www.changecopyright.org/" className="secondary-button">
                     {this.context.intl.formatMessage({id: 'sign_petition'})}
                   </a>
                 </div>
