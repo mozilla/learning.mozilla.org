@@ -240,8 +240,8 @@ var BadgePage = React.createClass({
 
     return (
       <div className="social-share">
-        <a href={`https://twitter.com/home?status=${msg + encodeURIComponent(': ') + url}`} target={'_blank'}>facebook</a>
-        <a href={`http://www.facebook.com/sharer.php?u=${url}&t=${msg}`} target={'_blank'}>twitter</a>
+        <a href={`https://twitter.com/home?status=${msg + encodeURIComponent(': ') + url}`} target={'_blank'}>twitter</a>
+        <a href={`https://www.facebook.com/sharer.php?u=${url}&t=${msg}`} target={'_blank'}>facebook</a>
       </div>
     );
   },
