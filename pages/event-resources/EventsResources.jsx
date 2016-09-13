@@ -49,9 +49,11 @@ var EventsResources = React.createClass({
             src2x="/img/pages/events/meme_2x.png"
             alt="Maker Party logo"
             >
-              <a href="#">
-                {this.context.intl.formatMessage({id: 'maker_party_activity_1_title'})}
-              </a>
+              <h3 className="uppercase">
+                <a href="#">
+                  {this.context.intl.formatMessage({id: 'maker_party_activity_1_title'})}
+                </a>
+              </h3>
               <p>
                 {this.context.intl.formatMessage({id: 'maker_party_activity_1_body'})}
               </p>
@@ -62,9 +64,11 @@ var EventsResources = React.createClass({
             src2x="/img/pages/events/contribute_2x.png"
             alt="Maker Party logo"
             >
-              <a href="#">
-                {this.context.intl.formatMessage({id: 'maker_party_activity_2_title'})}
-              </a>
+              <h3 className="uppercase">
+                <a href="#">
+                  {this.context.intl.formatMessage({id: 'maker_party_activity_2_title'})}
+                </a>
+              </h3>
               <p>
                 {this.context.intl.formatMessage({id: 'maker_party_activity_2_body'})}
               </p>
@@ -75,9 +79,11 @@ var EventsResources = React.createClass({
             src2x="/img/pages/events/hack_2x.png"
             alt="Maker Party logo"
             >
-              <a href="#">
-                {this.context.intl.formatMessage({id: 'maker_party_activity_3_title'})}
-              </a>
+              <h3 className="uppercase">
+                <a href="#">
+                  {this.context.intl.formatMessage({id: 'maker_party_activity_3_title'})}
+                </a>
+              </h3>
               <p>
                 {this.context.intl.formatMessage({id: 'maker_party_activity_3_body'})}
               </p>
@@ -88,9 +94,11 @@ var EventsResources = React.createClass({
             src2x="/img/pages/events/dont-break_2x.png"
             alt="Maker Party logo"
             >
-              <a href="#">
-                {this.context.intl.formatMessage({id: 'maker_party_activity_4_title'})}
-              </a>
+              <h3 className="uppercase">
+                <a href="#">
+                  {this.context.intl.formatMessage({id: 'maker_party_activity_4_title'})}
+                </a>
+              </h3>
               <p>
                 {this.context.intl.formatMessage({id: 'maker_party_activity_4_body'})}
               </p>
@@ -101,9 +109,11 @@ var EventsResources = React.createClass({
             src2x="/img/pages/events/dont-break_2x.png"
             alt="Maker Party logo"
             >
-              <a href="#">
-                {this.context.intl.formatMessage({id: 'maker_party_activity_5_title'})}
-              </a>
+              <h3 className="uppercase">
+                <a href="#">
+                  {this.context.intl.formatMessage({id: 'maker_party_activity_5_title'})}
+                </a>
+              </h3>
               <p>
                 {this.context.intl.formatMessage({id: 'maker_party_activity_5_body'})}
               </p>
@@ -114,9 +124,11 @@ var EventsResources = React.createClass({
             src2x="/img/pages/events/dont-break_2x.png"
             alt="Maker Party logo"
             >
-              <a href="#">
-                {this.context.intl.formatMessage({id: 'maker_party_activity_6_title'})}
-              </a>
+              <h3 className="uppercase">
+                <a href="#">
+                  {this.context.intl.formatMessage({id: 'maker_party_activity_6_title'})}
+                </a>
+              </h3>
               <p>
                 {this.context.intl.formatMessage({id: 'maker_party_activity_6_body'})}
               </p>

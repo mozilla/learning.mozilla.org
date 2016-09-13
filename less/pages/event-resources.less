@@ -1,38 +1,3 @@
-.tabulator-hide-nothing() {
-  .tabulator {
-    .tabulator-head {
-      display: none;
-    }
-    .tabulator-head-no-js {
-      width: 100%;
-      display: block;
-      background: #BCC7E6;
-      padding: 1.3rem 1.8rem;
-      font-size: 1.5rem;
-      color: #2D4A8C;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-    .tabulator-content-container {
-      display: inline-block;
-    }
-  }
-}
-
-html.no-js {
-  .tabulator-hide-nothing();
-}
-
-@media print {
-  .tabulator-hide-nothing();
-  .tabulator-head-no-js {
-    display: block !important;
-  }
-  .tabulator-content-container {
-    display: inline-block !important;
-  }
-}
-
 .event-resources {
   .page-linker {
     text-transform: uppercase;
@@ -62,6 +27,9 @@ html.no-js {
         justify-content: center;
       }
     }
+  }
+  .uppercase {
+    text-transform: uppercase;
   }
   .event-item {
     @media screen and (min-width: @screen-sm-min) {
@@ -173,57 +141,8 @@ html.no-js {
       }
     }
   }
-  .tabulator {
-    overflow: hidden;
-    .tabulator-head-container {
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: flex-end;
-    }
-    .tabulator-head {
-      // This color is a guess
-      background: #F2F3F7;
-      border-width: 0 .2rem;
-      border-style: solid;
-      border-color: white;
-      cursor: pointer;
-      text-transform: uppercase;
-      padding: 1rem 0;
-      font-size: 1.2rem;
-      text-align: center;
-      font-weight: bold;
-      margin-top: 1rem;
-      transition: all .1s ease-in-out;
-      width: 24%;
-    }
-    .tabulator-head-no-js {
-      display: none;
-    }
-    .tabulator-content-container {
-      background: #F5F7FA;
-      display: none;
-      width: 100%;
-      border-top: 0.1rem solid #BCC7E6;
-      padding: 3rem 2.2rem 0;
-      margin-bottom: 2rem;
-    }
-    &.tab-0 .tabulator-content-container.tab-0,
-    &.tab-1 .tabulator-content-container.tab-1,
-    &.tab-2 .tabulator-content-container.tab-2,
-    &.tab-3 .tabulator-content-container.tab-3 {
-      display: inline-block;
-    }
-    &.tab-0 .tabulator-head.tab-0,
-    &.tab-1 .tabulator-head.tab-1,
-    &.tab-2 .tabulator-head.tab-2,
-    &.tab-3 .tabulator-head.tab-3 {
-      background: #BCC7E6;
-      padding: 1.3rem 0;
-      font-size: 1.5rem;
-      margin-top: 0;
-      width: 28%;
-      color: #2D4A8C;
-    }
+  .illustration {
+    align-items: stretch;
   }
   .event-detail-head {
     font-weight: 600;
