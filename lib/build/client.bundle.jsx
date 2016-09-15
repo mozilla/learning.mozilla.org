@@ -32,7 +32,8 @@ if (GA_ACCOUNT) {
   ga.initialize(GA_ACCOUNT, { debug: GA_DEBUG === 'on' });
 }
 
-// Start running the site client-side if JS is available
+// Run the bundle, possibly after bootstrapping window.Intl
+// if that has not been bootstrapped yet.
 if (!window.Intl) {
   require.ensure(['intl'], function(require) {
     window.Intl = require('intl');
