@@ -105,8 +105,8 @@ var EventsResources = React.createClass({
             </Illustration>
             <Illustration
             height={183} width={250}
-            src1x="/img/pages/events/dont-break.png"
-            src2x="/img/pages/events/dont-break_2x.png"
+            src1x="/img/pages/events/startup.png"
+            src2x="/img/pages/events/startup_2x.png"
             alt="Maker Party logo"
             >
               <h3 className="uppercase">
@@ -120,8 +120,8 @@ var EventsResources = React.createClass({
             </Illustration>
             <Illustration
             height={183} width={250}
-            src1x="/img/pages/events/dont-break.png"
-            src2x="/img/pages/events/dont-break_2x.png"
+            src1x="/img/pages/events/reform.png"
+            src2x="/img/pages/events/reform_2x.png"
             alt="Maker Party logo"
             >
               <h3 className="uppercase">
