@@ -28,22 +28,20 @@ function startRunningSite() {
   generator.run(history, pageHolder);
 }
 
-// flip the "using JS" switch and start to perform GA accordingly
-if (config.IN_STATIC_SITE) {
-  if (GA_ACCOUNT) {
-    ga.initialize(GA_ACCOUNT, { debug: GA_DEBUG === 'on' });
-  }
-
-  // Start running the site client-side if JS is available
-  if (!window.Intl) {
-    require.ensure(['intl'], function(require) {
-      window.Intl = require('intl');
-      startRunningSite();
-    }, "IntlBundle");
-  } else {
-    startRunningSite();
-  }
+if (GA_ACCOUNT) {
+  ga.initialize(GA_ACCOUNT, { debug: GA_DEBUG === 'on' });
 }
+
+// Start running the site client-side if JS is available
+if (!window.Intl) {
+  require.ensure(['intl'], function(require) {
+    window.Intl = require('intl');
+    startRunningSite();
+  }, "IntlBundle");
+} else {
+  startRunningSite();
+}
+
 
 // Add in the developer ribbon when not in production mode.
 if (process.env.NODE_ENV !== 'production') {
