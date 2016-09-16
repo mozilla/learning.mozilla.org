@@ -8,16 +8,14 @@ var EventsNav = React.createClass({
   render: function() {
 
     return (
-      <div className="inner-container">
-        <div className="mui-tab-switcher">
-          <div className="mui-tabs">
-            <Link className="mui-btn" activeClassName="mui-active" to={"/" + this.context.intl.locale + "/events"}>
-              {this.context.intl.formatMessage({id: 'overview'})}
-            </Link>
-            <Link className="mui-btn" activeClassName="mui-active" to={"/" + this.context.intl.locale + "/events/resources"}>
-              {this.context.intl.formatMessage({id: 'host_resources'})}
-            </Link>
-          </div>
+      <div className="mui-tab-switcher col-md-12 inner-container">
+        <div className="mui-tabs">
+          <Link className="mui-btn" activeClassName="mui-active" to={"/" + this.context.intl.locale + "/events"}>
+            {this.context.intl.formatMessage({id: 'overview'})}
+          </Link>
+          <Link className="mui-btn" activeClassName="mui-active" to={"/" + this.context.intl.locale + "/events/resources"}>
+            {this.context.intl.formatMessage({id: 'host_resources'})}
+          </Link>
         </div>
       </div>
     );

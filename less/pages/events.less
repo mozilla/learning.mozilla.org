@@ -12,12 +12,23 @@
   }
   font-size: 18px;
   .mui-tab-switcher {
-    padding: 0;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    padding-top: 0;
+    padding-bottom: 0;
     .mui-tabs {
-      top: -50px;
+      height: 100%;
+      top: 0;
       .mui-btn {
         line-height: inherit;
         text-decoration: none;
+        min-height: 50px;
+        height: auto;
+      }
+      .mui-active {
+        color: #4D4E53;
       }
     }
   }
