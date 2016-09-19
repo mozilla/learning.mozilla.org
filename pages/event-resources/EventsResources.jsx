@@ -147,8 +147,8 @@ var EventsResources = React.createClass({
             <div className="row">
               <LogoAsset head={this.context.intl.formatMessage({id: 'maker_party_logo'})}
               alt="Maker Party Logo Image"
-              src1x="/img/pages/event-resources/resource-thumbnails-01.png"
-              src2x="/img/pages/event-resources/resource-thumbnails-01@2x.png">
+              src1x="/img/pages/event-resources/maker-party-logo_thumb.png"
+              src2x="/img/pages/event-resources/maker-party-logo_thumb@2x.png">
                 <LogoAssetLink href="https://stuff.webmaker.org/teach.mozilla.org/MakerPartyLogo.eps">
                   {this.context.intl.formatMessage({id: 'download_eps'})}
                 </LogoAssetLink>
@@ -169,8 +169,8 @@ var EventsResources = React.createClass({
               </LogoAsset>
               <LogoAsset head={this.context.intl.formatMessage({id: 'poster'})}
               alt="Poster Image"
-              src1x="/img/pages/event-resources/resource-thumbnails-07.png"
-              src2x="/img/pages/event-resources/resource-thumbnails-07@2x.png">
+              src1x="/img/pages/event-resources/maker-party-banner_thumb.png"
+              src2x="/img/pages/event-resources/maker-party-banner_thumb@2x.png">
                 <LogoAssetLink href="https://stuff.webmaker.org/teach.mozilla.org/MakerPartyBanner.eps">
                   {this.context.intl.formatMessage({id: 'download_eps'})}
                 </LogoAssetLink>
@@ -180,8 +180,8 @@ var EventsResources = React.createClass({
               </LogoAsset>
               <LogoAsset head={this.context.intl.formatMessage({id: 'desktop_wallpaper'})}
               alt="Desktop Wallpaper Image"
-              src1x="/img/pages/event-resources/resource-thumbnails-10.png"
-              src2x="/img/pages/event-resources/resource-thumbnails-10@2x.png">
+              src1x="/img/pages/event-resources/maker-party_wallpapers_thumb.png"
+              src2x="/img/pages/event-resources/maker-party_wallpapers_thumb@2x.png">
                 <LogoAssetLink href="https://stuff.webmaker.org/teach.mozilla.org/MakerPartyWallpaper-1-320x480.jpg">
                   {this.context.intl.formatMessage({id: 'maker_party_size_1'})}
                 </LogoAssetLink>
@@ -200,8 +200,8 @@ var EventsResources = React.createClass({
               </LogoAsset>
               <LogoAsset head={this.context.intl.formatMessage({id: 'table_cloth_design'})}
               alt="Table Cloth Design Image"
-              src1x="/img/pages/event-resources/resource-thumbnails-04.png"
-              src2x="/img/pages/event-resources/resource-thumbnails-04@2x.png">
+              src1x="/img/pages/event-resources/maker-party_table_cloth_thumb.png"
+              src2x="/img/pages/event-resources/maker-party_table_cloth_thumb@2x.png">
                 <LogoAssetLink href="https://stuff.webmaker.org/teach.mozilla.org/MakerPartyTableClothDesign.eps">
                   {this.context.intl.formatMessage({id: 'download_eps'})}
                 </LogoAssetLink>
@@ -211,8 +211,8 @@ var EventsResources = React.createClass({
               </LogoAsset>
               <LogoAsset head={this.context.intl.formatMessage({id: 'buttons'})}
               alt="Buttons Image"
-              src1x="/img/pages/event-resources/resource-thumbnails-06.png"
-              src2x="/img/pages/event-resources/resource-thumbnails-06@2x.png">
+              src1x="/img/pages/event-resources/maker-party_buttons_thumb.png"
+              src2x="/img/pages/event-resources/maker-party_buttons_thumb@2x.png">
                 <LogoAssetLink href="https://stuff.webmaker.org/teach.mozilla.org/MakerPartyButtons.eps">
                   {this.context.intl.formatMessage({id: 'download_eps'})}
                 </LogoAssetLink>
