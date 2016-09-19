@@ -5,7 +5,6 @@ var IconLink = require('../../components/icon-link.jsx');
 var Illustration = require('../../components/illustration.jsx');
 
 var EventsHeader = require('../../components/events/events-header.jsx');
-var EventsNav = require('../../components/events/events-nav.jsx');
 var LogoAsset = require('./LogoAsset.jsx');
 var LogoAssetLink = require('./LogoAssetLink.jsx');
 
@@ -24,7 +23,6 @@ var EventsResources = React.createClass({
     return (
       <div>
         <EventsHeader/>
-        <EventsNav/>
 
         <div className="inner-container">
           <section>

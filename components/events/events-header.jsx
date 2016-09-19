@@ -1,6 +1,7 @@
 import React from 'react';
 import HeroUnit from '../../components/hero-unit.jsx';
 import { FormattedHTMLMessage } from 'react-intl';
+var EventsNav = require('../../components/events/events-nav.jsx');
 
 var EventsHeader = React.createClass({
   contextTypes: {
@@ -26,6 +27,7 @@ var EventsHeader = React.createClass({
             id="already_have_event"
           />
         </div>
+        <EventsNav/>
       </HeroUnit>
     );
   }

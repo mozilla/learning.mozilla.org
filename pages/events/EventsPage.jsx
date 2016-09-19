@@ -6,7 +6,6 @@ var IconLink = require('../../components/icon-link.jsx');
 var Illustration = require('../../components/illustration.jsx');
 
 var EventsHeader = require('../../components/events/events-header.jsx');
-var EventsNav = require('../../components/events/events-nav.jsx');
 
 var EventsPage = React.createClass({
   contextTypes: {
@@ -20,7 +19,6 @@ var EventsPage = React.createClass({
     return (
       <div>
         <EventsHeader/>
-        <EventsNav/>
 
         <div className="inner-container">
           <section className="join-global-movement">
