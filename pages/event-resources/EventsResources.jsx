@@ -43,6 +43,21 @@ var EventsResources = React.createClass({
           <section>
             <Illustration
             height={183} width={250}
+            src1x="/img/pages/events/post-crimes.png"
+            src2x="/img/pages/events/post-crimes_2x.png"
+            alt="Maker Party logo"
+            >
+              <h3 className="uppercase">
+                <a href="#">
+                  {this.context.intl.formatMessage({id: 'maker_party_activity_7_title'})}
+                </a>
+              </h3>
+              <p>
+                {this.context.intl.formatMessage({id: 'maker_party_activity_7_body'})}
+              </p>
+            </Illustration>
+            <Illustration
+            height={183} width={250}
             src1x="/img/pages/events/meme.png"
             src2x="/img/pages/events/meme_2x.png"
             alt="Maker Party logo"
@@ -73,62 +88,17 @@ var EventsResources = React.createClass({
             </Illustration>
             <Illustration
             height={183} width={250}
-            src1x="/img/pages/events/hack.png"
-            src2x="/img/pages/events/hack_2x.png"
+            src1x="/img/pages/events/super-party.png"
+            src2x="/img/pages/events/super-party_2x.png"
             alt="Maker Party logo"
             >
               <h3 className="uppercase">
                 <a href="#">
-                  {this.context.intl.formatMessage({id: 'maker_party_activity_3_title'})}
+                  {this.context.intl.formatMessage({id: 'maker_party_activity_8_title'})}
                 </a>
               </h3>
               <p>
-                {this.context.intl.formatMessage({id: 'maker_party_activity_3_body'})}
-              </p>
-            </Illustration>
-            <Illustration
-            height={183} width={250}
-            src1x="/img/pages/events/dont-break.png"
-            src2x="/img/pages/events/dont-break_2x.png"
-            alt="Maker Party logo"
-            >
-              <h3 className="uppercase">
-                <a href="#">
-                  {this.context.intl.formatMessage({id: 'maker_party_activity_4_title'})}
-                </a>
-              </h3>
-              <p>
-                {this.context.intl.formatMessage({id: 'maker_party_activity_4_body'})}
-              </p>
-            </Illustration>
-            <Illustration
-            height={183} width={250}
-            src1x="/img/pages/events/startup.png"
-            src2x="/img/pages/events/startup_2x.png"
-            alt="Maker Party logo"
-            >
-              <h3 className="uppercase">
-                <a href="#">
-                  {this.context.intl.formatMessage({id: 'maker_party_activity_5_title'})}
-                </a>
-              </h3>
-              <p>
-                {this.context.intl.formatMessage({id: 'maker_party_activity_5_body'})}
-              </p>
-            </Illustration>
-            <Illustration
-            height={183} width={250}
-            src1x="/img/pages/events/reform.png"
-            src2x="/img/pages/events/reform_2x.png"
-            alt="Maker Party logo"
-            >
-              <h3 className="uppercase">
-                <a href="#">
-                  {this.context.intl.formatMessage({id: 'maker_party_activity_6_title'})}
-                </a>
-              </h3>
-              <p>
-                {this.context.intl.formatMessage({id: 'maker_party_activity_6_body'})}
+                {this.context.intl.formatMessage({id: 'maker_party_activity_8_body'})}
               </p>
             </Illustration>
           </section>
