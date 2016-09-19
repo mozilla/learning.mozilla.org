@@ -90,7 +90,7 @@ var SignupForm = React.createClass({
           </div>
           {this.renderValidationErrors()}
         </fieldset>
-        <input type="submit" value={this.context.intl.formatMessage({id: 'sign_up'})} className="btn center-block" />
+        <input type="submit" value={this.context.intl.formatMessage({id: 'sign_up'})} className="btn" />
       </form>
     );
   }
