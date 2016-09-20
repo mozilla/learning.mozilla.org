@@ -11,13 +11,15 @@
     counter-reset: li; /* Initiate a counter */
     padding-left: 0;
     li {
+      margin-left: 48px;
       padding: 10px 0;
       list-style:none; /* Disable the normal item numbering */
       &:before {
 	      content: counter(li); /* Use the counter as content */
 	      counter-increment: li; /* Increment the counter by 1 */
         padding: 0;
-        margin: 0 33px;
+        margin-left: -48px;
+        margin-right: 15px;
         border: solid 0.5px #000;
         border-radius: 50%;
         height: 33px;
@@ -25,6 +27,15 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
+      }
+    }
+    @media screen and (min-width: @screen-sm-min) {
+      li {
+        margin-left: 66px;
+        &:before {
+          margin-left: -66px;
+          margin-right: 33px;
+        }
       }
     }
   }
@@ -100,6 +111,13 @@
     display: block;
   }
   .logo-asset-container {
+    .logo-asset-img {
+      // This color is a guess
+      background: #F2F3F7;
+      width: 20rem;
+      height: 20rem;
+      margin: 0 auto;
+    }
     @media screen and (min-width: @screen-sm-min) {
       position: relative;
       margin: 2rem 0 4.3rem;
@@ -122,16 +140,12 @@
         top: 0;
         text-align: center;
       }
+      .logo-asset-img {
+        margin: 0 0 1rem;
+      }
     }
     margin: 2rem auto 2rem;
     text-align: center;
-    .logo-asset-img {
-      // This color is a guess
-      background: #F2F3F7;
-      width: 20rem;
-      height: 20rem;
-      margin-bottom: 1rem;
-    }
     .logo-asset-header {
       padding-bottom: .6rem;
       @media screen and (min-width: @screen-sm-min) {
