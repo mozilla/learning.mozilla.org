@@ -6,7 +6,7 @@ module.exports = React.createClass({
       <div>
         <div className="clearfix">
           <div className="col-sm-4">
-            <img src="#"/>
+            <img className="w-100" src="/img/pages/gigabit/gigabit_fox.svg"/>
           </div>
           <div className="col-sm-8">
             <h2>What is Mozilla Gigabit?</h2>
@@ -21,17 +21,17 @@ module.exports = React.createClass({
 
         <div className="clearfix">
           <div className="col-sm-4">
-            <img src="#"/>
+            <img className="w-100 p-a-3" src="/img/pages/gigabit/gigabit-icon_fund.svg"/>
             <h3>Fund and Support</h3>
             <p>We support the development of gigabit applications and associated curricula through the Gigabit Community Fund. Grants support pilots that take gigabit technologies out of the lab and into learning spaces in select cities across the United States.</p>
           </div>
           <div className="col-sm-4">
-            <img src="#"/>
+            <img className="w-100 p-a-3" src="/img/pages/gigabit/gigabit-icon_innovate.svg"/>
             <h3>Innovate and Spread</h3>
             <p>We catalyze the creation, adoption, and spread of these innovations through Hive Learning Networks. Hives are a local network of teachers, informal educators, technologists, and community members working together to advance the promise of the web for learning.</p>
           </div>
           <div className="col-sm-4">
-            <img src="#"/>
+            <img className="w-100 p-a-3" src="/img/pages/gigabit/gigabit-icon_grow.svg"/>
             <h3>Scale and Grow</h3>
             <p>We leverage Mozilla’s national networks to share these successes across Hive cities, other gigabit cities, and beyond. Our open innovation practices facilitate the adoption of gigabit technologies by diverse new communities of users.</p>
           </div>
@@ -44,23 +44,23 @@ module.exports = React.createClass({
 
         <div className="clearfix">
           <div className="col-sm-8">
-            <img src="#"/>
+            <img className="w-100 p-a-2" src="/img/pages/gigabit/map.svg"/>
           </div>
           <div className="col-sm-4">
-            <div className="gigabit-contact">
+            <div className="m-b-2 gigabit-contact">
               <h4>Austin</h4>
               <p>Robert Friedman</p>
               <a className="email" href="#">robert@mozillafoundation.org</a>
               <a className="twitter" href="#">@HiveATX</a>
             </div>
-            <div className="gigabit-contact">
+            <div className="m-b-2 gigabit-contact">
               <h4>Chattanooga</h4>
               <p>Katie Hendrix</p>
               <a className="email" href="#">katieh@mozillafoundation.org</a>
               <a className="twitter" href="#">@Hive_CHA</a>
               <a className="facebook" href="#">{`http://facebook.com/HiveCHA`}</a>
             </div>
-            <div className="gigabit-contact">
+            <div className="m-b-2 gigabit-contact">
               <h4>Kansas City</h4>
               <p>Janice Wait</p>
               <a className="email" href="#">janice@mozillafoundation.org</a>
@@ -116,26 +116,30 @@ module.exports = React.createClass({
           <h2 className="text-center">National Partners</h2>
 
           <div className="partner-logos text-center">
-            <img src="#"/>
-            <img src="#"/>
+            <div className="col-sm-3 col-sm-offset-3">
+              <img width="100px" src="/img/pages/gigabit/nsf.png"/>
+            </div>
+            <div className="col-sm-3">
+              <img width="200px" src="/img/pages/gigabit/usignite.png"/>
+            </div>
           </div>
         </div>
 
         <div className="clearfix">
           <div className="col-sm-4 text-center">
-            <img src="#"/>
-            <h2>X</h2>
-            <p>Y</p>
+            <img src="/img/pages/gigabit/icon-email.svg"/>
+            <h2>Have a Question?</h2>
+            <p>Want to be connected with one of our staff or volunteers? <a href="#">Email us</a></p>
           </div>
           <div className="col-sm-4 text-center">
-            <img src="#"/>
-            <h2>X</h2>
-            <p>Y</p>
+            <img src="/img/pages/gigabit/icon-twitter.svg"/>
+            <h2>Follow Us</h2>
+            <p>We're <a href="#">@MozGig</a> on Twitter</p>
           </div>
           <div className="col-sm-4 text-center">
-            <img src="#"/>
-            <h2>X</h2>
-            <p>Y</p>
+            <img src="/img/pages/gigabit/icon-join.svg"/>
+            <h2>Join Us</h2>
+            <p>Check out our gigabit <a href="#">events</a></p>
           </div>
         </div>
       </div>
