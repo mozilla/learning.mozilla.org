@@ -12,7 +12,7 @@ var Running = React.createClass({
     intl: React.PropTypes.object
   },
   componentDidMount: function() {
-    this.props.teachAPI.getClubsGuides(function(err, res){
+    this.props.teachAPI.getClubsGuides((err, res) => {
       if(err) {
         this.setState({error: err});
         return;
@@ -20,19 +20,20 @@ var Running = React.createClass({
 
       var data = res.body;
 
-      for(var i = 0; i < data.length; i++){
-        var categoryLabel = data[i].category.toLowerCase();
+      data.forEach(dataItem => {
+        var categoryLabel = dataItem.category.toLowerCase();
 
         categoryLabel = "guide_category_" + categoryLabel.split(' ').join('_');
 
         var localizedCategory = this.context.intl.formatMessage({id: categoryLabel});
 
         if(localizedCategory !== categoryLabel){
-          data[i].category = localizedCategory;
+          dataItem.category = localizedCategory;
         }
-      }
+      });
+
       this.setState({guides : data });
-    }.bind(this));
+    });
   },
   getLinkForGuide: function(guide) {
     if(guide.translations && guide.translations.length > 0){
