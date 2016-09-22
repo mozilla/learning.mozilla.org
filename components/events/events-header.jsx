@@ -18,7 +18,7 @@ var EventsHeader = React.createClass({
           {this.context.intl.formatMessage({id: 'make_a_diff'})}
         </h1>
         <div>
-          <a href="#" className="btn">
+          <a href="https://www.makerparty.community" className="btn">
             {this.context.intl.formatMessage({id: 'get_started'})}
           </a>
         </div>

@@ -128,7 +128,7 @@ var EventsResources = React.createClass({
               </li>
             </ol>
             <div className="text-center">
-              <a href="#" className="btn">
+              <a href="https://mzl.la/makerpartyhostpack2016" className="btn">
                 {this.context.intl.formatMessage({id: 'get_host_pack'})}
               </a>
             </div>
@@ -258,7 +258,7 @@ var EventsResources = React.createClass({
                   </div>
                 </div>
                 <div className="text-center">
-                  <a href="#" className="secondary-button">
+                  <a href="https://mzl.la/2016MakerPartyPartner" className="secondary-button">
                     {this.context.intl.formatMessage({id: 'partner_with_us'})}
                   </a>
                 </div>
@@ -269,13 +269,13 @@ var EventsResources = React.createClass({
           <section>
             <IconLinks>
               <IconLink
-                link="#"
+                link="mailto:press@mozilla.com"
                 imgSrc="/img/pages/events/svg/icon-join.svg"
                 head={this.context.intl.formatMessage({id: 'press'})}
                 subhead={this.context.intl.formatMessage({id: 'maker_party_press'})}
               />
               <IconLink
-                link="#"
+                link="mailto:makerparty@mozilla.org"
                 imgSrc="/img/pages/events/svg/icon-home-help.png"
                 head={this.context.intl.formatMessage({id: 'contact'})}
                 subhead={this.context.intl.formatMessage({id: 'maker_party_contact'})}
