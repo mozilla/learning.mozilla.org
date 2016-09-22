@@ -28,47 +28,54 @@ var CommunityCallPage = React.createClass({
 
           <section className="callout-box">
             <h2>Upcoming Call</h2>
-            <p className="date">September 20th - 10am PT, 1pm ET, 5pm UTC</p>
-            <h1>Youth Activism</h1>
+            <p className="date">October 13th - 8am PT/ 11am ET/ 3pm UTC</p>
+            <h1>Ada Lovelace Day & Women in STEM</h1>
             <p className="description">
-
+              Celebrate Ada Lovelace Day and women in STEM with Mozilla Learning, the Mozilla Science Lab and our guest speakers: Kirstie Whitaker, Postdoc at University of Cambridge, UK and Mozilla Science Lab 2016 Fellow; Zannah Marsh, Curriculum Strategist for Mozilla Science Lab; Srushtika Neelakantam, Mozilla Clubs Captain
             </p>
           </section>
 
           <p>
-            What is the best way to engage young people in current events and civic discussion? Join us as we rally around our youth to encourage their voices to be heard in relevant local, national, and global conversations, while also promoting web literacy and 21st Century Skills.
+            The presence and participation of women in STEM (science, technology, engineering, mathematics) is on the rise thanks to the efforts of many across the globe, but there are still obstacles and barriers to overcome. This month, Mozilla Learning and the Mozilla Science Lab are joining forces to explore current opportunities and supports for women in STEM around the world.
           </p>
 
 
           <h3>Workshop Video Stream</h3>
 
           <p>
-            We have moved to YouTube Live this month! Watch the live stream on our <a href="https://www.youtube.com/channel/UC64W_SqCxhcTUwVpuSQWjEg">YouTube Channel</a>. You can still participate with us on the etherpad below during the call.
+            The livestream will be embedded here on the day of the call. You can also participate with us on the etherpad below during the call.
           </p>
 
           <h4>
             Open Agenda
-            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/mozcommunitycallsept16">
+            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/sciencelab-calls-oct13-2016">
             </a>
           </h4>
 
-          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/mozcommunitycallsept16"></iframe>
+          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/sciencelab-calls-oct13-2016"></iframe>
 
           <h2>Upcoming Calls</h2>
 
           <ul className="upcoming-workshops">
             <li>
-              <p className="date">October 13, 2016</p>
-              <h2>Ada Lovelace Day</h2>
-              <p>
-                Join the Mozilla Learning and Mozilla Science teams to celebrate <LinkAnchorSwap to="http://findingada.com">Ada Lovelace Day</LinkAnchorSwap> and women around the globe who are making a difference in science, web literacy and beyond.
-              </p>
+              <p className="date">November: Date and time TBD</p>
+              <h2>Theme: TBD</h2>
             </li>
           </ul>
 
           <h2>Past Calls</h2>
 
           <ul className="past-workshops">
+            <li>
+              <p className="date">September 20, 2016</p>
+              <h2>Youth Activism</h2>
+              <p>
+                What is the best way to engage young people in current events and civic discussion? Join us as we rally around our youth to encourage their voices to be heard in relevant local, national, and global conversations, while also promoting web literacy and 21st Century Skills.
+              </p>
+              <p className="watch-archive">
+                <LinkAnchorSwap to="/community/community-call/sept-20-2016/">Watch the Replay</LinkAnchorSwap>
+              </p>
+            </li>
             <li>
               <p className="date">July 28, 2016</p>
               <h2>Brokering Learning</h2>
