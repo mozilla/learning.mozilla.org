@@ -28,12 +28,12 @@ var CurriculumWorkshop = React.createClass({
 
           <section className="callout-box">
             <h2>Upcoming Workshop</h2>
-            <p className="date">POSTPONED</p>
+            <p className="date">September 29th - 7am PT / 10am ET / 2pm UTC</p>
             <h1>Maker Party & Copyright</h1>
           </section>
 
           <p>
-           Join us later in September as co-hosts Amira Dhalla and Chad Sansing and invited guests dig into this year’s Maker Party campaign around copyright and political action, especially in the EU. Learn about the copyright reform issues at play in Europe and how they connect to - or might impact - your local community and others around the world. Help us develop teaching and learning materials that make copyright, open licensing, and public domain clear and compelling to learners wherever you live.
+           Join us on September 29th as co-hosts Amira Dhalla and Chad Sansing and invited guests dig into this year’s Maker Party campaign around copyright and political action, especially in the EU. Learn about the copyright reform issues at play in Europe and how they connect to - or might impact - your local community and others around the world. Help us develop teaching and learning materials that make copyright, open licensing, and public domain clear and compelling to learners wherever you live.
           </p>
 
           <p>
