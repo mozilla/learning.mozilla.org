@@ -20,6 +20,11 @@ var Running = React.createClass({
 
       var data = res.body;
 
+      if(!Array.isArray(data)) {
+        this.setState({error: "Empty or invalid response body returned!"});
+        return;
+      }
+
       data.forEach(dataItem => {
         var categoryLabel = dataItem.category.toLowerCase();
 
