@@ -1,5 +1,7 @@
 var React = require('react');
 
+var withTeachAPI = require('../../hoc/with-teach-api.jsx');
+
 var Running = React.createClass({
   getInitialState: function(){
     return {
@@ -9,39 +11,34 @@ var Running = React.createClass({
   contextTypes: {
     intl: React.PropTypes.object
   },
-  setData : function(data){
-    for(var i = 0; i < data.length; i++){
-      var categoryLabel = data[i].category.toLowerCase();
-
-      categoryLabel = "guide_category_" + categoryLabel.split(' ').join('_');
-
-      var localizedCategory = this.context.intl.formatMessage({id: categoryLabel});
-
-      if(localizedCategory !== categoryLabel){
-        data[i].category = localizedCategory;
-      }
-    }
-    this.setState({guides : data });
-  },
-  fetchJSON : function(path,callback){
-    var httpRequest = new XMLHttpRequest();
-
-    httpRequest.onreadystatechange = function() {
-      if(httpRequest.readyState === 4) {
-        if(httpRequest.status === 200) {
-          var data = JSON.parse(httpRequest.responseText);
-
-          if (typeof callback === "function") {
-            callback(data);
-          }
-        }
-      }
-    };
-    httpRequest.open('GET', path);
-    httpRequest.send();
-  },
   componentDidMount: function() {
-    this.fetchJSON("https://mozilla.github.io/learning-networks/clubs/clubs-resources.json",this.setData);
+    this.props.teachAPI.getClubsGuides((err, res) => {
+      if(err) {
+        this.setState({error: err});
+        return;
+      }
+
+      var data = res.body;
+
+      if(!Array.isArray(data)) {
+        this.setState({error: "Empty or invalid response body returned!"});
+        return;
+      }
+
+      data.forEach(dataItem => {
+        var categoryLabel = dataItem.category.toLowerCase();
+
+        categoryLabel = "guide_category_" + categoryLabel.split(' ').join('_');
+
+        var localizedCategory = this.context.intl.formatMessage({id: categoryLabel});
+
+        if(localizedCategory !== categoryLabel){
+          dataItem.category = localizedCategory;
+        }
+      });
+
+      this.setState({guides : data });
+    });
   },
   getLinkForGuide: function(guide) {
     if(guide.translations && guide.translations.length > 0){
@@ -76,6 +73,13 @@ var Running = React.createClass({
     );
   },
   getGuideList: function() {
+    if(this.state.error) {
+      console.error("Failed to get clubs guides with: ", this.state.error);
+      return (
+        <p>Failed to get the clubs guides!</p>
+      );
+    }
+
     return this.state.guides.map(this.getGuideLinks);
   },
   render: function () {
@@ -123,4 +127,4 @@ var Running = React.createClass({
   }
 });
 
-module.exports = Running;
+module.exports = withTeachAPI(Running);
