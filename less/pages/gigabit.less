@@ -15,3 +15,27 @@
     line-height: 1.66em;
   }
 }
+
+.partner-logos {
+  display: flex;
+  align-items: center;
+}
+
+// Anchors with font-awesome glyphs prepended:
+
+.glyph-link:before {
+  margin-right: 0.5em;
+  font-family: FontAwesome;
+}
+
+.glyph-link-email:before {
+  content: "\f0e0"; // `fa-envelope`
+}
+
+.glyph-link-twitter:before {
+  content: "\f099"; // `fa-twitter`
+}
+
+.glyph-link-facebook:before {
+  content: "\f09a"; // `fa-facebook`
+}

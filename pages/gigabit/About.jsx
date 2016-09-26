@@ -1,4 +1,5 @@
 var React = require('react');
+var GigFoot = require('./GigFoot.jsx');
 
 module.exports = React.createClass({
   render() {
@@ -19,7 +20,7 @@ module.exports = React.createClass({
           <p>Our approach to taking gigabit discoveries out of the lab and into the field is threefold:</p>
         </div>
 
-        <div className="clearfix">
+        <div className="m-b-3 clearfix">
           <div className="col-sm-4">
             <img className="w-100 p-a-3" src="/img/pages/gigabit/gigabit-icon_fund.svg"/>
             <h3>Fund and Support</h3>
@@ -37,12 +38,12 @@ module.exports = React.createClass({
           </div>
         </div>
 
-        <div className="text-center">
+        <div className="m-b-3 text-center">
           <h2>Where are Mozilla Gigabit Cities</h2>
           <p>Get in touch with your local Gigabit Hive community</p>
         </div>
 
-        <div className="clearfix">
+        <div className="m-b-3 clearfix">
           <div className="col-sm-8">
             <img className="w-100 p-a-2" src="/img/pages/gigabit/map.svg"/>
           </div>
@@ -50,26 +51,26 @@ module.exports = React.createClass({
             <div className="m-b-2 gigabit-contact">
               <h4>Austin</h4>
               <p>Robert Friedman</p>
-              <a className="email" href="#">robert@mozillafoundation.org</a>
-              <a className="twitter" href="#">@HiveATX</a>
+              <a className="glyph-link glyph-link-email" href="#">robert@mozillafoundation.org</a>
+              <a className="glyph-link glyph-link-twitter" href="#">@HiveATX</a>
             </div>
             <div className="m-b-2 gigabit-contact">
               <h4>Chattanooga</h4>
               <p>Katie Hendrix</p>
-              <a className="email" href="#">katieh@mozillafoundation.org</a>
-              <a className="twitter" href="#">@Hive_CHA</a>
-              <a className="facebook" href="#">{`http://facebook.com/HiveCHA`}</a>
+              <a className="glyph-link glyph-link-email" href="#">katieh@mozillafoundation.org</a>
+              <a className="glyph-link glyph-link-twitter" href="#">@Hive_CHA</a>
+              <a className="glyph-link glyph-link-facebook" href="#">{`http://facebook.com/HiveCHA`}</a>
             </div>
             <div className="m-b-2 gigabit-contact">
               <h4>Kansas City</h4>
               <p>Janice Wait</p>
-              <a className="email" href="#">janice@mozillafoundation.org</a>
-              <a className="twitter" href="#">@HiveKC</a>
+              <a className="glyph-link glyph-link-email" href="#">janice@mozillafoundation.org</a>
+              <a className="glyph-link glyph-link-twitter" href="#">@HiveKC</a>
             </div>
           </div>
         </div>
 
-        <div className="text-center">
+        <div className="m-b-3 text-center">
           <h2>Expanding the Gigabit Community Fund</h2>
           <p>In partnership with the National Science Foundation and US Ignite, we’re expanding the Gigabit Community Fund to three additional gigabit cities by 2018. Add your community below if you are interested in adding to the expansion.</p>
           <div className="middle-button">
@@ -78,7 +79,7 @@ module.exports = React.createClass({
         </div>
 
         <div className="clearfix">
-          <h2 className="text-center">Featured Updates</h2>
+          <h2 className="m-b-3 text-center">Featured Updates</h2>
 
           <ul className="featured-updates row">
             <li className="col-sm-4">
@@ -112,36 +113,8 @@ module.exports = React.createClass({
           </ul>
         </div>
 
-        <div className="clearfix">
-          <h2 className="text-center">National Partners</h2>
+        <GigFoot></GigFoot>
 
-          <div className="partner-logos text-center">
-            <div className="col-sm-3 col-sm-offset-3">
-              <img width="100px" src="/img/pages/gigabit/nsf.png"/>
-            </div>
-            <div className="col-sm-3">
-              <img width="200px" src="/img/pages/gigabit/usignite.png"/>
-            </div>
-          </div>
-        </div>
-
-        <div className="clearfix">
-          <div className="col-sm-4 text-center">
-            <img src="/img/pages/gigabit/icon-email.svg"/>
-            <h2>Have a Question?</h2>
-            <p>Want to be connected with one of our staff or volunteers? <a href="#">Email us</a></p>
-          </div>
-          <div className="col-sm-4 text-center">
-            <img src="/img/pages/gigabit/icon-twitter.svg"/>
-            <h2>Follow Us</h2>
-            <p>We're <a href="#">@MozGig</a> on Twitter</p>
-          </div>
-          <div className="col-sm-4 text-center">
-            <img src="/img/pages/gigabit/icon-join.svg"/>
-            <h2>Join Us</h2>
-            <p>Check out our gigabit <a href="#">events</a></p>
-          </div>
-        </div>
       </div>
     );
   }
