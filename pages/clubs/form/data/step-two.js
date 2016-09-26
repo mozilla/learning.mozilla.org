@@ -134,7 +134,7 @@ var fields = {
   },
   affiliation: {
     type: "text",
-    label: "Who are you affliated with",
+    label: "Who are you affliated with?",
     placeholder: "Institution, organization, ...",
     metered: false
   },
