@@ -56,6 +56,7 @@ var pages = {
   'community/community-call/may-25-2016': require('../pages/community-call-may-25.jsx'),
   'community/community-call/june-29-2016': require('../pages/community-call-june-29.jsx'),
   'community/community-call/july-28-2016': require('../pages/community-call-july-28.jsx'),
+  'community/community-call/sept-20-2016': require('../pages/community-call-sept-20.jsx'),
   // NOTE: 'encryption' is reserved. See https://github.com/mozilla/learning.mozilla.org/issues/1798
   'events': require('../pages/events.jsx'),
   'events/resources': require('../pages/event-resources.jsx'),
