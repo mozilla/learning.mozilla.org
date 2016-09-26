@@ -9,9 +9,9 @@ var Start = React.createClass({
   },
   render: function () {
     var carouselData = [{
-      image: '/img/pages/clubs/club-captains/isisipho.png',
-      caption: this.context.intl.formatMessage({id: 'captain_quote_isisipho_message'}),
-      attribution: this.context.intl.formatMessage({id: 'captain_quote_isisipho_attribution'})
+      image: '/img/pages/clubs/club-captains/asisipho.png',
+      caption: this.context.intl.formatMessage({id: 'captain_quote_asisipho_message'}),
+      attribution: this.context.intl.formatMessage({id: 'captain_quote_asisipho_attribution'})
     }, {
       image: '/img/pages/clubs/club-captains/patience.png',
       caption: this.context.intl.formatMessage({id: 'captain_quote_patience_message'}),
