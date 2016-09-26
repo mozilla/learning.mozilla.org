@@ -78,7 +78,7 @@ module.exports = React.createClass({
           </div>
         </div>
 
-        <div className="clearfix">
+        <div className="clearfix grey-block">
           <h2 className="m-b-3 text-center">Featured Updates</h2>
 
           <ul className="featured-updates row">

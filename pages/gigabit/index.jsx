@@ -27,7 +27,7 @@ module.exports = React.createClass({
           <h1>Gigabit Community Fund</h1>
           <h2>Next-generation networks with the power to transform learning.</h2>
         </HeroUnit>
-        <div className="inner-container">
+        <div>
           <TabSwitcher ref="tabSwitcher" initialTab={this.props.params.tab || `about`} onChange={this.handleTabChange}>
             <div slug="about" name="About Mozilla Gigabit" iconDefault="#TODO" iconActive="#TODO">
               <About></About>
