@@ -234,16 +234,26 @@ var BadgePage = React.createClass({
     );
   },
 
+  getShareCodes: function() {
+    var url = encodeURIComponent(window.location.toString());
+    var msg = encodeURIComponent(`I earned the Mozilla ${this.state.badge.title} badge`);
+
+    return (
+      <div className="social-share">
+        <a href={`https://twitter.com/home?status=${msg + encodeURIComponent(': ') + url}`} target={'_blank'}>twitter</a>
+        <a href={`https://www.facebook.com/sharer.php?u=${url}&t=${msg}`} target={'_blank'}>facebook</a>
+      </div>
+    );
+  },
+
   renderAchieved: function() {
     var badgeCriteria = this.formBadgeCriteria(this.state.badge.criteria);
-    var share = null; // <SocialShare />
 
-    // FIXME: TODO: retrieve the information on when/how this badge was earned.
-    //              ... IF we use this information at all.
+    // FIXME: TODO: retrieve the information on when/how this badge was earned... IF we use this information at all.
     return (
       <div className="badge-achieved">
         <h3 className={'text-light'}>Congrats, you were awarded this credential.</h3>
-        { share }
+        { this.getShareCodes() }
         <div className="badge-reward-text">
           <div className="date">
             DATE FROM API (although we may not end up using this);
@@ -275,7 +285,6 @@ var BadgePage = React.createClass({
       </div>
     );
   },
-
 
   renderEligible: function() {
     var badgeCriteria = this.formBadgeCriteria(this.state.badge.criteria);
