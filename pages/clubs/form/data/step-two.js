@@ -134,7 +134,7 @@ var fields = {
   },
   affiliation: {
     type: "text",
-    label: "Who are you affliated with (if any - optional field)",
+    label: "Who are you affliated with",
     placeholder: "Institution, organization, ...",
     metered: false
   },
@@ -181,6 +181,19 @@ module.exports = {
     return setFieldLabels(startlabels);
   },
   getIntegrateFields() {
-    return setFieldLabels(integrateLabels);
+    var formfields = setFieldLabels(integrateLabels);
+    var agreement = formfields.pledgeAgreement;
+
+    // add a 'website' field before the pledge agreement field
+    delete formfields.pledgeAgreement;
+    formfields.website = {
+      type: "text",
+      label: "Your current club website",
+      metered: false,
+      placeholder: "https://your.clubsite.com"
+    };
+    formfields.pledgeAgreement = agreement;
+
+    return formfields;
   }
 };

@@ -189,6 +189,10 @@ var Form = React.createClass({
 
     if (label) {
       label = <label key={name + 'label'} hidden={shouldHide}>{label}</label>;
+      // mark optional fields that have a label as being optional:
+      if (field.metered === false) {
+        label = [label, <span key={name + 'label-optional'} > (optional)</span>];
+      }
     } else {
       label = null;
       inputClass += " nolabel";
@@ -237,7 +241,7 @@ var Form = React.createClass({
     }
 
     if (ftype === "function") {
-      formfield = <Type key={field.name+'field'} {...field} {...common} className={inputClass} />;
+      formfield = <Type {...field} {...common} className={inputClass} />;
     }
 
     return <fieldset key={name + 'set'}>{ [label, formfield] }</fieldset>;

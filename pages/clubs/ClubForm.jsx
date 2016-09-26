@@ -15,6 +15,14 @@ var STEP_SENDING_RESULTS = 1;
 var STEP_SHOW_RESULT = 2;
 
 var ClubForm = React.createClass({
+  statics: {
+    pageTitle: "Apply to be a Club Captain",
+    pageClassName: "clubs",
+    teachAPIEvents: {
+      'clubs:change': 'forceUpdate',
+      'username:change': 'forceUpdate'
+    }
+  },
   getInitialState: function() {
     this.clubData = {};
     return {
