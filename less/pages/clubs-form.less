@@ -45,7 +45,11 @@
       }
     }
 
-    .choiceGroup {
+    .column {
+      white-space: nowrap;
+    }
+
+    .choiceGroup, .checkboxGroup {
       margin: 1rem auto;
 
       & > div {
@@ -64,11 +68,21 @@
       }
     }
 
-    .proceed {
+    input[type=checkbox] + span,
+    input[type=checkbox] + label,
+    input[type=radio] + span,
+    input[type=radio] + label
+    {
+      margin-left: 1em;
+    }
+
+    .navigation {
       margin: 2rem;
       text-align: center;
 
-      .btn {
+      button {
+        .btn;
+        
         margin: 1rem;
         height: 2.25em;
         line-height: 1;

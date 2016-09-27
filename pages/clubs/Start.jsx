@@ -71,7 +71,7 @@ var Start = React.createClass({
         </ol>
 
         <div className="single-button">
-          <a className="btn" onClick={this.props.onClick} href="#">{this.context.intl.formatMessage({id: 'apply_to_be_captain_link'})}</a>
+          <Link to={"/" + this.context.intl.locale + "/clubs/apply/"} className="btn">{this.context.intl.formatMessage({id: 'apply_to_be_captain_link'})}</Link>
         </div>
       </section>
     );

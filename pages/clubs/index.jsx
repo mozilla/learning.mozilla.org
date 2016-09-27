@@ -6,25 +6,22 @@ var About = require('./About.jsx');
 var Running = require('./Running.jsx');
 var Start = require('./Start.jsx');
 
-var ClubForm = require('./ClubForm.jsx');
+var Link = require('react-router').Link;
 
 var ClubsGuides = React.createClass({
   getInitialState: function(){
-    return {
-      showApplication: false
-    };
+    return {};
   },
   statics: {
-    pageClassName: 'clubs-guides',
-    pageTitle: 'Clubs Guides & Resources'
+    pageTitle: 'Clubs Guides & Resources',
+    pageClassName: 'clubs',
+    teachAPIEvents: {
+      'clubs:change': 'forceUpdate',
+      'username:change': 'forceUpdate'
+    }
   },
   contextTypes: {
     intl: React.PropTypes.object
-  },
-  showApplication: function(){
-    this.setState({
-      showApplication: true
-    });
   },
   handleTabChange: function (event) {
     let tabID = event.slug;
@@ -37,25 +34,20 @@ var ClubsGuides = React.createClass({
     });
   },
   render: function () {
-    if(this.state.showApplication) {
-      return (
-        <ClubForm currentPath={this.props.currentPath}></ClubForm>
-      );
-    }
     return (
       <div>
         <HeroUnit>
           <h1>Mozilla Clubs</h1>
           <h2>Local groups that read, write, and participate on the web</h2>
           <div className="single-button hero-button">
-            <a className="btn" onClick={this.showApplication} href="#">{this.context.intl.formatMessage({id: 'apply_to_be_captain_link'})}</a>
+            <Link to={"/" + this.context.intl.locale + "/clubs/apply/"} className="btn">{this.context.intl.formatMessage({id: 'apply_to_be_captain_link'})}</Link>
           </div>
         </HeroUnit>
         <div className="inner-container">
           <TabSwitcher ref="tabSwitcher" initialTab={this.props.params.tab || `about`} onChange={this.handleTabChange}>
-            <div slug="about" name="About Mozilla Clubs" iconDefault="/img/pages/clubs/tab-icons/tab-icon-info-inactive.svg" iconActive="/img/pages/clubs/tab-icons/tab-icon-info-active.svg"><About></About></div>
-            <div slug="start" name="Start a Club" iconDefault="/img/pages/clubs/tab-icons/tab-icon-flag-inactive.svg" iconActive="/img/pages/clubs/tab-icons/tab-icon-flag-active.svg"><Start onClick={this.showApplication}></Start></div>
-            <div slug="running" name="Running Your Club" iconDefault="/img/pages/clubs/tab-icons/tab-icon-book-inactive.svg" iconActive="/img/pages/clubs/tab-icons/tab-icon-book-active.svg"><Running></Running></div>
+            <div slug="about" name="About Mozilla Clubs" iconDefault="/img/pages/clubs/tab-icons/tab-icon-info-inactive.svg" iconActive="/img/pages/clubs/tab-icons/tab-icon-info-active.svg"><About/></div>
+            <div slug="start" name="Start a Club" iconDefault="/img/pages/clubs/tab-icons/tab-icon-flag-inactive.svg" iconActive="/img/pages/clubs/tab-icons/tab-icon-flag-active.svg"><Start/></div>
+            <div slug="running" name="Running Your Club" iconDefault="/img/pages/clubs/tab-icons/tab-icon-book-inactive.svg" iconActive="/img/pages/clubs/tab-icons/tab-icon-book-active.svg"><Running/></div>
           </TabSwitcher>
         </div>
       </div>

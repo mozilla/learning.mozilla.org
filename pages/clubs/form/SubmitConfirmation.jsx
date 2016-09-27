@@ -1,15 +1,14 @@
 var React = require('react');
-var ReactDOM = require('react-dom');
 
-var Divider = require('../../components/Divider.jsx');
-var VerticalLeader = require('../../components/VerticalLeader.jsx');
+var Divider = require('../../../components/Divider.jsx');
+var VerticalLeader = require('../../../components/VerticalLeader.jsx');
 
-var IconLinks = require('../../components/icon-links.jsx');
-var IconLink = require('../../components/icon-link.jsx');
-var Illustration = require('../../components/illustration.jsx');
-var ImageTag = require('../../components/imagetag.jsx');
+var IconLinks = require('../../../components/icon-links.jsx');
+var IconLink = require('../../../components/icon-link.jsx');
+var Illustration = require('../../../components/illustration.jsx');
+var ImageTag = require('../../../components/imagetag.jsx');
 
-var config = require('../../config/config');
+var config = require('../../../config/config');
 
 var StepThree = React.createClass({
   render: function() {

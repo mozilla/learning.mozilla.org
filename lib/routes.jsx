@@ -41,6 +41,7 @@ var pages = {
   'activities/back-to-school-write-the-web': require('../pages/back-to-school-write-the-web.jsx'),
   'clubs': require('../pages/clubs/index.jsx'),
   'clubs/list': require('../pages/clubs-list.jsx'),
+  'clubs/apply': require('../pages/clubs/ClubForm.jsx'),
   'clubs/:tab': require('../pages/clubs/index.jsx'),
   // NOTE: 'codemoji' is reserved. See https://github.com/mozilla/learning.mozilla.org/issues/1798
   'community': require('../pages/community.jsx'),

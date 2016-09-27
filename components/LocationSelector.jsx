@@ -55,7 +55,7 @@ var LocationSelector = React.createClass({
       };
     }
     this.setState(newValue);
-    this.props.onChange(JSON.stringify(newValue));
+    this.props.onChange(newValue);
   },
 });
 
