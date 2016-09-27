@@ -217,7 +217,6 @@ var Form = React.createClass({
 
     if (shouldFocus) {
       common.ref = 'autofocus';
-      console.log("setting autofocus for controlled field "+name);
     }
 
     if (label) {
