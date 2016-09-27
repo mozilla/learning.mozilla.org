@@ -5,7 +5,7 @@ module.exports = {
   'full_name': {
     type: "text",
     label: "Name",
-    placeholder: "Your full name",
+    placeholder: "Your full name.",
     validator: {
       error: "You must provide a name for your club."
     }
@@ -13,7 +13,7 @@ module.exports = {
   location: {
     type: LocationSelector,
     label: "Location",
-    placeholder: "City, Country",
+    placeholder: "City, Country.",
     validator: {
       error: "You must provide a location for your club."
     }
@@ -51,7 +51,7 @@ module.exports = {
   hostReason: {
     type: "textarea",
     label: "Why do you want to host a Mozilla Club?",
-    placeholder: "Describe what you want to achieve and what your goals are. Minimum length 50 words.",
+    placeholder: "Describe what you want to achieve and what your goals are. Minimum length 45 words.",
     validator: [
       {
         error: "You must explain the reason for applying."
@@ -74,11 +74,11 @@ module.exports = {
     type: Select,
     label: "How did you hear about Mozilla Clubs?",
     options: [
-      { value: 'from a friend', label: 'from a friend' },
-      { value: 'from an event', label: 'from an event' },
+      { value: 'From a friend', label: 'From a friend' },
+      { value: 'From an event', label: 'From an event' },
       { value: 'Mozilla website', label: 'Mozilla website' },
       { value: 'Social media', label: 'Social media' },
-      { value: 'other', label: 'other' }
+      { value: 'Other', label: 'Other' }
     ],
     validator: {
       error: "Please tell us how you heard about this program."
@@ -86,10 +86,10 @@ module.exports = {
   },
   howDidYouHearOther: {
     type: "text",
-    placeholder: "Let us know how you heard about becoming a club captain",
+    placeholder: "Let us know how you heard about becoming a club captain.",
     controller: {
       name: "howDidYouHear",
-      value: "other"
+      value: "Other"
     },
     // this field does not count towards total form completion
     metered: false,
