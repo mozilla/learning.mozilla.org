@@ -124,39 +124,12 @@ var ClubForm = React.createClass({
   },
 
   updateProgress: function(progress) {
-    // we do not currently render the progress
+    // Placeholder function: we do not currently render the progress
   },
 
   submitForm: function(formData) {
     var teachAPI = this.props.teachAPI;
-    var clubState = formData;
-
-    // Massage the form data a little so that it matches the
-    // model that we use in the TeachAPI.
-
-    clubState.longitude = clubState.location.longitude;
-    clubState.latitude = clubState.location.latitude;
-    clubState.location = clubState.location.location;
-
-    var freq = clubState.frequency;
-
-    if (freq === 'Other') { freq = clubState.frequencyOther; }
-
-    clubState.frequency = freq;
-
-    var age = clubState.ageRange.join(', ');
-
-    if (clubState.ageRange.indexOf('Other')) {
-      age = age.replace('Other', 'Other: ' + clubState.ageRangeOther);
-    }
-
-    clubState.age_range = age;
-
-    clubState.club_size = clubState.clubSize;
-    clubState.member_occupation = clubState.audienceType;
-    clubState.club_topics = clubState.meetingSubjects;
-
-    console.log(clubState);
+    var clubState = this.rewriteDataForTeachAPI(formData);
 
     this.setState({
       submitting: true,
@@ -179,6 +152,39 @@ var ClubForm = React.createClass({
         }
       });
     });
+  },
+
+  // Massage the form data a little so that it matches the
+  // model that we use in the TeachAPI. Particularly
+  rewriteDataForTeachAPI: function(data) {
+    data.longitude = data.location.longitude;
+    data.latitude = data.location.latitude;
+    data.location = data.location.location;
+
+    var freq = data.frequency;
+
+    if (freq === 'Other') { freq = data.frequencyOther; }
+
+    data.frequency = freq;
+
+    var age = data.ageRange.join(', ');
+
+    if (data.ageRange.indexOf('Other')) {
+      age = age.replace('Other', 'Other: ' + data.ageRangeOther);
+    }
+
+    data.age_range = age;
+
+    data.club_size = data.clubSize;
+    data.member_occupation = data.audienceType;
+    data.club_topics = data.meetingSubjects;
+    data.hosting_reason = data.hostReason;
+    data.how_they_heard = data.howDidYouHear;
+
+    data.regional_coordinator = (data.regionalCoordinator === "Yes") ? data.coordinatorName : "No";
+    data.intent = (data.intent.indexOf('Integrate') > -1) ? "integrate" : "start";
+
+    return data;
   }
 });
 
