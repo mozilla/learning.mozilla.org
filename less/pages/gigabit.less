@@ -56,3 +56,34 @@
 .glyph-link-facebook:before {
   content: "\f09a"; // `fa-facebook`
 }
+
+.project-card {
+  background: white;
+  text-align: left;
+
+  .photo {
+    width: 100%;
+  }
+
+  .city {
+    color: white;
+    background: orange;
+    display: inline-block;
+    padding: 0 0.5em;
+    line-height: 1.5em;
+
+    &.has-photo {
+      position: relative;
+      top: -0.75em;
+    }
+  }
+
+  .project-name {
+    font-size: 18px;
+  }
+
+  .lead-org, .lead-org a, .summary {
+    line-height: 2em;
+    font-size: 12px;
+  }
+}
