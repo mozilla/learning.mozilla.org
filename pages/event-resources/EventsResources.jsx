@@ -275,7 +275,7 @@ var EventsResources = React.createClass({
                 subhead={this.context.intl.formatMessage({id: 'maker_party_press'})}
               />
               <IconLink
-                link="mailto:makerparty@mozilla.org"
+                link="mailto:makerparty@mozillafoundation.org"
                 imgSrc="/img/pages/events/svg/icon-home-help.png"
                 head={this.context.intl.formatMessage({id: 'contact'})}
                 subhead={this.context.intl.formatMessage({id: 'maker_party_contact'})}
