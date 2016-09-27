@@ -37,7 +37,7 @@ module.exports = React.createClass({
   render() {
     var projects = this.state.projects.filter((project) => { return !project.isFiltered; }).map((project, index) => {
       return (
-        <div className={`col-md-4${index % 3 === 0 ? ` clear-left` : ``}`}>
+        <div key={`project-${index}`} className={`col-md-4${index % 3 === 0 ? ` clear-left` : ``}`}>
           <div className="project-card m-b-3">
             <img className="photo" hidden={!project.Photo} src={project.Photo}/>
             <div className="p-x-2 p-b-2">
@@ -60,7 +60,7 @@ module.exports = React.createClass({
 
         <div className="p-y-3 grey-block">
           <div className="text-center">
-            <div className="col-sm-8 col-sm-offset-2 m-b-3">
+            <div className="col-md-8 col-md-offset-2 m-b-3">
               <h2 className="m-b-2">Find a Project</h2>
 
               <input ref="projectFilter" onChange={this.doFilter} type="text" placeholder="Search for subject, location or technology" className="m-b-2"></input>
