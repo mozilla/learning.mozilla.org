@@ -34,9 +34,15 @@
 
 // Anchors with font-awesome glyphs prepended:
 
-.glyph-link:before {
-  margin-right: 0.5em;
-  font-family: FontAwesome;
+.glyph-link {
+  &:before {
+    margin-right: 0.5em;
+    font-family: FontAwesome;
+  }
+
+  &:hover, &:active, &:focus {
+    text-decoration: none;
+  }
 }
 
 .glyph-link-email:before {

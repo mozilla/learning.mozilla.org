@@ -51,21 +51,21 @@ module.exports = React.createClass({
             <div className="m-b-2 gigabit-contact">
               <h4>Austin</h4>
               <p>Robert Friedman</p>
-              <a className="glyph-link glyph-link-email" href="#">robert@mozillafoundation.org</a>
-              <a className="glyph-link glyph-link-twitter" href="#">@HiveATX</a>
+              <a className="glyph-link glyph-link-email" href="mailto:robert@mozillafoundation.org">robert@mozillafoundation.org</a>
+              <a className="glyph-link glyph-link-twitter" target="_blank" href="https://twitter.com/HiveATX">@HiveATX</a>
             </div>
             <div className="m-b-2 gigabit-contact">
               <h4>Chattanooga</h4>
               <p>Katie Hendrix</p>
-              <a className="glyph-link glyph-link-email" href="#">katieh@mozillafoundation.org</a>
-              <a className="glyph-link glyph-link-twitter" href="#">@Hive_CHA</a>
-              <a className="glyph-link glyph-link-facebook" href="#">{`http://facebook.com/HiveCHA`}</a>
+              <a className="glyph-link glyph-link-email" href="mailto:katieh@mozillafoundation.org">katieh@mozillafoundation.org</a>
+              <a className="glyph-link glyph-link-twitter" target="_blank" href="https://twitter.com/Hive_CHA">@Hive_CHA</a>
+              <a className="glyph-link glyph-link-facebook" target="_blank" href="https://facebook.com/HiveCHA">{`https://facebook.com/HiveCHA`}</a>
             </div>
             <div className="m-b-2 gigabit-contact">
               <h4>Kansas City</h4>
               <p>Janice Wait</p>
-              <a className="glyph-link glyph-link-email" href="#">janice@mozillafoundation.org</a>
-              <a className="glyph-link glyph-link-twitter" href="#">@HiveKC</a>
+              <a className="glyph-link glyph-link-email" href="mailto:janice@mozillafoundation.org">janice@mozillafoundation.org</a>
+              <a className="glyph-link glyph-link-twitter" target="_blank" href="https://twitter.com/HiveKC">@HiveKC</a>
             </div>
           </div>
         </div>
@@ -114,7 +114,6 @@ module.exports = React.createClass({
         </div>
 
         <GigFoot></GigFoot>
-
       </div>
     );
   }
