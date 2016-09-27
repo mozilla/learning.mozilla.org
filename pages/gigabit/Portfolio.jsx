@@ -1,5 +1,6 @@
 var React = require('react');
 var GigFoot = require('./GigFoot.jsx');
+var portfolioData = require('./portfolio.json');
 
 module.exports = React.createClass({
   render() {
