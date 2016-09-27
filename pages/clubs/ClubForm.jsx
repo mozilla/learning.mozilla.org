@@ -17,15 +17,13 @@ var STEP_SHOW_RESULT = 2;
 var ClubForm = React.createClass({
   statics: {
     pageTitle: "Apply to be a Club Captain",
-    pageClassName: "clubs",
-    teachAPIEvents: {
-      'clubs:change': 'forceUpdate',
-      'username:change': 'forceUpdate'
-    }
+    pageClassName: "clubs"
   },
+
   getInitialState: function() {
     this.clubData = {};
     return {
+      loggedIn: false,
       progress: 0,
       currentStep: 0,
       titles: [
@@ -62,7 +60,7 @@ var ClubForm = React.createClass({
               <h2>{ username ? this.state.headings[this.state.currentStep] : this.state.loginHeading }</h2>
             </Illustration>
           </section>
-          { username ? this.renderSteps() : this.renderLoginRequest() }
+          { this.state.loggedIn ? this.renderSteps() : this.renderLoginRequest() }
         </div>
       </div>
     );
@@ -118,9 +116,14 @@ var ClubForm = React.createClass({
           currentPath={this.props.currentPath}
           loginClass="btn"
           signupLabel="Create an account"
+          onLoginChange={this.onLoginChange}
         />
       </div>
     );
+  },
+
+  onLoginChange: function(loggedIn) {
+    this.setState({ loggedIn });
   },
 
   updateProgress: function(progress) {
