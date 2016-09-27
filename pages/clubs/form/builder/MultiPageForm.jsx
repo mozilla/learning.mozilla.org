@@ -101,8 +101,6 @@ var MultiPageForm = React.createClass({
     var form = this.refs.current;
     var passes = form.checkValidation();
 
-    console.log(` passes validaton? ${passes}`);
-
     if (!passes) {
       return;
     }
@@ -110,16 +108,11 @@ var MultiPageForm = React.createClass({
     // just to be sure, do this check, too
     if (!this.state.valid[this.state.step]) {
       this.pendingStepValidation = this.state.step;
-      console.log(` adding pendingStepValidation for step ${this.state.step}`);
     }
 
-    console.log(` all good, moving next... `);
-
     if (this.state.step === this.state.steps - 1) {
-      console.log(`submitting`);
       this.onSubmit();
     } else {
-      console.log(`step + 1`);
       this.step(1);
     }
   },
