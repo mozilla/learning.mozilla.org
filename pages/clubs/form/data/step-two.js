@@ -190,7 +190,18 @@ module.exports = {
       type: "text",
       label: "Your current club website",
       metered: false,
-      placeholder: "https://your.clubsite.com"
+      placeholder: "https://your.clubsite.com",
+      validator: {
+        validate: function(url) {
+          // this is an optional field, so we actually allow "no url specified"
+          if (!url || url.trim() === '') {
+            return false;
+          }
+          // we need http(s), and a tld that consists, at least, of word.word
+          return !url.match(/https?:\/\/[^.\/]+\.[^.\/]+/);
+        },
+        error: "When specifying a website, please provide a full, valid URL."
+      }
     };
     formfields.pledgeAgreement = agreement;
 

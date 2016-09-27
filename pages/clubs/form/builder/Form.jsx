@@ -358,6 +358,8 @@ var Form = React.createClass({
     var value = this.state[name];
     var validators = this.props.fields[name].validator;
 
+    console.log("checking "+name);
+
     if (!validators) {
       return;
     }
@@ -365,6 +367,8 @@ var Form = React.createClass({
     if (!validators.forEach) {
       validators = [validators];
     }
+
+    console.log("validators: ",validators);
 
     validators.forEach(validator => {
       var err = false;
@@ -381,6 +385,8 @@ var Form = React.createClass({
         }
       }
     });
+
+    console.log(errors, errorElements);
   },
 
   /**
