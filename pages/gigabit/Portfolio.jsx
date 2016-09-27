@@ -2,14 +2,40 @@ var React = require('react');
 var GigFoot = require('./GigFoot.jsx');
 var portfolioData = require('./portfolio.json');
 
+portfolioData.forEach((item, index) => {
+  item.isFiltered = false;
+});
+
 module.exports = React.createClass({
   getInitialState() {
     return {
       projects: portfolioData
     };
   },
+  doFilter() {
+    var query = this.refs.projectFilter.value.toLowerCase();
+    var filteredProjects = [];
+
+    this.state.projects.forEach((project) => {
+      var matched = false;
+
+      if (
+        project.Project.toLowerCase().match(query) ||
+        project[`Project Summary`].toLowerCase().match(query)) {
+        matched = true;
+      }
+
+      project.isFiltered = !matched;
+
+      filteredProjects.push(project);
+    });
+
+    this.setState({
+      projects: filteredProjects
+    });
+  },
   render() {
-    var projects = this.state.projects.map((project, index) => {
+    var projects = this.state.projects.filter((project) => { return !project.isFiltered; }).map((project, index) => {
       return (
         <div className={`col-md-4${index % 3 === 0 ? ` clear-left` : ``}`}>
           <div className="project-card m-b-3">
@@ -37,7 +63,7 @@ module.exports = React.createClass({
             <div className="col-sm-8 col-sm-offset-2 m-b-3">
               <h2 className="m-b-2">Find a Project</h2>
 
-              <input type="text" placeholder="Search for subject, location or technology" className="m-b-2"></input>
+              <input ref="projectFilter" onChange={this.doFilter} type="text" placeholder="Search for subject, location or technology" className="m-b-2"></input>
 
               <div className="m-b-2">
                 <button>Featured Projects</button>
