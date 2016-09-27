@@ -79,11 +79,19 @@ var Login = React.createClass({
     this.setState({loggingIn: true});
   },
   handleApiLoginSuccess: function(info) {
-    this.setState({username: this.props.teachAPI.getUsername(), loggingIn: false});
+    this.setState({username: this.props.teachAPI.getUsername(), loggingIn: false}, () => {
+      if (this.props.onLoginChange) {
+        this.props.onLoginChange(true);
+      }
+    });
     ga.event({ category: 'Login', action: 'Logged In' });
   },
   handleApiLogout: function() {
-    this.setState({username: null, loggingIn: false});
+    this.setState({username: null, loggingIn: false}, () => {
+      if (this.props.onLoginChange) {
+        this.props.onLoginChange(false);
+      }
+    });
     ga.event({ category: 'Login', action: 'Logged Out' });
   },
   renderAdminLink: function() {
