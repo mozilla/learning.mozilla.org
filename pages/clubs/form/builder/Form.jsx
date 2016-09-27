@@ -22,6 +22,7 @@ var React = require('react');
      placeholder: string data (optional)
      validator: [instance or array of validator objects],
      metered: boolean (optional),
+     optional: boolean (optional),
      controller: controller object (optional),
      colCount: number of columns to span, if ...Group type (optional).
    }
@@ -88,6 +89,7 @@ var Form = React.createClass({
           React.PropTypes.arrayOf(validatorPropType)
         ]),
         metered: React.PropTypes.boolean,
+        optional: React.PropTypes.boolean,
         controller: React.PropTypes.shape({
           name: React.PropTypes.string,
           value: React.PropTypes.oneOfType([
@@ -190,7 +192,7 @@ var Form = React.createClass({
     if (label) {
       label = <label key={name + 'label'} hidden={shouldHide}>{label}</label>;
       // mark optional fields that have a label as being optional:
-      if (field.metered === false) {
+      if (field.optional) {
         label = [label, <span key={name + 'label-optional'} > (optional)</span>];
       }
     } else {

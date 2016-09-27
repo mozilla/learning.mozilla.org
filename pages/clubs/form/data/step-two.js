@@ -136,7 +136,8 @@ var fields = {
     type: "text",
     label: "Who are you affliated with?",
     placeholder: "Institution, organization, ...",
-    metered: false
+    metered: false,
+    optional: true
   },
   pledgeAgreement: {
     type: "checkbox",
@@ -155,7 +156,10 @@ function cloneFields() {
   var copy = {};
 
   Object.keys(fields).forEach(key => {
-    copy[key] = fields[key];
+    copy[key] = {};
+    Object.keys(fields[key]).forEach(prop => {
+      copy[key][prop] = fields[key][prop];
+    });
   });
 
   return copy;
@@ -190,6 +194,7 @@ module.exports = {
       type: "text",
       label: "Your current club website",
       metered: false,
+      optional: true,
       placeholder: "https://your.clubsite.com",
       validator: {
         validate: function(url) {
