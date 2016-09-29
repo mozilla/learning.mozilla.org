@@ -70,6 +70,7 @@ var pages = {
   'me': require('../pages/makes.jsx'),
   'web-literacy/skills': require('../pages/web-literacy/Skills.jsx'),
   'gigabit': require('../pages/gigabit/index.jsx'),
+  'gigabit/:tab/:project': require('../pages/gigabit/index.jsx'),
   'gigabit/:tab': require('../pages/gigabit/index.jsx')
 };
 

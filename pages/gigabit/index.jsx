@@ -33,7 +33,7 @@ module.exports = React.createClass({
               <About></About>
             </div>
             <div slug="portfolio" name="Portfolio" iconDefault="#TODO" iconActive="#TODO">
-              <Portfolio></Portfolio>
+              <Portfolio project={this.props.params.project || null}></Portfolio>
             </div>
             <div slug="apply" name="Apply" iconDefault="#TODO" iconActive="#TODO">
               <Apply></Apply>
