@@ -38,7 +38,7 @@ var fields = {
   description: {
     type: "textarea",
     label: startlabels.description,
-    placeholder: "Describe what you want to achieve and what your goals are. Minimum length 50 words.",
+    placeholder: "Describe what you want to achieve and what your goals are. Minimum length 45 words.",
     validator: [
       {
         error: "You must describe your club."
@@ -60,7 +60,7 @@ var fields = {
   venue: {
     type: "text",
     label: startlabels.venue,
-    placeholder: "Name of the venue where you will meet",
+    placeholder: "Name of the venue where you will meet.",
     validator: {
       error: "Please let us know where your club meets."
     }
@@ -68,14 +68,14 @@ var fields = {
   frequency: {
     type: "choiceGroup",
     label: startlabels.frequency,
-    options: ["Weekly", "Biweekly", "Monthly", "Other"],
+    options: ["Weekly", "Every two weeks", "Monthly", "Other"],
     validator: {
       error: "Please let us know how often you (will) meet."
     }
   },
   frequencyOther: {
     type: "text",
-    placeholder: "If \"Other\", please explain",
+    placeholder: "If \"Other\", please explain.",
     controller: {
       name: "frequency",
       value: "Other"
@@ -97,7 +97,7 @@ var fields = {
   },
   ageRangeOther: {
     type: "text",
-    placeholder: "If \"Other\", please explain",
+    placeholder: "If \"Other\", please explain.",
     controller: {
       name: "ageRange",
       value: "Other"
