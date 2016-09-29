@@ -1,9 +1,16 @@
 var React = require('react');
 var GigFoot = require('./GigFoot.jsx');
+
+// This JSON is generated from CSV exported from Google Docs
 var portfolioData = require('./portfolio.json');
 
+// Additional metadata for in-app display purposes
 portfolioData.forEach((item, index) => {
   item.isFiltered = false;
+
+  // Generate stubs from project names to enable project detail page linking
+  // eg: `Gigtank 4K: Scaling from Micro to Macro` -> `gigtank-4k-scaling-from-micro-to-macro`
+  item.stub = item.Project.toLowerCase().replace(/\ +/g, `-`).replace(/[^A-Za-z0-9\-]/g, ``);
 });
 
 module.exports = React.createClass({
@@ -62,14 +69,7 @@ module.exports = React.createClass({
           <div className="text-center">
             <div className="col-md-8 col-md-offset-2 m-b-3">
               <h2 className="m-b-2">Find a Project</h2>
-
               <input ref="projectFilter" onChange={this.doFilter} type="text" placeholder="Search for subject, location or technology" className="m-b-2"></input>
-
-              <div className="m-b-2">
-                <button>Featured Projects</button>
-                <button>Recently Updated</button>
-                <button>Recently Added</button>
-              </div>
             </div>
 
             <div className="m-b-3 row">
