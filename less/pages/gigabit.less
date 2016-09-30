@@ -66,12 +66,6 @@
   }
 
   .city {
-    color: white;
-    background: orange;
-    display: inline-block;
-    padding: 0 0.5em;
-    line-height: 1.5em;
-
     &.has-photo {
       position: relative;
       top: -0.75em;
@@ -85,5 +79,46 @@
   .lead-org, .lead-org a, .summary {
     line-height: 2em;
     font-size: 12px;
+  }
+}
+
+.tag {
+  color: white;
+  display: inline-block;
+  padding: 0 0.5em;
+  line-height: 1.5em;
+}
+
+.tag-orange {
+  background: orange;
+}
+
+.tags {
+  .tag {
+    margin-right: 0.5em;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.meta-block {
+  display: flex;
+
+  img {
+    visibility: hidden;
+  }
+
+  .tags {
+    position: absolute;
+    left: 15px;
+    top: -0.75em;
+  }
+
+  .hero {
+    background-position-y: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }

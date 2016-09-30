@@ -4,6 +4,7 @@ var Project = require('./Project.jsx');
 var GigFoot = require('./GigFoot.jsx');
 
 // This JSON is generated from CSV exported from Google Docs
+// Used: http://csvtojson.com/
 var portfolioData = require('./portfolio.json');
 
 // Additional metadata for in-app display purposes

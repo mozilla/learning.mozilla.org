@@ -34,9 +34,9 @@ module.exports = React.createClass({
       return (
         <div key={`project-${index}`} className={`col-md-4${index % 3 === 0 ? ` clear-left` : ``}`}>
           <div className="project-card m-b-3">
-            <img className="photo" hidden={!project.Photo} src={project.Photo}/>
+            <a href={`/gigabit/portfolio/${project.stub}`}><img className="photo" hidden={!project.Photo} src={project.Photo}/></a>
             <div className="p-x-2 p-b-2">
-              <div className={`city m-b-0 ${project.Photo ? ` has-photo` : ` m-t-2`}`}>{project.City}</div>
+              <div className={`city tag tag-orange m-b-0 ${project.Photo ? ` has-photo` : ` m-t-2`}`}>{project.City}</div>
               <h3 className="m-y-0"><a className="project-name" href={`/gigabit/portfolio/${project.stub}`}>{project.Project}</a></h3>
               <p className="lead-org">Lead Org: <a href="#">{project[`Lead Organization`]}</a></p>
               <p className="summary">{project[`Project Summary`]}</p>
