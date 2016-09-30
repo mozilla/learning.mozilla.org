@@ -219,6 +219,7 @@ var Form = React.createClass({
 
     if (shouldFocus) {
       common.ref = 'autofocus';
+      inputClass += " controlled";
     }
 
     if (label) {
@@ -239,9 +240,12 @@ var Form = React.createClass({
     } else if (Type === "textarea") {
       formfield = <textarea className={inputClass} {...common} hidden={shouldHide}/>;
     } else if (Type === "checkbox") {
+      // FIXME: while clickable, this does not seem to tick the checkbox...
       formfield = <div>
-        <input className={inputClass} {...common} type={Type} hidden={shouldHide}/>
-        { label }
+        <label>
+          <input className={inputClass} {...common} type="checkbox" hidden={shouldHide}/>
+          { label }
+        </label>
       </div>;
       label = null;
     } else if (Type === "choiceGroup") {
@@ -252,7 +256,12 @@ var Form = React.createClass({
 
       for (let c=0; c<colCount; c++) {
         let choiceset = choices.slice(c*bracket, (c+1)*bracket).map(value => {
-          return <div key={value}><input className={inputClass} type="radio" name={name} value={value} checked={this.state[name] === value} onChange={common.onChange}/>{value}</div>;
+          return <div key={value}>
+            <label>
+              <input className={inputClass} type="radio" name={name} value={value} checked={this.state[name] === value} onChange={common.onChange}/>
+              {value}
+            </label>
+          </div>;
         });
 
         columns.push(<div key={field.name + 'col' + c} className="column">{choiceset}</div>);
@@ -267,7 +276,12 @@ var Form = React.createClass({
 
       for (let c=0; c<colCount; c++) {
         let choiceset = choices.slice(c*bracket, (c+1)*bracket).map(value => {
-          return <div key={value}><input className={inputClass} type="checkbox" name={name} value={value} checked={this.state[name].indexOf(value)>-1} onChange={common.onChange}/>{value}</div>;
+          return <div key={value}>
+            <label>
+              <input className={inputClass} type="checkbox" name={name} value={value} checked={this.state[name].indexOf(value)>-1} onChange={common.onChange}/>
+              {value}
+            </label>
+          </div>;
         });
 
         columns.push(<div key={field.name + 'col' + c} className="column">{choiceset}</div>);
@@ -280,7 +294,7 @@ var Form = React.createClass({
       formfield = <Type {...field} {...common} className={inputClass} />;
     }
 
-    return <fieldset key={name + 'set'}>{ [label, formfield] }</fieldset>;
+    return <fieldset key={name + 'set'} className={name}>{ [label, formfield] }</fieldset>;
   },
 
   /**
