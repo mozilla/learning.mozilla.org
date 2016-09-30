@@ -23,9 +23,9 @@ module.exports = React.createClass({
             <img className="w-100" src={data.Photo}/>
           </div>
           <div className="project-metadata p-y-2 col-xs-6 grey-block">
-            <dl>
+            <dl className="project-metadata-dl">
               <dt>Lead Organization</dt>
-              <dd>{data[`Lead Organization`]}</dd>
+              <dd><a target="_blank" href={data.Link}>{data[`Lead Organization`]}</a></dd>
 
               <dt>Partner Organization</dt>
               <dd>{data[`Other Partner Organizations`]}</dd>
@@ -49,6 +49,9 @@ module.exports = React.createClass({
 
         <div className="m-b-3 text-center">
           <p>Learn more about {data.Project}</p>
+          <div className="middle-button">
+            <a className="secondary-button" href={data.Link} target="_blank">Website</a>
+          </div>
         </div>
       </div>
     );
