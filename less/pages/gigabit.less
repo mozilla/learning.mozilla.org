@@ -1,3 +1,33 @@
+.gigabit-section {
+  .hero-unit {
+    background-image: url(/img/pages/gigabit/minimaker.jpg);
+  }
+
+  .sidebar {
+    background-color: @orangeSidebarColor;
+  }
+
+  .sidebar .top-level-item.sub-nav-active {
+    background-color: @orangeSidebarColor;
+  }
+
+  .sidebar-subitems {
+    background-color: @orangeSidebarColor !important;
+  }
+
+  .sidebar-menu a {
+    background-color: @orangeSidebarColor !important;
+  }
+
+  .mui-tab-switcher .mui-tabs .mui-btn {
+    background-color: fade(@orangeSidebarColor, 90%);
+
+    &.mui-active {
+      background-color: @white;
+    }
+  }
+}
+
 .gigabit-contact {
   h4 {
     font-size: 26px;
@@ -90,7 +120,7 @@
 }
 
 .tag-orange {
-  background: orange;
+  background: @orangeSidebarColor;
 }
 
 .tags {

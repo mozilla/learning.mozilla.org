@@ -10,6 +10,10 @@ module.exports = React.createClass({
   contextTypes: {
     intl: React.PropTypes.object
   },
+  statics: {
+    pageClassName: 'gigabit-section',
+    pageTitle: 'Gigabit'
+  },
   handleTabChange(event) {
     let tabID = event.slug;
 

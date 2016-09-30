@@ -29,9 +29,6 @@ module.exports = React.createClass({
 
               <dt>Partner Organization</dt>
               <dd>{data[`Other Partner Organizations`]}</dd>
-
-              <dt>Project Tags</dt>
-              <dd>{data[`Tech Tags`]}</dd>
             </dl>
           </div>
         </div>
