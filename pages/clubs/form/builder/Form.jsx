@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 
 /**
 
@@ -143,6 +144,28 @@ var Form = React.createClass({
     );
   },
 
+  // autofocus on anything that needs autofocussing.
+  componentDidUpdate: function(prevProps, prevState) {
+    var afelement = this.refs.autofocus;
+
+    if (afelement) {
+      afelement = ReactDOM.findDOMNode(afelement);
+      afelement.focus();
+
+      // We need to use the following code to get around
+      // the bizar way in which react-select steals focus,
+      // even when the browser has issued a .focus() on
+      // a completely different HMTL element...
+      function forceFocus() {
+        if (afelement !== document.activeElement) {
+          afelement.focus();
+          setTimeout(forceFocus, 10);
+        }
+      }
+      setTimeout(forceFocus, 100);
+    }
+  },
+
   // This is to be used for updating a progress bar...
   getProgress: function() {
     // get the number of required fields that have a value filled in.
@@ -176,7 +199,7 @@ var Form = React.createClass({
       placeholder: field.placeholder
     };
 
-    var shouldHide = false, choices = false;
+    var shouldHide = false, choices = false, shouldFocus = false;
 
     if (field.controller) {
       var controller = field.controller.name;
@@ -187,6 +210,15 @@ var Form = React.createClass({
       } else {
         shouldHide = this.state[controller] !== controlValue;
       }
+
+      // should we be focussing on this field?
+      if (!shouldHide && !this.state[name]) {
+        shouldFocus = true;
+      }
+    }
+
+    if (shouldFocus) {
+      common.ref = 'autofocus';
     }
 
     if (label) {
@@ -199,6 +231,8 @@ var Form = React.createClass({
       label = null;
       inputClass += " nolabel";
     }
+
+    inputClass = inputClass.trim();
 
     if (ftype === "undefined" || Type === "text") {
       formfield = <input className={inputClass} type={Type? Type : "text"} {...common} hidden={shouldHide}/>;
