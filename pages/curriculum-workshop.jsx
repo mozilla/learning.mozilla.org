@@ -28,12 +28,12 @@ var CurriculumWorkshop = React.createClass({
 
           <section className="callout-box">
             <h2>Upcoming Workshop</h2>
-            <p className="date">September 29th - 7am PT / 10am ET / 2pm UTC</p>
-            <h1>Maker Party & Copyright</h1>
+            <p className="date">October 11th - 6 AM PT, 9 AM ET, 1 PM UTC</p>
+            <h1>Ada Lovelace Day</h1>
           </section>
 
           <p>
-           Join us on September 29th as co-hosts Amira Dhalla and Chad Sansing and invited guests dig into this year’s Maker Party campaign around copyright and political action, especially in the EU. Learn about the copyright reform issues at play in Europe and how they connect to - or might impact - your local community and others around the world. Help us develop teaching and learning materials that make copyright, open licensing, and public domain clear and compelling to learners wherever you live.
+           <a href="https://en.wikipedia.org/wiki/Ada_Lovelace">Ada Lovelace</a> is largely regarded as the first computer programmer, and her work and skills exemplified strength in STEM as she worked on the analytic engine, also known as an early mechanical general-purpose computer. Her work ethic and diligence in the field is an inspiration for women is to be celebrated and shared around the world. In our webcast this month, we’ll be recognizing the challenges, accomplishments and contributions of women leaders from the Mozilla Leadership Network around the globe. Join us to help build teaching and learning resources promoting women and the web.
           </p>
 
           <p>
@@ -47,17 +47,17 @@ var CurriculumWorkshop = React.createClass({
           </p>
           <h4>
             Open Agenda
-            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/curriculum-workshop-september-13-2016">
+            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/curriculum-workshop-october-11-2016">
             </a>
           </h4>
 
-          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/curriculum-workshop-september-13-2016"></iframe>
+          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/curriculum-workshop-october-11-2016"></iframe>
 
           <h2>Upcoming Workshops</h2>
 
           <ul className="upcoming-workshops">
             <li>
-              <p className="date">October 2016 </p>
+              <p className="date">November 2016 </p>
               <h2>TBD</h2>
             </li>
           </ul>
@@ -65,6 +65,16 @@ var CurriculumWorkshop = React.createClass({
           <h2>Past Workshops</h2>
 
           <ul className="past-workshops">
+            <li>
+              <p className="date">September 29th, 2016</p>
+              <h2>Maker Party & Copyright</h2>
+              <p>
+                Join us on September 29th as co-hosts Amira Dhalla and Chad Sansing and invited guests dig into this year’s Maker Party campaign around copyright and political action, especially in the EU. Learn about the copyright reform issues at play in Europe and how they connect to - or might impact - your local community and others around the world. Help us develop teaching and learning materials that make copyright, open licensing, and public domain clear and compelling to learners wherever you live.
+              </p>
+              <p className="watch-archive">
+                <LinkAnchorSwap to="/community/curriculum-workshop/sept-29-2016/">Watch the Replay</LinkAnchorSwap>
+              </p>
+            </li>
             <li>
               <p className="date">July 12th, 2016</p>
               <h2>Brokering Web Literacy Learning Around the World</h2>
