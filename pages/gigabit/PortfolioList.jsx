@@ -39,7 +39,7 @@ module.exports = React.createClass({
               <div className={`city tag tag-orange m-b-0 ${project.Photo ? ` has-photo` : ` m-t-2`}`}>{project.City}</div>
               <h3 className="m-y-0"><a className="project-name" href={`/gigabit/portfolio/${project.stub}`}>{project.Project}</a></h3>
               <p className="lead-org">Lead Org: <a href="#">{project[`Lead Organization`]}</a></p>
-              <p className="summary">{project[`Project Summary`]}</p>
+              <p className="summary">{`${project[`Project Summary`].slice(0,200)} [...]`}</p>
             </div>
           </div>
         </div>
