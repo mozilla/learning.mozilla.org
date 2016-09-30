@@ -187,6 +187,14 @@ var ActivitiesPage = React.createClass({
               developedBy={<div>Mozilla</div>}
               description="An interactive, learner-centered 1-day training module designed to learn and teach others how to read, write, and participate on the Web."/>
             <ActivityKit
+              src1x="/img/pages/activities/imls-cleveland.jpg"
+              caption={ <a href="https://thimbleprojects.org/chadsansing/92359/imls-cleveland-1.JPG">Mozilla</a> }
+              title="Web Literacy Skills for Library Staff"
+              level="Beginner"
+              link="https://thimbleprojects.org/chadsansing/92359/#overview"
+              developedBy={<div>Mozilla</div>}
+              description="Learn how to teach colleagues and patrons the basics of HTML, CSS, and JavaScript with these activities curated from Mozilla’s web literacy curriculum."/>
+            <ActivityKit
               src1x="/img/pages/activities/img-activity-madewithcode.png"
               title="Made with Code"
               level="Beginner"
