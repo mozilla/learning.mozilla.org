@@ -20,16 +20,16 @@ module.exports = React.createClass({
             </ol>
             <p>Participation is open to companies, academic institutions, and non-profit organizations. Funding will not be granted to unaffiliated individuals acting on their own. Before submitting your application, please review the Gigabit Community Fund’s <a href="#">Terms and Conditions</a>.</p>
           </div>
-          <div className="col-xs-6">
+          <div className="col-xs-6 dl-block">
             <h2>Key Dates</h2>
             <dl>
-              <dt>January 16, 2017 - May 5, 2017</dt>
+              <dt>January 16, 2017 - <br/>May 5, 2017</dt>
               <dd>Round 2 Pilot Period</dd>
               <dt>June 14, 2017</dt>
               <dd>Optional Intent to Apply Form Due</dd>
               <dt>July 14, 2017</dt>
               <dd>Applications Due</dd>
-              <dt>October 16, 2017 - February 2, 2018</dt>
+              <dt>October 16, 2017 - <br/>February 2, 2018</dt>
               <dd>Pilot Period</dd>
             </dl>
           </div>
@@ -39,30 +39,34 @@ module.exports = React.createClass({
           <h2 className="text-center">Type of Support</h2>
 
           <table>
-            <tr>
-              <th>Project Type</th>
-              <th>Description</th>
-              <th>Pilot Requirements</th>
-              <th>Recommended Funding Level</th>
-            </tr>
-            <tr>
-              <td>Curriculum Development </td>
-              <td>Create and test lesson plans that help make gigabit technologies more accessible to educators and learners.</td>
-              <td>The curriculum must be piloted in at least one organization in Austin, Kansas City, or Chattanooga.</td>
-              <td>$5,000</td>
-            </tr>
-            <tr>
-              <td>Multi-Org</td>
-              <td>Pilot gigabit technologies in multiple organizations in a city, strengthening the local gigabit ecosystem.</td>
-              <td>The project must be piloted in two or more organizations in Austin, Kansas City, or Chattanooga.</td>
-              <td>$15,000</td>
-            </tr>
-            <tr>
-              <td>Multi-City</td>
-              <td>Pilot gigabit technologies across communities, helping build a national gigabit ecosystem.</td>
-              <td>The project must be piloted with organizations in at least two gigabit cities. The lead organization must be in Austin, Kansas City, or Chattanooga.</td>
-              <td>$25,000</td>
-            </tr>
+            <thead>
+              <tr>
+                <th>Project Type</th>
+                <th>Description</th>
+                <th>Pilot Requirements</th>
+                <th>Recommended Funding Level</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Curriculum Development </td>
+                <td>Create and test lesson plans that help make gigabit technologies more accessible to educators and learners.</td>
+                <td>The curriculum must be piloted in at least one organization in Austin, Kansas City, or Chattanooga.</td>
+                <td>$5,000</td>
+              </tr>
+              <tr>
+                <td>Multi-Org</td>
+                <td>Pilot gigabit technologies in multiple organizations in a city, strengthening the local gigabit ecosystem.</td>
+                <td>The project must be piloted in two or more organizations in Austin, Kansas City, or Chattanooga.</td>
+                <td>$15,000</td>
+              </tr>
+              <tr>
+                <td>Multi-City</td>
+                <td>Pilot gigabit technologies across communities, helping build a national gigabit ecosystem.</td>
+                <td>The project must be piloted with organizations in at least two gigabit cities. The lead organization must be in Austin, Kansas City, or Chattanooga.</td>
+                <td>$25,000</td>
+              </tr>
+            </tbody>
           </table>
         </div>
 

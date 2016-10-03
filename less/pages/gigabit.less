@@ -167,3 +167,34 @@
     }
   }
 }
+
+.dl-block {
+  background: rgba(227, 131, 0, .1);
+
+  h2 {
+    text-align: center;
+  }
+
+  dl {
+    display: flex;
+    flex-wrap: wrap;
+
+    > * {
+      width: 50%;
+      flex-shrink: 0;
+      border-bottom: 1px solid @white;
+      padding: 1.5em 0;
+      font-weight: 400;
+      font-size: 12px;
+
+      &:nth-last-child(1),
+      &:nth-last-child(2) {
+        border-bottom: 0;
+      }
+    }
+
+    dd {
+      text-align: center;
+    }
+  }
+}
