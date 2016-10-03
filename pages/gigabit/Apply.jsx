@@ -3,6 +3,56 @@ var GigFoot = require('./GigFoot.jsx');
 
 module.exports = React.createClass({
   render() {
+    function buildMatrix(data) {
+      var rows = data.map((row) => {
+        return (
+          <tr>
+            <td>{row.type}</td>
+            <td>{row.description}</td>
+            <td>{row.pilotRequirements}</td>
+            <td>{row.funding}</td>
+          </tr>
+        );
+      });
+
+      var dls = data.map((item) => {
+        return (
+          <dl className="dl-matrix">
+            <dt>Project Type</dt>
+            <dd>{item.type}</dd>
+            <dt>Description</dt>
+            <dd>{item.description}</dd>
+            <dt>Pilot Requirements</dt>
+            <dd>{item.pilotRequirements}</dd>
+            <dt>Recommended Funding Level</dt>
+            <dd>{item.funding}</dd>
+          </dl>
+        );
+      });
+
+      return (
+        <div>
+          <table className="hidden-xs matrix">
+            <thead>
+              <tr>
+                <th>Project Type</th>
+                <th>Description</th>
+                <th>Pilot Requirements</th>
+                <th>Recommended Funding Level</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows}
+            </tbody>
+          </table>
+
+          <div className="visible-xs">
+            {dls}
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div>
         <div className="text-center m-b-3">
@@ -37,37 +87,26 @@ module.exports = React.createClass({
 
         <div className="m-b-3 clearfix">
           <h2 className="text-center m-b-3">Type of Support</h2>
-
-          <table className="matrix">
-            <thead>
-              <tr>
-                <th>Project Type</th>
-                <th>Description</th>
-                <th>Pilot Requirements</th>
-                <th>Recommended Funding Level</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Curriculum Development </td>
-                <td>Create and test lesson plans that help make gigabit technologies more accessible to educators and learners.</td>
-                <td>The curriculum must be piloted in at least one organization in Austin, Kansas City, or Chattanooga.</td>
-                <td>$5,000</td>
-              </tr>
-              <tr>
-                <td>Multi-Org</td>
-                <td>Pilot gigabit technologies in multiple organizations in a city, strengthening the local gigabit ecosystem.</td>
-                <td>The project must be piloted in two or more organizations in Austin, Kansas City, or Chattanooga.</td>
-                <td>$15,000</td>
-              </tr>
-              <tr>
-                <td>Multi-City</td>
-                <td>Pilot gigabit technologies across communities, helping build a national gigabit ecosystem.</td>
-                <td>The project must be piloted with organizations in at least two gigabit cities. The lead organization must be in Austin, Kansas City, or Chattanooga.</td>
-                <td>$25,000</td>
-              </tr>
-            </tbody>
-          </table>
+          {buildMatrix([
+            {
+              type: "Curriculum Development",
+              description: "Create and test lesson plans that help make gigabit technologies more accessible to educators and learners.",
+              pilotRequirements: "The curriculum must be piloted in at least one organization in Austin, Kansas City, or Chattanooga.",
+              funding: "$5,000"
+            },
+            {
+              type: "Multi-Org",
+              description: "Pilot gigabit technologies in multiple organizations in a city, strengthening the local gigabit ecosystem.",
+              pilotRequirements: "The project must be piloted in two or more organizations in Austin, Kansas City, or Chattanooga.",
+              funding: "$15,000"
+            },
+            {
+              type: "Multi-City",
+              description: "Pilot gigabit technologies across communities, helping build a national gigabit ecosystem.",
+              pilotRequirements: "The project must be piloted with organizations in at least two gigabit cities. The lead organization must be in Austin, Kansas City, or Chattanooga.",
+              funding: "$25,000"
+            }
+          ])}
         </div>
 
         <div className="m-b-3 clearfix">
