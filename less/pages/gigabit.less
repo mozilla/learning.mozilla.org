@@ -209,6 +209,11 @@
     display: flex;
     margin-bottom: 2em;
     align-items: center;
+
+    a {
+      font-size: inherit;
+      line-height: inherit;
+    }
   }
 
   li:before {
@@ -250,5 +255,28 @@
     &:last-child {
       border: 0;
     }
+  }
+}
+
+.dl-matrix {
+  display: flex;
+  flex-wrap: wrap;
+
+  dt, dd {
+    padding: 10px;
+
+    &:first-of-type {
+      background: rgba(227, 131, 0, .1);
+    }
+  }
+
+  dt {
+    width: 33%;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+
+  dd {
+    width: 66%;
   }
 }

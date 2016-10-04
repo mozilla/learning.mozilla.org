@@ -113,7 +113,7 @@ module.exports = React.createClass({
           <h2 className="text-center m-b-3">How to Apply</h2>
           <div className="col-xs-6"></div>
           <div className="col-xs-6">
-            <p>We’re here to help make applying for a Gigabit Community Fund grant as easy as possible! We strongly encourage you to get in touch with us via email or Twitter as you prepare your application. Going to a meetup hosted by Hive ATX, Hive KC or Hive CHA is another great way to get help on your proposal.</p>
+            <p>We’re here to help make applying for a Gigabit Community Fund grant as easy as possible! We strongly encourage you to get in touch with us via <a href="mailto:gigabit@mozilla.com">email</a> or <a href="https://twitter.com/MozGig" target="_blank">Twitter</a> as you prepare your application. Going to a meetup hosted by <a href="https://twitter.com/hiveatx" target="_blank">Hive ATX</a>, <a href="https://twitter.com/hivekc" target="_blank">Hive KC</a> or <a href="https://twitter.com/hive_cha" target="_blank">Hive CHA</a> is another great way to get help on your proposal.</p>
           </div>
         </div>
 
@@ -122,11 +122,11 @@ module.exports = React.createClass({
 
           <div className="col-xs-10 col-xs-offset-1">
             <ol className="circled-ol">
-              <li>Review the Gigabit Community Fund’s Terms and Conditions.</li>
-              <li>Submit an optional Intent to Apply form. Though not required, this Intent to Apply form will help our project staff provide you with valuable proposal feedback ahead of the application deadline.</li>
-              <li>Prepare your application using our application form and frequently asked questions document </li>
-              <li>Check out some sample applications that have received funding, here and here. (Please note that proposal format and questions have been updated.)</li>
-              <li>Register on our StartupCompete site and submit your application for review.</li>
+              <li><span>Review the Gigabit Community Fund’s <a href="#">Terms and Conditions</a>.</span></li>
+              <li><span>Submit an optional <a href="https://docs.google.com/a/mozillafoundation.org/forms/d/1r4gR7Nq0Rd4XvA0CQCjd86pkWRIXnhQ9BRLTjl0CBQ4/viewform" target="_blank">Intent to Apply form</a>. Though not required, this Intent to Apply form will help our project staff provide you with valuable proposal feedback ahead of the application deadline.</span></li>
+              <li><span>Prepare your application using our <a href="https://drive.google.com/file/d/0B9NqWPTRsfNXNjlKT0tMVlcySlhfZmVlQTBINXVrN0FSVlI0/view" target="_blank">application form</a> and <a href="https://mzl.la/GCF_FAQ" target="_blank">frequently asked questions</a> document </span></li>
+              <li><span>Check out some sample applications that have received funding, <a href="https://drive.google.com/file/d/0B1Tu07mQk89LRmpfWXlHNmhmQk0/view?usp=sharing" target="_blank">here</a> and <a href="https://drive.google.com/file/d/0B1Tu07mQk89LMGtaY3RYUHRxTWs/view?usp=sharing" target="_blank">here</a>. (Please note that proposal format and questions have been updated.)</span></li>
+              <li><span>Register on our <a href="https://gigabitfund2016.startupcompete.co/" target="_blank">StartupCompete</a> site and submit your application for review.</span></li>
             </ol>
           </div>
         </div>

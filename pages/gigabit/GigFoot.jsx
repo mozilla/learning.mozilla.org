@@ -21,17 +21,17 @@ module.exports = React.createClass({
           <div className="col-sm-4 text-center">
             <img src="/img/pages/gigabit/icon-email.svg"/>
             <h2>Have a Question?</h2>
-            <p>Want to be connected with one of our staff or volunteers? <a href="#">Email us</a></p>
+            <p>Want to be connected with one of our staff or volunteers? <a href="mailto:gigabit@mozilla.com">Email us</a></p>
           </div>
           <div className="col-sm-4 text-center">
             <img src="/img/pages/gigabit/icon-twitter.svg"/>
             <h2>Follow Us</h2>
-            <p>We're <a href="#">@MozGig</a> on Twitter</p>
+            <p>We're <a href="https://twitter.com/MozGig" target="_blank">@MozGig</a> on Twitter</p>
           </div>
           <div className="col-sm-4 text-center">
             <img src="/img/pages/gigabit/icon-join.svg"/>
             <h2>Join Us</h2>
-            <p>Check out our gigabit <a href="#">events</a></p>
+            <p>Check out our gigabit <a href="/gigabit/events">events</a></p>
           </div>
         </div>
       </div>

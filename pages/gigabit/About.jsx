@@ -74,7 +74,7 @@ module.exports = React.createClass({
           <h2>Expanding the Gigabit Community Fund</h2>
           <p>In partnership with the National Science Foundation and US Ignite, we’re expanding the Gigabit Community Fund to three additional gigabit cities by 2018. Add your community below if you are interested in adding to the expansion.</p>
           <div className="middle-button">
-            <a className="secondary-button" href="#">Start a Gigabit City</a>
+            <a className="secondary-button" href="/gigabit/apply">Start a Gigabit City</a>
           </div>
         </div>
 
@@ -98,7 +98,7 @@ module.exports = React.createClass({
                 <p>September 9-11 (CHA)</p>
                 <p>48Hour Launch is a weekend-long business startup experience, designed to inspire entrepreneurial action at the local level. 48HL brings bright minds together to participate in an intensive period of community building, planning</p>
                 <a href="#">Continue reading</a>
-                <a className="secondary-button" href="#">See all events</a>
+                <a className="secondary-button" href="/gigabit/events">See all events</a>
               </div>
             </li>
             <li className="col-sm-4">
