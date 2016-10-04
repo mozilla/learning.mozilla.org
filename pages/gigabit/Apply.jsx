@@ -111,7 +111,9 @@ module.exports = React.createClass({
 
         <div className="m-b-3 clearfix">
           <h2 className="text-center m-b-3">How to Apply</h2>
-          <div className="col-xs-6"></div>
+          <div className="col-xs-6">
+            <a href="https://vimeo.com/180975946" target="_blank"><img className="w-100" src="/img/pages/gigabit/vimeo-player.png"/></a>
+          </div>
           <div className="col-xs-6">
             <p>We’re here to help make applying for a Gigabit Community Fund grant as easy as possible! We strongly encourage you to get in touch with us via <a href="mailto:gigabit@mozilla.com">email</a> or <a href="https://twitter.com/MozGig" target="_blank">Twitter</a> as you prepare your application. Going to a meetup hosted by <a href="https://twitter.com/hiveatx" target="_blank">Hive ATX</a>, <a href="https://twitter.com/hivekc" target="_blank">Hive KC</a> or <a href="https://twitter.com/hive_cha" target="_blank">Hive CHA</a> is another great way to get help on your proposal.</p>
           </div>

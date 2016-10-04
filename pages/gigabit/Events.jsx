@@ -16,13 +16,12 @@ module.exports = React.createClass({
               <div className="project-card m-b-3">
                 <a href="#"><img className="photo" src="/img/pages/gigabit/events/mozfest.jpg"/></a>
                 <div className="p-x-2 p-b-2">
-                  <div className={`city tag tag-orange m-b-0 has-photo`}>Sept 30, 2016</div>
+                  <div className={`city tag tag-orange m-b-0 has-photo`}>October 28-30, 2016</div>
                   <h3 className="m-y-0"><a className="project-name" href="#">Mozilla Festival 2016</a></h3>
                   <p className="lead-org">Ravensbourne - 6 Penrose Way, Greenwich Peninsula, London SE10 0EW</p>
-                  <p className="lead-org">October 28 - 30, 2016</p>
                   <p className="summary">The world’s leading event for and by the open Internet movement. Join us to build, debate, and explore the future of our lives online.</p>
                   <div className="middle-button">
-                    <a className="secondary-button" href="#" target="_blank">See Event</a>
+                    <a className="secondary-button" href="https://mozillafestival.org" target="_blank">See Event</a>
                   </div>
                 </div>
               </div>
@@ -32,10 +31,9 @@ module.exports = React.createClass({
               <div className="project-card m-b-3">
                 <a href="#"><img className="photo" src="/img/pages/gigabit/events/sxsw.png"/></a>
                 <div className="p-x-2 p-b-2">
-                  <div className={`city tag tag-orange m-b-0 has-photo`}>Sept 30, 2016</div>
+                  <div className={`city tag tag-orange m-b-0 has-photo`}>March 6-9, 2017</div>
                   <h3 className="m-y-0"><a className="project-name" href="#">SxSWedu</a></h3>
                   <p className="lead-org">Austin Convention Center - 500 E Cesar Chavez St, Austin, TX 78701</p>
-                  <p className="lead-org">March 6-9, 2017</p>
                   <p className="summary">Join us for a workshop (TBA) and networking throughout</p>
                 </div>
               </div>
