@@ -20,6 +20,18 @@ var EventsResources = React.createClass({
     LogoAsset: LogoAsset
   },
   render: function() {
+    var locale = this.context.intl.locale;
+
+    var localizedHostPackLinks = {
+      "de": "https://docs.google.com/presentation/d/1Or0fja5tUXGONvVEI9IiH772t2Rss1EoRDeCX32syzI/edit?usp=sharing",
+      "pl": "https://docs.google.com/presentation/d/1bUkd1zWFJdzitS2i7ykWsF5xteFcrXAy6W2IhOJlXH0/edit?usp=sharing",
+      "fr": "https://docs.google.com/presentation/d/1BG7qk2HvSgIax2oaFKXThT_jEjdh8YfeHeTeVZjxDdk/edit?usp=sharin",
+      "it": "https://docs.google.com/presentation/d/15Rkio1xrM4I3H20OhQZUgArEtxWJIJWAFScvT0H9Dv0/edit?usp=sharing",
+      "es": "https://docs.google.com/presentation/d/12hDy1vnd73GBRXUxiFIN_sr7lJ8e_5k3vtQfYW5SfdI/edit?usp=sharing"
+    };
+
+    var hostPackLink = localizedHostPackLinks[locale] || "https://docs.google.com/presentation/d/1OpV62j95tN-CuRy2RGWuKXw1P1OS9Vs-94DzkjXS8Po/edit?usp=sharing";
+
     return (
       <div>
         <EventsHeader/>
@@ -128,7 +140,7 @@ var EventsResources = React.createClass({
               </li>
             </ol>
             <div className="text-center">
-              <a href="https://mzl.la/makerpartyhostpack2016" className="btn">
+              <a href={hostPackLink} className="btn">
                 {this.context.intl.formatMessage({id: 'get_host_pack'})}
               </a>
             </div>
