@@ -107,7 +107,7 @@ module.exports = React.createClass({
                 <h1><a href="#">GigBridge</a></h1>
                 <p>GigBridge was an afterschool project that used mobile application design to teach ESL, healthy living, and digital literacy. The project connected students at Chattanooga Girls Leadership Academy and East Lake Academy, two Title I schools in Hamilton County, via</p>
                 <a href="#">Continue reading</a>
-                <a className="secondary-button" href="#">Go to portfolio</a>
+                <a className="secondary-button" href="/gigabit/portfolio">Go to portfolio</a>
               </div>
             </li>
           </ul>

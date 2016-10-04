@@ -5,6 +5,7 @@ var HeroUnit = require('../../components/hero-unit.jsx');
 var About = require('./About.jsx');
 var Portfolio = require('./Portfolio.jsx');
 var Apply = require('./Apply.jsx');
+var Events = require('./Events.jsx');
 
 module.exports = React.createClass({
   contextTypes: {
@@ -33,7 +34,7 @@ module.exports = React.createClass({
         </HeroUnit>
         <div>
           <TabSwitcher ref="tabSwitcher" initialTab={this.props.params.tab || `about`} onChange={this.handleTabChange}>
-            <div slug="about" name="About Mozilla Gigabit" iconDefault="#TODO" iconActive="#TODO">
+            <div slug="about" name="About" iconDefault="#TODO" iconActive="#TODO">
               <About></About>
             </div>
             <div slug="portfolio" name="Portfolio" iconDefault="#TODO" iconActive="#TODO">
@@ -41,6 +42,9 @@ module.exports = React.createClass({
             </div>
             <div slug="apply" name="Apply" iconDefault="#TODO" iconActive="#TODO">
               <Apply></Apply>
+            </div>
+            <div slug="events" name="Events" iconDefault="#TODO" iconActive="#TODO">
+              <Events></Events>
             </div>
           </TabSwitcher>
         </div>
