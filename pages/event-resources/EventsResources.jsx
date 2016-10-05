@@ -30,7 +30,43 @@ var EventsResources = React.createClass({
       "es": "https://docs.google.com/presentation/d/12hDy1vnd73GBRXUxiFIN_sr7lJ8e_5k3vtQfYW5SfdI/edit?usp=sharing"
     };
 
+    var localizedPostcrimesLinks = {
+      "de": "https://advocacy.mozilla.org/de/maker-party/activities/post-crimes",
+      "pl": "https://advocacy.mozilla.org/pl/maker-party/activities/post-crimes",
+      "fr": "https://advocacy.mozilla.org/fr/maker-party/activities/post-crimes",
+      "it": "https://advocacy.mozilla.org/it/maker-party/activities/post-crimes",
+      "es": "https://advocacy.mozilla.org/es/maker-party/activities/post-crimes"
+    };
+
+    var localizedMemeAroundLinks = {
+      "de": "https://advocacy.mozilla.org/de/maker-party/activities/meme-around",
+      "pl": "https://advocacy.mozilla.org/pl/maker-party/activities/meme-around",
+      "fr": "https://advocacy.mozilla.org/fr/maker-party/activities/meme-around",
+      "it": "https://advocacy.mozilla.org/it/maker-party/activities/meme-around",
+      "es": "https://advocacy.mozilla.org/es/maker-party/activities/meme-around"
+    };
+
+    var localizedContributeLinks = {
+      "de": "https://advocacy.mozilla.org/de/maker-party/activities/contribute-to-the-commons",
+      "pl": "https://advocacy.mozilla.org/pl/maker-party/activities/contribute-to-the-commons",
+      "fr": "https://advocacy.mozilla.org/fr/maker-party/activities/contribute-to-the-commons",
+      "it": "https://advocacy.mozilla.org/it/maker-party/activities/contribute-to-the-commons",
+      "es": "https://advocacy.mozilla.org/es/maker-party/activities/contribute-to-the-commons"
+    };
+
+    var localizedCombinedLinks = {
+      "de": "https://advocacy.mozilla.org/de/maker-party/activities/combined-maker-party-activities",
+      "pl": "https://advocacy.mozilla.org/pl/maker-party/activities/combined-maker-party-activities",
+      "fr": "https://advocacy.mozilla.org/fr/maker-party/activities/combined-maker-party-activities",
+      "it": "https://advocacy.mozilla.org/it/maker-party/activities/combined-maker-party-activities",
+      "es": "https://advocacy.mozilla.org/es/maker-party/activities/combined-maker-party-activities"
+    };
+
     var hostPackLink = localizedHostPackLinks[locale] || "https://docs.google.com/presentation/d/1OpV62j95tN-CuRy2RGWuKXw1P1OS9Vs-94DzkjXS8Po/edit?usp=sharing";
+    var postCrimesLink = localizedPostcrimesLinks[locale] || "https://advocacy.mozilla.org/en-US/maker-party/activities/post-crimes";
+    var memeAroundLink = localizedMemeAroundLinks[locale] || "https://advocacy.mozilla.org/en-US/maker-party/activities/meme-around";
+    var contributeLink = localizedContributeLinks[locale] || "https://advocacy.mozilla.org/en-US/maker-party/activities/contribute-to-the-commons";
+    var combinedLink = localizedCombinedLinks[locale] || "https://advocacy.mozilla.org/en-US/maker-party/activities/combined-maker-party-activities";
 
     return (
       <div>
@@ -60,7 +96,7 @@ var EventsResources = React.createClass({
             alt="Maker Party logo"
             >
               <h3 className="uppercase">
-                <a href="#">
+                <a href={postCrimesLink}>
                   {this.context.intl.formatMessage({id: 'maker_party_activity_7_title'})}
                 </a>
               </h3>
@@ -75,7 +111,7 @@ var EventsResources = React.createClass({
             alt="Maker Party logo"
             >
               <h3 className="uppercase">
-                <a href="#">
+                <a href={memeAroundLink}>
                   {this.context.intl.formatMessage({id: 'maker_party_activity_1_title'})}
                 </a>
               </h3>
@@ -90,7 +126,7 @@ var EventsResources = React.createClass({
             alt="Maker Party logo"
             >
               <h3 className="uppercase">
-                <a href="#">
+                <a href={contributeLink}>
                   {this.context.intl.formatMessage({id: 'maker_party_activity_2_title'})}
                 </a>
               </h3>
@@ -105,7 +141,7 @@ var EventsResources = React.createClass({
             alt="Maker Party logo"
             >
               <h3 className="uppercase">
-                <a href="#">
+                <a href={combinedLink}>
                   {this.context.intl.formatMessage({id: 'maker_party_activity_8_title'})}
                 </a>
               </h3>
