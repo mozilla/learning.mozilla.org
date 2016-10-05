@@ -32,12 +32,10 @@ var MENU_ENTRIES = [
         name: "mozilla_clubs",
         to: '/clubs'
       },
-      /*
       {
         name: "maker_party",
         to: '/events'
       },
-      */
       {
         name: "hive_learning_networks",
         to: config.HIVE_LEARNING_NETWORKS_URL
