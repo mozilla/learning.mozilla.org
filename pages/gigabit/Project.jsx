@@ -4,6 +4,8 @@ module.exports = React.createClass({
   render() {
     var data = this.props.data;
 
+    var leadOrg = data.Link ? <a target="_blank" href={data.Link}>{data[`Lead Organization`]}</a> : data[`Lead Organization`];
+
     return (
       <div>
         <div className="m-b-3 clearfix">
@@ -24,7 +26,7 @@ module.exports = React.createClass({
           <div className="project-metadata p-y-2 col-xs-6 grey-block">
             <dl className="project-metadata-dl">
               <dt>Lead Organization</dt>
-              <dd><a target="_blank" href={data.Link}>{data[`Lead Organization`]}</a></dd>
+              <dd>{leadOrg}</dd>
 
               <dt>Partner Organization</dt>
               <dd>{data[`Other Partner Organizations`]}</dd>

@@ -9,7 +9,7 @@
     "Lead Organization": "Adagio",
     "Other Partner Organizations": "Barger Academy of Fine Art, University of Tennessee at Chattanooga",
     "Photo": "http://hivecha.org/wp-content/uploads/adagio_edit-320x240.png",
-    "Link": "N/A",
+    "Link": null,
     "Tech Tags": "",
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy"
   },
@@ -93,7 +93,7 @@
     "Lead Organization": "GeonCode",
     "Other Partner Organizations": "University of Tennessee at Chattanooga, Baylor School, Chattanooga Public Library",
     "Photo": "",
-    "Link": "Inactive",
+    "Link": null,
     "Tech Tags": "Video",
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy"
   },
@@ -135,7 +135,7 @@
     "Lead Organization": "Bonner Springs Fire Department",
     "Other Partner Organizations": "McGill University",
     "Photo": "",
-    "Link": "Inactive",
+    "Link": null,
     "Tech Tags": "AR",
     "Issue Area Tags": "Open Innovation"
   },
@@ -275,7 +275,7 @@
     "Lead Organization": "Genesee Intermediate School District",
     "Other Partner Organizations": "Hamilton County Department of Education, US Ignite, University of Southern California, Enterprise Center",
     "Photo": "",
-    "Link": "",
+    "Link": null,
     "Tech Tags": "Video",
     "Issue Area Tags": "Open Innovation"
   },
