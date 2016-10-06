@@ -41,10 +41,12 @@ var CommunityCallPage = React.createClass({
 
 
           <h3>Workshop Video Stream</h3>
-
           <p>
-            The livestream will be embedded here on the day of the call. You can also participate with us on the etherpad below during the call.
+            On the day of the Community Call, the livestream will appear below. You may need to refresh your browser.
           </p>
+          <div className="video-wrapper">
+          <iframe width="560" height="315" src="https://air.mozilla.org/mozilla-learning-science-community-call-2016-10-13/video/" frameBorder="0" allowFullScreen></iframe>
+          </div>
 
           <h4>
             Open Agenda
