@@ -1,81 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 19.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 165.6 165.6" style="enable-background:new 0 0 165.6 165.6;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#DBF1FA;}
-	.st1{fill:none;stroke:#020303;stroke-width:2;stroke-miterlimit:10;}
-	.st2{fill:none;stroke:#020303;stroke-width:2;stroke-miterlimit:10;stroke-dasharray:4,2;}
-	.st3{fill:none;stroke:#020303;stroke-width:2;stroke-linejoin:bevel;stroke-miterlimit:10;}
-	.st4{fill:#020303;}
-	.st5{fill:#B6E3F8;}
-	.st6{fill:#E6D8BE;}
-	.st7{fill:none;stroke:#EC581E;stroke-width:26;stroke-miterlimit:10;}
-	.st8{fill:#EB5322;}
-	.st9{fill:#EC581E;}
-	.st10{fill:#2499DA;}
-	.st11{fill:none;}
-	.st12{fill:#D9CBB5;}
-	.st13{fill:#1C1C1A;}
-	.st14{fill:#262724;}
-	.st15{fill:none;stroke:#FFFFFF;stroke-miterlimit:10;}
-	.st16{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;}
-	.st17{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;}
-	.st18{fill:#1F85B1;}
-	.st19{fill:#009DEB;}
-	.st20{fill:#009DEB;stroke:#000000;stroke-miterlimit:10;}
-	.st21{fill:#FFFFFF;}
-	.st22{stroke:#000000;stroke-miterlimit:10;}
-	.st23{fill:#897266;}
-	.st24{fill:#FFF300;}
-	.st25{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-miterlimit:10;}
-	.st26{stroke:#6D6F72;stroke-width:9;stroke-miterlimit:10;}
-	.st27{fill:#B3B3B3;}
-	.st28{stroke:#FFF300;stroke-miterlimit:10;}
-	.st29{fill:#FFFFFF;stroke:#000000;stroke-width:0.75;stroke-miterlimit:10;}
-	.st30{fill:none;stroke:#000000;stroke-width:0.75;stroke-miterlimit:10;}
-	.st31{clip-path:url(#SVGID_2_);fill:#2499DA;}
-	.st32{clip-path:url(#SVGID_4_);fill:#2499DA;}
-	.st33{fill:none;stroke:#EC581E;stroke-miterlimit:10;}
-	.st34{fill:none;stroke:#EC581E;stroke-miterlimit:10;stroke-dasharray:4,3;}
-</style>
-<g>
-	<g>
-		<rect x="52" y="73.8" class="st33" width="52" height="26"/>
-		<polyline class="st33" points="62,71.8 62,63.8 114,63.8 114,89.8 106,89.8 		"/>
-		<path class="st33" d="M61,95.8c0-3-2-4-5-4v-10c3,0,5-1,5-4h35c0,3,2,4,4,4v10c-2,0-4,1-4,4H61z"/>
-		<circle class="st33" cx="78" cy="86.8" r="5"/>
-	</g>
-	<circle class="st33" cx="83" cy="82.8" r="60.9"/>
-	<g>
-		<line class="st34" x1="9.8" y1="82.8" x2="34.4" y2="82.8"/>
-		<line class="st34" x1="131.5" y1="82.8" x2="156.2" y2="82.8"/>
-		<line class="st34" x1="83" y1="9.6" x2="83" y2="34.2"/>
-		<line class="st34" x1="83" y1="131.4" x2="83" y2="156"/>
-		<g>
-			<line class="st33" x1="134.7" y1="31.1" x2="117.9" y2="47.9"/>
-			<g>
-				<polygon class="st9" points="117.5,44 118.2,44 118.1,47.7 121.8,47.6 121.8,48.3 117.3,48.5 				"/>
-			</g>
-		</g>
-		<g>
-			<line class="st33" x1="48.1" y1="117.7" x2="31.3" y2="134.5"/>
-			<g>
-				<polygon class="st9" points="44.2,117.3 44.2,118 47.9,117.9 47.7,121.6 48.5,121.6 48.7,117.1 				"/>
-			</g>
-		</g>
-		<g>
-			<line class="st33" x1="134.7" y1="134.5" x2="117.9" y2="117.7"/>
-			<g>
-				<polygon class="st9" points="121.8,117.3 121.8,118 118.1,117.9 118.2,121.6 117.5,121.6 117.3,117.1 				"/>
-			</g>
-		</g>
-		<g>
-			<line class="st33" x1="48.1" y1="47.9" x2="31.3" y2="31.1"/>
-			<g>
-				<polygon class="st9" points="48.5,44 47.7,44 47.9,47.7 44.2,47.6 44.2,48.3 48.7,48.5 				"/>
-			</g>
-		</g>
-	</g>
-</g>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 165.6 165.6">
+    <style>
+        .st0{fill:#DBF1FA;} .st1{fill:none;stroke:#020303;stroke-width:2;stroke-miterlimit:10;} .st2{fill:none;stroke:#020303;stroke-width:2;stroke-miterlimit:10;stroke-dasharray:4,2;} .st3{fill:none;stroke:#020303;stroke-width:2;stroke-linejoin:bevel;stroke-miterlimit:10;} .st4{fill:#020303;} .st5{fill:#B6E3F8;} .st6{fill:#E6D8BE;} .st7{fill:none;stroke:#EC581E;stroke-width:26;stroke-miterlimit:10;} .st8{fill:#EB5322;} .st9{fill:#EC581E;} .st10{fill:#2499DA;} .st11{fill:none;} .st12{fill:#D9CBB5;} .st13{fill:#1C1C1A;} .st14{fill:#262724;} .st15{fill:none;stroke:#FFFFFF;stroke-miterlimit:10;} .st16{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;} .st17{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;} .st18{fill:#1F85B1;} .st19{fill:#009DEB;} .st20{fill:#009DEB;stroke:#000000;stroke-miterlimit:10;} .st21{fill:#FFFFFF;} .st22{stroke:#000000;stroke-miterlimit:10;} .st23{fill:#897266;} .st24{fill:#FFF300;} .st25{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-miterlimit:10;} .st26{stroke:#6D6F72;stroke-width:9;stroke-miterlimit:10;} .st27{fill:#B3B3B3;} .st28{stroke:#FFF300;stroke-miterlimit:10;} .st29{fill:#FFFFFF;stroke:#000000;stroke-width:0.75;stroke-miterlimit:10;} .st30{fill:none;stroke:#000000;stroke-width:0.75;stroke-miterlimit:10;} .st31{clip-path:url(#SVGID_2_);fill:#2499DA;} .st32{clip-path:url(#SVGID_4_);fill:#2499DA;} .st33{fill:none;stroke:#EC581E;stroke-miterlimit:10;} .st34{fill:none;stroke:#EC581E;stroke-miterlimit:10;stroke-dasharray:4,3;}
+    </style>
+    <path class="st33" d="M52 73.8h52v26H52z"/>
+    <path class="st33" d="M62 71.8v-8h52v26h-8"/>
+    <path class="st33" d="M61 95.8c0-3-2-4-5-4v-10c3 0 5-1 5-4h35c0 3 2 4 4 4v10c-2 0-4 1-4 4H61z"/>
+    <circle class="st33" cx="78" cy="86.8" r="5"/>
+    <circle class="st33" cx="83" cy="82.8" r="60.9"/>
+    <g>
+        <path class="st34" d="M9.8 82.8h24.6M131.5 82.8h24.7M83 9.6v24.6M83 131.4V156"/>
+        <path class="st33" d="M134.7 31.1l-16.8 16.8"/>
+        <path class="st9" d="M117.5 44h.7l-.1 3.7 3.7-.1v.7l-4.5.2z"/>
+        <path class="st33" d="M48.1 117.7l-16.8 16.8"/>
+        <path class="st9" d="M44.2 117.3v.7l3.7-.1-.2 3.7h.8l.2-4.5z"/>
+        <g>
+            <path class="st33" d="M134.7 134.5l-16.8-16.8"/>
+            <path class="st9" d="M121.8 117.3v.7l-3.7-.1.1 3.7h-.7l-.2-4.5z"/>
+        </g>
+        <g>
+            <path class="st33" d="M48.1 47.9L31.3 31.1"/>
+            <path class="st9" d="M48.5 44h-.8l.2 3.7-3.7-.1v.7l4.5.2z"/>
+        </g>
+    </g>
 </svg>
