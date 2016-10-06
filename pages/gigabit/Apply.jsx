@@ -68,7 +68,7 @@ module.exports = React.createClass({
               <li>Focus on education or workforce development</li>
               <li>Leverage next-generation technologies like ultra high-speed networking</li>
             </ol>
-            <p>Participation is open to companies, academic institutions, and non-profit organizations. Funding will not be granted to unaffiliated individuals acting on their own. Before submitting your application, please review the Gigabit Community Fund’s <a href="#">Terms and Conditions</a>.</p>
+            <p>Participation is open to companies, academic institutions, and non-profit organizations. Funding will not be granted to unaffiliated individuals acting on their own. Before submitting your application, please review the Gigabit Community Fund’s <a href="/gigabit/apply/terms">Terms and Conditions</a>.</p>
           </div>
           <div className="col-sm-6 dl-block">
             <h2>Key Dates</h2>
@@ -124,7 +124,7 @@ module.exports = React.createClass({
 
           <div className="col-xs-10 col-xs-offset-1">
             <ol className="circled-ol">
-              <li><span>Review the Gigabit Community Fund’s <a href="#">Terms and Conditions</a>.</span></li>
+              <li><span>Review the Gigabit Community Fund’s <a href="/gigabit/apply/terms">Terms and Conditions</a>.</span></li>
               <li><span>Submit an optional <a href="https://docs.google.com/a/mozillafoundation.org/forms/d/1r4gR7Nq0Rd4XvA0CQCjd86pkWRIXnhQ9BRLTjl0CBQ4/viewform" target="_blank">Intent to Apply form</a>. Though not required, this Intent to Apply form will help our project staff provide you with valuable proposal feedback ahead of the application deadline.</span></li>
               <li><span>Prepare your application using our <a href="https://drive.google.com/file/d/0B9NqWPTRsfNXNjlKT0tMVlcySlhfZmVlQTBINXVrN0FSVlI0/view" target="_blank">application form</a> and <a href="https://mzl.la/GCF_FAQ" target="_blank">frequently asked questions</a> document </span></li>
               <li><span>Check out some sample applications that have received funding, <a href="https://drive.google.com/file/d/0B1Tu07mQk89LRmpfWXlHNmhmQk0/view?usp=sharing" target="_blank">here</a> and <a href="https://drive.google.com/file/d/0B1Tu07mQk89LMGtaY3RYUHRxTWs/view?usp=sharing" target="_blank">here</a>. (Please note that proposal format and questions have been updated.)</span></li>

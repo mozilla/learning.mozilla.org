@@ -6,6 +6,7 @@ var About = require('./About.jsx');
 var Portfolio = require('./Portfolio.jsx');
 var Apply = require('./Apply.jsx');
 var Events = require('./Events.jsx');
+var Terms = require('./Terms.jsx');
 
 module.exports = React.createClass({
   contextTypes: {
@@ -26,6 +27,16 @@ module.exports = React.createClass({
     });
   },
   render() {
+    var applyGuts;
+
+    if (this.props.params.tab === 'apply') {
+      if (!this.props.params.subview) {
+        applyGuts = <Apply></Apply>;
+      } else if (this.props.params.subview === 'terms') {
+        applyGuts = <Terms></Terms>;
+      }
+    }
+
     return (
       <div>
         <HeroUnit>
@@ -38,10 +49,10 @@ module.exports = React.createClass({
               <About></About>
             </div>
             <div slug="portfolio" name="Portfolio" iconDefault="#TODO" iconActive="#TODO">
-              <Portfolio project={this.props.params.project || null}></Portfolio>
+              <Portfolio project={this.props.params.tab === 'portfolio' ? this.props.params.subview : null}></Portfolio>
             </div>
             <div slug="apply" name="Apply" iconDefault="#TODO" iconActive="#TODO">
-              <Apply></Apply>
+              {applyGuts}
             </div>
             <div slug="events" name="Events" iconDefault="#TODO" iconActive="#TODO">
               <Events></Events>
