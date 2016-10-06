@@ -19,7 +19,7 @@ var communityList = [
     header: 'Clubs Open Office Hours',
     description: 'Have questions about Mozilla Clubs? Want to discuss what Mozilla Clubs looks like in your community? Want to share what your Mozilla Club is doing or or where you need help? Join us at our monthly office hours.',
     linkText: 'Find upcoming office hour dates.',
-    linkUrl: 'http://mozilla.github.io/learning-networks/clubs/#officehours'
+    linkUrl: 'https://mozillaclubs.youcanbook.me/'
   },
   {
     imgSrc1x: '/img/pages/community/hive.jpg',
