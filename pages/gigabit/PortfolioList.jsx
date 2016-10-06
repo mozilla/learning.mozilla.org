@@ -14,6 +14,7 @@ module.exports = React.createClass({
       var matched = false;
 
       if (
+        project.City.toLowerCase().match(query) ||
         project.Project.toLowerCase().match(query) ||
         project.Year.toString().match(query) ||
         project[`Project Summary`].toLowerCase().match(query)) {
