@@ -35,7 +35,7 @@
     "start:less": "chokidar-cmd -c \"npm run less\" -t less",
     "start:client": "npm run webpack:client -- --watch",
     "start:server": "npm run webpack:server -- --watch",
-    "test": "run-s prep test:lint test:mocha",
+    "test": "run-s prep test:*",
     "test:lint": "npm run lint",
     "test:mocha": "mocha --compilers js:babel-core/register",
     "test:spider": "node spider",
