@@ -2,7 +2,7 @@
   {
     "Year": 2014,
     "City": "CHA",
-    "Project": "Adiago",
+    "Project": "Adagio",
     "Project Summary": "The brainchild of Gig City Production‘s Jonathan Susman, Adagio is a cloud-based remote audio mixing tool co-developed with UTC Computer Science Professor Craig Tannis and several of his graduate students. Utilizing Chattanooga’s gigabit network, Adagio’s cloud-based platform drastically lowers the financial and technological barriers to mixing audio – students and professionals alike have access to studio-quality tools right from their browser.",
     "Outcomes": "Winner of Co.Lab‘s 48-Hour Launch and awarded funding during the Gigabit Community Fund’s first round in 2014, Adagio has since been demoed in London at Mozilla’s annual MozFest as well as at the National Science Foundation’s CyberLearning 2015 conference in Arlington, VA. Jonathan and Adagio also worked with teachers from the Barger Academy of Fine Arts, a magnet school in the Gig City, to develop curricula around the tool; they’ve also been featured during Chattanooga’s Startup Week and the opening of the Public Library’s GigLab. They further participated in GIGTANK 2016.",
     "Gigabit Advantage": "Large single-track music files are stored in the cloud and can be downloaded seemlessly to any user. Low-latency networks solve common issue of sync in music remixing, allows for seemless collaboration across town, and real-time feedback from one user to another working on the same piece of music.",
