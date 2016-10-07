@@ -32,6 +32,8 @@ module.exports = React.createClass({
   },
   render() {
     var projects = this.state.projects.filter((project) => { return !project.isFiltered; }).map((project, index) => {
+      var leadOrg = project.Link ? <a href={project.Link} target="_blank">{project[`Lead Organization`]}</a> : project[`Lead Organization`];
+
       return (
         <div key={`project-${index}`} className={`col-md-4${index % 3 === 0 ? ` clear-left` : ``}`}>
           <div className="project-card m-b-3">
@@ -39,7 +41,7 @@ module.exports = React.createClass({
             <div className="p-x-2 p-b-2">
               <div className={`city tag tag-orange m-b-0 ${project.Photo ? ` has-photo` : ` m-t-2`}`}>{project.City}</div>
               <h3 className="m-y-0"><a className="project-name" href={`/gigabit/portfolio/${project.stub}`}>{project.Project}</a></h3>
-              <p className="lead-org">Lead Org: <a href="#">{project[`Lead Organization`]}</a></p>
+              <p className="lead-org">Lead Org: {leadOrg}</p>
               <p className="summary">{`${project[`Project Summary`].slice(0,200)} [...]`}</p>
             </div>
           </div>
