@@ -3,12 +3,14 @@ var React = require('react');
 module.exports = React.createClass({
   getInitialState() {
     return {
-      projects: this.props.portfolioData
+      projects: this.props.portfolioData,
+      visibleProjects: this.props.portfolioData.length
     };
   },
   doFilter() {
     var query = this.refs.projectFilter.value.toLowerCase();
     var filteredProjects = [];
+    var visibleProjects = 0;
 
     this.state.projects.forEach((project) => {
       var matched = false;
@@ -19,6 +21,7 @@ module.exports = React.createClass({
         project.Year.toString().match(query) ||
         project[`Project Summary`].toLowerCase().match(query)) {
         matched = true;
+        visibleProjects++;
       }
 
       project.isFiltered = !matched;
@@ -27,7 +30,8 @@ module.exports = React.createClass({
     });
 
     this.setState({
-      projects: filteredProjects
+      projects: filteredProjects,
+      visibleProjects: visibleProjects
     });
   },
   render() {
@@ -66,6 +70,8 @@ module.exports = React.createClass({
             <div className="m-b-3 row">
               {projects}
             </div>
+
+            <h3 hidden={this.state.visibleProjects} className="m-b-3">No results found!</h3>
           </div>
         </div>
       </div>
