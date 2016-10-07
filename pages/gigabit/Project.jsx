@@ -28,7 +28,7 @@ module.exports = React.createClass({
               <dt>Lead Organization</dt>
               <dd>{leadOrg}</dd>
 
-              <dt>Partner Organization</dt>
+              <dt hidden={!data[`Other Partner Organizations`]}>Partner Organization</dt>
               <dd>{data[`Other Partner Organizations`]}</dd>
             </dl>
           </div>
