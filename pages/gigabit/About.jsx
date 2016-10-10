@@ -74,7 +74,7 @@ module.exports = React.createClass({
           <h2>Expanding the Gigabit Community Fund</h2>
           <p>In partnership with the National Science Foundation and US Ignite, we’re expanding the Gigabit Community Fund to three additional gigabit cities by 2018. Add your community below if you are interested in adding to the expansion.</p>
           <div className="middle-button">
-            <a className="secondary-button" href="/gigabit/apply">Start a Gigabit City</a>
+            <a className="secondary-button" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSdDAQL4KlvHaDHPxsYsx4bbVJ1v_5MROrQ3uD18_Z7ghAL9Iw/viewform">Start a Gigabit City</a>
           </div>
         </div>
 
