@@ -107,7 +107,7 @@ module.exports = React.createClass({
                 <h1><a href="/gigabit/portfolio/raspberry-python-music-genie">Raspberry Python Music Genie</a></h1>
                 <p>Local students are learning how to build their own air synthesizer by using Python coding languages and a Raspberry Pi. The resulting technology, Stage Genies, will be showcased by the Chattanooga Ballet at an event in downtown Chattanooga.</p>
                 <a href="/gigabit/portfolio/raspberry-python-music-genie">Continue reading</a>
-                <a className="secondary-button" href="/gigabit/portfolio">Go to portfolio</a>
+                <a className="secondary-button" href="/gigabit/portfolio">See all projects</a>
               </div>
             </li>
           </ul>
