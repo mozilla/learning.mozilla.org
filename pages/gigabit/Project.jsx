@@ -1,10 +1,17 @@
 var React = require('react');
+var locationHash = require('./locations.json');
 
 module.exports = React.createClass({
   render() {
     var data = this.props.data;
 
     var leadOrg = data.Link ? <a target="_blank" href={data.Link}>{data[`Lead Organization`]}</a> : data[`Lead Organization`];
+
+    var cityTags = data.City.map((city, index) => {
+      return (
+        <div key={index} className="tag tag-orange">{locationHash[city]}</div>
+      );
+    });
 
     return (
       <div>
@@ -18,7 +25,7 @@ module.exports = React.createClass({
         <div className="meta-block m-b-3 clearfix">
           <div className="hero col-xs-6" style={{backgroundImage: `url(${data.Photo})`}}>
             <div className="tags">
-              <div className="tag tag-orange">{data.City}</div>
+              {cityTags}
               <div className="tag tag-orange">{data.Year}</div>
             </div>
             <img className="w-100" src={data.Photo}/>

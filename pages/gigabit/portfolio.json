@@ -1,7 +1,7 @@
 [
   {
     "Year": 2014,
-    "City": "CHA",
+    "City": ["CHA"],
     "Project": "Adagio",
     "Project Summary": "The brainchild of Gig City Production‘s Jonathan Susman, Adagio is a cloud-based remote audio mixing tool co-developed with UTC Computer Science Professor Craig Tannis and several of his graduate students. Utilizing Chattanooga’s gigabit network, Adagio’s cloud-based platform drastically lowers the financial and technological barriers to mixing audio – students and professionals alike have access to studio-quality tools right from their browser.",
     "Outcomes": "Winner of Co.Lab‘s 48-Hour Launch and awarded funding during the Gigabit Community Fund’s first round in 2014, Adagio has since been demoed in London at Mozilla’s annual MozFest as well as at the National Science Foundation’s CyberLearning 2015 conference in Arlington, VA. Jonathan and Adagio also worked with teachers from the Barger Academy of Fine Arts, a magnet school in the Gig City, to develop curricula around the tool; they’ve also been featured during Chattanooga’s Startup Week and the opening of the Public Library’s GigLab. They further participated in GIGTANK 2016.",
@@ -15,7 +15,7 @@
   },
   {
     "Year": 2014,
-    "City": "CHA",
+    "City": ["CHA"],
     "Project": "Building an App from the Ground Up",
     "Project Summary": "A collaboration between the Creative Discovery Museum‘s Museum Apprentice Program and developers from Spartan Systems, Inc., Building an App from the Ground, Up is both a platform and toolbox for other education programs. Under the guidance of CDM’s Randy Jestice and James Candan of Spartan System, a group of teen volunteers has researched, designed and built a scavenger hunt app featuring some of the museum’s entomological exhibits.",
     "Outcomes": "In developing this immersive learning tool, the students have done everything from the art elements to programming the game itself; a separate teen A/V team filmed and edited videos of the project while in progress, as well as handling all social media updates and the project blog. In many ways, the MAPs team has evolved into their own development company, serving Chattanooga’s young museum-goers. Funded during the second round of the Gigabit Community Fund, the project demoed at the Mini Maker Faire during Startup Week; a beta version of Critter Catch, their app, is nearing release.",
@@ -29,7 +29,7 @@
   },
   {
     "Year": 2014,
-    "City": "CHA",
+    "City": ["CHA"],
     "Project": "devLearn",
     "Project Summary": "From a nascent idea for a mobile learn-to-code app, Duncan Ingram, Inc. developers Tim Coy and Jonathan Williams brought devLearn to life at Hackanooga – Chattanooga’s second annual weekend of civic hacking – in July of 2014. The free app, now available for both iOS and Android, offers gamefied lessons in HTML and CSS, with a JavaScript tutorial on the way. One of its chief innovations has been in eliminating the need for typing on a mobile device; asking the user multiple choice questions and to code via drag-and-drop blocks, devLearn takes the frustration of a misplaced period or an errant space out of the programming equation.",
     "Outcomes": "Awarded funding during the second round of the Gigabit Community Fund, devLearn demoed at Chattanooga’s own Mini Maker Faire, as well as the World Maker Faire in Flushing Meadow, NY, before piloting with library students at Clifton Hills Elementary School. devLearn illustrates what the gig’s low-latency and a pair of civic-minded developers can mean to a city: Downloaded more than 1500 times in its first two months, students, parents and teachers throughout Hamilton County (and beyond) are learning how to code for the first time.",
@@ -43,7 +43,7 @@
   },
   {
     "Year": 2014,
-    "City": "CHA",
+    "City": ["CHA"],
     "Project": "GigBridge",
     "Project Summary": "GigBridge, proposed by GPS senior Anjali Chandra and funded through the second round of the Gigabit Community Fund, leveraged the gig to connect students via streaming video at Chattanooga Girls Leadership Academy and East Lake Academy, two Title I schools in Hamilton County. With the help of Jill Pala, GPS’s Chair of Computer Science, members of the Spanish department and a team of her classmates – as well as support from UTC and TVA – Anjali ran an after-school program focusing on English as a second language and healthier lifestyle skills through app design, developing a publicly-available digital literacy curriculum along the way.",
     "Outcomes": "Pilot participants learned the basics of and built mobile applications over the course of eight weeks, creating versions in both English and Spanish. At a ceremony judged by local developers, each student team presented their completed applications to a packed house – with Mayor Andy Berke handing out awards. Anjali has since received additional funding from Causeway to help continue the project.",
@@ -57,7 +57,7 @@
   },
   {
     "Year": 2014,
-    "City": "CHA",
+    "City": ["CHA"],
     "Project": "Hyperlocal Hyperaudio",
     "Project Summary": "Hyperaudio, Inc. – designers of an open-source tool for remixing audio and video – partnered with the Chattanooga Public Library to produce a “hyperlocal” platform tied to archival material fromWTCI, a local PBS affiliate. A media-heavy browser application and natural fit for the gig, the Hyperaudio Pad allows users to manipulate and create content by dragging and dropping selections from text and transcripts tied to audio or video files",
     "Outcomes": "Over the course of the first round of support from the Gigabit Community Fund, Hyperlocal Hyperaudio demoed at Maker Partiesin the Bronx and in Chattanooga, as well as at Co.Lab’s GigTankDemo Day in 2014. Justin Hoenke, head of Teen Services for the library, and teachers from the Howard School developed lesson plans around the platform, engaging students in local history while learning through play; future collaboration has been planned with the Hunter Museum of American Art.",
@@ -71,7 +71,7 @@
   },
   {
     "Year": 2014,
-    "City": "CHA",
+    "City": ["CHA"],
     "Project": "The GigLab",
     "Project Summary": "The GigLab is a unique space offering public access to gigabit enabled tools, technology and education. Housed on the celebrated 4th Floor, this second round Gigabit Community Fund project pushes the idea of creation, not just consumption, at the Chattanooga Public Library to more than 1000 Mb/s, and, with equipment ranging from Arduinos demonstrating basic network infrastructure to streaming 4K television, the lab offers an opportunity for patrons to understand just what those speeds mean.",
     "Outcomes": "The GigLab has also been a boon to Chattanooga’s developer community – many other Mozilla Gigabit Fund projects demoed during November’s grand opening – as well as the Open Chattanooga Brigade, who have been been able to utilize the available bandwidth for processing large data sets. Planned future applications include pairing virtual reality headsets with city lidar and GIS data to build immersive educational experiences for younger patrons (a Minecraft-based project being piloted in conjunction with the Kansas City Digital Media Lab) and regular low-latency performances with musicians in other gigabit cities, including Burlington, VE.",
@@ -85,7 +85,7 @@
   },
   {
     "Year": 2014,
-    "City": "CHA",
+    "City": ["CHA"],
     "Project": "Viditor",
     "Project Summary": "Viditor is an open-source, collaborative video editor, leveraging gigabit speed to allow multiple users to create and edit projects in real time and from any device with a modern browser.  It was the only project to be funded in both 2014 rounds of the Gigabit Community Fund.",
     "Outcomes": "Viditor was accepted into UTC’s College of Computer Science & Engineering Senior Capstone program, where a team of students has joined the app founders in adding additional cloud functionality. And while still a work in progress, Viditor demoed at the Creative Discovery Museum during Startup Week, with Andrew live-programming additional camera filters for an enthusiastic audience, as well as at the Fiber to the Home Council conference in Ft. Lauderdale, FL this June. The project has since been piloted in an art class at the Baylor School and with beta-testers at the Chattanooga Public Library.",
@@ -99,7 +99,7 @@
   },
   {
     "Year": 2014,
-    "City": "CHA",
+    "City": ["CHA"],
     "Project": "Wireless Earth Watchdogs",
     "Project Summary": "Science classes from the Chattanooga School for the Arts and Sciences partnered with Hixson High School to build a real-time water quality monitoring network, using big data to effect environmental change. Lead by CSAS’s Davis Mounger and Ashley Patterson-Johnston and Joyce Purdue from Hixson, students designed, built and programmed buoys, monitoring devices and wireless sending-units to collect information from various locations within the North Chickamauga Creek watershed using SparkFun Electronics‘ microcontroller platform. The schools have been collaborating with Dr. Mark Schorr, a professor from the Department of Biological and Environmental Sciences at UTC, where their network is contributing to his decades-long project monitoring regional water pollution, providing streaming data where previously only annual or biannual samplings were practical.",
     "Outcomes": "Originally funded during the second round of the 2014 Gigabit Community Fund, the class was so popular that Hixson has begun offering Wireless Earth Watchdogs as an extracurricular club – the original pilot students serve as mentors – as well as supporting a second semester of the course.",
@@ -113,7 +113,7 @@
   },
   {
     "Year": 2014,
-    "City": "KC, CHI",
+    "City": ["CHI", "KC"],
     "Project": "3D Multi-School Learning",
     "Project Summary": "A project featuring next gen telepresence technology to teach Computer Programming and Video Game Design, providing a key STEAM pathway for students in a multi-school setting.",
     "Outcomes": "This project delivered high-tech innovation to interest-driven pursuits for underrepresented students in STEAM subjects. The initative was replicated by Hive Chicago members in 2015.",
@@ -127,7 +127,7 @@
   },
   {
     "Year": 2014,
-    "City": "KC",
+    "City": ["KC"],
     "Project": "Augmented Reality",
     "Project Summary": "The Bonner Springs Fire Department led this project to develop a specialized training system that equips first response trainees with heads-up displays (currently Google Glass) to share live video and real-time information during training and simulation scenarios. This civic application for workforce training uses aggregated data to create an augmented reality simulation for use in training and coordinating first responders’ actions in the field.",
     "Outcomes": "Cities are the initial benefactors of this workforce develoment technology, especially rural communities with limited emergency response training options.",
@@ -141,7 +141,7 @@
   },
   {
     "Year": 2014,
-    "City": "KC",
+    "City": ["KC"],
     "Project": "Gigabit Cafe",
     "Project Summary": "This project piloted the first public test of the Software Lending Library in Kansas City. The project aims to bring the benefits of gigabit internet connectivity to clients and neighbors in an underserved area of Kansas City. More than just a way to borrow free programs, the Software Lending Library was created to enhance digital inclusion by enabling people to access software needed to be successful in a technology-driven world.",
     "Outcomes": "This project was demoed at the 2014 US Ignite Summit as well as GIGTANK Demo Day in Chattanooga.",
@@ -155,7 +155,7 @@
   },
   {
     "Year": 2014,
-    "City": "KC",
+    "City": ["KC"],
     "Project": "Gigabots",
     "Project Summary": "The Gigabots bring connected devices to classrooms using existing educational robotics platforms. A Gigabot is a combination of hardware, software and a cloud platform that connects Gigabots to each other from any location in real-time.",
     "Outcomes": "Students participating in the pilot learned basic JavaScript, how to program the Gigabots remotely, and how to implement the touch sensor into programming robot behaviors. This project was demoed at MakerFaire KC, at SummerQuest 2014 in the Bronx, as well as at the 2015 and 2016 US Ignite Summits.",
@@ -169,7 +169,7 @@
   },
   {
     "Year": 2014,
-    "City": "KC, CHA",
+    "City": ["KC", "CHA"],
     "Project": "Minecraft   Oculus Rift for Community Development",
     "Project Summary": "This virtual reality project piloted by the Kansas City Public Library gave kids a way to design their ideal neighborhood in two of Kansas City's urban areas through and provided a gamed-up way to build community in a fully immersive environment.",
     "Outcomes": "This project introduced students to virtual reality technology and provided a gamified introduce to design thinking and basic computer science in a fun, community-driven way.  This project was partially reproduced by a Hive CHA member organization in 2015.",
@@ -183,7 +183,7 @@
   },
   {
     "Year": 2014,
-    "City": "KC",
+    "City": ["KC"],
     "Project": "PlanIT Impact KC",
     "Project Summary": "A first of its kind platform, the PlanIT Impact application provides visually immersive feedback about envrionmental impact and building design based on open geospatial data and the development project's specific location. PlanIT Impact is a powerful educational tool for students learning about the environment and architecture.",
     "Outcomes": "Support from Mozilla provided for the development of a new application for architecture students and urban planners to transfer and manipulate large amounts of open source GIS data.  This project has been demoed at numerous US Ignite Application Summits.  The project team also participated in GIGTANK 2015 in Chattanooga.",
@@ -197,7 +197,7 @@
   },
   {
     "Year": 2014,
-    "City": "KC",
+    "City": ["KC"],
     "Project": "Project Bright Spots",
     "Project Summary": "Using the gig as a collaboration tool for video and live sharing, The Lean Lab aims to rapidly spur community dialogue and space for collaboration around innovation in education by sharing examples of “Bright Spots” in teaching and learning.",
     "Outcomes": "This project developed an online streaming tool for teachers to share lessons and concepts in a social-centric, realtime community for peer-to-peer professional development and instructional design.",
@@ -211,7 +211,7 @@
   },
   {
     "Year": 2014,
-    "City": "KC",
+    "City": ["KC"],
     "Project": "Northland CAPS",
     "Project Summary": "High school students at Northland CAPS worked with business partners to develop a suite of application based communications, monitoring and treatment tools for clinicians and high-risk patients to reduce the frequency of re-admissions.",
     "Outcomes": "Through participation in this project, students learned about gigabit tech and next generartion networks. They also used design thinking to come up with a way to use technology to solve some of the intractable issues in healthcare and developed project management and digital literacy skills while prototyping a healthcare-focused communications application",
@@ -225,7 +225,7 @@
   },
   {
     "Year": 2014,
-    "City": "KC",
+    "City": ["KC"],
     "Project": "TechHawks",
     "Project Summary": "TechHawks is a a fitness initative delivering real-time monitoring and robust metrics to curb obesity via the FitNet app, shaping how families manage and understand wellness. Fitnet and the University of Kansas Medical Center partnered to help KU Med’s Healthy Hawks program to achieve their health goals to break the cycle of obesity by introducing an interactive, online, tablet-based session twice weekly, paired with the standard in-person intervention, over the 12-week program. iPads with the Fitnet app feature a biometric camera alongside clinic-prescribed content and cardio, strength and other workouts, all within a cloud-based dashboard to manage feedback and patient care.",
     "Outcomes": "The program was extremely successful, both for the health center and the clients served. It is also expanding to serve another health center’s program.",
@@ -239,7 +239,7 @@
   },
   {
     "Year": 2016,
-    "City": "CHA",
+    "City": ["CHA"],
     "Project": "Raspberry Python Music Genie",
     "Project Summary": "Local students are learning how to build their own air synthesizer by using Python coding languages and a Raspberry Pi. The resulting technology, Stage Genies, will be showcased by the Chattanooga Ballet at an event in downtown Chattanooga. Thanks to high-speed connections and next-gen cameras, dancers will be able to use their bodies in space to trigger music as programmed by the Art 120 student technologists.",
     "Outcomes": "This project pilot period concludes in late 2016. This project was featured as part of River City Company's Passageways project through support from Mozilla.",
@@ -253,7 +253,7 @@
   },
   {
     "Year": 2016,
-    "City": "CHA",
+    "City": ["CHA"],
     "Project": "ViatoR",
     "Project Summary": "ViatoR uses VR to submerge users in an immersive environment for an interactive, engaging language learning experience. Working with local education partners, ViatoR will explore how high-speed networks can make language learning more immediate, equitable, and engaging.",
     "Outcomes": "This project pilot period concludes in late 2016. This project was demoed at the 2016 US Ignite Summit, winning awards for \"Best Use of Low Latency\" as well as \"Best in Show.\" Viator also won 2016's 48 Hour Launch: IoT Edition.",
@@ -267,7 +267,7 @@
   },
   {
     "Year": 2016,
-    "City": "CHA, Flint",
+    "City": ["CHA", "FNT"],
     "Project": "Cross-City Gigabiet Enabled Learning Platform",
     "Project Summary": "The proposed pilot provides a new platform for cyber learning, biology research, and citizen science across cities, schools, and science centers. This iniatitive is a cross-city collaboration building off the NSF-supported Chattanooga STEM school 4K microscope project. It allows students at Mott Middle College High School in Flint, MI to compare and contrast micro-environments in different locations, including those in Chattanooga, using a microscope housed at the University of Southern California in real time and in ultra high definition thanks to the gig. Flint educators are also working to further develop the curriculum for 4K-fueled education iniatitives between Chattanooga, Flint, and the Unviersity of Southern California.",
     "Outcomes": "This project pilot period concludes in late 2016.",
@@ -281,7 +281,7 @@
   },
   {
     "Year": 2016,
-    "City": "CHA",
+    "City": ["CHA"],
     "Project": "Gigtank 4K: Scaling from Micro to Macro",
     "Project Summary": "The project harnesses the power of the Gig and 4K video microscopy to create connections and collaborations for powerful STEM learning opportunities in Chattanooga and beyond. A team participating in 2016's GIGTANK summer accerator program at Chattanooga's Company Lab accelerator will focus on the scalabilty and replicability of the 4K microscope project, including new ways to use a 4K microscope and new ways to use 4K technology to support learning.",
     "Outcomes": "This project pilot period concludes in late 2016.",
@@ -295,7 +295,7 @@
   },
   {
     "Year": 2016,
-    "City": "CHA",
+    "City": ["CHA"],
     "Project": "Streaming 4K Content for Learning Experiences",
     "Project Summary": "4K streaming content in Ultra-HD creates engaging learning environments through enhanced access to community assets for learners in three schools and two community centers. Utilizing real-time streaming content being generated at the TN Aquarium, the project delivers high resolution 4K content into classrooms and informal learning environments. The project will also work with educators to develop curriculum that correlates with the streaming content.",
     "Outcomes": "This project pilot period concludes in late 2016.",
@@ -309,7 +309,7 @@
   },
   {
     "Year": 2016,
-    "City": "KC",
+    "City": ["KC"],
     "Project": "SensED IoT Student Innovation Challenge",
     "Project Summary": "SensED is a project-based social innovation program for 7-12 graders to highlight and provide real-world experiences in the emerging field of Internet of Things. The project will (1) create a mapped curriculum for middle and high school students, (2) train teachers through a series of professional development modules over the summer, (3) provide a stronger platfrom to launch an expanded version of the program in the fall that has increased capacity to support teams throughout the metro area, broader impact, and greater potential for scale.",
     "Outcomes": "This project pilot period concludes in late 2016.",
@@ -323,7 +323,7 @@
   },
   {
     "Year": 2016,
-    "City": "KC, CHA",
+    "City": ["KC", "CHA"],
     "Project": "Pennez: Read2Think",
     "Project Summary": "Pennez is a live- time digital assessment tool for measuring a child’s reading fluency. The application utilizes machine learning technology to assess speed, vocabulary, understanding, sight word, pronunciation, and phonics recognition.",
     "Outcomes": "This project pilot period concludes in late 2016. This project was demoed at the 2016 US Ignite Summit in Austin, TX.",
@@ -337,7 +337,7 @@
   },
   {
     "Year": 2016,
-    "City": "KC",
+    "City": ["KC"],
     "Project": "Open Data   3D Models",
     "Project Summary": "PlanIT Impact is putting its big data   3D modeling technology in the hands of students in Kansas City to advance education around sustainable design. Summer semester architecture students at the Kansas City Design Center will apply PlanIT Impact to their studio projects to understand resource impact modules of energy usage, water usage and storm water perviousness. The PlanIT Impact development team will also be working contiguously to develop additional modules of Building Density, which require a more intensive collaboration with Kansas City, MO’s parcel data and Open Data portal. As these additional resource impact modules become available, students will have access to test them and record their outputs.",
     "Outcomes": "This project pilot period concludes in late 2016.  This project was demoed at the 2016 US Ignite Summit in Austin, TX.",

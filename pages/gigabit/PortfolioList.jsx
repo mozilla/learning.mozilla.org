@@ -1,4 +1,5 @@
 var React = require('react');
+var locationHash = require('./locations.json');
 
 module.exports = React.createClass({
   getInitialState() {
@@ -15,11 +16,24 @@ module.exports = React.createClass({
     this.state.projects.forEach((project) => {
       var matched = false;
 
+      // Serialize city codes to a string of longform city names for searching
+      var longformCities;
+
+      if (project.City.length === 1) {
+        longformCities = locationHash[project.City[0]];
+      } else {
+        longformCities = project.City.reduce((previous, current) => {
+          return `${locationHash[previous]} ${locationHash[current]} `;
+        });
+      }
+
       if (
-        project.City.toLowerCase().match(query) ||
+        project.City.join(` `).toLowerCase().match(query) ||
+        longformCities.toLowerCase().match(query) ||
         project.Project.toLowerCase().match(query) ||
         project.Year.toString().match(query) ||
-        project[`Project Summary`].toLowerCase().match(query)) {
+        project[`Project Summary`].toLowerCase().match(query)
+      ) {
         matched = true;
         visibleProjects++;
       }
@@ -38,12 +52,18 @@ module.exports = React.createClass({
     var projects = this.state.projects.filter((project) => { return !project.isFiltered; }).map((project, index) => {
       var leadOrg = project.Link ? <a href={project.Link} target="_blank">{project[`Lead Organization`]}</a> : project[`Lead Organization`];
 
+      var cityTags = project.City.map((city, index2) => {
+        return (
+          <div key={`${project.stub}-tag-${index2}`} className={`city tag tag-orange m-b-0 ${project.Photo ? ` has-photo` : ` m-t-2`}`}>{locationHash[city]}</div>
+        );
+      });
+
       return (
         <div key={`project-${index}`} className={`col-md-4${index % 3 === 0 ? ` clear-left` : ``}`}>
           <div className="project-card m-b-3">
             <a href={`/gigabit/portfolio/${project.stub}`}><img className="photo" hidden={!project.Photo} src={project.Photo}/></a>
             <div className="p-x-2 p-b-2">
-              <div className={`city tag tag-orange m-b-0 ${project.Photo ? ` has-photo` : ` m-t-2`}`}>{project.City}</div>
+              <div className="tags">{cityTags}</div>
               <h3 className="m-y-0"><a className="project-name" href={`/gigabit/portfolio/${project.stub}`}>{project.Project}</a></h3>
               <p className="lead-org">Lead Org: {leadOrg}</p>
               <p className="summary">{`${project[`Project Summary`].slice(0,200)} [...]`}</p>
