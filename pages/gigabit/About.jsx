@@ -85,28 +85,28 @@ module.exports = React.createClass({
             <li className="col-sm-4">
               <div className="box">
                 <h3>Blog</h3>
-                <h1><a href="#">Hive’s First Month in Austin: What We’ve Learned</a></h1>
-                <p>On July 11, Mozilla hit the ground in Austin to spin up our newest Hive Learning Network right here in the heart of Texas. You can read our last post to learn why we chose Austin from two dozen candidate cities. Our first month</p>
-                <a href="#">Continue reading</a>
-                <a className="secondary-button" href="#">See all blog posts</a>
+                <h1><a href="https://blog.mozilla.org/gigabit/mozilla-brings-the-iot-to-chattanooga-tn-in-a-48-hour-launch/" target="_blank">Mozilla brings the IoT to Chattanooga, TN in a 48 Hour Launch</a></h1>
+                <p>Throughout the weekend of September 9-11, mentors from across Mozilla’s extended network met at Hive Chattanooga to help local educators and entrepreneurs prototype the future of civic and educational technology in the Gig City.</p>
+                <a href="https://blog.mozilla.org/gigabit/mozilla-brings-the-iot-to-chattanooga-tn-in-a-48-hour-launch/" target="_blank">Continue reading</a>
+                <a className="secondary-button" href="https://blog.mozilla.org/gigabit/" target="_blank">See all blog posts</a>
               </div>
             </li>
             <li className="col-sm-4">
               <div className="box">
                 <h3>Events</h3>
-                <h1><a href="#">48Hour IoT Launch</a></h1>
-                <p>September 9-11 (CHA)</p>
-                <p>48Hour Launch is a weekend-long business startup experience, designed to inspire entrepreneurial action at the local level. 48HL brings bright minds together to participate in an intensive period of community building, planning</p>
-                <a href="#">Continue reading</a>
+                <h1><a href="https://mozillafestival.org/" target="_blank">Mozilla Festival 2016</a></h1>
+                <p>October 28-30, 2016 (London)</p>
+                <p>Join influential thinkers from around the world to build, debate, and explore the future of a healthy internet.</p>
+                <a href="https://mozillafestival.org/" target="_blank">Learn more</a>
                 <a className="secondary-button" href="/gigabit/events">See all events</a>
               </div>
             </li>
             <li className="col-sm-4">
               <div className="box">
                 <h3>Projects</h3>
-                <h1><a href="/gigabit/portfolio/gigbridge">GigBridge</a></h1>
-                <p>GigBridge was an afterschool project that used mobile application design to teach ESL, healthy living, and digital literacy. The project connected students at Chattanooga Girls Leadership Academy and East Lake Academy, two Title I schools in Hamilton County, via</p>
-                <a href="/gigabit/portfolio/gigbridge">Continue reading</a>
+                <h1><a href="/gigabit/portfolio/raspberry-python-music-genie">Raspberry Python Music Genie</a></h1>
+                <p>Local students are learning how to build their own air synthesizer by using Python coding languages and a Raspberry Pi. The resulting technology, Stage Genies, will be showcased by the Chattanooga Ballet at an event in downtown Chattanooga.</p>
+                <a href="/gigabit/portfolio/raspberry-python-music-genie">Continue reading</a>
                 <a className="secondary-button" href="/gigabit/portfolio">Go to portfolio</a>
               </div>
             </li>
