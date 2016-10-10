@@ -9,10 +9,10 @@ module.exports = React.createClass({
 
           <div className="partner-logos m-b-3 text-center">
             <div className="col-sm-3 col-sm-offset-3">
-              <img width="100px" src="/img/pages/gigabit/nsf.png"/>
+              <a href="https://www.nsf.gov" target="_blank"><img width="100px" src="/img/pages/gigabit/nsf.png"/></a>
             </div>
             <div className="col-sm-3">
-              <img width="200px" src="/img/pages/gigabit/usignite.png"/>
+              <a href="https://www.us-ignite.org" target="_blank"><img width="200px" src="/img/pages/gigabit/usignite.png"/></a>
             </div>
           </div>
         </div>
