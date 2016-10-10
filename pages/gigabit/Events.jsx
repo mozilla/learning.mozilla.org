@@ -7,7 +7,7 @@ module.exports = React.createClass({
       <div>
         <div className="clearfix text-center m-b-3">
           <h2>Gigabit Events</h2>
-          <p className="col-sm-10 col-sm-offset-1 m-b-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p className="col-sm-10 col-sm-offset-1 m-b-3">We offer global and local opportunities that facilitate group and in-person collaboration. Join us!</p>
         </div>
 
         <div className="clearfix grey-block">
