@@ -59,7 +59,7 @@ module.exports = React.createClass({
               <p>Katie Hendrix</p>
               <a className="glyph-link glyph-link-email" href="mailto:katieh@mozillafoundation.org">katieh@mozillafoundation.org</a>
               <a className="glyph-link glyph-link-twitter" target="_blank" href="https://twitter.com/Hive_CHA">@Hive_CHA</a>
-              <a className="glyph-link glyph-link-facebook" target="_blank" href="https://facebook.com/HiveCHA">{`HiveCHA`}</a>
+              <a className="glyph-link glyph-link-facebook" target="_blank" href="https://facebook.com/HiveCHA">facebook.com/HiveCHA</a>
             </div>
             <div className="m-b-2 gigabit-contact">
               <h4>Kansas City</h4>
