@@ -16,6 +16,11 @@ portfolioData.forEach((item, index) => {
   item.stub = item.Project.toLowerCase().replace(/\ +/g, `-`).replace(/[^A-Za-z0-9\-]/g, ``);
 });
 
+// Alphabetize by project name
+portfolioData.sort((a, b) => {
+  return a.Project.toLowerCase() > b.Project.toLowerCase() ? 1 : -1;
+});
+
 module.exports = React.createClass({
   render() {
     var subView;
