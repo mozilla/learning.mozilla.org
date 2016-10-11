@@ -8,7 +8,7 @@
     "Gigabit Advantage": "Large single-track music files are stored in the cloud and can be downloaded seemlessly to any user. Low-latency networks solve common issue of sync in music remixing, allows for seemless collaboration across town, and real-time feedback from one user to another working on the same piece of music.",
     "Lead Organization": "Adagio",
     "Other Partner Organizations": "Barger Academy of Fine Art, University of Tennessee at Chattanooga",
-    "Photo": "http://hivecha.org/wp-content/uploads/adagio_edit-320x240.png",
+    "Photo": "/img/pages/gigabit/logos/adagio_edit-320x240.png",
     "Link": null,
     "Tech Tags": "",
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy"
@@ -22,7 +22,7 @@
     "Gigabit Advantage": "MAP participants built immersive learning environments that load in real time, with no waiting or lag dragging down participant engagement.",
     "Lead Organization": "Creative Discovery Museum, Spartan Systems Inc.",
     "Other Partner Organizations": "",
-    "Photo": "http://hivecha.org/wp-content/uploads/cdm-spartan_edit-320x240.png",
+    "Photo": "/img/pages/gigabit/logos/cdm-spartan_edit-320x240.png",
     "Link": "http://www.cdmfun.org/",
     "Tech Tags": "",
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy"
@@ -36,7 +36,7 @@
     "Gigabit Advantage": "Media-rich learning enviornments load quickly, with no waiting or lag. This project has also been a great example of how CHA\"s network can compress development and feedback cycles with developers and educators working together in real time to refine the application.",
     "Lead Organization": "devLearn",
     "Other Partner Organizations": "Duncan Ingram, Inc, Clifton Hills Elementary School",
-    "Photo": "http://hivecha.org/wp-content/uploads/MakerFaireCHA-300x200.jpg",
+    "Photo": "/img/pages/gigabit/logos/MakerFaireCHA-300x200.jpg",
     "Link": "https://devlearnapp.wordpress.com/",
     "Tech Tags": "",
     "Issue Area Tags": "Open Innovation, Web Literacy"
@@ -50,7 +50,7 @@
     "Gigabit Advantage": "This project showed the potential of real-time, immersive coaching and feedback across organizations gigabit cities.",
     "Lead Organization": "GlobalEXCEL",
     "Other Partner Organizations": "Girls Preparatory School, East Lake Academy, Chattanooga Girl's Leadership Academy, Causeway, The Advanced Center for Sleep Disorders",
-    "Photo": "http://hivecha.org/wp-content/uploads/gigbridge_edit-320x240.png",
+    "Photo": "/img/pages/gigabit/logos/gigbridge_edit-320x240.png",
     "Link": "http://www.globalexcel.org/",
     "Tech Tags": "",
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy"
@@ -64,7 +64,7 @@
     "Gigabit Advantage": "High-speed, low-latency connections allow videos to compile in seconds, without lag or wait times getting in the way of creating and learning. When demoed in New York, for example, a slower connection meant that videos and remixes took much longer to compile and load, which had a notable negative effect on youth engagement with the application.",
     "Lead Organization": "Hyperaudio, Inc.",
     "Other Partner Organizations": "The Howard School, Hunter Museum of American Art",
-    "Photo": "http://hivecha.org/wp-content/uploads/cpl-hyperaudio-320x240.png",
+    "Photo": "/img/pages/gigabit/logos/cpl-hyperaudio-320x240.png",
     "Link": "http://hyperaud.io/",
     "Tech Tags": "Video",
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy"
@@ -78,7 +78,7 @@
     "Gigabit Advantage": "The technology publicly accsesible in this space leverages Chattanooga's high-speed, low-latency network.",
     "Lead Organization": "Chattanooga Public Library",
     "Other Partner Organizations": "",
-    "Photo": "http://hivecha.org/wp-content/uploads/giglab_edit-320x240.png",
+    "Photo": "/img/pages/gigabit/logos/giglab_edit-320x240.png",
     "Link": "http://chattlibrary.org/",
     "Tech Tags": "",
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy, Decentralization"
@@ -106,7 +106,7 @@
     "Gigabit Advantage": "This project explored how gigabit speeds could facilitate immersive, engaging distance learning across schools as well as real-time coaching and feedback across organizations. Big data from water quality monitors also flowed in real-time to researchers thanks to the low-latency connection.",
     "Lead Organization": "Chattanooga School for the Arts and Sciences, Hixson High School",
     "Other Partner Organizations": "University of Tennessee at Chattanooga, SparkFun Electronics",
-    "Photo": "http://hivecha.org/wp-content/uploads/csas-hixson-320x240.png",
+    "Photo": "/img/pages/gigabit/logos/csas-hixson-320x240.png",
     "Link": "http://www.hixsonhigh.org/",
     "Tech Tags": "IoT",
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy, Decentralization"
@@ -120,7 +120,7 @@
     "Gigabit Advantage": "The SightDeck platform uses advanced wireless, low-latency, gigabit to end-user to deliver interactive collaboration with video, voice and graphics from several locations all layered together and visually organized into a real-size, real-time teaching platform.",
     "Lead Organization": "aSTEAM Village",
     "Other Partner Organizations": "SightDeck",
-    "Photo": "https://static.wixstatic.com/media/807aa8_6601e639b32549b2b73aaed0f017626a.png/v1/fill/w_265,h_106,al_c,usm_0.66_1.00_0.01/807aa8_6601e639b32549b2b73aaed0f017626a.png",
+    "Photo": "/img/pages/gigabit/logos/807aa8_6601e639b32549b2b73aaed0f017626a.png",
     "Link": "http://www.asteamvillage.org/",
     "Tech Tags": "Video",
     "Issue Area Tags": "Open Innovation, Digital Inclusion"
@@ -148,7 +148,7 @@
     "Gigabit Advantage": "Using the ultra-high speed connection to deliver the applications allows users to do homework, perform routine tasks and generate creative output from typically low-performing or older computers and devices. The Lending Library has tremendous potential to mediate the effects of unequal access to productivity tools in the community.",
     "Lead Organization": "Roncilliation Services",
     "Other Partner Organizations": "Kansas Public Library",
-    "Photo": "http://hivekc.org/wp-content/uploads/gigabitcafe.jpg",
+    "Photo": "/img/pages/gigabit/logos/gigabitcafe.jpg",
     "Link": "http://softwarelendinglibrary.org/",
     "Tech Tags": "",
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy"
@@ -162,7 +162,7 @@
     "Gigabit Advantage": "Gigabots expand traditional robotics-league curriculum with IoT and programming.  With sensor-based interactions, high speed and low latency are critical to the user experience. “Gigabots Live” offers a low cost, low latency video streaming device suitable for use with internet connected robotics devices.",
     "Lead Organization": "Big Bang",
     "Other Partner Organizations": "Staley High School",
-    "Photo": "https://blog.webmaker.org/wp-content/uploads/2016/01/14715602331_fe3448fd97_o.jpg",
+    "Photo": "/img/pages/gigabit/logos/14715602331_fe3448fd97_o.jpg",
     "Link": "https://getbigbang.com/",
     "Tech Tags": "Robotics, IoT",
     "Issue Area Tags": "Open Innovation, Web Literacy"
@@ -176,7 +176,7 @@
     "Gigabit Advantage": "Immersive technology and virtual reality become truly immersive on high speed, low latency networks, allowing for a deeply engaging educational experience.",
     "Lead Organization": "Kansas City Public Library",
     "Other Partner Organizations": "",
-    "Photo": "http://hivekc.org/wp-content/uploads/minecraft.png",
+    "Photo": "/img/pages/gigabit/logos/minecraft.jpg",
     "Link": "http://www.kcdml.com/",
     "Tech Tags": "VR",
     "Issue Area Tags": "Open Innovation, Web Literacy"
@@ -190,7 +190,7 @@
     "Gigabit Advantage": "Accessing and quickly manipulating large data sets requires a reliable baseline of speed, bandwidth and low latency in order to manage the design tool, and to ensure optimal user experience.",
     "Lead Organization": "PlanIt Impact",
     "Other Partner Organizations": "Draw Arcitecture & Urban Design, Kansas City Design Center, Kansas State University",
-    "Photo": "http://hivekc.org/wp-content/uploads/Screen-Shot-2016-02-03-at-1.45.17-PM-300x201.png",
+    "Photo": "/img/pages/gigabit/logos/Screen-Shot-2016-02-03-at-1.45.17-PM-300x201.jpg",
     "Link": "http://planitimpact.com/",
     "Tech Tags": "Big Data",
     "Issue Area Tags": "Open Innovation"
@@ -204,7 +204,7 @@
     "Gigabit Advantage": "Real-time, immersive collaboration and coaching require high bandwidth and low latency networks to ensure optimal user experience.",
     "Lead Organization": "The Lean Lab",
     "Other Partner Organizations": "",
-    "Photo": "http://hivekc.org/wp-content/uploads/brightspotsphoto-2-7-02-300x300.jpg",
+    "Photo": "/img/pages/gigabit/logos/brightspotsphoto-2-7-02-300x300.jpg",
     "Link": "http://projectbrightspots.wordpress.com/",
     "Tech Tags": "",
     "Issue Area Tags": "Open Innovation, Web Literacy, Decentralizatoin"
@@ -218,7 +218,7 @@
     "Gigabit Advantage": "The design and deployment of video communications and wearable tech rely on a gigabit-to-end-user connection to preserve the integrity of the patient/doctor experience and deliver outcomes that reduce the rate of re-admissions.",
     "Lead Organization": "Northland CAPS",
     "Other Partner Organizations": "North Kansas City, Liberty, Park Hill, Platte County, Smithville & Kearney Schools",
-    "Photo": "http://hivekc.org/wp-content/uploads/NCAPS-e1412279551831.jpg",
+    "Photo": "/img/pages/gigabit/logos/NCAPS-e1412279551831.jpg",
     "Link": "http://www.northlandcaps.org/",
     "Tech Tags": "",
     "Issue Area Tags": "Open Innovation, Web Literacy"
@@ -232,7 +232,7 @@
     "Gigabit Advantage": "Biometric data feedback and heavy data analysis along with on-demand video streaming make this an app optimized for high bandwidth and low latency to deliver an immersive, engaging user experience.",
     "Lead Organization": "FitNet",
     "Other Partner Organizations": "University of Kansas Medical Center",
-    "Photo": "http://hivekc.org/wp-content/uploads/fitnet-300x300.png",
+    "Photo": "/img/pages/gigabit/logos/fitnet-300x300.jpg",
     "Link": "http://www.kcdigitaldrive.org/project/fitnet-tech-hawks",
     "Tech Tags": "Video, Big Data",
     "Issue Area Tags": "Open Innovation"
@@ -260,7 +260,7 @@
     "Gigabit Advantage": "While using ViatoR, constant bi-directional communication between the client and server is critical. Coupled with streaming high-definition video between instructor and learner(s), as well as the possible simultaneous audio streams and the number of users in a given location - the application can only be sustained via high speed networks that can handle that much bandwidth.",
     "Lead Organization": "Viator VR",
     "Other Partner Organizations": "Chattanooga School of Language, The Enterprise Center",
-    "Photo": "http://colab.co/wp-content/uploads/2016/09/1-Place_Forrest-Pruitt-and-Nicole-Prebula-1.jpg",
+    "Photo": "/img/pages/gigabit/logos/1-Place_Forrest-Pruitt-and-Nicole-Prebula-1.jpg",
     "Link": "http://viatorvr.com/",
     "Tech Tags": "VR",
     "Issue Area Tags": "Open Innovation"
