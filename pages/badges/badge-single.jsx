@@ -2,7 +2,7 @@ var React = require('react'),
     Link = require('react-router').Link,
     LoginLink = require('../../components/login/LoginLink.jsx'),
 
-    RequirementsList = require('../../components/badges/requirement-list.jsx'),
+    RequirementsList = require('../../components/badges/RequirementsList.jsx'),
     SocialShare = require('../../components/badges/social-share.jsx'),
     Badge = require('../../components/badges/badge.jsx'),
     BadgeHorizontalIcon = require('../../components/badges/badge-horizontal-icon.jsx'),
@@ -107,6 +107,8 @@ var BadgePage = React.createClass({
   parseBadgeDetails: function(data) {
     var bdata = data.badge;
 
+    console.log(bdata);
+
     var prev = false;
 
     if (data.prev) {
@@ -133,8 +135,22 @@ var BadgePage = React.createClass({
     if (data.earned) { status = Badge.achieved; }
     if (data.pending) { status = Badge.pending; }
 
-    var reqs = bdata.require_claim_evidence_description;
-    var matched = reqs.match(/((\d+(\.)?)?[^.]+)/g);
+    // extract evidence as itemized list based on newlines (\n with optional \r)
+    var splitOnItems = /(\n\r?)+/g;
+    var evidence = [];
+
+    if (bdata.require_claim_evidence_description) {
+      evidence = bdata.require_claim_evidence_description.trim();
+      evidence = evidence.split(splitOnItems).map(s => s.trim()).filter(s => s);
+    }
+
+    // extract the badge criteria
+    var criteria = [];
+
+    if (bdata.criteria) {
+      criteria = bdata.criteria.trim();
+      criteria = criteria.split(splitOnItems).map(s => s.trim()).filter(s => s);
+    }
 
     this.setState({
       badge: {
@@ -143,8 +159,10 @@ var BadgePage = React.createClass({
         description: bdata.short_description,
         icon: bdata.image_url,
         icon2x: bdata.image_url,
-        criteria: matched,
-        status: status
+        criteria,
+        evidence,
+        date_achieved: bdata.created_at,
+        status
       },
       prev: prev,
       next: next
@@ -288,11 +306,13 @@ var BadgePage = React.createClass({
 
   renderEligible: function() {
     var badgeCriteria = this.formBadgeCriteria(this.state.badge.criteria);
+    var evidenceFields = this.formEvidenceFields(this.state.badge.evidence);
 
     return (
       <div className="badge-available">
         { badgeCriteria }
-        { this.renderApplicationForm() }
+        { evidenceFields }
+        { /* this.renderApplicationForm() */ }
       </div>
     );
   },
@@ -300,7 +320,7 @@ var BadgePage = React.createClass({
   formBadgeCriteria: function(list) {
     // FIXME: TODO: make this a local component
     return (
-      <div className="badge-requirement" key={''}>
+      <div className="badge-requirement" key={'badge-requirement-list'}>
         <h3 className={'text-light'}>Badge Requirements</h3>
         <p>Make or write something that demonstrates your understanding of any two or more of the following:</p>
         <RequirementsList list={list} icon="fa fa-check"/>
@@ -308,122 +328,13 @@ var BadgePage = React.createClass({
     );
   },
 
-  renderApplicationForm: function() {
-    var removeAttachment = this.removeAttachment.bind(this);
-    var showButton = this.state.evidenceText || this.state.evidenceLink || this.state.evidenceFiles.length > 0;
-
-    if (this.state.applying && this.state.showApplyModal) {
-      return (
-        <Modal modalTitle="" className="modal-credly folded" hideModal={this.hideApplyModal}>
-          <h3 className="centered">Thanks for applying for this badge!</h3>
-          <p>
-            We will be reviewing your badge application and evidence as soon as possible.
-          </p>
-          <input type="submit" className="btn center-block" onClick={this.hideApplyModal} value="Back to my badge"/>
-        </Modal>
-      );
-    }
-
+  formEvidenceFields: function(list) {
     return (
-      <div className="apply-send-qualifications">
-        <h3 className={'text-light'}>Apply for this badge</h3>
-
-        <div className="horizontal-form">
-          <fieldset>
-            <label className="control-label">Tell us what qualifies you to earn this badge:</label>
-            <textarea rows={10} onChange={this.updateEvidenceText} value={this.state.evidenceText} placeholder="Describe what you've done to earn this badge..."/>
-          </fieldset>
-
-          <fieldset>
-            <label className="control-label">Attach an (optional) link as part of your evidence:</label>
-            <input type="text" placeholder="Give a link to a page to act as evidence" value={this.state.evidenceLink} onChange={this.updateEvidenceLink} />
-          </fieldset>
-
-          <fieldset>
-            <input type="file" className="hidden" ref="optionalFile" onChange={this.handleFiles}/>
-            <label className="control-label">Attach an (optional) file as part of your evidence:</label>
-            <button className="btn attach" onClick={this.selectFiles}>pick file...</button>
-            {
-              (this.state.evidenceFiles && this.state.evidenceFiles.length > 0) ?
-              this.state.evidenceFiles.map(function(e) {
-                return <span className="attached">{e.name} <span className="fa fa-times" onClick={removeAttachment(e.name)}/></span>;
-              }) : null
-            }
-          </fieldset>
-
-          <button className={"btn"} disabled={!showButton} onClick={this.claimBadge}>Apply</button>
-        </div>
+      <div className="badge-requirement" key={'badge-evidence-list'}>
+        <h3 className={'text-light'}>Badge Evidence</h3>
+        <RequirementsList list={list} icon="fa fa-check" addEvidenceFields={true} onEvidence={this.addEvidence}/>
       </div>
     );
-  },
-
-  updateEvidenceText: function(evt) {
-    this.setState({
-      evidenceText: evt.target.value
-    });
-  },
-
-  updateEvidenceLink: function(evt) {
-    this.setState({
-      evidenceLink: evt.target.value
-    });
-  },
-
-  selectFiles: function() {
-    this.refs.optionalFile.click();
-  },
-
-  handleFiles: function(evt) {
-    var self = this;
-    var files = evt.target.files;
-    var attachments = [];
-
-    Array.from(files).forEach(function(file) {
-      var reader = new FileReader();
-
-      reader.onload = (function(f) {
-        return function(e) {
-          var name = escape(f.name);
-          var data = e.target.result;
-
-          if (data) {
-            // FIXME: TODO: There is a 20MB limit on file uploads whch
-            //              I doubt we'll run into, but _might_ be an issue
-            //              eventually, so I'm leaving this comment.
-            data = data.substring(data.indexOf('base64,')+'base64,'.length);
-            attachments.push({ name: name, file: data });
-          }
-
-          if(attachments.length === files.length) {
-            self.setState({
-              evidenceFiles: attachments
-            });
-          }
-        };
-      })(file);
-      reader.readAsDataURL(file);
-    });
-  },
-
-  removeAttachment: function(name) {
-    var self = this;
-
-    return function() {
-      var files = self.state.evidenceFiles;
-      var pos = -1;
-
-      files.forEach(function(file, idx) {
-        if (file.name === name) {
-          pos = idx;
-        }
-      });
-      if (pos > -1) {
-        files.splice(pos, 1);
-        self.setState({
-          evidenceFiles: files
-        });
-      }
-    };
   },
 
   claimBadge: function() {
