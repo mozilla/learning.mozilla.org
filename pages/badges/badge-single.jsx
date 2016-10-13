@@ -132,6 +132,8 @@ var BadgePage = React.createClass({
     // FIXME: these need to be constants on the badgeAPI, probably
     var status = Badge.eligible;
 
+    console.log("parse data:",data);
+
     if (data.earned) { status = Badge.achieved; }
     if (data.pending) { status = Badge.pending; }
 
@@ -172,6 +174,8 @@ var BadgePage = React.createClass({
   render: function () {
     var content = null;
     var user = this.state.teachAPI.getLoginInfo();
+
+    console.log(this.state.badge.status);
 
     // We have quite a lot of different states that each require
     // we render (sometimes subtly) different content, so we decide
@@ -265,7 +269,9 @@ var BadgePage = React.createClass({
   },
 
   renderAchieved: function() {
-    var badgeCriteria = this.formBadgeCriteria(this.state.badge.criteria);
+    var badge = this.state.badge;
+    var date = new Date(badge.date_achieved);
+    var when = date.toLocaleString();
 
     // FIXME: TODO: retrieve the information on when/how this badge was earned... IF we use this information at all.
     return (
@@ -274,10 +280,7 @@ var BadgePage = React.createClass({
         { this.getShareCodes() }
         <div className="badge-reward-text">
           <div className="date">
-            DATE FROM API (although we may not end up using this);
-          </div>
-          <div className="qualifications">
-            EVIDENCE FOR THIS BADGE, FROM API (although we may not end up using this)
+            You were awarded this badge { when }.
           </div>
         </div>
       </div>
