@@ -628,3 +628,64 @@ hr.square-divider {
     }
   }
 }
+
+.coord-cta {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+
+  img {
+    width: 100%;
+    border-radius: 50%;
+  }
+  div:nth-child(1) {
+    padding: 0;
+  }
+}
+
+.clubs-tabswitcher {
+  // Hide "coordinators" tab
+  button:nth-child(4) {
+    display: none !important;
+  }
+}
+
+.coordinator-bio {
+  margin: 50px 0;
+
+  img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+
+  .name {
+    margin: 0;
+  }
+
+  .bio {
+    margin-bottom: 2em;
+  }
+
+  .location {
+    &:before {
+      font-family: FontAwesome;
+      content: "\f041";
+      margin-right: 0.33em;
+    }
+  }
+
+  .pipe:after {
+    font-family: FontAwesome;
+    content: "\f099";
+    margin-right: 0.33em;
+    color: #1DA1F2;
+  }
+
+  .support > * {
+    color: #777;
+    font-size: 15px;
+  }
+}
