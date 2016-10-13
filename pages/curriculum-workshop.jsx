@@ -41,10 +41,13 @@ var CurriculumWorkshop = React.createClass({
           </p>
 
           <h3>Workshop Video Stream</h3>
-
           <p>
-            We have moved to YouTube Live this month! Watch the live stream on our <a href="https://www.youtube.com/channel/UC64W_SqCxhcTUwVpuSQWjEg">YouTube Channel</a>. You can still participate with us on the etherpad below during the call.
+            On the day of the Curriculum Workshop, the livestream will appear below. You may need to refresh your browser.
           </p>
+          <div className="video-wrapper">
+          <iframe width="560" height="315" src="https://air.mozilla.org/mozilla-curriculum-workshop-ada-lovelace-day-2016-10-11/video/" frameBorder="0" allowFullScreen></iframe>
+          </div>
+
           <h4>
             Open Agenda
             <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/curriculum-workshop-october-11-2016">
