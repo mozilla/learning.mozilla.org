@@ -267,6 +267,7 @@ var EventsResources = React.createClass({
                 </LogoAssetLink>
               </LogoAsset>
             </div>
+            <FormattedHTMLMessage id='get_stickers'/>
           </section>
 
 
