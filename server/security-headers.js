@@ -7,6 +7,7 @@ var url = require('url');
 var securityHeaders = {
   directives: {
     defaultSrc: [
+      'air.mozilla.org',
       'www.youtube.com',
       'https://public.etherpad-mozilla.org',
       'https://goggles.mofostaging.net',
