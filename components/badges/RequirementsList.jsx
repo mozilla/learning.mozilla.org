@@ -11,8 +11,14 @@ var RequirementsList = React.createClass({
     var className = this.props.className ? 'list-unstyled requirements-list' + this.props.className : 'list-unstyled requirements-list',
         icon = this.props.icon ? this.props.icon : 'fa fa-check',
         listItems = this.props.list.map((item, position) => {
-          if (item){
-            return <RequirementRow key={position + '-' + item} icon={icon} text={item} addEvidenceFields={this.props.addEvidenceFields}/>;
+          if (item) {
+            return <RequirementRow
+                      key={position + '-' + item}
+                      icon={icon}
+                      text={item}
+                      addEvidenceFields={this.props.addEvidenceFields}
+                      onEvidence={this.props.onEvidence}
+                   />;
           }
           return null;
         });

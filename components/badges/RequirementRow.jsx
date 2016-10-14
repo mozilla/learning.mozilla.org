@@ -94,13 +94,13 @@ var RequirementRow = React.createClass({
   updateEvidenceText: function(evt) {
     this.setState({
       evidenceText: evt.target.value
-    });
+    }, this.propagateEvidence);
   },
 
   updateEvidenceLink: function(evt) {
     this.setState({
       evidenceLink: evt.target.value
-    });
+    }, this.propagateEvidence);
   },
 
   selectFiles: function() {
@@ -129,7 +129,7 @@ var RequirementRow = React.createClass({
           if(attachments.length === files.length) {
             var evidenceFiles = this.state.evidenceFiles.concat(attachments);
 
-            self.setState({ evidenceFiles });
+            self.setState({ evidenceFiles }, this.propagateEvidence);
           }
         };
       };
@@ -145,21 +145,24 @@ var RequirementRow = React.createClass({
     var self = this;
 
     return function() {
-      var files = self.state.evidenceFiles;
+      var evidenceFiles = self.state.evidenceFiles;
       var pos = -1;
 
-      files.forEach((file, idx) => {
+      evidenceFiles.forEach((file, idx) => {
         if (file.name === name) {
           pos = idx;
         }
       });
+
       if (pos > -1) {
-        files.splice(pos, 1);
-        self.setState({
-          evidenceFiles: files
-        });
+        evidenceFiles.splice(pos, 1);
+        self.setState({ evidenceFiles }, this.propagateEvidence);
       }
     };
+  },
+
+  propagateEvidence: function() {
+    this.props.onEvidence(this.state);
   }
 });
 

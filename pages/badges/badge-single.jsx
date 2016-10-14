@@ -261,10 +261,10 @@ var BadgePage = React.createClass({
     var msg = encodeURIComponent(`I earned the Mozilla ${this.state.badge.title} badge`);
 
     return (
-      <div className="social-share">
-        <a href={`https://twitter.com/home?status=${msg + encodeURIComponent(': ') + url}`} target={'_blank'}>twitter</a>
-        <a href={`https://www.facebook.com/sharer.php?u=${url}&t=${msg}`} target={'_blank'}>facebook</a>
-      </div>
+      <ul className="social-share">
+        <li><a href={`https://twitter.com/home?status=${msg + encodeURIComponent(': ') + url}`} target={'_blank'}>twitter</a></li>
+        <li><a href={`https://www.facebook.com/sharer.php?u=${url}&t=${msg}`} target={'_blank'}>facebook</a></li>
+      </ul>
     );
   },
 
@@ -273,14 +273,13 @@ var BadgePage = React.createClass({
     var date = new Date(badge.date_achieved);
     var when = date.toLocaleString();
 
-    // FIXME: TODO: retrieve the information on when/how this badge was earned... IF we use this information at all.
     return (
       <div className="badge-achieved">
-        <h3 className={'text-light'}>Congrats, you were awarded this credential.</h3>
+        <h3 className={'text-light'}>Congrats, you were awarded this badge!</h3>
         { this.getShareCodes() }
         <div className="badge-reward-text">
           <div className="date">
-            You were awarded this badge { when }.
+            You earned this badge {when}.
           </div>
         </div>
       </div>
@@ -288,20 +287,14 @@ var BadgePage = React.createClass({
   },
 
   renderPending: function() {
-    var badgeCriteria = this.formBadgeCriteria(this.state.badge.criteria);
-    var share = null; // <SocialShare />
-
     return (
       <div className="badge-pending">
         <h3 className={'text-light'}>Your badge claim is pending.</h3>
-        { share }
+
         <div className="badge-reward-text">
-          <div className="date">
-            DATE FROM API (although we may not end up using this);
-          </div>
-          <div className="qualifications">
-            EVIDENCE FOR THIS BADGE, FROM API (although we may not end up using this)
-          </div>
+          <p>Your badge claim is currently pending review by our staff.
+          Once we{"'"}ve reviewed and approved your claim, visiting this
+          page will show you the badge as having been achieved by you!</p>
         </div>
       </div>
     );
@@ -315,7 +308,7 @@ var BadgePage = React.createClass({
       <div className="badge-available">
         { badgeCriteria }
         { evidenceFields }
-        { /* this.renderApplicationForm() */ }
+        <button className={"btn"} disabled={!showButton} onClick={this.claimBadge}>Apply</button>
       </div>
     );
   },
@@ -341,6 +334,15 @@ var BadgePage = React.createClass({
   },
 
   claimBadge: function() {
+    // FIXME: WE NEED TO GET THE EVIDENCE PER REQUIREMENT NOW,
+    //        FROM THE REQUIREMENTROW, INTO THE REQUIREMENTSLIST,
+    //        AND FROM THERE INTO THIS COMPONENT SO THAT WE CAN
+    //        PROPERLY RUN EVERYTHING THROUGH THE PROPER ENCODES.
+    //
+    // FIXME: WE SHOULD PROBABLY MOVE THESE FUNCTIONS INTO THE
+    //        REQUIREMENTROW COMPONENT SO THAT ENCODING HAPPENS
+    //        AS THE USER ADDS DATA, RATHER THAN WAITING UNTIL
+    //        THE VERY END.
     var evidences = [];
 
     if (this.state.evidenceText) {
