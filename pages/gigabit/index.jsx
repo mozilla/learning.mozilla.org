@@ -45,16 +45,16 @@ module.exports = React.createClass({
         </HeroUnit>
         <div>
           <TabSwitcher ref="tabSwitcher" initialTab={this.props.params.tab || `about`} onChange={this.handleTabChange}>
-            <div slug="about" name="About" iconDefault="#TODO" iconActive="#TODO">
+            <div slug="about" name="About" iconDefault="/img/pages/clubs/tab-icons/tab-icon-info-inactive.svg" iconActive="/img/pages/gigabit/glyphs/tab-icon-info-active.svg">
               <About></About>
             </div>
-            <div slug="portfolio" name="Portfolio" iconDefault="#TODO" iconActive="#TODO">
+            <div slug="portfolio" name="Portfolio" iconDefault="/img/pages/gigabit/glyphs/portfolio-stroke.svg" iconActive="/img/pages/gigabit/glyphs/portfolio-stroke-active.svg">
               <Portfolio project={this.props.params.tab === 'portfolio' ? this.props.params.subview : null}></Portfolio>
             </div>
-            <div slug="apply" name="Apply" iconDefault="#TODO" iconActive="#TODO">
+            <div slug="apply" name="Apply" iconDefault="/img/pages/gigabit/glyphs/apply-stroke.svg" iconActive="/img/pages/gigabit/glyphs/apply-stroke-active.svg">
               {applyGuts}
             </div>
-            <div slug="events" name="Events" iconDefault="#TODO" iconActive="#TODO">
+            <div slug="events" name="Events" iconDefault="/img/pages/gigabit/glyphs/events-stroke.svg" iconActive="/img/pages/gigabit/glyphs/events-stroke-active.svg">
               <Events></Events>
             </div>
           </TabSwitcher>
