@@ -133,8 +133,10 @@ var BadgePage = React.createClass({
     if (data.earned) { status = Badge.achieved; }
     if (data.pending) { status = Badge.pending; }
 
-    var reqs = bdata.require_claim_evidence_description;
-    var matched = reqs.match(/((\d+(\.)?)?[^.]+)/g);
+    var evidenceRegex = /((\d+([.\!?])?)?[^.]+)/g;
+    var criteriaRegex = /[\n\r]+/g;
+    var criteria = bdata.criteria.length > 0 ? bdata.criteria.trim().split(criteriaRegex) : [];
+    var evidence = bdata.require_claim_evidence_description.match(evidenceRegex) || [];
 
     this.setState({
       badge: {
@@ -143,8 +145,10 @@ var BadgePage = React.createClass({
         description: bdata.short_description,
         icon: bdata.image_url,
         icon2x: bdata.image_url,
-        criteria: matched,
-        status: status
+        criteria,
+        evidence,
+        date_achieved: bdata.created_at,
+        status
       },
       prev: prev,
       next: next
