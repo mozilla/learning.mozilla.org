@@ -630,18 +630,31 @@ hr.square-divider {
 }
 
 .coord-cta {
-  display: flex;
   align-items: center;
   padding: 20px 0;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
+  display: flex;
+  flex-direction: column-reverse;
+
+  @media (min-width: @screen-sm-min) {
+    flex-direction: row;
+  }
 
   img {
     width: 100%;
     border-radius: 50%;
+    max-width: 200px;
+    margin: auto;
   }
+
   div:nth-child(1) {
     padding: 0;
+  }
+
+  div:nth-child(2) {
+    text-align: center;
+    padding: 15px 0;
   }
 }
 
@@ -655,21 +668,31 @@ hr.square-divider {
 .coordinator-bio {
   margin: 50px 0;
 
+  p, a {
+    font-size: 14.4px;
+  }
+
   img {
     width: 100%;
+    max-width: 300px;
     border-radius: 50%;
     margin-bottom: 20px;
   }
 
   .name {
     margin: 0;
+    font-size: 26px;
   }
 
   .bio {
-    margin-bottom: 2em;
+    margin-bottom: 1.33em;
+    font-size: 16px;
+    line-height: 2em;
   }
 
   .location {
+    color: #777;
+
     &:before {
       font-family: FontAwesome;
       content: "\f041";
@@ -677,15 +700,20 @@ hr.square-divider {
     }
   }
 
-  .pipe:after {
-    font-family: FontAwesome;
-    content: "\f099";
-    margin-right: 0.33em;
-    color: #1DA1F2;
+  .pipe {
+    color: #777;
+
+    &:after {
+      font-family: FontAwesome;
+      content: "\f099";
+      margin-right: 0.33em;
+      color: #1DA1F2;
+    }
   }
 
   .support > * {
     color: #777;
     font-size: 15px;
+    line-height: 2em;
   }
 }

@@ -48,24 +48,24 @@ var Start = React.createClass({
         </section>
 
         <ul className="icon-list">
-          <li className="icon-share">
-            {this.context.intl.formatMessage({id: 'captain_support_mentorship_message'})}
-          </li>
           <li className="icon-institution">
             {this.context.intl.formatMessage({id: 'captain_support_collaboration_message'})}
           </li>
           <li className="icon-book">
             <FormattedHTMLMessage id='captain_support_curriculum_message' />
           </li>
+          <li className="icon-share">
+            {this.context.intl.formatMessage({id: 'captain_support_mentorship_message'})}
+          </li>
 
           <li>
-            <div className="coord-cta clearfix">
-              <div className="col-sm-8">
+            <div className="coord-cta clearfix row">
+              <div className="col-xs-12 col-sm-8">
                 <p>The Regional Coordinator is a person with strong leadership and mentorship skills. They work closely with the staff members and Club Captains to make sure the Clubs program is successfully running in their local region.</p>
                 <p>Get to know the <a href="/clubs/coordinators">featured Regional Coordinators</a>.</p>
               </div>
-              <div className="col-sm-4">
-                <img src="/img/pages/coordinators/mosaic-pitcures.jpg"/>
+              <div className="col-xs-12 col-sm-4">
+                <a href="/clubs/coordinators"><img src="/img/pages/coordinators/mosaic-pitcures.jpg"/></a>
               </div>
             </div>
           </li>
