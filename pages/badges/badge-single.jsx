@@ -236,7 +236,7 @@ var BadgePage = React.createClass({
             education providers and services, including Mozilla.
             Learn more <a href='https://example.org'>about Credly</a>.
           </p>
-          <CredlyLinkForm linkAccounts={this.linkAccounts} hideModal={this.hideLinkModal}/>
+          <CredlyLinkForm teachAPI={this.state.teachAPI} linkAccounts={this.linkAccounts} hideModal={this.hideLinkModal}/>
         </Modal>
       );
     }
