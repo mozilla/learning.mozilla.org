@@ -31,10 +31,23 @@
       margin-top: -12px; //height of .icon-wrapper 22px;
       color: @indigoSidebarColor;
     }
-    .text{
-      display: table-cell;
-      vertical-align: middle;
+
+    .requirement {
       padding-left: @listItemPaddingLeft;
+      display: flex;
+
+      flex-direction: row;
+      &.expanded { flex-direction: column; }
+
+      justify-content: space-between;
+
+      .task-name {
+        flex: 1 1 auto;
+      }
+
+      .evidence{
+        flex: 0 0 auto;
+      }
     }
   }
 }

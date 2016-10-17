@@ -2,7 +2,7 @@ var React = require('react'),
     Link = require('react-router').Link,
     LoginLink = require('../../components/login/LoginLink.jsx'),
 
-    RequirementsList = require('../../components/badges/requirement-list.jsx'),
+    RequirementsList = require('../../components/badges/RequirementsList.jsx'),
     SocialShare = require('../../components/badges/social-share.jsx'),
     Badge = require('../../components/badges/badge.jsx'),
     BadgeHorizontalIcon = require('../../components/badges/badge-horizontal-icon.jsx'),
@@ -72,9 +72,7 @@ var BadgePage = React.createClass({
       },
       prev: false,
       next: false,
-      evidenceLink: '',
-      evidenceText: '',
-      evidenceFiles: []
+      evidence: []
     };
   },
 
@@ -133,8 +131,26 @@ var BadgePage = React.createClass({
     if (data.earned) { status = Badge.achieved; }
     if (data.pending) { status = Badge.pending; }
 
-    var reqs = bdata.require_claim_evidence_description;
-    var matched = reqs.match(/((\d+(\.)?)?[^.]+)/g);
+    var evidence = [];
+    var criteria = [];
+
+    // extract evidence as itemized list based on newlines (\n with optional \r) if we can
+    var splitOnItems = /\n\r?/g;
+
+    // extract evidence as itemized list based on newlines (\n with optional \r) if we can
+    if (criteria.indexOf('\n') === -1) {
+      splitOnItems = /[\s\n\r]+(?=Task)/g;
+    }
+
+    if (bdata.require_claim_evidence_description) {
+      evidence = bdata.require_claim_evidence_description.trim();
+      evidence = evidence.split(splitOnItems).map(s => s.trim()).filter(s => s);
+    }
+
+    if (bdata.criteria) {
+      criteria = bdata.criteria.trim();
+      criteria = criteria.split(splitOnItems).map(s => s.trim()).filter(s => s);
+    }
 
     this.setState({
       badge: {
@@ -143,8 +159,10 @@ var BadgePage = React.createClass({
         description: bdata.short_description,
         icon: bdata.image_url,
         icon2x: bdata.image_url,
-        criteria: matched,
-        status: status
+        criteria,
+        evidence,
+        date_achieved: bdata.created_at,
+        status
       },
       prev: prev,
       next: next
@@ -152,6 +170,18 @@ var BadgePage = React.createClass({
   },
 
   render: function () {
+    if (this.state.applying && this.state.showApplyModal) {
+      return (
+        <Modal modalTitle="" className="modal-credly folded" hideModal={this.state.canCloseModal? this.hideApplyModal : false}>
+          <h3 className="centered">Thanks for applying for this badge!</h3>
+          <p>
+            We will be reviewing your badge application and evidence as soon as possible.
+          </p>
+          <input type="submit" className="btn center-block" onClick={this.hideApplyModal} value="Back to my badge"/>
+        </Modal>
+      );
+    }
+
     var content = null;
     var user = this.state.teachAPI.getLoginInfo();
 
@@ -211,7 +241,7 @@ var BadgePage = React.createClass({
       );
     }
 
-    var badgeCriteria = this.formBadgeCriteria(this.state.badge.criteria);
+    var badgeCriteria = this.formRequirements(this.state.badge.criteria);
     var username = this.state.teachAPI.getUsername();
 
     return (
@@ -239,47 +269,43 @@ var BadgePage = React.createClass({
     var msg = encodeURIComponent(`I earned the Mozilla ${this.state.badge.title} badge`);
 
     return (
-      <div className="social-share">
-        <a href={`https://twitter.com/home?status=${msg + encodeURIComponent(': ') + url}`} target={'_blank'}>twitter</a>
-        <a href={`https://www.facebook.com/sharer.php?u=${url}&t=${msg}`} target={'_blank'}>facebook</a>
-      </div>
+      <ul className="social-share">
+        <li><a href={`https://twitter.com/home?status=${msg + encodeURIComponent(': ') + url}`} target={'_blank'}>twitter</a></li>
+        <li><a href={`https://www.facebook.com/sharer.php?u=${url}&t=${msg}`} target={'_blank'}>facebook</a></li>
+      </ul>
     );
   },
 
-  renderAchieved: function() {
-    var badgeCriteria = this.formBadgeCriteria(this.state.badge.criteria);
+  renderPending: function() {
+    // FIXME: MAKE SURE THE PHRASING IS ENCOURAGING HERE
 
-    // FIXME: TODO: retrieve the information on when/how this badge was earned... IF we use this information at all.
     return (
-      <div className="badge-achieved">
-        <h3 className={'text-light'}>Congrats, you were awarded this credential.</h3>
-        { this.getShareCodes() }
+      <div className="badge-pending">
+        <h3 className={'text-light'}>Your badge claim is pending.</h3>
+
         <div className="badge-reward-text">
-          <div className="date">
-            DATE FROM API (although we may not end up using this);
-          </div>
-          <div className="qualifications">
-            EVIDENCE FOR THIS BADGE, FROM API (although we may not end up using this)
-          </div>
+          <p>Your badge claim is currently pending review by our staff.
+          Once we{"'"}ve reviewed and approved your claim, visiting this
+          page will show you the badge as having been achieved by you!</p>
         </div>
       </div>
     );
   },
 
-  renderPending: function() {
-    var badgeCriteria = this.formBadgeCriteria(this.state.badge.criteria);
-    var share = null; // <SocialShare />
+  renderAchieved: function() {
+    var badge = this.state.badge;
+    var date = new Date(badge.date_achieved);
+    var when = date.toLocaleString();
+
+    // FIXME: MAKE SURE THE PHRASING IS ENCOURAGING HERE
 
     return (
-      <div className="badge-pending">
-        <h3 className={'text-light'}>Your badge claim is pending.</h3>
-        { share }
+      <div className="badge-achieved">
+        <h3 className={'text-light'}>Congrats, you were awarded this badge!</h3>
+        { this.getShareCodes() }
         <div className="badge-reward-text">
           <div className="date">
-            DATE FROM API (although we may not end up using this);
-          </div>
-          <div className="qualifications">
-            EVIDENCE FOR THIS BADGE, FROM API (although we may not end up using this)
+            You earned this badge {when}.
           </div>
         </div>
       </div>
@@ -287,165 +313,60 @@ var BadgePage = React.createClass({
   },
 
   renderEligible: function() {
-    var badgeCriteria = this.formBadgeCriteria(this.state.badge.criteria);
+    var badge = this.state.badge;
+    var criteria = this.formRequirements(badge.criteria, badge.evidence);
 
     return (
       <div className="badge-available">
-        { badgeCriteria }
-        { this.renderApplicationForm() }
+        { criteria }
+        <button className={"btn"} disabled={!this.canUserApply()} onClick={this.claimBadge}>Apply</button>
       </div>
     );
   },
 
-  formBadgeCriteria: function(list) {
-    // FIXME: TODO: make this a local component
+  canUserApply: function() {
+    var ev = this.state.evidence;
+    var gaps = ev.some(v => v===false);
+
+    return !gaps && (ev.length === this.state.badge.evidence.length);
+  },
+
+  formRequirements: function(applicationCriteriaList, requiredEvidenceList) {
     return (
-      <div className="badge-requirement" key={''}>
+      <div className="badge-requirement" key={'badge-requirement-list'}>
         <h3 className={'text-light'}>Badge Requirements</h3>
         <p>Make or write something that demonstrates your understanding of any two or more of the following:</p>
-        <RequirementsList list={list} icon="fa fa-check"/>
+        <RequirementsList
+          icon="fa fa-check"
+          criteria={applicationCriteriaList}
+          evidence={requiredEvidenceList}
+          onEvidence={this.setEvidence}
+        />
       </div>
     );
   },
 
-  renderApplicationForm: function() {
-    var removeAttachment = this.removeAttachment.bind(this);
-    var showButton = this.state.evidenceText || this.state.evidenceLink || this.state.evidenceFiles.length > 0;
-
-    if (this.state.applying && this.state.showApplyModal) {
-      return (
-        <Modal modalTitle="" className="modal-credly folded" hideModal={this.hideApplyModal}>
-          <h3 className="centered">Thanks for applying for this badge!</h3>
-          <p>
-            We will be reviewing your badge application and evidence as soon as possible.
-          </p>
-          <input type="submit" className="btn center-block" onClick={this.hideApplyModal} value="Back to my badge"/>
-        </Modal>
-      );
-    }
-
-    return (
-      <div className="apply-send-qualifications">
-        <h3 className={'text-light'}>Apply for this badge</h3>
-
-        <div className="horizontal-form">
-          <fieldset>
-            <label className="control-label">Tell us what qualifies you to earn this badge:</label>
-            <textarea rows={10} onChange={this.updateEvidenceText} value={this.state.evidenceText} placeholder="Describe what you've done to earn this badge..."/>
-          </fieldset>
-
-          <fieldset>
-            <label className="control-label">Attach an (optional) link as part of your evidence:</label>
-            <input type="text" placeholder="Give a link to a page to act as evidence" value={this.state.evidenceLink} onChange={this.updateEvidenceLink} />
-          </fieldset>
-
-          <fieldset>
-            <input type="file" className="hidden" ref="optionalFile" onChange={this.handleFiles}/>
-            <label className="control-label">Attach an (optional) file as part of your evidence:</label>
-            <button className="btn attach" onClick={this.selectFiles}>pick file...</button>
-            {
-              (this.state.evidenceFiles && this.state.evidenceFiles.length > 0) ?
-              this.state.evidenceFiles.map(function(e) {
-                return <span className="attached">{e.name} <span className="fa fa-times" onClick={removeAttachment(e.name)}/></span>;
-              }) : null
-            }
-          </fieldset>
-
-          <button className={"btn"} disabled={!showButton} onClick={this.claimBadge}>Apply</button>
-        </div>
-      </div>
-    );
-  },
-
-  updateEvidenceText: function(evt) {
-    this.setState({
-      evidenceText: evt.target.value
-    });
-  },
-
-  updateEvidenceLink: function(evt) {
-    this.setState({
-      evidenceLink: evt.target.value
-    });
-  },
-
-  selectFiles: function() {
-    this.refs.optionalFile.click();
-  },
-
-  handleFiles: function(evt) {
-    var self = this;
-    var files = evt.target.files;
-    var attachments = [];
-
-    Array.from(files).forEach(function(file) {
-      var reader = new FileReader();
-
-      reader.onload = (function(f) {
-        return function(e) {
-          var name = escape(f.name);
-          var data = e.target.result;
-
-          if (data) {
-            // FIXME: TODO: There is a 20MB limit on file uploads whch
-            //              I doubt we'll run into, but _might_ be an issue
-            //              eventually, so I'm leaving this comment.
-            data = data.substring(data.indexOf('base64,')+'base64,'.length);
-            attachments.push({ name: name, file: data });
-          }
-
-          if(attachments.length === files.length) {
-            self.setState({
-              evidenceFiles: attachments
-            });
-          }
-        };
-      })(file);
-      reader.readAsDataURL(file);
-    });
-  },
-
-  removeAttachment: function(name) {
-    var self = this;
-
-    return function() {
-      var files = self.state.evidenceFiles;
-      var pos = -1;
-
-      files.forEach(function(file, idx) {
-        if (file.name === name) {
-          pos = idx;
-        }
-      });
-      if (pos > -1) {
-        files.splice(pos, 1);
-        self.setState({
-          evidenceFiles: files
-        });
-      }
-    };
+  setEvidence: function(evidence) {
+    this.setState({ evidence });
   },
 
   claimBadge: function() {
     var evidences = [];
+    var userSupplied = this.state.evidence;
 
-    if (this.state.evidenceText) {
-      evidences.push({
-        file: btoa(this.state.evidenceText),
-        name: "Claim description"
-      });
-    }
+    // iterate through all items that the user supplied evidence for.
+    userSupplied.forEach( (state, position) => {
+      if (state.evidenceText) {
+        evidences.push({
+          file: btoa(state.evidenceText),
+          name: "Claim description"
+        });
+      }
 
-    if (this.state.evidenceLink) {
-      evidences.push({
-        file: this.state.evidenceLink,
-        name: "Proof of claim link"
-      });
-    }
-
-    if (this.state.evidenceFiles.length > 0) {
-      evidences = evidences.concat(this.state.evidenceFiles);
-    }
+      if (state.evidenceFiles.length > 0) {
+        evidences = evidences.concat(this.state.evidenceFiles);
+      }
+    });
 
     if (evidences.length === 0) {
       return console.error("a badge claim without evidence was attempted");
@@ -453,14 +374,18 @@ var BadgePage = React.createClass({
 
     this.setState({
       applying: true,
-      showApplyModal: true
+      showApplyModal: true,
+      canCloseModal: false
     }, function() {
-      this.state.badgeAPI.claimBadge(this.state.badge.id, { evidences: evidences }, this.handleClaimRequest);
+      this.state.badgeAPI.claimBadge(this.state.badge.id, { evidences }, this.handleClaimRequest);
     });
   },
 
   handleClaimRequest: function(err, data) {
     // TODO: improve the UX for when network errors occur, leading to errors
+    this.setState({
+      canCloseModal: true
+    });
   },
 
   showLinkModal: function(evt) {
