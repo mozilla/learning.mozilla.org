@@ -133,9 +133,12 @@ var BadgePage = React.createClass({
 
     var evidence = [];
     var criteria = [];
-
-    // extract evidence as itemized list based on newlines (\n with optional \r) if we can
     var splitOnItems = /\n\r?/g;
+    var parser = document.createDocumentFragment();
+    var pbody = document.createElement("body");
+
+
+    parser.appendChild(pbody);
 
     // extract evidence as itemized list based on newlines (\n with optional \r) if we can
     if (criteria.indexOf('\n') === -1) {
@@ -144,12 +147,24 @@ var BadgePage = React.createClass({
 
     if (bdata.require_claim_evidence_description) {
       evidence = bdata.require_claim_evidence_description.trim();
-      evidence = evidence.split(splitOnItems).map(s => s.trim()).filter(s => s);
+      pbody.innerHTML = evidence;
+
+      let items = Array.from(pbody.querySelectorAll("li"));
+
+      if (items.length > 0) {
+        evidence = items.map( e => e.innerHTML );
+      }
     }
 
     if (bdata.criteria) {
       criteria = bdata.criteria.trim();
-      criteria = criteria.split(splitOnItems).map(s => s.trim()).filter(s => s);
+      pbody.innerHTML = criteria;
+
+      let items = Array.from(pbody.querySelectorAll("li"));
+
+      if (items.length > 0) {
+        criteria = items.map( e => e.innerHTML );
+      }
     }
 
     this.setState({
