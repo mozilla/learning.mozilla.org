@@ -2,52 +2,60 @@ var React = require('react');
 
 var RequirementRow = React.createClass({
   propTypes: {
+    position: React.PropTypes.number.isRequired,
     text: React.PropTypes.string.isRequired,
-    icon: React.PropTypes.string
+    icon: React.PropTypes.oneOfType([
+      React.PropTypes.bool,
+      React.PropTypes.string
+    ])
   },
 
   getInitialState: function() {
     return {
-      evidenceFiles: []
+      evidenceFiles: [],
+      renderEvidenceFields: false
     };
   },
 
   render: function () {
-    var icon = this.props.icon ? this.props.icon : 'fa fa-check';
+    var icon = null;
+
+    if (this.props.icon !== false) {
+      icon = this.props.icon ? this.props.icon : 'fa fa-check';
+    }
 
     return (
       <li>
         <div className="icon-wrapper">
           <span className={icon}></span>
         </div>
-        <div className="text">
-          { this.props.text }
-          { this.props.addEvidenceFields ? this.renderApplicationForm() : null }
+        <div className={"requirement" + (this.state.renderEvidenceFields ? " expanded" : "")}>
+          <div className="task-name">{ this.props.text }</div>
+          <div className="evidence">{ this.renderEvidenceOptions()}</div>
         </div>
       </li>
     );
   },
 
-  renderApplicationForm: function() {
-    var showButton = this.state.evidenceText || this.state.evidenceLink || this.state.evidenceFiles.length > 0;
+  renderEvidenceOptions: function() {
+    if (!this.props.evidence) {
+      return null;
+    }
 
-    if (this.state.applying && this.state.showApplyModal) {
+    if (!this.state.renderEvidenceFields) {
       return (
-        <Modal modalTitle="" className="modal-credly folded" hideModal={this.hideApplyModal}>
-          <h3 className="centered">Thanks for applying for this badge!</h3>
-          <p>
-            We will be reviewing your badge application and evidence as soon as possible.
-          </p>
-          <input type="submit" className="btn center-block" onClick={this.hideApplyModal} value="Back to my badge"/>
-        </Modal>
+        <button className="btn" onClick={() => this.setState({ renderEvidenceFields: true })}>Submit evidence for this task</button>
       );
     }
 
     return (
       <div className="apply-send-qualifications">
+        {/*
+          <div className="evidence-title">{ this.props.evidence }</div>
+        */}
         <div className="horizontal-form">
           <fieldset>
-            <label className="control-label">Text description (if asked for):</label>
+            <label className="control-label">Document your evidence here:</label>
             <textarea
               rows={10}
               onChange={this.updateEvidenceText}
@@ -56,18 +64,8 @@ var RequirementRow = React.createClass({
           </fieldset>
 
           <fieldset>
-            <label className="control-label">URL (if asked for) for the page or website:</label>
-            <input
-              type="text"
-              placeholder="Write your URL here, including the http:// or https://"
-              value={this.state.evidenceLink}
-              onChange={this.updateEvidenceLink}
-            />
-          </fieldset>
-
-          <fieldset>
             <input type="file" className="hidden" ref="optionalFile" onChange={this.handleFiles}/>
-            <label className="control-label">Attach one or more file (if asked for):</label>
+            <label className="control-label">Attach one or more file (if needed):</label>
             <button className="btn attach" onClick={this.selectFiles}>click here to pick one or more files...</button>
             { this.generateAttachmentSelection() }
           </fieldset>
@@ -94,12 +92,6 @@ var RequirementRow = React.createClass({
   updateEvidenceText: function(evt) {
     this.setState({
       evidenceText: evt.target.value
-    }, this.propagateEvidence);
-  },
-
-  updateEvidenceLink: function(evt) {
-    this.setState({
-      evidenceLink: evt.target.value
     }, this.propagateEvidence);
   },
 
@@ -162,7 +154,13 @@ var RequirementRow = React.createClass({
   },
 
   propagateEvidence: function() {
-    this.props.onEvidence(this.state);
+    let payload = this.state;
+
+    if (payload.evidenceFiles.length===0 && payload.evidenceText.trim()==='') {
+      payload = false;
+    }
+
+    this.props.onEvidence(this.props.position, payload);
   }
 });
 

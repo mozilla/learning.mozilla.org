@@ -72,9 +72,7 @@ var BadgePage = React.createClass({
       },
       prev: false,
       next: false,
-      evidenceLink: '',
-      evidenceText: '',
-      evidenceFiles: []
+      evidence: []
     };
   },
 
@@ -107,7 +105,9 @@ var BadgePage = React.createClass({
   parseBadgeDetails: function(data) {
     var bdata = data.badge;
 
+// FIXME: LOGGING ONLY, REMOVE REMOVE REMOVE
     console.log(bdata);
+// FIXME: LOGGING ONLY, REMOVE REMOVE REMOVE
 
     var prev = false;
 
@@ -132,22 +132,24 @@ var BadgePage = React.createClass({
     // FIXME: these need to be constants on the badgeAPI, probably
     var status = Badge.eligible;
 
-    console.log("parse data:",data);
-
     if (data.earned) { status = Badge.achieved; }
     if (data.pending) { status = Badge.pending; }
 
-    // extract evidence as itemized list based on newlines (\n with optional \r)
-    var splitOnItems = /(\n\r?)+/g;
     var evidence = [];
+    var criteria = [];
+
+    // extract evidence as itemized list based on newlines (\n with optional \r) if we can
+    var splitOnItems = /\n\r?/g;
+
+    // extract evidence as itemized list based on newlines (\n with optional \r) if we can
+    if (criteria.indexOf('\n') === -1) {
+      splitOnItems = /[\s\n\r]+(?=Task)/g;
+    }
 
     if (bdata.require_claim_evidence_description) {
       evidence = bdata.require_claim_evidence_description.trim();
       evidence = evidence.split(splitOnItems).map(s => s.trim()).filter(s => s);
     }
-
-    // extract the badge criteria
-    var criteria = [];
 
     if (bdata.criteria) {
       criteria = bdata.criteria.trim();
@@ -172,10 +174,20 @@ var BadgePage = React.createClass({
   },
 
   render: function () {
+    if (this.state.applying && this.state.showApplyModal) {
+      return (
+        <Modal modalTitle="" className="modal-credly folded" hideModal={this.state.canCloseModal? this.hideApplyModal : false}>
+          <h3 className="centered">Thanks for applying for this badge!</h3>
+          <p>
+            We will be reviewing your badge application and evidence as soon as possible.
+          </p>
+          <input type="submit" className="btn center-block" onClick={this.hideApplyModal} value="Back to my badge"/>
+        </Modal>
+      );
+    }
+
     var content = null;
     var user = this.state.teachAPI.getLoginInfo();
-
-    console.log(this.state.badge.status);
 
     // We have quite a lot of different states that each require
     // we render (sometimes subtly) different content, so we decide
@@ -233,7 +245,7 @@ var BadgePage = React.createClass({
       );
     }
 
-    var badgeCriteria = this.formBadgeCriteria(this.state.badge.criteria);
+    var badgeCriteria = this.formRequirements(this.state.badge.criteria);
     var username = this.state.teachAPI.getUsername();
 
     return (
@@ -268,10 +280,28 @@ var BadgePage = React.createClass({
     );
   },
 
+  renderPending: function() {
+    // FIXME: MAKE SURE THE PHRASING IS ENCOURAGING HERE
+
+    return (
+      <div className="badge-pending">
+        <h3 className={'text-light'}>Your badge claim is pending.</h3>
+
+        <div className="badge-reward-text">
+          <p>Your badge claim is currently pending review by our staff.
+          Once we{"'"}ve reviewed and approved your claim, visiting this
+          page will show you the badge as having been achieved by you!</p>
+        </div>
+      </div>
+    );
+  },
+
   renderAchieved: function() {
     var badge = this.state.badge;
     var date = new Date(badge.date_achieved);
     var when = date.toLocaleString();
+
+    // FIXME: MAKE SURE THE PHRASING IS ENCOURAGING HERE
 
     return (
       <div className="badge-achieved">
@@ -286,82 +316,61 @@ var BadgePage = React.createClass({
     );
   },
 
-  renderPending: function() {
-    return (
-      <div className="badge-pending">
-        <h3 className={'text-light'}>Your badge claim is pending.</h3>
-
-        <div className="badge-reward-text">
-          <p>Your badge claim is currently pending review by our staff.
-          Once we{"'"}ve reviewed and approved your claim, visiting this
-          page will show you the badge as having been achieved by you!</p>
-        </div>
-      </div>
-    );
-  },
-
   renderEligible: function() {
-    var badgeCriteria = this.formBadgeCriteria(this.state.badge.criteria);
-    var evidenceFields = this.formEvidenceFields(this.state.badge.evidence);
+    var badge = this.state.badge;
+    var criteria = this.formRequirements(badge.criteria, badge.evidence);
 
     return (
       <div className="badge-available">
-        { badgeCriteria }
-        { evidenceFields }
-        <button className={"btn"} disabled={!showButton} onClick={this.claimBadge}>Apply</button>
+        { criteria }
+        <button className={"btn"} disabled={!this.canUserApply()} onClick={this.claimBadge}>Apply</button>
       </div>
     );
   },
 
-  formBadgeCriteria: function(list) {
-    // FIXME: TODO: make this a local component
+  canUserApply: function() {
+    var ev = this.state.evidence;
+    var gaps = ev.some(v => v===false);
+
+    return !gaps && (ev.length === this.state.badge.evidence.length);
+  },
+
+  formRequirements: function(applicationCriteriaList, requiredEvidenceList) {
     return (
       <div className="badge-requirement" key={'badge-requirement-list'}>
         <h3 className={'text-light'}>Badge Requirements</h3>
         <p>Make or write something that demonstrates your understanding of any two or more of the following:</p>
-        <RequirementsList list={list} icon="fa fa-check"/>
+        <RequirementsList
+          icon="fa fa-check"
+          criteria={applicationCriteriaList}
+          evidence={requiredEvidenceList}
+          onEvidence={this.setEvidence}
+        />
       </div>
     );
   },
 
-  formEvidenceFields: function(list) {
-    return (
-      <div className="badge-requirement" key={'badge-evidence-list'}>
-        <h3 className={'text-light'}>Badge Evidence</h3>
-        <RequirementsList list={list} icon="fa fa-check" addEvidenceFields={true} onEvidence={this.addEvidence}/>
-      </div>
-    );
+  setEvidence: function(evidence) {
+    this.setState({ evidence });
   },
 
   claimBadge: function() {
-    // FIXME: WE NEED TO GET THE EVIDENCE PER REQUIREMENT NOW,
-    //        FROM THE REQUIREMENTROW, INTO THE REQUIREMENTSLIST,
-    //        AND FROM THERE INTO THIS COMPONENT SO THAT WE CAN
-    //        PROPERLY RUN EVERYTHING THROUGH THE PROPER ENCODES.
-    //
-    // FIXME: WE SHOULD PROBABLY MOVE THESE FUNCTIONS INTO THE
-    //        REQUIREMENTROW COMPONENT SO THAT ENCODING HAPPENS
-    //        AS THE USER ADDS DATA, RATHER THAN WAITING UNTIL
-    //        THE VERY END.
     var evidences = [];
+    var userSupplied = this.state.evidence;
 
-    if (this.state.evidenceText) {
-      evidences.push({
-        file: btoa(this.state.evidenceText),
-        name: "Claim description"
-      });
-    }
+    // iterate through all items that the user supplied evidence for.
+    userSupplied.forEach( (state, position) => {
+      if (state.evidenceText) {
+        evidences.push({
+          file: btoa(state.evidenceText),
+          name: "Claim description"
+        });
+      }
 
-    if (this.state.evidenceLink) {
-      evidences.push({
-        file: this.state.evidenceLink,
-        name: "Proof of claim link"
-      });
-    }
-
-    if (this.state.evidenceFiles.length > 0) {
-      evidences = evidences.concat(this.state.evidenceFiles);
-    }
+      if (state.evidenceFiles.length > 0) {
+        evidences = evidences.concat(this.state.evidenceFiles);
+      }
+    });
 
     if (evidences.length === 0) {
       return console.error("a badge claim without evidence was attempted");
@@ -369,14 +378,18 @@ var BadgePage = React.createClass({
 
     this.setState({
       applying: true,
-      showApplyModal: true
+      showApplyModal: true,
+      canCloseModal: false
     }, function() {
-      this.state.badgeAPI.claimBadge(this.state.badge.id, { evidences: evidences }, this.handleClaimRequest);
+      this.state.badgeAPI.claimBadge(this.state.badge.id, { evidences }, this.handleClaimRequest);
     });
   },
 
   handleClaimRequest: function(err, data) {
     // TODO: improve the UX for when network errors occur, leading to errors
+    this.setState({
+      canCloseModal: true
+    });
   },
 
   showLinkModal: function(evt) {
