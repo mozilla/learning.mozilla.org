@@ -20,6 +20,9 @@ var RequirementRow = React.createClass({
   render: function () {
     var icon = null;
 
+    // If icon===false, we don't want an icon at all, not
+    // even the default icon. However, if the icon property
+    // is omitted, the default icon will be used.
     if (this.props.icon !== false) {
       icon = this.props.icon ? this.props.icon : 'fa fa-check';
     }
@@ -66,7 +69,7 @@ var RequirementRow = React.createClass({
           <fieldset>
             <input type="file" className="hidden" ref="optionalFile" onChange={this.handleFiles}/>
             <label className="control-label">Attach one or more file (if needed):</label>
-            <button className="btn attach" onClick={this.selectFiles}>click here to pick one or more files...</button>
+            <button className="btn attach" onClick={this.selectFiles}>Click here to pick one or more files...</button>
             { this.generateAttachmentSelection() }
           </fieldset>
         </div>
@@ -100,7 +103,6 @@ var RequirementRow = React.createClass({
   },
 
   handleFiles: function(evt) {
-    var self = this;
     var files = evt.target.files;
     var attachments = [];
     var parse = (file) => {
@@ -121,7 +123,7 @@ var RequirementRow = React.createClass({
           if(attachments.length === files.length) {
             var evidenceFiles = this.state.evidenceFiles.concat(attachments);
 
-            self.setState({ evidenceFiles }, this.propagateEvidence);
+            this.setState({ evidenceFiles }, this.propagateEvidence);
           }
         };
       };

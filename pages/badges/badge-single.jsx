@@ -105,10 +105,6 @@ var BadgePage = React.createClass({
   parseBadgeDetails: function(data) {
     var bdata = data.badge;
 
-// FIXME: LOGGING ONLY, REMOVE REMOVE REMOVE
-    console.log(bdata);
-// FIXME: LOGGING ONLY, REMOVE REMOVE REMOVE
-
     var prev = false;
 
     if (data.prev) {
