@@ -112,7 +112,7 @@ var EventsResources = React.createClass({
             >
               <h3 className="uppercase">
                 <a href={memeAroundLink}>
-                  {this.context.intl.formatMessage({id: 'maker_party_activity_1_title'})}
+                  {this.context.intl.formatMessage({id: 'maker_party_activity_1_title2'})}
                 </a>
               </h3>
               <p>
