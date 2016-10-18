@@ -14,7 +14,7 @@ var React = require('react'),
 
     config = require('../../config/config');
 
-var ACHIEVED_BADGE_BASE_URL = config.CREDLY_BASE_URL.replace(/\/?$/, '/credit/');
+var ACHIEVED_BADGE_BASE_URL = config.CREDLY_BASE_URL + 'credit/';
 
 var Navigation = React.createClass({
   contextTypes: {
