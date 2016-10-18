@@ -3,7 +3,6 @@ var React = require('react'),
     LoginLink = require('../../components/login/LoginLink.jsx'),
 
     RequirementsList = require('../../components/badges/RequirementsList.jsx'),
-    SocialShare = require('../../components/badges/social-share.jsx'),
     Badge = require('../../components/badges/badge.jsx'),
     BadgeHorizontalIcon = require('../../components/badges/badge-horizontal-icon.jsx'),
     CredlyLinkForm = require('../../components/badges/CredlyLinkForm.jsx'),
@@ -274,8 +273,16 @@ var BadgePage = React.createClass({
 
     return (
       <ul className="social-share">
-        <li><a href={`https://twitter.com/home?status=${msg + encodeURIComponent(': ') + url}`} target={'_blank'}>twitter</a></li>
-        <li><a href={`https://www.facebook.com/sharer.php?u=${url}&t=${msg}`} target={'_blank'}>facebook</a></li>
+        <li>
+          <a href={`https://twitter.com/home?status=${msg + encodeURIComponent(': ') + url}`} target={'_blank'}>
+            <span className="fa fa-twitter"/> Tweet this badge
+          </a>
+          </li>
+        <li>
+          <a href={`https://www.facebook.com/sharer.php?u=${url}&t=${msg}`} target={'_blank'}>
+            <span className="fa fa-facebook-official"/> Share this on facebook
+          </a>
+        </li>
       </ul>
     );
   },
@@ -306,12 +313,12 @@ var BadgePage = React.createClass({
     return (
       <div className="badge-achieved">
         <h3 className={'text-light'}>Congrats, you were awarded this badge!</h3>
-        { this.getShareCodes() }
         <div className="badge-reward-text">
           <div className="date">
             You earned this badge {when}.
           </div>
         </div>
+        { this.getShareCodes() }
       </div>
     );
   },
