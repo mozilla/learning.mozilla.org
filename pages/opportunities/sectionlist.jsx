@@ -87,7 +87,7 @@ var SectionList = React.createClass({
             description:
               (<div>
                 <p>{formatMessage({id: 'lead_a_gigabit_message'})}</p>
-                <p><a href={config.GIGABIT_SITE_LINK} className="external-link">{formatMessage({id: 'lead_a_gigabit_link'})}</a></p>
+                <p><a href="/gigabit" className="external-link">{formatMessage({id: 'lead_a_gigabit_link'})}</a></p>
               </div>)
           }
         ]

@@ -23,7 +23,6 @@ exports.CREDLY_BASE_URL = (process.env.CREDLY_BASE_URL || 'https://staging.credl
 exports.ENABLE_PUSHSTATE = ENABLE_PUSHSTATE;
 exports.ENCRYPT_CAMPAIGN_URL = "https://mzl.la/encrypt";
 exports.FLICKR_MAKER_PARTY = 'https://www.flickr.com/photos/mozilladrumbeat/sets/72157654235131834/';
-exports.GIGABIT_SITE_LINK = 'https://mozilla.org/gigabit';
 exports.HIVE_LEARNING_NETWORKS_URL = 'https://hivelearningnetworks.org';
 exports.IN_TEST_SUITE = (typeof describe === 'function');
 exports.LIGHT_BEAM_URL = "https://addons.mozilla.org/firefox/downloads/latest/363974/addon-363974-latest.xpi";

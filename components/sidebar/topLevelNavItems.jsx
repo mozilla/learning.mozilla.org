@@ -46,7 +46,7 @@ var MENU_ENTRIES = [
       },
       {
         name: "gigabit_community_fund",
-        to: config.GIGABIT_SITE_LINK
+        to: "/gigabit"
       }
     ]
   },

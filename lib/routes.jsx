@@ -68,7 +68,10 @@ var pages = {
   'opportunities': require('../pages/opportunities.jsx'),
   'tools': require('../pages/tools.jsx'),
   'me': require('../pages/makes.jsx'),
-  'web-literacy/skills': require('../pages/web-literacy/Skills.jsx')
+  'web-literacy/skills': require('../pages/web-literacy/Skills.jsx'),
+  'gigabit': require('../pages/gigabit/index.jsx'),
+  'gigabit/:tab/:subview': require('../pages/gigabit/index.jsx'),
+  'gigabit/:tab': require('../pages/gigabit/index.jsx')
 };
 
 // FEATURE FLAG:

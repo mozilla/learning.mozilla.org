@@ -1,0 +1,283 @@
+.gigabit-section {
+  .hero-unit {
+    background-image: url(/img/pages/gigabit/minimaker.jpg);
+  }
+
+  .sidebar {
+    background-color: @orangeSidebarColor;
+  }
+
+  .sidebar .top-level-item.sub-nav-active {
+    background-color: @orangeSidebarColor;
+  }
+
+  .sidebar-subitems {
+    background-color: @orangeSidebarColor !important;
+  }
+
+  .sidebar-menu a {
+    background-color: @orangeSidebarColor !important;
+  }
+
+  .mui-tab-switcher .mui-tabs .mui-btn {
+    background-color: fade(@orangeSidebarColor, 90%);
+
+    &.mui-active {
+      background-color: @white;
+    }
+  }
+}
+
+.gigabit-contact {
+  h4 {
+    font-size: 26px;
+    font-weight: 300;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.33em;
+  }
+
+  a {
+    font-size: 14px;
+    display: block;
+    line-height: 1.66em;
+  }
+}
+
+.grey-block {
+  background: #F9F9F9;
+  margin: 0 -15px;
+  padding: 0 30px;
+
+  .box {
+    background: #fff;
+    border: 0;
+  }
+}
+
+.partner-logos {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+// Anchors with font-awesome glyphs prepended:
+
+.glyph-link {
+  &:before {
+    margin-right: 0.5em;
+    font-family: FontAwesome;
+  }
+
+  &:hover, &:active, &:focus {
+    text-decoration: none;
+  }
+}
+
+.glyph-link-email:before {
+  content: "\f0e0"; // `fa-envelope`
+}
+
+.glyph-link-twitter:before {
+  content: "\f099"; // `fa-twitter`
+}
+
+.glyph-link-facebook:before {
+  content: "\f09a"; // `fa-facebook`
+}
+
+.project-card {
+  background: white;
+  text-align: left;
+
+  .photo {
+    width: 100%;
+  }
+
+  .city {
+    &.has-photo {
+      position: relative;
+      top: -0.75em;
+    }
+  }
+
+  .project-name {
+    font-size: 18px;
+  }
+
+  .lead-org, .lead-org a, .summary {
+    line-height: 2em;
+    font-size: 12px;
+  }
+}
+
+.tag {
+  color: white;
+  display: inline-block;
+  padding: 0 0.5em;
+  line-height: 1.5em;
+}
+
+.tag-orange {
+  background: @orangeSidebarColor;
+}
+
+.tags {
+  .tag {
+    margin-right: 0.5em;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.meta-block {
+  display: flex;
+
+  img {
+    visibility: hidden;
+  }
+
+  .tags {
+    position: absolute;
+    left: 15px;
+    top: -0.75em;
+  }
+
+  .hero {
+    background-position-y: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.project-metadata-dl {
+  dt {
+    text-transform: uppercase;
+  }
+
+  dd {
+    margin-bottom: 1em;
+
+    a {
+      font-size: inherit;
+      line-height: inherit;
+    }
+  }
+}
+
+.dl-block {
+  background: rgba(227, 131, 0, .1);
+
+  h2 {
+    text-align: center;
+  }
+
+  dl {
+    display: flex;
+    flex-wrap: wrap;
+
+    > * {
+      width: 50%;
+      flex-shrink: 0;
+      border-bottom: 1px solid @white;
+      padding: 1.5em 0;
+      font-weight: 400;
+      font-size: 12px;
+
+      &:nth-last-child(1),
+      &:nth-last-child(2) {
+        border-bottom: 0;
+      }
+    }
+
+    dd {
+      text-align: center;
+    }
+  }
+}
+
+.circled-ol {
+  counter-reset: li;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    margin-bottom: 2em;
+    align-items: center;
+
+    a {
+      font-size: inherit;
+      line-height: inherit;
+    }
+  }
+
+  li:before {
+    align-items: center;
+    border-radius: 50%;
+    border: 1px solid @orangeSidebarColor;
+    color: @orangeSidebarColor;
+    content: counter(li);
+    counter-increment: li;
+    display: flex;
+    flex-shrink: 0;
+    font-size: 18px;
+    height: 36px;
+    justify-content: center;
+    margin-right: 18px;
+    width: 36px;
+  }
+}
+
+.matrix {
+  width: 100%;
+
+  thead {
+    background: rgba(227, 131, 0, .1);
+  }
+
+  th, td {
+    padding: 20px;
+  }
+
+  th {
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid #D7D7D9;
+
+    &:last-child {
+      border: 0;
+    }
+  }
+}
+
+.dl-matrix {
+  display: flex;
+  flex-wrap: wrap;
+
+  dt, dd {
+    padding: 10px;
+
+    &:first-of-type {
+      background: rgba(227, 131, 0, .1);
+    }
+  }
+
+  dt {
+    width: 33%;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+
+  dd {
+    width: 66%;
+  }
+}

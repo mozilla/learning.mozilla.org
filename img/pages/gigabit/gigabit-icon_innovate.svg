@@ -1,0 +1,12 @@
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 165.6 165.6">
+    <style>
+        .st0{fill:#DBF1FA;} .st1{fill:none;stroke:#020303;stroke-width:2;stroke-miterlimit:10;} .st2{fill:none;stroke:#020303;stroke-width:2;stroke-miterlimit:10;stroke-dasharray:4,2;} .st3{fill:none;stroke:#020303;stroke-width:2;stroke-linejoin:bevel;stroke-miterlimit:10;} .st4{fill:#020303;} .st5{fill:#B6E3F8;} .st6{fill:#E6D8BE;} .st7{fill:none;stroke:#EC581E;stroke-width:26;stroke-miterlimit:10;} .st8{fill:#EB5322;} .st9{fill:#EC581E;} .st10{fill:#2499DA;} .st11{fill:none;} .st12{fill:#D9CBB5;} .st13{fill:#1C1C1A;} .st14{fill:#262724;} .st15{fill:none;stroke:#FFFFFF;stroke-miterlimit:10;} .st16{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;} .st17{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;} .st18{fill:#1F85B1;} .st19{fill:#009DEB;} .st20{fill:#009DEB;stroke:#000000;stroke-miterlimit:10;} .st21{fill:#FFFFFF;} .st22{stroke:#000000;stroke-miterlimit:10;} .st23{fill:#897266;} .st24{fill:#FFF300;} .st25{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-miterlimit:10;} .st26{stroke:#6D6F72;stroke-width:9;stroke-miterlimit:10;} .st27{fill:#B3B3B3;} .st28{stroke:#FFF300;stroke-miterlimit:10;} .st29{fill:#FFFFFF;stroke:#000000;stroke-width:0.75;stroke-miterlimit:10;} .st30{fill:none;stroke:#000000;stroke-width:0.75;stroke-miterlimit:10;} .st31{clip-path:url(#SVGID_2_);fill:#2499DA;} .st32{clip-path:url(#SVGID_4_);fill:#2499DA;} .st33{fill:none;stroke:#EC581E;stroke-miterlimit:10;} .st34{fill:none;stroke:#EC581E;stroke-miterlimit:10;stroke-dasharray:4,3;}
+    </style>
+    <path class="st33" d="M71.9 91.8v5h22v-5.1c6-3.7 10-10.3 10-17.9 0-11.6-9.4-21-21-21s-21 9.4-21 21c0 7.6 4 14.3 10 18zM78.9 96.8l-3-20M86.9 96.8l3-20"/>
+    <path class="st33" d="M75.9 77.8l4 3 3-3 3 3 4-3M71.9 96.8h22v6h-22zM73.9 102.8h18v6h-18zM75.9 108.8h14v6h-14z"/>
+    <circle class="st33" cx="82.9" cy="82.8" r="60.9"/>
+    <g>
+        <path class="st33" d="M9.7 82.8h24.6M131.5 82.8h24.6M82.9 9.6v24.6M82.9 131.4V156"/>
+        <path class="st34" d="M134.6 31.1l-17.4 17.4M48.6 117.1l-17.4 17.4M134.6 134.5l-17.4-17.4M48.6 48.5L31.2 31.1"/>
+    </g>
+</svg>
