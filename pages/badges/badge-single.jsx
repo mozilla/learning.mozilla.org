@@ -186,6 +186,7 @@ var BadgePage = React.createClass({
         status,
         achievedLink: ACHIEVED_BADGE_BASE_URL + bdata.member_badge_id
       },
+      earned: data.earned || false,
       prev: prev,
       next: next
     });
@@ -324,7 +325,7 @@ var BadgePage = React.createClass({
 
   renderAchieved: function() {
     var badge = this.state.badge;
-    var date = new Date(badge.date_achieved);
+    var date = new Date(this.state.earned);
     var when = date.toLocaleString();
 
     // FIXME: MAKE SURE THE PHRASING IS ENCOURAGING HERE
@@ -339,7 +340,7 @@ var BadgePage = React.createClass({
         </p>
         <div className="badge-reward-text">
           <div className="date">
-            You earned this badge {when}.
+            You earned this badge {when}
           </div>
         </div>
         { this.getShareCodes() }
