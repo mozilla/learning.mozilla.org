@@ -51,6 +51,12 @@ var RequirementRow = React.createClass({
       );
     }
 
+    var howmany = "a";
+
+    if (this.state.evidenceFiles.length > 0) {
+      howmany = "another";
+    }
+
     return (
       <div className="apply-send-qualifications">
         {/*
@@ -69,7 +75,7 @@ var RequirementRow = React.createClass({
           <fieldset>
             <input type="file" className="hidden" ref="optionalFile" onChange={this.handleFiles}/>
             <label className="control-label">Attach one or more file (if needed):</label>
-            <button className="btn attach" onClick={this.selectFiles}>Click here to pick one or more files...</button>
+            <button className="btn attach" onClick={this.selectFiles}>Click here to pick {howmany} file</button>
             { this.generateAttachmentSelection() }
           </fieldset>
         </div>
@@ -86,7 +92,7 @@ var RequirementRow = React.createClass({
       return (
         <span className="attached" key={`evidence-${e.name}`}>
           {e.name}
-          <span className="fa fa-times" onClick={this.removeAttachment(e.name)}/>
+          <span className="close fa fa-times" onClick={this.removeAttachment(e.name).bind(this)} title="Remove this attachment"/>
         </span>
       );
     });
@@ -136,10 +142,8 @@ var RequirementRow = React.createClass({
   },
 
   removeAttachment: function(name) {
-    var self = this;
-
-    return function() {
-      var evidenceFiles = self.state.evidenceFiles;
+    return () => {
+      var evidenceFiles = this.state.evidenceFiles;
       var pos = -1;
 
       evidenceFiles.forEach((file, idx) => {
@@ -150,7 +154,7 @@ var RequirementRow = React.createClass({
 
       if (pos > -1) {
         evidenceFiles.splice(pos, 1);
-        self.setState({ evidenceFiles }, this.propagateEvidence);
+        this.setState({ evidenceFiles }, this.propagateEvidence);
       }
     };
   },
@@ -158,7 +162,7 @@ var RequirementRow = React.createClass({
   propagateEvidence: function() {
     let payload = this.state;
 
-    if (payload.evidenceFiles.length===0 && payload.evidenceText.trim()==='') {
+    if (payload.evidenceFiles.length===0 && (!payload.evidenceText || payload.evidenceText.trim()==='')) {
       payload = false;
     }
 
