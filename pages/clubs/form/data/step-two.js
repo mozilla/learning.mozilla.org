@@ -5,7 +5,7 @@ var React = require('react');
 var startlabels = {
   name: "Name your club",
   description: "Description for your club",
-  venue: "Where will you meet",
+  venue: "Where will you meet?",
   frequency: "How often will you meet?",
   ageRange: "What will the age range of your audience be?",
   clubSize: "What is the size of your club?",
@@ -16,7 +16,7 @@ var startlabels = {
 var integrateLabels = {
   name: "Name of your existing program",
   description: "Description for your existing program",
-  venue: "Where do you meet",
+  venue: "Where do you meet?",
   frequency: "How often do you meet?",
   ageRange: "What is the age range of your audience?",
   clubSize: "What is the size of your club?",
