@@ -4,14 +4,22 @@ var _ = require('underscore');
 
 var CredlyLinkForm = React.createClass({
   mixins: [LinkedStateMixin],
+
   getInitialState: function() {
     return {
       email: "",
       password: "",
       validationErrors: [],
       pending: false,
-      addendum: ""
+      addendum: "",
+      teachAPI: this.props.teachAPI
     };
+  },
+
+  componentWillMount: function() {
+    this.state.teachAPI.getEmail((email) => {
+      this.setState({ email: email || "" });
+    });
   },
 
   handleSubmit: function(e) {
@@ -60,13 +68,17 @@ var CredlyLinkForm = React.createClass({
         { this.state.addendum ? this.state.addendum : null}
 
         <fieldset>
-          <label className="sr-only">email</label>
-          <input name="email" type="email" size="30" placeholder="email@example.com" valueLink={this.linkState("email")} required />
+          <label>
+            email
+            <input name="email" type="email" size="30" placeholder="email@example.com" valueLink={this.linkState("email")} required placeholder="the email address we should register you on Credly with."/>
+          </label>
         </fieldset>
 
         <fieldset>
-          <label className="sr-only">password</label>
-          <input name="password" type="password" size="30" valueLink={this.linkState("password")} required />
+          <label>
+            password
+            <input name="password" type="password" size="30" valueLink={this.linkState("password")} required placeholder="This will become your Credly password." />
+          </label>
         </fieldset>
 
         <p className="pp-note">
