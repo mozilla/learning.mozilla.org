@@ -123,7 +123,7 @@ software works.
 `LOGIN_EMULATION_USERNAME` | determines the username that is used when login emulation is on and login status is not set to logged out. defaults to 'testuser'.
 `FULL_SUBDOMAIN_FOR_COOKIE` | A domain string, used by Optimizely to determine cookie domain that is used by Optimizely. defaults to 'learning.mozilla.org'
 `ENABLE_PONTOON` | set this to `on` to inject the Pontoon client-side localization script.
-`CREDLY_BASE_URL` | The main url that you can access the Credly interface through.
+`CREDLY_BASE_URL` | The main url that you can access the Credly interface through. Defaults to `https://staging.credly.com`.
 
 ### Using Environment Variables in Local Development
 
