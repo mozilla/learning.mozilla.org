@@ -245,7 +245,7 @@ var BadgePage = React.createClass({
           <p>
             Something went wrong with your application for this badge.
             Please let us know what you were doing so that we can
-            look into getting that fixes as soon as possible for you!
+            look into getting that fixed as soon as possible for you!
           </p>
           <button className="btn back" onClick={this.hideApplyModal}>Back to the badge</button>
         </Modal>
@@ -448,7 +448,7 @@ var BadgePage = React.createClass({
     // TODO: improve the UX for when network errors occur, leading to errors
     this.setState({
       canCloseModal: true,
-      applicationError: data
+      applicationError: err ? data : false
     });
   },
 
@@ -466,7 +466,15 @@ var BadgePage = React.createClass({
 
   hideApplyModal: function(evt) {
     this.setState({ showApplyModal: false });
-    this.reloadPage();
+
+    // only do a full page reload on a successful application
+    if (this.state.applicationError) {
+      this.setState({
+        applicationError: false
+      });
+    } else {
+      this.reloadPage();
+    }
   },
 
   linkAccounts: function(email, password, handleLinkResult) {
