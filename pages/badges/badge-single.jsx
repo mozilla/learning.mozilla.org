@@ -152,11 +152,15 @@ var BadgePage = React.createClass({
       criteria = criteria.split(splitOnItems).map(s => s.trim()).filter(s => s);
     }
 
+    var desc = document.createElement("p");
+
+    desc.innerHTML = bdata.description;
+
     this.setState({
       badge: {
         id: bdata.id,
         title: bdata.title,
-        description: bdata.short_description,
+        description: desc.textContent,
         icon: bdata.image_url,
         icon2x: bdata.image_url,
         criteria,
