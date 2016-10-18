@@ -40,7 +40,7 @@ var RequirementsList = React.createClass({
                   position={position}
                   key={position + '-' + item}
                   icon={this.state.evidenceReceived[position] ? icon : false}
-                  text={item}
+                  description={item}
                   evidence={ev}
                   onEvidence={this.handleEvidence}
                />;

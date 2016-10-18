@@ -3,7 +3,7 @@ var React = require('react');
 var RequirementRow = React.createClass({
   propTypes: {
     position: React.PropTypes.number.isRequired,
-    text: React.PropTypes.string.isRequired,
+    description: React.PropTypes.string.isRequired,
     icon: React.PropTypes.oneOfType([
       React.PropTypes.bool,
       React.PropTypes.string
@@ -33,7 +33,7 @@ var RequirementRow = React.createClass({
           <span className={icon}></span>
         </div>
         <div className={"requirement" + (this.state.renderEvidenceFields ? " expanded" : "")}>
-          <div className="task-name">{ this.props.text }</div>
+          <div className="task-name" dangerouslySetInnerHTML={{ __html: this.props.description }} />
           <div className="evidence">{ this.renderEvidenceOptions()}</div>
         </div>
       </li>
@@ -59,9 +59,7 @@ var RequirementRow = React.createClass({
 
     return (
       <div className="apply-send-qualifications">
-        {/*
-          <div className="evidence-title">{ this.props.evidence }</div>
-        */}
+        <div className="evidence-title" dangerouslySetInnerHTML={{ __html: this.props.evidence }} />
         <div className="horizontal-form">
           <fieldset>
             <label className="control-label">Document your evidence here:</label>
