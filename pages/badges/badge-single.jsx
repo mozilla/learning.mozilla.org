@@ -10,7 +10,11 @@ var React = require('react'),
     Divider = require('../../components/Divider.jsx'),
     BadgesAPI = require('../../lib/badges-api'),
     TeachAPI = require('../../lib/teach-api'),
-    Modal = require('../../components/modal.jsx');
+    Modal = require('../../components/modal.jsx'),
+
+    config = require('../../config/config');
+
+var ACHIEVED_BADGE_BASE_URL = config.CREDLY_BASE_URL.replace(/\/?$/, '/credit/');
 
 var Navigation = React.createClass({
   contextTypes: {
@@ -165,7 +169,8 @@ var BadgePage = React.createClass({
         criteria,
         evidence,
         date_achieved: bdata.created_at,
-        status
+        status,
+        achievedLink: ACHIEVED_BADGE_BASE_URL + bdata.member_badge_id
       },
       prev: prev,
       next: next
@@ -312,7 +317,12 @@ var BadgePage = React.createClass({
 
     return (
       <div className="badge-achieved">
-        <h3 className={'text-light'}>Congrats, you were awarded this badge!</h3>
+        <h3 className={'text-light'}>
+          Congrats, you were awarded this badge!
+        </h3>
+        <p>
+          Click <a href={ badge.achievedLink }>here</a> to see your badge
+        </p>
         <div className="badge-reward-text">
           <div className="date">
             You earned this badge {when}.

@@ -19,6 +19,7 @@ if (IN_BROWSER) {
 
 exports.DEV_SERVER_PORT = DEV_SERVER_PORT;
 exports.ENABLE_BADGES = !!process.env.ENABLE_BADGES;
+exports.CREDLY_BASE_URL = process.env.CREDLY_BASE_URL || 'https://staging.credly.com';
 exports.ENABLE_PUSHSTATE = ENABLE_PUSHSTATE;
 exports.ENCRYPT_CAMPAIGN_URL = "https://mzl.la/encrypt";
 exports.FLICKR_MAKER_PARTY = 'https://www.flickr.com/photos/mozilladrumbeat/sets/72157654235131834/';
