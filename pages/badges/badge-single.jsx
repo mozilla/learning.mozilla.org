@@ -137,7 +137,6 @@ var BadgePage = React.createClass({
     var parser = document.createDocumentFragment();
     var pbody = document.createElement("body");
 
-
     parser.appendChild(pbody);
 
     // extract evidence as itemized list based on newlines (\n with optional \r) if we can
