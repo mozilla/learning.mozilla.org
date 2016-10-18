@@ -15,7 +15,7 @@ module.exports = React.createClass({
             <div>
             <h4 className="section-header">Overview:</h4>
             <p>
-            Mozilla Foundation (“Mozilla” or “Sponsor”) is a global non-profit organization with a mission to promote openness, innovation and opportunity on the Web. With support from the United States National Science Foundation (“NSF”), Mozilla presents this Gigabit Community Fund (the “Fund”) to help foster and support the development of applications and associated curricula running on next-generation networks that could improve people’s everyday lives through creating new education and workforce development opportunities. Proposals submitted to the Gigabit Community Fund may be based on projects funded in the separate Mozilla Ignite Challenge conducted prior to this Gigabit Community Fund, building off existing ideas and funding, or may be based entirely on new ideas (“Submissions”).
+              Mozilla Foundation (“Mozilla” or “Sponsor”) is a global non-profit organization with a mission to promote openness, innovation and opportunity on the Web. With support from the United States National Science Foundation (“NSF”), Mozilla presents this Gigabit Community Fund (the “Fund”) to help foster and support the development of applications and associated curricula running on next-generation networks that could improve people’s everyday lives through creating new education and workforce development opportunities. Proposals submitted to the Gigabit Community Fund may be based on projects funded in the separate Mozilla Ignite Challenge conducted prior to this Gigabit Community Fund, building off existing ideas and funding, or may be based entirely on new ideas (“Submissions”).
             </p>
           </div>
           </section>
@@ -110,13 +110,13 @@ module.exports = React.createClass({
             <h5>Intellectual Merit</h5>
             <ol>
               <li>
-              <strong>Project Feasibility:</strong> Can the outlined project be completed in the pilot period given the project timeline and the background of the involved team members? Does the project team possess the necessary experience to work with the target audience? Are the project’s goals and outcomes attainable and measurable? Will the project team be able to achieve these results? Does the project location have gigabit internet?
+                <strong>Project Feasibility:</strong> Can the outlined project be completed in the pilot period given the project timeline and the background of the involved team members? Does the project team possess the necessary experience to work with the target audience? Are the project’s goals and outcomes attainable and measurable? Will the project team be able to achieve these results? Does the project location have gigabit internet?
               </li>
               <li>
-              <strong>Partnerships & Collaboration:</strong> How connected is the project to the work of other related initiatives? Does it have appropriate partners and other organizational support? Are the proposed collaborations mutually beneficial and do they enhance the quality and/or reach of the project’s activities? Does the project team account for the similarities and differences between their work and that of other organizations focused on the same issues?
+                <strong>Partnerships & Collaboration:</strong> How connected is the project to the work of other related initiatives? Does it have appropriate partners and other organizational support? Are the proposed collaborations mutually beneficial and do they enhance the quality and/or reach of the project’s activities? Does the project team account for the similarities and differences between their work and that of other organizations focused on the same issues?
               </li>
               <li>
-              <strong>Innovation:</strong> To what degree does this project represent an innovative approach to using next-generation technology to impact education or workforce development? Does it employ technologies that can be deployed in the near term?
+                <strong>Innovation:</strong> To what degree does this project represent an innovative approach to using next-generation technology to impact education or workforce development? Does it employ technologies that can be deployed in the near term?
               </li>
               <li>
                 <strong>Budget & Finances:</strong> Is the amount requested appropriate for the scope and scale of the project? Can the pilot be sustained beyond the pilot period?

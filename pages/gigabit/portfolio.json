@@ -10,7 +10,7 @@
     "Other Partner Organizations": "Barger Academy of Fine Art, University of Tennessee at Chattanooga",
     "Photo": "/img/pages/gigabit/logos/adagio_edit-320x240.png",
     "Link": null,
-    "Tech Tags": "",
+    "Tech Tags": null,
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy"
   },
   {
@@ -21,10 +21,10 @@
     "Outcomes": "In developing this immersive learning tool, the students have done everything from the art elements to programming the game itself; a separate teen A/V team filmed and edited videos of the project while in progress, as well as handling all social media updates and the project blog. In many ways, the MAPs team has evolved into their own development company, serving Chattanooga’s young museum-goers. Funded during the second round of the Gigabit Community Fund, the project demoed at the Mini Maker Faire during Startup Week; a beta version of Critter Catch, their app, is nearing release.",
     "Gigabit Advantage": "MAP participants built immersive learning environments that load in real time, with no waiting or lag dragging down participant engagement.",
     "Lead Organization": "Creative Discovery Museum, Spartan Systems Inc.",
-    "Other Partner Organizations": "",
+    "Other Partner Organizations": null,
     "Photo": "/img/pages/gigabit/logos/cdm-spartan_edit-320x240.png",
     "Link": "http://www.cdmfun.org/",
-    "Tech Tags": "",
+    "Tech Tags": null,
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy"
   },
   {
@@ -38,7 +38,7 @@
     "Other Partner Organizations": "Duncan Ingram, Inc, Clifton Hills Elementary School",
     "Photo": "/img/pages/gigabit/logos/MakerFaireCHA-300x200.jpg",
     "Link": "https://devlearnapp.wordpress.com/",
-    "Tech Tags": "",
+    "Tech Tags": null,
     "Issue Area Tags": "Open Innovation, Web Literacy"
   },
   {
@@ -52,7 +52,7 @@
     "Other Partner Organizations": "Girls Preparatory School, East Lake Academy, Chattanooga Girl's Leadership Academy, Causeway, The Advanced Center for Sleep Disorders",
     "Photo": "/img/pages/gigabit/logos/gigbridge_edit-320x240.png",
     "Link": "http://www.globalexcel.org/",
-    "Tech Tags": "",
+    "Tech Tags": null,
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy"
   },
   {
@@ -77,10 +77,10 @@
     "Outcomes": "The GigLab has also been a boon to Chattanooga’s developer community – many other Mozilla Gigabit Fund projects demoed during November’s grand opening – as well as the Open Chattanooga Brigade, who have been been able to utilize the available bandwidth for processing large data sets. Planned future applications include pairing virtual reality headsets with city lidar and GIS data to build immersive educational experiences for younger patrons (a Minecraft-based project being piloted in conjunction with the Kansas City Digital Media Lab) and regular low-latency performances with musicians in other gigabit cities, including Burlington, VE.",
     "Gigabit Advantage": "The technology publicly accsesible in this space leverages Chattanooga's high-speed, low-latency network.",
     "Lead Organization": "Chattanooga Public Library",
-    "Other Partner Organizations": "",
+    "Other Partner Organizations": null,
     "Photo": "/img/pages/gigabit/logos/giglab_edit-320x240.png",
     "Link": "http://chattlibrary.org/",
-    "Tech Tags": "",
+    "Tech Tags": null,
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy, Decentralization"
   },
   {
@@ -92,7 +92,7 @@
     "Gigabit Advantage": "Gigabit speeds allow for media-rich collaboration in real time, while low latency allows for simultaneous editing across multiple users even if in different places in CHA and beyond.",
     "Lead Organization": "GeonCode",
     "Other Partner Organizations": "University of Tennessee at Chattanooga, Baylor School, Chattanooga Public Library",
-    "Photo": "",
+    "Photo": null,
     "Link": null,
     "Tech Tags": "Video",
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy"
@@ -134,7 +134,7 @@
     "Gigabit Advantage": "Detection, observation, and assessment of situations requiring intervention by emergency responders depends on high-quality \"live\" data, which requires high speed and bandwidth, and critically important low latency for proper funcationality.",
     "Lead Organization": "Bonner Springs Fire Department",
     "Other Partner Organizations": "McGill University",
-    "Photo": "",
+    "Photo": null,
     "Link": null,
     "Tech Tags": "AR",
     "Issue Area Tags": "Open Innovation"
@@ -150,7 +150,7 @@
     "Other Partner Organizations": "Kansas Public Library",
     "Photo": "/img/pages/gigabit/logos/gigabitcafe.jpg",
     "Link": "http://softwarelendinglibrary.org/",
-    "Tech Tags": "",
+    "Tech Tags": null,
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy"
   },
   {
@@ -175,7 +175,7 @@
     "Outcomes": "This project introduced students to virtual reality technology and provided a gamified introduce to design thinking and basic computer science in a fun, community-driven way.  This project was partially reproduced by a Hive CHA member organization in 2015.",
     "Gigabit Advantage": "Immersive technology and virtual reality become truly immersive on high speed, low latency networks, allowing for a deeply engaging educational experience.",
     "Lead Organization": "Kansas City Public Library",
-    "Other Partner Organizations": "",
+    "Other Partner Organizations": null,
     "Photo": "/img/pages/gigabit/logos/minecraft.jpg",
     "Link": "http://www.kcdml.com/",
     "Tech Tags": "VR",
@@ -203,10 +203,10 @@
     "Outcomes": "This project developed an online streaming tool for teachers to share lessons and concepts in a social-centric, realtime community for peer-to-peer professional development and instructional design.",
     "Gigabit Advantage": "Real-time, immersive collaboration and coaching require high bandwidth and low latency networks to ensure optimal user experience.",
     "Lead Organization": "The Lean Lab",
-    "Other Partner Organizations": "",
+    "Other Partner Organizations": null,
     "Photo": "/img/pages/gigabit/logos/brightspotsphoto-2-7-02-300x300.jpg",
     "Link": "http://projectbrightspots.wordpress.com/",
-    "Tech Tags": "",
+    "Tech Tags": null,
     "Issue Area Tags": "Open Innovation, Web Literacy, Decentralizatoin"
   },
   {
@@ -220,7 +220,7 @@
     "Other Partner Organizations": "North Kansas City, Liberty, Park Hill, Platte County, Smithville & Kearney Schools",
     "Photo": "/img/pages/gigabit/logos/NCAPS-e1412279551831.jpg",
     "Link": "http://www.northlandcaps.org/",
-    "Tech Tags": "",
+    "Tech Tags": null,
     "Issue Area Tags": "Open Innovation, Web Literacy"
   },
   {
@@ -246,7 +246,7 @@
     "Gigabit Advantage": "Performances involving the Raspbery Python Music Genie system require gigabit speeds to ensure seamless transition from the cameras and computers to the performers on the stage across the city of Chattanooga and -eventually - across the country. Students engaged in building this system are learning about networking and about how high-speed networks are making this sort of art and cross-community collaborations possible.",
     "Lead Organization": "Art120",
     "Other Partner Organizations": "Chattanooga Ballet, River City Company",
-    "Photo": "",
+    "Photo": null,
     "Link": "http://art120.org/",
     "Tech Tags": "IoT",
     "Issue Area Tags": "Open Innovation, Web Literacy"
@@ -274,7 +274,7 @@
     "Gigabit Advantage": "The pilot takes advantage of the under-50 millisecond latency delivered by the 10-Gigabit connection (via the GENI racks in Flint and Chattanooga) among LA, Chattanooga, and Flint to enable students to simultaneously view 4K images and video under the microscope. The students are able to maniuplate the microscope to explore research questions and engage in immersive video conversations across cities with fellow students and USC researchers.",
     "Lead Organization": "Genesee Intermediate School District",
     "Other Partner Organizations": "Hamilton County Department of Education, US Ignite, University of Southern California, Enterprise Center",
-    "Photo": "",
+    "Photo": null,
     "Link": null,
     "Tech Tags": "Video",
     "Issue Area Tags": "Open Innovation"
@@ -288,7 +288,7 @@
     "Gigabit Advantage": "The technology being explored in this pilot is made possible by the low-latency connection between USC and Chattanooga that allows students to engage with next-generation research tools in real time. The expansion of these low-latency networks between cities (most often via GENI) is creating the conditions - and the demand - for the scale and growth of the 4K initative first piloted betwen STEM School Chattanooga and USC.",
     "Lead Organization": "Enterprise Center",
     "Other Partner Organizations": "Hamilton County Department of Education, University of Southern California",
-    "Photo": "",
+    "Photo": null,
     "Link": "http://www.theenterprisectr.org/",
     "Tech Tags": "Video",
     "Issue Area Tags": "Open Innovation, Digital Inclusion"
@@ -302,7 +302,7 @@
     "Gigabit Advantage": "Gigabit internet enables high resolution 4K streaming in real time that provides the level of detail necessary for meaningful learning outcomes. Using existing streaming pathways, the project intends to build an outlet to make this technology available in classrooms so teachers can use them when they need them, with available researchers and contacts. The streaming experience will also be part of a curriculum package, with discussions and other research opportunities lasting beyond the streaming experience.",
     "Lead Organization": "Enterprise Center",
     "Other Partner Organizations": "Public Education Foundation, Tennessee Aquarium, Hamilton County Department of Education, Nokia, Chattanooga Youth and Family Development Centers",
-    "Photo": "",
+    "Photo": null,
     "Link": "http://www.theenterprisectr.org/",
     "Tech Tags": "Video",
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy"
@@ -316,7 +316,7 @@
     "Gigabit Advantage": "Last year, the Kansas City Council approved a $15 million agreement with Cisco Systems Inc. to turn a two- mile stretch of the streetcar line into a “Smart City” network. Part of being “smart” is utilizing information and communications technology and the Internet to address urban challenges. The Internet of Things (IoT) allows us to connect people, processes, data and things in order to improve the quality and livability of cities, communities, buildings and more. SensED brings IoT understanding and know how to middle and high school students across the Kansas City metropolitan area and supports them in using those technologies to innovate solutions for everyday problems.",
     "Lead Organization": "KC Social Innovation Center",
     "Other Partner Organizations": "University of Central Missouri, Missouri Innovation Campus, Summit Tech Academy High School,",
-    "Photo": "",
+    "Photo": null,
     "Link": "http://www.kcsocialinnovation.org/sensed/",
     "Tech Tags": "IoT",
     "Issue Area Tags": "Open Innovation, Web Literacy"
@@ -330,7 +330,7 @@
     "Gigabit Advantage": "This application is designed to use maching learning technology to provide live time feedback. High-speed networks are essential for the application to run without any lag time and to provide feedback data in real time to students, their teachers.",
     "Lead Organization": "Pennez",
     "Other Partner Organizations": "Turn the Page KC, Youth and Development Department of Chattanooga, Cross Roads Academy, The Kauffman School, Project UK, IBM, TeraCrunch, Missouri Western University",
-    "Photo": "",
+    "Photo": null,
     "Link": "http://pennez.com/read-2-think-2/",
     "Tech Tags": "AI",
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Decentralization"
@@ -344,7 +344,7 @@
     "Gigabit Advantage": "There is an extraordinary amount of data being transferred in this project application, including 3D digital architectural models and GIS models as well as national and local Open Data API data translation. The project team is hoping to show how the reduction in time for upload and feedback of metrics will increase ease of iteration and more in-depth study of potential performance. The hope is that the project will lead to the design of a novel distributed software architecture that leverages the power of cloud computing and gigabit networking to advance the state-of-the-art in design and planning. The project can be replicated to other communities as well due to ubiquity of cloud computing and increasing availability of Open Data and gigabit networking across cities in the US.",
     "Lead Organization": "PlanIT Impact",
     "Other Partner Organizations": "Kansas City Design Center (a partnership between University of Kansas and Kansas State University), BNIM, University of Missouri Kansas City (UMKC) School of Computing and Engineering, Open Web Data Portal of Kansas City, MO",
-    "Photo": "",
+    "Photo": null,
     "Link": "http://planitimpact.com/",
     "Tech Tags": "Big Data",
     "Issue Area Tags": "Open Innovation, Decentralization"
