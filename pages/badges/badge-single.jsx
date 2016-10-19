@@ -240,7 +240,7 @@ var BadgePage = React.createClass({
 
     if (error) {
       return (
-        <Modal className="modal-credly error folded" hideModal={this.state.canCloseModal? this.hideApplyModal : false}>
+        <Modal className="modal-credly error folded" hideModal={this.state.canCloseModal ? this.hideApplyModal : false}>
           <h3 className="centered">Uh-oh, something went wrong...</h3>
           <p>
             Something went wrong with your application for this badge.
@@ -253,7 +253,7 @@ var BadgePage = React.createClass({
     }
 
     return (
-      <Modal modalTitle="" className="modal-credly folded" hideModal={this.state.canCloseModal? this.hideApplyModal : false}>
+      <Modal modalTitle="" className="modal-credly folded" hideModal={this.state.canCloseModal ? this.hideApplyModal : false}>
         <h3 className="centered">Thanks for applying for this badge!</h3>
         <p>
           We will be reviewing your badge application and evidence as soon as possible.
