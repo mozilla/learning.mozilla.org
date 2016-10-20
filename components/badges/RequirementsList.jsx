@@ -5,13 +5,14 @@ var RequirementsList = React.createClass({
   propTypes: {
     criteria    : React.PropTypes.array.isRequired,
     evidence    : React.PropTypes.array,
+    data        : React.PropTypes.array,
     className   : React.PropTypes.string,
     icon        : React.PropTypes.string
   },
 
   getInitialState() {
     return {
-      evidenceReceived: []
+      evidenceReceived: this.props.data || []
     };
   },
 
@@ -35,13 +36,15 @@ var RequirementsList = React.createClass({
     var listItems = criteria.map((item, position) => {
       if (item) {
         let ev = (evidence ? evidence[position] : false);
+        let data = this.state.evidenceReceived[position];
 
         return <RequirementRow
                   position={position}
                   key={position + '-' + item}
-                  icon={this.state.evidenceReceived[position] ? icon : false}
+                  icon={data ? icon : false}
                   description={item}
                   evidence={ev}
+                  data={data}
                   onEvidence={this.handleEvidence}
                />;
       }

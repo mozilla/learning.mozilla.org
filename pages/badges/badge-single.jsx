@@ -403,6 +403,7 @@ var BadgePage = React.createClass({
           icon="fa fa-check"
           criteria={applicationCriteriaList}
           evidence={requiredEvidenceList}
+          data={this.state.evidence}
           onEvidence={this.setEvidence}
         />
       </div>
