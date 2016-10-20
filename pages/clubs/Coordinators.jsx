@@ -15,7 +15,7 @@ module.exports = React.createClass({
             <img src={person.photo}/>
           </div>
           <div className="col-sm-9">
-            <a id={anchorName} href={`#${anchorName}`}><h2 className="name">{person.name}</h2></a>
+            <a className="person-anchor" id={anchorName} href={`#${anchorName}`}><h2 className="name">{person.name}</h2></a>
             <p>
               <span className="location">{person.location}</span>
               <span className="pipe" hidden={!person.twitterUsername}> | </span>
@@ -23,7 +23,7 @@ module.exports = React.createClass({
             </p>
             <p className="bio">{person.bio}</p>
             <div className="support">
-              <h4>{person.supportedClubs.match(/,/) ? `Clubs` : `Club`} {person.name.split(` `)[0]} supports:</h4>
+              <h4 className="m-b-0">{person.supportedClubs.match(/,/) ? `Clubs` : `Club`} {person.name.split(` `)[0]} supports:</h4>
               <p>{person.supportedClubs}</p>
             </div>
           </div>
