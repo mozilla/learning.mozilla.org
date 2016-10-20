@@ -58,12 +58,13 @@ var BadgePage = React.createClass({
     var badgeAPI = new BadgesAPI({ teachAPI: teachAPI });
 
     return {
-      hasAccess: false,
       showLinkModal: false,
+      teachAPI: teachAPI,
+      hasAccess: false,
+      badgeAPI: badgeAPI,
       applying: false,
       showApplyModal: false,
-      teachAPI: teachAPI,
-      badgeAPI: badgeAPI,
+      applicationError: false,
       badge: {
         id: "",
         title: "",
@@ -194,15 +195,7 @@ var BadgePage = React.createClass({
 
   render: function () {
     if (this.state.applying && this.state.showApplyModal) {
-      return (
-        <Modal modalTitle="" className="modal-credly folded" hideModal={this.state.canCloseModal? this.hideApplyModal : false}>
-          <h3 className="centered">Thanks for applying for this badge!</h3>
-          <p>
-            We will be reviewing your badge application and evidence as soon as possible.
-          </p>
-          <input type="submit" className="btn center-block" onClick={this.hideApplyModal} value="Back to my badge"/>
-        </Modal>
-      );
+      return this.showBackToBadgeModal();
     }
 
     var content = null;
@@ -233,6 +226,40 @@ var BadgePage = React.createClass({
         <Divider />
         <Navigation prev={this.state.prev} next={this.state.next} />
       </div>
+    );
+  },
+
+  showBackToBadgeModal: function() {
+    var canClose = this.state.canCloseModal;
+    var error = this.state.applicationError;
+    var disabled = "disabled";
+
+    if (canClose || error) {
+      disabled = null;
+    }
+
+    if (error) {
+      return (
+        <Modal className="modal-credly error folded" hideModal={this.state.canCloseModal ? this.hideApplyModal : false}>
+          <h3 className="centered">Uh-oh, something went wrong...</h3>
+          <p>
+            Something went wrong with your application for this badge.
+            Please let us know what you were doing so that we can
+            look into getting that fixed as soon as possible for you!
+          </p>
+          <button className="btn back" onClick={this.hideApplyModal}>Back to the badge</button>
+        </Modal>
+      );
+    }
+
+    return (
+      <Modal modalTitle="" className="modal-credly folded" hideModal={this.state.canCloseModal ? this.hideApplyModal : false}>
+        <h3 className="centered">Thanks for applying for this badge!</h3>
+        <p>
+          We will be reviewing your badge application and evidence as soon as possible.
+        </p>
+        <button disabled={disabled} className="btn back" onClick={this.hideApplyModal}>Back to my badge</button>
+      </Modal>
     );
   },
 
@@ -420,7 +447,8 @@ var BadgePage = React.createClass({
   handleClaimRequest: function(err, data) {
     // TODO: improve the UX for when network errors occur, leading to errors
     this.setState({
-      canCloseModal: true
+      canCloseModal: true,
+      applicationError: err ? data : false
     });
   },
 
@@ -438,7 +466,15 @@ var BadgePage = React.createClass({
 
   hideApplyModal: function(evt) {
     this.setState({ showApplyModal: false });
-    this.reloadPage();
+
+    // only do a full page reload on a successful application
+    if (this.state.applicationError) {
+      this.setState({
+        applicationError: false
+      });
+    } else {
+      this.reloadPage();
+    }
   },
 
   linkAccounts: function(email, password, handleLinkResult) {
