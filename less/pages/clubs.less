@@ -696,23 +696,58 @@ hr.square-divider {
 
   .location {
     color: #777;
+  }
 
-    &:before {
-      font-family: FontAwesome;
-      content: "\f041";
-      margin-right: 0.33em;
+  .meta {
+    line-height: 2em;
+    overflow: hidden;
+    font-size: 14.4px;
+
+    a {
+      line-height: inherit;
+    }
+
+    @media screen and (min-width: @screen-sm-min) {
+      & > div {
+        float: left;
+
+        &:not(:last-child) {
+          &:after {
+            content: "|";
+            margin: 0 0.5em;
+          }
+        }
+      }
     }
   }
 
-  .pipe {
-    color: #777;
+  .glyph {
+    font-family: FontAwesome;
+    display: inline-block;
+    width: 25px;
 
-    &:after {
-      font-family: FontAwesome;
-      content: "\f099";
-      margin-right: 0.33em;
-      color: #1DA1F2;
+    @media screen and (min-width: @screen-sm-min) {
+      width: auto;
+      margin-right: 0.5em;
     }
+
+    &:before {
+      margin-right: 0;
+    }
+  }
+
+  .glyph-location:before {
+    content: "\f041";
+  }
+
+  .glyph-twitter:before {
+    content: "\f099";
+    color: #1DA1F2;
+  }
+
+  .glyph-link:before {
+    content: "\f0c1"; // fa-link
+    color: #777;
   }
 
   .support > * {

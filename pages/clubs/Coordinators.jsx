@@ -15,12 +15,23 @@ module.exports = React.createClass({
             <img src={person.photo}/>
           </div>
           <div className="col-sm-9">
-            <a className="person-anchor" id={anchorName} href={`#${anchorName}`}><h2 className="name">{person.name}</h2></a>
-            <p>
-              <span className="location">{person.location}</span>
-              <span className="pipe" hidden={!person.twitterUsername}> | </span>
-              <a hidden={!person.twitterUsername} href={`https://twitter.com/${person.twitterUsername}`} target="_blank">@{person.twitterUsername}</a>
-            </p>
+            <h2 id={anchorName} className="name m-b-1">{person.name}</h2>
+            <div className="meta m-b-2">
+              <div className="location">
+                <span className="glyph glyph-location"></span>
+                <span>{person.location}</span>
+              </div>
+
+              <div hidden={!person.twitterUsername}>
+                <span className="glyph glyph-twitter"></span>
+                <a href={`https://twitter.com/${person.twitterUsername}`} target="_blank">@{person.twitterUsername}</a>
+              </div>
+
+              <div>
+                <span className="glyph glyph-link"></span>
+                <a className="direct-link" href={`#${anchorName}`}>direct link</a>
+              </div>
+            </div>
             <p className="bio">{person.bio}</p>
             <div className="support">
               <h4 className="m-b-0">{person.supportedClubs.match(/,/) ? `Clubs` : `Club`} {person.name.split(` `)[0]} supports:</h4>
