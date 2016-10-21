@@ -7,10 +7,17 @@ var RequirementRow = React.createClass({
     icon: React.PropTypes.oneOfType([
       React.PropTypes.bool,
       React.PropTypes.string
-    ])
+    ]),
+    data: React.PropTypes.object
   },
 
   getInitialState: function() {
+    let data = this.props.data;
+
+    if (data) {
+      return data;
+    }
+
     return {
       evidenceFiles: [],
       renderEvidenceFields: false
