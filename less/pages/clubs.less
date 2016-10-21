@@ -628,3 +628,131 @@ hr.square-divider {
     }
   }
 }
+
+.coord-cta {
+  align-items: center;
+  padding: 20px 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  flex-direction: column-reverse;
+
+  @media (min-width: @screen-sm-min) {
+    flex-direction: row;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 50%;
+    max-width: 200px;
+    margin: auto;
+  }
+
+  div:nth-child(1) {
+    padding: 0;
+  }
+
+  div:nth-child(2) {
+    text-align: center;
+    padding: 15px 0;
+  }
+}
+
+.clubs-tabswitcher {
+  // Hide "coordinators" tab
+  button:nth-child(4) {
+    display: none !important;
+  }
+}
+
+.coordinator-bio {
+  margin: 50px 0;
+
+  p, a {
+    font-size: 14.4px;
+  }
+
+  img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+
+  .person-anchor {
+    display: inline-block;
+  }
+
+  .name {
+    margin: 0;
+    font-size: 26px;
+  }
+
+  .bio {
+    margin-bottom: 1.33em;
+    font-size: 16px;
+    line-height: 1.75em;
+  }
+
+  .location {
+    color: #777;
+  }
+
+  .meta {
+    line-height: 2em;
+    overflow: hidden;
+    font-size: 14.4px;
+
+    a {
+      line-height: inherit;
+    }
+
+    @media screen and (min-width: @screen-sm-min) {
+      & > div {
+        float: left;
+
+        &:not(:last-child) {
+          &:after {
+            content: "|";
+            margin: 0 0.5em;
+          }
+        }
+      }
+    }
+  }
+
+  .glyph {
+    font-family: FontAwesome;
+    display: inline-block;
+    width: 25px;
+
+    @media screen and (min-width: @screen-sm-min) {
+      width: auto;
+      margin-right: 0.5em;
+    }
+
+    &:before {
+      margin-right: 0;
+    }
+  }
+
+  .glyph-location:before {
+    content: "\f041"; // fa-map-marker
+  }
+
+  .glyph-twitter:before {
+    content: "\f099"; // fa-twitter
+    color: #1DA1F2;
+  }
+
+  .glyph-link:before {
+    content: "\f0c1"; // fa-link
+    color: #777;
+  }
+
+  .support * {
+    color: #777;
+    font-size: 15px;
+    line-height: 1.75em;
+  }
+}
