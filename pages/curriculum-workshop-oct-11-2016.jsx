@@ -28,7 +28,7 @@ var CurriculumWorkshop = React.createClass({
 
           <section className="callout-box past-workshop">
             <h2>Past Workshop</h2>
-            <p className="date">October 11th - 7 AM PT, 10 AM ET, 2 PM UTC</p>
+            <p className="date">October 11th - 6 AM PT, 9 AM ET, 1 PM UTC</p>
             <h1>Ada Lovelace Day</h1>
           </section>
 
