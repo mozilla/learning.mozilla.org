@@ -28,16 +28,12 @@ var CommunityCallPage = React.createClass({
 
           <section className="callout-box">
             <h2>Upcoming Call</h2>
-            <p className="date">October 13th - 8am PT/ 11am ET/ 3pm UTC</p>
-            <h1>Ada Lovelace Day & Women in STEM</h1>
+            <p className="date">November 16 - 2:30pm PST/ 4:30pm CST/ 5:30pm EST/ 9:30pm UTC</p>
+            <h1>Youth Leadership</h1>
             <p className="description">
-              Celebrate Ada Lovelace Day and women in STEM with Mozilla Learning, the Mozilla Science Lab and our guest speakers: Kirstie Whitaker, Postdoc at University of Cambridge, UK and Mozilla Science Lab 2016 Fellow; Zannah Marsh, Curriculum Strategist for Mozilla Science Lab; Srushtika Neelakantam, Mozilla Clubs Captain
+              Join Mozilla Hive Chicago, Mozilla Hive NYC, and other special guests to discuss youth leadership and empowering young people to get involved in local, national and global community issues that matter to them.
             </p>
           </section>
-
-          <p>
-            The presence and participation of women in STEM (science, technology, engineering, mathematics) is on the rise thanks to the efforts of many across the globe, but there are still obstacles and barriers to overcome. This month, Mozilla Learning and the Mozilla Science Lab are joining forces to explore current opportunities and supports for women in STEM around the world.
-          </p>
 
 
           <h3>Workshop Video Stream</h3>
@@ -45,29 +41,39 @@ var CommunityCallPage = React.createClass({
             On the day of the Community Call, the livestream will appear below. You may need to refresh your browser.
           </p>
           <div className="video-wrapper">
-          <iframe width="560" height="315" src="https://air.mozilla.org/mozilla-learning-science-community-call-2016-10-13/video/" frameBorder="0" allowFullScreen></iframe>
+          <iframe width="560" height="315" src="https://air.mozilla.org/mozilla-learning-community-call-youth-leadership-2016-11-16/video/" frameBorder="0" allowFullScreen></iframe>
           </div>
 
           <h4>
             Open Agenda
-            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/sciencelab-calls-oct13-2016">
+            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/mozcommunitycallnov16">
             </a>
           </h4>
 
-          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/sciencelab-calls-oct13-2016"></iframe>
+          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/mozcommunitycallnov16"></iframe>
 
           <h2>Upcoming Calls</h2>
 
           <ul className="upcoming-workshops">
             <li>
-              <p className="date">November: Date and time TBD</p>
-              <h2>Theme: TBD</h2>
+              <p className="date">December</p>
+              <h2>There will be no Community Call in December. Check back in 2017!</h2>
             </li>
           </ul>
 
           <h2>Past Calls</h2>
 
           <ul className="past-workshops">
+            <li>
+              <p className="date">October 13, 2016</p>
+              <h2>Ada Lovelace Day & Women in STEM</h2>
+              <p>
+                The presence and participation of women in STEM (science, technology, engineering, mathematics) is on the rise thanks to the efforts of many across the globe, but there are still obstacles and barriers to overcome. This month, Mozilla Learning and the Mozilla Science Lab are joining forces to explore current opportunities and supports for women in STEM around the world.
+              </p>
+              <p className="watch-archive">
+                <LinkAnchorSwap to="/community/community-call/oct-13-2016/">Watch the Replay</LinkAnchorSwap>
+              </p>
+            </li>
             <li>
               <p className="date">September 20, 2016</p>
               <h2>Youth Activism</h2>
