@@ -53,6 +53,7 @@ var pages = {
   'community/curriculum-workshop/july-12-2016': require('../pages/curriculum-workshop-july-12-2016.jsx'),
   'community/curriculum-workshop/sept-29-2016': require('../pages/curriculum-workshop-sept-29-2016.jsx'),
   'community/curriculum-workshop/oct-11-2016': require('../pages/curriculum-workshop-oct-11-2016.jsx'),
+  'community/curriculum-workshop/oct-30-2016': require('../pages/curriculum-workshop-oct-30-2016.jsx'),
   'community/community-call': require('../pages/community-call.jsx'),
   'community/community-call/march-23-2016': require('../pages/community-call-march-23.jsx'),
   'community/community-call/april-20-2016': require('../pages/community-call-april-20.jsx'),

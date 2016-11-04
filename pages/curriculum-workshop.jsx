@@ -28,12 +28,12 @@ var CurriculumWorkshop = React.createClass({
 
           <section className="callout-box">
             <h2>Upcoming Workshop</h2>
-            <p className="date">October 30th - 7am PT/ 10am ET/ 2pm BST/ 2pm UTC</p>
-            <h1>Live from MozFest</h1>
+            <p className="date">November 17th - 7 AM PT, 10 AM ET, 2 PM UTC</p>
+            <h1>Youth Leadership</h1>
           </section>
 
           <p>
-           Join co-hosts Amira Dhalla and Chad Sansing live from London as they talk with guests from around the world about all the learning and making going on at at the festival. Members of the Mozilla Clubs network will appear on the webcast, as well, to share their MozFest experiences throughout the network.
+           Join us for a conversation and workshop about exemplary youth leadership projects and best practices in youth leadership programming. Along with this episode’s special guests, co-hosts Amira Dhalla and Chad Sansing will examine what makes successful youth leadership programs work and prototype teaching and learning materials that encourage their development.
           </p>
 
           <p>
@@ -45,29 +45,39 @@ var CurriculumWorkshop = React.createClass({
             On the day of the Curriculum Workshop, the livestream will appear below. You may need to refresh your browser.
           </p>
           <div className="video-wrapper">
-          <iframe width="560" height="315" src="https://air.mozilla.org/mozilla-curriculum-workshop-live-from-mozfest-2016-10-30/video/" frameBorder="0" allowFullScreen></iframe>
+          <iframe width="560" height="315" src="https://air.mozilla.org/mozilla-curriculum-workshop-youth-leadership/video/" frameBorder="0" allowFullScreen></iframe>
           </div>
 
           <h4>
             Open Agenda
-            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/curriculum-workshop-october-30-2016">
+            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/curriculum-workshop-november-17-2016">
             </a>
           </h4>
 
-          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/curriculum-workshop-october-30-2016"></iframe>
+          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/curriculum-workshop-november-17-2016"></iframe>
 
           <h2>Upcoming Workshops</h2>
 
           <ul className="upcoming-workshops">
             <li>
-              <p className="date">November 2016 </p>
-              <h2>TBD</h2>
+              <p className="date">December</p>
+              <h2>There will be no Community Call in December. Check back in 2017!</h2>
             </li>
           </ul>
 
           <h2>Past Workshops</h2>
 
           <ul className="past-workshops">
+            <li>
+              <p className="date">October 30th, 2016</p>
+              <h2>Live from MozFest</h2>
+              <p>
+                Join co-hosts Amira Dhalla and Chad Sansing live from London as they talk with guests from around the world about all the learning and making going on at at the festival. Members of the Mozilla Clubs network will appear on the webcast, as well, to share their MozFest experiences throughout the network.
+              </p>
+              <p className="watch-archive">
+                <LinkAnchorSwap to="/community/curriculum-workshop/oct-30-2016/">Watch the Replay</LinkAnchorSwap>
+              </p>
+            </li>
             <li>
               <p className="date">October 11th, 2016</p>
               <h2>Ada Lovelace Day</h2>
