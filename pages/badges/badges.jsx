@@ -129,7 +129,7 @@ var BadgesPage = React.createClass({
 
             <p className="text-center">Certain skills are critical to becoming a citizen of
             the web. Hone these core web literacy and 21st Century skills and earn badges
-            that spotlight your expertise.</p>
+            that highlight your expertise.</p>
 
             <div className="sep-16"></div>
             <div className="row">
