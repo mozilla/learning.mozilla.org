@@ -112,9 +112,8 @@ var BadgesPage = React.createClass({
               src1x="/img/pages/badges/svg/icon-badgeintro.svg"
               alt="">
                 <p>
-                  Explorer all badges we offer and which ones you qualify
-                  for. Apply for badges by sharing your experiences. Then
-                    show your employers and friends you have the skills.
+                  Explore core web literacy and 21st Century skills badges, apply for
+                  these badges, and share with others the skills you have learned.
                 </p>
             </Illustration>
           </div>
@@ -126,11 +125,11 @@ var BadgesPage = React.createClass({
 
         <div className="inner-container badges-content">
           <section>
-            <h2 className="text-center">Earn 21st Century Skill Credentials</h2>
+            <h2 className="text-center">Earn Web Literacy and 21st Century Skills Badges</h2>
 
-            <p className="text-center">Certain skills are critical to becoming a citizen of the web — like
-              the ability to communicate, collaborate and create online. Hone these skills and earn badges
-              that spotlight your expertise.</p>
+            <p className="text-center">Certain skills are critical to becoming a citizen of
+            the web. Hone these core web literacy and 21st Century skills and earn badges
+            that highlight your expertise.</p>
 
             <div className="sep-16"></div>
             <div className="row">
