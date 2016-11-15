@@ -53,6 +53,14 @@ var ActivitiesPage = React.createClass({
               developedBy="Mozilla Learning"
               description="Explore making, media production, reverse-image search, and design on the web."/>
             <ActivityKit
+              src1x="/img/pages/make-your-first-webpage/html9.png"
+              caption={<a href="https://mozilla.github.io/curriculum-final/make-your-first-webpage/images/make-your-own-webpage-11.png">CC-BY-SA Mozilla</a>}
+              title="Make Your First Webpage"
+              level="Beginner"
+              link="/activities/make-your-first-webpage/"
+              developedBy="Mozilla Learning"
+              description="Learn to use and style common HTML tags to make your first webpage from scratch."/>
+            <ActivityKit
               src1x="/img/pages/intermediate-web-lit/blocks.png"
               caption={<a href="https://pixabay.com/en/building-blocks-colorful-build-456616/">CC0 by Counseling</a>}
               title="Intermediate Web Literacy I: Intro to CSS"

@@ -39,6 +39,7 @@ var pages = {
   'activities/web-lit-basics-two': require('../pages/web-lit-basics-two.jsx'),
   'activities/webmaker': require('../pages/webmaker.jsx'),
   'activities/back-to-school-write-the-web': require('../pages/back-to-school-write-the-web.jsx'),
+  'activities/make-your-first-webpage': require('../pages/make-your-first-webpage.jsx'),
   'clubs': require('../pages/clubs/index.jsx'),
   'clubs/list': require('../pages/clubs-list.jsx'),
   'clubs/apply': require('../pages/clubs/ClubForm.jsx'),
