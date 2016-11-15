@@ -105,7 +105,8 @@ var Form = React.createClass({
       })
     ).isRequired,
     onSubmit: React.PropTypes.func.isRequired,
-    onProgress: React.PropTypes.func
+    onProgress: React.PropTypes.func,
+    onUpdate: React.PropTypes.func
   },
 
   // boilerplate
@@ -326,6 +327,7 @@ var Form = React.createClass({
       state[fieldname] = (value !== undefined) ? value : e;
     }
 
+    this.props.onUpdate(e, field, value);
     this.setStateAsChange(fieldname, state);
   },
 
