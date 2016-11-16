@@ -48,13 +48,13 @@ var CurriculumWorkshop = React.createClass({
           <iframe width="560" height="315" src="https://air.mozilla.org/mozilla-curriculum-workshop-youth-leadership/video/" frameBorder="0" allowFullScreen></iframe>
           </div>
 
-          <h4>
-            Open Agenda
-            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/curriculum-workshop-november-17-2016">
-            </a>
-          </h4>
+          <h3>Open Agenda</h3>
 
-          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/curriculum-workshop-november-17-2016"></iframe>
+          <p>
+            <a title="Open the agenda in a new tab" href="https://public.etherpad-mozilla.org/p/curriculum-workshop-november-17-2016" target="_blank">
+            Click here to view the agenda
+            </a>
+          </p>
 
           <h2>Upcoming Workshops</h2>
 
