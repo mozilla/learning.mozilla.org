@@ -44,13 +44,13 @@ var CommunityCallPage = React.createClass({
           <iframe width="560" height="315" src="https://air.mozilla.org/mozilla-learning-community-call-youth-leadership-2016-11-16/video/" frameBorder="0" allowFullScreen></iframe>
           </div>
 
-          <h4>
-            Open Agenda
-            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/mozcommunitycallnov16">
-            </a>
-          </h4>
+          <h3>Open Agenda</h3>
 
-          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/mozcommunitycallnov16"></iframe>
+          <p>
+            <a title="Open the agenda in a new tab" href="https://public.etherpad-mozilla.org/p/mozcommunitycallnov16" target="_blank">
+            Click here to view the agenda
+            </a>
+          </p>
 
           <h2>Upcoming Calls</h2>
 
