@@ -28,7 +28,7 @@ var CurriculumWorkshop = React.createClass({
 
           <section className="callout-box">
             <h2>Upcoming Workshop</h2>
-            <p className="date">November 17th - 7 AM PT, 10 AM ET, 2 PM UTC</p>
+            <p className="date">Postponed</p>
             <h1>Youth Leadership</h1>
           </section>
 
