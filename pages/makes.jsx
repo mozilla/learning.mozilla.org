@@ -15,8 +15,9 @@ var Make = React.createClass({
   render: function() {
     var makeTypeClass = "make " + this.props.type;
     var thumbnailStyle = (this.props.thumbnail) ? {"backgroundImage": "url(" + this.props.thumbnail + ")"}
-                                                 : {"backgroundImage": "url(/img/pages/me/svg/icon-placeholder.svg)",
-                                                    "backgroundSize": "11rem auto"};
+                                                 : {
+                                                   "backgroundImage": "url(/img/pages/me/svg/icon-placeholder.svg)",
+                                                   "backgroundSize": "11rem auto"};
 
     return (
       <li className={makeTypeClass}>

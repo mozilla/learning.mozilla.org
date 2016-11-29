@@ -235,7 +235,7 @@ var TimeoutTransitionGroup = React.createClass({
                     leave={this.props.transitionLeave}>
                 {child}
             </TimeoutTransitionGroupChild>
-        );
+    );
   },
 
   render: function() {
@@ -243,7 +243,7 @@ var TimeoutTransitionGroup = React.createClass({
             <ReactTransitionGroup
                 {...this.props}
                 childFactory={this._wrapChild} />
-        );
+    );
   }
 });
 
