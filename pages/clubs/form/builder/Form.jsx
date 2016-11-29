@@ -327,7 +327,10 @@ var Form = React.createClass({
       state[fieldname] = (value !== undefined) ? value : e;
     }
 
-    this.props.onUpdate(e, field, value);
+    if (this.props.onUpdate) {
+      this.props.onUpdate(e, field, value);
+    }
+
     this.setStateAsChange(fieldname, state);
   },
 

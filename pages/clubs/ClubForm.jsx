@@ -45,7 +45,7 @@ var ClubForm = React.createClass({
     this.updateProgress();
   },
 
-  checkAnswer: function(event, field, value) {
+  setStudentAnswer: function(event, field, value) {
     this.setState({
       isInterestedStudent: value === `Yes`
     });
@@ -78,16 +78,16 @@ var ClubForm = React.createClass({
           </section>
 
           <div hidden={!this.state.loggedIn}>
-            <Form onUpdate={this.checkAnswer} fields={{studentData: studentData}}></Form>
+            <Form onSubmit={null} onUpdate={this.setStudentAnswer} fields={{studentData: studentData}}></Form>
 
             <div hidden={!this.state.isInterestedStudent} className="navigation">
               <a href="https://campus.mozilla.community/" target="_blank" className="button">Go to Mozilla Campus Club Page</a>
             </div>
           </div>
 
-          { this.state.isInterestedStudent === false && this.renderSteps() }
+          { this.state.isInterestedStudent === false ? this.renderSteps() : null}
 
-          { !this.state.loggedIn && this.renderLoginRequest() }
+          { !this.state.loggedIn ? this.renderLoginRequest() : null }
         </div>
       </div>
     );
