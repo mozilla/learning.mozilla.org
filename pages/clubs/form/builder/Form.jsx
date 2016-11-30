@@ -105,7 +105,8 @@ var Form = React.createClass({
       })
     ).isRequired,
     onSubmit: React.PropTypes.func.isRequired,
-    onProgress: React.PropTypes.func
+    onProgress: React.PropTypes.func,
+    onUpdate: React.PropTypes.func
   },
 
   // boilerplate
@@ -324,6 +325,10 @@ var Form = React.createClass({
       state[fieldname] = curval;
     } else {
       state[fieldname] = (value !== undefined) ? value : e;
+    }
+
+    if (this.props.onUpdate) {
+      this.props.onUpdate(e, field, value);
     }
 
     this.setStateAsChange(fieldname, state);

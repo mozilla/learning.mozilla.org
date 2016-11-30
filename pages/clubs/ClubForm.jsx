@@ -24,6 +24,7 @@ var ClubForm = React.createClass({
     this.clubData = {};
     return {
       loggedIn: false,
+      isInterestedStudent: undefined,
       progress: 0,
       currentStep: 0,
       titles: [
@@ -44,9 +45,24 @@ var ClubForm = React.createClass({
     this.updateProgress();
   },
 
+  setStudentAnswer: function(event, field, value) {
+    this.setState({
+      isInterestedStudent: value === `Yes`
+    });
+  },
+
   render: function() {
     var teachAPI = this.props.teachAPI;
     var username = teachAPI.getUsername();
+
+    var studentData = {
+      type: "choiceGroup",
+      label: "Are you currently a university or college student interested in starting a club at your university/college?",
+      options: [ "Yes", "No" ],
+      validator: {
+        error: "You must say whether or not you're currently a university or college student interested in starting a club at your university/college."
+      }
+    };
 
     return (
       <div className="clubs-form">
@@ -60,7 +76,18 @@ var ClubForm = React.createClass({
               <h2>{ username ? this.state.headings[this.state.currentStep] : this.state.loginHeading }</h2>
             </Illustration>
           </section>
-          { this.state.loggedIn ? this.renderSteps() : this.renderLoginRequest() }
+
+          <div hidden={!this.state.loggedIn}>
+            <Form onSubmit={null} onUpdate={this.setStudentAnswer} fields={{studentData: studentData}}></Form>
+
+            <div hidden={!this.state.isInterestedStudent} className="navigation">
+              <a href="https://campus.mozilla.community/" target="_blank" className="button">Go to Mozilla Campus Club Page</a>
+            </div>
+          </div>
+
+          { this.state.isInterestedStudent === false ? this.renderSteps() : null}
+
+          { !this.state.loggedIn ? this.renderLoginRequest() : null }
         </div>
       </div>
     );
