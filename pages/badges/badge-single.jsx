@@ -398,7 +398,7 @@ var BadgePage = React.createClass({
     return (
       <div className="badge-requirement" key={'badge-requirement-list'}>
         <h3 className={'text-light'}>Badge Requirements</h3>
-        <p>Make or write something that demonstrates your understanding of any two or more of the following:</p>
+        <p>Complete the following three tasks and submit the required evidence:</p>
         <RequirementsList
           icon="fa fa-check"
           criteria={applicationCriteriaList}
