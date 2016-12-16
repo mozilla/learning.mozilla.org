@@ -161,7 +161,8 @@ var BadgesPage = React.createClass({
 
   generateBadgeList: function() {
     var self = this;
-    var anonymous = !this.state.teachAPI.getLoginInfo();
+
+    this.anonymous = !this.state.teachAPI.getLoginInfo();
 
     if (this.state.badges.length === 0) {
       return (
@@ -172,17 +173,29 @@ var BadgesPage = React.createClass({
       );
     }
 
-    return this.state.badges.map(function (badge) {
-      var linkUrl = '/badge/' + badge.id + '/' + urlize(badge.title);
+    let badges = this.state.badges,
+        s = 0, inc = 4,
+        slice = badges.slice(s, s + inc),
+        slices = [];
 
-      return (
-        <div key={badge.id} className="col-md-3">
-          <Link to={ "/" + self.context.intl.locale + linkUrl } className={'badge-icon-link'}>
-            <BadgeVerticalIcon badge={badge} anonymous={anonymous} />
-          </Link>
-        </div>
-      );
-    });
+    while(slice.length !== 0) {
+      slices.push(<div key={'slice-'+s} className="row">{ slice.map(this.generateBadgeBlock) }</div>);
+      slice = badges.slice(s * inc, (++s) * inc);
+    }
+
+    return slices;
+  },
+
+  generateBadgeBlock: function(badge) {
+    var linkUrl = '/badge/' + badge.id + '/' + urlize(badge.title);
+
+    return (
+      <div key={badge.id} className="col-md-3">
+        <Link to={ "/" + this.context.intl.locale + linkUrl } className={'badge-icon-link'}>
+          <BadgeVerticalIcon badge={badge} anonymous={this.anonymous} />
+        </Link>
+      </div>
+    );
   }
 });
 
