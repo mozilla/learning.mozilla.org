@@ -179,8 +179,9 @@ var BadgesPage = React.createClass({
         slices = [];
 
     while(slice.length !== 0) {
+      slice = badges.slice(s * inc, (s + 1) * inc);
       slices.push(<div key={'slice-'+s} className="row">{ slice.map(this.generateBadgeBlock) }</div>);
-      slice = badges.slice(s * inc, (++s) * inc);
+      s++;
     }
 
     return slices;
@@ -200,3 +201,4 @@ var BadgesPage = React.createClass({
 });
 
 module.exports = BadgesPage;
+https://github.com/mozilla/learning.mozilla.org/issues/2384
