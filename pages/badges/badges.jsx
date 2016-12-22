@@ -175,7 +175,7 @@ var BadgesPage = React.createClass({
 
     let badges = this.state.badges,
         s = 0, inc = 4,
-        slice = badges.slice(s, s + inc),
+        slice = [],
         slices = [];
 
     while(slice.length !== 0) {
