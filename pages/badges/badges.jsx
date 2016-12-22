@@ -201,4 +201,3 @@ var BadgesPage = React.createClass({
 });
 
 module.exports = BadgesPage;
-https://github.com/mozilla/learning.mozilla.org/issues/2384
