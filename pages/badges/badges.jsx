@@ -175,13 +175,13 @@ var BadgesPage = React.createClass({
 
     let badges = this.state.badges,
         s = 0, inc = 4,
-        slice = [],
+        slice = badges.slice(s * inc, (s + 1) * inc),
         slices = [];
 
     while(slice.length !== 0) {
-      slice = badges.slice(s * inc, (s + 1) * inc);
       slices.push(<div key={'slice-'+s} className="row">{ slice.map(this.generateBadgeBlock) }</div>);
       s++;
+      slice = badges.slice(s * inc, (s + 1) * inc);
     }
 
     return slices;
