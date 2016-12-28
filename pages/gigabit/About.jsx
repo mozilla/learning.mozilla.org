@@ -11,7 +11,7 @@ module.exports = React.createClass({
           </div>
           <div className="col-sm-8">
             <h2>What is Mozilla Gigabit?</h2>
-            <p>Mozilla Gigabit Community Fund provides catalytic funding in US communities to support pilot tests of gigabit technology and related curricula. We increase the participation in next-generation innovation to help support an Internet where all people are empowered, safe, and independent.</p>
+            <p>The Mozilla Gigabit Community Fund provides grant funding in select U.S communities to support pilot tests of gigabit technologies such as virtual reality, 4K video, artificial intelligence, and their related curricula. In so doing, our goal is to increase participation in technology innovation in support of a healthy Internet where all people are empowered, safe, and independent online.</p>
           </div>
         </div>
 
