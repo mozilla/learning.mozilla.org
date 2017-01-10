@@ -76,7 +76,7 @@ var sectionList = [
         image1x: "/img/pages/protect-your-data/img-privacycoach.png",
         image2x: "/img/pages/protect-your-data/img-privacycoach@2x.png",
         subtitle: "Open Practice, Protect",
-        description: "rYou will make a teaching and learning resource you can use to mentor your peers about online privacy and protecting their data while learning web literacy skills like <strong>open practice<strong> and <strong>protect</strong>.",
+        description: "You will make a teaching and learning resource you can use to mentor your peers about online privacy and protecting their data while learning web literacy skills like <strong>open practice<strong> and <strong>protect</strong>.",
         link: "https://mozilla.github.io/curriculum-final/privacy-basics/session06-privacy-coach.html"
       }
     ]
