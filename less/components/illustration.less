@@ -49,10 +49,12 @@
   img {
     border-radius: @image-border-radius;
     max-width: 100%;
+    height: auto;
   }
   @media screen and (min-width: @screen-sm-min) {
     display: flex;
     align-items: center;
+    .activities & { align-items: initial; }
     .image-container {
       margin-right: 3rem;
       margin-bottom: 0;

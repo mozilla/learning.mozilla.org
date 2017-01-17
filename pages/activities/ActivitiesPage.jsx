@@ -93,13 +93,12 @@ var ActivitiesPage = React.createClass({
               developedBy={<div><a href="https://twitter.com/secretrobotron">Bobby Richter</a> and <a href="https://twitter.com/lau_nk">Laura de Reynal</a> for Mozilla Learning</div>}
               description="Learn how to set up your mobile device to write, publish, and share stories with the Webmaker App from Mozilla Learning."/>
             <ActivityKit
-              src1x="/img/pages/protect-your-data/protect-your-data.png"
-              src2x="/img/pages/protect-your-data/protect-your-data@2x.png"
+              src1x="/img/pages/protect-your-data/ip-tracer-badge.jpg"
               title="Privacy Basics: Protect Your Data"
               level="Beginner"
               link="/activities/protect-your-data/"
               developedBy={<div><a href="http://hivetoronto.org">Hive Toronto</a> in partnership with <a href="https://www.priv.gc.ca/index_e.asp">the Office of the Privacy Commissioner of Canada</a>, and <a href="https://www.mozilla.org/privacy/">Mozilla Privacy</a></div>}
-              description="These six hands-on activities engage learners in thinking critically about online privacy by creating secure passwords, understanding how and where their data is being collected, and more. This is an ideal kit for Mozilla Clubs."/>
+              description="These activities will help your learners understand how to take control of their privacy in a networked world. Learn web literacy skills like evaluate, navigate, open practice, and protect to safeguard your data and identity online."/>
             <ActivityKit
               src1x="/img/pages/activities/online-tracking.png"
               caption={ <a href="https://mozorg.cdn.mozilla.net/media/img/teach/smarton/tracking/topic-think-deeper.2d1fbc329611.png">view original</a> }
