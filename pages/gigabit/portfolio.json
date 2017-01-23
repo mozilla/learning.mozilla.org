@@ -354,9 +354,9 @@
     "Project": "Digital Mock City Council",
     "Project Summary": "Digital Mock City Council is an online, open-source, digital budget debate platform and curriculum designed for middle and high school students to explore civic challenges and priorities.",
     "Gigabit Advantage": "The Austin Budget Party app promises to deliver education content simultaneously to large numbers of participants about the City Budget and collects their input about how they want resources allocated to update a real-time data stream. As this app matures, the content delivered will include video and other high bandwidth content. You can see results aggregate in real time using websockets. The Digital Mock City Council meeting environment will require a reliable, high-resolution video conferencing solution dependent on high speed internet connections for a seamless, synchronous, virtual video experience.",
-    "Lead Organization": "Capital of Texas Media Foundation",
-    "Photo": "/img/pages/gigabit/logos/Capital-TX.png",
-    "Link": "https://www.cotmf.org/",
+    "Lead Organization": "Austin Monitor",
+    "Photo": "/img/pages/gigabit/logos/austinMonitor.png",
+    "Link": "http://www.austinmonitor.com/",
     "Tech Tags": "4K",
     "Issue Area Tags": "Open Innovation, Digital Inclusion"
   },
