@@ -42,7 +42,7 @@ module.exports = React.createClass({
             </div>
             <div className="col-md-4">
               <div className="project-card m-b-3">
-                <a href="https://www.eventbrite.com/e/education-innovation-showcase-tickets-30495213003" target="_blank"><img className="photo" src="/img/pages/gigabit/events/austin-tx.png"/></a>
+                <a href="https://www.eventbrite.com/e/education-innovation-showcase-tickets-30495213003" target="_blank"><img className="photo" src="/img/pages/gigabit/events/austin-tx.jpg"/></a>
                 <div className="p-x-2 p-b-2">
                   <div className={`city tag tag-orange m-b-0 has-photo`}>June 26-28, 2017</div>
                   <h3 className="m-y-0"><a className="project-name" href="http://smartcitiesconnect.com/" target="_blank">2017 Smart Cities Connect Conference & Expo</a></h3>
