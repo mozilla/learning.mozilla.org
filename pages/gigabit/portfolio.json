@@ -411,8 +411,8 @@
   {
     "Year": 2017,
     "City": ["ATX"],
-    "Project": "Create with Me! Crear Conmigo",
-    "Project Summary": "Create with Me! will leverage gigabit connectivity to design an augmented reality tool that supports entry level IT learning for adults.",
+    "Project": "Accelerate, Augmented Reality for Workforce Training",
+    "Project Summary": "Accelerate, Augmented Reality for Workforce Training will leverage gigabit connectivity to design an augmented reality tool that supports entry level IT learning for adults.",
     "Gigabit Advantage": "In utilizing augmented reality platforms, participants will blend high-definition video, graphic tools, and GPS in a way that perform best over higher bandwidth. Participants will be tasked with uploading, downloading, and streaming content through a web-based software during the creation of the augmented reality tool.",
     "Lead Organization": "Austin Free-Net",
     "Photo": "/img/pages/gigabit/logos/AFN-logo.jpg",
@@ -463,8 +463,8 @@
     "Project Summary": "Youth Powered LLC will work with students to create virtual field trips to landmarks in KS and MO that are important to black history.",
     "Gigabit Advantage": "The enormous amount of bandwidth available to us affords us the chance to do VR right. We can create and virtually inhabit digital environments with detailed textures and enough “room” for several people to be in one another’s telepresence all at once with very low lag or latency. While we have the capacity to do work like this now through platforms like Minecraft, combining web VR with gigabit connections gives us the chance to make this work web-native, mobile, and user-friendly. With Gigabit VR and the Gigabit Community Fund, we can put the world into our kids’ hands. Students, teachers, and other community stakeholders will be able to access our culturally relevant content in a way that has been cost, time prohibitive in the past.",
     "Lead Organization": "V Form Alliance",
-    "Photo": null,
-    "Link": null,
+    "Photo": "/img/pages/gigabit/logos/vformalliance.png",
+    "Link": "http://www.VFormAlliance.org",
     "Tech Tags": "VR",
     "Issue Area Tags": "Web Literacy, Digital Inclusion"
   },
