@@ -28,12 +28,12 @@ var CurriculumWorkshop = React.createClass({
 
           <section className="callout-box">
             <h2>Upcoming Workshop</h2>
-            <p className="date">Postponed</p>
-            <h1>Youth Leadership</h1>
+            <p className="date">February 16, 7 AM PT / 10 AM ET / 2PM UTC</p>
+            <h1>Privacy & Security</h1>
           </section>
 
           <p>
-           Join us for a conversation and workshop about exemplary youth leadership projects and best practices in youth leadership programming. Along with this episode’s special guests, co-hosts Amira Dhalla and Chad Sansing will examine what makes successful youth leadership programs work and prototype teaching and learning materials that encourage their development.
+            Join us for a discussion about the privacy and security as we begin a new quarterly schedule on the Mozilla Curriculum Workshop. What are the privacy and security choices that face youth every day? How can we help them develop the habits they need to keep themselves safe as participants on an open and free internet? How might we contribute to internet health by promoting strong privacy rights for all? Join co-hosts Amira Dhalla and Chad Sansing as they talk and prototype learning materials with Vishal Chavan, Cynthia Lieberman, and Chad Walker.
           </p>
 
           <p>
@@ -45,23 +45,23 @@ var CurriculumWorkshop = React.createClass({
             On the day of the Curriculum Workshop, the livestream will appear below. You may need to refresh your browser.
           </p>
           <div className="video-wrapper">
-          <iframe width="560" height="315" src="https://air.mozilla.org/mozilla-curriculum-workshop-youth-leadership/video/" frameBorder="0" allowFullScreen></iframe>
+          <iframe width="560" height="315" src="https://air.mozilla.org/mozilla-curriculum-workshop-february-2017-privacy-security/video" frameBorder="0" allowFullScreen></iframe>
           </div>
 
-          <h3>Open Agenda</h3>
-
-          <p>
-            <a title="Open the agenda in a new tab" href="https://public.etherpad-mozilla.org/p/curriculum-workshop-november-17-2016" target="_blank">
-            Click here to view the agenda
+          <h4>
+            Open Agenda
+            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/curriculum-workshop-february-16-2017">
             </a>
-          </p>
+          </h4>
+
+          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/curriculum-workshop-february-16-2017"></iframe>
 
           <h2>Upcoming Workshops</h2>
 
           <ul className="upcoming-workshops">
             <li>
-              <p className="date">December</p>
-              <h2>There will be no Community Call in December. Check back in 2017!</h2>
+              <p className="date">March</p>
+              <h2>TBD</h2>
             </li>
           </ul>
 
