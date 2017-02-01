@@ -66,7 +66,7 @@ module.exports = React.createClass({
             <ol className="circled-ol">
               <li>Be piloted in the metropolitan region of Austin, Chattanooga, or Kansas City</li>
               <li>Focus on education or workforce development</li>
-              <li>Leverage next-generation technologies like ultra high-speed networking</li>
+              <li>Leverage next-generation technologies like virtual reality, 4K video, artificial intelligence, and their related curricula</li>
             </ol>
             <p>Participation is open to companies, academic institutions, and non-profit organizations. Funding will not be granted to unaffiliated individuals acting on their own. Before submitting your application, please review the Gigabit Community Fund’s <a href="/gigabit/apply/terms">Terms and Conditions</a>.</p>
           </div>
