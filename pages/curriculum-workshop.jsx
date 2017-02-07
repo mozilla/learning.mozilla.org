@@ -18,12 +18,12 @@ var CurriculumWorkshop = React.createClass({
              src1x="/img/pages/community/svg/icon-circle-community.svg"
              alt="icon toolkit">
                <h1>Mozilla Curriculum Workshop</h1>
-               <h2>Join us on the second Tuesday of each month!</h2>
+               <h2>Join us for a new episode each quarter!</h2>
            </Illustration>
           </section>
 
           <p>
-          Co-hosts Amira Dhalla and Chad Sansing, along with producers Kristina Gorr and Paul Oh, help participants answer the question, <em>"How can I use the web to teach and learn what’s important to me?"</em> Join us as we prototype teaching and learning materials live on-air and think out-loud through the curriculum design process.
+          Co-hosts Amira Dhalla and Chad Sansing, along with producer Paul Oh, help participants answer the question, <em>"How can I use the web to teach and learn what’s important to me?"</em> Join us as we prototype teaching and learning materials live on-air and think out-loud through the curriculum design process.
           </p>
 
           <section className="callout-box">
@@ -60,7 +60,7 @@ var CurriculumWorkshop = React.createClass({
 
           <ul className="upcoming-workshops">
             <li>
-              <p className="date">March</p>
+              <p className="date">Q2, 2017</p>
               <h2>TBD</h2>
             </li>
           </ul>
