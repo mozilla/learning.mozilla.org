@@ -57,24 +57,15 @@ app.use(helmet.xssFilter({
   setOnOldIE: true
 }));
 
+
+// maxAge for HSTS header must be at least 18 weeks (see https://hstspreload.org/)
 app.use(helmet.hsts({
-  maxAge: 1000 * 60 * 60 * 24 * 90
+  maxAge: 60 * 60 * 24 * 7 * 18 // 18 weeks in seconds
 }));
 
 app.use(helmet.ieNoOpen());
 
 app.use(helmet.noSniff());
-
-if (process.env.HPKP) {
-  app.use(helmet.hpkp({
-    maxAge: 1000 * 60 * 60 * 24 * 90,
-    sha256s: process.env.HPKP.split(' '),
-    setIf: function (req, res) {
-      return req.secure;
-    }
-  }));
-}
-
 
 /**
  * Wait for the router to come online.
