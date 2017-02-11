@@ -5,10 +5,12 @@ var IconLinks = require('../../components/icon-links.jsx');
 var IconLink = require('../../components/icon-link.jsx');
 
 var Intro = require('./Intro.jsx');
-var SignupForm = require('../../components/newsletter-signup/SignupForm.jsx');
 var VerticalCard = require('./VerticalCard.jsx');
 
+/* temporary hiding email signup from UI as per request https://github.com/mozilla/learning.mozilla.org/issues/2426
+var SignupForm = require('../../components/newsletter-signup/SignupForm.jsx');
 var validateSignupForm = require('../../components/newsletter-signup/validateSignupForm');
+*/
 
 var config = require('../../config/config.js');
 
@@ -39,8 +41,9 @@ var CommunityPage = React.createClass({
   statics: {
     pageTitle: 'Community',
     pageClassName: 'community-page',
-    SignupForm: SignupForm,
-    validateSignupForm: validateSignupForm
+    // temporary hiding email signup from UI as per request https://github.com/mozilla/learning.mozilla.org/issues/2426
+    // SignupForm: SignupForm,
+    // validateSignupForm: validateSignupForm
   },
   render: function () {
     return (
@@ -57,11 +60,13 @@ var CommunityPage = React.createClass({
           <section className="communities-info">
             {communities}
           </section>
+          {/* temporary hiding email signup from UI as per request https://github.com/mozilla/learning.mozilla.org/issues/2426
           <div className="vertical-divider"></div>
           <section className="text-center">
             <h2>Get the latest teaching activities, tips, and news in your inbox every month. Sign up for the Mozilla Learning Newsletter.</h2>
             <SignupForm idPrefix="signup-form-" sourceUrl={this.props.currentPath} />
           </section>
+          */}
           <section>
             <div className="horizontal-divider full-width"></div>
           </section>

@@ -15,9 +15,12 @@ var IconButton = require('../../components/icon-button.jsx');
 var config = require('../../config/config');
 
 var CaseStudies = require('./CaseStudies.jsx');
+
+/* temporary hiding email signup from UI as per request https://github.com/mozilla/learning.mozilla.org/issues/2426
 var ModalEmail = require('./ModalEmail.jsx');
 var ThankYouModal = require('./ThankYouModal.jsx');
 var validateSignupForm = require('../../components/newsletter-signup/validateSignupForm');
+*/
 var BlogSection = require('./BlogSection.jsx');
 
 var fixLocation = require('../../lib/fix-location.js');
@@ -25,7 +28,7 @@ var fixLocation = require('../../lib/fix-location.js');
 var HomePage = React.createClass({
   statics: {
     pageClassName: 'home-page',
-    validateSignupForm: validateSignupForm,
+    // validateSignupForm: validateSignupForm, // temporary hiding email signup from UI as per request https://github.com/mozilla/learning.mozilla.org/issues/2426
     BlogSection: BlogSection
   },
   contextTypes: {
@@ -45,13 +48,14 @@ var HomePage = React.createClass({
       window.optimizely.push(['trackEvent', 'NewsletterFormSubmitted']);
     }
   },
-  handleEmailBtnClick: function() {
-    ga.event({ category: 'Clicked Home CTA', action: 'Get Email Updates' });
-    this.props.showModal(ModalEmail, {
-      hideModal: this.props.hideModal,
-      sourceUrl: this.props.currentPath
-    });
-  },
+  // temporary hiding email signup from UI as per request https://github.com/mozilla/learning.mozilla.org/issues/2426
+  // handleEmailBtnClick: function() {
+  //   ga.event({ category: 'Clicked Home CTA', action: 'Get Email Updates' });
+  //   this.props.showModal(ModalEmail, {
+  //     hideModal: this.props.hideModal,
+  //     sourceUrl: this.props.currentPath
+  //   });
+  // },
   handleTeachBtnClick: function() {
     ga.event({ category: 'Clicked Home CTA', action: 'Teach an Activity' });
   },
@@ -64,12 +68,14 @@ var HomePage = React.createClass({
         <HeroUnit>
           <h1><FormattedMessage id="MLN" /></h1>
           <IconButtons>
+            {/* temporary hiding email signup from UI as per request https://github.com/mozilla/learning.mozilla.org/issues/2426
             <IconButton
               imgSrc="/img/pages/home/svg/icon-newsletter.svg"
               head={this.context.intl.formatMessage({id: 'get_email_update'})}
               onClick={this.handleEmailBtnClick}
               className={"newsletter"}
             />
+            */}
             <IconButton
               link="/activities"
               imgSrc="/img/pages/home/svg/icon-teachanactivity.svg"
