@@ -69,15 +69,6 @@ module.exports = React.createClass({
             </div>
           </div>
         </div>
-
-        <div className="m-b-3 text-center">
-          <h2>Expanding the Gigabit Community Fund</h2>
-          <p>In partnership with the National Science Foundation and US Ignite, we're expanding the Gigabit Community Fund to two additional gigabit cities by 2018. Click below to submit your city.</p>
-          <div className="middle-button">
-            <a className="secondary-button" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSdDAQL4KlvHaDHPxsYsx4bbVJ1v_5MROrQ3uD18_Z7ghAL9Iw/viewform">Start a Gigabit City</a>
-          </div>
-        </div>
-
         <div className="clearfix grey-block">
           <h2 className="m-b-3 text-center">Featured Updates</h2>
 
