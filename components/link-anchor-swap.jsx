@@ -30,7 +30,13 @@ var LinkAnchorSwap = React.createClass({
   },
 
   getLocalizedTo: function() {
-    return "/" + this.context.intl.locale + this.props.to;
+    var to = this.props.to;
+
+    if (to.indexOf('./') === 0 || to.indexOf('../') === 0) {
+      return to;
+    }
+
+    return "/" + this.context.intl.locale + to;
   },
 
   // preprocess a <link> click
