@@ -124,7 +124,7 @@ var ClubsListPage = React.createClass({
                 highlightedText="Connect"
               />
               <IconLink
-                link="http://mozilla.github.io/learning-networks/clubs/"
+                link="https://learning.mozilla.org/en-US/clubs/running"
                 imgSrc="/img/pages/clubs/svg/icon-tips.svg"
                 head="Get Help"
                 subhead="Resources for running your Club."
