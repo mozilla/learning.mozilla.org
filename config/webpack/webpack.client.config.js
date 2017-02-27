@@ -39,7 +39,7 @@ var webpackConfig = {
         loaders: [
           'babel',
           'eslint',
-          __dirname + '/../../config/webpack/env-var-validator.js'
+          'document-env-vars'
         ],
         exclude: /node_modules/
       },
