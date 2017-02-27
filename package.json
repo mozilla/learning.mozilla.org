@@ -118,7 +118,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "document-env-vars": "^1.0.0",
+    "document-env-vars": "^2.1.0",
     "jsdom": "^9.4.5",
     "marked": "^0.3.3",
     "mocha": "^3.0.2",
