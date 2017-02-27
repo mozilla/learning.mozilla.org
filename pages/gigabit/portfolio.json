@@ -267,7 +267,7 @@
   {
     "Year": 2016,
     "City": ["CHA", "FNT"],
-    "Project": "Cross-City Gigabiet Enabled Learning Platform",
+    "Project": "Cross-City Gigabit Enabled Learning Platform",
     "Project Summary": "The proposed pilot provides a new platform for cyber learning, biology research, and citizen science across cities, schools, and science centers. This iniatitive is a cross-city collaboration building off the NSF-supported Chattanooga STEM school 4K microscope project. It allows students at Mott Middle College High School in Flint, MI to compare and contrast micro-environments in different locations, including those in Chattanooga, using a microscope housed at the University of Southern California in real time and in ultra high definition thanks to the gig. Flint educators are also working to further develop the curriculum for 4K-fueled education iniatitives between Chattanooga, Flint, and the Unviersity of Southern California.",
     "Outcomes": "This project pilot period concludes in late 2016.",
     "Gigabit Advantage": "The pilot takes advantage of the under-50 millisecond latency delivered by the 10-Gigabit connection (via the GENI racks in Flint and Chattanooga) among LA, Chattanooga, and Flint to enable students to simultaneously view 4K images and video under the microscope. The students are able to maniuplate the microscope to explore research questions and engage in immersive video conversations across cities with fellow students and USC researchers.",
