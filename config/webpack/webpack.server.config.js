@@ -26,7 +26,7 @@ var webpackConfig = {
         test: /\.jsx?$/,
         loaders: [
           'babel',
-          __dirname + '/../../config/webpack/env-var-validator.js'
+          'document-env-vars'
         ],
         exclude: /node_modules/
       },
