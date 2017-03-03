@@ -41,7 +41,7 @@ var curriculumList = [
         caption: "CC0, public domain by ClkerFreeVectorImages",
         subtitle: "Coding/Scripting, Composing, Design",
         description: "Learners will use CSS to change the size of text on an HTML webpage, learning about <strong>coding</strong>, <strong>composing</strong>, and <strong>design</strong>.",
-        link: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/intermediate-web-lit-css-one-migrated/session01-css-word-pyramid.html"
+        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-one/session01-css-pyramid.html#overview"
       },
       {
         title: "CSS Fonts",
@@ -50,7 +50,7 @@ var curriculumList = [
         caption: "CC-BY-SA 3.0, France3470",
         subtitle: "Coding/Scripting, Composing, Design",
         description: "Learners will use webfonts to create moods and tones on webpages, learning about <strong>coding</strong>, <strong>composing</strong>, and <strong>design</strong>.",
-        link: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/intermediate-web-lit-css-one-migrated/session02-css-fonts.html"
+        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-one/session02-css-fonts.html#overview"
       },
       {
         title: "CSS Fonts Extension: Bridge to Infinity",
@@ -59,7 +59,7 @@ var curriculumList = [
         caption: "CC-BY 2.0, L.E. Spry",
         subtitle: "Coding/Scripting, Composing, Design",
         description: "Jump right into this Thimble project to improve the fonts on this remixable movie poster, learning about <strong>coding</strong>, <strong>composing</strong>, and <strong>design</strong>.",
-        link: "https://d157rqmxrxj6ey.cloudfront.net/chadsansing/22265/ "
+        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-one/session02a-css-fonts-extension-activity.html#overview"
       },
       {
         title: "CSS Circles",
@@ -68,7 +68,7 @@ var curriculumList = [
         caption: "CC0, Petr Kratochvil",
         subtitle: "Coding/Scripting, Composing, Design",
         description: "Learners will position, size, and color circular div elements while learning about <strong>coding</strong>, <strong>composing</strong>, and <strong>design</strong>.",
-        link: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/intermediate-web-lit-css-one-migrated/session03-css-circles.html"
+        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-one/session03-css-circles.html#overview"
       },
       {
         title: "CSS Building Blocks",
@@ -77,7 +77,7 @@ var curriculumList = [
         caption: "CC0, Counseling",
         subtitle: "Coding/Scripting, Composing, Design",
         description: "Learners will position, size, and color rectangular div elements while learning about the “box model” and web literacy skills like <strong>coding</strong>, <strong>composing</strong>, and <strong>design</strong>.",
-        link: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/intermediate-web-lit-css-one-migrated/session04-css-building-blocks.html"
+        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-one/session04-css-building-blocks.html#overview"
       },
       {
         title: "CSS Decoration",
@@ -86,7 +86,7 @@ var curriculumList = [
         caption: "CC-BY-SA 3.0, Michael Janich",
         subtitle: "Coding/Scripting, Composing, Design",
         description: "Learners will apply text- and box-effect CSS styling techniques to inline and block elements on an HTML webpage, learning about <strong>coding</strong>, <strong>composing</strong>, and <strong>design</strong>.",
-        link: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/intermediate-web-lit-css-one-migrated/session05-css-decoration.html"
+        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-one/session05-css-decoration.html#overview"
       },
       {
         title: "Web-o-tron & the Scrambled Divs",
@@ -95,7 +95,7 @@ var curriculumList = [
         caption: "CC-BY, Mozilla",
         subtitle: "Coding/Scripting, Composing, Design",
         description: "Learners will apply CSS layout techniques to inline and block elements on an HTML webpage, learning about <strong>coding</strong>, <strong>composing</strong>, and <strong>design</strong>.",
-        link: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/intermediate-web-lit-css-one-migrated/session06-webotron-and-the-scrambled-divs.html"
+        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-one/session06-webotron-and-the-scrambled-divs.html#overview"
       },
       {
         title: "CSS External Tutorials",
@@ -104,7 +104,7 @@ var curriculumList = [
         caption: "CC-BY, Mozilla",
         subtitle: "Coding/Scripting, Composing, Design",
         description: "Learners will apply multi-part CSS selectors and flexbox positioning with external CSS tutorial games, learning about <strong>coding</strong>, <strong>composing</strong>, and <strong>design</strong>.",
-        link: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/intermediate-web-lit-css-one-migrated/session07-external-css-tutorials.html"
+        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-one/session07-external-css-tutorials.html#overview"
       },
     ]
   },

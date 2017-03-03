@@ -29,7 +29,7 @@ var curriculumList = [
         caption: "CC0 1.0 by Tungalik",
         subtitle: "Understanding Community Participation",
         description: "Learners will create and research survey questions about their community's Web use, learning about <strong>collaborating, community participation, and open practices</strong>.",
-        link: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/web-lit-basics-two-migrated/session01-why-do-we-use-the-web.html"
+        link: "https://mozilla.github.io/curriculum-final/web-lit-basics-two/session01-why-do-we-use-the-web.html#overview"
       },
       {
         title: "The Web is a Tool for Learning",
@@ -38,7 +38,7 @@ var curriculumList = [
         caption: "CC-BY 2.0 by rahims",
         subtitle: "Understanding Navigating",
         description: "Learners will use Web-native instructions to make a meme or build a maker project in real life, learning <strong>navigating, remixing, and community participation</strong>.",
-        link: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/web-lit-basics-two-migrated/session02-the-web-is-a-tool-for-learning.html"
+        link: "https://mozilla.github.io/curriculum-final/web-lit-basics-two/session02-the-web-is-a-tool-for-learning.html#overview"
       },
       {
         title: "Project Playlist",
@@ -47,7 +47,7 @@ var curriculumList = [
         caption: "CC-BY MLN",
         subtitle: "Understanding Composing",
         description: "Learners will build a playlist of songs from the Open Web, learning <strong>composing and remixing</strong>.",
-        link: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/web-lit-basics-two-migrated/bridge01-project-playlist.html"
+        link: "https://mozilla.github.io/curriculum-final/web-lit-basics-two/bridge01-project-playlist.html#overview"
       },
       {
         title: "Welcome to My Mixtape",
@@ -56,7 +56,7 @@ var curriculumList = [
         caption: "CC-BY-SA 2.0 by badjonni",
         subtitle: "Understanding Composing",
         description: "Learners will use Web-native music-production tools and share music through an online community, learning <strong>composing, remix, sharing, and community participation</strong>.",
-        link: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/web-lit-basics-two-migrated/session03-welcome-to-my-mixtape.html"
+        link: "https://mozilla.github.io/curriculum-final/web-lit-basics-two/session03-welcome-to-my-mixtape.html#overview"
       },
       {
         title: "Pixel Portrait",
@@ -65,7 +65,7 @@ var curriculumList = [
         caption: "CC-BY MLN",
         subtitle: "Understanding Composing",
         description: "Learners will create their own pixel art, import it into an online code editor, and then insert it into a webpage, learning <strong>composing</strong>.",
-        link: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/web-lit-basics-two-migrated/bridge02-pixel-portrait.html"
+        link: "https://mozilla.github.io/curriculum-final/web-lit-basics-two/bridge02-pixel-portrait.html#overview"
       },
       {
         title: "#allthestickerz",
@@ -74,7 +74,7 @@ var curriculumList = [
         caption: "CC-BY MLN",
         subtitle: "Understanding Sharing",
         description: "Learners will create pixel art online/digital stickers, publish them for others, and use them to annotate and remix the Web, learning <strong>community participation, composing, open practices, remix, and sharing</strong>.",
-        link: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/web-lit-basics-two-migrated/session04-allthestickerz.html"
+        link: "https://mozilla.github.io/curriculum-final/web-lit-basics-two/session04-allthestickerz.html#overview"
       },
       {
         title: "Who Am I?",
@@ -83,7 +83,7 @@ var curriculumList = [
         caption: "CC0 1.0 by author neutrality",
         subtitle: "Understanding Search",
         description: "Learners will conduct a reverse image search to find information about a subject online and then revise a webpage with their own text and images, learning <strong>composing and search</strong>.",
-        link: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/web-lit-basics-two-migrated/bridge03-who-am-i.html"
+        link: "https://mozilla.github.io/curriculum-final/web-lit-basics-two/bridge03-who-am-i.html#overview"
       },
       {
         title: "Fair Use Free-for-All",
@@ -92,7 +92,7 @@ var curriculumList = [
         caption: "public domain common knowledge, by Zscout370",
         subtitle: "Understanding Sharing",
         description: "Learners will compete to identify examples and non-examples of fair use in peers' web remixes, learning <strong>credibility, search, and sharing</strong>.",
-        link: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/web-lit-basics-two-migrated/session05-fair-use-free-for-all.html"
+        link: "https://mozilla.github.io/curriculum-final/web-lit-basics-two/session05-fair-use-free-for-all.html#overview"
       },
       {
         title: "The Planets",
@@ -101,7 +101,7 @@ var curriculumList = [
         caption: "CC-BY-SA 3.0 by R. Jay GaBany",
         subtitle: "Understanding Designing for Accessibility",
         description: "Learners will improve the accessibility of a webpage by changing its color scheme, content, and embedded media, learning <strong>composing, designing for accessibility, and remixing</strong>.",
-        link: "https://chadsansing.github.io/curriculum-testing/curriculum-migration/web-lit-basics-two-migrated/session06-the-planets-and-accessibility.html"
+        link: "https://mozilla.github.io/curriculum-final/web-lit-basics-two/session06-the-planets-and-accessibility.html#overview"
       }
     ]
   }
