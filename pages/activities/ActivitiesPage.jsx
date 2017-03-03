@@ -29,13 +29,13 @@ var ActivitiesPage = React.createClass({
               Start teaching others how to read, write and participate on the web with these free activities created by teachers, educators and technologists like you. Each featured activity includes step-by-step instructions and has been tested in schools, afterschool programs, libraries and community centers around the globe. Whether learning how to code, understanding why privacy matters, or creating openly-licensed web content, we believe teaching the web should be fun and engaging!
             </p>
             <ActivityKit
-              src1x="/img/pages/2nextprez/government-building.jpg"
-              caption={<a href="https://c2.staticflickr.com/8/7071/7099628023_fbe58682da_k.jpg">CC-BY 2.0 angela n</a>}
-              title="Using the Web to Write Letters to the Next President"
+              src1x="/img/pages/make-your-first-webpage/html9.png"
+              caption={<a href="https://mozilla.github.io/curriculum-final/make-your-first-webpage/images/make-your-own-webpage-11.png">CC-BY-SA Mozilla</a>}
+              title="Make Your First Webpage"
               level="Beginner"
-              link="/activities/next-prez/"
-              developedBy={<div><a href="https://learning.mozilla.org">Mozilla</a>, the <a href="https://nwp.org">National Writing Project</a>, and <a href="https://hypothes.is">Hypothesi.is</a>.</div>}
-              description="Use Thimble to tell the next President of the United States what issues matter to you most. Create and then submit your own online letters, memes, quotes, and campaign posters as part of the National Writing Project’s Letters to the Next President 2.0 campaign."/>
+              link="/activities/make-your-first-webpage/"
+              developedBy="Mozilla Learning"
+              description="Learn to use and style common HTML tags to make your first webpage from scratch."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-curriculum.png"
               src2x="/img/pages/activities/img-activity-curriculum@2x.png"
@@ -52,14 +52,6 @@ var ActivitiesPage = React.createClass({
               link="/activities/web-lit-basics-two/"
               developedBy="Mozilla Learning"
               description="Explore making, media production, reverse-image search, and design on the web."/>
-            <ActivityKit
-              src1x="/img/pages/make-your-first-webpage/html9.png"
-              caption={<a href="https://mozilla.github.io/curriculum-final/make-your-first-webpage/images/make-your-own-webpage-11.png">CC-BY-SA Mozilla</a>}
-              title="Make Your First Webpage"
-              level="Beginner"
-              link="/activities/make-your-first-webpage/"
-              developedBy="Mozilla Learning"
-              description="Learn to use and style common HTML tags to make your first webpage from scratch."/>
             <ActivityKit
               src1x="/img/pages/intermediate-web-lit/blocks.png"
               caption={<a href="https://pixabay.com/en/building-blocks-colorful-build-456616/">CC0 by Counseling</a>}
@@ -208,6 +200,14 @@ var ActivitiesPage = React.createClass({
               link="/activities/madewithcode"
               developedBy={<div>Mozilla for Google's Made with Code initiative</div>}
               description="Mozilla is happy to partner with Google's Made with Code initiative to inspire girls to get creative with code. There are three fun activities to help you create your own webpages by writing and remixing HTML."/>
+            <ActivityKit
+              src1x="/img/pages/2nextprez/government-building.jpg"
+              caption={<a href="https://c2.staticflickr.com/8/7071/7099628023_fbe58682da_k.jpg">CC-BY 2.0 angela n</a>}
+              title="Using the Web to Write Letters to the Next President"
+              level="Beginner"
+              link="/activities/next-prez/"
+              developedBy={<div><a href="https://learning.mozilla.org">Mozilla</a>, the <a href="https://nwp.org">National Writing Project</a>, and <a href="https://hypothes.is">Hypothesi.is</a>.</div>}
+              description="Use Thimble to tell the next President of the United States what issues matter to you most. Create and then submit your own online letters, memes, quotes, and campaign posters as part of the National Writing Project’s Letters to the Next President 2.0 campaign."/>
           </section>
           <section>
             <h2>More resources</h2>
