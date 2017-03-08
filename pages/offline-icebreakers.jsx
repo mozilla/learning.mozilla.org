@@ -42,7 +42,7 @@ var curriculumList = [
         caption: "CC-BY-SA Mozilla",
         subtitle: "Communication, Navigate, Protect",
         description: "Web Mechanics are a combination of tools, characteristics and functions that determine how we use the internet. Knowing how web mechanics work help us protect personal information online and use and understand URLs, IP addresses, search terms, bookmarks and more. This activity will introduce the basics of web mechanics through an offline, multi-person activity. This activity can be adapted for all ages.",
-        link: "https://chadsansing.github.io/curriculum-testing/offline-icebreakers/session01-web-mechanics-speed-dating.html#overview"
+        link: "https://mozilla.github.io/curriculum-final/offline-icebreakers/session01-web-mechanics-speed-dating.html#overview"
       },
       {
         title: "HTML Thimble Tag Puzzle",
@@ -51,7 +51,7 @@ var curriculumList = [
         caption: "CC0 Public Domain by geralt",
         subtitle: "Collaboration, Communication, Problem-solving, Synthesize",
         description: "Learners get familiar with reading, writing and participating on the web in this six-part module. Discover the foundations of the web through production and collaboration.",
-        link: "https://chadsansing.github.io/curriculum-testing/offline-icebreakers/session02-html-thimble-tag-puzzle.html#overview"
+        link: "https://mozilla.github.io/curriculum-final/offline-icebreakers/session02-html-thimble-tag-puzzle.html#overview"
       },
       {
         title: "Puzzles for Teaching HTML",
@@ -60,7 +60,7 @@ var curriculumList = [
         caption: "CC-BY 2.0 John Hritz",
         subtitle: "Collaboration, Communication, Problem-solving, Synthesize",
         description: "Explore web literacy skills with these puzzle-like activities designed to engage participants with offline learning about the web.",
-        link: "https://chadsansing.github.io/curriculum-testing/offline-icebreakers/session03-puzzles-for-teaching-html.html#overview"
+        link: "https://mozilla.github.io/curriculum-final/offline-icebreakers/session03-puzzles-for-teaching-html.html#overview"
       },
       {
         title: "A Strong Wind Blows for Web Literacy",
@@ -69,7 +69,7 @@ var curriculumList = [
         caption: "CC-BY 3.0 MARKBARTLE",
         subtitle: "Communication, Evaluate",
         description: "This activity is a hack of the game musical chairs. Thematic statements are introduced and learners for whom the statement is true must find a new seat.",
-        link: "https://chadsansing.github.io/curriculum-testing/offline-icebreakers/session04-a-strong-wind.html#overview"
+        link: "https://mozilla.github.io/curriculum-final/offline-icebreakers/session04-a-strong-wind.html#overview"
       },
       {
         title: "Web Literacy Bingo",
@@ -78,7 +78,7 @@ var curriculumList = [
         caption: "CC-BY 2.0 Edwin Torres",
         subtitle: "Collaboration, Communication, Synthesize",
         description: "This activity can be used in offline settings, or between screen-based activities. Web literacy bingo allows you to explore a web literacy competency of your choice with a group of learners.",
-        link: "https://chadsansing.github.io/curriculum-testing/offline-icebreakers/session05-web-literacy-bingo.html#overview"
+        link: "https://mozilla.github.io/curriculum-final/offline-icebreakers/session05-web-literacy-bingo.html#overview"
       },
       {
         title: "HTML Puzzle Boxes",
@@ -87,7 +87,7 @@ var curriculumList = [
         caption: "CC-BY-SA MOUSE",
         subtitle: "Creativity, Code, Remix",
         description: "Learners will race to sequence the paper boxes labeled with HTML tags, becoming familiar with the code and remix.",
-        link: "https://chadsansing.github.io/curriculum-testing/offline-icebreakers/session06-html-puzzle-box.html#overview"
+        link: "https://mozilla.github.io/curriculum-final/offline-icebreakers/session06-html-puzzle-box.html#overview"
       },
     ]
   }

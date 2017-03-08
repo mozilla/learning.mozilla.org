@@ -28,14 +28,15 @@ var ActivitiesPage = React.createClass({
             <p>
               Start teaching others how to read, write and participate on the web with these free activities created by teachers, educators and technologists like you. Each featured activity includes step-by-step instructions and has been tested in schools, afterschool programs, libraries and community centers around the globe. Whether learning how to code, understanding why privacy matters, or creating openly-licensed web content, we believe teaching the web should be fun and engaging!
             </p>
+            <h2>Core Web Literacy Curriculum</h2>
             <ActivityKit
-              src1x="/img/pages/2nextprez/government-building.jpg"
-              caption={<a href="https://c2.staticflickr.com/8/7071/7099628023_fbe58682da_k.jpg">CC-BY 2.0 angela n</a>}
-              title="Using the Web to Write Letters to the Next President"
+              src1x="/img/pages/offline-icebreakers/html-puzzleboxes.jpg"
+              caption={<a href="https://mozilla.github.io/mozilla-club-activity-html-puzzle-boxes/activity-data/images/html-puzzleboxes.jpg">by MOUSE</a>}
+              title="Offline Icebreakers"
               level="Beginner"
-              link="/activities/next-prez/"
-              developedBy={<div><a href="https://learning.mozilla.org">Mozilla</a>, the <a href="https://nwp.org">National Writing Project</a>, and <a href="https://hypothes.is">Hypothesi.is</a>.</div>}
-              description="Use Thimble to tell the next President of the United States what issues matter to you most. Create and then submit your own online letters, memes, quotes, and campaign posters as part of the National Writing Project’s Letters to the Next President 2.0 campaign."/>
+              link="/activities/offline-icebreakers/"
+              developedBy={<div><a href="https://learning.mozilla.org">Mozilla</a>, <a href="https://thedigitalcorps.wordpress.com"> Digital Corps</a>, <a href="https://twitter.com/ossington">ginger coons</a>, <a href="https://twitter.com/malesser">Marc Lesser</a>, <a href="https://twitter.com/thomashpark">Thomas Park</a>, <a href="https://twitter.com/yofiesetiawan">Yofie Setiawan</a>, and <a href="https://twitter.com/smithisgeneric">Karen Smith</a>.</div>}
+              description="Solve puzzles and play games to get to know your fellow learners and the web."/>
             <ActivityKit
               src1x="/img/pages/activities/img-activity-curriculum.png"
               src2x="/img/pages/activities/img-activity-curriculum@2x.png"
@@ -61,6 +62,13 @@ var ActivitiesPage = React.createClass({
               developedBy="Mozilla Learning"
               description="Learn to use and style common HTML tags to make your first webpage from scratch."/>
             <ActivityKit
+              src1x="/img/pages/protect-your-data/ip-tracer-badge.jpg"
+              title="Privacy Basics: Protect Your Data"
+              level="Beginner"
+              link="/activities/protect-your-data/"
+              developedBy={<div><a href="http://hivetoronto.org">Hive Toronto</a> in partnership with <a href="https://www.priv.gc.ca/index_e.asp">the Office of the Privacy Commissioner of Canada</a>, and <a href="https://www.mozilla.org/privacy/">Mozilla Privacy</a></div>}
+              description="These activities will help your learners understand how to take control of their privacy in a networked world. Learn web literacy skills like evaluate, navigate, open practice, and protect to safeguard your data and identity online."/>
+            <ActivityKit
               src1x="/img/pages/intermediate-web-lit/blocks.png"
               caption={<a href="https://pixabay.com/en/building-blocks-colorful-build-456616/">CC0 by Counseling</a>}
               title="Intermediate Web Literacy I: Intro to CSS"
@@ -76,14 +84,7 @@ var ActivitiesPage = React.createClass({
               link="/activities/intermediate-web-lit-two/"
               developedBy="Mozilla Learning"
               description="Learn to use buttons, forms, and inputs alongside JavaScript functions to tell stories on the web."/>
-            <ActivityKit
-              src1x="/img/pages/offline-icebreakers/html-puzzleboxes.jpg"
-              caption={<a href="https://mozilla.github.io/mozilla-club-activity-html-puzzle-boxes/activity-data/images/html-puzzleboxes.jpg">by MOUSE</a>}
-              title="Offline Icebreakers"
-              level="Beginner"
-              link="/activities/offline-icebreakers/"
-              developedBy={<div><a href="https://learning.mozilla.org">Mozilla</a>, <a href="https://thedigitalcorps.wordpress.com"> Digital Corps</a>, <a href="https://twitter.com/ossington">ginger coons</a>, <a href="https://twitter.com/malesser">Marc Lesser</a>, <a href="https://twitter.com/thomashpark">Thomas Park</a>, <a href="https://twitter.com/yofiesetiawan">Yofie Setiawan</a>, and <a href="https://twitter.com/smithisgeneric">Karen Smith</a>.</div>}
-              description="Solve puzzles and play games to get to know your fellow learners and the web."/>
+            <h2>Additional Teaching Activities</h2>
             <ActivityKit
               src1x="/img/pages/webmaker/designing-webmaker.jpg"
               src2x="/img/pages/webmaker/designing-webmaker@2x.jpg"
@@ -92,13 +93,6 @@ var ActivitiesPage = React.createClass({
               link="/activities/webmaker/"
               developedBy={<div><a href="https://twitter.com/secretrobotron">Bobby Richter</a> and <a href="https://twitter.com/lau_nk">Laura de Reynal</a> for Mozilla Learning</div>}
               description="Learn how to set up your mobile device to write, publish, and share stories with the Webmaker App from Mozilla Learning."/>
-            <ActivityKit
-              src1x="/img/pages/protect-your-data/ip-tracer-badge.jpg"
-              title="Privacy Basics: Protect Your Data"
-              level="Beginner"
-              link="/activities/protect-your-data/"
-              developedBy={<div><a href="http://hivetoronto.org">Hive Toronto</a> in partnership with <a href="https://www.priv.gc.ca/index_e.asp">the Office of the Privacy Commissioner of Canada</a>, and <a href="https://www.mozilla.org/privacy/">Mozilla Privacy</a></div>}
-              description="These activities will help your learners understand how to take control of their privacy in a networked world. Learn web literacy skills like evaluate, navigate, open practice, and protect to safeguard your data and identity online."/>
             <ActivityKit
               src1x="/img/pages/activities/online-tracking.png"
               caption={ <a href="https://mozorg.cdn.mozilla.net/media/img/teach/smarton/tracking/topic-think-deeper.2d1fbc329611.png">view original</a> }
@@ -208,6 +202,14 @@ var ActivitiesPage = React.createClass({
               link="/activities/madewithcode"
               developedBy={<div>Mozilla for Google's Made with Code initiative</div>}
               description="Mozilla is happy to partner with Google's Made with Code initiative to inspire girls to get creative with code. There are three fun activities to help you create your own webpages by writing and remixing HTML."/>
+            <ActivityKit
+              src1x="/img/pages/2nextprez/government-building.jpg"
+              caption={<a href="https://c2.staticflickr.com/8/7071/7099628023_fbe58682da_k.jpg">CC-BY 2.0 angela n</a>}
+              title="Using the Web to Write Letters to the Next President"
+              level="Beginner"
+              link="/activities/next-prez/"
+              developedBy={<div><a href="https://learning.mozilla.org">Mozilla</a>, the <a href="https://nwp.org">National Writing Project</a>, and <a href="https://hypothes.is">Hypothesi.is</a>.</div>}
+              description="Use Thimble to tell the next President of the United States what issues matter to you most. Create and then submit your own online letters, memes, quotes, and campaign posters as part of the National Writing Project’s Letters to the Next President 2.0 campaign."/>
           </section>
           <section>
             <h2>More resources</h2>

@@ -41,7 +41,7 @@ var curriculumList = [
         caption: "CC0 Public Domain",
         subtitle: "Communication, Creativity, Compose, Code, Remix",
         description: "Learn how HTML, CSS, and JavaScript connect to one another by using buttons and scripts to tell a simple story.",
-        link: "http://chadsansing.github.io/curriculum-testing/intermediate-web-lit-two/session01-buttons-and-alerts.html"
+        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-two/session01-buttons-and-alerts.html#overview"
       },
       {
         title: "Storytelling with Three Buttons",
@@ -50,7 +50,7 @@ var curriculumList = [
         caption: "CC0 Public Domain",
         subtitle: "Communication, Creativity, Code, Compose, Remix",
         description: "Learn how to write multiple, short functions that each connect to a button on a webpage.",
-        link: "http://chadsansing.github.io/curriculum-testing/intermediate-web-lit-two/session02-three-buttons.html"
+        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-two/session02-three-buttons.html#overview"
       },
       {
         title: "Simple Story Generator",
@@ -59,7 +59,7 @@ var curriculumList = [
         caption: "CC-BY 2.0",
         subtitle: "Communication, Creativity, Code, Compose, Remix",
         description: "Learn how to use arrays and the document method to generate random stories and add them to a webpage.",
-        link: "http://chadsansing.github.io/curriculum-testing/intermediate-web-lit-two/session03-simple-story-generator.html"
+        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-two/session03-simple-story-generator.html#overview"
       },
       {
         title: "Storytelling with Pictures",
@@ -68,7 +68,7 @@ var curriculumList = [
         caption: "CC-BY",
         subtitle: "Communication, Creativity, Code, Compose, Remix",
         description: "Use HTML, CSS, and JavaScript to tell a simple story using three sequential pictures.",
-        link: "http://chadsansing.github.io/curriculum-testing/intermediate-web-lit-two/session04-storytelling-with-pictures.html"
+        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-two/session04-storytelling-with-pictures.html#overview"
       },
       {
         title: "Storytelling with User Input",
@@ -77,7 +77,7 @@ var curriculumList = [
         caption: "CC-BY-SA 2.0",
         subtitle: "Communication, Creativity, Code, Compose, Remix",
         description: "Learn how to use HTML, CSS, and JavaScript to turn user input into a brand new story on a webpage.",
-        link: "http://chadsansing.github.io/curriculum-testing/intermediate-web-lit-two/session05-storytelling-with-user-input.html"
+        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-two/session05-storytelling-with-user-input.html#overview"
       },
       {
         title: "Storytelling with Color",
@@ -86,7 +86,7 @@ var curriculumList = [
         caption: "CC0 Public Domain",
         subtitle: "Communication, Creativity, Code, Compose, Remix",
         description: "Learn how HTML, CSS, and JavaScript connect to one another by using buttons and scripts to inspire storytelling in response to different colors.",
-        link: "http://chadsansing.github.io/curriculum-testing/intermediate-web-lit-two/session06-storytelling-with-color.html"
+        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-two/session06-storytelling-with-color.html#overview"
       },
       {
         title: "Creating a Storytelling Resource",
@@ -95,7 +95,7 @@ var curriculumList = [
         caption: "CC-BY",
         subtitle: "Communication, Creativity, Code, Compose, Remix",
         description: "Learn how HTML, CSS, and JavaScript connect to one another by using buttons and scripts to create storytelling prompts.",
-        link: "http://chadsansing.github.io/curriculum-testing/intermediate-web-lit-two/session07-creating-a-storytelling-resource.html"
+        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-two/session07-creating-a-storytelling-resource.html#overview"
       },
       {
         title: "Storytelling with Interactive Fiction",
@@ -104,7 +104,7 @@ var curriculumList = [
         caption: "CC-BY-SA",
         subtitle: "Communication, Creativity, Code, Compose, Remix",
         description: "Learn how HTML, CSS, and JavaScript connect to one another by creating an interactive story that responds to user input.",
-        link: "http://chadsansing.github.io/curriculum-testing/intermediate-web-lit-two/session08-storytelling-with-interactive-fiction.html"
+        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-two/session08-storytelling-with-interactive-fiction.html#overview"
       },
     ]
   },
