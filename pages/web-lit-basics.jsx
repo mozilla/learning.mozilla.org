@@ -68,6 +68,34 @@ var curriculumList = [
         link: "https://mozilla.github.io/curriculum-final/web-lit-basics-one/session06-story-of-us.html#overview"
       }
     ]
+  },
+  {
+    title: "Privacy Expansion",
+    activities: [
+      {
+        title: "Create Secure Passwords",
+        image1x: "/img/pages/protect-your-data/pass-phrase.jpg",
+        subtitle: "Evaluate, Protect",
+        description: "You will learn several different ways to generate secure passwords and pass-phrases and test their strength, learning web literacy skills like <strong>evaluate</strong> and <strong>protect</strong>.",
+        link: "https://mozilla.github.io/curriculum-final/privacy-basics/session04-create-secure-passwords.html"
+      },
+      {
+        title: "Cookies and Third-Party Tracking",
+        image1x: "/img/pages/protect-your-data/img-cookies.png",
+        image2x: "/img/pages/protect-your-data/img-cookies@2x.png",
+        subtitle: "Navigate, Open Practice, Protect",
+        description: "You will use a privacy tool called Mozilla Lightbeam to see how websites track your movement online, learning web literacy skills like <strong>navigate</strong>, <strong>open practice</strong>, and <strong>protect</strong>.",
+        link: "https://mozilla.github.io/curriculum-final/privacy-basics/session03-cookies-and-third-party-tracking.html"
+      },
+      {
+        title: "Data Trail Timeline",
+        image1x: "/img/pages/protect-your-data/img-datatrail.png",
+        image2x: "/img/pages/protect-your-data/img-datatrail@2x.png",
+        subtitle: "Protect",
+        description: "You will create a timeline on a poster or in a video or slideshow to demonstrate how information about your movement in the real world gets collected online by companies and other organizations throughout the course of a typical day while learning about web literacy skills like <strong>protect</strong>.",
+        link: "https://mozilla.github.io/curriculum-final/privacy-basics/session05-data-trail-timeline.html"
+      }
+    ]
   }
 ];
 
