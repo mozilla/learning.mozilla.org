@@ -14,20 +14,6 @@ module.exports = React.createClass({
           <div className="p-t-3 row">
             <div className="col-md-4">
               <div className="project-card m-b-3">
-                <a href="http://schedule.sxswedu.com/events/event_PP60519" target="_blank"><img className="photo" src="/img/pages/gigabit/events/sxsw.png"/></a>
-                <div className="p-x-2 p-b-2">
-                  <div className={`city tag tag-orange m-b-0 has-photo`}>March 6-9, 2017</div>
-                  <h3 className="m-y-0"><a className="project-name" href="http://schedule.sxswedu.com/events/event_PP60519" target="_blank">SxSWedu</a></h3>
-                  <p className="lead-org">Austin Convention Center - 500 E Cesar Chavez St, Austin, TX 78701</p>
-                  <p className="summary">Join Mozilla&#8217;s Executive Director, Mark Surman, for a workshop on Monday, March 6 at 5:30pm and networking throughout</p>
-                  <div className="middle-button">
-                    <a className="secondary-button" href="http://schedule.sxswedu.com/events/event_PP60519" target="_blank">See Event</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="project-card m-b-3">
                 <a href="https://www.eventbrite.com/e/education-innovation-showcase-tickets-30495213003" target="_blank"><img className="photo" src="/img/pages/gigabit/events/austin-tx.jpg"/></a>
                 <div className="p-x-2 p-b-2">
                   <div className={`city tag tag-orange m-b-0 has-photo`}>June 26-28, 2017</div>
