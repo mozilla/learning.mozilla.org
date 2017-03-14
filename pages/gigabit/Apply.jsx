@@ -75,11 +75,11 @@ module.exports = React.createClass({
             <dl>
               <dt>January 30, 2017 - <br/>May 19, 2017</dt>
               <dd>Round 2 Pilot Period</dd>
-              <dt>June 14, 2017</dt>
-              <dd>Optional Intent to Apply Form Due</dd>
-              <dt>July 14, 2017</dt>
+              <dt>July 5, 2017</dt>
+              <dd>Intent to Apply Form Due (Required for All Projects)</dd>
+              <dt>August 1, 2017</dt>
               <dd>Applications Due</dd>
-              <dt>October 16, 2017 - <br/>February 2, 2018</dt>
+              <dt>October 30, 2017 - <br/>February 16, 2018</dt>
               <dd>Pilot Period</dd>
             </dl>
           </div>
