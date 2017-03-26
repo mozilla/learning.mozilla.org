@@ -59,7 +59,7 @@ var curriculumList = [
         caption: "CC-BY 2.0, L.E. Spry",
         subtitle: "Coding/Scripting, Composing, Design",
         description: "Jump right into this Thimble project to improve the fonts on this remixable movie poster, learning about <strong>coding</strong>, <strong>composing</strong>, and <strong>design</strong>.",
-        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-one/session02a-css-fonts-extension-activity.html#overview"
+        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-one/session03-css-fonts-extension-activity.html#overview"
       },
       {
         title: "CSS Circles",
@@ -68,7 +68,7 @@ var curriculumList = [
         caption: "CC0, Petr Kratochvil",
         subtitle: "Coding/Scripting, Composing, Design",
         description: "Learners will position, size, and color circular div elements while learning about <strong>coding</strong>, <strong>composing</strong>, and <strong>design</strong>.",
-        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-one/session03-css-circles.html#overview"
+        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-one/session04-css-circles.html#overview"
       },
       {
         title: "CSS Building Blocks",
@@ -77,7 +77,7 @@ var curriculumList = [
         caption: "CC0, Counseling",
         subtitle: "Coding/Scripting, Composing, Design",
         description: "Learners will position, size, and color rectangular div elements while learning about the “box model” and web literacy skills like <strong>coding</strong>, <strong>composing</strong>, and <strong>design</strong>.",
-        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-one/session04-css-building-blocks.html#overview"
+        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-one/session05-css-building-blocks.html#overview"
       },
       {
         title: "CSS Decoration",
@@ -86,7 +86,7 @@ var curriculumList = [
         caption: "CC-BY-SA 3.0, Michael Janich",
         subtitle: "Coding/Scripting, Composing, Design",
         description: "Learners will apply text- and box-effect CSS styling techniques to inline and block elements on an HTML webpage, learning about <strong>coding</strong>, <strong>composing</strong>, and <strong>design</strong>.",
-        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-one/session05-css-decoration.html#overview"
+        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-one/session05-css-building-blocks.html#overview"
       },
       {
         title: "Web-o-tron & the Scrambled Divs",
@@ -95,7 +95,7 @@ var curriculumList = [
         caption: "CC-BY, Mozilla",
         subtitle: "Coding/Scripting, Composing, Design",
         description: "Learners will apply CSS layout techniques to inline and block elements on an HTML webpage, learning about <strong>coding</strong>, <strong>composing</strong>, and <strong>design</strong>.",
-        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-one/session06-webotron-and-the-scrambled-divs.html#overview"
+        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-one/session07-webotron-and-the-scrambled-divs.html#overview"
       },
       {
         title: "CSS External Tutorials",
@@ -104,7 +104,7 @@ var curriculumList = [
         caption: "CC-BY, Mozilla",
         subtitle: "Coding/Scripting, Composing, Design",
         description: "Learners will apply multi-part CSS selectors and flexbox positioning with external CSS tutorial games, learning about <strong>coding</strong>, <strong>composing</strong>, and <strong>design</strong>.",
-        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-one/session07-external-css-tutorials.html#overview"
+        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-one/session08-external-css-tutorials.html#overview"
       },
     ]
   },
