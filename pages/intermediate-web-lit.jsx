@@ -86,7 +86,7 @@ var curriculumList = [
         caption: "CC-BY-SA 3.0, Michael Janich",
         subtitle: "Coding/Scripting, Composing, Design",
         description: "Learners will apply text- and box-effect CSS styling techniques to inline and block elements on an HTML webpage, learning about <strong>coding</strong>, <strong>composing</strong>, and <strong>design</strong>.",
-        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-one/session05-css-building-blocks.html#overview"
+        link: "https://mozilla.github.io/curriculum-final/intermediate-web-lit-one/session06-css-decoration.html#overview"
       },
       {
         title: "Web-o-tron & the Scrambled Divs",
