@@ -66,6 +66,7 @@ var webpackConfig = {
       // feature flags:
       "ENABLE_BADGES",
       "ENABLE_PONTOON",
+      'HIDE_NEWSLETTER_SIGNUP_FORM',
 
       "LOGIN_EMULATION",
       "LOGIN_EMULATION_LOGGEDOUT",

@@ -16,19 +16,18 @@ var config = require('../../config/config');
 
 var CaseStudies = require('./CaseStudies.jsx');
 
-/* temporary hiding email signup from UI as per request https://github.com/mozilla/learning.mozilla.org/issues/2426
 var ModalEmail = require('./ModalEmail.jsx');
 var ThankYouModal = require('./ThankYouModal.jsx');
-var validateSignupForm = require('../../components/newsletter-signup/validateSignupForm');
-*/
+
 var BlogSection = require('./BlogSection.jsx');
 
 var fixLocation = require('../../lib/fix-location.js');
 
+const HIDE_NEWSLETTER_SIGNUP_FORM = process.env.HIDE_NEWSLETTER_SIGNUP_FORM.toLowerCase() === 'true';
+
 var HomePage = React.createClass({
   statics: {
     pageClassName: 'home-page',
-    // validateSignupForm: validateSignupForm, // temporary hiding email signup from UI as per request https://github.com/mozilla/learning.mozilla.org/issues/2426
     BlogSection: BlogSection
   },
   contextTypes: {
@@ -39,7 +38,7 @@ var HomePage = React.createClass({
     fixLocation(this.context.location);
   },
   componentDidMount: function() {
-    if (this.context.location.search.signup === "thanks") {
+    if (!HIDE_NEWSLETTER_SIGNUP_FORM && this.context.location.search.signup === "thanks") {
       this.props.showModal(ThankYouModal, {
         hideModal: this.props.hideModal
       });
@@ -48,34 +47,30 @@ var HomePage = React.createClass({
       window.optimizely.push(['trackEvent', 'NewsletterFormSubmitted']);
     }
   },
-  // temporary hiding email signup from UI as per request https://github.com/mozilla/learning.mozilla.org/issues/2426
-  // handleEmailBtnClick: function() {
-  //   ga.event({ category: 'Clicked Home CTA', action: 'Get Email Updates' });
-  //   this.props.showModal(ModalEmail, {
-  //     hideModal: this.props.hideModal,
-  //     sourceUrl: this.props.currentPath
-  //   });
-  // },
+  handleEmailBtnClick: function() {
+    ga.event({ category: 'Clicked Home CTA', action: 'Get Email Updates' });
+    this.props.showModal(ModalEmail, {
+      hideModal: this.props.hideModal,
+      sourceUrl: this.props.currentPath
+    });
+  },
   handleTeachBtnClick: function() {
     ga.event({ category: 'Clicked Home CTA', action: 'Teach an Activity' });
   },
   handleClubBtnClick: function() {
     ga.event({ category: 'Clicked Home CTA', action: 'Start A Mozilla Club' });
   },
-  render: function() {
-    return (
-      <div>
-        <HeroUnit>
-          <h1><FormattedMessage id="MLN" /></h1>
-          <IconButtons>
-            {/* temporary hiding email signup from UI as per request https://github.com/mozilla/learning.mozilla.org/issues/2426
-            <IconButton
-              imgSrc="/img/pages/home/svg/icon-newsletter.svg"
-              head={this.context.intl.formatMessage({id: 'get_email_update'})}
-              onClick={this.handleEmailBtnClick}
-              className={"newsletter"}
-            />
-            */}
+  renderIconButtons() {
+    let newsletterCTA = !HIDE_NEWSLETTER_SIGNUP_FORM ?
+                          <IconButton
+                            imgSrc="/img/pages/home/svg/icon-newsletter.svg"
+                            head={this.context.intl.formatMessage({id: 'get_email_update'})}
+                            onClick={this.handleEmailBtnClick}
+                            className={"newsletter"}
+                          /> : null;
+
+    return <IconButtons>
+            { newsletterCTA }
             <IconButton
               link="/activities"
               imgSrc="/img/pages/home/svg/icon-teachanactivity.svg"
@@ -88,7 +83,14 @@ var HomePage = React.createClass({
               head={this.context.intl.formatMessage({id: 'start_a_mozilla_club'})}
               onClick={this.handleClubBtnClick}
             />
-          </IconButtons>
+          </IconButtons>;
+  },
+  render: function() {
+    return (
+      <div>
+        <HeroUnit>
+          <h1><FormattedMessage id="MLN" /></h1>
+          { this.renderIconButtons() }
         </HeroUnit>
 
         <div className="inner-container">

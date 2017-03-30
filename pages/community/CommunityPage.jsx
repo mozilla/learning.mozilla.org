@@ -7,10 +7,7 @@ var IconLink = require('../../components/icon-link.jsx');
 var Intro = require('./Intro.jsx');
 var VerticalCard = require('./VerticalCard.jsx');
 
-/* temporary hiding email signup from UI as per request https://github.com/mozilla/learning.mozilla.org/issues/2426
-var SignupForm = require('../../components/newsletter-signup/SignupForm.jsx');
-var validateSignupForm = require('../../components/newsletter-signup/validateSignupForm');
-*/
+const HIDE_NEWSLETTER_SIGNUP_FORM = process.env.HIDE_NEWSLETTER_SIGNUP_FORM.toLowerCase() === 'true';
 
 var config = require('../../config/config.js');
 
@@ -40,10 +37,20 @@ var communities = communityList.map(function(community) {
 var CommunityPage = React.createClass({
   statics: {
     pageTitle: 'Community',
-    pageClassName: 'community-page',
-    // temporary hiding email signup from UI as per request https://github.com/mozilla/learning.mozilla.org/issues/2426
-    // SignupForm: SignupForm,
-    // validateSignupForm: validateSignupForm
+    pageClassName: 'community-page'
+  },
+  renderSignupCta() {
+    if (HIDE_NEWSLETTER_SIGNUP_FORM) { return null; }
+
+    var SignupForm = require('../../components/newsletter-signup/SignupForm.jsx');
+
+    return <div>
+              <div className="vertical-divider"></div>
+              <section className="text-center">
+              <h2>Get the latest teaching activities, tips, and news in your inbox every month. Sign up for the Mozilla Learning Newsletter.</h2>
+              <SignupForm idPrefix="signup-form-" sourceUrl={this.props.currentPath} />
+            </section>
+          </div>;
   },
   render: function () {
     return (
@@ -60,13 +67,7 @@ var CommunityPage = React.createClass({
           <section className="communities-info">
             {communities}
           </section>
-          {/* temporary hiding email signup from UI as per request https://github.com/mozilla/learning.mozilla.org/issues/2426
-          <div className="vertical-divider"></div>
-          <section className="text-center">
-            <h2>Get the latest teaching activities, tips, and news in your inbox every month. Sign up for the Mozilla Learning Newsletter.</h2>
-            <SignupForm idPrefix="signup-form-" sourceUrl={this.props.currentPath} />
-          </section>
-          */}
+          { this.renderSignupCta() }
           <section>
             <div className="horizontal-divider full-width"></div>
           </section>

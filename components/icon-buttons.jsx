@@ -5,13 +5,16 @@ var IconButtons = React.createClass({
     children: React.PropTypes.object.isRequired
   },
   render: function() {
-    let numColSpan = 12 / this.props.children.length; // Bootstrap uses 12-col layout
+    let nonNullChildren = this.props.children.filter((child) => {
+      return child !== null;
+    });
+    let numColSpan = 12 / nonNullChildren.length; // Bootstrap uses 12-col layout
 
     return (
       <div className="icon-buttons inner-container">
         <section className="row">
           {
-             React.Children.map(this.props.children, function(iconButton){
+             React.Children.map(nonNullChildren, function(iconButton){
                return(
                  <div className={`col-sm-${numColSpan} col-md-${numColSpan} col-lg-${numColSpan}`}>{iconButton}</div>
                );
