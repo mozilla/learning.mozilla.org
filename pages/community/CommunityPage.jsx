@@ -7,7 +7,7 @@ var IconLink = require('../../components/icon-link.jsx');
 var Intro = require('./Intro.jsx');
 var VerticalCard = require('./VerticalCard.jsx');
 
-const HIDE_NEWSLETTER_SIGNUP_FORM = process.env.HIDE_NEWSLETTER_SIGNUP_FORM.toLowerCase() === 'true';
+const HIDE_NEWSLETTER_SIGNUP_FORM = process.env.HIDE_NEWSLETTER_SIGNUP_FORM && process.env.HIDE_NEWSLETTER_SIGNUP_FORM.toLowerCase() === 'true';
 
 var config = require('../../config/config.js');
 

@@ -23,7 +23,7 @@ var BlogSection = require('./BlogSection.jsx');
 
 var fixLocation = require('../../lib/fix-location.js');
 
-const HIDE_NEWSLETTER_SIGNUP_FORM = process.env.HIDE_NEWSLETTER_SIGNUP_FORM.toLowerCase() === 'true';
+const HIDE_NEWSLETTER_SIGNUP_FORM = process.env.HIDE_NEWSLETTER_SIGNUP_FORM && process.env.HIDE_NEWSLETTER_SIGNUP_FORM.toLowerCase() === 'true';
 
 var HomePage = React.createClass({
   statics: {
