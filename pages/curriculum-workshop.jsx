@@ -60,8 +60,25 @@ var CurriculumWorkshop = React.createClass({
 
           <ul className="upcoming-workshops">
             <li>
-              <p className="date">Q2, 2017</p>
-              <h2>TBD</h2>
+              <p className="date">May 11th, 2017, 10am ET</p>
+              <h2>Fake News</h2>
+              <p>
+                Join us on Thursday, May 11th, 2017, at 10 AM ET, to talk about teaching and learning in response to the Fake News phenomenon.
+              </p>
+            </li>
+            <li>
+              <p className="date">August 10th, 2017, 10am ET</p>
+              <h2>Online Safety</h2>
+              <p>
+                Join us on Thursday, August 10th, 2017, at 10 AM ET, to revisit privacy and security. What resources can we make together to help learners understand the choices they have about online safety?
+              </p>
+            </li>
+            <li>
+              <p className="date">November 16th, 2017, 10am ET</p>
+              <h2>Digital Inclusion and Equity</h2>
+              <p>
+                Join us on Thursday, November 16th, 2017, at 10 AM ET, to work on prototype teaching and learning resources that help promote digital inclusion and equity throughout our networks.
+              </p>
             </li>
           </ul>
 
