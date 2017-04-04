@@ -111,6 +111,7 @@ software works.
 `GA_ACCOUNT` | is the property ID of the Google Analytics account. E.g. `UA-123...`. It defaults to the property ID for the Teach site. Set it to `DISABLED` to disable Google Analytics entirely.
 `GA_DEBUG` | When set to 'on' will output verbose info to the console about what data is being sent to Google Analytics.
 `NEWSLETTER_MAILINGLIST_URL` | is the newsletter signup form destination. If undefined, newsletter signup is simulated for development purposes.
+`HIDE_NEWSLETTER_SIGNUP_FORM` | is the flag to hide/show newsletter signup form on the site.
 `PORT` | is the port to serve the experimental lightweight dynamic server on. Defaults to 8008.
 `OPTIMIZELY_ID` | Optimizely Project ID (not a secret) e.g. '206878104'
 `OPTIMIZELY_ACTIVE` | If set to 'yes' (String) the project will include Optimizely snippet in the page load

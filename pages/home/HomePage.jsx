@@ -15,17 +15,19 @@ var IconButton = require('../../components/icon-button.jsx');
 var config = require('../../config/config');
 
 var CaseStudies = require('./CaseStudies.jsx');
+
 var ModalEmail = require('./ModalEmail.jsx');
 var ThankYouModal = require('./ThankYouModal.jsx');
-var validateSignupForm = require('../../components/newsletter-signup/validateSignupForm');
+
 var BlogSection = require('./BlogSection.jsx');
 
 var fixLocation = require('../../lib/fix-location.js');
 
+const HIDE_NEWSLETTER_SIGNUP_FORM = process.env.HIDE_NEWSLETTER_SIGNUP_FORM && process.env.HIDE_NEWSLETTER_SIGNUP_FORM.toLowerCase() === 'true';
+
 var HomePage = React.createClass({
   statics: {
     pageClassName: 'home-page',
-    validateSignupForm: validateSignupForm,
     BlogSection: BlogSection
   },
   contextTypes: {
@@ -36,7 +38,7 @@ var HomePage = React.createClass({
     fixLocation(this.context.location);
   },
   componentDidMount: function() {
-    if (this.context.location.search.signup === "thanks") {
+    if (!HIDE_NEWSLETTER_SIGNUP_FORM && this.context.location.search.signup === "thanks") {
       this.props.showModal(ThankYouModal, {
         hideModal: this.props.hideModal
       });
@@ -64,12 +66,14 @@ var HomePage = React.createClass({
         <HeroUnit>
           <h1><FormattedMessage id="MLN" /></h1>
           <IconButtons>
-            <IconButton
-              imgSrc="/img/pages/home/svg/icon-newsletter.svg"
-              head={this.context.intl.formatMessage({id: 'get_email_update'})}
-              onClick={this.handleEmailBtnClick}
-              className={"newsletter"}
-            />
+            { !HIDE_NEWSLETTER_SIGNUP_FORM &&
+              <IconButton
+                imgSrc="/img/pages/home/svg/icon-newsletter.svg"
+                head={this.context.intl.formatMessage({id: 'get_email_update'})}
+                onClick={this.handleEmailBtnClick}
+                className={"newsletter"}
+              />
+            }
             <IconButton
               link="/activities"
               imgSrc="/img/pages/home/svg/icon-teachanactivity.svg"

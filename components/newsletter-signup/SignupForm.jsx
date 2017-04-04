@@ -21,6 +21,9 @@ var SignupForm = React.createClass({
       validationErrors: []
     };
   },
+  componentDidMount() {
+    this.setState({ email: this.refs.email.value });
+  },
   handleSubmit: function(e) {
     e.preventDefault();
 
@@ -74,7 +77,7 @@ var SignupForm = React.createClass({
     var privacy_policy_link = <a href="https://www.mozilla.org/privacy/websites/"><FormattedMessage id="privacy_policy" defaultMessage="privacy policy"/></a>;
 
     return (
-      <form className="mailinglist-signup" action={process.env.NEWSLETTER_MAILINGLIST_URL} method="POST" onSubmit={this.handleSubmit}>
+      <form className="mailinglist-signup" action={process.env.NEWSLETTER_MAILINGLIST_URL} method="POST">
         <fieldset>
           <label htmlFor={idPrefix+"privacy"} className="sr-only">
             <FormattedMessage id="privacy_consent" values={{privacy_policy_link: privacy_policy_link}} defaultMessage="I'm okay with you handling this info as you explain in your {privacy_policy_link}" />
@@ -86,11 +89,11 @@ var SignupForm = React.createClass({
           <label htmlFor={idPrefix+"email"} className="sr-only"><FormattedMessage id="email" defaultMessage="email"/></label>
           <div className="icon-field-container">
             <i className="fa fa-envelope"></i>
-            <input id={idPrefix+"email"} name="email" type="email" size="30" placeholder="email@example.com" valueLink={this.linkState("email")} required />
+            <input id={`${idPrefix}email`} name="email" type="email" size="30" placeholder="email@example.com" valueLink={this.linkState("email")} ref="email" required />
           </div>
           {this.renderValidationErrors()}
         </fieldset>
-        <input type="submit" value={this.context.intl.formatMessage({id: 'newsletter_sign_up'})} className="btn" />
+        <input type="submit" value={this.context.intl.formatMessage({id: 'newsletter_sign_up'})} className="btn" onClick={this.handleSubmit} />
       </form>
     );
   }
