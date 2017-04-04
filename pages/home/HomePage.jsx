@@ -60,17 +60,20 @@ var HomePage = React.createClass({
   handleClubBtnClick: function() {
     ga.event({ category: 'Clicked Home CTA', action: 'Start A Mozilla Club' });
   },
-  renderIconButtons() {
-    let newsletterCTA = !HIDE_NEWSLETTER_SIGNUP_FORM ?
-                          <IconButton
-                            imgSrc="/img/pages/home/svg/icon-newsletter.svg"
-                            head={this.context.intl.formatMessage({id: 'get_email_update'})}
-                            onClick={this.handleEmailBtnClick}
-                            className={"newsletter"}
-                          /> : null;
-
-    return <IconButtons>
-            { newsletterCTA }
+  render: function() {
+    return (
+      <div>
+        <HeroUnit>
+          <h1><FormattedMessage id="MLN" /></h1>
+          <IconButtons>
+            { !HIDE_NEWSLETTER_SIGNUP_FORM &&
+              <IconButton
+                imgSrc="/img/pages/home/svg/icon-newsletter.svg"
+                head={this.context.intl.formatMessage({id: 'get_email_update'})}
+                onClick={this.handleEmailBtnClick}
+                className={"newsletter"}
+              />
+            }
             <IconButton
               link="/activities"
               imgSrc="/img/pages/home/svg/icon-teachanactivity.svg"
@@ -83,14 +86,7 @@ var HomePage = React.createClass({
               head={this.context.intl.formatMessage({id: 'start_a_mozilla_club'})}
               onClick={this.handleClubBtnClick}
             />
-          </IconButtons>;
-  },
-  render: function() {
-    return (
-      <div>
-        <HeroUnit>
-          <h1><FormattedMessage id="MLN" /></h1>
-          { this.renderIconButtons() }
+          </IconButtons>
         </HeroUnit>
 
         <div className="inner-container">

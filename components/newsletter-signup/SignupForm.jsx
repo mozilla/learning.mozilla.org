@@ -89,7 +89,7 @@ var SignupForm = React.createClass({
           <label htmlFor={idPrefix+"email"} className="sr-only"><FormattedMessage id="email" defaultMessage="email"/></label>
           <div className="icon-field-container">
             <i className="fa fa-envelope"></i>
-            <input id={idPrefix+"email"} name="email" type="email" size="30" placeholder="email@example.com" valueLink={this.linkState("email")} ref="email" required />
+            <input id={`${idPrefix}email`} name="email" type="email" size="30" placeholder="email@example.com" valueLink={this.linkState("email")} ref="email" required />
           </div>
           {this.renderValidationErrors()}
         </fieldset>
