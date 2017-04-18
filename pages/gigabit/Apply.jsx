@@ -8,7 +8,7 @@ module.exports = React.createClass({
         return (
           <tr>
             <td>{row.type}</td>
-            <td>{row.description}</td>
+            <td>{row.cities}</td>
             <td>{row.pilotRequirements}</td>
             <td>{row.funding}</td>
           </tr>
@@ -20,8 +20,8 @@ module.exports = React.createClass({
           <dl className="dl-matrix">
             <dt>Project Type</dt>
             <dd>{item.type}</dd>
-            <dt>Description</dt>
-            <dd>{item.description}</dd>
+            <dt>Eligible Cities</dt>
+            <dd>{item.cities}</dd>
             <dt>Pilot Requirements</dt>
             <dd>{item.pilotRequirements}</dd>
             <dt>Recommended Funding Level</dt>
@@ -36,7 +36,7 @@ module.exports = React.createClass({
             <thead>
               <tr>
                 <th>Project Type</th>
-                <th>Description</th>
+                <th>Eligible Cities</th>
                 <th>Pilot Requirements</th>
                 <th>Recommended Funding Level</th>
               </tr>
@@ -64,7 +64,7 @@ module.exports = React.createClass({
         <div className="m-b-3 clearfix">
           <div className="col-sm-6">
             <ol className="circled-ol">
-              <li>Be piloted in the metropolitan region of Austin, Chattanooga, or Kansas City</li>
+              <li>Be piloted in the metropolitan region of Austin, Eugene, Chattanooga, Lafayette, or Kansas City</li>
               <li>Focus on education or workforce development</li>
               <li>Leverage next-generation technologies like virtual reality, 4K video, artificial intelligence, and their related curricula</li>
             </ol>
@@ -89,33 +89,24 @@ module.exports = React.createClass({
           <h2 className="text-center m-b-3">Type of Support</h2>
           {buildMatrix([
             {
-              type: "Curriculum Development",
-              description: "Create and test lesson plans that help make gigabit technologies more accessible to educators and learners.",
-              pilotRequirements: "The curriculum must be piloted in at least one organization in Austin, Kansas City, or Chattanooga.",
-              funding: "$5,000"
-            },
-            {
-              type: "Multi-Org",
-              description: "Pilot gigabit technologies in multiple organizations in a city, strengthening the local gigabit ecosystem.",
-              pilotRequirements: "The project must be piloted in two or more organizations in Austin, Kansas City, or Chattanooga.",
-              funding: "$15,000"
+              type: "Local",
+              cities: "Austin, Lafayette, and Eugene",
+              pilotRequirements: "Local projects are those conceived of and executed in one of the eligible communities. Though the pilot is only occurring in one community, multiple organizations within that community may be involved. A pilot with real-life learners must occur in the Austin, Lafayette, or Eugene metro areas.",
+              funding: "$5,000 - $15,000"
             },
             {
               type: "Multi-City",
-              description: "Pilot gigabit technologies across communities, helping build a national gigabit ecosystem.",
-              pilotRequirements: "The project must be piloted with organizations in at least two gigabit cities. The lead organization must be in Austin, Kansas City, or Chattanooga.",
-              funding: "$25,000"
+              cities: "Austin, Chattanooga, Eugene, Lafayette, and Kansas City",
+              pilotRequirements: "Cross-City projects have project partners from 2 or more of the Mozilla Gigabit communities. These may, for example, be projects previously piloted in one city that are scaling to a new community or projects that are conceived of in one community and tested in another.  Though partners can be from multiple communities, a pilot with real-life learners must must occur in at least one of the eligible communities.",
+              funding: "$10,000 - $30,000"
             }
           ])}
         </div>
 
         <div className="m-b-3 clearfix">
           <h2 className="text-center m-b-3">How to Apply</h2>
-          <div className="col-xs-6">
-            <a href="https://vimeo.com/180975946" target="_blank"><img className="w-100" src="/img/pages/gigabit/vimeo-player.png"/></a>
-          </div>
-          <div className="col-xs-6">
-            <p>We’re here to help make applying for a Gigabit Community Fund grant as easy as possible! We strongly encourage you to get in touch with us via <a href="mailto:gigabit@mozilla.com">email</a> or <a href="https://twitter.com/MozGig" target="_blank">Twitter</a> as you prepare your application. Going to a meetup hosted by <a href="https://twitter.com/hiveatx" target="_blank">Hive ATX</a>, <a href="https://twitter.com/hivekc" target="_blank">Hive KC</a> or <a href="https://twitter.com/hive_cha" target="_blank">Hive CHA</a> is another great way to get help on your proposal.</p>
+          <div className="col-xs-12">
+            <p>We’re here to help make applying for a Gigabit Community Fund grant as easy as possible! We strongly encourage you to get in touch with us via <a href="mailto:gigabit@mozilla.com">email</a> or <a href="https://twitter.com/MozGig" target="_blank">Twitter</a> as you prepare your application. Going to <a href="/gigabit/events">an event</a> hosted in a Mozilla Gigabit city is another great way to get help on your proposal.</p>
           </div>
         </div>
 
@@ -124,11 +115,11 @@ module.exports = React.createClass({
 
           <div className="col-xs-10 col-xs-offset-1">
             <ol className="circled-ol">
-              <li><span>Review the Gigabit Community Fund’s <a href="/gigabit/apply/terms">Terms and Conditions</a>.</span></li>
-              <li><span>Submit an optional <a href="https://docs.google.com/a/mozillafoundation.org/forms/d/1r4gR7Nq0Rd4XvA0CQCjd86pkWRIXnhQ9BRLTjl0CBQ4/viewform" target="_blank">Intent to Apply form</a>. Though not required, this Intent to Apply form will help our project staff provide you with valuable proposal feedback ahead of the application deadline.</span></li>
-              <li><span>Prepare your application using our <a href="https://drive.google.com/file/d/0B9NqWPTRsfNXNjlKT0tMVlcySlhfZmVlQTBINXVrN0FSVlI0/view" target="_blank">application form</a> and <a href="https://mzl.la/GCF_FAQ" target="_blank">frequently asked questions</a> document </span></li>
+              <li><span>Review the Gigabit Community Fund’s <a href="/gigabit/apply/terms">Terms and Conditions</a> and <a href="https://mzl.la/GCF_FAQ">frequently asked questions</a>.</span></li>
+              <li><span>Submit an <a href="https://docs.google.com/a/mozillafoundation.org/forms/d/1r4gR7Nq0Rd4XvA0CQCjd86pkWRIXnhQ9BRLTjl0CBQ4/viewform" target="_blank">Intent to Apply form</a>. This Intent to Apply form will help our project staff provide you with valuable proposal feedback ahead of the application deadline.</span></li>
+              <li><span>Draft your application based on the guidelines in the <a href="/gigabit/apply/terms">Terms and Conditions</a>. Use <a href="https://docs.google.com/spreadsheets/d/1Yiam58szxLTYVVSluN8zP93LgB2Z3Ulah2ZzqknRB6c/copy">this template</a> for your Project Timeline and <a href="https://docs.google.com/spreadsheets/d/1WxZuMHz7JlcmkcVP4i-DCx7Ulr5NvNq1pSK2MgqOVbQ/copy">this template</a> for your Budget.</span></li>
               <li><span>Check out some sample applications that have received funding, <a href="https://drive.google.com/file/d/0B1Tu07mQk89LRmpfWXlHNmhmQk0/view?usp=sharing" target="_blank">here</a> and <a href="https://drive.google.com/file/d/0B1Tu07mQk89LMGtaY3RYUHRxTWs/view?usp=sharing" target="_blank">here</a>. (Please note that proposal format and questions have been updated.)</span></li>
-              <li><span>Register on our <a href="https://gigabitfund2016.startupcompete.co/" target="_blank">StartupCompete</a> site and submit your application for review.</span></li>
+              <li><span>Register at <a href="https://mozilla.fluxx.io">mozilla.fluxx.io</a> starting on June 1, 2017 and submit your application - including uploads of your timeline and budget - for review.</span></li>
             </ol>
           </div>
         </div>

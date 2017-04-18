@@ -76,10 +76,10 @@ module.exports = React.createClass({
             <li className="col-sm-4">
               <div className="box">
                 <h3>Blog</h3>
-                <h1><a href="https://blog.mozilla.org/gigabit/mozilla-brings-the-iot-to-chattanooga-tn-in-a-48-hour-launch/" target="_blank">Mozilla brings the IoT to Chattanooga, TN in a 48 Hour Launch</a></h1>
-                <p>Throughout the weekend of September 9-11, mentors from across Mozilla’s extended network met at Hive Chattanooga to help local educators and entrepreneurs prototype the future of civic and educational technology in the Gig City.</p>
-                <a href="https://blog.mozilla.org/gigabit/mozilla-brings-the-iot-to-chattanooga-tn-in-a-48-hour-launch/" target="_blank">Continue reading</a>
-                <a className="secondary-button" href="https://blog.mozilla.org/gigabit/" target="_blank">See all blog posts</a>
+                <h1><a href="https://blog.mozilla.org/blog/2017/03/14/public-private-partnership-gigabit-innovation-internet-health/" target="_blank">A Public-Private Partnership for Gigabit Innovation and Internet Health</a></h1>
+                <p>Mozilla, the National Science Foundation and U.S. Ignite announce $300,000 in grants for gigabit internet projects in Eugene, OR and Lafayette, LA</p>
+                <a href="https://blog.mozilla.org/blog/2017/03/14/public-private-partnership-gigabit-innovation-internet-health/" target="_blank">Continue reading</a>
+                <a className="secondary-button" href="https://blog.mozilla.org/blog/category/gigabit-fund/" target="_blank">See all blog posts</a>
               </div>
             </li>
             <li className="col-sm-4">
