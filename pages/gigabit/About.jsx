@@ -44,7 +44,7 @@ module.exports = React.createClass({
         </div>
 
         <div className="clearfix text-center">
-          <img className="w-75 p-a-2" src="/img/pages/gigabit/map-v2.svg"/>
+          <img className="img-responsive m-x-auto p-a-2" src="/img/pages/gigabit/map-v2.svg"/>
         </div>
 
         <div className="gigabit-contact-block">
@@ -68,9 +68,6 @@ module.exports = React.createClass({
               <a className="glyph-link glyph-link-email" href="mailto:janice@mozillafoundation.org">janice@mozillafoundation.org</a>
               <a className="glyph-link glyph-link-twitter" target="_blank" href="https://twitter.com/HiveKC">@HiveKC</a>
             </div>
-          </div>
-
-          <div className="row">
             <div className="col-sm-4 gigabit-contact">
               <h4>Eugene</h4>
               <p><em>Coming Soon</em></p>
