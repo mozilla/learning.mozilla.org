@@ -43,32 +43,42 @@ module.exports = React.createClass({
           <p>Get in touch with your local Gigabit Hive community</p>
         </div>
 
-        <div className="m-b-3 clearfix">
-          <div className="col-sm-8">
-            <img className="w-100 p-a-2" src="/img/pages/gigabit/map.svg"/>
-          </div>
-          <div className="col-sm-4">
-            <div className="m-b-2 gigabit-contact">
+        <div className="clearfix text-center">
+          <img className="img-responsive m-x-auto p-a-2" src="/img/pages/gigabit/map-v2.svg"/>
+        </div>
+
+        <div className="gigabit-contact-block">
+          <div className="row">
+            <div className="col-sm-4 gigabit-contact">
               <h4>Austin</h4>
               <p>Robert Friedman</p>
               <a className="glyph-link glyph-link-email" href="mailto:robert@mozillafoundation.org">robert@mozillafoundation.org</a>
               <a className="glyph-link glyph-link-twitter" target="_blank" href="https://twitter.com/HiveATX">@HiveATX</a>
             </div>
-            <div className="m-b-2 gigabit-contact">
+            <div className="col-sm-4 gigabit-contact">
               <h4>Chattanooga</h4>
               <p>Katie Hendrix</p>
               <a className="glyph-link glyph-link-email" href="mailto:katieh@mozillafoundation.org">katieh@mozillafoundation.org</a>
               <a className="glyph-link glyph-link-twitter" target="_blank" href="https://twitter.com/Hive_CHA">@Hive_CHA</a>
               <a className="glyph-link glyph-link-facebook" target="_blank" href="https://facebook.com/HiveCHA">facebook.com/HiveCHA</a>
             </div>
-            <div className="m-b-2 gigabit-contact">
+            <div className="col-sm-4 gigabit-contact">
               <h4>Kansas City</h4>
               <p>Janice Wait</p>
               <a className="glyph-link glyph-link-email" href="mailto:janice@mozillafoundation.org">janice@mozillafoundation.org</a>
               <a className="glyph-link glyph-link-twitter" target="_blank" href="https://twitter.com/HiveKC">@HiveKC</a>
             </div>
+            <div className="col-sm-4 gigabit-contact">
+              <h4>Eugene</h4>
+              <p><em>Coming Soon</em></p>
+            </div>
+            <div className="col-sm-4 gigabit-contact">
+              <h4>Lafayette</h4>
+              <p><em>Coming Soon</em></p>
+            </div>
           </div>
         </div>
+
         <div className="clearfix grey-block">
           <h2 className="m-b-3 text-center">Featured Updates</h2>
 
