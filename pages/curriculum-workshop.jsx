@@ -28,12 +28,12 @@ var CurriculumWorkshop = React.createClass({
 
           <section className="callout-box">
             <h2>Upcoming Workshop</h2>
-            <p className="date">February 16, 7 AM PT / 10 AM ET / 2PM UTC</p>
-            <h1>Privacy & Security</h1>
+            <p className="date">May 11, 2017 7 AM PT / 10 AM ET / 2PM UTC</p>
+            <h1>Fake News & Misinformation</h1>
           </section>
 
           <p>
-            Join us for a discussion about the privacy and security as we begin a new quarterly schedule on the Mozilla Curriculum Workshop. What are the privacy and security choices that face youth every day? How can we help them develop the habits they need to keep themselves safe as participants on an open and free internet? How might we contribute to internet health by promoting strong privacy rights for all? Join co-hosts Amira Dhalla and Chad Sansing as they talk and prototype learning materials with Vishal Chavan, Cynthia Lieberman, and Chad Walker.
+            Join us for a discussion of fake news, misinformation, and how to help students navigate and create today’s media landscape. Guests Janelle Bence, Sarah Morris, and Hannah Kane will help us imagine and prototype resources to teach media literacy on the web.
           </p>
 
           <p>
@@ -45,27 +45,20 @@ var CurriculumWorkshop = React.createClass({
             On the day of the Curriculum Workshop, the livestream will appear below. You may need to refresh your browser.
           </p>
           <div className="video-wrapper">
-          <iframe width="560" height="315" src="https://air.mozilla.org/mozilla-curriculum-workshop-february-2017-privacy-security/video" frameBorder="0" allowFullScreen></iframe>
+          <iframe width="560" height="315" src="https://air.mozilla.org/mozilla-curriculum-workshop-spring-2017/video" frameBorder="0" allowFullScreen></iframe>
           </div>
 
           <h4>
             Open Agenda
-            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/curriculum-workshop-february-16-2017">
+            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/curriculum-workshop-may-11-2017">
             </a>
           </h4>
 
-          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/curriculum-workshop-february-16-2017"></iframe>
+          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/curriculum-workshop-may-11-2017"></iframe>
 
           <h2>Upcoming Workshops</h2>
 
           <ul className="upcoming-workshops">
-            <li>
-              <p className="date">May 11th, 2017, 10am ET</p>
-              <h2>Fake News</h2>
-              <p>
-                Join us on Thursday, May 11th, 2017, at 10 AM ET, to talk about teaching and learning in response to the Fake News phenomenon.
-              </p>
-            </li>
             <li>
               <p className="date">August 10th, 2017, 10am ET</p>
               <h2>Online Safety</h2>
@@ -85,6 +78,16 @@ var CurriculumWorkshop = React.createClass({
           <h2>Past Workshops</h2>
 
           <ul className="past-workshops">
+            <li>
+              <p className="date">February 16th, 2017</p>
+              <h2>Privacy & Security</h2>
+              <p>
+                Join us for a discussion about the privacy and security as we begin a new quarterly schedule on the Mozilla Curriculum Workshop. What are the privacy and security choices that face youth every day? How can we help them develop the habits they need to keep themselves safe as participants on an open and free internet? How might we contribute to internet health by promoting strong privacy rights for all? Join co-hosts Amira Dhalla and Chad Sansing as they talk and prototype learning materials with Vishal Chavan, Cynthia Lieberman, and Chad Walker.
+              </p>
+              <p className="watch-archive">
+                <LinkAnchorSwap to="/community/curriculum-workshop/feb-16-2017/">Watch the Replay</LinkAnchorSwap>
+              </p>
+            </li>
             <li>
               <p className="date">October 30th, 2016</p>
               <h2>Live from MozFest</h2>
