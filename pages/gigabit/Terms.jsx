@@ -112,7 +112,7 @@ module.exports = React.createClass({
               </ol>
               <li>Internet Health</li>
               <ol>
-                <li>With which Internet health issue(s) does your project align? How does it help to build a healthier future internet?</li>
+                <li>With which <a href="https://www.mozilla.org/en-US/internet-health/">Internet health issue(s)</a> does your project align? How does it help to build a healthier future internet?</li>
               </ol>
               <li>Project History (250 Words or Less)</li>
               <ol>
@@ -137,18 +137,18 @@ module.exports = React.createClass({
               The following organizational information must be submitted along with your project description via mozilla.fluxx.io:
             </p>
             <ol>
-              <li>Required of all Non-Profit Applicants</li>
+              <p><u>Required of all Non-Profit Applicants</u></p>
               <ol>
                 <li>IRS Determination Letter.</li>
                 <li>List of board (with board member affiliations) and key staff and project personnel with titles.</li>
                 <li>Fiscal sponsorship agreement (if applicable).</li>
               </ol>
-              <li>Required of all For-Profit Applicants</li>
+              <p><u>Required of all For-Profit Applicants</u></p>
               <ol>
                 <li>W9 Form and evidence of legal status (e.g. certificate of incorporation)</li>
                 <li>List of board (if applicable) and key staff and project personnel with titles. For board members, provide affiliations.</li>
               </ol>
-              <li>Required of Public Schools, School Systems, and Universities</li>
+              <p><u>Required of Public Schools, School Systems, and Universities</u></p>
               <ol>
                 <li>IRS Letter of Determination (if available) or W9 Form</li>
                 <li>List of key staff and project personnel with titles</li>
@@ -248,7 +248,6 @@ module.exports = React.createClass({
             Applicants whose Submissions are selected for funding will be expected to report on progress per the methods set forth below:
             </p>
             <ol>
-              <li>Respond to biweekly project update requests from program staff.</li>
               <li>Meet regularly with the Mozilla team to share project updates and progress.</li>
               <li>Submit a final report at the conclusion of the pilot period. </li>
               <li>Participate in project events, calls, and meetups as available.</li>
