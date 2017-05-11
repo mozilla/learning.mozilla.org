@@ -52,7 +52,7 @@ module.exports = React.createClass({
           <section className="terms-section">
             <h4 className="section-header">Submission Requirements:</h4>
             <p>
-            All interested applicants must submit an Intent to Apply form through the Mozilla Gigabit website at mozilla.org/gigabit between June 1, 2017 and July 5, 2017 at 11:59:59 PM Pacific. Mozilla program staff will review all forms and provide applicants with advice on whether to submit a full application. Deadline extensions for the Intent to Apply form may be granted on a case-by-case basis by Mozilla staff. Full timeline can be found on the <a href="/gigabit">Mozilla Gigabit website</a>.
+            All interested applicants must submit a Letter of Intent form through the Mozilla Gigabit website at mozilla.org/gigabit between June 1, 2017 and July 5, 2017 at 11:59:59 PM Pacific. Mozilla program staff will review all forms and provide applicants with advice on whether to submit a full application. Deadline extensions for the Letter of Intent form may be granted on a case-by-case basis by Mozilla staff. Full timeline can be found on the <a href="/gigabit">Mozilla Gigabit website</a>.
             </p>
             <p>
             To submit a full application, applicants will register for an account at mozilla.fluxx.io and submit their full Fund Submission via this site by August 1, 2017 at 11:59:59 PM Pacific. Applicants will submit a detailed project description that responds to each of the following prompts:

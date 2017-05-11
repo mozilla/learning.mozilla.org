@@ -76,7 +76,7 @@ module.exports = React.createClass({
               <dt>January 30, 2017 - <br/>May 19, 2017</dt>
               <dd>Round 2 Pilot Period</dd>
               <dt>July 5, 2017</dt>
-              <dd>Intent to Apply Form Due (Required for All Projects)</dd>
+              <dd>Letter of Intent Form Due (Required for All Projects)</dd>
               <dt>August 1, 2017</dt>
               <dd>Applications Due</dd>
               <dt>October 30, 2017 - <br/>February 16, 2018</dt>
@@ -116,10 +116,10 @@ module.exports = React.createClass({
           <div className="col-xs-10 col-xs-offset-1">
             <ol className="circled-ol">
               <li><span>Review the Gigabit Community Fund’s <a href="/gigabit/apply/terms">Terms and Conditions</a> and <a href="https://mzl.la/GCF_FAQ">frequently asked questions</a>.</span></li>
-              <li><span>Submit an <a href="https://docs.google.com/a/mozillafoundation.org/forms/d/1r4gR7Nq0Rd4XvA0CQCjd86pkWRIXnhQ9BRLTjl0CBQ4/viewform" target="_blank">Intent to Apply form</a>. This Intent to Apply form will help our project staff provide you with valuable proposal feedback ahead of the application deadline.</span></li>
+              <li><span>Submit a <a href="https://docs.google.com/a/mozillafoundation.org/forms/d/1r4gR7Nq0Rd4XvA0CQCjd86pkWRIXnhQ9BRLTjl0CBQ4/viewform" target="_blank">Letter of Intent form</a>. This Letter of Intent form will help our project staff provide you with valuable proposal feedback ahead of the application deadline.</span></li>
+              <li><span>Successful Letter of Intent submissions will receive an invitation to submit a full application from our grant management system, <a href="https://mozilla.fluxx.io">Fluxx</a>.</span></li>
               <li><span>Draft your application based on the guidelines in the <a href="/gigabit/apply/terms">Terms and Conditions</a>. Use <a href="https://docs.google.com/spreadsheets/d/1Yiam58szxLTYVVSluN8zP93LgB2Z3Ulah2ZzqknRB6c/copy">this template</a> for your Project Timeline and <a href="https://docs.google.com/spreadsheets/d/1WxZuMHz7JlcmkcVP4i-DCx7Ulr5NvNq1pSK2MgqOVbQ/copy">this template</a> for your Budget.</span></li>
               <li><span>Check out some sample applications that have received funding, <a href="https://drive.google.com/file/d/0B1Tu07mQk89LRmpfWXlHNmhmQk0/view?usp=sharing" target="_blank">here</a> and <a href="https://drive.google.com/file/d/0B1Tu07mQk89LMGtaY3RYUHRxTWs/view?usp=sharing" target="_blank">here</a>. (Please note that proposal format and questions have been updated.)</span></li>
-              <li><span>Register at <a href="https://mozilla.fluxx.io">mozilla.fluxx.io</a> starting on June 1, 2017 and submit your application - including uploads of your timeline and budget - for review.</span></li>
             </ol>
           </div>
         </div>
