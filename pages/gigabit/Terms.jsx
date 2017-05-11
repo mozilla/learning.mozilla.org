@@ -271,7 +271,7 @@ module.exports = React.createClass({
           <section className="terms-section">
             <h4 className="section-header">Legal Rights in Submission:</h4>
             <p>
-            <u>Applicant Certification of Rights in Submission:</u> By entering a Submission, you agree to these Terms and Conditions and you represent and warrant that: (i) you are able to comply with these Terms; (ii) your Submission does not make unauthorized use of or violate in any way any rights of any third party, including but not limited to copyright, trademark, patent, trade secret, or rights of publicity; and (iii) no one else’s permission is required for you to make your Submission in this Fund or to use or permit your Submissions to be used as contemplated under these Terms.
+            <u>Applicant Certification of Rights in Submission:</u> By entering a Submission, you agree to these Terms and Conditions, and you represent and warrant that: (i) you are able to comply with these Terms; (ii) your Submission does not make unauthorized use of or violate in any way any rights of any third party, including but not limited to copyright, trademark, patent, trade secret, or rights of publicity; and (iii) no one else’s permission is required for you to make your Submission in this Fund or to use or permit your Submissions to be used as contemplated under these Terms.
             </p>
           </section>
           <section className="terms-section">
