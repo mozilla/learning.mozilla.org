@@ -30,6 +30,14 @@ var ActivitiesPage = React.createClass({
             </p>
             <h2>Core Web Literacy Curriculum</h2>
             <ActivityKit
+              src1x="/img/pages/internet-health-basics/internet-health-1.png"
+              caption={<a href="https://mozilla.github.io/curriculum-final/internet-health-basics/images/internet-health-1.png">by Mozilla</a>}
+              title="Internet Health Basics"
+              level="Beginner"
+              link="/activities/internet-health-basics/"
+              developedBy={<div><a href="https://learning.mozilla.org">Mozilla</a></div>}
+              description="What is Internet health? What makes the internet healthy or unhealthy? Help your learners make sense of ways to support an open, accessible, and healthy Internet for all with these introductory lessons about key issues facing us online."/>
+            <ActivityKit
               src1x="/img/pages/offline-icebreakers/html-puzzleboxes.jpg"
               caption={<a href="https://mozilla.github.io/mozilla-club-activity-html-puzzle-boxes/activity-data/images/html-puzzleboxes.jpg">by MOUSE</a>}
               title="Offline Icebreakers"
