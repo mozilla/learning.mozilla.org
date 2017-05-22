@@ -70,11 +70,15 @@ module.exports = React.createClass({
             </div>
             <div className="col-sm-4 gigabit-contact">
               <h4>Eugene</h4>
-              <p><em>Coming Soon</em></p>
+              <p>Craig Wiroll</p>
+              <a className="glyph-link glyph-link-email" href="mailto:craig@mozillafoundation.org">craig@mozillafoundation.org</a>
+              <a className="glyph-link glyph-link-twitter" target="_blank" href="https://twitter.com/mozgig">@mozgig</a>
             </div>
             <div className="col-sm-4 gigabit-contact">
               <h4>Lafayette</h4>
-              <p><em>Coming Soon</em></p>
+              <p>Leah Ruffin</p>
+              <a className="glyph-link glyph-link-email" href="mailto:leahr@mozillafoundation.org">leahr@mozillafoundation.org</a>
+              <a className="glyph-link glyph-link-twitter" target="_blank" href="https://twitter.com/mozgig">@mozgig</a>
             </div>
           </div>
         </div>
