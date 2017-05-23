@@ -15,6 +15,12 @@ module.exports = React.createClass({
           </div>
         </div>
 
+        <div className="col-8 mx-auto">
+          <div className="embed-responsive embed-responsive-16by9">
+            <iframe className="embed-responsive-item" src="https://www.youtube.com/embed/jRa4kB7LYoU" allowfullscreen></iframe>
+          </div>
+        </div>
+
         <div className="text-center">
           <h2>The Gigabit Approach</h2>
           <p>Our approach to taking gigabit discoveries out of the lab and into the field is threefold:</p>
