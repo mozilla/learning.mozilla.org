@@ -58,100 +58,67 @@ module.exports = React.createClass({
             To submit a full application, applicants will register for an account at mozilla.fluxx.io and submit their full Fund Submission via this site by August 1, 2017 at 11:59:59 PM Pacific. Applicants will submit a detailed project description that responds to each of the following prompts:
             </p>
             <ol>
-              <li>Project Title</li>
-              <li>Issue Area (500 Words or Less)</li>
+              <li>Describe the issue/problem you are trying to address (2500 Characters)</li>
               <ol>
                 <li>What specific community challenge in workforce development or education does your project help solve?</li>
               </ol>
-              <li>Project Description (1000 Words or Less)</li>
+              <li>List key project activities (what will you do), outputs (what will be produced through your activities, e.g. products, publications, number workshops held and people trained) and outcomes (impact of your project on your beneficiaries during the grant period). (5000 Characters) Also include:</li>
               <ol>
-                <li>Project Summary (140 Characters or Less)</li>
-                <li>What are your project’s key activities?</li>
                 <li>How does the technology you are working with during this project leverage gigabit networks?</li>
                 <li>During the 16-week project period, what will you produce through your activities (e.g. products, publications/curricula, number of workshops/events and attendees)?</li>
                 <li>What impact will the project have on participants and other beneficiaries during the 16-week project period? How will this project expand opportunity and access to gigabit technology?</li>
               </ol>
-              <li>Indicators (500 Words or Less)</li>
+              <li>Provide key indicators you plan to use to measure project outcomes and source of data. (2500 Characters) Also include:</li>
               <ol>
-                <li>Provide key indicators you plan to use to measure project impact/outcomes and source of data.</li>
                 <li>What does success look like for this project?</li>
               </ol>
-              <li>Participants (500 Words or Less)</li>
+              <li>Explain who will benefit from the project and how you will engage with them. (2500 Characters) Also include:</li>
               <ol>
-                <li>Explain who will benefit from the project and how you will engage with these participants.</li>
                 <li>Who are the learners participating in your pilot? What will they learn?</li>
                 <li>If you’re hosting any workshops or events, are you charging for participants to attend them?</li>
               </ol>
-              <li>Community (500 Words or Less)</li>
+              <li>Describe the geographic location(s) in which this project will be implemented. (2500 Characters)</li>
               <ol>
                 <li>In which city or cities will this project take place?</li>
                 <li>How does your project build a more connected, inclusive gigabit innovation ecosystem in these communities and nationally?</li>
                 <li>Where will your pilot with real-life learners occur within these communities?</li>
               </ol>
-              <li>Risks and Challenges (500 Words or Less)</li>
+              <li>List any risks or challenges that may affect the overall success of your project, and note how Mozilla and/or others can help you to overcome these challenges. (1250 Characters) Also include:</li>
               <ol>
-                <li>List any risks or challenges that may affect the overall success of your project, and note how Mozilla and/or others can help you to overcome these challenges.</li>
                 <li>Is the technology being piloted already built or are you building it?</li>
                 <li>Do the locations where the project will take place have an existing gigabit internet connection? If not, how will this project succeed?</li>
               </ol>
-              <li>Partners (500 Words or Less)</li>
+              <li>List your project partners, if any, and the role they will play in the project. (2500 Characters)</li>
+              <li>Mozilla works in the open. How will you document and share your project progress with the community? (2500 Characters)</li>
+              <li>Are other organizations working toward outcomes similar to those described in this proposal? If yes, explain how your work complements that of others or fills a key gap. (1250 Characters)</li>
+              <li>Describe how this project fits into your organization’s mission and goals. (1250 Characters)</li>
+              <li>How does this project contribute to a healthier Internet? (1250 Characters)</li>
               <ol>
-                <li>List your project partners and the role they will play in the project.</li>
+                <li>With which <a href="https://www.mozilla.org/en-US/internet-health/" target="_blank">Internet health issue(s)</a> does your project align?</li>
+                <li>How does your project help to build a healthier future internet?</li>
               </ol>
-              <li>Working Open (250 Words or Less)</li>
+              <li>Is this a new project or a continuation? If new, please describe your qualifications to initiate the activity. If continued, please describe your accomplishments to date. Feel free to include links to articles and documents online that highlight your recent work. (1250 Characters)</li>
+              <li>How will you continue work on this project beyond this funding period? (1250 Characters) Also include:</li>
               <ol>
-                <li>Mozilla works in the open. How will you document and share your project progress with the community?</li>
-              </ol>
-              <li>Field Survey (250 Words or Less)</li>
-              <ol>
-                <li>Are other organizations working toward outcomes similar to those described in this proposal? If yes, explain how your work complements that of others or fills a key gap.</li>
-              </ol>
-              <li>Organizational Fit (250 Words or Less)</li>
-              <ol>
-                <li>Describe how this project fits into your organization’s mission and goals.</li>
-              </ol>
-              <li>Internet Health</li>
-              <ol>
-                <li>With which <a href="https://www.mozilla.org/en-US/internet-health/">Internet health issue(s)</a> does your project align? How does it help to build a healthier future internet?</li>
-              </ol>
-              <li>Project History (250 Words or Less)</li>
-              <ol>
-                <li>Is this a new project or a continuation? If it’s new, please describe your qualifications to initiate the activity. If continued, please describe your accomplishments to date. Feel free to include links to articles and documents online which highlight your recent work.</li>
-              </ol>
-              <li>Sustainability (250 Words or Less)</li>
-              <ol>
-                <li>How will you continue work on this project beyond this funding period?</li>
                 <li>How will you encourage other organizations to adopt this program?</li>
                 <li>How might this work be scaled and spread to other organizations or to other cities?</li>
               </ol>
-              <li>Previous Work with Mozilla: (250 Words or Less)</li>
-              <ol>
-                <li>Have you previously partnered with Mozilla? Have you previously received a grant from Mozilla? If so, please list title, amount, purpose.</li>
-              </ol>
+              <li>Have you previously partnered with Mozilla? Have you previously received a grant from Mozilla? If so, please list title, amount, and purpose.  (1250 Characters)</li>
             </ol>
-
             <p>
-              A <a href="https://docs.google.com/spreadsheets/d/1WxZuMHz7JlcmkcVP4i-DCx7Ulr5NvNq1pSK2MgqOVbQ/edit">project budget</a>, <a href="https://drive.google.com/open?id=1Yiam58szxLTYVVSluN8zP93LgB2Z3Ulah2ZzqknRB6c">project timeline</a>, and letters of support from key collaborators must also be submitted via mozilla.fluxx.io. Templates for the 16-week project timeline and budget are available on the Mozilla Gigabit website.
-            </p>
-            <p>
-              The following organizational information must be submitted along with your project description via mozilla.fluxx.io:
+              Attachments
             </p>
             <ol>
-              <p><u>Required of all Non-Profit Applicants</u></p>
+              <li>For application to the Gigabit Community Fund, the following attachments are required - </li>
               <ol>
-                <li>IRS Determination Letter.</li>
-                <li>List of board (with board member affiliations) and key staff and project personnel with titles.</li>
-                <li>Fiscal sponsorship agreement (if applicable).</li>
-              </ol>
-              <p><u>Required of all For-Profit Applicants</u></p>
-              <ol>
-                <li>W9 Form and evidence of legal status (e.g. certificate of incorporation)</li>
-                <li>List of board (if applicable) and key staff and project personnel with titles. For board members, provide affiliations.</li>
-              </ol>
-              <p><u>Required of Public Schools, School Systems, and Universities</u></p>
-              <ol>
-                <li>IRS Letter of Determination (if available) or W9 Form</li>
-                <li>List of key staff and project personnel with titles</li>
+                <li><a href="https://mozilla.fluxx.io/s3/config_doc/7219/3097310" target="_blank">Project budget</a></li>
+                <li><a href="https://docs.google.com/spreadsheets/d/1Yiam58szxLTYVVSluN8zP93LgB2Z3Ulah2ZzqknRB6c/edit?usp=sharing" target="_blank">Project timeline</a> (Note: please make a copy of this document to complete and attach with your application)</li>
+                <li>Letters of support from key collaborators/ partners</li>
+                <li>List of key staff members (including project personnel if applicable) (required)</li>
+                <li>List of board members with affiliations (required, if applicable to your organization)</li>
+                <li>Fiscal sponsorship agreement (required if you are applying through a fiscal sponsor)</li>
+                <li>If applicant is a for-profit company, include a list of individuals or entities that own 25% or more of the company (required)</li>
+                <li>If applicant is an NGO located outside the United States, provide evidence of legal status in your home country</li>
               </ol>
             </ol>
             <p>
@@ -159,6 +126,9 @@ module.exports = React.createClass({
             </p>
             <p>
             Submissions and any subsequent communications or postings associated with the Fund may not contain advertisements, commercial endorsements, or any material that infringes any third-party intellectual property or is indecent, obscene, hateful, discriminatory, defamatory, slanderous, libelous, unlawful or otherwise inappropriate as determined by Sponsor in its absolute discretion. Any inappropriate Submissions or material may be disqualified by Sponsor in its absolute discretion.
+            </p>
+            <p>
+            For additional guidance, please use this <a href="https://docs.google.com/document/d/1cxe4vKigqt9gnuxy8x5U7hzh_svdZvAOqj3VZCLdFZI/edit?usp=sharing" target="_blank">application guide</a>.
             </p>
           </section>
           <section className="terms-section">
