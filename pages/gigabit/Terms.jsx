@@ -111,7 +111,7 @@ module.exports = React.createClass({
             <ol>
               <li>For application to the Gigabit Community Fund, the following attachments are required - </li>
               <ol>
-                <li><a href="https://mozilla.fluxx.io/s3/config_doc/7219/3097310" target="_blank">Project budget</a></li>
+                <li><a href="https://drive.google.com/file/d/0B5jxGZykGTyFM0Ntbk1HSFNRTUE/view?usp=copy" target="_blank">Project budget</a></li>
                 <li><a href="https://docs.google.com/spreadsheets/d/1Yiam58szxLTYVVSluN8zP93LgB2Z3Ulah2ZzqknRB6c/edit?usp=sharing" target="_blank">Project timeline</a> (Note: please make a copy of this document to complete and attach with your application)</li>
                 <li>Letters of support from key collaborators/ partners</li>
                 <li>List of key staff members (including project personnel if applicable) (required)</li>
