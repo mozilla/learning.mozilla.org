@@ -40,7 +40,7 @@ module.exports = React.createClass({
             Registration and Submissions will be accepted during the Submission Period via the Fluxx website. All registrations and Submissions must be in English. By registering and providing an email address, Lead Contact, as well as any other individuals participating with Applicant who have provided an email address, agree to receive email communications from Sponsor related to the Fund.
             </p>
             <p>
-            All sections of the registration and Submission forms must be completed for the Submission to be considered for the Fund. All Submissions are final upon upload to the Fluxx website.
+            All sections of the registration and Submission forms must be completed for the Submission to be considered for the Fund. All Submissions are final upon upload to the Fluxx website. Mozilla will create an account on your behalf on Fluxx, which you will use to submit your Submission. (See Fluxx's terms of service and privacy policy here: <a href="https://www.fluxx.io/privacy-policy">https://www.fluxx.io/privacy-policy</a>.)
             </p>
             <p>
             No more than three Submissions are permitted from each Applicant. Any subsequent Submissions from the same Applicant will not be considered.  In the event of a dispute over the identity of an Applicant, the Applicant will be deemed to be the entity identified in the organizational information and evidence of legal status included in the Submission. In the event two or more Submissions describe substantially similar projects, the Fund Evaluators&#39; determination of the qualitatively superior proposal will determine which Submission is considered.
