@@ -11,10 +11,11 @@ var SectionList = React.createClass({
   },
   sectionList: function() {
     var formatMessage = this.context.intl.formatMessage;
+    var newsLink = <a href="https://opennews.org/" className="external-link">{formatMessage({id: 'news'})}</a>;
     var advocacyLink = <a href="https://advocacy.mozilla.org/" className="external-link">{formatMessage({id: 'advocacy'})}</a>;
     var scienceLink = <a href="https://www.mozillascience.org/" className="external-link">{formatMessage({id: 'science'})}</a>;
     var developerNetworkLink = <a href="https://developer.mozilla.org/" className="external-link">{formatMessage({id: 'developer_network'})}</a>;
-    var become_a_fellow_message = <FormattedMessage id="become_a_fellow_message" values={{developerNetworkLink: developerNetworkLink, scienceLink: scienceLink, advocacyLink: advocacyLink}} />;
+    var become_a_fellow_message = <FormattedMessage id="become_a_fellow_new_message" values={{developerNetworkLink: developerNetworkLink, scienceLink: scienceLink, advocacyLink: advocacyLink}} />;
 
     return [
       {
