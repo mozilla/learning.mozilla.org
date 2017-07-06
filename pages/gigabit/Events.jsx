@@ -14,20 +14,6 @@ module.exports = React.createClass({
           <div className="p-t-3 row">
             <div className="col-md-4">
               <div className="project-card m-b-3">
-                <a href="http://smartcitiesconnect.com/" target="_blank"><img className="photo" src="/img/pages/gigabit/events/austin-tx.jpg"/></a>
-                <div className="p-x-2 p-b-2">
-                  <div className={`city tag tag-orange m-b-0 has-photo`}>June 26-28, 2017</div>
-                  <h3 className="m-y-0"><a className="project-name" href="http://smartcitiesconnect.com/" target="_blank">2017 Smart Cities Connect Conference & Expo</a></h3>
-                  <p className="lead-org">Austin Convention Center - 500 E Cesar Chavez St, Austin, TX 78701</p>
-                  <p className="summary">The 2017 Smart Cities Connect Conference & Expo, presented by U.S. Ignite, brings together over 200 Cities and their respective leadership to prospect and partner with innovative technology and service providers; linking progressive cities with state-of-the-art solutions and best practices.</p>
-                  <div className="middle-button">
-                    <a className="secondary-button" href="http://smartcitiesconnect.com/" target="_blank">See Event</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="project-card m-b-3">
                 <a href="https://www.eventbrite.com/e/austin-gigabit-community-showcase-tickets-35601413787" target="_blank"><img className="photo" src="/img/pages/gigabit/events/hiveaustin.jpg"/></a>
                 <div className="p-x-2 p-b-2">
                   <div className={`city tag tag-orange m-b-0 has-photo`}>July 20, 2017</div>
@@ -54,8 +40,6 @@ module.exports = React.createClass({
                 </div>
               </div>
             </div>
-          </div>
-          <div className="p-t-3 row">
             <div className="col-md-4">
               <div className="project-card m-b-3">
                 <a href="https://gigabitcitysummit.com/" target="_blank"><img className="photo" src="/img/pages/gigabit/events/city-summit.jpg"/></a>
@@ -70,6 +54,8 @@ module.exports = React.createClass({
                 </div>
               </div>
             </div>
+          </div>
+          <div className="row">
             <div className="col-md-4">
               <div className="project-card m-b-3">
                 <a href="https://mozillafestival.org/" target="_blank"><img className="photo" src="/img/pages/gigabit/events/mozfest-crowd.jpg"/></a>
