@@ -14,20 +14,6 @@ module.exports = React.createClass({
           <div className="p-t-3 row">
             <div className="col-md-4">
               <div className="project-card m-b-3">
-                <a href="https://www.eventbrite.com/e/austin-gigabit-community-showcase-tickets-35601413787" target="_blank"><img className="photo" src="/img/pages/gigabit/events/hiveaustin.jpg"/></a>
-                <div className="p-x-2 p-b-2">
-                  <div className={`city tag tag-orange m-b-0 has-photo`}>July 20, 2017</div>
-                  <h3 className="m-y-0"><a className="project-name" href="https://www.eventbrite.com/e/austin-gigabit-community-showcase-tickets-35601413787" target="_blank">Austin Gigabit Community Showcase</a></h3>
-                  <p className="lead-org">Austin City Hall - 301 West 2nd Street, Austin, TX</p>
-                  <p className="summary">The Gigabit Community Showcase, hosted by the City of Austin’s Digital Inclusion Program, Mozilla Foundation and Google Fiber, will feature community projects that utilize the power of gigabit technology for social innovation and education. The showcase will feature participants of Mozilla&#39;s Gigabit Fund, the City&#39;s GigaTECHs Competition, and the City&#39;s Community Connections partnership with Google Fiber.</p>
-                  <div className="middle-button">
-                    <a className="secondary-button" href="https://www.eventbrite.com/e/austin-gigabit-community-showcase-tickets-35601413787" target="_blank">See Event</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="project-card m-b-3">
                 <a href="https://docs.google.com/a/mozillafoundation.org/forms/d/e/1FAIpQLSezFg5EH9NrltxZi58Hkoeg1oZyrSHZvb1V0FFyILB91d5OqA/viewform?c=0&w=1" target="_blank"><img className="photo" src="/img/pages/gigabit/events/WINS_logo.png"/></a>
                 <div className="p-x-2 p-b-2">
                   <div className={`city tag tag-orange m-b-0 has-photo`}>July 25, 2017</div>
@@ -54,8 +40,6 @@ module.exports = React.createClass({
                 </div>
               </div>
             </div>
-          </div>
-          <div className="row">
             <div className="col-md-4">
               <div className="project-card m-b-3">
                 <a href="https://mozillafestival.org/" target="_blank"><img className="photo" src="/img/pages/gigabit/events/mozfest-crowd.jpg"/></a>
