@@ -13,7 +13,7 @@
     "url": "https://github.com/mozilla/learning.mozilla.org/issues"
   },
   "engines": {
-    "node": "^4.4.1"
+    "node": "^4.8.4"
   },
   "scripts": {
     "cleanup": "shx rm -rf build dist",
