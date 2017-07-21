@@ -70,10 +70,6 @@ var MENU_ENTRIES = [
     className: "community",
     subItems: [
       {
-        name: "community_call",
-        to: '/community/community-call'
-      },
-      {
         name: "curriculum_workshop",
         to: '/community/curriculum-workshop'
       }
