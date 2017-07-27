@@ -54,7 +54,7 @@ var CurriculumWorkshop = React.createClass({
             </a>
           </h4>
 
-          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/curriculum-workshop-sep-26-2017 "></iframe>
+          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/curriculum-workshop-sep-26-2017"></iframe>
 
           <h2>Past Workshops</h2>
 
