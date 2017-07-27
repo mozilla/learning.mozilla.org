@@ -28,12 +28,12 @@ var CurriculumWorkshop = React.createClass({
 
           <section className="callout-box">
             <h2>Upcoming Workshop</h2>
-            <p className="date">May 11, 2017 7 AM PT / 10 AM ET / 2PM UTC</p>
-            <h1>Fake News & Misinformation</h1>
+            <p className="date">September 26th, 2017 9 AM PT / 12 PM ET / 4 PM UTC</p>
+            <h1>Sunsetting the Show</h1>
           </section>
 
           <p>
-            Join us for a discussion of fake news, misinformation, and how to help students navigate and create today’s media landscape. Guests Janelle Bence, Sarah Morris, and Hannah Kane will help us imagine and prototype resources to teach media literacy on the web.
+            Join us for a special, series finale “ask me anything” (AMA) episode of the Mozilla Curriculum Workshop at noon ET, on Tuesday, September 26th, 2017.  This is a webcast to celebrate all of the generous contributions guests and audiences members have made over the course of the program, as well as to address any questions you have as audience members and network leaders. You can submit questions for Amira, Chad, Paul, and the community <a href="https://goo.gl/forms/2bBaEc1AqU6OTJju1">here</a>.
           </p>
 
           <p>
@@ -45,39 +45,30 @@ var CurriculumWorkshop = React.createClass({
             On the day of the Curriculum Workshop, the livestream will appear below. You may need to refresh your browser.
           </p>
           <div className="video-wrapper">
-          <iframe width="560" height="315" src="https://air.mozilla.org/mozilla-curriculum-workshop-spring-2017/video" frameBorder="0" allowFullScreen></iframe>
+          <iframe width="560" height="315" src="https://air.mozilla.org/manage/events/4097/" frameBorder="0" allowFullScreen></iframe>
           </div>
 
           <h4>
             Open Agenda
-            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/curriculum-workshop-may-11-2017">
+            <a title="Open the agenda in a new tab" className="fa fa-external-link open-etherpad" href="https://public.etherpad-mozilla.org/p/curriculum-workshop-sep-26-2017">
             </a>
           </h4>
 
-          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/curriculum-workshop-may-11-2017"></iframe>
-
-          <h2>Upcoming Workshops</h2>
-
-          <ul className="upcoming-workshops">
-            <li>
-              <p className="date">August 10th, 2017, 10am ET</p>
-              <h2>Online Safety</h2>
-              <p>
-                Join us on Thursday, August 10th, 2017, at 10 AM ET, to revisit privacy and security. What resources can we make together to help learners understand the choices they have about online safety?
-              </p>
-            </li>
-            <li>
-              <p className="date">November 16th, 2017, 10am ET</p>
-              <h2>Digital Inclusion and Equity</h2>
-              <p>
-                Join us on Thursday, November 16th, 2017, at 10 AM ET, to work on prototype teaching and learning resources that help promote digital inclusion and equity throughout our networks.
-              </p>
-            </li>
-          </ul>
+          <iframe className="etherpad" src="https://public.etherpad-mozilla.org/p/curriculum-workshop-sep-26-2017 "></iframe>
 
           <h2>Past Workshops</h2>
 
           <ul className="past-workshops">
+            <li>
+              <p className="date">May 11th, 2017</p>
+              <h2>Fake News & Misinformation</h2>
+              <p>
+                Join us for a discussion of fake news, misinformation, and how to help students navigate and create today’s media landscape. Guests Janelle Bence, Sarah Morris, and Hannah Kane will help us imagine and prototype resources to teach media literacy on the web.
+              </p>
+              <p className="watch-archive">
+                <LinkAnchorSwap to="/community/curriculum-workshop/may-11-2017/">Watch the Replay</LinkAnchorSwap>
+              </p>
+            </li>
             <li>
               <p className="date">February 16th, 2017</p>
               <h2>Privacy & Security</h2>
