@@ -13,6 +13,14 @@ module.exports = React.createClass({
       );
     });
 
+    if (data.Links) {
+      var links = data.Links.map((link) => {
+        return (
+          <a className="secondary-button m-r-2" href={link.url} target="_blank">{link.label || `Website`}</a>
+        );
+      });
+    }
+
     return (
       <div>
         <div className="m-b-3 clearfix">
@@ -52,12 +60,14 @@ module.exports = React.createClass({
           </div>
         </div>
 
-        <div className="m-b-3 text-center">
-          <p>Learn more about {data.Project}</p>
-          <div className="middle-button">
-            <a className="secondary-button" href={data.Link} target="_blank">Website</a>
+        { data.Links &&
+          <div className="m-b-3 text-center">
+            <p>Learn more about {data.Project}</p>
+            <div className="middle-button">
+              {links}
+            </div>
           </div>
-        </div>
+        }
       </div>
     );
   }
