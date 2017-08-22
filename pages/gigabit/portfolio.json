@@ -1,7 +1,9 @@
 [
   {
     "Year": 2014,
-    "City": ["CHA"],
+    "City": [
+      "CHA"
+    ],
     "Project": "Adagio",
     "Project Summary": "The brainchild of Gig City Production‘s Jonathan Susman, Adagio is a cloud-based remote audio mixing tool co-developed with UTC Computer Science Professor Craig Tannis and several of his graduate students. Utilizing Chattanooga’s gigabit network, Adagio’s cloud-based platform drastically lowers the financial and technological barriers to mixing audio – students and professionals alike have access to studio-quality tools right from their browser.",
     "Outcomes": "Winner of Co.Lab‘s 48-Hour Launch and awarded funding during the Gigabit Community Fund’s first round in 2014, Adagio has since been demoed in London at Mozilla’s annual MozFest as well as at the National Science Foundation’s CyberLearning 2015 conference in Arlington, VA. Jonathan and Adagio also worked with teachers from the Barger Academy of Fine Arts, a magnet school in the Gig City, to develop curricula around the tool; they’ve also been featured during Chattanooga’s Startup Week and the opening of the Public Library’s GigLab. They further participated in GIGTANK 2016.",
@@ -9,13 +11,15 @@
     "Lead Organization": "Adagio",
     "Other Partner Organizations": "Barger Academy of Fine Art, University of Tennessee at Chattanooga",
     "Photo": "/img/pages/gigabit/logos/adagio_edit-320x240.png",
-    "Link": null,
+    "Links": null,
     "Tech Tags": null,
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy"
   },
   {
     "Year": 2014,
-    "City": ["CHA"],
+    "City": [
+      "CHA"
+    ],
     "Project": "Building an App from the Ground Up",
     "Project Summary": "A collaboration between the Creative Discovery Museum‘s Museum Apprentice Program and developers from Spartan Systems, Inc., Building an App from the Ground, Up is both a platform and toolbox for other education programs. Under the guidance of CDM’s Randy Jestice and James Candan of Spartan System, a group of teen volunteers has researched, designed and built a scavenger hunt app featuring some of the museum’s entomological exhibits.",
     "Outcomes": "In developing this immersive learning tool, the students have done everything from the art elements to programming the game itself; a separate teen A/V team filmed and edited videos of the project while in progress, as well as handling all social media updates and the project blog. In many ways, the MAPs team has evolved into their own development company, serving Chattanooga’s young museum-goers. Funded during the second round of the Gigabit Community Fund, the project demoed at the Mini Maker Faire during Startup Week; a beta version of Critter Catch, their app, is nearing release.",
@@ -23,13 +27,20 @@
     "Lead Organization": "Creative Discovery Museum, Spartan Systems Inc.",
     "Other Partner Organizations": null,
     "Photo": "/img/pages/gigabit/logos/cdm-spartan_edit-320x240.png",
-    "Link": "http://www.cdmfun.org/",
+    "Links": [
+      {
+        "url": "http://www.cdmfun.org/",
+        "label": null
+      }
+    ],
     "Tech Tags": null,
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy"
   },
   {
     "Year": 2014,
-    "City": ["CHA"],
+    "City": [
+      "CHA"
+    ],
     "Project": "devLearn",
     "Project Summary": "From a nascent idea for a mobile learn-to-code app, Duncan Ingram, Inc. developers Tim Coy and Jonathan Williams brought devLearn to life at Hackanooga – Chattanooga’s second annual weekend of civic hacking – in July of 2014. The free app, now available for both iOS and Android, offers gamefied lessons in HTML and CSS, with a JavaScript tutorial on the way. One of its chief innovations has been in eliminating the need for typing on a mobile device; asking the user multiple choice questions and to code via drag-and-drop blocks, devLearn takes the frustration of a misplaced period or an errant space out of the programming equation.",
     "Outcomes": "Awarded funding during the second round of the Gigabit Community Fund, devLearn demoed at Chattanooga’s own Mini Maker Faire, as well as the World Maker Faire in Flushing Meadow, NY, before piloting with library students at Clifton Hills Elementary School. devLearn illustrates what the gig’s low-latency and a pair of civic-minded developers can mean to a city: Downloaded more than 1500 times in its first two months, students, parents and teachers throughout Hamilton County (and beyond) are learning how to code for the first time.",
@@ -37,13 +48,20 @@
     "Lead Organization": "devLearn",
     "Other Partner Organizations": "Duncan Ingram, Inc, Clifton Hills Elementary School",
     "Photo": "/img/pages/gigabit/logos/MakerFaireCHA-300x200.jpg",
-    "Link": "https://devlearnapp.wordpress.com/",
+    "Links": [
+      {
+        "url": "https://devlearnapp.wordpress.com/",
+        "label": null
+      }
+    ],
     "Tech Tags": null,
     "Issue Area Tags": "Open Innovation, Web Literacy"
   },
   {
     "Year": 2014,
-    "City": ["CHA"],
+    "City": [
+      "CHA"
+    ],
     "Project": "GigBridge",
     "Project Summary": "GigBridge, proposed by GPS senior Anjali Chandra and funded through the second round of the Gigabit Community Fund, leveraged the gig to connect students via streaming video at Chattanooga Girls Leadership Academy and East Lake Academy, two Title I schools in Hamilton County. With the help of Jill Pala, GPS’s Chair of Computer Science, members of the Spanish department and a team of her classmates – as well as support from UTC and TVA – Anjali ran an after-school program focusing on English as a second language and healthier lifestyle skills through app design, developing a publicly-available digital literacy curriculum along the way.",
     "Outcomes": "Pilot participants learned the basics of and built mobile applications over the course of eight weeks, creating versions in both English and Spanish. At a ceremony judged by local developers, each student team presented their completed applications to a packed house – with Mayor Andy Berke handing out awards. Anjali has since received additional funding from Causeway to help continue the project.",
@@ -51,13 +69,20 @@
     "Lead Organization": "GlobalEXCEL",
     "Other Partner Organizations": "Girls Preparatory School, East Lake Academy, Chattanooga Girl's Leadership Academy, Causeway, The Advanced Center for Sleep Disorders",
     "Photo": "/img/pages/gigabit/logos/gigbridge_edit-320x240.png",
-    "Link": "http://www.globalexcel.org/",
+    "Links": [
+      {
+        "url": "http://www.globalexcel.org/",
+        "label": null
+      }
+    ],
     "Tech Tags": null,
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy"
   },
   {
     "Year": 2014,
-    "City": ["CHA"],
+    "City": [
+      "CHA"
+    ],
     "Project": "Hyperlocal Hyperaudio",
     "Project Summary": "Hyperaudio, Inc. – designers of an open-source tool for remixing audio and video – partnered with the Chattanooga Public Library to produce a “hyperlocal” platform tied to archival material fromWTCI, a local PBS affiliate. A media-heavy browser application and natural fit for the gig, the Hyperaudio Pad allows users to manipulate and create content by dragging and dropping selections from text and transcripts tied to audio or video files",
     "Outcomes": "Over the course of the first round of support from the Gigabit Community Fund, Hyperlocal Hyperaudio demoed at Maker Partiesin the Bronx and in Chattanooga, as well as at Co.Lab’s GigTankDemo Day in 2014. Justin Hoenke, head of Teen Services for the library, and teachers from the Howard School developed lesson plans around the platform, engaging students in local history while learning through play; future collaboration has been planned with the Hunter Museum of American Art.",
@@ -65,13 +90,20 @@
     "Lead Organization": "Hyperaudio, Inc.",
     "Other Partner Organizations": "The Howard School, Hunter Museum of American Art",
     "Photo": "/img/pages/gigabit/logos/cpl-hyperaudio-320x240.png",
-    "Link": "http://hyperaud.io/",
+    "Links": [
+      {
+        "url": "http://hyperaud.io/",
+        "label": null
+      }
+    ],
     "Tech Tags": "Video",
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy"
   },
   {
     "Year": 2014,
-    "City": ["CHA"],
+    "City": [
+      "CHA"
+    ],
     "Project": "The GigLab",
     "Project Summary": "The GigLab is a unique space offering public access to gigabit enabled tools, technology and education. Housed on the celebrated 4th Floor, this second round Gigabit Community Fund project pushes the idea of creation, not just consumption, at the Chattanooga Public Library to more than 1000 Mb/s, and, with equipment ranging from Arduinos demonstrating basic network infrastructure to streaming 4K television, the lab offers an opportunity for patrons to understand just what those speeds mean.",
     "Outcomes": "The GigLab has also been a boon to Chattanooga’s developer community – many other Mozilla Gigabit Fund projects demoed during November’s grand opening – as well as the Open Chattanooga Brigade, who have been been able to utilize the available bandwidth for processing large data sets. Planned future applications include pairing virtual reality headsets with city lidar and GIS data to build immersive educational experiences for younger patrons (a Minecraft-based project being piloted in conjunction with the Kansas City Digital Media Lab) and regular low-latency performances with musicians in other gigabit cities, including Burlington, VE.",
@@ -79,13 +111,20 @@
     "Lead Organization": "Chattanooga Public Library",
     "Other Partner Organizations": null,
     "Photo": "/img/pages/gigabit/logos/giglab_edit-320x240.png",
-    "Link": "http://chattlibrary.org/",
+    "Links": [
+      {
+        "url": "http://chattlibrary.org/",
+        "label": null
+      }
+    ],
     "Tech Tags": null,
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy, Decentralization"
   },
   {
     "Year": 2014,
-    "City": ["CHA"],
+    "City": [
+      "CHA"
+    ],
     "Project": "Viditor",
     "Project Summary": "Viditor is an open-source, collaborative video editor, leveraging gigabit speed to allow multiple users to create and edit projects in real time and from any device with a modern browser.  It was the only project to be funded in both 2014 rounds of the Gigabit Community Fund.",
     "Outcomes": "Viditor was accepted into UTC’s College of Computer Science & Engineering Senior Capstone program, where a team of students has joined the app founders in adding additional cloud functionality. And while still a work in progress, Viditor demoed at the Creative Discovery Museum during Startup Week, with Andrew live-programming additional camera filters for an enthusiastic audience, as well as at the Fiber to the Home Council conference in Ft. Lauderdale, FL this June. The project has since been piloted in an art class at the Baylor School and with beta-testers at the Chattanooga Public Library.",
@@ -93,13 +132,15 @@
     "Lead Organization": "GeonCode",
     "Other Partner Organizations": "University of Tennessee at Chattanooga, Baylor School, Chattanooga Public Library",
     "Photo": null,
-    "Link": null,
+    "Links": null,
     "Tech Tags": "Video",
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy"
   },
   {
     "Year": 2014,
-    "City": ["CHA"],
+    "City": [
+      "CHA"
+    ],
     "Project": "Wireless Earth Watchdogs",
     "Project Summary": "Science classes from the Chattanooga School for the Arts and Sciences partnered with Hixson High School to build a real-time water quality monitoring network, using big data to effect environmental change. Lead by CSAS’s Davis Mounger and Ashley Patterson-Johnston and Joyce Purdue from Hixson, students designed, built and programmed buoys, monitoring devices and wireless sending-units to collect information from various locations within the North Chickamauga Creek watershed using SparkFun Electronics‘ microcontroller platform. The schools have been collaborating with Dr. Mark Schorr, a professor from the Department of Biological and Environmental Sciences at UTC, where their network is contributing to his decades-long project monitoring regional water pollution, providing streaming data where previously only annual or biannual samplings were practical.",
     "Outcomes": "Originally funded during the second round of the 2014 Gigabit Community Fund, the class was so popular that Hixson has begun offering Wireless Earth Watchdogs as an extracurricular club – the original pilot students serve as mentors – as well as supporting a second semester of the course. This project continued into 2015 and 2016 with classes working on their project with an afterschool club.",
@@ -107,13 +148,21 @@
     "Lead Organization": "Chattanooga School for the Arts and Sciences, Hixson High School",
     "Other Partner Organizations": "University of Tennessee at Chattanooga, SparkFun Electronics",
     "Photo": "/img/pages/gigabit/logos/csas-hixson-320x240.png",
-    "Link": "http://www.hixsonhigh.org/",
+    "Links": [
+      {
+        "url": "http://www.hixsonhigh.org/",
+        "label": null
+      }
+    ],
     "Tech Tags": "IoT",
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy, Decentralization"
   },
   {
     "Year": 2014,
-    "City": ["CHI", "KC"],
+    "City": [
+      "CHI",
+      "KC"
+    ],
     "Project": "3D Multi-School Learning",
     "Project Summary": "A project featuring next gen telepresence technology to teach Computer Programming and Video Game Design, providing a key STEAM pathway for students in a multi-school setting.",
     "Outcomes": "This project delivered high-tech innovation to interest-driven pursuits for underrepresented students in STEAM subjects. The initative was replicated by Hive Chicago members in 2015.",
@@ -121,13 +170,20 @@
     "Lead Organization": "aSTEAM Village",
     "Other Partner Organizations": "SightDeck",
     "Photo": "/img/pages/gigabit/logos/807aa8_6601e639b32549b2b73aaed0f017626a.png",
-    "Link": "http://www.asteamvillage.org/",
+    "Links": [
+      {
+        "url": "http://www.asteamvillage.org/",
+        "label": null
+      }
+    ],
     "Tech Tags": "Video",
     "Issue Area Tags": "Open Innovation, Digital Inclusion"
   },
   {
     "Year": 2014,
-    "City": ["KC"],
+    "City": [
+      "KC"
+    ],
     "Project": "Augmented Reality",
     "Project Summary": "The Bonner Springs Fire Department led this project to develop a specialized training system that equips first response trainees with heads-up displays (currently Google Glass) to share live video and real-time information during training and simulation scenarios. This civic application for workforce training uses aggregated data to create an augmented reality simulation for use in training and coordinating first responders’ actions in the field.",
     "Outcomes": "Cities are the initial benefactors of this workforce develoment technology, especially rural communities with limited emergency response training options.",
@@ -135,13 +191,15 @@
     "Lead Organization": "Bonner Springs Fire Department",
     "Other Partner Organizations": "McGill University",
     "Photo": null,
-    "Link": null,
+    "Links": null,
     "Tech Tags": "AR",
     "Issue Area Tags": "Open Innovation"
   },
   {
     "Year": 2014,
-    "City": ["KC"],
+    "City": [
+      "KC"
+    ],
     "Project": "Gigabit Cafe",
     "Project Summary": "This project piloted the first public test of the Software Lending Library in Kansas City. The project aims to bring the benefits of gigabit internet connectivity to clients and neighbors in an underserved area of Kansas City. More than just a way to borrow free programs, the Software Lending Library was created to enhance digital inclusion by enabling people to access software needed to be successful in a technology-driven world.",
     "Outcomes": "This project was demoed at the 2014 US Ignite Summit as well as GIGTANK Demo Day in Chattanooga.",
@@ -149,26 +207,42 @@
     "Lead Organization": "Roncilliation Services",
     "Other Partner Organizations": "Kansas Public Library",
     "Photo": "/img/pages/gigabit/logos/gigabitcafe.jpg",
-    "Link": "http://softwarelendinglibrary.org/",
+    "Links": [
+      {
+        "url": "http://softwarelendinglibrary.org/",
+        "label": null
+      }
+    ],
     "Tech Tags": null,
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy"
   },
   {
     "Year": 2014,
-    "City": ["KC", "ATX"],
+    "City": [
+      "KC",
+      "ATX"
+    ],
     "Project": "The Gigabots Cross City Connected Robotics",
     "Project Summary": "The Gigabots bring real-time internet connectivity to educational robotics platforms between schools in Kansas City and Austin, TX.",
     "Outcomes": "During the grant period we provided training to over a dozen educators in the Austin, TX area. They learned how to create a Gigabot, connect it to the internet, and program it with our visual programming language. The Gigabots project was enhanced on the technical side with the creation of a simple two-step installer for firmware, and a new dashboard with a visual programming language. The educators in Austin also created curricula around the concept of a ‘Mars Rover Challenge’ to be used by multiple groups or teams. Each team would create a rover (a Gigabot) and have a Mars Obstacle Course locally. The teams would then collaborate and solve programming challenges either remotely or locally, with teams that could be located in any Mozilla Gigabit Community. We are working to convert the lesson plans for sharing with the Mozilla community.",
     "Gigabit Advantage": "Since the initial pilot in 2014, we have been dreaming of the possibility of cross-city and cross-country collaboration with The Gigabots. The Gigabots leverage the low-latency of gigabit networks to bring real-time cyber-physical systems to the classroom. We believe the result of the collaboration between The Gigabots and Changing Expectations will be a completely unique and revolutionary curriculum that will drive the adoption of gigabit in classrooms. Imagine a Mars rover style challenge where students from multiple schools collaborate to build and control a Gigabot remotely. This is the type of collaboration and communication that we are making possible.",
     "Lead Organization": "Big Bang",
     "Photo": "/img/pages/gigabit/logos/maker_of_merit_award.jpg",
-    "Link": "https://twitter.com/thegigabots",
+    "Links": [
+      {
+        "url": "https://twitter.com/thegigabots",
+        "label": null
+      }
+    ],
     "Tech Tags": "Robotics, IoT",
     "Issue Area Tags": "Open Innovation, Web Literacy, Digital Inclusion, Decentralization"
   },
   {
     "Year": 2014,
-    "City": ["KC", "CHA"],
+    "City": [
+      "KC",
+      "CHA"
+    ],
     "Project": "Minecraft   Oculus Rift for Community Development",
     "Project Summary": "This virtual reality project piloted by the Kansas City Public Library gave kids a way to design their ideal neighborhood in two of Kansas City's urban areas through and provided a gamed-up way to build community in a fully immersive environment.",
     "Outcomes": "This project introduced students to virtual reality technology and provided a gamified introduce to design thinking and basic computer science in a fun, community-driven way.  This project was partially reproduced by a Hive CHA member organization in 2015.",
@@ -176,13 +250,20 @@
     "Lead Organization": "Kansas City Public Library",
     "Other Partner Organizations": null,
     "Photo": "/img/pages/gigabit/logos/minecraft.jpg",
-    "Link": "http://www.kcdml.com/",
+    "Links": [
+      {
+        "url": "http://www.kcdml.com/",
+        "label": null
+      }
+    ],
     "Tech Tags": "VR",
     "Issue Area Tags": "Open Innovation, Web Literacy"
   },
   {
     "Year": 2014,
-    "City": ["KC"],
+    "City": [
+      "KC"
+    ],
     "Project": "PlanIT Impact KC",
     "Project Summary": "A first of its kind platform, the PlanIT Impact application provides visually immersive feedback about envrionmental impact and building design based on open geospatial data and the development project's specific location. PlanIT Impact is a powerful educational tool for students learning about the environment and architecture.",
     "Outcomes": "Support from Mozilla provided for the development of a new application for architecture students and urban planners to transfer and manipulate large amounts of open source GIS data.  This project has been demoed at numerous US Ignite Application Summits.  The project team also participated in GIGTANK 2015 in Chattanooga.",
@@ -190,13 +271,20 @@
     "Lead Organization": "PlanIt Impact",
     "Other Partner Organizations": "Draw Arcitecture & Urban Design, Kansas City Design Center, Kansas State University",
     "Photo": "/img/pages/gigabit/logos/Screen-Shot-2016-02-03-at-1.45.17-PM-300x201.jpg",
-    "Link": "http://planitimpact.com/",
+    "Links": [
+      {
+        "url": "http://planitimpact.com/",
+        "label": null
+      }
+    ],
     "Tech Tags": "Big Data",
     "Issue Area Tags": "Open Innovation"
   },
   {
     "Year": 2014,
-    "City": ["KC"],
+    "City": [
+      "KC"
+    ],
     "Project": "Project Bright Spots",
     "Project Summary": "Using the gig as a collaboration tool for video and live sharing, The Lean Lab aims to rapidly spur community dialogue and space for collaboration around innovation in education by sharing examples of “Bright Spots” in teaching and learning.",
     "Outcomes": "This project developed an online streaming tool for teachers to share lessons and concepts in a social-centric, realtime community for peer-to-peer professional development and instructional design.",
@@ -204,13 +292,20 @@
     "Lead Organization": "The Lean Lab",
     "Other Partner Organizations": null,
     "Photo": "/img/pages/gigabit/logos/brightspotsphoto-2-7-02-300x300.jpg",
-    "Link": "http://projectbrightspots.wordpress.com/",
+    "Links": [
+      {
+        "url": "http://projectbrightspots.wordpress.com/",
+        "label": null
+      }
+    ],
     "Tech Tags": null,
     "Issue Area Tags": "Open Innovation, Web Literacy, Decentralizatoin"
   },
   {
     "Year": 2014,
-    "City": ["KC"],
+    "City": [
+      "KC"
+    ],
     "Project": "Northland CAPS",
     "Project Summary": "High school students at Northland CAPS worked with business partners to develop a suite of application based communications, monitoring and treatment tools for clinicians and high-risk patients to reduce the frequency of re-admissions.",
     "Outcomes": "Through participation in this project, students learned about gigabit tech and next generartion networks. They also used design thinking to come up with a way to use technology to solve some of the intractable issues in healthcare and developed project management and digital literacy skills while prototyping a healthcare-focused communications application",
@@ -218,13 +313,20 @@
     "Lead Organization": "Northland CAPS",
     "Other Partner Organizations": "North Kansas City, Liberty, Park Hill, Platte County, Smithville & Kearney Schools",
     "Photo": "/img/pages/gigabit/logos/NCAPS-e1412279551831.jpg",
-    "Link": "http://www.northlandcaps.org/",
+    "Links": [
+      {
+        "url": "http://www.northlandcaps.org/",
+        "label": null
+      }
+    ],
     "Tech Tags": null,
     "Issue Area Tags": "Open Innovation, Web Literacy"
   },
   {
     "Year": 2014,
-    "City": ["KC"],
+    "City": [
+      "KC"
+    ],
     "Project": "TechHawks",
     "Project Summary": "TechHawks is a a fitness initative delivering real-time monitoring and robust metrics to curb obesity via the FitNet app, shaping how families manage and understand wellness. Fitnet and the University of Kansas Medical Center partnered to help KU Med’s Healthy Hawks program to achieve their health goals to break the cycle of obesity by introducing an interactive, online, tablet-based session twice weekly, paired with the standard in-person intervention, over the 12-week program. iPads with the Fitnet app feature a biometric camera alongside clinic-prescribed content and cardio, strength and other workouts, all within a cloud-based dashboard to manage feedback and patient care.",
     "Outcomes": "The program was extremely successful, both for the health center and the clients served. It is also expanding to serve another health center’s program.",
@@ -232,13 +334,20 @@
     "Lead Organization": "FitNet",
     "Other Partner Organizations": "University of Kansas Medical Center",
     "Photo": "/img/pages/gigabit/logos/fitnet-300x300.jpg",
-    "Link": "http://www.kcdigitaldrive.org/project/fitnet-tech-hawks",
+    "Links": [
+      {
+        "url": "http://www.kcdigitaldrive.org/project/fitnet-tech-hawks",
+        "label": null
+      }
+    ],
     "Tech Tags": "Video, Big Data",
     "Issue Area Tags": "Open Innovation"
   },
   {
     "Year": 2016,
-    "City": ["CHA"],
+    "City": [
+      "CHA"
+    ],
     "Project": "Raspberry Python Music Genie",
     "Project Summary": "Local students are learning how to build their own air synthesizer by using Python coding languages and a Raspberry Pi. The resulting technology, Stage Genies, will be showcased by the Chattanooga Ballet at an event in downtown Chattanooga. Thanks to high-speed connections and next-gen cameras, dancers will be able to use their bodies in space to trigger music as programmed by the Art 120 student technologists.",
     "Outcomes": "This project pilot period concludes in late 2016. This project was featured as part of River City Company's Passageways project through support from Mozilla.",
@@ -246,13 +355,20 @@
     "Lead Organization": "Art120",
     "Other Partner Organizations": "Chattanooga Ballet, River City Company",
     "Photo": null,
-    "Link": "http://art120.org/",
+    "Links": [
+      {
+        "url": "http://art120.org/",
+        "label": null
+      }
+    ],
     "Tech Tags": "IoT",
     "Issue Area Tags": "Open Innovation, Web Literacy"
   },
   {
     "Year": 2016,
-    "City": ["CHA"],
+    "City": [
+      "CHA"
+    ],
     "Project": "ViatoR VR",
     "Project Summary": "ViatoR uses VR to submerge users in an immersive environment for an interactive, engaging language learning experience.",
     "Outcomes": "Our primary technical additions to the project this pilot period were multiplayer sessions that support up to sixteen connected users simultaneously, additional virtual environments for participants, a simple game mode, better movement mechanics, and the beginning of a robust user interface for joining and creating user sessions. We were thrilled to end up with this ability to have multiplayers in one environment and session.",
@@ -260,13 +376,21 @@
     "Lead Organization": "ViatoR, LLC",
     "Other Partner Organizations": "Chattanooga School of Language, The Enterprise Center",
     "Photo": "/img/pages/gigabit/logos/1-Place_Forrest-Pruitt-and-Nicole-Prebula-1.jpg",
-    "Link": "http://viatorvr.com/",
+    "Links": [
+      {
+        "url": "http://viatorvr.com/",
+        "label": null
+      }
+    ],
     "Tech Tags": "VR",
     "Issue Area Tags": "Digital Inclusion, Open Innovation"
   },
   {
     "Year": 2016,
-    "City": ["CHA", "FNT"],
+    "City": [
+      "CHA",
+      "FNT"
+    ],
     "Project": "Cross-City Gigabit Enabled Learning Platform",
     "Project Summary": "The proposed pilot provides a new platform for cyber learning, biology research, and citizen science across cities, schools, and science centers. This iniatitive is a cross-city collaboration building off the NSF-supported Chattanooga STEM school 4K microscope project. It allows students at Mott Middle College High School in Flint, MI to compare and contrast micro-environments in different locations, including those in Chattanooga, using a microscope housed at the University of Southern California in real time and in ultra high definition thanks to the gig. Flint educators are also working to further develop the curriculum for 4K-fueled education iniatitives between Chattanooga, Flint, and the Unviersity of Southern California.",
     "Outcomes": "This project pilot period concludes in late 2016.",
@@ -274,13 +398,15 @@
     "Lead Organization": "Genesee Intermediate School District",
     "Other Partner Organizations": "Hamilton County Department of Education, US Ignite, University of Southern California, Enterprise Center",
     "Photo": null,
-    "Link": null,
+    "Links": null,
     "Tech Tags": "Video",
     "Issue Area Tags": "Open Innovation"
   },
   {
     "Year": 2016,
-    "City": ["CHA"],
+    "City": [
+      "CHA"
+    ],
     "Project": "Gigtank 4K: Scaling from Micro to Macro",
     "Project Summary": "The project harnesses the power of the Gig and 4K video microscopy to create connections and collaborations for powerful STEM learning opportunities in Chattanooga and beyond. A team participating in 2016's GIGTANK summer accerator program at Chattanooga's Company Lab accelerator will focus on the scalabilty and replicability of the 4K microscope project, including new ways to use a 4K microscope and new ways to use 4K technology to support learning.",
     "Outcomes": "This project pilot period concludes in late 2016.",
@@ -288,13 +414,20 @@
     "Lead Organization": "Enterprise Center",
     "Other Partner Organizations": "Hamilton County Department of Education, University of Southern California",
     "Photo": null,
-    "Link": "http://www.theenterprisectr.org/",
+    "Links": [
+      {
+        "url": "http://www.theenterprisectr.org/",
+        "label": null
+      }
+    ],
     "Tech Tags": "Video",
     "Issue Area Tags": "Open Innovation, Digital Inclusion"
   },
   {
     "Year": 2016,
-    "City": ["CHA"],
+    "City": [
+      "CHA"
+    ],
     "Project": "Streaming 4K Content for Learning Experiences",
     "Project Summary": "4K streaming content in Ultra-HD creates engaging learning environments through enhanced access to community assets for learners in three schools and two community centers. Utilizing real-time streaming content being generated at the TN Aquarium, the project delivers high resolution 4K content into classrooms and informal learning environments. The project will also work with educators to develop curriculum that correlates with the streaming content.",
     "Outcomes": "This project pilot period concludes in late 2016.",
@@ -302,13 +435,20 @@
     "Lead Organization": "Enterprise Center",
     "Other Partner Organizations": "Public Education Foundation, Tennessee Aquarium, Hamilton County Department of Education, Nokia, Chattanooga Youth and Family Development Centers",
     "Photo": null,
-    "Link": "http://www.theenterprisectr.org/",
+    "Links": [
+      {
+        "url": "http://www.theenterprisectr.org/",
+        "label": null
+      }
+    ],
     "Tech Tags": "Video",
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Web Literacy"
   },
   {
     "Year": 2016,
-    "City": ["KC"],
+    "City": [
+      "KC"
+    ],
     "Project": "SensED IoT Student Innovation Challenge",
     "Project Summary": "SensED is a project-based social innovation program for 7-12 graders to highlight and provide real-world experiences in the emerging field of Internet of Things. The project will (1) create a mapped curriculum for middle and high school students, (2) train teachers through a series of professional development modules over the summer, (3) provide a stronger platfrom to launch an expanded version of the program in the fall that has increased capacity to support teams throughout the metro area, broader impact, and greater potential for scale.",
     "Outcomes": "This project pilot period concludes in late 2016.",
@@ -316,13 +456,21 @@
     "Lead Organization": "KC Social Innovation Center",
     "Other Partner Organizations": "University of Central Missouri, Missouri Innovation Campus, Summit Tech Academy High School,",
     "Photo": null,
-    "Link": "http://www.kcsocialinnovation.org/sensed/",
+    "Links": [
+      {
+        "url": "http://www.kcsocialinnovation.org/sensed/",
+        "label": null
+      }
+    ],
     "Tech Tags": "IoT",
     "Issue Area Tags": "Open Innovation, Web Literacy"
   },
   {
     "Year": 2016,
-    "City": ["KC", "CHA"],
+    "City": [
+      "KC",
+      "CHA"
+    ],
     "Project": "Pennez: Read2Think",
     "Project Summary": "Pennez is a live- time digital assessment tool for measuring a child’s reading fluency. The application utilizes machine learning technology to assess speed, vocabulary, understanding, sight word, pronunciation, and phonics recognition.",
     "Outcomes": "This project pilot period concludes in late 2016. This project was demoed at the 2016 US Ignite Summit in Austin, TX.",
@@ -330,13 +478,20 @@
     "Lead Organization": "Pennez",
     "Other Partner Organizations": "Turn the Page KC, Youth and Development Department of Chattanooga, Cross Roads Academy, The Kauffman School, Project UK, IBM, TeraCrunch, Missouri Western University",
     "Photo": null,
-    "Link": "http://pennez.com/read-2-think-2/",
+    "Links": [
+      {
+        "url": "http://pennez.com/read-2-think-2/",
+        "label": null
+      }
+    ],
     "Tech Tags": "AI",
     "Issue Area Tags": "Open Innovation, Digital Inclusion, Decentralization"
   },
   {
     "Year": 2016,
-    "City": ["KC"],
+    "City": [
+      "KC"
+    ],
     "Project": "Open Data   3D Models",
     "Project Summary": "PlanIT Impact is putting its big data   3D modeling technology in the hands of students in Kansas City to advance education around sustainable design. Summer semester architecture students at the Kansas City Design Center will apply PlanIT Impact to their studio projects to understand resource impact modules of energy usage, water usage and storm water perviousness. The PlanIT Impact development team will also be working contiguously to develop additional modules of Building Density, which require a more intensive collaboration with Kansas City, MO’s parcel data and Open Data portal. As these additional resource impact modules become available, students will have access to test them and record their outputs.",
     "Outcomes": "This project pilot period concludes in late 2016.  This project was demoed at the 2016 US Ignite Summit in Austin, TX.",
@@ -344,227 +499,351 @@
     "Lead Organization": "PlanIT Impact",
     "Other Partner Organizations": "Kansas City Design Center (a partnership between University of Kansas and Kansas State University), BNIM, University of Missouri Kansas City (UMKC) School of Computing and Engineering, Open Web Data Portal of Kansas City, MO",
     "Photo": null,
-    "Link": "http://planitimpact.com/",
+    "Links": [
+      {
+        "url": "http://planitimpact.com/",
+        "label": null
+      }
+    ],
     "Tech Tags": "Big Data",
     "Issue Area Tags": "Open Innovation, Decentralization"
   },
   {
     "Year": 2017,
-    "City": ["ATX"],
+    "City": [
+      "ATX"
+    ],
     "Project": "Digital Mock City Council",
     "Project Summary": "Digital Mock City Council is an online, open-source, digital budget debate platform and curriculum designed for middle and high school students to explore civic challenges and priorities.",
     "Outcomes": "Throughout the pilot period, the team continued to develop the functionality and performance of the Austin Budget Party app, created a high school curriculum to accompany it, provided a professional development opportunity for Austin ISD teachers and saw the curriculum implemented in a small number of classrooms. This work represents a successful start as we now have key components in hand (refined Budget Party app, aligned curriculum, educator support and classroom opportunities) and have learned a great deal about what is necessary to sustain the partnerships that make those components possible.",
     "Gigabit Advantage": "The Austin Budget Party app promises to deliver education content simultaneously to large numbers of participants about the City Budget and collects their input about how they want resources allocated to update a real-time data stream. As this app matures, the content delivered will include video and other high bandwidth content. You can see results aggregate in real time using websockets. The Digital Mock City Council meeting environment will require a reliable, high-resolution video conferencing solution dependent on high speed internet connections for a seamless, synchronous, virtual video experience.",
     "Lead Organization": "Austin Monitor",
     "Photo": "/img/pages/gigabit/logos/austinMonitor.png",
-    "Link": "http://www.austinmonitor.com/",
+    "Links": [
+      {
+        "url": "http://www.austinmonitor.com/",
+        "label": null
+      }
+    ],
     "Tech Tags": "4K",
     "Issue Area Tags": "Open Innovation, Digital Inclusion"
   },
   {
     "Year": 2017,
-    "City": ["ATX"],
+    "City": [
+      "ATX"
+    ],
     "Project": "World Explorer Virtual Exchange",
     "Project Summary": "PenPal Schools connects over 100,000 students (ages 9+) in 170 countries to collaborate through high-quality online courses and learn about global challenges while practicing essential technology skills. PenPal Schools will extend their digital content with 360 4K video in a pilot, cultural exchange experience linking PenPals in Austin, TX USA with international locations.",
     "Outcomes": "PenPal Schools developed a VR Field Trip to Pakistan that, in it's debut semester, has already reached over 2,000 students worldwide. The module is well documented and freely available on the PenPal Schools website. The syllabus, a demo of the module, and a button for teachers or students to join for free can be easily accessd on their website. While the project was enjoyed in 13 countries, PenPals focused on enriching local classrooms in Austin. The PenPals Schools story is something of a capstone for the Hive Networks model. PenPals received their very first startup funds from Mozilla Hive NYC in 2012. Over the last 5 years, they've grown their platform, business, and curriculum to reach a global audience. Coming back to Hive for the Gigabit Community Fund grant was an opportunity for this group to innovate on their model again.",
     "Gigabit Advantage": "One of largest limiting factors when distributing VR experiences is the amount of data require to stream or download a high-quality experience. Leveraging Gigabit Networks, PPS would have the opportunity to distributed highly engaging educational VR content to communities around the globe that would otherwise be excluded. Early test show VR content to be the most engaging forms of media consumption invented to date. This pilot program has the ability to highlight not only the power of VR in education, but also the importance of open and free internet to all people.",
     "Lead Organization": "PenPal Schools",
     "Photo": "/img/pages/gigabit/logos/website-student-map.png",
-    "Link": "https://www.penpalschools.com/",
+    "Links": [
+      {
+        "url": "https://www.penpalschools.com/",
+        "label": null
+      }
+    ],
     "Tech Tags": "VR",
     "Issue Area Tags": "Web Literacy, Digital Inclusion"
   },
   {
     "Year": 2017,
-    "City": ["ATX"],
+    "City": [
+      "ATX"
+    ],
     "Project": "Gigabit VR: MBK Coding WebVR Scenes",
     "Project Summary": "To foster an inclusive computing culture, Changing Expectations will add WebVR coding projects to the My Brother's Keeper Coding Makerspace to prepare boys of color for the VR workforce. The MBK students will learn to code WebVR scenes based on their ethnically diverse interests and perspectives and share through mini-workshops with younger youth and their parents visiting the Carver Museum.",
     "Outcomes": "Through their My Brother's Keeper Makerspace, Changing Expectations guided young men of color to created WebVR scenes and produced example WebVR lesson plans with teachers through their partnership in the University of Texas at Austin's WeTeach_CS Collaborative. Changing Expectations documented the WebVR scenes in shared Google documents and showcased those scenes during a Community Showcase at the George Washington Carver Museum. The coding makerspace used WebVR technology to create a learning experience that bridged boundaries for Austin’s young men of color to become tech professionals and entrepreneurs. The project helped to address the severe underrepresentation and lack of opportunity for people of color to participate in Austin’s tech industry. This was achieved through mentorship relationships: tech professionals of various cultural backgrounds were brought together with students to support an effort to prepare underrepresented, underserved youth for tech careers.",
     "Gigabit Advantage": "The gigabit advantage is the promise of virtual reality (VR) in learning on tomorrow's networks. The enormous amount of bandwidth available to us through a gigabit network affords us the chance to do VR right. We can create and virtually inhabit digital environments with detailed textures and enough “room” for several people to be in one another’s telepresence all at once with very low lag or latency. Given the chance to explore WebVR scenes the MBK students create themselves, we plan to experience emerging forms of teaching and learning that are possible with Gigabit VR.",
     "Lead Organization": "Changing Expectations",
     "Photo": "/img/pages/gigabit/logos/Changing-Expectations.png",
-    "Link": "http://changeexpectations.org/",
+    "Links": [
+      {
+        "url": "http://changeexpectations.org/",
+        "label": null
+      }
+    ],
     "Tech Tags": "VR",
     "Issue Area Tags": "Web Literacy, Digital Inclusion, Open Innovation"
   },
   {
     "Year": 2017,
-    "City": ["ATX"],
+    "City": [
+      "ATX"
+    ],
     "Project": "Gigabit Girls - Austin Public Housing",
     "Project Summary": "This VR introductory course will be taught to girls engaged with Latinitas programming and living in Austin Public Housing. The project will also include recruitment of VR professionals to support the program and bridge the century long divide between Austin's downtown business district and East Austin's housing projects.",
     "Outcomes": "The Gigabit Girls curriculum developed in this pilot will be applied to Latinitas programs including 25 total after school programs, summer camps and weekend workshops at public housing sites and libraries. 2015 will be the last year Texas will graduate a majority white senior high school class and nationally, over 55% of children under 5 identify Hispanic/Latino in the U.S. Latinitas is hearing from cities such as L.A., Miami and New York, as well as others balancing large unexpected Latino growth, such as Raleigh Durham and Omaha. The demand for Latinitas' programs focused on two of the world's most influential industries: media and technology is growing on a local, regional, statewide and national level. Latinitas has already replicated our Chica Conference model that integrates media and technology workshops with themes like coding, being an entrepreneur and healthy living in Dallas, San Antonio, El Paso, TX and Las Cruces, NM. Having mentors who reflect our service population has made Latinitas the only bilingual tech education organization in Austin for 15 years, and only one of handful, nationally.  Latinitas is reaching girls others aren’t. 63% percent of girls who attended Latinitas’ Code Chica Conferences had never had a coding lesson before in a city nicknamed Silicon Hills. And, Latinitas is working. 93% of Latinitas program alumni are graduating high school, 81% identify as a college student, that’s in light of Latinas having the state’s highest school drop-out rates of any ethnic group.  By sponsoring the development of a cutting edge curriculum focused on girls of color in Austin, Mozilla is supporting Latinitas vision to steward a healthy pipeline of young diverse and innovative voices towards Austin’s most lucrative industry-  technology - in a supportive, inclusive way. Working through the Hive model in Austin has lead to new collaborations between Latinitas and other Mozilla grantees in Austin, including The Austin Monitor and Open Austin to test out their Budget Party platform and curriculum in 15 Latinitas after school programs serving over 250 girls a week. Though Latinitas are still just executing this new VR curriculum, they partner widely and strategically with dozens of other non-profits assisting as a liaison to the Latino population or by providing media and tech training to girl empowerment, cultural, STEM and other non-profits.",
     "Gigabit Advantage": "Latinitas will use high-definition video editing software, graphic tools, and virtual reality 360 cameras that perform best over higher bandwidth. Participants will be tasked with uploading, downloading, and streaming content through a web-based software during the creation of virtual reality narratives based on community needs or neighborhood heritage.",
     "Lead Organization": "Latinitas",
     "Photo": "/img/pages/gigabit/logos/Latinitas.gif",
-    "Link": "http://www.laslatinitas.com",
+    "Links": [
+      {
+        "url": "http://www.laslatinitas.com",
+        "label": null
+      }
+    ],
     "Tech Tags": "4K",
     "Issue Area Tags": "Web Literacy, Digital Inclusion"
   },
   {
     "Year": 2017,
-    "City": ["ATX"],
+    "City": [
+      "ATX"
+    ],
     "Project": "Virtual Reality STEM Lessons",
     "Project Summary": "UTeach will design robust, validated, lessons for gigabit-connected middle school classrooms that support Google Expeditions and Unity game design software to create virtual reality experiences that increase students' interest in computer science and engineering fields.",
     "Gigabit Advantage": "UTeach will be using a gigabit network to connect a classroom’s virtual reality devices and stream to them to teach children the basics of computer science and to generate more interest in the computer science and engineering fields. The lessons will help to publicize the usefulness of gigabit networks by demonstrating a practical use for them, both to the students and to the Austin community. Austin has developed a vast network of companies offering gigabit speeds including Google, Grande, AT&T and Suddenlink. Virtual Reality is particularly prone to problems with latency as any problems could potentially cause motion sickness. The gigabit connection will help to ensure that all of the equipment is working optimally and that all of our students walk away with a positive view of Virtual Reality.",
     "Lead Organization": "UT Foundation (UofT UTeach Outreach)",
     "Photo": "/img/pages/gigabit/logos/UTeachOutreachLogo.png",
-    "Link": "https://outreach.uteach.utexas.edu/",
+    "Links": [
+      {
+        "url": "https://outreach.uteach.utexas.edu/",
+        "label": null
+      }
+    ],
     "Tech Tags": "VR",
     "Issue Area Tags": "Digital Inclusion"
   },
   {
     "Year": 2017,
-    "City": ["ATX"],
+    "City": [
+      "ATX"
+    ],
     "Project": "Accelerate, Augmented Reality for Workforce Training",
     "Project Summary": "Accelerate, Augmented Reality for Workforce Training will leverage gigabit connectivity to design an augmented reality tool that supports entry level IT learning for adults.",
     "Outcomes": "With the grant from the Gigabit Community Fund, Austin Free-Net collaborated with Augzoon to build an Android-supported app using Unity, Vuforia, and the Android Development Kit. However, this project really expanded AFN’s ability to make requests for support from the local tech sector that support digitally divided communities. In the course of the work, AFN meet with several developers to talk through VR/AR project parameters. As a result, AFN can now accurately price services and the length of time needed to complete a project of this scope and approach skilled volunteers and donors with asks that support the future development of this work and other cutting edge technology projects that serve their community.",
     "Gigabit Advantage": "In utilizing augmented reality platforms, participants will blend high-definition video, graphic tools, and GPS in a way that perform best over higher bandwidth. Participants will be tasked with uploading, downloading, and streaming content through a web-based software during the creation of the augmented reality tool.",
     "Lead Organization": "Austin Free-Net",
     "Photo": "/img/pages/gigabit/logos/AFN-logo.jpg",
-    "Link": "http://www.austinfree.net/",
+    "Links": [
+      {
+        "url": "http://www.austinfree.net/",
+        "label": null
+      }
+    ],
     "Tech Tags": "4K, AR",
     "Issue Area Tags": "Web Literacy, Digital Inclusion"
   },
   {
     "Year": 2017,
-    "City": ["KC"],
+    "City": [
+      "KC"
+    ],
     "Project": "Urban Farming Guys Smart Greenhouse",
     "Project Summary": "Urban Farming Guys IoT Smart Greenhouse and aquaponics will benefit the local community via food production and education through an open source community.",
     "Outcomes": "Over the course of the pilot, the Urban Farming Guys built an aquaponic deep water culture growing bed within a smart greenhouse, with the ability to record & report real time data to anyone with access to our online dashboard. We are now planting 1000 heads of lettuce per week, and will be harvesting will be harvesting 1000 per week in perpetuity. With a solid contract for our produce, we will have created one sustainable full time job, plus locally grown healthy produce and educational experiences locally and globally.",
     "Gigabit Advantage": "Low latency gigabit fiber allows real time monitoring of multiple smart greenhouse sensors and automation controls. IoT controllers such as Arduinos outfitted with sensor shields allow communication and automation for adjustments to food growth and environmental conditions.",
     "Lead Organization": "The Urban Farming Guys",
     "Photo": "/img/pages/gigabit/logos/UrbanFarmingGuys.png",
-    "Link": "http://theurbanfarmingguys.com",
+    "Links": [
+      {
+        "url": "http://theurbanfarmingguys.com",
+        "label": null
+      }
+    ],
     "Tech Tags": "IoT",
     "Issue Area Tags": "Web Literacy, Digital Inclusion, Open Innovation"
   },
   {
     "Year": 2017,
-    "City": ["KC"],
+    "City": [
+      "KC"
+    ],
     "Project": "CERN+KC Gigabit Challenge",
     "Project Summary": "A citizen science project leveraging gigabit capacity to support CERN's Large Hadron Collider and provide science and technology lessons.",
     "Outcomes": "During the pilot period, 4 teachers and 10 students (9th to 12th grade) attended an experiential physics learning event “Quarknet Masterclass” at Kansas State University where they classified real CERN particle collision data into histograms and discussed with 50+ other students at the event and virtually with physicists from around the world. The 4 teachers then created a lesson plan from CERN and Quarknet resources and taught it to small groups of students. The students indicated the lessons helped bring physics to life, out of the textbook.",
     "Gigabit Advantage": "Until today, volunteer computing projects, including LHC@Home, have been restricted to problems requiring heavy computing loads with minimal data movement. This is because almost all volunteers have slow or expensive data connections. For LHC@home this has restricted the possible type of calculation to event simulation. But the CERN experiments also require event analysis and event reconstruction calculations which involve heavy data movement. With the advent of Gigabit connections to homes and schools, CERN would like to run a pilot in Kansas City to measure the effectiveness of the CERN Volunteer Cloud running a fuller range of physics calculations. In addition to educating students on the physics research being done at CERN and providing the opportunity to engage in a citizen science activity, the curriculum will also help them understand the power of the gigabit internet connection that exists in Kansas City.",
     "Lead Organization": "ElevateEDU",
     "Photo": null,
-    "Link": "http://www.elevatingedu.org/",
+    "Links": [
+      {
+        "url": "http://www.elevatingedu.org/",
+        "label": null
+      }
+    ],
     "Tech Tags": null,
     "Issue Area Tags": "Open Innovation, Digital Inclusion"
   },
   {
     "Year": 2017,
-    "City": ["KC"],
+    "City": [
+      "KC"
+    ],
     "Project": "Immersive VR for Local and Remote Medical and Anatomical Education",
     "Project Summary": "Trinity Animation will use high realism medical VR for anatomical education, both local on HTC VIVE and remote via gigabit monitoring.",
     "Outcomes": "Trinity successfully produced a finished VR project for interactive human anatomy. This included all the hi-res medical models converted from Trinity’s medical animation, an interface to hide and unhide the skin and internal body systems, a flashlight and laser pointer, and animations including idle body motion, breathing and beating heart. We also provided an opportunity for educators at all levels and from all sectors of the city to familiarize themselves with virtual reality technology and its instructional potential at Kansas City's Maker Faire in June 2017.",
     "Gigabit Advantage": "Gigabit connectivity will allow a monitor or teacher to guide the VR viewer in real time, as they view and interact with anatomical elements. This will facilitate teacher/student discussion and learning as the teacher watches the VR activity and communicates with the local VR viewer. Remote VR viewing is theoretically possible also, but the inherent time delay between head movement and display update (even if only milliseconds) can induce motion sickness, so for the purposes of our project, the monitor is not expected to be using a VR headset.",
     "Lead Organization": "Trinity Animation",
     "Photo": null,
-    "Link": "http://www.trinityanimation.com/",
+    "Links": [
+      {
+        "url": "http://www.trinityanimation.com/",
+        "label": null
+      }
+    ],
     "Tech Tags": "VR",
     "Issue Area Tags": "Open Innovation"
   },
   {
     "Year": 2017,
-    "City": ["KC"],
+    "City": [
+      "KC"
+    ],
     "Project": "Virtual Realities in Culture: Explorations of the African Diaspora",
     "Project Summary": "Youth Powered LLC will work with students to create virtual field trips to landmarks in KS and MO that are important to black history.",
     "Outcomes": "During the grant period, three cultural historical sites were selected for the VR Experience: Quindaro Ruins; John Brown House; and Brown v. Board of Education. 15 high school students then conducted expeditionary field excursions to the three sites to turn them into virtual reality learning experiences using a 360 degree video camera and the A-Frame as the VR platform. The students built the content for the educational VR experiences and piloted them with 132 elementary and middle school students.",
     "Gigabit Advantage": "The enormous amount of bandwidth available to us affords us the chance to do VR right. We can create and virtually inhabit digital environments with detailed textures and enough “room” for several people to be in one another’s telepresence all at once with very low lag or latency. While we have the capacity to do work like this now through platforms like Minecraft, combining web VR with gigabit connections gives us the chance to make this work web-native, mobile, and user-friendly. With Gigabit VR and the Gigabit Community Fund, we can put the world into our kids’ hands. Students, teachers, and other community stakeholders will be able to access our culturally relevant content in a way that has been cost, time prohibitive in the past.",
     "Lead Organization": "V Form Alliance",
     "Photo": "/img/pages/gigabit/logos/vformalliance.png",
-    "Link": "http://www.VFormAlliance.org",
+    "Links": [
+      {
+        "url": "http://www.VFormAlliance.org",
+        "label": null
+      }
+    ],
     "Tech Tags": "VR",
     "Issue Area Tags": "Web Literacy, Digital Inclusion"
   },
-    {
+  {
     "Year": 2017,
-    "City": ["KC"],
+    "City": [
+      "KC"
+    ],
     "Project": "Housing Smart Cities",
     "Project Summary": "The University of Kansas seeks to deploy Population Health strategies in smart cities through the design of smart, sustainable, and affordable prefabricated housing. University of Kansas students will lead the project, learning about the impacts of high-speed networks and Internet of Things innovations in Smart Cities.",
     "Outcomes": "The prototype flooring system was designed and built by 5th year Master of Architecture students in KU’s School of Architecture, Design, and Planning. The Fall semester was spent imagining architectural solutions that could leverage gigabit networks. Specifically, we developed a demonstration model of a typical residential floor system that is able to collect data on heel strike. Utilizing accelerometers and strain gauges, we are able to monitor activity and detect falls, limp, muscle stutter, dragging of feet, and balance issues. This data can also be used for more advanced gait analysis which can identify and predict such conditions as diabetic neuropathy, Alzheimer’s and Parkinson’s disease, and other forms of dementia.",
     "Gigabit Advantage": "The research and prototype development that we are interested in requires a gigabit network. Population Health strategies involving vast quantities of biometric data made possible by these networks have the potential to deliver healthcare affordably, equitably, and effectively at scale. They provide essential new tools to healthcare providers in caring for those most vulnerable in society. No demographic stands to benefit more from this scenario than the impoverished, sick, and elderly. And yet, affordable dignified housing that is able to leverage the connectivity of Smart Cities will become increasingly elusive for many. Embedded sensors in architecture provide a more equitable solution than active (worn) sensors that can be expensive and require some technical fluency to operate.",
     "Lead Organization": "University of Kansas, School of Architecture, Design & Planning",
     "Photo": "/img/pages/gigabit/logos/KU.jpg",
-    "Link": "https://sadp.ku.edu/",
+    "Links": [
+      {
+        "url": "https://sadp.ku.edu/",
+        "label": null
+      }
+    ],
     "Tech Tags": "IoT",
     "Issue Area Tags": "Open Innovation, Digital Inclusion"
   },
-    {
+  {
     "Year": 2017,
-    "City": ["CHA"],
+    "City": [
+      "CHA"
+    ],
     "Project": "Eduity",
     "Project Summary": "The Community Technology Leadership Program takes the technology leadership program model from the corporate setting to help small and medium-sized businesses (SMBs) make greater use of ultrafast networks and build the technology workforce.",
     "Outcomes": "The CTLP pilot established a model for building community technology leadership capabilities by helping a particular small business owner (SMO) develop a technology strategy. The model consists of a common set of analytical tools, a learning process, including content and objectives, and program mechanics (how to deliver it, resources required, etc.). All of these products will be shared via a public web site. The goal is for the model to be replicated and scaled. A guide for others to run Community Technology Leadership Programs should be available in August 2017.",
     "Gigabit Advantage": "CTLP's goal is to capitalize on the gigabit advantage, to build capabilities necessary to leverage gigabit networks, and advance awareness of the technology's benefits among business leaders. It does these things by focusing on practical business issues and needs, and by engaging prospective technology leaders to research solutions. CTLP brings the voices of small and medium businesses and of under-developed talent into the discussion, to understand what gigabit networks really mean for them. Rather than focus on a particular technology, it focuses on technology users and on improving utilization. Business people and those who help them implement technology solutions are essential to the gigabit ecosystem. If they don't understand the value of gigabit networks, or are not capable of tapping into that value, the technology won't move forward. The CTLP bridges the knowledge gap by helping organizations plan for technology while building workforce capabilities.",
     "Lead Organization": "Eduity, LLC",
     "Photo": "/img/pages/gigabit/logos/Eduity.png",
-    "Link": "https://eduity.net/",
+    "Links": [
+      {
+        "url": "https://eduity.net/",
+        "label": null
+      }
+    ],
     "Tech Tags": null,
     "Issue Area Tags": "Web Literacy, Digital Inclusion"
   },
-    {
+  {
     "Year": 2017,
-    "City": ["CHA"],
+    "City": [
+      "CHA"
+    ],
     "Project": "Giving Garden Technology Lab Project",
     "Project Summary": "The Giving Garden Tech Lab project allows students to experience Life Science in a new, interactive way utilizing innovative technology, like virtual reality and 4K streaming.",
     "Outcomes": "The Giving Garden project allowed for live streaming of the classroom’s incubators to YouTube, allowing students and parents to tune in and watch ducks and chickens hatch. The Giving Garden in the classroom also allowed the community to take part in a school project that also give back. All of the food produced in LMS’ Giving Garden was donated directly back to our community to families in need. LMS is a Title One school where the majority of the students are socio-economically disadvantaged. As a result, it is very important for us to be able to provide enriching opportunities to our students. The Google virtual reality goggles helped teachers by providing students with unique 3-D field trips to places they might not be able to go physically, for free.",
     "Gigabit Advantage": "In early 2015, Ringgold Telephone Company (RTC) launched the Gig network in Ringgold, Georgia. The new technology that the Giving Garden is proposing would utilize this gigabit connection that is currently serving the Catoosa County Public School System. Without the gig connection, bandwidth would be insufficient for the VR and 4k classroom. This project will allow for new relationships to be established with other schools and organizations (across the U.S. and the world) that also have similar devices. Giving Garden organizers would work to build relationships with professors and classrooms that may have expertise in needed areas.",
     "Lead Organization": "Catoosa County Public School System",
     "Photo": "/img/pages/gigabit/logos/gear-vr.jpg",
-    "Link": "http://www.catoosa.k12.ga.us/",
+    "Links": [
+      {
+        "url": "http://www.catoosa.k12.ga.us/",
+        "label": null
+      }
+    ],
     "Tech Tags": "VR, 4K",
     "Issue Area Tags": "Open Innovation, Digital Inclusion"
   },
-    {
+  {
     "Year": 2017,
-    "City": ["CHA"],
+    "City": [
+      "CHA"
+    ],
     "Project": "Global Kids Chattanooga Haunts",
     "Project Summary": "Haunts is a STEM program for youth ages 14-18 that supports historical-based community exploration through geo-locative game development.",
     "Outcomes": "During the professional development training, educators explored ways to leverage geo-locative game design to create positive impact in the program implementation sites and in the Chattanooga community broadly. One of the project partners, the Glasshouse Collective, is currently implementing the Haunts program through a summer digital learning program that will operate through mid-summer. They are working closely with the Chattanooga Public Library to support and provide content development. As part of this professional development offering, Global Kids built a toolkit that documents the program’s curriculum and activities. The toolkit includes includes: a Training of Trainers manual, activities for youth, tutorials, and curriculum. The toolkit has been shared with all the participants and open to the public.",
     "Gigabit Advantage": "Tablets, mobile phones and Taleblazer, an augmented reality software platform developed by the MIT Scheller Teacher Education Program (STEP) lab, which allows youth to play and make their own location-based mobile games will be used for this project. Gigabit networks support the accessibility and openness of content created in location-based applications like Taleblazer to the public in interactive and fun ways. Employing applications like Taleblazer in Gigabit cities can create valuable shared experiences for millions of people in not only digital spaces, but physical environments. Through gigabit internet, program participants will also have the opportunity and bandwidth to conduct real-time research, game-design development and testing at historical sites of their choice, which will provide them with a more immersive learning experience.",
     "Lead Organization": "Global Kids",
     "Photo": "/img/pages/gigabit/logos/NYPL.jpg",
-    "Link": "http://www.globalkids.org/",
+    "Links": [
+      {
+        "url": "http://www.globalkids.org/",
+        "label": null
+      }
+    ],
     "Tech Tags": "AR",
     "Issue Area Tags": "Web Literacy, Digital Inclusion"
   },
-    {
+  {
     "Year": 2017,
-    "City": ["CHA"],
+    "City": [
+      "CHA"
+    ],
     "Project": "Input Genies - Technology and Curriculum",
     "Project Summary": "Input Genies teaches youth how to code or build tools for other youth, who cannot easily use a keyboard or mouse.",
     "Outcomes": "During the pilot period, working prototype devices and software have been built for each project. We have taken substantial notes and gleaned insights from pop-up project presentations to technologists and educators. Technology, code, and feedback will all contribute to the overall Genies Project, which will be made available in September 2017 via Studio MindStride’s website and shared via Mozilla channels.",
     "Gigabit Advantage": "Inclusive I/O Maker Kits will allow everyone to use the Gigabit networks, regardless of their physical abilities. The curricula developed with and for young makers includes lessons on technology that can only work in a Gigabit environment. This will allow students to really experience the fullness of bandwidth within the network.",
     "Lead Organization": "Studio MindStride",
     "Photo": null,
-    "Link": "http://www.studiomindstride.com/",
+    "Links": [
+      {
+        "url": "http://www.studiomindstride.com/",
+        "label": null
+      }
+    ],
     "Tech Tags": "IoT",
     "Issue Area Tags": "Web Literacy, Digital Inclusion"
   },
-    {
+  {
     "Year": 2017,
-    "City": ["CHA"],
+    "City": [
+      "CHA"
+    ],
     "Project": "LOLA in the classroom",
     "Project Summary": "Hamilton County Department of Education, the Enterprise Center and the Public Education Foundation are using LOw LAtency technology to expand access to arts education across the city of Chattanooga, and beyond. #LOLA",
     "Outcomes": "The project resulted in a first-of-its-kind mobile and modular LOLA node, designed specifically with accessibility and ease of deployment at the fore; the required equipment setup is free to be shared (it is currently accessible through the linked Google Drive folder), with open build instructions - in part written by RBHS STEM students - and user’s manual to come. Two mobile nodes were built with the grant funds; an additional two are being built for the Chattanooga Public Library, to augment the one extant node already on the 4th Floor. This will give Chattanooga the highest concentration of LOLA-enabled spaces in the Western Hemisphere.",
     "Gigabit Advantage": "LOLA uses specialized audio and video equipment and software that taps the power of multi-core CPUs and GPUs. To achieve the lowest possible latency, packet loss, and jitter, LOLA relies on the data transmission capabilities only available on research and education networks, such as Internet2 and GENI. Deploying two nodes in Hamilton County will be able to take particular advantage of EPB’s gigabit infrastructure, as the stability associated with running LOLA over a single network should provide for exceptionally low latency. Developing a sustainable LOLA model in Chattanooga would also be strengthened by the city’s own gigabit story - that is - a growing public imagination and understanding of advanced network capability, as well as the real-world applications thereof.",
     "Lead Organization": "The Enterprise Center",
     "Photo": "/img/pages/gigabit/logos/EnterpriseCenter.png",
-    "Link": "http://www.theenterprisectr.org/",
+    "Links": [
+      {
+        "url": "http://www.theenterprisectr.org/",
+        "label": null
+      }
+    ],
     "Tech Tags": "4K",
     "Issue Area Tags": "Open Innovation, Digital Inclusion"
   },
-    {
+  {
     "Year": 2017,
-    "City": ["CHA"],
+    "City": [
+      "CHA"
+    ],
     "Project": "Next Generation Professional Learning",
     "Project Summary": "This project creates a collaborative lab for teacher professional learning by harnessing the gigabit network, utilizing multiple telepresence robots and leveraging the experience across Hamilton County Department of Education schools (and eventually beyond Chattanooga).",
     "Outcomes": "The project met and exceeded intended goals in its initial pilot. The original intent of the project focused on teacher learning and collaboration, but as teachers used the telepresence robots, they brainstormed new uses to serve students and schools. During the pilot period, the robots were used for teacher collaboration, presentations, meetings, and classroom visits. In general, we saw high interest and engagement in the robots among students and teachers with lots of opportunities to expand their use to support learning and collaboration.",
     "Gigabit Advantage": "The NSF-funded 4K video microscope collaboration with the University of Southern California and the Gigabit Community Fund supported a 4K video streaming project that leveraged gigabit connectivity to create unique, K-12 learning opportunities never before possible and unique to our community. This project proposes expanding the current Gigabit applications to more schools and can be seen as supplemental funding to the 4K video streaming grant awarded to the Enterprise Center through the Mozilla Gigabit Community Fund this spring. Adding remote-controlled, robotic telepresence expands these learning opportunities to more students and teachers utilizing the same network powering those applications, and, while a single robot would not require Gigabit connectivity, expanding to multiple telepresence robots to allow collaboration among students an educators connecting to a single site will require gigabit infrastructure.",
     "Lead Organization": "Hamilton County Department of Education",
     "Photo": "/img/pages/gigabit/logos/Hamilton-County-DOE.jpg",
-    "Link": "http://www.hcde.org/",
+    "Links": [
+      {
+        "url": "http://www.hcde.org/",
+        "label": null
+      }
+    ],
     "Tech Tags": "4K",
     "Issue Area Tags": "Web Literacy, Digital Inclusion"
   }
