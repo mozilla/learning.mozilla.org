@@ -908,6 +908,10 @@
       {
         "url": "http://www.globalkids.org/",
         "label": null
+      },
+      {
+        "url": "sites.google.com/globalkids.org/hauntspd/",
+        "label": "Curriculum"
       }
     ],
     "Tech Tags": "AR",
