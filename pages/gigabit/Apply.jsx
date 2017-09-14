@@ -73,8 +73,6 @@ module.exports = React.createClass({
           <div className="col-sm-6 dl-block">
             <h2>Key Dates</h2>
             <dl>
-              <dt>August 1, 2017</dt>
-              <dd>Round 3 Applications Due</dd>
               <dt>October 30, 2017 - <br/>February 16, 2018</dt>
               <dd>Round 3 Pilot Period</dd>
               <dt>October 1, 2017</dt>
