@@ -75,7 +75,7 @@ module.exports = React.createClass({
             <dl>
               <dt>October 30, 2017 - <br/>February 16, 2018</dt>
               <dd>Round 3 Pilot Period</dd>
-              <dt>October 1, 2017</dt>
+              <dt>October 15, 2017</dt>
               <dd>Round 4 Application Window Opens</dd>
               <dt>December 1, 2017</dt>
               <dd>Round 4 Letter of Intent Form Due for All Projects</dd>
@@ -92,8 +92,8 @@ module.exports = React.createClass({
           {buildMatrix([
             {
               type: "Local",
-              cities: "Austin, Lafayette, and Eugene",
-              pilotRequirements: "Local projects are those conceived of and executed in one of the eligible communities. Though the pilot is only occurring in one community, multiple organizations within that community may be involved. A pilot with real-life learners must occur in the Austin, Lafayette, or Eugene metro areas.",
+              cities: "Lafayette and Eugene",
+              pilotRequirements: "Local projects are those conceived of and executed in one of the eligible communities. Though the pilot is only occurring in one community, multiple organizations within that community may be involved. A pilot with real-life learners must occur in the Lafayette or Eugene metro areas.",
               funding: "$5,000 - $15,000"
             },
             {
@@ -122,7 +122,7 @@ module.exports = React.createClass({
               <li><span>Successful Letter of Intent submissions will receive an invitation to submit a full application from our grant management system, <a href="https://mozilla.fluxx.io">Fluxx</a>.</span></li>
               <li><span>Draft your application based on the guidelines in the <a href="/gigabit/apply/terms">Terms and Conditions</a>. Use <a href="https://docs.google.com/spreadsheets/d/1Yiam58szxLTYVVSluN8zP93LgB2Z3Ulah2ZzqknRB6c/copy">this template</a> for your Project Timeline and <a href="https://docs.google.com/spreadsheets/d/1WxZuMHz7JlcmkcVP4i-DCx7Ulr5NvNq1pSK2MgqOVbQ/copy">this template</a> for your Budget.</span></li>
               <li><span>Check out some sample applications that have received funding, <a href="https://drive.google.com/file/d/0B1Tu07mQk89LRmpfWXlHNmhmQk0/view?usp=sharing" target="_blank">here</a> and <a href="https://drive.google.com/file/d/0B1Tu07mQk89LMGtaY3RYUHRxTWs/view?usp=sharing" target="_blank">here</a>. (Please note that proposal format and questions have been updated.)</span></li>
-              <li><span>Successful submissions will receive an email invitation to submit a complete, final application to the Gigabit Community Fund on the Fluxx application system on or before Friday, July 15.</span></li>
+              <li><span>Successful submissions will receive an email invitation to submit a complete, final application to the Gigabit Community Fund on the <a href="https://mozilla.fluxx.io/user_sessions/new" target="_blank">Fluxx application system</a> on or before January 19, 2018.</span></li>
             </ol>
           </div>
         </div>
