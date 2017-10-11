@@ -22,7 +22,7 @@ module.exports = React.createClass({
           <section className="terms-section">
             <h4 className="section-header">Submission Period:</h4>
             <p>
-            The Gigabit Community Fund 2017 Request for Proposals (“RFP”) opens on June 1, 2017, at 12:00:01 AM U.S. Pacific Time (“PT”). All proposals for projects must be received by August 1, 2017, at 11:59:59 PM PT. Late submissions may be accepted at the discretion of the Sponsor.
+            The Gigabit Community Fund Request for Proposals (“RFP”) opens on October 16, 2017, at 12:00:01 AM U.S. Pacific Time (“PT”). All proposals for projects must be received by January 19, 2018, at 11:59:59 PM PT. Late submissions may be accepted at the discretion of the Sponsor.
             </p>
           </section>
           <section className="terms-section">
@@ -52,10 +52,10 @@ module.exports = React.createClass({
           <section className="terms-section">
             <h4 className="section-header">Submission Requirements:</h4>
             <p>
-            All interested applicants must submit a Letter of Intent form through the Mozilla Gigabit website at mozilla.org/gigabit between June 1, 2017 and July 5, 2017 at 11:59:59 PM Pacific. Mozilla program staff will review all forms and provide applicants with advice on whether to submit a full application. Deadline extensions for the Letter of Intent form may be granted on a case-by-case basis by Mozilla staff. Full timeline can be found on the <a href="/gigabit">Mozilla Gigabit website</a>.
+            All interested applicants must submit a Letter of Intent via https://mozilla.fluxx.io/ between October 16, 2017 and December 1, 2017 at 11:59:59 PM Pacific. Mozilla program staff will review all forms and provide applicants with advice on whether to submit a full application. Deadline extensions for the Letter of Intent form may be granted on a case-by-case basis by Mozilla staff. Full timeline can be found on the <a href="/gigabit">Mozilla Gigabit website</a>.
             </p>
             <p>
-            To submit a full application, applicants will register for an account at mozilla.fluxx.io and submit their full Fund Submission via this site by August 1, 2017 at 11:59:59 PM Pacific. Applicants will submit a detailed project description that responds to each of the following prompts:
+            To submit a full application, applicants will register for an account at mozilla.fluxx.io and submit their full Fund Submission via this site by January 19, 2017 at 11:59:59 PM Pacific. Applicants will submit a detailed project description that responds to each of the following prompts:
             </p>
             <ol>
               <li>Describe the issue/problem you are trying to address (2500 Characters)</li>
@@ -141,10 +141,10 @@ module.exports = React.createClass({
             </p>
             <ol>
               <li>
-                Will the project be piloted with real-life learners within the identified 16-week pilot period of October 30, 2017 through February 16, 2018;
+                Will the project be piloted with real-life learners within the identified 16-week pilot period of March 26, 2018 through July 13, 2018;
                  <ol className="lower-alpha-list">
                   <li>For Multi-City Projects, the pilot must involve partners from at least two of the following cities: Austin, TX, Chattanooga, TN, Eugene, OR, Lafayette, LA, and/or the Kansas City, MO metropolitan region.</li>
-                  <li>For Local Projects, the pilot must only involve partners from one of the following communities: Austin, TX, Eugene, OR, or Lafayette, LA.</li>
+                  <li>For Local Projects, the pilot must only involve partners from one of the following communities: Eugene, OR, or Lafayette, LA.</li>
                 </ol>
               </li>
               <li>Does the project focus on education or workforce development; and</li>
@@ -155,38 +155,32 @@ module.exports = React.createClass({
             </p>
             <h5>Project Plan</h5>
             <ol>
-              <li>Does the project plan address a clearly defined community need?</li>
+              <li>Is the project feasible?</li>
               <li>Can the project be completed during the proposed project period?</li>
-              <li>Will the proposed activities lead to achieving the project’s outcomes?</li>
             </ol>
-            <h5>Outcomes</h5>
+            <h5>Outcomes and Evaluation</h5>
             <ol>
               <li>Are the intended outcomes well-defined and appropriate for the proposed project?</li>
-              <li>Are the outcomes attainable and measurable within the project period?</li>
-            </ol>
-            <h5>Evaluation</h5>
-            <ol>
-              <li>Are the proposed indicators for the outcomes an accurate gauge of success?</li>
               <li>Does the applicant have a plan for collecting data and measuring results?</li>
             </ol>
             <h5>Community Need</h5>
             <ol>
-              <li>Is the potential benefit to the target population articulated in a clear, compelling way?</li>
-              <li>Is the target population well-defined?</li>
+              <li>Is the community need for this project clearly defined?</li>
+              <li>Is the target population well articulated, and is the potential benefit to this target population clearly stated?</li>
             </ol>
             <h5>Partnerships & Collaboration</h5>
             <ol>
               <li>Do the proposed partnerships or collaborations enhance the quality or reach of the project’s activities?</li>
-              <li>For projects targeting multiple locations or communities, does the project involve partners from each of those locations or communities?</li>
+              <li>For projects targeting multiple locations or communities, does the project involve appropriate partners from each of those locations or communities?</li>
             </ol>
             <h5>Innovation</h5>
             <ol>
-              <li>Does this project represent a novel approach to addressing the challenge?</li>
+              <li>Does the project leverage the speeds and low-latency made possible by gigabit networks?</li>
+              <li>Does this project represent a novel approach to the challenge?</li>
             </ol>
-            <h5>Diversity and Inclusion</h5>
+            <h5>Digital Inclusion</h5>
             <ol>
-              <li>Does the proposed project bring new viewpoints and voices into the conversation?</li>
-              <li>Does project staff and/or partnerships represent diverse viewpoints and voices?</li>
+              <li>Does the project serve to broaden participation in the creation, testing, and use of gigabit technologies?</li>
             </ol>
             <h5>Working Open</h5>
             <ol>
@@ -201,12 +195,10 @@ module.exports = React.createClass({
             <h5>Project Team</h5>
             <ol>
               <li>Does the project team possess the necessary experience to execute the proposed project successfully?</li>
-              <li>Is the proposed staffing adequate for completing the project?</li>
             </ol>
             <h5>Budget & Budget Narrative</h5>
             <ol>
-              <li>Is the budget clear and realistic?</li>
-              <li>Is the amount requested appropriate for the scope and scale of the project?</li>
+              <li>Is the budget clear and realistic given the scope of the proposed project?</li>
             </ol>
             <p>
             Applicants with Submissions selected for funding will be notified via email at the address submitted with the initial Submission.
