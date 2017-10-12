@@ -22,7 +22,7 @@ module.exports = React.createClass({
           <section className="terms-section">
             <h4 className="section-header">Submission Period:</h4>
             <p>
-            The Gigabit Community Fund 2017 Request for Proposals (“RFP”) opens on June 1, 2017, at 12:00:01 AM U.S. Pacific Time (“PT”). All proposals for projects must be received by August 1, 2017, at 11:59:59 PM PT. Late submissions may be accepted at the discretion of the Sponsor.
+            The Gigabit Community Fund Request for Proposals (“RFP”) opens on October 15, 2017, at 12:00:01 AM U.S. Pacific Time (“PT”). All proposals for projects must be received by January 19, 2018, at 11:59:59 PM PT. Late submissions may be accepted at the discretion of the Sponsor.
             </p>
           </section>
           <section className="terms-section">
@@ -52,75 +52,87 @@ module.exports = React.createClass({
           <section className="terms-section">
             <h4 className="section-header">Submission Requirements:</h4>
             <p>
-            All interested applicants must submit a Letter of Intent form through the Mozilla Gigabit website at mozilla.org/gigabit between June 1, 2017 and July 5, 2017 at 11:59:59 PM Pacific. Mozilla program staff will review all forms and provide applicants with advice on whether to submit a full application. Deadline extensions for the Letter of Intent form may be granted on a case-by-case basis by Mozilla staff. Full timeline can be found on the <a href="/gigabit">Mozilla Gigabit website</a>.
+            All interested applicants must submit a Letter of Intent via https://mozilla.fluxx.io/ between October 15, 2017 and December 1, 2017 at 11:59:59 PM Pacific. Mozilla program staff will review all forms and provide applicants with advice on whether to submit a full application. Deadline extensions for the Letter of Intent form may be granted on a case-by-case basis by Mozilla staff. Full timeline can be found on the <a href="/gigabit">Mozilla Gigabit website</a>.
             </p>
             <p>
-            To submit a full application, applicants will register for an account at mozilla.fluxx.io and submit their full Fund Submission via this site by August 1, 2017 at 11:59:59 PM Pacific. Applicants will submit a detailed project description that responds to each of the following prompts:
+            To submit a full application, applicants will register for an account at mozilla.fluxx.io and submit their full Fund Submission via this site by January 19, 2017 at 11:59:59 PM Pacific. Applicants will submit a detailed project description that responds to each of the following prompts:
             </p>
             <ol>
-              <li>Describe the issue/problem you are trying to address (2500 Characters)</li>
+              <li>Project Title</li>
+              <li>Project Purpose (Maximum 140 Characters)</li>
+              <li>Issue Area (Maximum 2500 Characters)</li>
               <ol>
                 <li>What specific community challenge in workforce development or education does your project help solve?</li>
               </ol>
-              <li>List key project activities (what will you do), outputs (what will be produced through your activities, e.g. products, publications, number workshops held and people trained) and outcomes (impact of your project on your beneficiaries during the grant period). (5000 Characters) Also include:</li>
+              <li>Project Description (Maximum 5000 Characters)</li>
               <ol>
+                <li>List key project activities (what will you do), outputs (what will be produced through your activities) and outcomes (impact of your project on your beneficiaries during the grant period).</li>
                 <li>How does the technology you are working with during this project leverage gigabit networks?</li>
                 <li>During the 16-week project period, what will you produce through your activities (e.g. products, publications/curricula, number of workshops/events and attendees)?</li>
-                <li>What impact will the project have on participants and other beneficiaries during the 16-week project period? How will this project expand opportunity and access to gigabit technology?</li>
+                <li>What impact will the project have on participants and other beneficiaries during the 16-week project period?</li>
+                <li>How will this project expand opportunity and access to gigabit technology?</li>
               </ol>
-              <li>Provide key indicators you plan to use to measure project outcomes and source of data. (2500 Characters) Also include:</li>
+              <li>Indicators (Maximum 2500 Characters)</li>
               <ol>
+                <li>Provide key indicators you plan to use to measure project impact/outcomes and source of data.</li>
                 <li>What does success look like for this project?</li>
               </ol>
-              <li>Explain who will benefit from the project and how you will engage with them. (2500 Characters) Also include:</li>
+              <li>Participants (Maximum 2500 Characters)</li>
               <ol>
+                <li>Explain who will benefit from the project and how you will engage with these participants.</li>
                 <li>Who are the learners participating in your pilot? What will they learn?</li>
                 <li>If you’re hosting any workshops or events, are you charging for participants to attend them?</li>
               </ol>
-              <li>Describe the geographic location(s) in which this project will be implemented. (2500 Characters)</li>
+              <li>Community (Maximum 2500 Characters)</li>
               <ol>
                 <li>In which city or cities will this project take place?</li>
                 <li>How does your project build a more connected, inclusive gigabit innovation ecosystem in these communities and nationally?</li>
                 <li>Where will your pilot with real-life learners occur within these communities?</li>
               </ol>
-              <li>List any risks or challenges that may affect the overall success of your project, and note how Mozilla and/or others can help you to overcome these challenges. (1250 Characters) Also include:</li>
+              <li>Risks and Challenges (Maximum 2500 Characters)</li>
               <ol>
+                <li>List any risks or challenges that may affect the overall success of your project, and note how Mozilla and/or others can help you to overcome these challenges.</li>
                 <li>Is the technology being piloted already built or are you building it?</li>
                 <li>Do the locations where the project will take place have an existing gigabit internet connection? If not, how will this project succeed?</li>
               </ol>
-              <li>List your project partners, if any, and the role they will play in the project. (2500 Characters)</li>
-              <li>Mozilla works in the open. How will you document and share your project progress with the community? (2500 Characters)</li>
-              <li>Are other organizations working toward outcomes similar to those described in this proposal? If yes, explain how your work complements that of others or fills a key gap. (1250 Characters)</li>
-              <li>Describe how this project fits into your organization’s mission and goals. (1250 Characters)</li>
-              <li>How does this project contribute to a healthier Internet? (1250 Characters)</li>
+              <li>Partners (Maximum 2500 Characters)</li>
               <ol>
-                <li>With which <a href="https://www.mozilla.org/en-US/internet-health/" target="_blank">Internet health issue(s)</a> does your project align?</li>
-                <li>How does your project help to build a healthier future internet?</li>
+                <li>List your project partners and the role they will play in the project.</li>
               </ol>
-              <li>Is this a new project or a continuation? If new, please describe your qualifications to initiate the activity. If continued, please describe your accomplishments to date. Feel free to include links to articles and documents online that highlight your recent work. (1250 Characters)</li>
-              <li>How will you continue work on this project beyond this funding period? (1250 Characters) Also include:</li>
+              <li>Working Open (Maximum 1250 Characters)</li>
               <ol>
+                <li>Mozilla works in the open. How will you document and share your project progress with the community?</li>
+              </ol>
+              <li>Field Survey (Maximum 1250 Characters)</li>
+              <ol>
+                <li>Are other organizations working toward outcomes similar to those described in this proposal? If yes, explain how your work complements that of others or fills a key gap.</li>
+              </ol>
+              <li>Organizational Fit (Maximum 1250 Characters)</li>
+              <ol>
+                <li>Describe how this project fits into your organization’s mission and goals.</li>
+              </ol>
+              <li>Internet Health (1250 Characters)</li>
+              <ol>
+                <li>With which Internet health issue(s) does your project align? How does it help to build a healthier future internet?</li>
+              </ol>
+              <li>Project History (Maximum 1250 Characters)</li>
+              <ol>
+                <li>Is this a new project or a continuation? If it’s new, please describe your qualifications to initiate the activity. If continued, please describe your accomplishments to date. Feel free to include links to articles and documents online which highlight your recent work.</li>
+              </ol>
+              <li>Sustainability (Maximum 1250 Characters)</li>
+              <ol>
+                <li>How will you continue work on this project beyond this funding period?</li>
                 <li>How will you encourage other organizations to adopt this program?</li>
                 <li>How might this work be scaled and spread to other organizations or to other cities?</li>
               </ol>
-              <li>Have you previously partnered with Mozilla? Have you previously received a grant from Mozilla? If so, please list title, amount, and purpose.  (1250 Characters)</li>
-            </ol>
-            <p>
-              Attachments
-            </p>
-            <ol>
-              <li>For application to the Gigabit Community Fund, the following attachments are required - </li>
+              <li>Previous Work with Mozilla (Maximum 1250 Characters)</li>
               <ol>
-                <li><a href="https://drive.google.com/file/d/0B5jxGZykGTyFM0Ntbk1HSFNRTUE/view?usp=copy" target="_blank">Project budget</a></li>
-                <li><a href="https://docs.google.com/spreadsheets/d/1Yiam58szxLTYVVSluN8zP93LgB2Z3Ulah2ZzqknRB6c/edit?usp=sharing" target="_blank">Project timeline</a> (Note: please make a copy of this document to complete and attach with your application)</li>
-                <li>Letters of support from key collaborators/ partners</li>
-                <li>List of key staff members (including project personnel if applicable) (required)</li>
-                <li>List of board members with affiliations (required, if applicable to your organization)</li>
-                <li>Fiscal sponsorship agreement (required if you are applying through a fiscal sponsor)</li>
-                <li>If applicant is a for-profit company, include a list of individuals or entities that own 25% or more of the company (required)</li>
-                <li>If applicant is an NGO located outside the United States, provide evidence of legal status in your home country</li>
+                <li>Have you previously partnered with Mozilla? Have you previously received a grant from Mozilla? If so, please list title, amount, purpose.</li>
               </ol>
             </ol>
+            <p>
+              A <a href="https://drive.google.com/open?id=1WxZuMHz7JlcmkcVP4i-DCx7Ulr5NvNq1pSK2MgqOVbQ" target="_blank">project budget</a>, <a href="https://drive.google.com/open?id=1Yiam58szxLTYVVSluN8zP93LgB2Z3Ulah2ZzqknRB6c" target="_blank">project timeline</a>, and letters of support from key collaborators must also be submitted via mozilla.fluxx.io. Templates for the 16-week project timeline and budget are available on the Mozilla Gigabit website.
+            </p>
             <p>
             Each Submission must comply with any word limits or other terms or requirements on the Fluxx website. The Sponsor, at its sole discretion, reserves the right to not consider any Submission not in compliance with these Terms or for any reason.
             </p>
@@ -128,7 +140,7 @@ module.exports = React.createClass({
             Submissions and any subsequent communications or postings associated with the Fund may not contain advertisements, commercial endorsements, or any material that infringes any third-party intellectual property or is indecent, obscene, hateful, discriminatory, defamatory, slanderous, libelous, unlawful or otherwise inappropriate as determined by Sponsor in its absolute discretion. Any inappropriate Submissions or material may be disqualified by Sponsor in its absolute discretion.
             </p>
             <p>
-            For additional guidance, please use this <a href="https://docs.google.com/document/d/1cxe4vKigqt9gnuxy8x5U7hzh_svdZvAOqj3VZCLdFZI/edit?usp=sharing" target="_blank">application guide</a>.
+            For additional guidance, please see this <a href="https://docs.google.com/document/d/1HYUgM4BGtb85ZbrDRT-DxJcKCo5QOfgA_gWIC0hjnA8/edit" target="_blank">complete Fluxx application guide</a>.
             </p>
           </section>
           <section className="terms-section">
@@ -141,10 +153,10 @@ module.exports = React.createClass({
             </p>
             <ol>
               <li>
-                Will the project be piloted with real-life learners within the identified 16-week pilot period of October 30, 2017 through February 16, 2018;
+                Will the project be piloted with real-life learners within the identified 16-week pilot period of March 26, 2018 through July 13, 2018;
                  <ol className="lower-alpha-list">
                   <li>For Multi-City Projects, the pilot must involve partners from at least two of the following cities: Austin, TX, Chattanooga, TN, Eugene, OR, Lafayette, LA, and/or the Kansas City, MO metropolitan region.</li>
-                  <li>For Local Projects, the pilot must only involve partners from one of the following communities: Austin, TX, Eugene, OR, or Lafayette, LA.</li>
+                  <li>For Local Projects, the pilot must only involve partners from one of the following communities: Eugene, OR, or Lafayette, LA.</li>
                 </ol>
               </li>
               <li>Does the project focus on education or workforce development; and</li>
@@ -155,38 +167,32 @@ module.exports = React.createClass({
             </p>
             <h5>Project Plan</h5>
             <ol>
-              <li>Does the project plan address a clearly defined community need?</li>
+              <li>Is the project feasible?</li>
               <li>Can the project be completed during the proposed project period?</li>
-              <li>Will the proposed activities lead to achieving the project’s outcomes?</li>
             </ol>
-            <h5>Outcomes</h5>
+            <h5>Outcomes and Evaluation</h5>
             <ol>
               <li>Are the intended outcomes well-defined and appropriate for the proposed project?</li>
-              <li>Are the outcomes attainable and measurable within the project period?</li>
-            </ol>
-            <h5>Evaluation</h5>
-            <ol>
-              <li>Are the proposed indicators for the outcomes an accurate gauge of success?</li>
               <li>Does the applicant have a plan for collecting data and measuring results?</li>
             </ol>
             <h5>Community Need</h5>
             <ol>
-              <li>Is the potential benefit to the target population articulated in a clear, compelling way?</li>
-              <li>Is the target population well-defined?</li>
+              <li>Is the community need for this project clearly defined?</li>
+              <li>Is the target population well articulated, and is the potential benefit to this target population clearly stated?</li>
             </ol>
             <h5>Partnerships & Collaboration</h5>
             <ol>
               <li>Do the proposed partnerships or collaborations enhance the quality or reach of the project’s activities?</li>
-              <li>For projects targeting multiple locations or communities, does the project involve partners from each of those locations or communities?</li>
+              <li>For projects targeting multiple locations or communities, does the project involve appropriate partners from each of those locations or communities?</li>
             </ol>
             <h5>Innovation</h5>
             <ol>
-              <li>Does this project represent a novel approach to addressing the challenge?</li>
+              <li>Does the project leverage the speeds and low-latency made possible by gigabit networks?</li>
+              <li>Does this project represent a novel approach to the challenge?</li>
             </ol>
-            <h5>Diversity and Inclusion</h5>
+            <h5>Digital Inclusion</h5>
             <ol>
-              <li>Does the proposed project bring new viewpoints and voices into the conversation?</li>
-              <li>Does project staff and/or partnerships represent diverse viewpoints and voices?</li>
+              <li>Does the project serve to broaden participation in the creation, testing, and use of gigabit technologies?</li>
             </ol>
             <h5>Working Open</h5>
             <ol>
@@ -201,12 +207,10 @@ module.exports = React.createClass({
             <h5>Project Team</h5>
             <ol>
               <li>Does the project team possess the necessary experience to execute the proposed project successfully?</li>
-              <li>Is the proposed staffing adequate for completing the project?</li>
             </ol>
             <h5>Budget & Budget Narrative</h5>
             <ol>
-              <li>Is the budget clear and realistic?</li>
-              <li>Is the amount requested appropriate for the scope and scale of the project?</li>
+              <li>Is the budget clear and realistic given the scope of the proposed project?</li>
             </ol>
             <p>
             Applicants with Submissions selected for funding will be notified via email at the address submitted with the initial Submission.
