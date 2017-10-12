@@ -173,7 +173,7 @@ We handle this in `app.js`, in the `helmet.contentSecurityPolicy` block. Typical
   [Teach API]: https://github.com/mozilla/teach-api
   [#413]: https://github.com/mozilla/learning.mozilla.org/issues/413
   [source maps]: http://blog.teamtreehouse.com/introduction-source-maps
-  [changelog]: https://github.com/mozilla/learning.mozilla.org/blob/develop/CHANGELOG.md
+  [changelog]: https://github.com/mozilla/learning.mozilla.org/blob/master/CHANGELOG.md
   [contributing]: https://github.com/mozilla/learning.mozilla.org/blob/develop/CONTRIBUTING.md
   [Manual Testing]: https://github.com/mozilla/learning.mozilla.org/blob/develop/CONTRIBUTING.md#manual-testing
   [#585]: https://github.com/mozilla/learning.mozilla.org/issues/585
