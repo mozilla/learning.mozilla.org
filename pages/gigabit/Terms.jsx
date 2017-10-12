@@ -139,6 +139,9 @@ module.exports = React.createClass({
             <p>
             Submissions and any subsequent communications or postings associated with the Fund may not contain advertisements, commercial endorsements, or any material that infringes any third-party intellectual property or is indecent, obscene, hateful, discriminatory, defamatory, slanderous, libelous, unlawful or otherwise inappropriate as determined by Sponsor in its absolute discretion. Any inappropriate Submissions or material may be disqualified by Sponsor in its absolute discretion.
             </p>
+            <p>
+            For additional guidance, please see this <a href="https://docs.google.com/document/d/1HYUgM4BGtb85ZbrDRT-DxJcKCo5QOfgA_gWIC0hjnA8/edit" target="_blank">complete Fluxx application guide</a>.
+            </p>
           </section>
           <section className="terms-section">
             <h4 className="section-header">Fund Evaluation:</h4>
