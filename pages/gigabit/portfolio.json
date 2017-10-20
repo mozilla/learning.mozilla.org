@@ -120,7 +120,7 @@
     "Project": "The GigLab",
     "Project Summary": "The GigLab is a unique space offering public access to gigabit enabled tools, technology and education. Housed on the celebrated 4th Floor, this second round Gigabit Community Fund project pushes the idea of creation, not just consumption, at the Chattanooga Public Library to more than 1000 Mb/s, and, with equipment ranging from Arduinos demonstrating basic network infrastructure to streaming 4K television, the lab offers an opportunity for patrons to understand just what those speeds mean.",
     "Outcomes": "The GigLab has also been a boon to Chattanooga’s developer community – many other Mozilla Gigabit Fund projects demoed during November’s grand opening – as well as the Open Chattanooga Brigade, who have been been able to utilize the available bandwidth for processing large data sets. Planned future applications include pairing virtual reality headsets with city lidar and GIS data to build immersive educational experiences for younger patrons (a Minecraft-based project being piloted in conjunction with the Kansas City Digital Media Lab) and regular low-latency performances with musicians in other gigabit cities, including Burlington, VE.",
-    "Gigabit Advantage": "The technology publicly accessible in this space leverages Chattanooga's high-speed, low-latency network.",
+    "Gigabit Advantage": "The technology publicly accesssaible in this space leverages Chattanooga's high-speed, low-latency network.",
     "Lead Organization": "Chattanooga Public Library",
     "Other Partner Organizations": null,
     "Photo": "/img/pages/gigabit/logos/giglab_edit-320x240.png",
@@ -976,5 +976,370 @@
     ],
     "Tech Tags": "4K",
     "Issue Area Tags": "Web Literacy, Digital Inclusion"
+  },
+  {
+    "Year": 2017,
+    "City": [
+      "CHA",
+      "LFT"
+    ],
+    "Project": "Networking the Classroom of the Future",
+    "Project Summary": "The Classroom of the Future brings the outside world in, by pairing 4K technology (microscopy and video steams), with local aquariums and science museums. This project will allow students to have hands on engagement with both innovative technology and science, all in their own classroom.",
+    "Outcomes": "",
+    "Gigabit Advantage": "A clear and brilliant 4K stream requires low latency network connection, provided by high speed internet.",
+    "Lead Organization": "Enterprise Center",
+    "Photo": "/img/pages/gigabit/logos/",
+    "Links": [
+      {
+        "url": "https://www.theenterprisectr.org/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "4K",
+    "Issue Area Tags": "Web Literacy, Digital Inclusion, Decentralization"
+  },
+  {
+    "Year": 2017,
+    "City": [
+      "KC",
+      "ATX"
+    ],
+    "Project": "CERN + KC + Austin Gigabit Challenge",
+    "Project Summary": "In the CERN + KC + Austin project, a local education leader will bring together educators in Austin to expand this initiative (orginially in Kansas City), into schools and other places of learning to create opportunities for students to contribute to physics calculations and research taking place at CERN. During the project period, educators will develop a curriculum that connects the project to physics, math, computer science and social science via workshops and design sessions, and pilot the curriculum with students.",
+    "Outcomes": "",
+    "Gigabit Advantage": "The transfer of such large amounts of data, seamlessly, can only be done using gigabit level speeds.",
+    "Lead Organization": "KC Metropolitan ",
+    "Photo": "/img/pages/gigabit/logos/",
+    "Links": [
+      {
+        "url": "http://www.elevatingedu.org/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "Big Data",
+    "Issue Area Tags": "Web Literacy, Digital Inclusion, Decentralization"
+  },
+  {
+    "Year": 2017,
+    "City": [
+      "EUG",
+      "KC"
+    ],
+    "Project": "Coder in Residence",
+    "Project Summary": "The Coder in Residence Gigabots program establishes a STEM talent pipeline for Eugene's tech sector. This project will develop an elementary school Gigabots curriculum, it will provide professional development to elementary school teachers and it will also connect industry partners to classrooms in a meaningful, engaging way through Gigabots.",
+    "Outcomes": "",
+    "Gigabit Advantage": "Remote controlling of the Gigabots will leverage gigabit-speed networks throughout the school system, providing high quality interactive learning for teachers and students alike.",
+    "Lead Organization": "Lane STEM",
+    "Photo": "/img/pages/gigabit/logos/",
+    "Links": [
+      {
+        "url": "http://www.lanestem.org/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "Robotics",
+    "Issue Area Tags": "Web Literacy, Digital Inclusion, Open Innovation"
+  },
+  {
+    "Year": 2017,
+    "City": [
+      "ATX",
+      "KC",
+      "CHA"
+    ],
+    "Project": "PenPal Schools VR Field Trip to the USA",
+    "Project Summary": "PenPal Schools connects over 100,000 students (ages 9+) in 170 countries to collaborate through high-quality online courses and learn about global challenges while practicing essential technology skills. In this project, PenPal Schools will extend their digital content with 360 4K video using students in KC and CHA as cultural ambassdors for their city, which will be shared across the world.",
+    "Outcomes": "",
+    "Gigabit Advantage": "Distributing VR experiences use an incredible amount of data to stream or download a high-quality experience, which can only be done using gigabit internet.",
+    "Lead Organization": "PenPal Schools",
+    "Photo": "/img/pages/gigabit/logos/",
+    "Links": [
+      {
+        "url": "https://www.penpalschools.com/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "VR",
+    "Issue Area Tags": "Web Literacy, Digital Inclusion, Decentralization"
+  },
+  {
+    "Year": 2017,
+    "City": [
+      "EUG"
+    ],
+    "Project": "Redefining Women in Tech Interactive Video Learning Events",
+    "Project Summary": "The redefining women team will use interactive 4K video alongside face-to-face meetings to facilitate and assist with navigating the inequitable tech sector for women. This project will include job resource training, professional development opportunities, and community organizing to promote a more equitable industry.",
+    "Outcomes": "",
+    "Gigabit Advantage": "Holding several 4k interactive live-stream events - both in Eugene and (potentially) a handful of sites across the US including two other Mozilla Gigabit cities.",
+    "Lead Organization": "Redefining Women in Tech",
+    "Photo": "/img/pages/gigabit/logos/",
+    "Links": [
+      {
+        "url": "http://redefiningwomenintech.com/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "4K",
+    "Issue Area Tags": "Web Literacy, Digital Inclusion, Open Innovation, Decentralization"
+  },
+  {
+    "Year": 2017,
+    "City": [
+      "EUG"
+    ],
+    "Project": "Gigabit Residencies",
+    "Project Summary": "Lane Arts Council is a Eugene-metro staple that will be using innovative, in-school Gigabit Artist Residencies to teach storytelling using gigabit technology, graphic design, and audio engineering to a diverse range of students (200 in total) in both urban and rural settings.",
+    "Outcomes": "",
+    "Gigabit Advantage": "Lane Arts Council will provide web-based teacher training and professional development, delivered real time and remotely via high-speed internet, expanding outreach to schools across the county and beyond.",
+    "Lead Organization": "Lane Arts Council",
+    "Photo": "/img/pages/gigabit/logos/",
+    "Links": [
+      {
+        "url": "http://lanearts.org/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "4K, Other",
+    "Issue Area Tags": "Web Literacy, Digital Inclusion"
+  },
+  {
+    "Year": 2017,
+    "City": [
+      "EUG"
+    ],
+    "Project": "NEDCO",
+    "Project Summary": "NEDCO already has strong programming to promote financial education to low-income youth. This grant will allow them to develop a mobile, interactive classroom to expand their capacity beyond the small handful of students they are able to reach in their physical location in Springfield.",
+    "Outcomes": "",
+    "Gigabit Advantage": "This project will leverage gigabit-speed networks in existing partner sites in Eugene, providing high quality interactive learning and counseling opportunities for both partners and the youth NEDCO serves.",
+    "Lead Organization": "NEDCO",
+    "Photo": "/img/pages/gigabit/logos/",
+    "Links": [
+      {
+        "url": "https://nedcocdc.org/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "4K, Other",
+    "Issue Area Tags": "Web Literacy, Digital Inclusion, Open Innovation"
+  },
+  {
+    "Year": 2017,
+    "City": [
+      "EUG"      
+    ],
+    "Project": "City Synth",
+    "Project Summary": "City Synth will work with engineers, technologists, and students from the South Eugene Robotics Team to transform the city of Eugene into a musical instrument with downtown interactive mixed-media installations. The installation will change in real-time across the city and potentially into other Gigabit cities across the US.",
+    "Outcomes": "",
+    "Gigabit Advantage": "Participants may interact with the city in real-time via video connections, sent across the gigabit network to central instrumental interface. Participants may select between various video feeds, alter synthesis variables, and digitally remix video parameters, performing for the city as these live videos unfold before them.",
+    "Lead Organization": "Integrated Arts",
+    "Photo": "/img/pages/gigabit/logos/",
+    "Links": [
+      {
+        "url": "http://intarts.org/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "4K",
+    "Issue Area Tags": "Digital Inclusion, Open Innovation"
+  },
+  {
+    "Year": 2017,
+    "City": [
+      "LFT"
+    ],
+    "Project": "Tiny House VR Project",
+    "Project Summary": "Students at David Thibodaux STEM Magnet Academy led by a group of instructors, technologists and research assistants will create, design, test and demonstrate a virtual reality build out and walk-through of the “Atomic Agora Tiny House” - a collaborative effort between David Thibodaux STEM Academy, Habitat for Humanity and UL-Lafayette. The project will utilize gig-speeds to allow participants to build the virtual environment and conduct walkthroughs and demonstrations of the completed tiny home, which will be donated to Habitat to house families transitioning from shelters or displacement to permanent homes.",
+    "Outcomes": "",
+    "Gigabit Advantage": "The Tiny House project utilizes a high-speed fiber network to reduce the latency of immersive VR experiences and allow students to both build and participate simultaneously in the VR environment.",
+    "Lead Organization": "David Thibodaux STEM Magnet Academy",
+    "Photo": "/img/pages/gigabit/logos/",
+    "Links": [
+      {
+        "url": "https://lpssonline.com/site4337.php",
+        "label": null
+      }
+    ],
+    "Tech Tags": "VR",
+    "Issue Area Tags": "Web Literacy, Open Innovation"
+  },
+  {
+    "Year": 2017,
+    "City": [
+      "LFT"
+    ],
+    "Project": "Career readiness & 4k project",
+    "Project Summary": "UL-Lafayette, in partnership with Northside and Carencro high schools and South Louisiana Community College will develop and pilot grade-level appropriate college orientation curriculum adapted for high school students and delivered via a live 4k video stream from the university to participating classes. The goal of this project is to enhance the school's’ college-going culture, increase college awareness and attainment rates for students and develop a potentially scalable model that is replicable at high schools throughout Lafayette and other gigabit cities.",
+    "Outcomes": "",
+    "Gigabit Advantage": "Gigabit enabled internet will be used to deliver a low latency real-time connection between the university and the classroom, allowing the students to participate virtually in a college level course.",
+    "Lead Organization": "University of Louisana at Lafayette (ULL)",
+    "Photo": "/img/pages/gigabit/logos/",
+    "Links": [
+      {
+        "url": "http://louisiana.edu/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "4K",
+    "Issue Area Tags": "Digital Inclusion"
+  },
+  {
+    "Year": 2017,
+    "City": [
+      "LFT"
+    ],
+    "Project": "Coastal Erosion VR",
+    "Project Summary": "The Lafayette Science Museum will develop development and pilot “Coastal Quest,” a virtual reality game that allows students and museum visitors to explore coastal erosion in Louisiana and progress through the game by selecting coastal defenses to slow and mitigate erosion through an immersive VR experience. Through a gaming experience, accompanying environmental science curriculum and assessments, the Museum will gather and share data about the effectiveness of virtual reality gaming as a teaching and learning tool.",
+    "Outcomes": "",
+    "Gigabit Advantage": "Gigabit enabled internet is required to reduce latency and improve the immersive VR gaming experience for participants.",
+    "Lead Organization": "Lafayette Science Museum",
+    "Photo": "/img/pages/gigabit/logos/",
+    "Links": [
+      {
+        "url": "http://www.lafayettesciencemuseum.org/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "VR",
+    "Issue Area Tags": "Web Literacy, Digital Inclusion"
+  },
+  {
+    "Year": 2017,
+    "City": [
+      "LFT"
+    ],
+    "Project": "Kvasir-VR teacher-guided shared virtual worlds",
+    "Project Summary": "A team of educators, researchers and technologists from UL-Lafayette and David Thibodaux STEM academy will enhance and pilot “Kvasir-VR: Teacher-guided Shared Virtual Worlds,” an immersive VR field trip experience that will allow educators and experts to guide and assess students through the Cleco Alternative Energy Center in Crowley, Louisiana. Students will also create individual virtual reality scenes, gaining hands-on 3D and VR design experience",
+    "Outcomes": "",
+    "Gigabit Advantage": "Gigabit enabled internet will be required to maintain a connection between the university’s VR lab and the classrooms where the software will be deployed.",
+    "Lead Organization": "University of Louisana at Lafayette (ULL)",
+    "Photo": "/img/pages/gigabit/logos/",
+    "Links": [
+      {
+        "url": "http://louisiana.edu/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "VR",
+    "Issue Area Tags": "Web Literacy"
+  },
+  {
+    "Year": 2017,
+    "City": [
+      "ATX"
+    ],
+    "Project": "Cine Joven Breaking Borders Project",
+    "Project Summary": "Cine Joven will connect students from Austin, Texas to Monterrey, Mexico to co-create and share a 4K short film over high-bandwidth internet. The final film will be screened in Monterrey before a live audience with students present for a Q&A and will also be screened in Austin School of Film’s SXSW community arts screening event.",
+    "Outcomes": "Students participating in ASoF’s Cine Joven program will meet the National Standards for Arts Education as well as the Texas Essential Knowledge and Skills. Based on final finished film, evaluations address the student’s ability to (1) evolve and mold an initial concept; (2) successfully integrate varied sources and disciplines; and, (3) formulate workable structures and methodologies for implementing the work. Completed works are assessed for both a consistent and conceptually unified application of visual temporal, aural, and narrative ideas, as well as whether the work successfully elicits the artist’s intended reaction from the audience.",
+    "Gigabit Advantage": "Gigabit speed internet will be used to upload/download 4K video files for editing, stream 4K video to local and foreign audiences and connect participants real-time through video conferencing.",
+    "Lead Organization": "Motion Media Arts Center",
+    "Photo": "/img/pages/gigabit/logos/",
+    "Links": [
+      {
+        "url": "",
+        "label": null
+      }
+    ],
+    "Tech Tags": "4K",
+    "Issue Area Tags": "Web Literacy, Digital Inclusion, Open Innovation"
+  },
+  {
+    "Year": 2017,
+    "City": [
+      "ATX"
+    ],
+    "Project": "Virtual Storytelling Curriculum",
+    "Project Summary": "E4 Youth's VR Storytelling Curriculum leverages gig-powered 360 Video / VR to cultivate design thinking and exposure to tech careers in ATX. Students will develop a 360 Video prototype of an East Austin historic landmark with basic functionality to trigger immersive content as visitors travel to different locations within the virtual landmark. The program will also create an online database of related video, audio, still images and immersive content.",
+    "Outcomes": "Success for this project will result in a functioning 360 Video prototype that we can use to aggregate content created by our students. A documented process for capturing 360 Video of additional landmarks. An online database of related digital assets accessible to students and educators. Lastly, a series of three immersive VR workshops and a curriculum guide that can be utilized by other educators to create similar projects. The project will increase program participants' knowledge of 360 Video technology capabilities, increase 100+ high school students' access to remote digital content through TAGS (Total Asset Gathering System), and increase access to best practices for using immersive VR to tell stories.",
+    "Gigabit Advantage": "Gigabit speed internet is required to develop and access web-streamed augmented, 4K, 360 video.",
+    "Lead Organization": "E4 Youth",
+    "Photo": "/img/pages/gigabit/logos/",
+    "Links": [
+      {
+        "url": "",
+        "label": null
+      }
+    ],
+    "Tech Tags": "4K, VR",
+    "Issue Area Tags": "Digital Inclusion"
+  },
+  {
+    "Year": 2017,
+    "City": [
+      "ATX"
+    ],
+    "Project": "Gigabit Technology and the Arts in Creative Action After School",
+    "Project Summary": "Creative Action will explore how VR experiences can enhance youth learning through hands-on, youth-driven arts projects that address social issues. They will build a VR teaching kit for local teaching artists that include VR headsets, 360 headphones, a 360 VR camera, devices with pre-loaded compatible apps, and other accessories. Teaching artists will propose a 9-12 week project using a kit that might include ideas like integrating WebVR curriculum into a theatre class to explore set designs or into a mural and public art  class to design 3D art installations in virtual space.",
+    "Outcomes": "40+ hours of VR technology and arts lessons delivered to youth. 30+ youth served during the program (number of youth who experience increased technology learning opportunities). 1 VR technology kit created with tools and accompanying online resources to support integration into our creative arts after school classes. 3-4 youth-driven VR projects developed and shared with the community at large at our annual Youth Arts Festival in May. 2-3 original curricula developed using VR gigabit technology, including an overarching unit plan and daily lesson plans using our detailed lesson plan framework.",
+    "Gigabit Advantage": "Gigabit speed internet is required to develop and access WebVR projects at its full, immersive potential.",
+    "Lead Organization": "Creative Action",
+    "Photo": "/img/pages/gigabit/logos/",
+    "Links": [
+      {
+        "url": "",
+        "label": null
+      }
+    ],
+    "Tech Tags": "VR",
+    "Issue Area Tags": "Web Literacy, Digital Inclusion, Open Innovation"
+  },
+  {
+    "Year": 2017,
+    "City": [
+      "ATX"
+    ],
+    "Project": "Latinitas VR Cinema Chica",
+    "Project Summary": "Latinitas' program attendees tell the story of Austin’s East Side’s past and present through the visual medium of virtual reality filmmaking. Participating Austin Latina girls aged 10 and up will produce four short documentaries to feature at the Cine Las Americas International Film Festival in May 2018.",
+    "Outcomes": "20 girls will work with an experienced virtual reality filmmaker to create short documentaries incorporating techniques in 360 storytelling - narrative, space and depth. They will research and share the story of the past and present of Austin’s quickly changing Eastside in four installments. They will be completed in time to show at the Emergencia youth showcase during the Cine Las Americas International Film Festival in May 2018 using virtual reality viewers.",
+    "Gigabit Advantage": "Gigabit speed internet is required to develop and access web-streamed 360 VR video and this project will leverage gigabit connected libraries.",
+    "Lead Organization": "Latinitas Inc.",
+    "Photo": "/img/pages/gigabit/logos/",
+    "Links": [
+      {
+        "url": "",
+        "label": null
+      }
+    ],
+    "Tech Tags": "VR",
+    "Issue Area Tags": "Digital Inclusion"
+  },
+  {
+    "Year": 2017,
+    "City": [
+      "ATX"
+    ],
+    "Project": "PerSim: Affordable, Portable, Realistic Training Simulation for First Responders",
+    "Project Summary": "PerSim is a novel approach to emergency first responder training simulation using AR technology: higher visual and audio realism, more affordable, more portable, and easier to setup and operate than traditional trainers. The project aims to evaluate how the PerSim augmented reality (AR) simulator affects learning outcomes of paramedics in training.",
+    "Outcomes": "Austin Community College instructors will use PerSim in their lab courses. A rubric to evaluate the students’ progress in their clinical & lab classes. All evaluation will be ongoing. An evaluation/feedback survey for clinical preceptor base that will evaluate the impact of the applications at each semester’s end. Collection of this data can begin as early as Spring 2018. Survey data collected from ACC’s employer base will continue to be monitored for improvement of performance in this area. Next assessment data for the graduating group in Fall 2017 will be collected and analyzed in Fall 2018 (Note that this group will be evaluated with the Spring 2017 graduates providing us a unique opportunity to compare both groups).",
+    "Gigabit Advantage": "The promise of AR simulations like PerSim is the ability for anyone, anywhere to access training experiences through a high speed internet connection.",
+    "Lead Organization": "MedCognition, Inc.",
+    "Photo": "/img/pages/gigabit/logos/",
+    "Links": [
+      {
+        "url": "",
+        "label": null
+      }
+    ],
+    "Tech Tags": "AR",
+    "Issue Area Tags": "Digital Inclusion"
+  },
+  {
+    "Year": 2017,
+    "City": [
+      "ATX"
+    ],
+    "Project": "Dove Springs Coding Academy-GO! Future VR Project",
+    "Project Summary": "Dove Springs Coding Academy's GO!Future VR Project turns low-income kids into coders using gig-power VR that inspires college-readiness in their Southeast ATX community. Hundreds of youth will explore the educational power of VR who might not otherwise be reached through traditional school programs. This grant allows River City Youth Foundation to increase the accessibility of its gig-powered lab to fill an even bigger gap in the community while the Dove Springs Library remains under repair indefinitely.",
+    "Outcomes": "40 Dove Springs students will participate in the VR coding classes. They will be empowered with new VR coding skills and inspired to use their knowledge to help their community. They will inspire other youth to break the barriers and to envision and plan out a successful, prosperous future! RCYF's policy is to only serve youth whose households meet the U.S. Federal Poverty Guidelines. RCYF will determine how this project helped bridge the access and skills gap for low-income students that do not have access to gigaspeed or VR devices. Students will present their work at a VR College & Career Fair, demonstrating what they learned as it relates to the power of educational VR, the opportunities of a giga network, and the education power of the Internet.",
+    "Gigabit Advantage": "Gigabit speed internet is required to develop and access WebVR projects at its full, immersive potential.",
+    "Lead Organization": "River City Youth Foundation",
+    "Photo": "/img/pages/gigabit/logos/",
+    "Links": [
+      {
+        "url": "",
+        "label": null
+      }
+    ],
+    "Tech Tags": "VR",
+    "Issue Area Tags": "Digital Inclusion"
   }
 ]
