@@ -22,6 +22,7 @@ var Footer = React.createClass({
             <li><a href="https://donate.mozilla.org/"><FormattedMessage id='donate' defaultMessage="Donate" /></a></li>
             <li><a href="https://beta.webmaker.org/#/legal"><FormattedMessage id='terms' defaultMessage="Terms" /></a></li>
             <li><a href="https://www.mozilla.org/privacy/websites"><FormattedMessage id='privacy' defaultMessage="Privacy" /></a></li>
+            <li><a href="https://creativecommons.org/licenses/by/4.0/"><FormattedMessage id='cc-license' defaultMessage="CC BY 4.0" /></a></li>
           </div>
         </ul>
       </footer>
