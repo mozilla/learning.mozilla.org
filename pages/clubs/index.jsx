@@ -40,9 +40,6 @@ var ClubsGuides = React.createClass({
         <HeroUnit>
           <h1>Mozilla Clubs</h1>
           <h2>Local groups that read, write, and participate on the web</h2>
-          <div className="single-button hero-button">
-            <Link to={"/" + this.context.intl.locale + "/clubs/apply/"} className="btn">{this.context.intl.formatMessage({id: 'apply_to_be_captain_link'})}</Link>
-          </div>
         </HeroUnit>
         <div className="inner-container">
           <TabSwitcher className="clubs-tabswitcher" ref="tabSwitcher" initialTab={this.props.params.tab || `about`} onChange={this.handleTabChange}>
