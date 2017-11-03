@@ -104,12 +104,11 @@ module.exports = React.createClass({
             </li>
             <li className="col-sm-4">
               <div className="box">
-                <h3>Events</h3>
-                <h1><a href="https://mozillafestival.org/" target="_blank">Mozilla Festival 2016</a></h1>
-                <p>October 28-30, 2016 (London)</p>
-                <p>Join influential thinkers from around the world to build, debate, and explore the future of a healthy internet.</p>
-                <a href="https://mozillafestival.org/" target="_blank">Learn more</a>
-                <a className="secondary-button" href="/gigabit/events">See all events</a>
+                <h3>Resources</h3>
+                <h1><a href="https://github.com/MozillaFoundation/Gigabit-101-Workshop" target="_blank">Gigabit 101 Workshop</a></h1>
+                <p>This workshop enables participants to understand what high-speed internet can do in a classroom or in general.</p>
+                <a href="https://github.com/MozillaFoundation/Gigabit-101-Workshop" target="_blank">See the workshop</a>
+                <a className="secondary-button" href="https://www.mozillapulse.org/search?keyword=gigabit">See all resources</a>
               </div>
             </li>
             <li className="col-sm-4">
