@@ -89,6 +89,15 @@ var HomePage = React.createClass({
           </IconButtons>
         </HeroUnit>
 
+        <div className="row deprecation-blurb">
+          <div className="inner-container">
+            <section>
+              <h2><i className="fa fa-hand-o-right"></i> Important Update</h2>
+              <p>Mozilla has made a strategic decision to sunset its local digital literacy programs including Hive and Mozilla Clubs over the course of 2017/2018. You have been, and will continue to be, leaders within this movement for Internet health, and Mozilla will continue to find ways to support you and concrete ways for people from our local communities to plug into this work. We will honor all current commitments to our grantee partners and donors. Content on this site, including curriculum and other resources, will continue to be available and archived here for your use. Visit <a href="https://foundation.mozilla.org">foundation.mozilla.org</a> for more information or contact <a href="mailto:mozillaclubs@mozillafoundation.org">mozillaclubs@mozillafoundation.org</a> with any further questions.</p>
+            </section>
+          </div>
+        </div>
+
         <div className="inner-container">
           <section>
             <div className="about-us">
