@@ -14,14 +14,28 @@ module.exports = React.createClass({
           <div className="p-t-3 row">
             <div className="col-md-4">
               <div className="project-card m-b-3">
-                <a href="https://mozillafestival.org/" target="_blank"><img className="photo" src="/img/pages/gigabit/events/mozfest-crowd.jpg"/></a>
+                <a href="https://spring.smartcitiesconnect.org/" target="_blank"><img className="photo" src="/img/pages/gigabit/events/SSCC_home_Logo.svg" style={{padding:`10px 10px 20px 10px`}}/></a>
                 <div className="p-x-2 p-b-2">
-                  <div className={`city tag tag-orange m-b-0 has-photo`}>October 27-29, 2017</div>
-                  <h3 className="m-y-0"><a className="project-name" href="https://mozillafestival.org/" target="_blank">MozFest</a></h3>
-                  <p className="lead-org">Ravensbourne College, London</p>
-                  <p className="summary">Join the Mozilla Foundation&#39;s annual festival and be part of the global network fighting to keep the web open and free.</p>
+                  <div className="city tag tag-orange m-b-0 has-photo">March 26-29, 2018</div>
+                  <h3 className="m-y-0"><a className="project-name" href="https://spring.smartcitiesconnect.org/" target="_blank">Smart Cities Connect Conference & Expo and US Ignite Application Summit</a></h3>
+                  <p className="lead-org">Kansas City</p>
+                  <p className="summary">Smart Cities Connect Conference & Expo convenes leading technology and solution providers with city leaders</p>
                   <div className="middle-button">
-                    <a className="secondary-button" href="https://mozillafestival.org/" target="_blank">See Event</a>
+                    <a className="secondary-button" href="https://spring.smartcitiesconnect.org/" target="_blank">See Event</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="project-card m-b-3">
+                <a href="https://gigabitcitysummit.com/" target="_blank"><img className="photo" src="/img/pages/gigabit/events/gcity.png"/></a>
+                <div className="p-x-2 p-b-2">
+                  <div className="city tag tag-orange m-b-0 has-photo">June 25-28, 2018</div>
+                  <h3 className="m-y-0"><a className="project-name" href="https://gigabitcitysummit.com/" target="_blank">Gigabit City Summit</a></h3>
+                  <p className="lead-org">Kansas City</p>
+                  <p className="summary">The Gigabit City Summit offers a unique, multidisciplinary program for cities in the midst of digital transformation. Bridging the gap between broadband and smart cities, the Gigabit City Summit brings together a community focused on how infrastructure investment translates into real civic impact.</p>
+                  <div className="middle-button">
+                    <a className="secondary-button" href="https://gigabitcitysummit.com/" target="_blank">See Event</a>
                   </div>
                 </div>
               </div>
