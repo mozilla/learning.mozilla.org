@@ -88,7 +88,6 @@ var ClubsListPage = React.createClass({
         <HeroUnit>
           <h1>Mozilla Clubs</h1>
           <h2>Local groups teaching the Web around the world</h2>
-          <div><span className="btn" onClick={this.showApplication}>Apply to be a Club Captain</span></div>
         </HeroUnit>
 
         <div className="inner-container">
