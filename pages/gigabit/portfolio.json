@@ -1129,7 +1129,7 @@
   {
     "Year": 2017,
     "City": [
-      "EUG"      
+      "EUG"
     ],
     "Project": "City Synth",
     "Project Summary": "City Synth will work with engineers, technologists, and students from the South Eugene Robotics Team to transform the city of Eugene into a musical instrument with downtown interactive mixed-media installations. The installation will change in real-time across the city and potentially into other Gigabit cities across the US.",
@@ -1219,7 +1219,7 @@
     "Photo": "/img/pages/gigabit/logos/",
     "Links": [
       {
-        "url": "http://louisiana.edu/",
+        "url": "https://vrlab.cmix.louisiana.edu/category/news/mozilla-gigabit-blog/",
         "label": null
       }
     ],
