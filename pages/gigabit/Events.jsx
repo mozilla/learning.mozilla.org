@@ -14,6 +14,20 @@ module.exports = React.createClass({
           <div className="p-t-3 row">
             <div className="col-md-4">
               <div className="project-card m-b-3">
+                <a href="https://www.eventbrite.com/e/iot-escape-room-workshop-tickets-42103680241" target="_blank"><img className="photo" src="/img/pages/gigabit/events/escape.png"/></a>
+                <div className="p-x-2 p-b-2">
+                  <div className="city tag tag-orange m-b-0 has-photo">March 8-9, 2018</div>
+                  <h3 className="m-y-0"><a className="project-name" href="https://www.eventbrite.com/e/iot-escape-room-workshop-tickets-42103680241" target="_blank">IoT Escape Room Workshop</a></h3>
+                  <p className="lead-org">Chattanooga</p>
+                  <p className="summary">As part of its work to champion Internet health and related issues like online privacy and security on connected devices, the Mozilla Foundation is hosting an Internet of Things (IoT) Escape Room workshop at in Chattanooga, Tennessee, from Thursday, March 8, to Friday, March, 9th, 2018.</p>
+                  <div className="middle-button">
+                    <a className="secondary-button" href="https://www.eventbrite.com/e/iot-escape-room-workshop-tickets-42103680241" target="_blank">See Event</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="project-card m-b-3">
                 <a href="https://spring.smartcitiesconnect.org/" target="_blank"><img className="photo" src="/img/pages/gigabit/events/SSCC_home_Logo.svg" style={{padding:`10px 10px 20px 10px`}}/></a>
                 <div className="p-x-2 p-b-2">
                   <div className="city tag tag-orange m-b-0 has-photo">March 26-29, 2018</div>
