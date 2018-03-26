@@ -31,7 +31,7 @@ module.exports = React.createClass({
         </div>
 
         <div className="meta-block m-b-3 clearfix">
-          <div className="hero col-xs-6" style={{backgroundImage: `url(${data.Photo})`}}>
+          <div className="hero col-xs-6">
             <div className="tags">
               {cityTags}
               <div className="tag tag-orange">{data.Year}</div>
