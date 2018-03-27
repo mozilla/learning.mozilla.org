@@ -984,26 +984,6 @@
   {
     "Year": 2017,
     "City": [
-      "CHA",
-      "LFT"
-    ],
-    "Project": "Networking the Classroom of the Future",
-    "Project Summary": "The Classroom of the Future brings the outside world in, by pairing 4K technology (microscopy and video steams), with local aquariums and science museums. This project will allow students to have hands on engagement with both innovative technology and science, all in their own classroom.",
-    "Outcomes": "",
-    "Gigabit Advantage": "A clear and brilliant 4K stream requires low latency network connection, provided by high speed internet.",
-    "Lead Organization": "Enterprise Center",
-    "Links": [
-      {
-        "url": "https://www.theenterprisectr.org/",
-        "label": null
-      }
-    ],
-    "Tech Tags": "4K",
-    "Issue Area Tags": "Web Literacy, Digital Inclusion, Decentralization"
-  },
-  {
-    "Year": 2017,
-    "City": [
       "KC",
       "ATX"
     ],
@@ -1080,25 +1060,6 @@
     ],
     "Tech Tags": "4K",
     "Issue Area Tags": "Web Literacy, Digital Inclusion, Open Innovation, Decentralization"
-  },
-  {
-    "Year": 2017,
-    "City": [
-      "EUG"
-    ],
-    "Project": "Gigabit Residencies",
-    "Project Summary": "Lane Arts Council is a Eugene-metro staple that will be using innovative, in-school Gigabit Artist Residencies to teach storytelling using gigabit technology, graphic design, and audio engineering to a diverse range of students (200 in total) in both urban and rural settings.",
-    "Outcomes": "",
-    "Gigabit Advantage": "Lane Arts Council will provide web-based teacher training and professional development, delivered real time and remotely via high-speed internet, expanding outreach to schools across the county and beyond.",
-    "Lead Organization": "Lane Arts Council",
-    "Links": [
-      {
-        "url": "http://lanearts.org/",
-        "label": null
-      }
-    ],
-    "Tech Tags": "4K, Other",
-    "Issue Area Tags": "Web Literacy, Digital Inclusion"
   },
   {
     "Year": 2017,
@@ -1195,25 +1156,6 @@
     ],
     "Tech Tags": "VR",
     "Issue Area Tags": "Web Literacy, Digital Inclusion"
-  },
-  {
-    "Year": 2017,
-    "City": [
-      "LFT"
-    ],
-    "Project": "Kvasir-VR teacher-guided shared virtual worlds",
-    "Project Summary": "A team of educators, researchers and technologists from UL-Lafayette and David Thibodaux STEM academy will enhance and pilot “Kvasir-VR: Teacher-guided Shared Virtual Worlds,” an immersive VR field trip experience that will allow educators and experts to guide and assess students through the Cleco Alternative Energy Center in Crowley, Louisiana. Students will also create individual virtual reality scenes, gaining hands-on 3D and VR design experience",
-    "Outcomes": "",
-    "Gigabit Advantage": "Gigabit enabled internet will be required to maintain a connection between the university’s VR lab and the classrooms where the software will be deployed.",
-    "Lead Organization": "University of Louisana at Lafayette (ULL)",
-    "Links": [
-      {
-        "url": "https://vrlab.cmix.louisiana.edu/category/news/mozilla-gigabit-blog/",
-        "label": null
-      }
-    ],
-    "Tech Tags": "VR",
-    "Issue Area Tags": "Web Literacy"
   },
   {
     "Year": 2017,
@@ -1330,7 +1272,7 @@
     "Issue Area Tags": "Digital Inclusion"
   },
   {
-    "Year": null,
+    "Year": 2018,
     "City": [
       "LFT"
     ],
@@ -1351,7 +1293,7 @@
     "Issue Area Tags": ""
   },
   {
-    "Year": null,
+    "Year": 2018,
     "City": [
       "LFT"
     ],
@@ -1372,7 +1314,7 @@
     "Issue Area Tags": ""
   },
   {
-    "Year": null,
+    "Year": 2018,
     "City": [
       "LFT"
     ],
@@ -1393,10 +1335,10 @@
     "Issue Area Tags": ""
   },
   {
-  "Year": null,
-  "City": [
-    "LFT"
-  ],
+    "Year": 2018,
+    "City": [
+      "LFT"
+    ],
     "Project": "New Hope STEM Club Gigabot Project",
     "Project Summary": "In partnership with the Black Male Leadership Association, the New Hope team will pilot the New Hope STEM Club Gigabot Project, introducing middle school students to coding and cloud-based programming for the first time. Students will benefit from the guidance and mentorship of near-peer instructors from the University of Louisiana at Lafayette's Black Male Leadership project. Students will learn code in order to turn the Gigabots into remote controlled instruments that they’ll be able to manipulate through a cloud-based computing platform. This project will turn teams of middle school students into robotics engineers, making coding accessible and fun at the same time.",
     "Outcomes": "",
@@ -1414,7 +1356,28 @@
     "Issue Area Tags": ""
   },
   {
-    "Year": null,
+    "Year": 2018,
+    "City": [
+      "EUG"
+    ],
+    "Project": "Gigabit Residencies: Cohort Two",
+    "Project Summary": "Lane Arts Council will expand their innovative in-school Gigabit Artist Residencies, a program in which trained artists and technologists work side-by-side with educators to teach the art of storytelling using emerging gigabit technology. This second round will expand into additional low-income schools and bolster existing programming by incorporating virtual reality and video game development. The project will culminate in a live-streamed, cross-city demo.",
+    "Outcomes": "",
+    "Gigabit Advantage": "The second iteration of the Gigabit Residencies will utilize virtual reality games via Oculus Rift goggles, video game production software, and a live-stream, multi-school gaming convention, requiring gigabit bandwidth.",
+    "Lead Organization": "Lane Arts Council",
+    "Other Partner Organizations": "Bethel School District, Kelly Middle School, RAIN Eugene, University of Oregon’s Product Design Team, Eugene’s STEM Hub, EugeneTech’s Mark Davis, Technology Association of Oregon.",
+    "Photo": "/img/pages/gigabit/logos/Lane_Arts_Council.jpg",
+    "Links": [
+      {
+        "url": "http://lanearts.org/mozilla-grant-funds-gigabit-residencies/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "VR, 4K",
+    "Issue Area Tags": ""
+  },
+  {
+    "Year": 2018,
     "City": [
       "EUG"
     ],
@@ -1435,7 +1398,7 @@
     "Issue Area Tags": ""
   },
   {
-    "Year": null,
+    "Year": 2018,
     "City": [
       "EUG"
     ],
@@ -1456,7 +1419,7 @@
     "Issue Area Tags": ""
   },
   {
-    "Year": null,
+    "Year": 2018,
     "City": [
       "EUG"
     ],
@@ -1477,7 +1440,7 @@
     "Issue Area Tags": ""
   },
   {
-    "Year": null,
+    "Year": 2018,
     "City": [
       "EUG"
     ],
@@ -1498,7 +1461,51 @@
     "Issue Area Tags": ""
   },
   {
-    "Year": null,
+    "Year": 2018,
+    "City": [
+      "LFT",
+      "CHA"
+    ],
+    "Project": "Cross-Community Kvasir-VR",
+    "Project Summary": "The University of Louisiana at Lafayette is partnering with the Hamilton County School Department of Education in an expansion of its successful networked VR application “Kvasir VR.” The application, which borrows its name from a mythological being known for spreading knowledge, allows students to learn in a VR environment with remote instructors guiding them through a learning experience. The Kvasir-VR field trip will allow students in up to three Chattanooga middle and high schools to participate in VR field trips of a solar energy plant in Louisiana with the assistance of a instructor via pre-recorded and live stream virtual reality, interacting simultaneously within the virtual environment.",
+    "Outcomes": "",
+    "Gigabit Advantage": "This technology focuses on high-performance network streaming of 3D teacher imagery to enable live teacher-guided activities directly in VR.",
+    "Lead Organization": "U of Louisiana at Lafayette",
+    "Other Partner Organizations": "Primary partners: CHA- Hamilton County Department of Education - John Maynard: College, Career and Technical Education Director, Central High School - Jonathan King, manufacturing and mechatronics teacher, Signal Mountain Middle/High School - Robert Dodson, STEM teacher.  CHA Secondary partners: Enterprise Center (Geoff Millener, Andrew Rodgers), US Ignite",
+    "Photo": "/img/pages/gigabit/logos/U_of_Louisiana_at_Lafayette.jpg",
+    "Links": [
+      {
+        "url": "https://vrlab.cmix.louisiana.edu/category/news/mozilla-gigabit-blog/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "VR",
+    "Issue Area Tags": ""
+  },
+  {
+    "Year": 2018,
+    "City": [
+      "CHA",
+      "ATX"
+    ],
+    "Project": "Networking the Classroom of the Future",
+    "Project Summary": "The Enterprise Center in Chattanooga will provide materials and support for classrooms in Austin, TX to leverage 4K streaming content from museums and research facilities, interactive 4K telemicroscopy technology and mobile, and modular low-latency computing. This exciting new iteration of the Enterprise Center's initiative to connect classrooms with unique educational experiences via 4K streaming grows the national network of participants benefiting from this gigabit-enabled educational opportunity. This project expansion comes after an initial pilot in 14 schools with more than a dozen community partners. The project team is also exploring further growth to Kansas City.",
+    "Outcomes": "",
+    "Gigabit Advantage": "4K steaming at this capacity, along with microscopy, would not be possible without gigabit infrastructure. The increased volume of streams and inter-classroom collaboration will rely on the advanced fiber backbones unique to gigabit cities.",
+    "Lead Organization": "The Enterprise Center",
+    "Other Partner Organizations": "CHA: Hamilton County Department of Education, Austin Independent School District, ACE-Austin and Region 13, The Tennessee Aquarium and the Tennessee Aquarium Conservation Institute, The City and Parish of Lafayette, LA, EPB (Chattanooga, TN), LUS Fiber (Lafayette, LA), Google Fiber (Austin, TX)",
+    "Photo": "/img/pages/gigabit/logos/EnterpriseCtrLOGOtransparent.png",
+    "Links": [
+      {
+        "url": "https://www.theenterprisectr.org/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "4K",
+    "Issue Area Tags": ""
+  },
+  {
+    "Year": 2018,
     "City": [
       "ATX",
       "EUG"
@@ -1520,7 +1527,7 @@
     "Issue Area Tags": ""
   },
   {
-    "Year": null,
+    "Year": 2018,
     "City": [
       "CHA",
       "KC"
@@ -1542,7 +1549,7 @@
     "Issue Area Tags": ""
   },
   {
-    "Year": null,
+    "Year": 2018,
     "City": [
       "LFT",
       "CHA"
