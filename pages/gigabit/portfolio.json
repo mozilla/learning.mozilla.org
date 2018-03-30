@@ -984,27 +984,6 @@
   {
     "Year": 2017,
     "City": [
-      "CHA",
-      "LFT"
-    ],
-    "Project": "Networking the Classroom of the Future",
-    "Project Summary": "The Classroom of the Future brings the outside world in, by pairing 4K technology (microscopy and video steams), with local aquariums and science museums. This project will allow students to have hands on engagement with both innovative technology and science, all in their own classroom.",
-    "Outcomes": "",
-    "Gigabit Advantage": "A clear and brilliant 4K stream requires low latency network connection, provided by high speed internet.",
-    "Lead Organization": "Enterprise Center",
-    "Photo": "/img/pages/gigabit/logos/",
-    "Links": [
-      {
-        "url": "https://www.theenterprisectr.org/",
-        "label": null
-      }
-    ],
-    "Tech Tags": "4K",
-    "Issue Area Tags": "Web Literacy, Digital Inclusion, Decentralization"
-  },
-  {
-    "Year": 2017,
-    "City": [
       "KC",
       "ATX"
     ],
@@ -1012,8 +991,7 @@
     "Project Summary": "In the CERN + KC + Austin project, a local education leader will bring together educators in Austin to expand this initiative (orginially in Kansas City), into schools and other places of learning to create opportunities for students to contribute to physics calculations and research taking place at CERN. During the project period, educators will develop a curriculum that connects the project to physics, math, computer science and social science via workshops and design sessions, and pilot the curriculum with students.",
     "Outcomes": "",
     "Gigabit Advantage": "The transfer of such large amounts of data, seamlessly, can only be done using gigabit level speeds.",
-    "Lead Organization": "KC Metropolitan ",
-    "Photo": "/img/pages/gigabit/logos/",
+    "Lead Organization": "KC Metropolitan",
     "Links": [
       {
         "url": "http://www.elevatingedu.org/",
@@ -1034,7 +1012,6 @@
     "Outcomes": "",
     "Gigabit Advantage": "Remote controlling of the Gigabots will leverage gigabit-speed networks throughout the school system, providing high quality interactive learning for teachers and students alike.",
     "Lead Organization": "Lane STEM",
-    "Photo": "/img/pages/gigabit/logos/",
     "Links": [
       {
         "url": "http://www.lanestem.org/",
@@ -1056,7 +1033,6 @@
     "Outcomes": "",
     "Gigabit Advantage": "Distributing VR experiences use an incredible amount of data to stream or download a high-quality experience, which can only be done using gigabit internet.",
     "Lead Organization": "PenPal Schools",
-    "Photo": "/img/pages/gigabit/logos/",
     "Links": [
       {
         "url": "https://www.penpalschools.com/",
@@ -1076,7 +1052,6 @@
     "Outcomes": "",
     "Gigabit Advantage": "Holding several 4k interactive live-stream events - both in Eugene and (potentially) a handful of sites across the US including two other Mozilla Gigabit cities.",
     "Lead Organization": "Redefining Women in Tech",
-    "Photo": "/img/pages/gigabit/logos/",
     "Links": [
       {
         "url": "http://redefiningwomenintech.com/",
@@ -1091,32 +1066,11 @@
     "City": [
       "EUG"
     ],
-    "Project": "Gigabit Residencies",
-    "Project Summary": "Lane Arts Council is a Eugene-metro staple that will be using innovative, in-school Gigabit Artist Residencies to teach storytelling using gigabit technology, graphic design, and audio engineering to a diverse range of students (200 in total) in both urban and rural settings.",
-    "Outcomes": "",
-    "Gigabit Advantage": "Lane Arts Council will provide web-based teacher training and professional development, delivered real time and remotely via high-speed internet, expanding outreach to schools across the county and beyond.",
-    "Lead Organization": "Lane Arts Council",
-    "Photo": "/img/pages/gigabit/logos/",
-    "Links": [
-      {
-        "url": "http://lanearts.org/",
-        "label": null
-      }
-    ],
-    "Tech Tags": "4K, Other",
-    "Issue Area Tags": "Web Literacy, Digital Inclusion"
-  },
-  {
-    "Year": 2017,
-    "City": [
-      "EUG"
-    ],
     "Project": "NEDCO",
     "Project Summary": "NEDCO already has strong programming to promote financial education to low-income youth. This grant will allow them to develop a mobile, interactive classroom to expand their capacity beyond the small handful of students they are able to reach in their physical location in Springfield.",
     "Outcomes": "",
     "Gigabit Advantage": "This project will leverage gigabit-speed networks in existing partner sites in Eugene, providing high quality interactive learning and counseling opportunities for both partners and the youth NEDCO serves.",
     "Lead Organization": "NEDCO",
-    "Photo": "/img/pages/gigabit/logos/",
     "Links": [
       {
         "url": "https://nedcocdc.org/",
@@ -1156,7 +1110,6 @@
     "Outcomes": "",
     "Gigabit Advantage": "The Tiny House project utilizes a high-speed fiber network to reduce the latency of immersive VR experiences and allow students to both build and participate simultaneously in the VR environment.",
     "Lead Organization": "David Thibodaux STEM Magnet Academy",
-    "Photo": "/img/pages/gigabit/logos/",
     "Links": [
       {
         "url": "https://lpssonline.com/site4337.php",
@@ -1176,7 +1129,6 @@
     "Outcomes": "",
     "Gigabit Advantage": "Gigabit enabled internet will be used to deliver a low latency real-time connection between the university and the classroom, allowing the students to participate virtually in a college level course.",
     "Lead Organization": "University of Louisana at Lafayette (ULL)",
-    "Photo": "/img/pages/gigabit/logos/",
     "Links": [
       {
         "url": "http://louisiana.edu/",
@@ -1196,7 +1148,6 @@
     "Outcomes": "",
     "Gigabit Advantage": "Gigabit enabled internet is required to reduce latency and improve the immersive VR gaming experience for participants.",
     "Lead Organization": "Lafayette Science Museum",
-    "Photo": "/img/pages/gigabit/logos/",
     "Links": [
       {
         "url": "http://www.lafayettesciencemuseum.org/",
@@ -1209,26 +1160,6 @@
   {
     "Year": 2017,
     "City": [
-      "LFT"
-    ],
-    "Project": "Kvasir-VR teacher-guided shared virtual worlds",
-    "Project Summary": "A team of educators, researchers and technologists from UL-Lafayette and David Thibodaux STEM academy will enhance and pilot “Kvasir-VR: Teacher-guided Shared Virtual Worlds,” an immersive VR field trip experience that will allow educators and experts to guide and assess students through the Cleco Alternative Energy Center in Crowley, Louisiana. Students will also create individual virtual reality scenes, gaining hands-on 3D and VR design experience",
-    "Outcomes": "",
-    "Gigabit Advantage": "Gigabit enabled internet will be required to maintain a connection between the university’s VR lab and the classrooms where the software will be deployed.",
-    "Lead Organization": "University of Louisana at Lafayette (ULL)",
-    "Photo": "/img/pages/gigabit/logos/",
-    "Links": [
-      {
-        "url": "https://vrlab.cmix.louisiana.edu/category/news/mozilla-gigabit-blog/",
-        "label": null
-      }
-    ],
-    "Tech Tags": "VR",
-    "Issue Area Tags": "Web Literacy"
-  },
-  {
-    "Year": 2017,
-    "City": [
       "ATX"
     ],
     "Project": "Cine Joven Breaking Borders Project",
@@ -1236,7 +1167,6 @@
     "Outcomes": "Students participating in ASoF’s Cine Joven program will meet the National Standards for Arts Education as well as the Texas Essential Knowledge and Skills. Based on final finished film, evaluations address the student’s ability to (1) evolve and mold an initial concept; (2) successfully integrate varied sources and disciplines; and, (3) formulate workable structures and methodologies for implementing the work. Completed works are assessed for both a consistent and conceptually unified application of visual temporal, aural, and narrative ideas, as well as whether the work successfully elicits the artist’s intended reaction from the audience.",
     "Gigabit Advantage": "Gigabit speed internet will be used to upload/download 4K video files for editing, stream 4K video to local and foreign audiences and connect participants real-time through video conferencing.",
     "Lead Organization": "Motion Media Arts Center",
-    "Photo": "/img/pages/gigabit/logos/",
     "Links": [
       {
         "url": "",
@@ -1256,7 +1186,6 @@
     "Outcomes": "Success for this project will result in a functioning 360 Video prototype that we can use to aggregate content created by our students. A documented process for capturing 360 Video of additional landmarks. An online database of related digital assets accessible to students and educators. Lastly, a series of three immersive VR workshops and a curriculum guide that can be utilized by other educators to create similar projects. The project will increase program participants' knowledge of 360 Video technology capabilities, increase 100+ high school students' access to remote digital content through TAGS (Total Asset Gathering System), and increase access to best practices for using immersive VR to tell stories.",
     "Gigabit Advantage": "Gigabit speed internet is required to develop and access web-streamed augmented, 4K, 360 video.",
     "Lead Organization": "E4 Youth",
-    "Photo": "/img/pages/gigabit/logos/",
     "Links": [
       {
         "url": "",
@@ -1276,7 +1205,6 @@
     "Outcomes": "40+ hours of VR technology and arts lessons delivered to youth. 30+ youth served during the program (number of youth who experience increased technology learning opportunities). 1 VR technology kit created with tools and accompanying online resources to support integration into our creative arts after school classes. 3-4 youth-driven VR projects developed and shared with the community at large at our annual Youth Arts Festival in May. 2-3 original curricula developed using VR gigabit technology, including an overarching unit plan and daily lesson plans using our detailed lesson plan framework.",
     "Gigabit Advantage": "Gigabit speed internet is required to develop and access WebVR projects at its full, immersive potential.",
     "Lead Organization": "Creative Action",
-    "Photo": "/img/pages/gigabit/logos/",
     "Links": [
       {
         "url": "",
@@ -1296,7 +1224,6 @@
     "Outcomes": "20 girls will work with an experienced virtual reality filmmaker to create short documentaries incorporating techniques in 360 storytelling - narrative, space and depth. They will research and share the story of the past and present of Austin’s quickly changing Eastside in four installments. They will be completed in time to show at the Emergencia youth showcase during the Cine Las Americas International Film Festival in May 2018 using virtual reality viewers.",
     "Gigabit Advantage": "Gigabit speed internet is required to develop and access web-streamed 360 VR video and this project will leverage gigabit connected libraries.",
     "Lead Organization": "Latinitas Inc.",
-    "Photo": "/img/pages/gigabit/logos/",
     "Links": [
       {
         "url": "",
@@ -1316,7 +1243,6 @@
     "Outcomes": "Austin Community College instructors will use PerSim in their lab courses. A rubric to evaluate the students’ progress in their clinical & lab classes. All evaluation will be ongoing. An evaluation/feedback survey for clinical preceptor base that will evaluate the impact of the applications at each semester’s end. Collection of this data can begin as early as Spring 2018. Survey data collected from ACC’s employer base will continue to be monitored for improvement of performance in this area. Next assessment data for the graduating group in Fall 2017 will be collected and analyzed in Fall 2018 (Note that this group will be evaluated with the Spring 2017 graduates providing us a unique opportunity to compare both groups).",
     "Gigabit Advantage": "The promise of AR simulations like PerSim is the ability for anyone, anywhere to access training experiences through a high speed internet connection.",
     "Lead Organization": "MedCognition, Inc.",
-    "Photo": "/img/pages/gigabit/logos/",
     "Links": [
       {
         "url": "",
@@ -1336,7 +1262,6 @@
     "Outcomes": "40 Dove Springs students will participate in the VR coding classes. They will be empowered with new VR coding skills and inspired to use their knowledge to help their community. They will inspire other youth to break the barriers and to envision and plan out a successful, prosperous future! RCYF's policy is to only serve youth whose households meet the U.S. Federal Poverty Guidelines. RCYF will determine how this project helped bridge the access and skills gap for low-income students that do not have access to gigaspeed or VR devices. Students will present their work at a VR College & Career Fair, demonstrating what they learned as it relates to the power of educational VR, the opportunities of a giga network, and the education power of the Internet.",
     "Gigabit Advantage": "Gigabit speed internet is required to develop and access WebVR projects at its full, immersive potential.",
     "Lead Organization": "River City Youth Foundation",
-    "Photo": "/img/pages/gigabit/logos/",
     "Links": [
       {
         "url": "",
@@ -1345,5 +1270,304 @@
     ],
     "Tech Tags": "VR",
     "Issue Area Tags": "Digital Inclusion"
+  },
+  {
+    "Year": 2018,
+    "City": [
+      "LFT"
+    ],
+    "Project": "Lafayette Gigabot Coding Initiative",
+    "Project Summary": "The Lafayette Gigabots Coding Initiative, led by the local school district's science chairperson in partnership with several community organization stakeholders, will seek to replicate and localize the “Coder in Residence” program initially piloted in Eugene, OR. The program will train elementary and middle school educators throughout the district in cloud based programming and coding using Gigabots. Teachers will work in tandem with software engineers and programmers and will, in turn, teach their students these same concepts in classrooms once training is complete. ",
+    "Outcomes": "",
+    "Gigabit Advantage": "Teachers will utilize gigabit speed internet connections while teaching students to program and operate the Gigabots, connected devices for education first developed in Kansas City. They will also rely on these high-speed connections when deploying the gigabots in their classrooms. ",
+    "Lead Organization": "Lafayette Parish Public Schools",
+    "Other Partner Organizations": "University of Louisiana at Lafayette, CGI, One Acadiana, Pugh Family Foundation, Lafayette Education Foundation",
+    "Photo": "/img/pages/gigabit/logos/hqdefault.jpg",
+    "Links": [
+      {
+        "url": "https://www.lpssonline.com/site.php",
+        "label": null
+      }
+    ],
+    "Tech Tags": "Robotics",
+    "Issue Area Tags": ""
+  },
+  {
+    "Year": 2018,
+    "City": [
+      "LFT"
+    ],
+    "Project": "Designing a Virtual Reality Ecoliteracy Curriculum (VREC)",
+    "Project Summary": "Lead researchers and faculty at the University of Louisiana at Lafayette will pilot the Virtual Reality Ecoliteracy Curriculum (\"VREC\") to introduce students to the first climate refugees in the United States via a remotely-guided, collaborative VR experience. This project will provide students the opportunity to learn through virtual reality while also teaching them important lessons about climate change and coastal erosion, studying how these phenomena have impacted a Native American tribe displaced from their land in coastal Louisiana.",
+    "Outcomes": "",
+    "Gigabit Advantage": "This project leverages gig speeds by allowing multiple students to interact collaboratively and simultaneously in an immersive VR environment.",
+    "Lead Organization": "University of Louisiana at Lafayette",
+    "Other Partner Organizations": "Broussard Middle School Lafayette, Dr. Terrence Chambers, Mosing Endowed Chair in Energy, Dr. Emad Habib, Endowed Chair Professor of Civil Engineering and the Director of Center of Louisiana Water, Studies, Institute of Coastal and Water Research, Dr. Scott Hemmerling, Director of Human Dimensions, The Water Institute of the Gulf Chief Albert Naquin, Tribe of the Biloxi-Chitimacha-Choctaw",
+    "Photo": "/img/pages/gigabit/logos/University_of_Louisiana_at _Lafayette.png",
+    "Links": [
+      {
+        "url": "https://louisiana.edu/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "VR",
+    "Issue Area Tags": ""
+  },
+  {
+    "Year": 2018,
+    "City": [
+      "LFT"
+    ],
+    "Project": "A Community In Motion",
+    "Project Summary": "A collaborative effort between a local youth development organization and the city of Lafayette’s public access channel will produce “A Community in Motion”, a new 4K video journalism program. This project will allow high school students to become community journalists and storytellers, highlighting positive stories within their community, which are often not captured in local media. Students will collect and air content via livestream and broadcast in homes across Lafayette in partnership with the Acadiana Open Channel, Lafayette's public access media group. Students will learn about 4K technologies and how gigabit speeds enable low-latency communication.",
+    "Outcomes": "",
+    "Gigabit Advantage": "The Community In Motion project will allow participants to use gigabit technology to stream live 4K video content through several platforms.",
+    "Lead Organization": "Youth Literacy Foundation of Acadiana",
+    "Other Partner Organizations": "Acadiana Open Channel",
+    "Photo": "/img/pages/gigabit/logos/Youth_Literacy_Foundation_of_Acadiana.png",
+    "Links": [
+      {
+        "url": "http://youthliteracyfoundation.blogspot.com/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "4K",
+    "Issue Area Tags": ""
+  },
+  {
+    "Year": 2018,
+    "City": [
+      "LFT"
+    ],
+    "Project": "New Hope STEM Club Gigabot Project",
+    "Project Summary": "In partnership with the Black Male Leadership Association, the New Hope team will pilot the New Hope STEM Club Gigabot Project, introducing middle school students to coding and cloud-based programming for the first time. Students will benefit from the guidance and mentorship of near-peer instructors from the University of Louisiana at Lafayette's Black Male Leadership project. Students will learn code in order to turn the Gigabots into remote controlled instruments that they’ll be able to manipulate through a cloud-based computing platform. This project will turn teams of middle school students into robotics engineers, making coding accessible and fun at the same time.",
+    "Outcomes": "",
+    "Gigabit Advantage": "The New Hope STEM Club project will leverage gigabit speeds to remotely program and control Gigabots, connected devices for learning.",
+    "Lead Organization": "New Hope Community Development of Acadiana",
+    "Other Partner Organizations": "Black Male Leadership Association (BMLA), Lafayette Consolidated Government Parks and Recreation Department",
+    "Photo": "/img/pages/gigabit/logos/NHCDA-Logo2-1024x142.png",
+    "Links": [
+      {
+        "url": "http://newhopelafayette.org/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "Robotics",
+    "Issue Area Tags": ""
+  },
+  {
+    "Year": 2018,
+    "City": [
+      "EUG"
+    ],
+    "Project": "Gigabit Residencies: Cohort Two",
+    "Project Summary": "Lane Arts Council will expand their innovative in-school Gigabit Artist Residencies, a program in which trained artists and technologists work side-by-side with educators to teach the art of storytelling using emerging gigabit technology. This second round will expand into additional low-income schools and bolster existing programming by incorporating virtual reality and video game development. The project will culminate in a live-streamed, cross-city demo.",
+    "Outcomes": "",
+    "Gigabit Advantage": "The second iteration of the Gigabit Residencies will utilize virtual reality games via Oculus Rift goggles, video game production software, and a live-stream, multi-school gaming convention, requiring gigabit bandwidth.",
+    "Lead Organization": "Lane Arts Council",
+    "Other Partner Organizations": "Bethel School District, Kelly Middle School, RAIN Eugene, University of Oregon’s Product Design Team, Eugene’s STEM Hub, EugeneTech’s Mark Davis, Technology Association of Oregon.",
+    "Photo": "/img/pages/gigabit/logos/Lane_Arts_Council.jpg",
+    "Links": [
+      {
+        "url": "http://lanearts.org/mozilla-grant-funds-gigabit-residencies/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "VR, 4K",
+    "Issue Area Tags": ""
+  },
+  {
+    "Year": 2018,
+    "City": [
+      "EUG"
+    ],
+    "Project": "Giga-Scapes",
+    "Project Summary": "Giga-Scapes is a body-sensing and entertainment platform that will connect student learners with game-industry experts through STEM based workshops by utilizing low-latency fiber networks to send data between physically separated game boards. High speeds will also be leveraged to transmit high-bandwidth video feeds across long distances, allowing two geographically-separated players to interact in public gameplay in real time between Eugene, OR and Chattanooga, TN. ",
+    "Outcomes": "",
+    "Gigabit Advantage": "Giga-Scapes uses low-latency fiber networks to send data between physically separated game boards and long-distance high-bandwidth video feeds to provide feedback on human interactions.",
+    "Lead Organization": "Tech Tone Graphix",
+    "Other Partner Organizations": "Harmonic Laboratory, The Enterprise Center, XS Media, Fidgets2Widgets, Connected Lane County, RAIN Eugene, Integrated Arts ",
+    "Photo": "/img/pages/gigabit/logos/TTG_logo.png",
+    "Links": [
+      {
+        "url": "http://www.techtonegraphix.com/index.html",
+        "label": null
+      }
+    ],
+    "Tech Tags": "LoLa",
+    "Issue Area Tags": ""
+  },
+  {
+    "Year": 2018,
+    "City": [
+      "EUG"
+    ],
+    "Project": "GIS Technology: Real Time Wetland Restoration Mapping and Analysis",
+    "Project Summary": "Bethel Education Foundation will work with local schools to train at-risk students to create interactive, real-time Geographic Information System (GIS) environmental data using handheld devices. The handheld data will be transmitted by students for utilization by restoration projects being conducted by land management agencies. Students will not only learn how high-speed networks enable big data transfer, but they will also gain coveted workforce skills by becoming familiar with GIS technology. ",
+    "Outcomes": "",
+    "Gigabit Advantage": "Students will utilize hand-held GPS-enabled devices in the field to transmit data back to a central location and create maps in real time.",
+    "Lead Organization": "Bethel Education Foundation",
+    "Other Partner Organizations": "Army Corps of Engineers, Lane County Environmental Services",
+    "Photo": "/img/pages/gigabit/logos/bethel-education-foundation-official-logo.jpg",
+    "Links": [
+      {
+        "url": "https://www.betheleducationfoundation.org",
+        "label": null
+      }
+    ],
+    "Tech Tags": "Streaming Data/Video",
+    "Issue Area Tags": ""
+  },
+  {
+    "Year": 2018,
+    "City": [
+      "EUG"
+    ],
+    "Project": "Educational Equity VR",
+    "Project Summary": "Treadwell Ventures is developing an immersive VR training that will empower and train teachers to eliminate their negative biases. Through these real-time, web-based trainings that highlight unconscious bias, teachers will learn the skills to mitigate disproportionate suspensions and expulsions for minority students.",
+    "Outcomes": "",
+    "Gigabit Advantage": "This project will rely on gigabit speeds to run the web-based VR simulation in lifelike interactions using a trainer and trainee avatar to detect implicit bias.",
+    "Lead Organization": "Treadwell Ventures LLC",
+    "Other Partner Organizations": "University of Oregon Center for Equity Promotion, Glimmer Tech",
+    "Photo": "/img/pages/gigabit/logos/Treadwell_Ventures_Logo.jpeg",
+    "Links": [
+      {
+        "url": "https://www.treadwellventures.com/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "VR",
+    "Issue Area Tags": ""
+  },
+  {
+    "Year": 2018,
+    "City": [
+      "EUG"
+    ],
+    "Project": "Opening Access to Virtual Worlds",
+    "Project Summary": "The Eugene Public Library will provide exposure, education, and access to low-latency, real-time virtual reality experiences and game development technology for Eugene community members. These cutting-edge experiences will also be shared and live-streamed with the greater Eugene community, exposing broad new audiences to this exciting emerging technology space.",
+    "Outcomes": "",
+    "Gigabit Advantage": "Eugene Public Library will utilize low-latency data transmission over gigabit networks for real-time virtual reality experiences and will harness the power of the gigabit network by piloting livestreams of demos.",
+    "Lead Organization": "Eugene Public Library",
+    "Other Partner Organizations": "Josh Marinacci from Mozilla, Lane Community College (pending), more TBD",
+    "Photo": "/img/pages/gigabit/logos/Eugene_Public_Library.png",
+    "Links": [
+      {
+        "url": "https://www.eugene-or.gov/3276/Make-It",
+        "label": null
+      }
+    ],
+    "Tech Tags": "VR",
+    "Issue Area Tags": ""
+  },
+  {
+    "Year": 2018,
+    "City": [
+      "LFT",
+      "CHA"
+    ],
+    "Project": "Cross-Community Kvasir-VR",
+    "Project Summary": "The University of Louisiana at Lafayette is partnering with the Hamilton County School Department of Education in an expansion of its successful networked VR application “Kvasir VR.” The application, which borrows its name from a mythological being known for spreading knowledge, allows students to learn in a VR environment with remote instructors guiding them through a learning experience. The Kvasir-VR field trip will allow students in up to three Chattanooga middle and high schools to participate in VR field trips of a solar energy plant in Louisiana with the assistance of a instructor via pre-recorded and live stream virtual reality, interacting simultaneously within the virtual environment.",
+    "Outcomes": "",
+    "Gigabit Advantage": "This technology focuses on high-performance network streaming of 3D teacher imagery to enable live teacher-guided activities directly in VR.",
+    "Lead Organization": "U of Louisiana at Lafayette",
+    "Other Partner Organizations": "Primary partners: CHA- Hamilton County Department of Education - John Maynard: College, Career and Technical Education Director, Central High School - Jonathan King, manufacturing and mechatronics teacher, Signal Mountain Middle/High School - Robert Dodson, STEM teacher.  CHA Secondary partners: Enterprise Center (Geoff Millener, Andrew Rodgers), US Ignite",
+    "Photo": "/img/pages/gigabit/logos/U_of_Louisiana_at_Lafayette.jpg",
+    "Links": [
+      {
+        "url": "https://vrlab.cmix.louisiana.edu/category/news/mozilla-gigabit-blog/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "VR",
+    "Issue Area Tags": ""
+  },
+  {
+    "Year": 2018,
+    "City": [
+      "CHA",
+      "ATX"
+    ],
+    "Project": "Networking the Classroom of the Future",
+    "Project Summary": "The Enterprise Center in Chattanooga will provide materials and support for classrooms in Austin, TX to leverage 4K streaming content from museums and research facilities, interactive 4K telemicroscopy technology and mobile, and modular low-latency computing. This exciting new iteration of the Enterprise Center's initiative to connect classrooms with unique educational experiences via 4K streaming grows the national network of participants benefiting from this gigabit-enabled educational opportunity. This project expansion comes after an initial pilot in 14 schools with more than a dozen community partners. The project team is also exploring further growth to Kansas City.",
+    "Outcomes": "",
+    "Gigabit Advantage": "4K steaming at this capacity, along with microscopy, would not be possible without gigabit infrastructure. The increased volume of streams and inter-classroom collaboration will rely on the advanced fiber backbones unique to gigabit cities.",
+    "Lead Organization": "The Enterprise Center",
+    "Other Partner Organizations": "CHA: Hamilton County Department of Education, Austin Independent School District, ACE-Austin and Region 13, The Tennessee Aquarium and the Tennessee Aquarium Conservation Institute, The City and Parish of Lafayette, LA, EPB (Chattanooga, TN), LUS Fiber (Lafayette, LA), Google Fiber (Austin, TX)",
+    "Photo": "/img/pages/gigabit/logos/EnterpriseCtrLOGOtransparent.png",
+    "Links": [
+      {
+        "url": "https://www.theenterprisectr.org/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "4K",
+    "Issue Area Tags": ""
+  },
+  {
+    "Year": 2018,
+    "City": [
+      "ATX",
+      "EUG"
+    ],
+    "Project": "The Path to Python",
+    "Project Summary": "Path to Python is a project designed to teach students Python independently with reduced barriers. The app leverages high bandwidth connections to send student-written code from the client to the server for execution and result retrieval, benefitting the student’s experience and ability to quickly iterate on complex pieces of code. The project will be piloted in low income schools in Eugene and Austin through a partnership between Connected Lane County and Lane STEM in Eugene and Communities in Schools in Austin. US Ignite has also supported the development of Path to Python.",
+    "Outcomes": "",
+    "Gigabit Advantage": "The app will leverage high bandwidth connections to send student-written code from the client to the server for execution and result retrieval.",
+    "Lead Organization": "Kiwi Compute, LLC",
+    "Other Partner Organizations": "EUG:Communities in Schools (CIS), EUG: Connected Lane County and Lane STEM, City of Austin, US Ignite",
+    "Photo": "/img/pages/gigabit/logos/kiwi-dribbble.jpg",
+    "Links": [
+      {
+        "url": "https://kiwicompute.com/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "Big Data, Programming",
+    "Issue Area Tags": ""
+  },
+  {
+    "Year": 2018,
+    "City": [
+      "CHA",
+      "KC"
+    ],
+    "Project": "LOLA-Enabled Puppet Theaters",
+    "Project Summary": "LOLA-Enabled Puppet Theaters is a creative new approach for teaching history using connected robotics, 3D printing, and LOLA technologies. The project is led by a classroom teacher in Chattanooga who plans to use animatronic puppets (controlled using the same technology powering the Gigabots) to teach history lessons to two classrooms simultaneously in two cities. The project will also leverage gigabit speeds by streaming high-quality video between Chattanooga and Kansas City via LOLA. The project will take place in two classrooms in Chattanooga and one classroom in Kansas City. ",
+    "Outcomes": "",
+    "Gigabit Advantage": "Leveraging gigabit infrastructure and bandwidth, this project will connect artists, puppeteers, and videographers between Chatanooga and Kansas City for an engaging puppet performance. This use of gigabit via LoLa (Low Latency Audio Visual Steaming) will allow participants to manipulate the puppets remotely in real-time.",
+    "Lead Organization": "Red Bank High School",
+    "Other Partner Organizations": "University of Tennessee-Chattanooga, Southern Center for Education in the Arts (SCEA), Normal Park Museum Magnet School, Juncture LLC, Big Bang / Jonathan Wagner (Gigabots), Andrew Rogers, LoLa handler, Stratt Parrott, LoLa handler, Kellie McClune, video production",
+    "Photo": "/img/pages/gigabit/logos/Red_Bank_High_School.jpg",
+    "Links": [
+      {
+        "url": "http://www.redbankhigh.com/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "LoLa, Connected Devices",
+    "Issue Area Tags": ""
+  },
+  {
+    "Year": 2018,
+    "City": [
+      "LFT",
+      "CHA"
+    ],
+    "Project": "LOLA (LOw LAtency Audio Video) in Lafayette Pilot Program",
+    "Project Summary": "The LOLA in Lafayette project creates a dynamic partnership between the Acadiana Center for the Arts in Lafayette and the Chattanooga Public Library to bring LoLA (Low Latency Audio Visual Streaming) to Lafayette for the first time. Through this partnership, the two organizations will produce a cross-city learning experience via the LoLA connection on Make Music Day in June 2018, sharing the diverse musical traditions of each city with community members in Chattanooga and Lafayette.",
+    "Outcomes": "",
+    "Gigabit Advantage": "This project will utilize gigabit internet and a LOLA node to allow interactive musical performances to take place between artists in two different cities, without audio or visual lag.  ",
+    "Lead Organization": "Acadiana Center for the Arts",
+    "Other Partner Organizations": "Chattanooga Public Library, Louisiana Folk Roots, Old Fiddlers’ Association, LUS Fiber, University of Louisiana Lafayette (ULL)",
+    "Photo": "/img/pages/gigabit/logos/Acadiana_Center_for_the_Arts.jpg",
+    "Links": [
+      {
+        "url": "https://www.acadianacenterforthearts.org/",
+        "label": null
+      }
+    ],
+    "Tech Tags": "LoLa",
+    "Issue Area Tags": ""
   }
 ]
