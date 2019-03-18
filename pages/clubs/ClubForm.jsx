@@ -65,29 +65,14 @@ var ClubForm = React.createClass({
     };
 
     return (
-      <div className="clubs-form">
-        <div className="inner-container">
-          <section className="intro intro-after-banner">
-            <Illustration
-              height={""} width={204}
-              src1x="/img/pages/clubs/svg/icon-circle-clubs-form.svg"
-              alt="">
-              <h1>{ this.state.titles[this.state.currentStep] }</h1>
-              <h2>{ username ? this.state.headings[this.state.currentStep] : this.state.loginHeading }</h2>
-            </Illustration>
-          </section>
-
-          <div hidden={!this.state.loggedIn}>
-            <Form onSubmit={null} onUpdate={this.setStudentAnswer} fields={{studentData: studentData}}></Form>
-
-            <div hidden={!this.state.isInterestedStudent} className="navigation">
-              <a href="https://campus.mozilla.community/" target="_blank" className="button">Go to Mozilla Campus Club Page</a>
-            </div>
+      <div className="inner-container">
+        <div className="row deprecation-blurb">
+          <div className="inner-container">
+            <section>
+              <h2><i className="fa fa-hand-o-right"></i> Important Update</h2>
+              <p>Mozilla has made a strategic decision to sunset its local digital literacy programs including Hive and Mozilla Clubs over the course of 2017/2018. You have been, and will continue to be, leaders within this movement for Internet health, and Mozilla will continue to find ways to support you and concrete ways for people from our local communities to plug into this work. We will honor all current commitments to our grantee partners and donors. Content on this site, including curriculum and other resources, will continue to be available and archived here for your use. Visit <a href="https://foundation.mozilla.org">foundation.mozilla.org</a> for more information or contact <a href="mailto:mozillaclubs@mozillafoundation.org">mozillaclubs@mozillafoundation.org</a> with any further questions.</p>
+            </section>
           </div>
-
-          { this.state.isInterestedStudent === false ? this.renderSteps() : null}
-
-          { !this.state.loggedIn ? this.renderLoginRequest() : null }
         </div>
       </div>
     );
