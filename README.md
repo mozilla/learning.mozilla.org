@@ -1,3 +1,5 @@
+**Note: This project is now archived. Content can be found at https://foundation.mozilla.org/en/opportunity/web-literacy/**
+
 # Learning.mozilla.org
 
 [![Build Status](https://travis-ci.org/mozilla/learning.mozilla.org.svg)](https://travis-ci.org/mozilla/learning.mozilla.org)
