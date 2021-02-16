@@ -38,7 +38,7 @@ var sectionList = [
         image2x: "/img/pages/protect-your-data/img-iptracer@2x.png",
         subtitle: "Navigate, Search",
         description: "You will explore the internet using internet protocol addresses - or IP addresses - to follow and map the connections between websites and devices, learning about <strong>navigate</strong> and <strong>search</strong>.",
-        link: "https://mozilla.github.io/curriculum-final/privacy-basics/session01-ip-tracer.html"
+        link: "https://thimbleprojects.org/chadsansing/125881/privacy-basics/session01-ip-tracer.html#overview"
       },
       {
         title: "Bad Password Collage",
@@ -46,7 +46,7 @@ var sectionList = [
         image2x: "/img/pages/protect-your-data/img-password@2x.png",
         subtitle: "Evaluate, Protect",
         description: "You will learn about weak and strong passwords and test the strength of different passwords using tools called password meters. You will also make a &#34;bad password collage,&#34; learning web literacy skills like <strong>evaluate</strong> and <strong>protect</strong>.",
-        link: "https://mozilla.github.io/curriculum-final/privacy-basics/session02-bad-password-collage.html"
+        link: "https://thimbleprojects.org/chadsansing/125881/privacy-basics/session02-bad-password-collage.html#overview"
       },
       {
         title: "Cookies and Third-Party Tracking",
@@ -61,7 +61,7 @@ var sectionList = [
         image1x: "/img/pages/protect-your-data/pass-phrase.jpg",
         subtitle: "Evaluate, Protect",
         description: "You will learn several different ways to generate secure passwords and pass-phrases and test their strength, learning web literacy skills like <strong>evaluate</strong> and <strong>protect</strong>.",
-        link: "https://mozilla.github.io/curriculum-final/privacy-basics/session04-create-secure-passwords.html"
+        link: "https://thimbleprojects.org/chadsansing/125881/privacy-basics/session04-create-secure-passwords.html#overview"
       },
       {
         title: "Data Trail Timeline",
@@ -69,7 +69,7 @@ var sectionList = [
         image2x: "/img/pages/protect-your-data/img-datatrail@2x.png",
         subtitle: "Protect",
         description: "You will create a timeline on a poster or in a video or slideshow to demonstrate how information about your movement in the real world gets collected online by companies and other organizations throughout the course of a typical day while learning about web literacy skills like <strong>protect</strong>.",
-        link: "https://mozilla.github.io/curriculum-final/privacy-basics/session05-data-trail-timeline.html"
+        link: "https://thimbleprojects.org/chadsansing/125881/privacy-basics/session05-data-trail-timeline.html#overview"
       },
       {
         title: "Privacy Coach",
